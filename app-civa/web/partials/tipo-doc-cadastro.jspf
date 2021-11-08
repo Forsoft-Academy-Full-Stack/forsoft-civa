@@ -1,0 +1,24 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<div class="row">
+
+    <div class="form-group col-xl-4">
+        <label for="nivel-doc">Tipo do documento</label>
+        <select id="nivel-doc" name="nivel-doc" class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option selected value="" disabled >Selecionar</option>
+            <option value="civil">Civil</option>
+            <option value="profissional">Profissional</option>
+        </select>
+    </div>
+    
+    <div class="form-group col-xl-4">
+        <label for="nome-doc">Nome do documento</label>
+        <input id="nome-doc" name="nome-doc" type="text" class="form-control" value="">
+    </div>
+    <div class="form-group col-xl-4">
+        <label for="formato-doc">Formato do documento</label>
+        <input id="formato-doc" name="formato-doc" type="text" class="form-control" placeholder="Brasil" >
+    </div>
+
+</div>

@@ -1,0 +1,34 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="exampleFormControlInput1">Pa&iacute;s</label>
+        <input type="text" class="form-control" placeholder="Brasil" id="pais">
+    </div>
+    
+    <div class="form-group col-xl-6">
+        <label for="exampleFormControlSelect1">Continente</label>
+        <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option selected value="2" selected>Am&eacute;rica do Sul</option>
+            <option value="3">Am&eacute;rica do Norte</option>
+            <option value="3">Europa</option>
+        </select>
+    </div>
+    
+</div>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="exampleFormControlInput1">&Oacute;rg&atilde;o de sa&uacute;de</label>
+        <input type="text" class="form-control" id="orgaodesaude" placeholder="SUS">
+    </div>
+      <div class="form-group col-xl-6">
+        <label for="exampleFormControlSelect1">Fuso hor&aacute;rio</label>
+        <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option selected value="2" selected>UTC-3</option>
+            <option value="3">UTC-2</option>
+            <option value="3">UTC-1</option>
+        </select>
+    </div>
+</div>

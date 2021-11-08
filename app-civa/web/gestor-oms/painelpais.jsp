@@ -90,56 +90,14 @@
                                     <!-- /.card-header -->
                                     <!-- form start -->
                                     <form id="form-meus-dados">
-                                        <div class="p-2">
-                                            <div class="row">
-                                                <div class="form-group col-xl-6">
-                                                    <label for="exampleFormControlInput1">ID pa&iacute;s</label>
-                                                    <input type="text" class="form-control" value="120" id="idpais" disabled>
-                                                </div>
-                                                <div class="form-group col-xl-6">
-                                                    <label for="exampleFormControlInput1">Pa&iacute;s</label>
-                                                    <input type="text" class="form-control" value="Brasil" id="pais" disabled>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-xl-6">
-                                                    <label for="exampleFormControlInput1">&Oacute;rg&atilde;o de sa&uacute;de</label>
-                                                    <input disabled type="text" class="form-control" id="orgaodesaude" value="SUS">
-                                                </div>
-                                                <div class="form-group col-xl-6">
-                                                    <label for="exampleFormControlSelect1">Continente</label>
-                                                    <select disabled class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                        <option selected value="2" selected>Am&eacute;rica do Sul</option>
-                                                        <option value="3">Eua</option>
-                                                        <option value="3">Canada</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-xl-6">
-                                                    <label for="exampleFormControlSelect1">Fuso hor&aacute;rio</label>
-                                                    <select disabled class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                        <option selected value="2" selected>UTC-3</option>
-                                                        <option value="3">Eua</option>
-                                                        <option value="3">Canada</option>
-                                                    </select>
-                                                </div>
-                                                <div class="form-group col-xl-6">
-                                                    <label for="exampleFormControlSelect1">Documenta&ccedil;&atilde;o PC</label>
-                                                    <select disabled class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                        <option selected value="2" selected>CPF</option>
-                                                        <option value="3">Eua</option>
-                                                        <option value="3">Canada</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                <div class="form-group col-6">
-                                                    <label for="exampleFormControlSelect1">Documenta&ccedil;&atilde;o PS</label>
-                                                    <label for="exampleFormControlInput1"></label>
-                                                    <input type="text" class="form-control" id="documentacaops" value="CRM" disabled>
-                                                </div>
-                                            </div>
+                                        <div class="card-body">
+                                            
+                                            <%@include file="../partials/dados-pais-cadastro-disabled.jspf" %>
+                                            <hr>
+                                            <%@include file="../partials/tipo-doc-cadastro-disabled.jspf" %>
+                                            <hr>
+                                            <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>                                            
+                                            
                                             <!-- Bot&atilde;o ATIVAR / DESATIVAR e Excluir -->
                                             <table class="table text-nowrap">
                                                 <tr>
@@ -148,6 +106,7 @@
                                             </table>
 
                                         </div>
+                                    </form>
                                 </div>
                             </div>
                             <!-- /.row -->
@@ -187,21 +146,7 @@
                                                     <td>123.159.875-05</td>
                                                     <td>BRA5521123456789</td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Maria Souza da Silva</td>
-                                                    <td>123.159.875-05</td>
-                                                    <td>BRA5521123456789</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Maria Souza da Silva</td>
-                                                    <td>123.159.875-05</td>
-                                                    <td>BRA5521123456789</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Maria Souza da Silva</td>
-                                                    <td>123.159.875-05</td>
-                                                    <td>BRA5521123456789</td>
-                                                </tr>
+                                                
                                             </tbody>
                                         </table>
                                     </div>
