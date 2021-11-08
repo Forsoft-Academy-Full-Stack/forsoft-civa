@@ -1,10 +1,10 @@
 <%@include file="header.xhtml"%>
-    <script src="./../public/assets/js/gerenciar-supervisor.js" defer></script>
+<script src="./../public/assets/js/gerenciar-supervisor.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-        
+
         <%@ include file="../partials/gerente/navbar.jspf" %>
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@ include file="../partials/gerente/menu.jspf" %>
@@ -56,7 +56,7 @@
                                         <div class="row">
                                             <div class="col-12 mb-4">
                                                 <button type="button" class="btn btn-danger btn-xl"
-                                                    id="excluir">Excluir</button>
+                                                        id="excluir">Excluir</button>
                                             </div>
                                         </div>
                                     </div>

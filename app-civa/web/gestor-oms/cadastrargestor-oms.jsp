@@ -1,98 +1,98 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>CIVA</title>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>CIVA</title>
 
-    <link rel="shortcut icon" href="../public/img/favicon-gs.svg" type="image/x-icon">
+        <link rel="shortcut icon" href="../public/img/favicon-gs.svg" type="image/x-icon">
 
-    <!-- Google Font: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-
-    <!-- Google Font: Poppins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+        <!-- Google Font: Poppins -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 
-
-    <!-- Select2 -->
-
-    <!-- Estilo icones -->
-    <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
-
-    <!-- Estilo pagina -->
-    <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
-
-</head>
-
-<body class="hold-transition sidebar-mini">
-    <div class="wrapper">
-
-        <!-- Navbar --------------------------------------------->
-       <%@include file="navbar.jspf" %>
-        <!-- /.navbar ------------------------------------------------------->
+        <!-- Google Font: Poppins -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 
 
 
+        <!-- Select2 -->
 
-        <!-- MENU Main Sidebar Container ------------------------------------>
-        <%@include file="menu.jspf" %>
-        <!-- TERMINO DO MENU LATERAL -->
+        <!-- Estilo icones -->
+        <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
 
-        <!-- Content Wrapper. Contains page content -->
-        <div class="content-wrapper">
-            <div class="content-header">
-                <div class="container-fluid">
-                    <div class="row mb-2">
-                        <div class="col-sm-6">
-                            <h1 class="m-0">Cadastrar Gestor OMS</h1>
+        <!-- Estilo pagina -->
+        <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
+
+    </head>
+
+    <body class="hold-transition sidebar-mini">
+        <div class="wrapper">
+
+            <!-- Navbar --------------------------------------------->
+            <%@include file="navbar.jspf" %>
+            <!-- /.navbar ------------------------------------------------------->
+
+
+
+
+            <!-- MENU Main Sidebar Container ------------------------------------>
+            <%@include file="menu.jspf" %>
+            <!-- TERMINO DO MENU LATERAL -->
+
+            <!-- Content Wrapper. Contains page content -->
+            <div class="content-wrapper">
+                <div class="content-header">
+                    <div class="container-fluid">
+                        <div class="row mb-2">
+                            <div class="col-sm-6">
+                                <h1 class="m-0">Cadastrar Gestor OMS</h1>
+                            </div>
+                            <div class="col-sm-6">
+                                <ol class="breadcrumb float-sm-right">
+                                    <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
+                                    <li class="breadcrumb-item active">Cadastrar Gestor OMS</li>
+                                </ol>
+                            </div>
+                            <!-- /.col -->
                         </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
-                                <li class="breadcrumb-item active">Cadastrar Gestor OMS</li>
-                            </ol>
-                        </div>
-                        <!-- /.col -->
+                        <!-- /.row -->
                     </div>
-                    <!-- /.row -->
+                    <!-- /.container-fluid -->
                 </div>
-                <!-- /.container-fluid -->
-            </div>
-            <!-- content -->
-            <div class="content">
-                <div class="container-fluid">
-                    <!-- container-fluid -->
-                    <div class="row">
-                        <!-- row -->
-                        <div class="col-md-12">
-                            <!-- col -->
-                            <div class="card card-primary">
-                                <!-- cards -->
-                                <div class="card-header">
-                                    <!-- /.cardheader -->
-                                    <h3 class="card-title">Dados Gestor OMS</h3>
-                                </div>
-                                <!-- /.cardheader -->
-                                <!-- Incio do form -->
-                                <form action="#" id="form-cadastrar-gestor" method="post" novalidate="novalidate">
-                                    <div class="p-2">
-                                        <%@ include file="../partials/dadospessoais-ps-cadastro.jspf" %>
-                                        <hr>
-
-                                        <%@ include file="../partials/enderecos-cadastro.jspf" %>
-
-                                        <hr>
-                                        <%@ include file="../partials/contatos-cadastro.jspf" %>
+                <!-- content -->
+                <div class="content">
+                    <div class="container-fluid">
+                        <!-- container-fluid -->
+                        <div class="row">
+                            <!-- row -->
+                            <div class="col-md-12">
+                                <!-- col -->
+                                <div class="card card-primary">
+                                    <!-- cards -->
+                                    <div class="card-header">
+                                        <!-- /.cardheader -->
+                                        <h3 class="card-title">Dados Gestor OMS</h3>
                                     </div>
-                                </form>
-                                <!-- /.form ending -->
+                                    <!-- /.cardheader -->
+                                    <!-- Incio do form -->
+                                    <form action="#" id="form-cadastrar-gestor" method="post" novalidate="novalidate">
+                                        <div class="p-2">
+                                            <%@ include file="../partials/dadospessoais-ps-cadastro.jspf" %>
+                                            <hr>
+
+                                            <%@ include file="../partials/enderecos-cadastro.jspf" %>
+
+                                            <hr>
+                                            <%@ include file="../partials/contatos-cadastro.jspf" %>
+                                        </div>
+                                    </form>
+                                    <!-- /.form ending -->
                                 </div>
                                 <!-- /.cards -->
                                 <div class="mb-3 mt-3">
@@ -110,14 +110,14 @@
                                 <div class="modal-header">
                                     <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">×</span>
-                        </button>
+                                        <span aria-hidden="true">×</span>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p></p>
                                 </div>
                                 <div class="modal-footer justify-content-between">
-                                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='ui110.jsp'">Close</button>
+                                    <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = 'ui110.jsp'">Close</button>
                                 </div>
                             </div>
                             <!-- /.modal-content -->
@@ -138,7 +138,7 @@
             </div>
 
             <!-- Main Footer -->
-             <%@include file="footer.jspf" %>
+            <%@include file="footer.jspf" %>
             <!-- /.control-sidebar -->
         </div>
 
@@ -158,86 +158,73 @@
         <!-- AdminLTE for demo purposes -->
         <script src="../public/dist/js/demo.js"></script>
         <script>
-            $(function() {
-                $.validator.setDefaults({
-                    submitHandler: function() {
-                        alert("Form successful submitted!");
-                    }
-                });
-                $('#form-cadastrar-gestor').validate({
-                    rules: {
-                        nome: {
-                            required: true,
-                        },
-                        sobrenome: {
-                            required: true,
-                        },
-                        identidade: {
-                            required: true,
-                        },
-                        datadenascimento: {
-                            required: true,
-                        },
-                        email: {
-                            required: true,
-                            email: true,
-                        },
-                        contato: {
-                            required: true,
-                        },
-                        nacionalidade: {
-                            required: true,
-                        },
-                        codigopostal: {
-                            required: true,
-                        },
-                        endereco: {
-                            required: true,
-                        },
-                        numero: {
-                            required: true,
-                        },
-                        complemento: {
-                            required: true,
-                        },
-                        subdiv1: {
-                            required: true,
-                        },
-                        subdiv2: {
-                            required: true,
-                        },
-                        subdiv3: {
-                            required: true,
-                        },
+                                        $(function () {
+                                            $.validator.setDefaults({
+                                                submitHandler: function () {
+                                                    alert("Form successful submitted!");
+                                                }
+                                            });
+                                            $('#form-cadastrar-gestor').validate({
+                                                rules: {
+                                                    nome: {
+                                                        required: true,
+                                                    },
+                                                    sobrenome: {
+                                                        required: true,
+                                                    },
+                                                    identidade: {
+                                                        required: true,
+                                                    },
+                                                    datadenascimento: {
+                                                        required: true,
+                                                    },
+                                                    email: {
+                                                        required: true,
+                                                        email: true,
+                                                    },
+                                                    contato: {
+                                                        required: true,
+                                                    },
+                                                    nacionalidade: {
+                                                        required: true,
+                                                    },
+                                                    codigopostal: {
+                                                        required: true,
+                                                    },
+                                                    endereco: {
+                                                        required: true,
+                                                    },
+                                                    numero: {
+                                                        required: true,
+                                                    },
+                                                    complemento: {
+                                                        required: true,
+                                                    },
+                                                    subdiv1: {
+                                                        required: true,
+                                                    },
+                                                    subdiv2: {
+                                                        required: true,
+                                                    },
+                                                    subdiv3: {
+                                                        required: true,
+                                                    },
 
+                                                },
 
-
-
-
-
-
-
-
-
-
-
-
-                    },
-
-
-                    errorElement: 'span',
-                    errorPlacement: function(error, element) {
-                        error.addClass('invalid-feedback');
-                        element.closest('.form-group').append(error);
-                    },
-                    highlight: function(element, errorClass, validClass) {
-                        $(element).addClass('is-invalid');
-                    },
-                    unhighlight: function(element, errorClass, validClass) {
-                        $(element).removeClass('is-invalid');
-                    }
-                });
-            });
+                                                errorElement: 'span',
+                                                errorPlacement: function (error, element) {
+                                                    error.addClass('invalid-feedback');
+                                                    element.closest('.form-group').append(error);
+                                                },
+                                                highlight: function (element, errorClass, validClass) {
+                                                    $(element).addClass('is-invalid');
+                                                },
+                                                unhighlight: function (element, errorClass, validClass) {
+                                                    $(element).removeClass('is-invalid');
+                                                }
+                                            });
+                                        });
         </script>
         <script>
             function tratarCampos() {
@@ -266,6 +253,6 @@
             document.getElementById('form-cadastrar-gestor').onsubmit = tratarCampos;
         </script>
 
-</body>
+    </body>
 
 </html>

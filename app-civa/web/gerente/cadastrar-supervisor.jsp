@@ -1,6 +1,6 @@
 
 <%@include file="header.xhtml"%>
-    <script src="./../public/assets/js/gerenciar-supervisor.js" defer></script>
+<script src="./../public/assets/js/gerenciar-supervisor.js" defer></script>
 </head>
 
 
@@ -11,7 +11,7 @@
         <!-- /.navbar ------------------------------------------------------->
 
         <!-- MENU Main Sidebar Container ------------------------------------>
-       <%@ include file="../partials/gerente/menu.jspf" %>
+        <%@ include file="../partials/gerente/menu.jspf" %>
 
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
@@ -50,7 +50,7 @@
                                 <!-- Incio do form -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        
+
                                         <%@ include file="../partials/dadospessoais-ps-cadastro.jspf" %>
                                         <hr>
 
@@ -69,7 +69,7 @@
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
-              
+
                 <div class="row">
                     <div class="col-12 mb-4 ml-2">
                         <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
@@ -81,7 +81,7 @@
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-      <%@ include file="../partials/gerente/footer.jspf" %>
+        <%@ include file="../partials/gerente/footer.jspf" %>
     </div>
     <!-- ./wrapper -->
 

@@ -20,7 +20,7 @@
         <!-- /.navbar ------------------------------------------------------->
 
         <!-- MENU Main Sidebar Container ------------------------------------>
-         <%@ include file="menu.jspf" %>
+        <%@ include file="menu.jspf" %>
 
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
@@ -56,8 +56,8 @@
                                         <div class="row col-md-12 col-sm-12">
                                             <div class="col-xl-2 col-sm-12 mb-2">
                                                 <select class="select2 select2-hidden-accessible" id="ordem-de-listagem"
-                                                    name="ordem-de-listagem" style="width: 100%;" tabindex="-1"
-                                                    aria-hidden="true">
+                                                        name="ordem-de-listagem" style="width: 100%;" tabindex="-1"
+                                                        aria-hidden="true">
                                                     <option value="1">Nome A - Z</option>
                                                     <option value="2">Nome Z - A</option>
                                                     <option value="3">CPF crescente</option>
@@ -67,10 +67,10 @@
                                             <div class="col-xl-8 col-sm-12">
                                                 <div class="input-group  mb-2">
                                                     <input type="text" class="form-control" id="pesquisar"
-                                                        name="pesquisar" placeholder="Pesquisar portador">
+                                                           name="pesquisar" placeholder="Pesquisar portador">
                                                     <div class="input-group-append">
                                                         <button class="btn btn-outline-secondary" type="button"
-                                                            id="button-addon2" name="button-addon2">Pesquisar</button>
+                                                                id="button-addon2" name="button-addon2">Pesquisar</button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -78,11 +78,11 @@
                                             <div class="col-2">
                                                 <div class="btn-group">
                                                     <button type="button" id="button-addon3" name="button-addon3"
-                                                        class="btn btn-default">CSV</button>
+                                                            class="btn btn-default">CSV</button>
                                                     <button type="button" id="button-addon4" name="button-addon4"
-                                                        class="btn btn-default">PDF</button>
+                                                            class="btn btn-default">PDF</button>
                                                     <button type="button" id="button-addon5" name="button-addon5"
-                                                        class="btn btn-default">Excel</button>
+                                                            class="btn btn-default">Excel</button>
                                                 </div>
                                             </div>
                                         </div>
@@ -115,7 +115,7 @@
                                                 <td>04-07-1938</td>
                                                 <td>BRA132456789</td>
                                                 <td><a href="./gerenciar-portador.jsp"
-                                                        class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                       class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Tom Jobim</td>
@@ -123,7 +123,7 @@
                                                 <td>25-01-1927</td>
                                                 <td>BRA313123534</td>
                                                 <td><a href="./gerenciar-portador.jsp"
-                                                        class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                       class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Michael Jackson</td>
@@ -131,7 +131,7 @@
                                                 <td>29-10-1958</td>
                                                 <td>BRA312312321</td>
                                                 <td><a href="./gerenciar-portador.jsp"
-                                                        class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                       class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>George Michael</td>
@@ -139,7 +139,7 @@
                                                 <td>25-06-1963</td>
                                                 <td>BRA519194156</td>
                                                 <td><a href="./gerenciar-portador.jsp"
-                                                        class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                       class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Whitney Houston</td>
@@ -147,7 +147,7 @@
                                                 <td>09-10-1963</td>
                                                 <td>BRA651847616</td>
                                                 <td><a href="./gerenciar-portador.jsp"
-                                                        class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                       class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Freddie Mercury</td>
@@ -155,7 +155,7 @@
                                                 <td>05-09-1946</td>
                                                 <td>BRA461668464</td>
                                                 <td><a href="./gerenciar-portador.jsp"
-                                                        class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                       class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Bryan Adams</td>
@@ -163,7 +163,7 @@
                                                 <td>05-11-1959</td>
                                                 <td>BRA461666523</td>
                                                 <td><a href="./gerenciar-portador.jsp"
-                                                        class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                       class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Elis Regina</td>
@@ -171,7 +171,7 @@
                                                 <td>17-05-1945</td>
                                                 <td>BRA312312323</td>
                                                 <td><a href="./gerenciar-portador.jsp"
-                                                        class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                       class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -189,24 +189,24 @@
                                 <ul class="pagination">
                                     <li class="paginate_button page-item previous disabled" id="example2_previous">
                                         <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0"
-                                            class="page-link">Anterior</a>
+                                           class="page-link">Anterior</a>
                                     </li>
 
                                     <li class="paginate_button page-item active"><a href="#" aria-controls="example2"
-                                            data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                                                                    data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
                                     <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                            data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                                                              data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
                                     <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                            data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                                                              data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
                                     <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                            data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                                                              data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
                                     <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                            data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                                                              data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
                                     <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                            data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                                                              data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
                                     <li class="paginate_button page-item next" id="example2_next"><a href="#"
-                                            aria-controls="example2" data-dt-idx="7" tabindex="0"
-                                            class="page-link">Pr&oacute;ximo</a></li>
+                                                                                                     aria-controls="example2" data-dt-idx="7" tabindex="0"
+                                                                                                     class="page-link">Pr&oacute;ximo</a></li>
                                 </ul>
                             </div>
                         </div>

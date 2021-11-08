@@ -1,5 +1,5 @@
 <%@include file="header.xhtml"%>
-    <script src="./../public/assets/js/cadastrar-portador.js" defer></script>
+<script src="./../public/assets/js/cadastrar-portador.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -21,7 +21,7 @@
         <!-- /.navbar ------------------------------------------------------->
 
         <!-- MENU Main Sidebar Container ------------------------------------>
-       <%@ include file="menu.jspf" %>
+        <%@ include file="menu.jspf" %>
         <!-- TERMINO DO MENU LATERAL -->
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
@@ -61,13 +61,13 @@
                                     <!-- Incio do form -->
                                     <form id="form-meus-dados">
                                         <div class="card-body">
-                                            
+
                                             <%@ include file="../partials/dadospessoais-cadastro.jspf" %>
                                             <hr>
                                             <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                             <hr>
                                             <%@ include file="../partials/contatos-cadastro.jspf" %>
-                                            
+
                                         </div>
 
                                     </form>
@@ -110,7 +110,7 @@
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal"
-                            onclick="location.href='../ndex.jsp'">Finalizar</button>
+                                onclick="location.href = '../ndex.jsp'">Finalizar</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->

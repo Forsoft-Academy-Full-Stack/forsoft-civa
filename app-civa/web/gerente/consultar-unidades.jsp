@@ -223,7 +223,7 @@
         <script src="./../public/dist/js/demo.js"></script>
 
         <script>
-            $(function() {
+            $(function () {
                 $('.select2').select2()
             });
         </script>

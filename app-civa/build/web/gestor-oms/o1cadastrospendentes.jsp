@@ -109,7 +109,7 @@
                                         <h4 class="mt-2 float-sm-left">Estados Unidos</h4>
                                         <p class="mt-2 float-sm-right">Data do Inicio do Cadastro: 01/01/2021 </p>
                                     </div>
-                                   <div class="card-body" style="margin-bottom: -40px;">
+                                    <div class="card-body" style="margin-bottom: -40px;">
                                         <div class="overflow-auto" style="height: 150px;">
                                             <div class="profile-username"><span>
                                                     <a href="cadastrargestornacional.jsp" class="link-primary">Cadastrar</a> <b>|</b> <a href="#" class="link-secondary">Editar</a></span> <span>Dados do Pa&iacute;s</span></div>

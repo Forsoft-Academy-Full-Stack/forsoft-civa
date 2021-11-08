@@ -1,5 +1,5 @@
 <%@include file="header.xhtml"%>
-    <script src="./../public/assets/js/cadastrar-supervisor.js" defer></script>
+<script src="./../public/assets/js/cadastrar-supervisor.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -9,7 +9,7 @@
         <!-- /.navbar ------------------------------------------------------->
 
         <!-- MENU Main Sidebar Container ------------------------------------>
-       <%@ include file="../partials/gerente/menu.jspf" %>
+        <%@ include file="../partials/gerente/menu.jspf" %>
 
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
@@ -49,7 +49,7 @@
                                 <form id="form-meus-dados">
                                     <div class="card-body">
                                         <%@ include file="../partials/codigociva.jspf" %>
-                                       <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
+                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
 
                                         <hr>
 
@@ -67,7 +67,7 @@
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
-              
+
                 <div class="row">
                     <div class="col-12 mb-4 ml-2">
                         <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
@@ -79,7 +79,7 @@
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-       <%@ include file="../partials/gerente/footer.jspf" %>
+        <%@ include file="../partials/gerente/footer.jspf" %>
     </div>
     <!-- ./wrapper -->
 

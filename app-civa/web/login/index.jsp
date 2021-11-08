@@ -24,41 +24,41 @@
         <!-- Estilo icones -->
         <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
 
-       <!-- Select2 -->
-    <link rel="stylesheet" href="../public/plugins/select2/css/select2.min.css">
+        <!-- Select2 -->
+        <link rel="stylesheet" href="../public/plugins/select2/css/select2.min.css">
 
-    <!-- Font Icons Google -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+        <!-- Font Icons Google -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
 
-    <!-- Estilo icones -->
-    <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
+        <!-- Estilo icones -->
+        <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
 
-    <!-- Estilo pagina -->
-    <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
- 
-    <script src="../public/plugins/sweetalert2/sweetalert2.all.min.js" defer></script>
-    <!-- jQuery -->
-    <script src="../public/plugins/jquery/jquery.min.js" defer></script>
-    <!-- Bootstrap 4 -->
-    <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js" defer></script>
-    <!-- Select2 -->
-    <script src="../public/plugins/select2/js/select2.full.min.js" defer></script>
+        <!-- Estilo pagina -->
+        <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
+
+        <script src="../public/plugins/sweetalert2/sweetalert2.all.min.js" defer></script>
+        <!-- jQuery -->
+        <script src="../public/plugins/jquery/jquery.min.js" defer></script>
+        <!-- Bootstrap 4 -->
+        <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+        <!-- Select2 -->
+        <script src="../public/plugins/select2/js/select2.full.min.js" defer></script>
 
 
 
-    <!-- AdminLTE App -->
-    <script src="../public/dist/js/adminlte.min.js" defer></script>
+        <!-- AdminLTE App -->
+        <script src="../public/dist/js/adminlte.min.js" defer></script>
 
-    <!-- AXIOS -->
-    <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
-    <!-- PESQUISAR CEP -->
- 
-    <!-- TODOS PAISES SELECT NACIONALIDADE -->
-    <script src="../public/assets/js/getCountry.js" defer></script>
+        <!-- AXIOS -->
+        <script src="https://unpkg.com/axios/dist/axios.min.js" defer></script>
+        <!-- PESQUISAR CEP -->
 
-    <!-- AdminLTE for demo purposes -->
+        <!-- TODOS PAISES SELECT NACIONALIDADE -->
+        <script src="../public/assets/js/getCountry.js" defer></script>
 
-    <script src="../public/assets/js/default.js" defer></script>
+        <!-- AdminLTE for demo purposes -->
+
+        <script src="../public/assets/js/default.js" defer></script>
         <script src="../public/assets/js/index-login.js" defer></script>
 
 
@@ -120,13 +120,13 @@
                                         <span class="fas fa-envelope"></span>
                                     </div>
                                 </div>
-                                
-                                 <div class="input-group-append" style="display: none;" id="civa-logo">
+
+                                <div class="input-group-append" style="display: none;" id="civa-logo">
                                     <div class="input-group-text">
                                         <span class="fas fa-passport"></span>
                                     </div>
                                 </div>
-                                
+
                             </div>
                             <div class="input-group mb-3">
                                 <input type="password" id="senha" name="senha" class="form-control" placeholder="Senha" >
