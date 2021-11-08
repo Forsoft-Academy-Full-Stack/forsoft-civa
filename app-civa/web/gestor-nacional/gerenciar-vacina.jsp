@@ -24,7 +24,6 @@
     <!-- Estilo pagina -->
     <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
 
-
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -40,11 +39,14 @@
                     </a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="" class="nav-link">Perfil</a>
+                    <a href="" class="nav-link">Gestor Nacional</a>
                 </li>
             </ul>
         </nav>
         <!-- /.navbar ------------------------------------------------------->
+
+
+
 
         <!-- MENU Main Sidebar Container ------------------------------------>
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
@@ -62,10 +64,12 @@
                         <img src="../public/img/no-user.svg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                         <a href="#" class="d-block">${dados.nome}</a>
-                         <a href="#" class="d-block">${dados.sobrenome}</a>
+                        <a href="#" class="d-block">${dados.nome}</a>
+                        <a href="#" class="d-block">${dados.sobrenome}</a>
                     </div>
                 </div>
+
+
 
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
@@ -83,7 +87,7 @@
                         <li class="nav-item  menu-open">
                             <a href="#" class="nav-link active">
                                 <!-- <i class="nav-icon fas fa-user-friends"></i> -->
-                                <p>Gestor Nacional
+                                <p>Gestores Nacionais
                                     <!-- <i class="right fas fa-angle-left"></i> -->
 
                                 </p>
@@ -93,7 +97,7 @@
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-user-friends nav-icon"></i>
                                         <p>
-                                            Gestores nacionais
+                                            Gestores Nacionais
                                             <i class="right fas fa-angle-left"></i>
                                         </p>
                                     </a>
@@ -101,13 +105,13 @@
                                         <li class="nav-item">
                                             <a href="pesquisar-gestornacional.jsp" class="nav-link">
                                                 <i class="fas fa-clipboard-check nav-icon"></i>
-                                                <p>Consultar Gestor nacional</p>
+                                                <p>Consultar Gestor Nacional </p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
                                             <a href="cadastrar-gestornacional.jsp" class="nav-link">
                                                 <i class="fas fa-user-plus nav-icon"></i>
-                                                <p>Cadastrar Gestor nacional</p>
+                                                <p>Cadastrar Gestor Nacional </p>
                                             </a>
                                         </li>
 
@@ -143,7 +147,7 @@
                             </ul>
 
                             <ul class="nav nav-treeview">
-                                <li class="nav-item ">
+                                <li class="nav-item menu-open">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-map-marker-alt nav-icon"></i>
                                         <p>
@@ -153,7 +157,7 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="gerenciar-vacina.jsp" class="nav-link">
+                                            <a href="gerenciar-vacina.jsp" class="nav-link  active">
                                                 <i class="fas fa-map nav-icon"></i>
                                                 <p>Consultar Vacina </p>
                                             </a>
@@ -169,7 +173,7 @@
                                 </li>
                             </ul>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item menu-open">
+                                <li class="nav-item ">
                                     <a href="#" class="nav-link">
                                         <i class="fas fa-map-marker-alt nav-icon"></i>
                                         <p>
@@ -185,7 +189,7 @@
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="telanovacadsuporteciva.jsp" class="nav-link active">
+                                            <a href="telanovacadsuporteciva.jsp" class="nav-link">
                                                 <i class="fas fa-map-pin nav-icon"></i>
                                                 <p>Cadastrar Suporte CIVA </p>
                                             </a>
@@ -295,14 +299,18 @@
             <!-- /.sidebar ------------------------------------------------------>
         </aside>
 
+
+
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
+
+
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Cadastrar suporte CIVA</h1>
+                            <h1 class="m-0">Gerenciar Vacina</h1>
                         </div>
                         <!-- /.col -->
 
@@ -317,75 +325,190 @@
                 </div>
                 <!-- /.container-fluid -->
             </div>
-            <!-- /.content-header ---------------------------------------------->
+
 
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
 
-                    <div class="row">
-                        <div class="col-12 mb-3">
 
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Dados suporte CIVA</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <!-- form start -->
-                                <form id="form-meus-dados">
-                                    <div class="p-2">
-                                        <%@include file="../partials/dadospessoais-ps-cadastro.jspf" %>
-                                        <hr>
-                                        <%@include file="../partials/enderecos-cadastro.jspf" %>
-                                        <hr>
-                                        <%@include file="../partials/contatos-cadastro.jspf" %>
+                    <!-- PESQUISA E FILTRO -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+
+
+                                    <div class="row">
+                                        <div class="row col-md-12 col-sm-12">
+                                            <div class="col-xl-2 col-sm-12 mb-2">
+                                                <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                        <option value="1">Nome A - Z</option>
+                        <option value="2">Nome Z - A</option>
+                        <option value="3">CPF crescente</option>
+                        <option value="3">CPF decrescente</option>
+                    </select>
+                                            </div>
+
+                                            <div class="col-xl-8 col-sm-12">
+                                                <div class="input-group  mb-2">
+                                                    <input type="text" class="form-control" id="search-table" placeholder="Pesquisar por vacina">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="pesquisaNomes(); return false">Pesquisar</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="col-2">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-default">CSV</button>
+                                                    <button type="button" class="btn btn-default">PDF</button>
+                                                    <button type="button" class="btn btn-default">Excel</button>
+                                                </div>
+
+                                            </div>
+
+
+                                        </div>
                                     </div>
-                                </form>
+
+
+
+                                </div>
                             </div>
                         </div>
-                        <!-- /.row -->
                     </div>
+
+                    <!-- TABELA -->
                     <div class="row">
-                        <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
+
+
+                        <div class="col-12">
+
+                            <div class="card">
+
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table id="test-table" class="table table-hover text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th style="cursor: pointer;">Vacina</th>
+                                                <th style="cursor: pointer;">Laborat&oacute;rio</th>
+                                                <th style="cursor: pointer;">Munic&iacute;pio</th>
+                                                <th style="cursor: pointer;">ID Vacina</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Coronavac</td>
+                                                <td>Sinovac</td>
+                                                <td>1 dose</td>
+                                                <td>12345678</td>
+                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Coronavac</td>
+                                                <td>Sinovac</td>
+                                                <td>1 dose</td>
+                                                <td>12345678</td>
+                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Coronavac</td>
+                                                <td>Sinovac</td>
+                                                <td>1 dose</td>
+                                                <td>12345678</td>
+                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Coronavac</td>
+                                                <td>Sinovac</td>
+                                                <td>1 dose</td>
+                                                <td>12345678</td>
+                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Coronavac</td>
+                                                <td>Sinovac</td>
+                                                <td>1 dose</td>
+                                                <td>12345678</td>
+                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Coronavac</td>
+                                                <td>Sinovac</td>
+                                                <td>1 dose</td>
+                                                <td>12345678</td>
+                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Coronavac</td>
+                                                <td>Sinovac</td>
+                                                <td>1 dose</td>
+                                                <td>12345678</td>
+                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Coronavac</td>
+                                                <td>Sinovac</td>
+                                                <td>1 dose</td>
+                                                <td>12345678</td>
+                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+
+
+                                        </tbody>
+                                    </table>
+
+
+
+
+
+                                </div>
+                                <!-- /.card-body -->
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <!-- PAGINA&Ccedil;&Atilde;O -->
+                    <div class="row">
+                        <div class="col-6">
+
+                            <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
+                                <ul class="pagination">
+                                    <li class="paginate_button page-item previous disabled" id="example2_previous">
+                                        <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Anterior</a></li>
+
+                                    <li class="paginate_button page-item active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
+                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
+                                    <li class="paginate_button page-item next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Pr&oacute;ximo</a></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
 
+
+
+
+
+
+                    <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">×</span>
-                          </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='./index.jsp'">Close</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.content -->
-                </div>
             </div>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-
-
-
-
-
-
 
 
 
@@ -407,7 +530,7 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
+    <!-- REQUIRED SCRIPTS ------------------------------------------------------->
 
     <!-- jQuery -->
     <script src="../public/plugins/jquery/jquery.min.js"></script>
@@ -415,6 +538,36 @@
     <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- Select2 -->
     <script src="../public/plugins/select2/js/select2.full.min.js"></script>
+
+    <!-- Por Rodrigo Carlos -->
+    <!-- pesquisa -->
+    <script>
+    function pesquisaNomes() {
+        let input, filter, table, tr, td, i, txtValue;
+        input = document.getElementById('search-table');
+        filter = input.value.toUpperCase();
+        table = document.getElementById("test-table");
+        tr = table.getElementsByTagName("tr");
+
+        for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+            txtValue = td.textContent || td.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+            } else {
+            tr[i].style.display = "none";
+            }
+        }
+        }
+    }
+    </script>
+    <!-- tableSorter -->
+    <script src="https://cdn.jsdelivr.net/tablesorter/2.17.4/js/jquery.tablesorter.min.js"></script>
+    <script>
+    $('#test-table').tablesorter();
+    </script>
+
     <!-- AdminLTE App -->
     <script src="../public/dist/js/adminlte.min.js"></script>
     <!-- AdminLTE for demo purposes -->
@@ -425,33 +578,6 @@
             $('.select2').select2()
         });
     </script>
-    <script>
-        function tratarCampos() {
-            let erro = false;
-            let campos = ['name', 'surname', 'date-birth', 'identity', 'cod-civa', 'postal-code', 'logrd-name', 'telf', 'email'];
-
-            for (i = 0; i < campos.length; i++) {
-                if (document.getElementById(campos[i]).value == '') {
-                    erro = true;
-                }
-            }
-
-            if (erro) {
-                alert('Todos os campos devem ser preenchidos!');
-            } else {
-                // Exibe o modal desejado, baseado no id definido.
-                $('#modal-default').modal('show');
-                console.log('funcionou');
-                event.preventDefault();
-
-            }
-
-            return !erro;
-        }
-
-        document.getElementById('form-meus-dados').onsubmit = tratarCampos;
-    </script>
-
 </body>
 
 </html>

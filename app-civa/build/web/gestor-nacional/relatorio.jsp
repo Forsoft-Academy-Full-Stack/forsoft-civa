@@ -98,13 +98,13 @@
                           </a>
                           <ul class="nav nav-treeview">
                               <li class="nav-item">
-                                  <a href="ui074.jsp" class="nav-link">
+                                  <a href="pesquisar-gestornacional.jsp" class="nav-link">
                                       <i class="fas fa-clipboard-check nav-icon"></i>
                                       <p>Consultar Gestor nacional</p>
                                   </a>
                               </li>
                               <li class="nav-item">
-                                  <a href="ui075.jsp" class="nav-link">
+                                  <a href="cadastrar-gestornacional.jsp" class="nav-link">
                                       <i class="fas fa-user-plus nav-icon"></i>
                                       <p>Cadastrar Gestor nacional</p>
                                   </a>
@@ -125,13 +125,13 @@
                           </a>
                           <ul class="nav nav-treeview">
                               <li class="nav-item">
-                                  <a href="ui078-gerenciar-usuario.jsp" class="nav-link">
+                                  <a href="pesquisar-gerente.jsp" class="nav-link">
                                       <i class="fas fa-clipboard-check nav-icon"></i>
                                       <p>Consultar gerentes </p>
                                   </a>
                               </li>
                               <li class="nav-item">
-                                  <a href="ui079-cadastrar-gerente.jsp" class="nav-link">
+                                  <a href="cadastrar-gerente.jsp" class="nav-link">
                                       <i class="fas fa-user-plus nav-icon"></i>
                                       <p>Cadastrar gerentes</p>
                                   </a>
@@ -152,13 +152,13 @@
                           </a>
                           <ul class="nav nav-treeview">
                               <li class="nav-item">
-                                  <a href="ui-099.jsp" class="nav-link">
+                                  <a href="gerenciar-vacina.jsp" class="nav-link">
                                       <i class="fas fa-map nav-icon"></i>
                                       <p>Consultar Vacina </p>
                                   </a>
                               </li>
                               <li class="nav-item">
-                                  <a href="ui100.jsp" class="nav-link">
+                                  <a href="selecionar-vacina.jsp" class="nav-link">
                                       <i class="fas fa-map-pin nav-icon"></i>
                                       <p>Selecionar Vacina </p>
                                   </a>
@@ -206,13 +206,13 @@
                           </a>
                           <ul class="nav nav-treeview">
                               <li class="nav-item">
-                                  <a href="ui-093.jsp" class="nav-link">
+                                  <a href="pesquisar-unidade.jsp" class="nav-link">
                                       <i class="fas fa-search nav-icon"></i>
                                       <p>Consultar unidade </p>
                                   </a>
                               </li>
                               <li class="nav-item">
-                                  <a href="ui-095.jsp" class="nav-link">
+                                  <a href="cadastrar-unidade.jsp" class="nav-link">
                                       <i class="fas fa-mouse-pointer nav-icon"></i>
                                       <p>Cadastrar Unidade</p>
                                   </a>

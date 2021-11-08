@@ -54,13 +54,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="ui074.jsp" class="nav-link">
+                                    <a href="pesquisar-gestornacional.jsp" class="nav-link">
                                         <i class="fas fa-clipboard-check nav-icon"></i>
                                         <p>Consultar Gestor nacional</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="ui075.jsp" class="nav-link">
+                                    <a href="cadastrar-gestornacional.jsp" class="nav-link">
                                         <i class="fas fa-user-plus nav-icon"></i>
                                         <p>Cadastrar Gestor nacional</p>
                                     </a>

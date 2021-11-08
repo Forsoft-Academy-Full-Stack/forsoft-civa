@@ -15,7 +15,7 @@
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="genero">G&ecirc;nero</label>
-                                                <select id="genero" name="genero" class="select2 select2-hidden-accessible"
+                                                <select id="genero" name="genero" class="form-control select2 select2-hidden-accessible"
                                                     style="width: 100%;" tabindex="-1" aria-hidden="true">
                                                     <option selected value="" selected disabled>Selecionar G&ecirc;nero
                                                     </option>
@@ -38,7 +38,7 @@
                                         <div class="row">
                                             <div class="form-group col-xl-12">
                                                 <label for="nacionalidade">Nacionalidade</label>
-                                                <select class="select2 select2-hidden-accessible"
+                                                <select class="form-control select2 select2-hidden-accessible"
                                                     style="width: 100%;" tabindex="-1" aria-hidden="true"
                                                     id="nacionalidade" name="nacionalidade">
                                                     <option selected value="" selected disabled>Selecionar Nacionalidade
@@ -51,7 +51,7 @@
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="tipo-doc-1">Tipo de Documento</label>
-                                                <select class="select2 select2-hidden-accessible" style="width: 100%;"
+                                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                                     tabindex="-1" aria-hidden="true" id="tipo-doc-1" name="tipo-doc-1">
                                                     <option selected value="passaporte">Passaporte</option>
                                                 </select>
@@ -66,7 +66,7 @@
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="tipo-doc-2">Tipo de Documento</label>
-                                                <select class="select2 select2-hidden-accessible" style="width: 100%;"
+                                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
                                                     tabindex="-1" aria-hidden="true" id="tipo-doc-2" name="tipo-doc-2">
                                                     <option selected value="passaporte">Passaporte</option>
                                                 </select>
@@ -81,7 +81,7 @@
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="tipo-doc-3">Tipo de Documento</label>
-                                                <select class="select2 select2-hidden-accessible" style="width: 100%;"
+                                                <select class="form-control    select2 select2-hidden-accessible" style="width: 100%;"
                                                     tabindex="-1" aria-hidden="true" id="tipo-doc-3" name="tipo-doc-3">
                                                     <option selected value="passaporte">Passaporte</option>
                                                 </select>

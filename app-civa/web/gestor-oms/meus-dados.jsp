@@ -92,101 +92,17 @@
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form id="form-meus-dados">
-                                    <div class="p-2">
-                                        <%@include file="../partials/codigociva.jspf" %>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Nome</label>
-                                                <input type="text" class="form-control" value="Frank" id="name">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Sobrenome</label>
-                                                <input type="text" class="form-control" value="Sinatra" id="surname">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Data de nascimento</label>
-                                                <input type="date" class="form-control" id="date-birth" value="1915-11-12">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Identidade</label>
-                                                <input type="text" class="form-control" id="identity" value="133.489.458-07" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlSelect1">Nacionalidade</label>
-                                                <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-          <option value="2" selected>Brasil</option>
-          <option value="3">Eua</option>
-          <option value="3">Canada</option>
-      </select>
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">C&oacute;digo CIVA</label>
-                                                <input type="text" class="form-control" id="cod-civa" value="BRA5513456789" disabled>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Pa&iacute;s</label>
-                                                <input type="text" class="form-control" id="country" value="Brasil">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">CEP</label>
-                                                <input type="text" class="form-control" id="postal-code" value="20520-054">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlinput1">Endere&ccedil;o</label>
-                                                <label for="exampleFormControlInput1"></label>
-                                                <input type="text" class="form-control" id="end" name="end" value="Rua Conde de Bonfim">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlinput1">N&uacute;mero</label>
-                                                <label for="exampleFormControlInput1"></label>
-                                                <input type="text" class="form-control" id="num" name="num" value="256">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlinput1">Complemento</label>
-                                                <label for="exampleFormControlInput1"></label>
-                                                <input type="text" class="form-control" id="comp" name="comp">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlinput1">Bairro</label>
-                                                <label for="exampleFormControlInput1"></label>
-                                                <input type="text" class="form-control" id="bairro" name="bairro">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlinput1">Munic&iacute;pio</label>
-                                                <label for="exampleFormControlInput1"></label>
-                                                <input type="text" class="form-control" id="muni" name="muni">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlinput1">Estado</label>
-                                                <label for="exampleFormControlInput1"></label>
-                                                <input type="text" class="form-control" id="state" name="state">
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Contato</label>
-                                                <input type="text" class="form-control" id="telf" value="21965138761">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Email</label>
-                                                <input type="email" class="form-control" id="email" value="franksinatra@gmail.com" disabled>
-                                            </div>
-                                        </div>
+                                    <div class="card-body">
+                                    <%@ include file="../partials/codigociva.jspf" %>
+                                    <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
+                                    <hr>
+                                    <%@ include file="../partials/enderecos-disabled.jspf" %>
+                                    <hr>
+                                    <%@ include file="../partials/contatos-disabled.jspf" %>    
                                     </div>
+
+                                </form>
+                             
                             </div>
                         </div>
                         <!-- /.row -->
@@ -195,68 +111,16 @@
 
                     <!-- TABELA VACINAS -->
                     <div class="row">
-                        <div class="col-12 mb-2">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Unidade vinculadas</h3>
-
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-
-                                            <div class="input-group-append">
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                        
+                            
+                                
                                 <!-- /.card-header -->
                                 <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Estado</th>
-                                                <th>CEP</th>
-                                                <th>Identificador</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
+                                    <hr>
+                <%@ include file="../partials/tabela-unidades2.jspf" %>
                                 </div>
                                 <!-- /.card-body -->
-                            </div>
-                        </div>
+                      
                     </div>
 
                     <div class="row">
