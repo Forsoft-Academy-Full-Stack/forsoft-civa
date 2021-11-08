@@ -1,0 +1,21 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="modal fade show " id="modal-default" style="display: none; padding-right: 17px;" aria-modal="true">
+  <div class="modal-dialog ">
+    <div class="modal-content card-primary card-outline">
+      <div class="card-body">
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+          <img src="../public/img/confirmacao.svg" alt="Conta criada"><br>
+
+          <p class="text-center">Conta Criada</p>
+          <p>Sua conta foi criada com sucesso, fa&ccedil; o seu login.</p>
+          <div class="">
+
+            <a href="./index.jsp"><button type="button" class="btn btn-primary">Concluir</button></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- /.modal-content -->
+</div>

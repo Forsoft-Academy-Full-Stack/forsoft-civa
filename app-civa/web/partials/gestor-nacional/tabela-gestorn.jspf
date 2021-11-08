@@ -1,0 +1,82 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table id="test-table" class="table table-hover text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th style="cursor: pointer;">Nome</th>
+                                                <th style="cursor: pointer;">Identifica&ccedil;&atilde;o</th>
+                                                <th style="cursor: pointer;">Data</th>
+                                                <th style="cursor: pointer;">C&oacute;digo CIVA</th>
+                                                <th style="cursor: pointer;"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Bille Withers</td>
+                                                <td>123.155.189-15</td>
+                                                <td>04-07-1938</td>
+                                                <td>BRA132456789</td>
+                                                <td><a href="./ui076.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bill Withers</td>
+                                                <td>123.155.189-15</td>
+                                                <td>04-07-1938</td>
+                                                <td>BRA132456789</td>
+                                                <td><a href="./ui076.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bill Withers</td>
+                                                <td>123.155.189-15</td>
+                                                <td>04-07-1938</td>
+                                                <td>BRA132456789</td>
+                                                <td><a href="./ui076.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bill Withers</td>
+                                                <td>123.155.189-15</td>
+                                                <td>04-07-1938</td>
+                                                <td>BRA132456789</td>
+                                                <td><a href="./ui076.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bill Withers</td>
+                                                <td>123.155.189-15</td>
+                                                <td>04-07-1938</td>
+                                                <td>BRA132456789</td>
+                                                <td><a href="./ui076.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bill Withers</td>
+                                                <td>123.155.189-15</td>
+                                                <td>04-07-1938</td>
+                                                <td>BRA132456789</td>
+                                                <td><a href="./ui076.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bill Withers</td>
+                                                <td>123.155.189-15</td>
+                                                <td>04-07-1938</td>
+                                                <td>BRA132456789</td>
+                                                <td><a href="./ui076.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+                                            <tr>
+                                                <td>Bill Withers</td>
+                                                <td>123.155.189-15</td>
+                                                <td>04-07-1938</td>
+                                                <td>BRA132456789</td>
+                                                <td><a href="./ui076.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                            </tr>
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
+                            </div>
+                        </div>
+                    </div>

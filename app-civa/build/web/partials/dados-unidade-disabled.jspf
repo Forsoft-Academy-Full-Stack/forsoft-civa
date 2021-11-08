@@ -1,0 +1,22 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+                    <div class="row">
+                      <div class="form-group col-xl-6">
+                        <label for="name">Nome da unidade</label>
+                        <input type="text" class="form-control" id="name" name="name" value="Hospital Pan" disabled>
+                      </div>
+                      <div class="form-group col-xl-6">
+                        <label for="doc-register">Documenta&ccedil;&atilde;o de Registro</label>
+                        <input type="text" class="form-control" id="doc-register" name="doc-register" value="123456789" disabled>
+                      </div>
+                    </div>                    
+                    <div class="row"> 
+                        <div class="form-group col-6">
+                        <label for="natureza">Natureza</label>
+                          <input type="text" class="form-control" id="natureza" name="natureza" value="P&uacute;blica" disabled>
+                        </div>
+                        <div class="form-group col-6">
+                        <label for="tipo-estabelecimento">Tipo de Estabelecimento</label>
+                          <input type="text" class="form-control" id="tipo-estabelecimento" name="tipo-estabelecimento" value="Hospital" disabled>
+                        </div>
+                    </div>

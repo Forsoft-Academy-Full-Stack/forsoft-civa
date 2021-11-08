@@ -1,0 +1,66 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+                        <div class="row"> 
+                          <div class="form-group col-6">
+                            <label for="country-name">Pais</label>
+                              <input type="text" class="form-control" id="country-name" name="country-name">    <!-- Adicionar no JS tratarCampos() -->
+                          </div>
+                          <div class="form-group col-6">
+                              <label for="postal-code">CEP</label>
+                              <input type="text" class="form-control" id="postal-code" name="postal-code">
+                          </div>
+                        </div>
+
+                        <div class="row"> 
+                          <div class="form-group col-6">
+                            <label for="logrd-name">Endere&ccedil;o</label>
+                              <input type="text" class="form-control" id="logrd-name" name="logrd-name">
+                          </div>
+                          <div class="form-group col-6">
+                            <label for="num-name">N&uacute;mero</label>
+                              <input type="number" class="form-control" id="num-name" name="num-name">    <!-- Adicionar no JS tratarCampos() -->
+                          </div>
+                        </div>
+                        
+                        <div class="row">
+                          <div class="form-group col-6">
+                            <label for="comple-name">Complemento</label>
+                              <input type="text" class="form-control" id="comple-name" name="comple-name">    <!-- Adicionar no JS tratarCampos() -->
+                          </div>
+                          <div class="form-group col-xl-6">
+                            <label for="local">Bairro</label>
+                            <select class="select2 select2-hidden-accessible" id="local" name="local" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                              <option id="local-option" selected="" disabled="">Selecionar</option> 
+                              <option>Niteroi</option>
+                              <option>S&atilde;o Gon&ccedil;alo</option>
+                              <option>Rio de Janeiro</option>
+                              <option>Itaborai</option>
+                              <option>Marica</option>
+                            </select>
+                          </div>
+                        </div>
+
+                        <div class="row">
+                          <div class="form-group col-xl-6">
+                            <label for="city">Municipio</label>
+                            <select class="select2 select2-hidden-accessible" id="city" name="city" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                              <option id="city-option" selected="" disabled="" >Selecionar</option> 
+                              <option>Niteroi</option>
+                              <option>S&atilde;o Gon&ccedil;alo</option>
+                              <option>Rio de Janeiro</option>
+                              <option>Itaborai</option>
+                              <option>Marica</option>
+                          </select>
+                          </div>
+                          <div class="form-group col-6">
+                              <label for="state">Estado</label>
+                              <select class="select2 select2-hidden-accessible" id="state" name="state" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                <option id="state-option" selected="" disabled="">Selecionar</option>
+                                <option>Rio de Janeiro</option>
+                                <option>S&atilde;o Paulo</option>
+                                <option>Minas Gerais</option>
+                                <option>Rio Grande do Sul</option>
+                                <option>Bahia</option>
+                            </select>
+                          </div>
+                        </div>

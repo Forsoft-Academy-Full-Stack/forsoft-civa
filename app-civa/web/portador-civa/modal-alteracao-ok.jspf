@@ -1,0 +1,28 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="modal fade show " id="modal-default" style="display: none; padding-right: 17px;" aria-modal="true">
+  <div class="modal-dialog ">
+    <div class="modal-content card-primary card-outline">
+      <div class="modal-header">
+        <h4 class="modal-title">Certificado CIVA</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">X</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex flex-column justify-content-center align-items-center">
+          <img src="../public/img/confirmacao.svg" alt="confirmacao">
+          <div class="col-md-9 mt-5">
+            <h4 class="text-center">Suas altera&ccedil;&otilde;es foram salvas com successo!</h4>
+          </div>
+        </div>
+
+      </div>
+      <div class="modal-footer justify-content-center">
+        <button type="button" class="btn btn-outline-primary " data-dismiss="modal">Fechar</button>
+      </div>
+    </div>
+    <!-- /.modal-content -->
+  </div>
+  <!-- /.modal-dialog -->
+</div>

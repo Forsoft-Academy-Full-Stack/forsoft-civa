@@ -1,0 +1,61 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+ <div class="modal fade show " id="modal-default" style="display: none; padding-right: 17px;" aria-modal="true">
+    <div class="modal-dialog ">
+      <div class="modal-content card-primary card-outline">
+        <div class="modal-header">
+          <h4 class="modal-title">Certificado CIVA</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">X</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <div class="form-group">
+            <label for="certificado-nome">Nome</label>
+            <input type="text" class="form-control form-control-sm" id="certificado-nome"
+              value="Samuel Claudino da Silva" disabled>
+          </div>
+          <div class="row">
+            <div class="form-group col mb-3">
+              <label for="certificado-identidade">Identidade</label>
+              <input type="text" class="form-control form-control-sm" id="certificado-identidade" value="123.456.789-09"
+                disabled>
+            </div>
+            <div class="form-group col mb-3">
+              <label for="certificado-b-day">Data de nascimento</label>
+              <input type="text" class="form-control form-control-sm" id="certificado-b-day" value="31/09/1998"
+                disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col mb-3">
+              <label for="certificado-civa-id">CIVA</label>
+              <input type="text" class="form-control form-control-sm" id="certificado-civa-id" value="BR55123456789"
+                disabled>
+            </div>
+            <div class="form-group col mb-3">
+              <label for="certificado-origem">Pa&iacute;s de origem</label>
+              <input type="text" class="form-control form-control-sm" id="certificado-origem" value="Brasil" disabled>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col mb-3">
+              <label for="certificado-vacina">Vacina</label>
+              <input type="text" class="form-control form-control-sm" id="certificado-vacina" value="Coronavac"
+                disabled>
+            </div>
+            <div class="form-group col mb-3">
+              <label for="certificado-dose">Doses</label>
+              <input type="text" class="form-control form-control-sm" id="certificado-dose" value="2" disabled>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer justify-content-between">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+          <button type="button" class="btn btn-primary">Imprimir</button>
+        </div>
+      </div>
+      <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+  </div>

@@ -1,0 +1,47 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="p-2">
+        <div class="row"> 
+            <div class="form-group col-xl-6">
+    <label for="exampleFormControlSelect1">Nome</label>
+    <select class="select2 select2-hidden-accessible" id="state" style="width: 100%;" tabindex="-1" aria-hidden="true">
+      <option selected>Coronavac</option>
+      <option>vac</option>
+      <option>vac</option>
+    </select>
+  </div>
+</div>
+<div class="row"> 
+  <div class="form-group col-xl-6">
+    <label for="exampleFormControlSelect1">Laborat&oacute;rio</label>
+    <select class="select2 select2-hidden-accessible" id="state" style="width: 100%;" tabindex="-1" aria-hidden="true">
+      <option selected>Sinovac</option>
+      <option>Lab2</option>
+    </select>
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-xl-6">
+      <label for="exampleFormControlInput1">Tipo de Vacina</label>
+      <input type="text" class="form-control" id="tipovac" value="Sars cov2" >
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-xl-6">
+      <label for="exampleFormControlInput1">Quantidade de doses</label>
+      <input type="text" class="form-control" id="doses" value="2" >
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-xl-6">
+      <label for="exampleFormControlInput1">Intervalo das doses(dias)</label>
+      <input type="text" class="form-control" id="timedoses" value="25" >
+  </div>
+</div>
+<div class="row">
+  <div class="form-group col-xl-6">
+      <label for="exampleFormControlInput1">Tempo para refor&ccedil;o(dias)</label>
+      <input type="text" class="form-control" id="reforco" value="45" >
+  </div>
+</div>
+</div>
