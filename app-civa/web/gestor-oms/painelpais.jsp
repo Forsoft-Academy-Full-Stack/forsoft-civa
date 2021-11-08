@@ -34,12 +34,8 @@
             <%@include file="navbar.jspf" %>
             <!-- /.navbar ------------------------------------------------------->
 
-
-
-
             <!-- MENU Main Sidebar Container ------------------------------------>
             <%@include file="menu.jspf" %>
-
 
 
             <!-- Content Wrapper. Contains page content -------------------------->
@@ -65,11 +61,6 @@
                     <!-- /.container-fluid -->
                 </div>
                 <!-- /.content-header ---------------------------------------------->
-
-
-
-
-
 
 
                 <!-- Main content -->
