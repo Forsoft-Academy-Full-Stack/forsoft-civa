@@ -94,6 +94,7 @@
                                     <form id="form-meus-dados">
                                         <div class="card-body">
                                             <%@ include file="../partials/codigociva.jspf" %>
+                                            <hr>
                                             <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                             <hr>
                                             <%@ include file="../partials/enderecos-disabled.jspf" %>
@@ -109,26 +110,14 @@
                         </div>
 
 
-                        <!-- TABELA VACINAS -->
-                        <div class="row">
-
-
-
-                            <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0">
-                                <hr>
-                                <%@ include file="../partials/tabela-unidades2.jspf" %>
-                            </div>
-                            <!-- /.card-body -->
-
-                        </div>
-
+                        <!-- BOTÃO DE SALVAR -->
+                        <!--
                         <div class="row">
                             <div class="col-12 mb-4">
                                 <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
                             </div>
                         </div>
-
+                        -->
 
                     </div>
                     <!-- /.container-fluid -->
