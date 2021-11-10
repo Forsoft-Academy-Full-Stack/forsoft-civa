@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import model.Login;
 import model.Pessoa;
 /**
@@ -47,7 +48,7 @@ public class auth extends HttpServlet {
                 login.setSenha(request.getParameter("senha"));
             }
             
-            System.err.println("Login: " + login.getPerfil());
+   
        
             // Fazer consulta no Banco de dados, com os dados vindo do formulário de login
             // Pegar os dados da pessoa
@@ -57,6 +58,7 @@ public class auth extends HttpServlet {
             Pessoa pessoaPortadorCiva = new Pessoa();
             pessoaPortadorCiva.setNome("João");
             pessoaPortadorCiva.setSobrenome("Lopes");
+            
             
             // Gerente
             Pessoa pessoaGerente = new Pessoa();
@@ -87,67 +89,59 @@ public class auth extends HttpServlet {
             Pessoa pessoaGestorOms = new Pessoa();
             pessoaGestorOms.setNome("Ruth");
             pessoaGestorOms.setSobrenome("Alencar");
+            
+            HttpSession session = request.getSession();
       
             // Fazer o devido redirecionamento
             // Para a página do ator adequado
             // Sempre redirecionar para o index.jsp
-            switch(login.getPerfil()){
-                case "usuario":
-                    request.getSession().setAttribute("dados", pessoaPortadorCiva);
-                    request.setAttribute("dados", pessoaPortadorCiva);
-                    rd = request.getRequestDispatcher("portador-civa/");
-                    rd.forward(request, response);
-                    break;
-                    
-                case "gerente":
-                    request.getSession().setAttribute("dados", pessoaGerente);
-                    request.setAttribute("dados", pessoaGerente);
-                    rd = request.getRequestDispatcher("gerente/");
-                    rd.forward(request, response);
-                    break;
-                   
-                case "supervisor":
-                    request.getSession().setAttribute("dados", pessoaSupervisor);                       ;
-                    request.setAttribute("dados", pessoaSupervisor);
-                    rd = request.getRequestDispatcher("supervisor/");
-                    rd.forward(request, response);
-                    break;
-                    
-                case "profissional-saude":
-                    request.getSession().setAttribute("dados", pessoaProfissionalSaude);
-                    request.setAttribute("dados", pessoaProfissionalSaude);
-                    rd = request.getRequestDispatcher("profissional-saude/");
-                    rd.forward(request, response);
-                    break;
-                    
-                case "suporte-civa":
-                    request.getSession().setAttribute("dados", pessoaSuporteCiva);                    
-                    request.setAttribute("dados", pessoaSuporteCiva);
-                    rd = request.getRequestDispatcher("suporte-civa/");
-                    rd.forward(request, response);
-                    break;
-                    
-                case "gestor-nacional":
-                    request.getSession().setAttribute("dados", pessoaGestorNacional);                    
-                    request.setAttribute("dados", pessoaGestorNacional);
-                    rd = request.getRequestDispatcher("gestor-nacional/");
-                    rd.forward(request, response);
-                    break;
-                    
-                case "gestor-oms":
-                    request.getSession().setAttribute("dados", pessoaGestorOms);
-                    request.setAttribute("dados", pessoaGestorOms);
-                    rd = request.getRequestDispatcher("gestor-oms/");
-                    rd.forward(request, response);
-                    break;
-                    
-                case "not-user":
-                    String redirectURL = "./login/";               
-                    response.sendRedirect(redirectURL);
-                    break;
-                    
+            
+            if (login.getPerfil().equals("usuario") && login.getSenha().equals("123") ) {  
+                session.setAttribute("dados", pessoaPortadorCiva);
+                session.setAttribute("perfil", login.getPerfil());
+                response.sendRedirect("portador-civa/");
+                
             }
- 
+            else if (login.getPerfil().equals("gerente") && login.getSenha().equals("1234")){
+                session.setAttribute("dados", pessoaGerente);
+                session.setAttribute("perfil", login.getPerfil());
+                response.sendRedirect("gerente/");
+                
+            }
+            else if (login.getPerfil().equals("supervisor") && login.getSenha().equals("12345")){
+                session.setAttribute("dados", pessoaSupervisor);                       ;
+                session.setAttribute("perfil", login.getPerfil());
+                response.sendRedirect("supervisor/");
+                
+            }
+            else if (login.getPerfil().equals("profissional-saude") && login.getSenha().equals("123456")){
+                session.setAttribute("dados", pessoaProfissionalSaude);
+                session.setAttribute("perfil", login.getPerfil());
+                response.sendRedirect("profissional-saude/");
+                
+            }
+            else if (login.getPerfil().equals("suporte-civa") && login.getSenha().equals("1234567")){
+                session.setAttribute("dados", pessoaSupervisor);                       ;
+                session.setAttribute("perfil", login.getPerfil());
+                response.sendRedirect("profissional-saude/");
+                
+            }
+            else if (login.getPerfil().equals("gestor-nacional") && login.getSenha().equals("12345678")){
+                session.setAttribute("dados", pessoaSupervisor);                       ;
+                session.setAttribute("perfil", login.getPerfil());
+                response.sendRedirect("gestor-nacional/");
+                
+            }
+            else if (login.getPerfil().equals("gestor-oms") && login.getSenha().equals("123456789")){
+                session.setAttribute("dados", pessoaSupervisor);                       ;
+                session.setAttribute("perfil", login.getPerfil());
+                response.sendRedirect("gestor-oms/");
+            }
+            else {
+                // Login errado
+                response.sendRedirect(" login/");
+            }
+   
         }
     }
 

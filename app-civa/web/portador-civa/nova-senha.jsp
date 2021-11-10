@@ -1,3 +1,9 @@
+<%
+if ((session.getAttribute("dados") == null) || (session.getAttribute("perfil") != "usuario" )) { 
+    response.sendRedirect("../login/");
+} 
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 

@@ -1,3 +1,9 @@
+<%
+if ((session.getAttribute("dados") == null) || (session.getAttribute("perfil") != "usuario" )) { 
+    response.sendRedirect("../login/");
+} 
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -167,7 +173,7 @@
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/login/" class="nav-link">
+                                <a href="${pageContext.request.contextPath}/exit" class="nav-link">
                                     <i class="nav-icon fas fa-sign-out-alt"></i>
                                     <p>
                                         Sair
