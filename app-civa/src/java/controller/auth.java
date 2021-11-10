@@ -91,14 +91,20 @@ public class auth extends HttpServlet {
             pessoaGestorOms.setSobrenome("Alencar");
             
             HttpSession session = request.getSession();
-      
+       
+            // Inserindo o tempo de inatividade em segundos
+            // 60 segundos x 30 = 30 min
+            session.setMaxInactiveInterval(60 * 30);
+            
             // Fazer o devido redirecionamento
             // Para a página do ator adequado
             // Sempre redirecionar para o index.jsp
             
-            if (login.getPerfil().equals("usuario") && login.getSenha().equals("123") ) {  
+            if ( login.getPerfil().equals("usuario") && login.getSenha().equals("123") ) {  
+                
                 session.setAttribute("dados", pessoaPortadorCiva);
                 session.setAttribute("perfil", login.getPerfil());
+                System.out.println("Sim");
                 response.sendRedirect("portador-civa/");
                 
             }
