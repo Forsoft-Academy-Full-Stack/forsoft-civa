@@ -98,7 +98,7 @@
                             
                             <div class="input-group mb-3 ">
                                 <label for="exampleFormControlSelect1">Tipo de Acesso</label>
-                                <select id="perfil" name="perfil" class="form-select form-select-lg mb-3 select2 select2-hidden-accessible"
+                                <select id="perfil" name="perfil" class=" form-select form-select-lg mb-3 select2 select2-hidden-accessible"
                                         style="width: 100%;" tabindex="-1" aria-hidden="true">
                                     <option value="not-user" selected readonly>Selecionar acesso</option>
                                     <option value="usuario">Usu&aacute;rio</option>
