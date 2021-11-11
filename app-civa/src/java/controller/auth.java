@@ -48,8 +48,6 @@ public class auth extends HttpServlet {
                 login.setSenha(request.getParameter("senha"));
             }
             
-   
-       
             // Fazer consulta no Banco de dados, com os dados vindo do formulário de login
             // Pegar os dados da pessoa
             // Construir o objeto Pessoa com os dados obtidos
@@ -104,7 +102,6 @@ public class auth extends HttpServlet {
                 
                 session.setAttribute("dados", pessoaPortadorCiva);
                 session.setAttribute("perfil", login.getPerfil());
-                System.out.println("Sim");
                 response.sendRedirect("portador-civa/");
                 
             }
@@ -115,7 +112,7 @@ public class auth extends HttpServlet {
                 
             }
             else if (login.getPerfil().equals("supervisor") && login.getSenha().equals("12345")){
-                session.setAttribute("dados", pessoaSupervisor);                       ;
+                session.setAttribute("dados", pessoaSupervisor);
                 session.setAttribute("perfil", login.getPerfil());
                 response.sendRedirect("supervisor/");
                 
@@ -127,19 +124,19 @@ public class auth extends HttpServlet {
                 
             }
             else if (login.getPerfil().equals("suporte-civa") && login.getSenha().equals("1234567")){
-                session.setAttribute("dados", pessoaSupervisor);                       ;
+                session.setAttribute("dados", pessoaSupervisor);
                 session.setAttribute("perfil", login.getPerfil());
                 response.sendRedirect("profissional-saude/");
                 
             }
             else if (login.getPerfil().equals("gestor-nacional") && login.getSenha().equals("12345678")){
-                session.setAttribute("dados", pessoaSupervisor);                       ;
+                session.setAttribute("dados", pessoaSupervisor);
                 session.setAttribute("perfil", login.getPerfil());
                 response.sendRedirect("gestor-nacional/");
                 
             }
             else if (login.getPerfil().equals("gestor-oms") && login.getSenha().equals("123456789")){
-                session.setAttribute("dados", pessoaSupervisor);                       ;
+                session.setAttribute("dados", pessoaSupervisor);                   
                 session.setAttribute("perfil", login.getPerfil());
                 response.sendRedirect("gestor-oms/");
             }
