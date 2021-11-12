@@ -36,7 +36,7 @@
                                 <a href="#" class="nav-link">
                                     <!-- <i class="nav-icon fas fa-user-friends"></i> -->
                                     <p>GERENTE
-                                        <!-- <i class="right fas fa-angle-left"></i> -->
+                                       <i class="right fas fa-angle-left"></i>
 
                                     </p>
                                 </a>
