@@ -166,56 +166,56 @@
                                                     <td>America do Norte</td>
                                                     <td>SUS</td>
                                                     <td>165165</td>
-                                                    <td><a href="painelpais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Brasil</td>
                                                     <td>America do Norte</td>
                                                     <td>SUS</td>
                                                     <td>165165</td>
-                                                    <td><a href="painelpais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Brasil</td>
                                                     <td>America do Norte</td>
                                                     <td>SUS</td>
                                                     <td>165165</td>
-                                                    <td><a href="painelpais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Brasil</td>
                                                     <td>America do Norte</td>
                                                     <td>SUS</td>
                                                     <td>165165</td>
-                                                    <td><a href="painelpais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Brasil</td>
                                                     <td>America do Norte</td>
                                                     <td>SUS</td>
                                                     <td>165165</td>
-                                                    <td><a href="painelpais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Brasil</td>
                                                     <td>America do Norte</td>
                                                     <td>SUS</td>
                                                     <td>165165</td>
-                                                    <td><a href="painelpais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Brasil</td>
                                                     <td>America do Norte</td>
                                                     <td>SUS</td>
                                                     <td>165165</td>
-                                                    <td><a href="painelpais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Brasil</td>
                                                     <td>America do Norte</td>
                                                     <td>SUS</td>
                                                     <td>165165</td>
-                                                    <td><a href="painelpais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
 
 

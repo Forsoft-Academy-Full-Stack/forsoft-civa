@@ -72,11 +72,6 @@
                 <!-- /.content-header ---------------------------------------------->
 
 
-
-
-
-
-
                 <!-- Main content -->
                 <div class="content">
                     <div class="container-fluid">
@@ -116,9 +111,6 @@
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-
-
-
 
             <!-- Main Footer -->
             <%@include file="footer.jspf" %>

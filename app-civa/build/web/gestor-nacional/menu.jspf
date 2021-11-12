@@ -1,28 +1,27 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
- <aside class="main-sidebar sidebar-dark-primary elevation-4">
-            <!-- Brand Logo -->
-            <a href="index.jsp" class="brand-link">
-                <img src="./../public/img/favicon-gs.svg" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8">
-                <span class="brand-text font-weight-light">CIVA</span>
-            </a>
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="index.jsp" class="brand-link">
+        <img src="./../public/img/favicon-gs.svg" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8">
+        <span class="brand-text font-weight-light">CIVA</span>
+    </a>
 
-            <!-- Sidebar -->
-            <div class="sidebar">
-                <!-- Sidebar user panel (optional) -->
-                <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-                    <div class="image">
-                        <img src="./../public/img/no-user.svg" class="img-circle elevation-2" alt="User Image">
-                    </div>
-                    <div class="info">
-                       <a href="#" class="d-block">${dados.nome}</a>
-                       <a href="#" class="d-block">${dados.sobrenome}</a>
-                    </div>
-                </div>
-
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="image">
+                <img src="./../public/img/no-user.svg" class="img-circle elevation-2" alt="User Image">
+            </div>
+            <div class="info">
+                <span class="d-block text-light">${dados.nome} ${dados.sobrenome}</span>
+            </div>
+        </div>
 
 
-               <!-- Sidebar Menu -->
+
+        <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- ITENS DO MENU -->
@@ -81,13 +80,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="ui078-gerenciar-usuario.jsp" class="nav-link">
+                                    <a href="pesquisar-gerente.jsp" class="nav-link">
                                         <i class="fas fa-clipboard-check nav-icon"></i>
                                         <p>Consultar gerentes </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="ui079-cadastrar-gerente.jsp" class="nav-link">
+                                    <a href="cadastrar-gerente.jsp" class="nav-link">
                                         <i class="fas fa-user-plus nav-icon"></i>
                                         <p>Cadastrar gerentes</p>
                                     </a>
@@ -108,13 +107,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="ui-099.jsp" class="nav-link">
+                                    <a href="painel-vacina.jsp" class="nav-link">
                                         <i class="fas fa-map nav-icon"></i>
                                         <p>Consultar Vacina </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="ui100.jsp" class="nav-link">
+                                    <a href="selecionar-vacina.jsp" class="nav-link">
                                         <i class="fas fa-map-pin nav-icon"></i>
                                         <p>Selecionar Vacina </p>
                                     </a>
@@ -162,13 +161,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="ui-093.jsp" class="nav-link">
+                                    <a href="pesquisar-unidade.jsp" class="nav-link">
                                         <i class="fas fa-search nav-icon"></i>
                                         <p>Consultar unidade </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="ui-095.jsp" class="nav-link">
+                                    <a href="cadastrar-unidade.jsp" class="nav-link">
                                         <i class="fas fa-mouse-pointer nav-icon"></i>
                                         <p>Cadastrar Unidade</p>
                                     </a>
@@ -181,68 +180,68 @@
 
 
                     <!-- ITEM RELATORIO USUARIO DO MENU -->
-                    <li class="nav-item">
+                <li class="nav-item">
                     <a href="./relatorio.jsp" class="nav-link">
-                            <i class="nav-icon fas fa-chart-pie"></i>
-                            <p>
-                                Relatorio
-                            </p>
-                        </a>
-                    </li>
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Relatorio
+                        </p>
+                    </a>
+                </li>
 
-                    <!-- ITEM PERFIL DO MENU -->
-                    <li class="nav-item">
-                        <a href="#" class="nav-link active">
-                            <i class="nav-icon fas fa-user-circle"></i>
-                            <p>
-                                Perfil
-                                <i class="right fas fa-angle-left"></i>
+                <!-- ITEM PERFIL DO MENU -->
+                <li class="nav-item">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-circle"></i>
+                        <p>
+                            Perfil
+                            <i class="right fas fa-angle-left"></i>
 
-                            </p>
-                        </a>
-                        <ul class="nav nav-treeview">
-                            <li class="nav-item">
-                                <a href="./meus-dados.jsp" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>
-                                        Meus dados
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./idioma.jsp" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>
-                                        Mudar Idioma
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./manual.jsp" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>
-                                        Manual CIVA
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="./solicitacoes.jsp" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>
-                                        Solicita&ccedil;&otilde;es pendentes
-                                    </p>
-                                </a>
-                            </li>
-                            <li class="nav-item">
-                                <a href="../login/index.jsp" class="nav-link">
-                                    <i class="fas fa-sign-out-alt nav-icon"></i>
-                                    <p>
-                                        Sair
-                                    </p>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./meus-dados.jsp" class="nav-link">
+                                <i class="fas fa-address-card nav-icon"></i>
+                                <p>
+                                    Meus dados
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./idioma.jsp" class="nav-link">
+                                <i class="fas fa-language nav-icon"></i>
+                                <p>
+                                    Mudar Idioma
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./manual.jsp" class="nav-link">
+                                <i class="fas fa-question-circle nav-icon"></i>
+                                <p>
+                                    Manual CIVA
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./solicitacoes.jsp" class="nav-link">
+                                <i class="fas fa-inbox nav-icon"></i>
+                                <p>
+                                    Solicita&ccedil;&otilde;es pendentes
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../exit" class="nav-link">
+                               <i class="fas fa-sign-out-alt nav-icon"></i>
+                                <p>
+                                    Sair
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

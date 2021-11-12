@@ -53,9 +53,6 @@
             <%@include file="navbar.jspf" %>
             <!-- /.navbar ------------------------------------------------------->
 
-
-
-
             <!-- MENU Main Sidebar Container ------------------------------------>
             <%@include file="menu.jspf" %>
 
@@ -83,10 +80,6 @@
                     <!-- /.container-fluid -->
                 </div>
                 <!-- /.content-header ---------------------------------------------->
-
-
-
-
 
 
 

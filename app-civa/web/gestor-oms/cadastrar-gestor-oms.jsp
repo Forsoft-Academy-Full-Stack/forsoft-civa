@@ -56,9 +56,6 @@
             <%@include file="navbar.jspf" %>
             <!-- /.navbar ------------------------------------------------------->
 
-
-
-
             <!-- MENU Main Sidebar Container ------------------------------------>
             <%@include file="menu.jspf" %>
             <!-- TERMINO DO MENU LATERAL -->
@@ -144,15 +141,6 @@
                     </div>
                 </div>
                 <!-- /.content -->
-
-
-
-
-
-
-
-
-
             </div>
 
             <!-- Main Footer -->

@@ -23,7 +23,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>CIVA</title>
+        <title>CIVA - Pesquisar Gestor OMS</title>
 
         <link rel="shortcut icon" href="../public/img/favicon-gs.svg" type="image/x-icon">
 
@@ -59,8 +59,6 @@
             <%@include file="menu.jspf" %>
 
 
-
-
             <!-- Content Wrapper. Contains page content -------------------------->
             <div class="content-wrapper">
 
@@ -70,14 +68,14 @@
                     <div class="container-fluid">
                         <div class="row mb-2">
                             <div class="col-sm-6">
-                                <h1 class="m-0">Consultar Vacina</h1>
+                                <h1 class="m-0">Consultar Gestor OMS</h1>
                             </div>
                             <!-- /.col -->
 
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
                                     <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
-                                    <li class="breadcrumb-item active">Consultar Vacina</li>
+                                    <li class="breadcrumb-item active">Consultar Gestor OMS</li>
                                 </ol>
                             </div>
                         </div>
@@ -113,7 +111,7 @@
 
                                                 <div class="col-xl-8 col-sm-12">
                                                     <div class="input-group  mb-2">
-                                                        <input type="text" class="form-control" placeholder="Pesquisar por vacina">
+                                                        <input type="text" class="form-control" placeholder="Pesquisar Gestor">
                                                         <div class="input-group-append">
                                                             <button class="btn btn-outline-secondary" type="button" id="button-addon2">Pesquisar</button>
                                                         </div>
@@ -153,21 +151,71 @@
                                         <table class="table table-hover text-nowrap">
                                             <thead>
                                                 <tr>
-                                                    <th>Vacina</th>
-                                                    <th>Laborat&oacute;rio</th>
-                                                    <th>Doses</th>
-                                                    <th>ID Vacina</th>
+                                                    <th>Nome</th>
+                                                    <th>Identifica&ccedil;&atilde;o</th>
+                                                    <th>Data</th>
+                                                    <th>C&oacute;digo CIVA</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <tr>
-                                                    <td>Coronavac</td>
-                                                    <td>Sinovac</td>
-                                                    <td>1 Dose</td>
-                                                    <td>1234567</td>
-                                                    <td><a href="gerenciarvacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td>Bill Withers</td>
+                                                    <td>123.155.189-15</td>
+                                                    <td>04-07-1938</td>
+                                                    <td>BRA132456789</td>
+                                                    <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
+                                                <tr>
+                                                    <td>Tom Jobim</td>
+                                                    <td>065.354.200-01</td>
+                                                    <td>25-01-1927</td>
+                                                    <td>BRA313123534</td>
+                                                    <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Michael Jackson</td>
+                                                    <td>215.489.158-14</td>
+                                                    <td>29-10-1958</td>
+                                                    <td>BRA312312321</td>
+                                                    <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>George Michael</td>
+                                                    <td>554.489.489-15</td>
+                                                    <td>25-06-1963</td>
+                                                    <td>BRA519194156</td>
+                                                    <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Whitney Houston</td>
+                                                    <td>194.891.981-48</td>
+                                                    <td>09-10-1963</td>
+                                                    <td>BRA651847616</td>
+                                                    <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Freddie Mercury</td>
+                                                    <td>221.911.911-15</td>
+                                                    <td>05-09-1946</td>
+                                                    <td>BRA461668464</td>
+                                                    <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Bryan Adams</td>
+                                                    <td>634.324.123-57</td>
+                                                    <td>05-11-1959</td>
+                                                    <td>BRA461666523</td>
+                                                    <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Elis Regina</td>
+                                                    <td>884.054.264-05</td>
+                                                    <td>17-05-1945</td>
+                                                    <td>BRA312312323</td>
+                                                    <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+
 
                                             </tbody>
                                         </table>
@@ -186,25 +234,7 @@
                         </div>
 
                         <!-- PAGINA&Ccedil;&Atilde;O -->
-                        <div class="row">
-                            <div class="col-6">
-
-                                <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                                    <ul class="pagination">
-                                        <li class="paginate_button page-item previous disabled" id="example2_previous">
-                                            <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0" class="page-link">Anterior</a></li>
-
-                                        <li class="paginate_button page-item active"><a href="#" aria-controls="example2" data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                        <li class="paginate_button page-item "><a href="#" aria-controls="example2" data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                        <li class="paginate_button page-item next" id="example2_next"><a href="#" aria-controls="example2" data-dt-idx="7" tabindex="0" class="page-link">Pr&oacute;ximo</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                        <%@include file="paginacao.jspf" %>
 
 
 

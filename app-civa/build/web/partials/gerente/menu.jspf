@@ -107,7 +107,7 @@
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
                                             <a href="./meus-dados-gerente.jsp" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                   <i class="fas fa-address-card nav-icon"></i>
                                                 <p>
                                                     Meus dados
                                                 </p>
@@ -115,7 +115,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a href="./idioma.jsp" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                              <i class="fas fa-language nav-icon"></i>
                                                 <p>
                                                     Mudar Idioma
                                                 </p>
@@ -123,7 +123,7 @@
                                         </li>
                                         <li class="nav-item">
                                             <a href="./manual.jsp" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                <i class="fas fa-question-circle nav-icon"></i>
                                                 <p>
                                                     Manual CIVA
                                                 </p>
@@ -131,15 +131,15 @@
                                         </li>
                                         <li class="nav-item">
                                             <a href="./solicitacoes.jsp" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                                <i class="fas fa-inbox nav-icon"></i>
                                                 <p>
                                                     Solicita&ccedil;&otilde;es pendentes
                                                 </p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="../login/index.jsp" class="nav-link">
-                                                <i class="fas fa-sign-out-alt nav-icon"></i>
+                                            <a href="../exit" class="nav-link">
+                                                 <i class="fas fa-sign-out-alt nav-icon"></i>
                                                 <p>
                                                     Sair
                                                 </p>

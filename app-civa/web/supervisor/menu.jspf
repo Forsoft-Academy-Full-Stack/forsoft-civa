@@ -15,8 +15,7 @@
           <img src="./../public/img/no-user.svg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">${dados.nome}</a>
-          <a href="#" class="d-block">${dados.sobrenome}</a>
+           <span class="d-block text-light">${dados.nome} ${dados.sobrenome}</span>
         </div>
       </div>
 
@@ -36,7 +35,7 @@
           </li>
           <!-- ITEM GERENCIAR USUARIO DO MENU -->
           <li class="nav-item">
-            <a href="#" class="nav-link active">
+            <a href="#" class="nav-link">
               <!-- <i class="nav-icon fas fa-user-friends"></i> -->
               <p>SUPERVISOR   
                 <i class="right fas fa-angle-left"></i>
@@ -109,8 +108,8 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="meusdadossupervisor.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i> 
+                <a href="meus-dados-supervisor.jsp" class="nav-link">
+                  <i class="fas fa-address-card nav-icon"></i>
                   <p>
                     Meus dados
                   </p>
@@ -118,7 +117,7 @@
               </li>
               <li class="nav-item">
                 <a href="idioma.jsp" class="nav-link"> 
-                  <i class="far fa-circle nav-icon"></i>
+                 <i class="fas fa-language nav-icon"></i>
                   <p>
                     Mudar Idioma
                   </p>
@@ -126,22 +125,22 @@
               </li>
               <li class="nav-item">
                 <a href="manual.jsp" class="nav-link"> 
-                  <i class="far fa-circle nav-icon"></i>
+                  <i class="fas fa-question-circle nav-icon"></i>
                   <p>
                     Manual CIVA
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="solicitacoessupervisor.jsp" class="nav-link"> 
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="solicitacoes-supervisor.jsp" class="nav-link"> 
+                  <i class="fas fa-inbox nav-icon"></i>
                   <p>
                     Solicita&ccedil;&otilde;es pendentes
                   </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="../login/" class="nav-link">
+                <a href="../exit" class="nav-link">
                   <i class="fas fa-sign-out-alt nav-icon"></i>
                   <p>
                     Sair

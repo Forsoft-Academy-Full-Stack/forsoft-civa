@@ -108,7 +108,6 @@
 
                     <!-- /.row -->
                 </div>
-
             </div>
 
             <!-- Main Footer -->
@@ -119,8 +118,6 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-
     </div>
     <!-- ./wrapper -->
 

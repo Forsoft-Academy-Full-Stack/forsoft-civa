@@ -2,8 +2,8 @@
 <%@ page pageEncoding="UTF-8" %>
  <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="${pageContext.request.contextPath}/gestor-oms/" class="brand-link">
-                <img src="${pageContext.request.contextPath}/public/img/favicon-gs.svg" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8">
+            <a href="./" class="brand-link">
+                <img src="../public/img/favicon-gs.svg" alt="AdminLTE Logo" class="brand-image img-circle" style="opacity: .8">
                 <span class="brand-text font-weight-light">CIVA</span>
             </a>
 
@@ -12,11 +12,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="${pageContext.request.contextPath}/public/img/no-user.svg" class="img-circle elevation-2" alt="User Image">
+                        <img src="../public/img/no-user.svg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">${dados.nome}</a>
-                        <a href="#" class="d-block">${dados.sobrenome}</a>
+                       <span class="d-block text-light">${dados.nome} ${dados.sobrenome}</span>
                     </div>
                 </div>
 
@@ -27,7 +26,7 @@
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- ITENS DO MENU -->
                         <li class="nav-item">
-                            <a href="${pageContext.request.contextPath}/gestor-oms/index.jsp" class="nav-link">
+                            <a href="./" class="nav-link">
                                 <i class="nav-icon fas fa-home"></i>
                                 <p>
                                     Home
@@ -36,10 +35,10 @@
                         </li>
                         <!-- ITEM GERENCIAR USUARIO DO MENU -->
                         <li class="nav-item ">
-                            <a href="#" class="nav-link active">
-                                <!-- <i class="nav-icon fas fa-user-friends"></i> -->
+                            <a href="#" class="nav-link">
+                                <i class="nav-icon fas fa-user-friends"></i>
                                 <p>GESTOR OMS
-                                    <!-- <i class="right fas fa-angle-left"></i> -->
+                                <i class="right fas fa-angle-left"></i> 
 
                                 </p>
                             </a>
@@ -54,13 +53,13 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="${pageContext.request.contextPath}/gestor-oms/consultargestor-oms.jsp" class="nav-link">
+                                            <a href="consultar-gestor-oms.jsp" class="nav-link">
                                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                                 <p>Consultar Gestor OMS</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="${pageContext.request.contextPath}/gestor-oms/cadastrargestor-oms.jsp" class="nav-link">
+                                            <a href="cadastrar-gestor-oms.jsp" class="nav-link">
                                                 <i class="fas fa-user-plus nav-icon"></i>
                                                 <p>Cadastrar Gestor OMS</p>
                                             </a>
@@ -82,20 +81,20 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="${pageContext.request.contextPath}/gestor-oms/consultarpais.jsp" class="nav-link">
+                                            <a href="consultar-pais.jsp" class="nav-link">
                                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                                 <p>Consultar pa&iacute;ses</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="${pageContext.request.contextPath}/gestor-oms/cadastrarpais.jsp" class="nav-link">
+                                            <a href="cadastrar-pais.jsp" class="nav-link">
                                                 <i class="fas fa-user-plus nav-icon"></i>
                                                 <p>Cadastrar Pa&iacute;s</p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="${pageContext.request.contextPath}/gestor-oms/o1cadastrospendentes.jsp" class="nav-link">
-                                                <i class="far fa-circle nav-icon"></i>
+                                            <a href="cadastros-pendentes.jsp" class="nav-link">
+                                                <i class="fas fa-inbox nav-icon"></i>
                                                 <p>Cadastros pendentes </p>
                                             </a>
                                         </li>
@@ -116,13 +115,13 @@
                                     </a>
                                     <ul class="nav nav-treeview">
                                         <li class="nav-item">
-                                            <a href="${pageContext.request.contextPath}/gestor-oms/consultarvacinas.jsp" class="nav-link">
+                                            <a href="consultar-vacinas.jsp" class="nav-link">
                                                 <i class="fas fa-search nav-icon"></i>
                                                 <p>Consultar Vacina </p>
                                             </a>
                                         </li>
                                         <li class="nav-item">
-                                            <a href="${pageContext.request.contextPath}/gestor-oms/o3cadastrarvacina.jsp" class="nav-link">
+                                            <a href="cadastrar-vacina.jsp" class="nav-link">
                                                 <i class="fas fa-mouse-pointer nav-icon"></i>
                                                 <p>Cadastrar Vacina </p>
                                             </a>
@@ -133,10 +132,9 @@
                             </ul>
 
 
-
                             <!-- ITEM RELATORIO USUARIO DO MENU -->
                             <li class="nav-item">
-                                <a href="${pageContext.request.contextPath}/gestor-oms/relatorio.jsp" class="nav-link">
+                                <a href="relatorio.jsp" class="nav-link">
                                     <i class="nav-icon fas fa-chart-pie"></i>
                                     <p>
                                         Relat&oacute;rios
@@ -156,31 +154,31 @@
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/gestor-oms/meus-dados.jsp" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="meus-dados.jsp" class="nav-link">
+                                             <i class="fas fa-address-card nav-icon"></i>
                                             <p>
                                                 Meus dados
                                             </p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/gestor-oms/idioma.jsp" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="idioma.jsp" class="nav-link">
+                                             <i class="fas fa-language nav-icon"></i>
                                             <p>
                                                 Mudar Idioma
                                             </p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/gestor-oms/manual.jsp" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
+                                        <a href="manual.jsp" class="nav-link">
+                                            <i class="fas fa-question-circle nav-icon"></i>
                                             <p>
                                                 Manual CIVA
                                             </p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="${pageContext.request.contextPath}/login/" class="nav-link">
+                                        <a href="../exit" class="nav-link">
                                             <i class="fas fa-sign-out-alt nav-icon"></i>
                                             <p>
                                                 Sair
