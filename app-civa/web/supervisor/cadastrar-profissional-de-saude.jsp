@@ -5,7 +5,7 @@
     // em um objeto pessoa novamente
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
    
-    // Verificando se o objeto pessoa não existe e se não é usuário
+    // Verificando se o objeto pessoa não existe e se não é supervisor
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("supervisor"))) {
         // Caso for uma das duas opções
         // Redicionar para o login
