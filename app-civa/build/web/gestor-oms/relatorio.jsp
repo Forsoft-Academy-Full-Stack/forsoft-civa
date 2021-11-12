@@ -1,3 +1,21 @@
+<%@page import="model.Pessoa"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    // Transformando os dados que foram colocados na sessão
+    // em um objeto pessoa novamente
+    
+    Pessoa pessoa = (Pessoa) session.getAttribute("dados");
+   
+    // Verificando se o objeto pessoa não existe e se não é usuário
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-oms"))) {
+        // Caso for uma das duas opções
+        // Redicionar para o login
+        response.sendRedirect("../login/");
+
+    }
+    
+   // Caso contrário é um usuário válido, pode entrar na página  
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -77,7 +95,7 @@
                     <div class="container-fluid">
                         <!---------------------------------------------------------------->
 
-                        <!-- CABE&Ccedil;ALHO INFORMAÇ&Otilde;ES -->
+                        <!-- CABE&Ccedil;ALHO INFORMAÃ&Otilde;ES -->
                         <div class="row">
                             <div class="col-lg-3 col-6">
                                 <!-- small box -->

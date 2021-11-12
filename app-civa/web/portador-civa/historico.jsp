@@ -120,7 +120,7 @@
                                     <img src="../public/img/qrcode.png" alt="">
                                 </div>
                                 <div class="btn-group pl-2"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                                                    data-target="#modal-default">Download</button></div>
+                                                                    data-target="#modal-default">Visualizar</button></div>
                             </div>
                         </div>
                         <!-- ./card-body -->
@@ -162,7 +162,7 @@
                                     <img src="../public/img/qrcode.png" alt="">
                                 </div>
                                 <div class="btn-group pl-2"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                                                    data-target="#modal-default">Download</button></div>
+                                                                    data-target="#modal-default">Visualizar</button></div>
                             </div>
                         </div>
                         <!-- ./card-body -->

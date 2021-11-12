@@ -1,3 +1,21 @@
+<%@page import="model.Pessoa"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    // Transformando os dados que foram colocados na sessão
+    // em um objeto pessoa novamente
+    
+    Pessoa pessoa = (Pessoa) session.getAttribute("dados");
+   
+    // Verificando se o objeto pessoa não existe e se não é usuário
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("profissional-saude"))) {
+        // Caso for uma das duas opções
+        // Redicionar para o login
+        response.sendRedirect("../login/");
+
+    }
+    
+   // Caso contrário é um usuário válido, pode entrar na página  
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -115,7 +133,7 @@
                             </div>
                         </div>
 
-                        <!-- DADOS VACINAÇÃO -->
+                        <!-- DADOS VACINAÃÃO -->
                         <form class="row" id="form-painel-portador" >
                             <div class="col-12 mb-4">
                                 <div class="card card-primary">
@@ -171,7 +189,7 @@
                                                     <option selected disabled value="">Selecionar</option>
                                                     <option>Hospital Pan</option>
                                                     <option>Hospital Casa Italiano</option>
-                                                    <option>Hospital Federal do Andaraí</option>
+                                                    <option>Hospital Federal do AndaraÃ­</option>
                                                 </select>
                                             </div>
                                         </div>

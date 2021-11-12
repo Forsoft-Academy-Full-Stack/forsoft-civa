@@ -1,3 +1,21 @@
+<%@page import="model.Pessoa"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    // Transformando os dados que foram colocados na sessão
+    // em um objeto pessoa novamente
+    Pessoa pessoa = (Pessoa) session.getAttribute("dados");
+   
+    // Verificando se o objeto pessoa não existe e se não é usuário
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("supervisor"))) {
+        // Caso for uma das duas opções
+        // Redicionar para o login
+        response.sendRedirect("../login/");
+
+    }
+    
+   // Caso contrário é um usuário válido, pode entrar na página
+  
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -173,7 +191,7 @@
             <div class="modal-header">
               <h4 class="modal-title">Dados Salvo com sucesso!</h4>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">×</span>
+                <span aria-hidden="true">Ã</span>
               </button>
             </div>
             <div class="modal-body">

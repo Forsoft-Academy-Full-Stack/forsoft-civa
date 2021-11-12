@@ -1,3 +1,22 @@
+<%@page import="model.Pessoa"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    // Transformando os dados que foram colocados na sessão
+    // em um objeto pessoa novamente
+    
+    Pessoa pessoa = (Pessoa) session.getAttribute("dados");
+   
+    // Verificando se o objeto pessoa não existe e se não é usuário
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("gerente"))) {
+        // Caso for uma das duas opções
+        // Redicionar para o login
+        response.sendRedirect("../login/");
+
+    }
+    
+   // Caso contrário é um usuário válido, pode entrar na página
+  
+%>
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
@@ -56,8 +75,7 @@
                             <img src="${pageContext.request.contextPath}/public/img/no-user.svg" class="img-circle elevation-2" alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block">${dados.nome}</a>
-                            <a href="#" class="d-block">${dados.sobrenome}</a>
+                              <span class="d-block text-light">${dados.nome} ${dados.sobrenome}</span>
                         </div>
                     </div>
 

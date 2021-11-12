@@ -17,8 +17,7 @@
                      alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">${dados.nome}</a>
-                <a href="#" class="d-block">${dados.sobrenome}</a>
+               <span class="d-block text-light">${dados.nome} ${dados.sobrenome}</span>
             </div>
         </div>
 

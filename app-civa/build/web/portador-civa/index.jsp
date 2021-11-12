@@ -3,6 +3,7 @@
 <%
     // Transformando os dados que foram colocados na sessão
     // em um objeto pessoa novamente
+    
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
    
     // Verificando se o objeto pessoa não existe e se não é usuário
@@ -68,8 +69,7 @@
                                  alt="User Image">
                         </div>
                         <div class="info">
-                            <a href="#" class="d-block">${dados.nome}</a>
-                            <a href="#" class="d-block">${dados.sobrenome}</a>
+                            <span class="d-block text-light">${dados.nome} ${dados.sobrenome}</span>
                         </div>
                     </div>
 

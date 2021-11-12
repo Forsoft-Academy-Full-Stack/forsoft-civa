@@ -1,3 +1,23 @@
+<%@page import="model.Pessoa"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    // Transformando os dados que foram colocados na sessão
+    // em um objeto pessoa novamente
+    
+    Pessoa pessoa = (Pessoa) session.getAttribute("dados");
+   
+    // Verificando se o objeto pessoa não existe e se não é usuário
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-oms"))) {
+        // Caso for uma das duas opções
+        // Redicionar para o login
+        response.sendRedirect("../login/");
+
+    }
+    
+   // Caso contrário é um usuário válido, pode entrar na página
+  
+%>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -75,7 +95,7 @@
                                 <div class="modal-header">
                                     <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">×</span>
+                                        <span aria-hidden="true">Ã</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
@@ -110,7 +130,7 @@
 
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Documenta&ccedil;&atilde;o Cidadão</h3>
+                                        <h3 class="card-title">Documenta&ccedil;&atilde;o CidadÃ£o</h3>
                                     </div>
                                     <!-- /.card-header -->
                                     <!-- form start -->

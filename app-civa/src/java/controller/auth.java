@@ -126,7 +126,7 @@ public class auth extends HttpServlet {
             else if (login.getPerfil().equals("suporte-civa") && login.getSenha().equals("1234567")){
                 session.setAttribute("dados", pessoaSupervisor);
                 session.setAttribute("perfil", login.getPerfil());
-                response.sendRedirect("profissional-saude/");
+                response.sendRedirect("suporte-civa/");
                 
             }
             else if (login.getPerfil().equals("gestor-nacional") && login.getSenha().equals("12345678")){
