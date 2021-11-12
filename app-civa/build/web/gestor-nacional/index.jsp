@@ -96,7 +96,7 @@
             </div>
             <!-- /.content-wrapper -->
             <!-- Main Footer -->
-            <%@include file="../partials/footer.jspf" %>
+              <%@include file="footer.jspf"%>
         </div>
         <!-- ./wrapper -->
 

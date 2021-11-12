@@ -3,9 +3,9 @@
 <%
     // Transformando os dados que foram colocados na sessão
     // em um objeto pessoa novamente
-    
+
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-nacional"))) {
         // Caso for uma das duas opções
@@ -13,9 +13,9 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -46,7 +46,7 @@
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
 
-           <!-- Navbar --------------------------------------------->
+            <!-- Navbar --------------------------------------------->
             <%@include file="navbar.jspf" %>
             <!-- /.navbar ------------------------------------------------------->
 
@@ -68,10 +68,10 @@
                 <!-- /.content-header ---------------------------------------------->
 
 
-               <!-- Main content -->
+                <!-- Main content -->
                 <div class="content">
                     <div class="container-fluid">
-                      
+
                         <!-- CABECALHO DASHBORD -->
                         <div class="row">
                             <div class="col-lg-3 col-6">
@@ -648,18 +648,6 @@
                         </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
                         <!-- /.row -->
                     </div><!-- /.container-fluid -->
                 </div>
@@ -668,29 +656,8 @@
             <!-- /.content-wrapper -->
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
             <!-- Main Footer -->
-            <footer class="main-footer">
-                <!-- Default to the left -->
-                <strong>CIVA &copy; <a href="">Forsoft Academy</a>.</strong>
-            </footer>
+            <%@include file="footer.jspf"%>
         </div>
         <!-- ./wrapper -->
 

@@ -3,9 +3,9 @@
 <%
     // Transformando os dados que foram colocados na sessão
     // em um objeto pessoa novamente
-    
+
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-nacional"))) {
         // Caso for uma das duas opções
@@ -13,9 +13,9 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -53,13 +53,13 @@
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
 
-          <!-- Navbar --------------------------------------------->
+            <!-- Navbar --------------------------------------------->
             <%@include file="navbar.jspf" %>
             <!-- /.navbar ------------------------------------------------------->
 
             <!-- MENU Main Sidebar Container ------------------------------------>
             <%@include file="menu.jspf" %>
-            
+
             <!-- Content Wrapper. Contains page content -------------------------->
             <div class="content-wrapper">
                 <!-- Content Header (Page header) -->
@@ -185,10 +185,7 @@
 
             </div>
             <!-- Main Footer -->
-            <footer class="main-footer">
-                <!-- Default to the left -->
-                <strong>CIVA &copy; <a href="">Forsoft Academy</a>.</strong>
-            </footer>
+            <%@include file="footer.jspf"%>
 
             <!-- ./wrapper -->
 

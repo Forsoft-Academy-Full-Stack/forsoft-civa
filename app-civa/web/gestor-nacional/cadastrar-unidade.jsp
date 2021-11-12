@@ -173,19 +173,7 @@
                 <!-- /.content-wrapper -->
 
                 <!-- Main Footer -->
-                <footer class="main-footer">
-                    <!-- Default to the left -->
-                    <strong
-                        ><img
-                            src="./../public/img/icon-civa-footer-darkblue.svg"
-                            alt="logo civa"
-                            width="70px"
-                            />&nbsp by
-                        <a href="https://www.forsoftacademy.com.br/" target="_blank"
-                           >Forsoft Academy</a
-                        ></strong
-                    >
-                </footer>
+                 <%@include file="footer.jspf"%>
             </div>
             <!-- ./wrapper -->
 

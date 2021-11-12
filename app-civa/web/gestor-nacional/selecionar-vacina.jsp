@@ -3,9 +3,9 @@
 <%
     // Transformando os dados que foram colocados na sessão
     // em um objeto pessoa novamente
-    
+
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-nacional"))) {
         // Caso for uma das duas opções
@@ -13,9 +13,9 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -77,20 +77,13 @@
                 <!-- /.content-header ---------------------------------------------->
 
 
-
-
-
-
-
                 <!-- Main content -->
                 <div class="content">
                     <div class="container-fluid">
                         <!---------------------------------------------------------------->
 
-
                         <div class="row">
                             <div class="col-12">
-
 
                                 <div class="card card-primary">
                                     <div class="card-header">
@@ -144,6 +137,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    </form>
                                 </div>
                             </div>
 
@@ -151,7 +145,6 @@
                             <div class="col-12 mb-4">
                                 <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Cadastrar</button>
                             </div>
-
 
                             <!-- /.row -->
                         </div>
@@ -185,10 +178,7 @@
             </div>
             <!-- /.content-wrapper -->
             <!-- Main Footer -->
-            <footer class="main-footer">
-                <!-- Default to the left -->
-                <strong><img src="../public/img/icon-civa-footer-darkblue.svg" alt="logo civa" width="70px">&nbsp by <a href="https://www.forsoftacademy.com.br/" target="_blank">Forsoft Academy</a></strong>
-            </footer>
+            <%@include file="footer.jspf"%>
         </div>
 
         <!-- ./wrapper -->
@@ -199,30 +189,30 @@
         <script src="../public/plugins/jquery/jquery.min.js"></script>
         <!-- modal -->
         <script>
-                        function tratarCampos() {
-                            let erro = false;
-                            let campos = [];
+                                                function tratarCampos() {
+                                                    let erro = false;
+                                                    let campos = [];
 
-                            for (i = 0; i < campos.length; i++) {
-                                if (document.getElementById(campos[i]).value == '') {
-                                    erro = true;
-                                }
-                            }
+                                                    for (i = 0; i < campos.length; i++) {
+                                                        if (document.getElementById(campos[i]).value == '') {
+                                                            erro = true;
+                                                        }
+                                                    }
 
-                            if (erro) {
-                                alert('Todos os campos devem ser preenchidos!');
-                            } else {
-                                // Exibe o modal desejado, baseado no id definido.
-                                $('#modal-default').modal('show');
-                                console.log('funcionou');
-                                event.preventDefault();
+                                                    if (erro) {
+                                                        alert('Todos os campos devem ser preenchidos!');
+                                                    } else {
+                                                        // Exibe o modal desejado, baseado no id definido.
+                                                        $('#modal-default').modal('show');
+                                                        console.log('funcionou');
+                                                        event.preventDefault();
 
-                            }
+                                                    }
 
-                            return !erro;
-                        }
+                                                    return !erro;
+                                                }
 
-                        document.getElementById('form-meus-dados').onsubmit = tratarCampos;
+                                                document.getElementById('form-meus-dados').onsubmit = tratarCampos;
         </script>
         <!-- Bootstrap 4 -->
         <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

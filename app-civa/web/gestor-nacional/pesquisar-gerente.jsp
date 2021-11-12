@@ -3,9 +3,9 @@
 <%
     // Transformando os dados que foram colocados na sessão
     // em um objeto pessoa novamente
-    
+
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-nacional"))) {
         // Caso for uma das duas opções
@@ -13,9 +13,9 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -47,7 +47,7 @@
 
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
-          <!-- Navbar --------------------------------------------->
+            <!-- Navbar --------------------------------------------->
             <%@include file="navbar.jspf" %>
             <!-- /.navbar ------------------------------------------------------->
 
@@ -84,7 +84,6 @@
                 <div class="content">
                     <div class="container-fluid">
                         <!---------------------------------------------------------------->
-
 
                         <!-- PESQUISA E FILTRO -->
                         <div class="row">
@@ -125,8 +124,6 @@
 
                                             </div>
                                         </div>
-
-
 
                                     </div>
                                 </div>
@@ -215,10 +212,6 @@
                                             </tbody>
                                         </table>
 
-
-
-
-
                                     </div>
                                     <!-- /.card-body -->
 
@@ -249,12 +242,6 @@
                             </div>
                         </div>
 
-
-
-
-
-
-
                         <!-- /.row -->
                     </div>
                     <!-- /.container-fluid -->
@@ -264,22 +251,8 @@
             <!-- /.content-wrapper -->
 
 
-
-
-
-
-
-
-
-
-
-
-
             <!-- Main Footer -->
-            <footer class="main-footer">
-                <!-- Default to the left -->
-                <strong><img src="./../public/img/icon-civa-footer-darkblue.svg" alt="logo civa" width="70px">&nbsp by <a href="https://www.forsoftacademy.com.br/" target="_blank">Forsoft Academy</a></strong>
-            </footer>
+             <%@include file="footer.jspf"%>
         </div>
         <!-- ./wrapper -->
 
@@ -294,30 +267,30 @@
         <!-- Por Rodrigo Carlos -->
         <!-- pesquisa -->
         <script>
-                                                                function pesquisaNomes() {
-                                                                    let input, filter, table, tr, td, i, txtValue;
-                                                                    input = document.getElementById('search-table');
-                                                                    filter = input.value.toUpperCase();
-                                                                    table = document.getElementById("test-table");
-                                                                    tr = table.getElementsByTagName("tr");
+        function pesquisaNomes() {
+            let input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById('search-table');
+            filter = input.value.toUpperCase();
+            table = document.getElementById("test-table");
+            tr = table.getElementsByTagName("tr");
 
-                                                                    for (i = 0; i < tr.length; i++) {
-                                                                        td = tr[i].getElementsByTagName("td")[0];
-                                                                        if (td) {
-                                                                            txtValue = td.textContent || td.innerText;
-                                                                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                                                tr[i].style.display = "";
-                                                                            } else {
-                                                                                tr[i].style.display = "none";
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
+            for (i = 0; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[0];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+        }
         </script>
         <!-- tableSorter -->
         <script src="https://cdn.jsdelivr.net/tablesorter/2.17.4/js/jquery.tablesorter.min.js"></script>
         <script>
-                                                                $('#test-table').tablesorter();
+            $('#test-table').tablesorter();
         </script>
 
         <!-- AdminLTE App -->
@@ -326,9 +299,9 @@
         <script src="./../public/dist/js/demo.js"></script>
 
         <script>
-                                                                $(function () {
-                                                                    $('.select2').select2()
-                                                                });
+            $(function () {
+                $('.select2').select2()
+            });
         </script>
     </body>
 

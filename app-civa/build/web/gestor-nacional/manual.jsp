@@ -46,14 +46,8 @@
             <%@include file="navbar.jspf" %>
             <!-- /.navbar ------------------------------------------------------->
 
-
-
-
             <!-- MENU Main Sidebar Container ------------------------------------>
             <%@include file="menu.jspf" %>
-
-
-
 
             <!-- Content Wrapper. Contains page content -------------------------->
             <div class="content-wrapper">
@@ -76,12 +70,6 @@
                 </div>
                 <!-- /.content-header ---------------------------------------------->
 
-
-
-
-
-
-
                 <!-- Main content -->
                 <div class="content">
                     <div class="container-fluid">
@@ -102,31 +90,11 @@
                         </div>
 
 
-
                     </div><!-- /.container-fluid -->
                 </div>
                 <!-- /.content -->
             </div>
             <!-- /.content-wrapper -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
             <!-- Main Footer -->
             <%@include file="footer.jspf" %>
@@ -143,7 +111,6 @@
         <script src="./../public/dist/js/adminlte.min.js"></script>
         <!-- AdminLTE for demo purposes -->
         <script src="./../public/dist/js/demo.js"></script>
-
 
     </body>
 </html>

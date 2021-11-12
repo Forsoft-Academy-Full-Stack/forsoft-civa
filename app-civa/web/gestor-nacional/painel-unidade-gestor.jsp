@@ -3,9 +3,9 @@
 <%
     // Transformando os dados que foram colocados na sessão
     // em um objeto pessoa novamente
-    
+
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-nacional"))) {
         // Caso for uma das duas opções
@@ -13,9 +13,9 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -229,19 +229,7 @@
                 <!-- /.content-wrapper -->
 
                 <!-- Main Footer -->
-                <footer class="main-footer">
-                    <!-- Default to the left -->
-                    <strong
-                        ><img
-                            src="./../public/img/icon-civa-footer-darkblue.svg"
-                            alt="logo civa"
-                            width="70px"
-                            />&nbsp by
-                        <a href="https://www.forsoftacademy.com.br/" target="_blank"
-                           >Forsoft Academy</a
-                        ></strong
-                    >
-                </footer>
+                <%@include file="footer.jspf"%>
             </div>
             <!-- ./wrapper -->
 
@@ -259,34 +247,34 @@
             <script src="../public/dist/js/demo.js"></script>
 
             <script>
-                                function tratarCampos() {
-                                    let erro = false
-                                    let campos = []
+                                                function tratarCampos() {
+                                                    let erro = false
+                                                    let campos = []
 
-                                    for (i = 0; i < campos.length; i++) {
-                                        if (document.getElementById(campos[i]).value == '') {
-                                            erro = true
-                                        }
-                                    }
+                                                    for (i = 0; i < campos.length; i++) {
+                                                        if (document.getElementById(campos[i]).value == '') {
+                                                            erro = true
+                                                        }
+                                                    }
 
-                                    if (erro) {
-                                        alert('Todos os campos devem ser preenchidos!')
-                                    } else {
-                                        // Exibe o modal desejado, baseado no id definido.
-                                        $('#modal-default').modal('show')
-                                        console.log('funcionou')
-                                        event.preventDefault()
-                                    }
+                                                    if (erro) {
+                                                        alert('Todos os campos devem ser preenchidos!')
+                                                    } else {
+                                                        // Exibe o modal desejado, baseado no id definido.
+                                                        $('#modal-default').modal('show')
+                                                        console.log('funcionou')
+                                                        event.preventDefault()
+                                                    }
 
-                                    return !erro
-                                }
+                                                    return !erro
+                                                }
 
-                                document.getElementById('form-meus-dados').onsubmit = tratarCampos
+                                                document.getElementById('form-meus-dados').onsubmit = tratarCampos
             </script>
             <!-- tableSorter -->
             <script src="https://cdn.jsdelivr.net/tablesorter/2.17.4/js/jquery.tablesorter.min.js"></script>
             <script>
-                                $('#test-table').tablesorter()
+                                                $('#test-table').tablesorter()
             </script>
             <script>
                 $(function () {
