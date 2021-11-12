@@ -16,6 +16,12 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<!--Por favor não remover include nem head-->
+<!--a abertura do head é feita no header.jspf-->
+<!--Dessa forma fica menos poluído-->
+<!--os links e scripts base ficam nesse header.jspf-->
+<!--então aqui é chamado o js especifico para cada página -->
+<!--e por fim o head é fechado -->
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/idioma.js" defer></script>
 </head>
