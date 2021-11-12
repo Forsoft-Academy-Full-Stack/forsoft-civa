@@ -14,9 +14,8 @@
     }
     // Caso contrário é um usuário válido, pode entrar na página
 %>
-<%@include file="header.xhtml"%>
+<%@include file="header.jspf"%>
 <script src="../public/assets/js/vincular-unidade.js" defer></script>
-
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -262,7 +261,7 @@
         </div>
         <!-- /.content -->
         <!-- Main Footer -->
-        <%@include file="footer.xhtml"%>
+        <%@include file="footer.jspf"%>
     </div>
     <!-- /.content-wrapper -->
 

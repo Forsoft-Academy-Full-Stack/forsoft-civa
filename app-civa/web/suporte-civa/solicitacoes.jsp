@@ -16,10 +16,8 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%@include file="header.xhtml"%>
+<%@include file="header.jspf"%>
 <script src="../public/assets/js/solicitacoes.js" defer></script>
-
-
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -53,18 +51,10 @@
             </div>
             <!-- /.content-header ---------------------------------------------->
 
-
-
-
-
-
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-
-
 
                     <div class="row">
                         <div class="col-sm-12 col-md-6 w-100">
@@ -86,8 +76,6 @@
                                 <div class="d-flex justify-content-between align-items-center mx-3 mb-3">
                                     <button type="button" onclick="cancelarSolicitacao()" class="btn btn-outline-danger">Cancelar
                                         solicita&ccedil;&atilde;o</button>
-
-
                                 </div>
                             </div>
                         </div>
@@ -160,11 +148,8 @@
                                 </div>
                             </div>
                         </div>
-
 
                     </div>
-
-
 
                 </div><!-- /.container-fluid -->
             </div>
@@ -173,7 +158,7 @@
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-        <%@include file="footer.xhtml"%>
+        <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
 

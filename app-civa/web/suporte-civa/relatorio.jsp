@@ -16,8 +16,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%@include file="header.xhtml"%>
-
+<%@include file="header.jspf"%>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -126,7 +125,7 @@
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-        <%@include file="footer.xhtml"%>
+        <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
 </body>

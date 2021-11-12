@@ -4,7 +4,7 @@
     // Transformando os dados que foram colocados na sessão
     // em um objeto pessoa novamente
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("suporte-civa"))) {
         // Caso for uma das duas opções
@@ -12,18 +12,18 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
-<%@include file="header.xhtml"%>
-    <script src="../public/assets/js/gerenciar-unidade.js" defer></script>
+<%@include file="header.jspf"%>
+<script src="../public/assets/js/gerenciar-unidade.js" defer></script>
 
 </head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-<!-- Navbar --------------------------------------------->
+        <!-- Navbar --------------------------------------------->
         <%@include file="navbar.jspf" %>
         <!-- /.navbar ------------------------------------------------------->
 
@@ -65,12 +65,12 @@
                                     <h3 class="card-title">Dados Unidade</h3>
                                 </div>
                                 <!-- /.card-header -->
-                              
+
                                 <form id="form-meus-dados">
                                     <div class="card-body">
                                         <%@ include file="../partials/dados-unidade-disabled.jspf" %>
                                         <hr>
-                                       <%@ include file="../partials/enderecos-disabled.jspf" %>
+                                        <%@ include file="../partials/enderecos-disabled.jspf" %>
                                         <hr>
                                         <%@ include file="../partials/contatos-unidade-disabled.jspf" %>
                                     </div>
@@ -82,99 +82,99 @@
                     </div>
                     <!-- /.row -->
 
-                       <!-- TABELA VACINAS -->
-                <div class="row">
-                    <div class="col-12 mb-4">
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">Profissionais vinculados</h3>
+                    <!-- TABELA VACINAS -->
+                    <div class="row">
+                        <div class="col-12 mb-4">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Profissionais vinculados</h3>
 
-                                <div class="card-tools">
-                                    <div class="input-group input-group-sm" style="width: 150px;">
+                                    <div class="card-tools">
+                                        <div class="input-group input-group-sm" style="width: 150px;">
 
-                                        <div class="input-group-append">
+                                            <div class="input-group-append">
 
 
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table class="table table-hover text-nowrap">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Identidade</th>
+                                                <th>C&oacute;digo Civa</th>
+
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Maria Souza da Silva</td>
+                                                <td>123.159.875-05</td>
+                                                <td>BRA5521123456789</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Maria Souza da Silva</td>
+                                                <td>123.159.875-05</td>
+                                                <td>BRA5521123456789</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Maria Souza da Silva</td>
+                                                <td>123.159.875-05</td>
+                                                <td>BRA5521123456789</td>
+
+                                            </tr>
+                                            <tr>
+                                                <td>Maria Souza da Silva</td>
+                                                <td>123.159.875-05</td>
+                                                <td>BRA5521123456789</td>
+
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <!-- /.card-body -->
                             </div>
-                            <!-- /.card-header -->
-                            <div class="card-body table-responsive p-0">
-                                <table class="table table-hover text-nowrap">
-                                    <thead>
-                                        <tr>
-                                            <th>Nome</th>
-                                            <th>Identidade</th>
-                                            <th>C&oacute;digo Civa</th>
-
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Maria Souza da Silva</td>
-                                            <td>123.159.875-05</td>
-                                            <td>BRA5521123456789</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Maria Souza da Silva</td>
-                                            <td>123.159.875-05</td>
-                                            <td>BRA5521123456789</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Maria Souza da Silva</td>
-                                            <td>123.159.875-05</td>
-                                            <td>BRA5521123456789</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Maria Souza da Silva</td>
-                                            <td>123.159.875-05</td>
-                                            <td>BRA5521123456789</td>
-
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <!-- /.card-body -->
                         </div>
                     </div>
-                </div>
 
-                <div class="row">
-                    <div class="col-12 mb-4 ">
-                        <button type="submit" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
+                    <div class="row">
+                        <div class="col-12 mb-4 ">
+                            <button type="submit" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
+                        </div>
                     </div>
-                </div>
 
                 </div>
 
-             
+
 
             </div>
             <!-- modal -->
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Dados alterados com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">Ã</span>
+            <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Dados alterados com sucesso!</h4>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">Ã</span>
                             </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
-                            </div>
                         </div>
-                        <!-- /.modal-content -->
+                        <div class="modal-body">
+                            <p></p>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
+                        </div>
                     </div>
-                    <!-- /.modal-dialog -->
+                    <!-- /.modal-content -->
                 </div>
+                <!-- /.modal-dialog -->
+            </div>
             <!-- modal erro -->
             <div class="modal fade" id="modal-default2" style="display: none;" aria-hidden="true">
                 <div class="modal-dialog">
@@ -200,7 +200,7 @@
         </div>
         <!-- /.content -->
         <!-- Main Footer -->
-     <%@include file="footer.xhtml"%>
+       <%@include file="footer.jspf"%>
     </div>
     <!-- /.content-wrapper -->
     <!-- ./wrapper -->

@@ -17,7 +17,7 @@
 
 %>
 
-<%@include file="header.xhtml"%>
+<%@include file="header.jspf"%>
 <script src="../public/assets/js/cadastrar-unidade.js" defer></script>
 
 </head>
@@ -44,7 +44,7 @@
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
+                                <li class="breadcrumb-item"><a href="./">Voltar</a></li>
                                 <li class="breadcrumb-item active">Cadastrar Unidade</li>
                             </ol>
                         </div>
@@ -149,7 +149,7 @@
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-        <%@include file="footer.xhtml"%>
+        <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
 

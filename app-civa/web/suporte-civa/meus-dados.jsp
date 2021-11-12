@@ -16,10 +16,8 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%@include file="header.xhtml"%>
+<%@include file="header.jspf"%>
 <script src="../public/assets/js/meus-dados-suporte-civa.js" defer></script>
-
-
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -80,7 +78,6 @@
                                     </div>
 
                                 </form>
-
 
                                 <!-- /.card-header -->
                                 <!-- form start -->
@@ -163,10 +160,6 @@
                     </div>
                 </div>
 
-
-
-
-
             </div>
             <!-- /.container-fluid -->
             <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
@@ -192,7 +185,7 @@
             </div>
         </div>
         <!-- /.content -->
-        <%@include file="footer.xhtml"%>
+        <%@include file="footer.jspf"%>
     </div>
     <!-- /.content-wrapper -->
 

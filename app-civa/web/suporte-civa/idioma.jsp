@@ -4,7 +4,7 @@
     // Transformando os dados que foram colocados na sessão
     // em um objeto pessoa novamente
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("suporte-civa"))) {
         // Caso for uma das duas opções
@@ -12,21 +12,18 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
-<%@include file="header.xhtml"%>
+<%@include file="header.jspf"%>
 <script src="../public/assets/js/idioma.js" defer></script>
-
-
-
 </head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
-     <!-- Navbar --------------------------------------------->
+        <!-- Navbar --------------------------------------------->
         <%@include file="navbar.jspf" %>
         <!-- /.navbar ------------------------------------------------------->
 
@@ -90,7 +87,7 @@
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-        <%@include file="footer.xhtml"%>
+       <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
 
