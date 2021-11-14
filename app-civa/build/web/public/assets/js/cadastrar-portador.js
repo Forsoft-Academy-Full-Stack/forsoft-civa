@@ -1,4 +1,4 @@
-$('.select2').select2();
+    $('.select2').select2();
 
 let campos = ["name", "surname", "date-birth",
      "nacionalidade", "genero", "pais",

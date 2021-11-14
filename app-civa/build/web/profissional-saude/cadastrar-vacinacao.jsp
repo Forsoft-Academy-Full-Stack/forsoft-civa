@@ -11,30 +11,22 @@
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
 </head>
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
-
         <!-- Navbar --------------------------------------------->
         <%@ include file="./navbar.jspf" %>
-
-
-
 
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@ include file="menu.jspf" %>
         <!-- /.sidebar ------------------------------------------------------>
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
-
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
@@ -51,12 +43,10 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-
                     <!-- DADOS PORTADOR -->
                     <div class="row">
                         <div class="col-12">
@@ -92,7 +82,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- DADOS VACINAÃÃO -->
                     <form class="row" id="form-painel-portador" >
                         <div class="col-12 mb-4">
@@ -158,26 +147,21 @@
                         </div>
                         <!-- /.row -->
                     </form>
-
                     <div class="row">
                         <div class="col-12 mb-4">
                             <button type="button" class="btn btn-primary btn-lg" id="cadastro">Cadastrar</button>
                         </div>
                     </div>
-
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
-
         <!-- Main Footer -->
         <%@ include file="footer.jspf" %>
         <!-- ./footer -->
     </div>
     <!-- ./wrapper -->
 </body>
-
 </html>

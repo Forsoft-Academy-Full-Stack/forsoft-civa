@@ -11,18 +11,15 @@
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
 </head>
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
-      
         <!-- Navbar --------------------------------------------->
         <%@ include file="./navbar.jspf" %>
 
@@ -49,7 +46,6 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header ---------------------------------------------->
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
@@ -69,7 +65,6 @@
                             </form>
                         </div>
                     </div>
-
                     <!-- DADOS PORTADOR -->
                     <div class="row mb-3">
                         <div class="col-12">
@@ -91,7 +86,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- TABELA VACINAS -->
                     <div class="row">
                         <div class="col-12">
@@ -168,7 +162,6 @@
     </div>
     <!-- ./wrapper -->
 
-
     <script>
         let form = $("#vacinacao-internacional");
         $("#cadastro").click(function () {
@@ -212,5 +205,4 @@
         });
     </script>
 </body>
-
 </html>

@@ -5,13 +5,12 @@
     // em um objeto pessoa novamente
     
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+ 
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("profissional-saude"))) {
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
     
    // Caso contrário é um usuário válido, pode entrar na página  
@@ -19,9 +18,6 @@
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/cadastrar-vacinacao-internacional.js" async></script>
  </head>
-
-
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
@@ -29,13 +25,11 @@
         <%@ include file="./navbar.jspf" %>
         <!-- /.navbar ------------------------------------------------------->
 
-
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@ include file="menu.jspf" %>
         <!-- /.sidebar ------------------------------------------------------>
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
-
 
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -53,13 +47,10 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-
                     <!-- DADOS VACINA&ccedil;&atilde;O -->
                     <div class="row">
                         <div class="col-12">
@@ -93,7 +84,6 @@
                             </div>
                         </div>
                     </div>
-
 
                     <!-- DADOS VACINA&ccedil;&atilde;O -->
                     <form class="row" id="form-cad-vacinacao">
@@ -159,26 +149,21 @@
                             </div>
                         </div>
                     </form>
-
                     <!-- /.row -->
-
                     <div class="row">
                         <div class="col-12 mb-4">
                             <button class="btn btn-primary btn-lg" id="cadastrar">Cadastrar</button>
                         </div>
                     </div>
-
                 </div>
                 <!-- /.content -->
             </div>
             <!-- /.content- -->
         </div>
         <!-- /.wrapper -->
-
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
         <!-- ./footer -->
         <!-- ./wrapper -->
 </body>
-
 </html>

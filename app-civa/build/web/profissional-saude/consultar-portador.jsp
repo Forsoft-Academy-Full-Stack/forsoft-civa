@@ -11,14 +11,12 @@
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
     
    // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
 </head>
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
       
@@ -48,7 +46,6 @@
                 </div>
                 <!-- /.container-fluid -->
             </div>
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
@@ -80,7 +77,6 @@
                                                     </div>
                                                 </div>
                                             </div>
-
                                             <div class="col-2">
                                                 <div class="btn-group">
                                                     <button type="button" id="button-addon3" name="button-addon3"
@@ -97,7 +93,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- TABELA -->
                     <div class="row">
                         <div class="col-12">
@@ -186,7 +181,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- PAGINA&Ccedil;&Atilde;O -->
                     <div class="row">
                         <div class="col-6">
@@ -198,21 +192,34 @@
                                            class="page-link">Anterior</a>
                                     </li>
 
-                                    <li class="paginate_button page-item active"><a href="#" aria-controls="example2"
-                                                                                    data-dt-idx="1" tabindex="0" class="page-link">1</a></li>
-                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                                                              data-dt-idx="2" tabindex="0" class="page-link">2</a></li>
-                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                                                              data-dt-idx="3" tabindex="0" class="page-link">3</a></li>
-                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                                                              data-dt-idx="4" tabindex="0" class="page-link">4</a></li>
-                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                                                              data-dt-idx="5" tabindex="0" class="page-link">5</a></li>
-                                    <li class="paginate_button page-item "><a href="#" aria-controls="example2"
-                                                                              data-dt-idx="6" tabindex="0" class="page-link">6</a></li>
-                                    <li class="paginate_button page-item next" id="example2_next"><a href="#"
-                                                                                                     aria-controls="example2" data-dt-idx="7" tabindex="0"
-                                                                                                     class="page-link">Pr&oacute;ximo</a></li>
+                                    <li class="paginate_button page-item active">
+                                        <a href="#" aria-controls="example2"data-dt-idx="1" tabindex="0" 
+                                           class="page-link">1</a>
+                                    </li>
+                                    <li class="paginate_button page-item ">
+                                        <a href="#" aria-controls="example2"data-dt-idx="2" tabindex="0" 
+                                           class="page-link">2</a>
+                                    </li>
+                                    <li class="paginate_button page-item ">
+                                        <a href="#" aria-controls="example2"data-dt-idx="3" tabindex="0" 
+                                                                              class="page-link">3</a>
+                                    </li>
+                                    <li class="paginate_button page-item ">
+                                        <a href="#" aria-controls="example2"data-dt-idx="4" tabindex="0" 
+                                                                              class="page-link">4</a>
+                                    </li>
+                                    <li class="paginate_button page-item ">
+                                        <a href="#" aria-controls="example2"data-dt-idx="5" tabindex="0" 
+                                                                              class="page-link">5</a>
+                                    </li>
+                                    <li class="paginate_button page-item ">
+                                        <a href="#" aria-controls="example2"data-dt-idx="6" tabindex="0" 
+                                           class="page-link">6</a>
+                                    </li>
+                                    <li class="paginate_button page-item next" id="example2_next">
+                                        <a href="#"aria-controls="example2" data-dt-idx="7" tabindex="0"
+                                            class="page-link">Pr&oacute;ximo</a>
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -224,12 +231,9 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
-
 </body>
-
 </html>

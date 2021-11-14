@@ -3,7 +3,6 @@
 <%
     // Transformando os dados que foram colocados na sessão
     // em um objeto pessoa novamente
-
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
 
     // Verificando se o objeto pessoa não existe e se não é usuário
@@ -11,7 +10,6 @@
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
 
     // Caso contrário é um usuário válido, pode entrar na página  
@@ -19,17 +17,14 @@
 <%@include file="header.jspf"%>
 
 </head>
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
         <!-- Navbar --------------------------------------------->
         <%@ include file="./navbar.jspf" %>
 
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@ include file="menu.jspf" %>
         <!-- /.sidebar ------------------------------------------------------>
-
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -39,7 +34,6 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Solicita&ccedil;&otilde;es pendentes</h1>
                         </div><!-- /.col -->
-
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
@@ -50,12 +44,10 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header ---------------------------------------------->
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-
                     <div class="row">
                         <div class="col-sm-12 col-md-6 w-100">
                             <div class="card">
@@ -69,7 +61,6 @@
                                             voluptates, molestias dolores accusamus quisquam!
                                         </p>
                                     </div>
-
                                     <p class="mt-2">Data solicita&ccedil;&atilde;o: 01/01/2021 </p>
                                 </div>
                                 <hr>
@@ -145,13 +136,11 @@
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
         <!-- Main Footer -->
         <%@ include file="footer.jspf" %>
         <!-- ./footer -->
     </div>
     <!-- ./wrapper -->
-
 
     <script>
         $(function () {
@@ -182,7 +171,5 @@
             })
         }
     </script>
-
 </body>
-
 </html>

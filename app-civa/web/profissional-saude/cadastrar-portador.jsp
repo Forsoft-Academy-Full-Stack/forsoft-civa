@@ -11,23 +11,18 @@
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
-
+    
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
 <script src="./../public/assets/js/cadastrar-portador.js" defer></script>
 </head>
-
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
         <!-- Navbar --------------------------------------------->
         <%@ include file="./navbar.jspf" %>
         <!-- /.navbar ------------------------------------------------------->
-
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@ include file="menu.jspf" %>
         <!-- TERMINO DO MENU LATERAL -->
@@ -40,7 +35,6 @@
                             <h1 class="m-0">Cadastrar Portador</h1>
                         </div>
                         <!-- /.col -->
-
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="../index.jsp">Voltar</a></li>
@@ -62,40 +56,28 @@
                                 <div class="card card-primary">
                                     <!-- cards -->
                                     <div class="card-header">
-                                        <!-- /.cardheader -->
                                         <h3 class="card-title">Dados Portador</h3>
-                                    </div>
-                                    <!-- /.cardheader -->
+                                    </div>                                
                                     <!-- Incio do form -->
                                     <form id="form-meus-dados">
                                         <div class="card-body">
-
                                             <%@ include file="../partials/dadospessoais-cadastro.jspf" %>
                                             <hr>
                                             <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                             <hr>
                                             <%@ include file="../partials/contatos-cadastro.jspf" %>
-
                                         </div>
-
                                     </form>
                                     <!-- /.form ending -->
                                 </div>
                                 <!-- /.cards -->
                             </div>
-
                             <div class="col-12 mb-4 ">
                                 <button type="button" class="btn btn-primary btn-lg" id="salvar">Cadastrar</button>
                             </div>
-
                         </div>
-
-
-
-
                         <!-- /.row -->
                     </div>
-
                     <!-- /.col -->
                 </div>
                 <!-- /.row -->
@@ -146,14 +128,10 @@
             </div>
             <!-- /.modal-dialog -->
         </div>
-
         <!-- Main Footer -->
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
-
     </div>
     <!-- ./wrapper -->
-
 </body>
-
 </html>

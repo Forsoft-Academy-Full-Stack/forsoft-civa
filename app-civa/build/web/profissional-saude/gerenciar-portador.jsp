@@ -11,7 +11,6 @@
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
 
     // Caso contrário é um usuário válido, pode entrar na página  
@@ -20,10 +19,8 @@
 <%@include file="header.jspf"%>
 <script src="./../public/assets/js/painel_portador.js" defer></script>
 </head>
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
         <!-- Navbar --------------------------------------------->
         <nav class="main-header navbar navbar-expand navbar-white navbar-light">
             <!-- Left navbar links -->
@@ -39,14 +36,11 @@
             </ul>
         </nav>
         <!-- /.navbar ------------------------------------------------------->
-
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@ include file="menu.jspf" %>
         <!-- /.sidebar ------------------------------------------------------>
-
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
-
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
@@ -63,12 +57,10 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-
                     <!-- DADOS PORTADOR -->
                     <div class="row">
                         <div class="col-12">
@@ -85,26 +77,22 @@
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
                                         <hr>
                                         <%@ include file="../partials/contatos-disabled.jspf" %>
-
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
                     <!-- /.row -->
-
                     <!-- HISTORICO DE VACINA&ccedil;&atilde;O -->
                     <div class="row">
                         <div class="col-12 mb-4">
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h3 class="card-title">Hist&oacute;rico de vacina&ccedil;&atilde;o</h3>
-
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">
 
                                             <div class="input-group-append">
-
 
                                             </div>
                                         </div>
@@ -161,26 +149,22 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-12 mb-4">
                             <button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button>
                         </div>
                     </div>
-
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
         <!-- Main Footer -->
         <%@ include file="footer.jspf" %>
         <!-- ./footer -->
     </div>
     <!-- ./wrapper -->
-
     <script>
         $(function () {
             $('.select2').select2()
@@ -238,7 +222,5 @@
         });
 
     </script>
-
 </body>
-
 </html>

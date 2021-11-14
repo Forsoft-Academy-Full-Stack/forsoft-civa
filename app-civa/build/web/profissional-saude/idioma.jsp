@@ -11,17 +11,15 @@
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
+<script src="../public/assets/js/profissional-saude/idioma.js" defer></script>
 </head>
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-
         <!-- Navbar --------------------------------------------->
         <%@ include file="./navbar.jspf" %>
 
@@ -38,7 +36,6 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Mudar idioma</h1>
                         </div><!-- /.col -->
-
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
@@ -49,12 +46,10 @@
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header ---------------------------------------------->
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-
                     <form class="row" id="idioma">
                         <div class="col-12">
                             <div class="card">
@@ -71,14 +66,12 @@
                             </div>
                         </div>
                     </form>
-
                     <div class="row">
                         <div class="col-12 mb-4">
                             <button type="button" class="btn btn-primary btn-lg" id="salvar-alteracao">Salvar
                                 altera&ccedil;&atilde;o</button>
                         </div>
                     </div>
-
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content -->
@@ -90,61 +83,5 @@
         <!-- ./footer -->
     </div>
     <!-- ./wrapper -->
-
-    <script>
-        $(function () {
-            $('.select2').select2()
-        });
-
-
-        let form = $("#idioma");
-        $("#salvar-alteracao").click(function () {
-
-            $.get("", form.serialize(), (data, status) => {
-                if (status === 'success') {
-
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-start',
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
-
-                    Toast.fire({
-                        icon: 'success',
-                        title: 'Idioma alterado'
-                    })
-
-                } else {
-                    console.log("Ops... Algum erro ocorreu e seus dados n&atilde;o foram enviados :(");
-
-                    const Toast = Swal.mixin({
-                        toast: true,
-                        position: 'top-start',
-                        showConfirmButton: false,
-                        timer: 3000,
-                        timerProgressBar: true,
-                        didOpen: (toast) => {
-                            toast.addEventListener('mouseenter', Swal.stopTimer)
-                            toast.addEventListener('mouseleave', Swal.resumeTimer)
-                        }
-                    })
-
-                    Toast.fire({
-                        icon: 'error',
-                        title: 'Idioma n&atilde;o foi alterado'
-                    })
-                }
-            });
-        });
-
-    </script>
-
 </body>
-
 </html>

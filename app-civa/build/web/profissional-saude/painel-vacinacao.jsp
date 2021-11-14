@@ -11,19 +11,16 @@
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
 </head>
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
  <!-- Navbar --------------------------------------------->
         <%@ include file="./navbar.jspf" %>
-
 
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@ include file="menu.jspf" %>
@@ -31,7 +28,6 @@
 
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
-
             <!-- Content Header (Page header) -->
             <div class="content-header">
                 <div class="container-fluid">
@@ -48,7 +44,6 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
@@ -87,7 +82,6 @@
                             </div>
                         </div>
                     </div>
-
                     <!-- DADOS VACINA&ccedil;&atildeO -->
                     <form class="row" id="form-painel-vacinacao" >
                         <div class="col-12 mb-4">
@@ -168,16 +162,6 @@
                                             <input type="text" class="form-control" id="lote" name="lote" value="12412412-21" disabled>
                                         </div>
                                     </div>
-
-                                    <!--<div class="d-flex justify-content-between align-items-center">
-                                      <div id="toggle-user">
-                                       <div class="custom-control custom-switch">
-                                          <input type="checkbox" class="custom-control-input bg-success" id="customSwitch2" checked>
-                                          <label class="custom-control-label" for="customSwitch2"></label><b
-                                            class="text-primary">ATIVADO</b>
-                                        </div>
-                                      </div>
-                                    </div>-->
                                 </div>
                             </div>
                         </div>
@@ -188,8 +172,6 @@
                             <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
                         </div>
                     </div>
-
-
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -202,7 +184,6 @@
         <!-- ./footer -->
     </div>
     <!-- ./wrapper -->
-
     <script>
         $(function () {
             $('.select2').select2()
@@ -248,9 +229,6 @@
             }
         });
 
-
-
     </script>
 </body>
-
 </html>

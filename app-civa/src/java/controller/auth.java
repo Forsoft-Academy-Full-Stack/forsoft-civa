@@ -98,8 +98,7 @@ public class auth extends HttpServlet {
             // Para a página do ator adequado
             // Sempre redirecionar para o index.jsp
             
-            if ( login.getPerfil().equals("usuario") && login.getSenha().equals("123") ) {  
-                
+            if ( login.getPerfil().equals("usuario") && login.getSenha().equals("123") ) {
                 session.setAttribute("dados", pessoaPortadorCiva);
                 session.setAttribute("perfil", login.getPerfil());
                 response.sendRedirect("portador-civa/");

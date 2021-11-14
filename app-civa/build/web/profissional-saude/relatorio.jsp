@@ -11,7 +11,6 @@
         // Caso for uma das duas opções
         // Redicionar para o login
         response.sendRedirect("../login/");
-
     }
 
     // Caso contrário é um usuário válido, pode entrar na página  
@@ -19,7 +18,6 @@
 <%@include file="header.jspf"%>
 
 </head>
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar --------------------------------------------->
@@ -47,12 +45,10 @@
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-
                     <!-- CABE&ccedil;ALHO INFORMA&ccedil;&otilde;ES -->
                     <div class="row">
                         <div class="col-lg-3 col-6">
@@ -116,20 +112,16 @@
                         </div>
                         <!-- ./col -->
                     </div>
-
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
         <!-- Main Footer -->
         <%@ include file="footer.jspf" %>
         <!-- ./footer -->
-
     </div>
     <!-- ./wrapper -->
 </body>
-
 </html>
