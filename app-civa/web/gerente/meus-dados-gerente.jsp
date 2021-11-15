@@ -17,7 +17,7 @@
    // Caso contrário é um usuário válido, pode entrar na página
   
 %>
-<%@include file="header.xhtml"%>
+<%@include file="header.jspf"%>
 <script src="./../public/assets/js/cadastrar-supervisor.js" defer></script>
 </head>
 
@@ -101,8 +101,6 @@
         <%@ include file="../partials/gerente/footer.jspf" %>
     </div>
     <!-- ./wrapper -->
-
-    <!-- REQUIRED SCRIPTS ------------------------------------------------------->
 
 </body>
 

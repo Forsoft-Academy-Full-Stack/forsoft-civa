@@ -17,6 +17,7 @@
 %>
 <%@include file="header.jspf"%>
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
@@ -161,48 +162,5 @@
         <!-- ./footer -->
     </div>
     <!-- ./wrapper -->
-
-    <script>
-        let form = $("#vacinacao-internacional");
-        $("#cadastro").click(function () {
-
-            if (tratar_campos()) {
-                $.get("", form.serialize(), (data, status) => {
-                    if (status === 'success') {
-                        //$('#exampleModal').modal('hide');
-                        //$('#exampleModal2').modal('show');
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Cadastro realizado com sucesso!',
-                            confirmButtonText: 'Finalizar',
-                            confirmButtonColor: '#007bff'
-                        });
-
-                        console.log("Dados enviados com sucesso :) !");
-                        // Limpando os campos do modal de altera&ccedil;&atilde;o e confirma&ccedil;&atilde;o de senha ap&oacute;s o envio
-                        //$('#exampleModal').find("#confirm-password").val("");
-                        //$('#exampleModal').find("#message-text").val("");
-                    } else {
-                        // Abrir Modal informando o erro
-                        // Por enquanto mostrar=ndo somente com o console.log()
-                        console.log("Ops... Algum erro ocorreu e seus dados n&atilde;o foram enviados :(");
-                        //$('#exampleModal').modal('hide');
-
-                        Swal.fire({
-                            icon: 'error',
-                            title: '',
-                            text: 'Ops... Algum erro ocorreu e seus dados n&atilde;o foram enviados :(!',
-                            confirmButtonText: 'Finalizar'
-                                    //confirmButtonColor: '#007bff'
-                        });
-
-                        //$('#exampleModal').find("#confirm-password").val("");
-                        //$('#exampleModal').find("#message-text").val("");
-
-                    }
-                });
-            }
-        });
-    </script>
 </body>
 </html>

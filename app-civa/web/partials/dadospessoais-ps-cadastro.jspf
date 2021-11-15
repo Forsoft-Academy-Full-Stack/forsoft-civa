@@ -1,94 +1,94 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-                    <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="name">Nome</label>
-                                                <input type="text" id="name" name="name" class="form-control"
-                                                    placeholder="Jo&atilde;o">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="surname">Sobrenome</label>
-                                                <input type="text" id="surname" name="surname" class="form-control"
-                                                    placeholder="Silva">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="genero">G&ecirc;nero</label>
-                                                <select id="genero" name="genero" class="form-control select2 select2-hidden-accessible"
-                                                    style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                    <option selected value="" selected disabled>Selecionar G&ecirc;nero
-                                                    </option>
-                                                    <option value="3">Homem cis</option>
-                                                    <option value="4">Mulher cis</option>
-                                                    <option value="5">Homem Trans</option>
-                                                    <option value="6">Mulher Trans</option>
-                                                    <option value="7">Outro</option>
-                                                    <option value="8">Prefiro n&atilde;o declarar</option>
-                                                </select>
-                                            </div>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="name">Nome</label>
+        <input type="text" id="name" name="name" class="form-control"
+               placeholder="Jo&atilde;o">
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="surname">Sobrenome</label>
+        <input type="text" id="surname" name="surname" class="form-control"
+               placeholder="Silva">
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="genero">G&ecirc;nero</label>
+        <select id="genero" name="genero" class="form-control select2 select2-hidden-accessible"
+                style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option selected value="" selected disabled>Selecionar G&ecirc;nero
+            </option>
+            <option value="3">Homem cis</option>
+            <option value="4">Mulher cis</option>
+            <option value="5">Homem Trans</option>
+            <option value="6">Mulher Trans</option>
+            <option value="7">Outro</option>
+            <option value="8">Prefiro n&atilde;o declarar</option>
+        </select>
+    </div>
 
-                                            <div class="form-group col-xl-6">
-                                                <label for="date-birth">Data de Nascimento</label>
-                                                <input type="date" id="date-birth" name="date-birth"
-                                                    class="form-control" value="">
-                                            </div>
-                                        </div>
+    <div class="form-group col-xl-6">
+        <label for="date-birth">Data de Nascimento</label>
+        <input type="date" id="date-birth" name="date-birth"
+               class="form-control" value="">
+    </div>
+</div>
 
-                                        <div class="row">
-                                            <div class="form-group col-xl-12">
-                                                <label for="nacionalidade">Nacionalidade</label>
-                                                <select class="form-control select2 select2-hidden-accessible"
-                                                    style="width: 100%;" tabindex="-1" aria-hidden="true"
-                                                    id="nacionalidade" name="nacionalidade">
-                                                    <option selected value="" selected disabled>Selecionar Nacionalidade
-                                                    </option>
-                                                </select>
-                                            </div>
-                                        </div>
+<div class="row">
+    <div class="form-group col-xl-12">
+        <label for="nacionalidade">Nacionalidade</label>
+        <select class="form-control select2 select2-hidden-accessible"
+                style="width: 100%;" tabindex="-1" aria-hidden="true"
+                id="nacionalidade" name="nacionalidade">
+            <option selected value="" selected disabled>Selecionar Nacionalidade
+            </option>
+        </select>
+    </div>
+</div>
 
 
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="tipo-doc-1">Tipo de Documento</label>
-                                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                                                    tabindex="-1" aria-hidden="true" id="tipo-doc-1" name="tipo-doc-1">
-                                                    <option selected value="passaporte">Passaporte</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="doc-1">Documenta&ccedil;&atilde;o</label>
-                                                <input type="text" id="doc-1" name="doc-1" class="form-control"
-                                                    placeholder="3123123">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="tipo-doc-2">Tipo de Documento</label>
-                                                <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
-                                                    tabindex="-1" aria-hidden="true" id="tipo-doc-2" name="tipo-doc-2">
-                                                    <option selected value="passaporte">Passaporte</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="doc-2">Documenta&ccedil;&atilde;o 2</label>
-                                                <input type="text" id="doc-2" name="doc-2" class="form-control"
-                                                    placeholder="BR12345678">
-                                            </div>
-                                        </div>
-                                        
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="tipo-doc-3">Tipo de Documento</label>
-                                                <select class="form-control    select2 select2-hidden-accessible" style="width: 100%;"
-                                                    tabindex="-1" aria-hidden="true" id="tipo-doc-3" name="tipo-doc-3">
-                                                    <option selected value="passaporte">Passaporte</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="doc-3">Documenta&ccedil;&atilde;o 3</label>
-                                                <input type="text" id="doc-3" name="doc-3" class="form-control"
-                                                    placeholder="BR12345678">
-                                            </div>
-                                        </div>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="tipo-doc-1">Tipo de Documento</label>
+        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                tabindex="-1" aria-hidden="true" id="tipo-doc-1" name="tipo-doc-1">
+            <option selected value="passaporte">Passaporte</option>
+        </select>
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="doc-1">Documenta&ccedil;&atilde;o</label>
+        <input type="text" id="doc-1" name="doc-1" class="form-control"
+               placeholder="3123123">
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="tipo-doc-2">Tipo de Documento</label>
+        <select class="form-control select2 select2-hidden-accessible" style="width: 100%;"
+                tabindex="-1" aria-hidden="true" id="tipo-doc-2" name="tipo-doc-2">
+            <option selected value="passaporte">Passaporte</option>
+        </select>
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="doc-2">Documenta&ccedil;&atilde;o 2</label>
+        <input type="text" id="doc-2" name="doc-2" class="form-control"
+               placeholder="BR12345678">
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="tipo-doc-3">Tipo de Documento</label>
+        <select class="form-control    select2 select2-hidden-accessible" style="width: 100%;"
+                tabindex="-1" aria-hidden="true" id="tipo-doc-3" name="tipo-doc-3">
+            <option selected value="passaporte">Passaporte</option>
+        </select>
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="doc-3">Documenta&ccedil;&atilde;o 3</label>
+        <input type="text" id="doc-3" name="doc-3" class="form-control"
+               placeholder="BR12345678">
+    </div>
+</div>

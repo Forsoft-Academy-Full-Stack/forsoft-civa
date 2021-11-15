@@ -9,7 +9,7 @@
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gerente"))) {
         // Caso for uma das duas opções
-        // Redicionar para o login
+        // Redirecionar para o login
         response.sendRedirect("../login/");
 
     }
@@ -17,8 +17,8 @@
    // Caso contrário é um usuário válido, pode entrar na página
   
 %>
-<%@include file="header.xhtml"%>
-<script src="./../public/assets/js/gerenciar-supervisor.js" defer></script>
+<%@include file="header.jspf"%>
+<script src="../public/assets/js/gerente/gerenciar-supervisor.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

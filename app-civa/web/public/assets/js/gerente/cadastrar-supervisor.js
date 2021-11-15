@@ -3,10 +3,10 @@ $('.select2').select2();
 let campos = ["name", "surname", "date-birth",
      "nacionalidade", "tipo-doc-1", "tipo-doc-2", "doc-2",
      "tipo-doc-3", "doc-3",
-    "doc-1", "pais", "genero",
-    "codigopostal", "endereco",
-    "numero", "complemento", "bairro",
-    "municipio", "estado", "contato1", "email", "locacao"];
+    "doc-1", "country-name", "genero",
+    "postal-code", "logrd-name",
+    "num-name", "comple-name", "bairro",
+    "city", "state", "telf", "email"];
 
 
 let form = $("#form-meus-dados");
@@ -17,8 +17,8 @@ $("#salvar").click(function () {
     if (tratar_campos(campos)) {
         $.get("", form.serialize(), (data, status) => {
             if (status === 'success') {
-                title = 'Supervisor alterado com sucesso!';
-                text = "Altera&ccedil;&atilde;o realizada.";
+                title = 'Supervisor cadastrado com sucesso!';
+                text = "Cadastro realizada.";
                 swalAlertSuccess(title, text, callback);
 
             } else {
@@ -34,14 +34,5 @@ $("#salvar").click(function () {
     }
 });
 
-
-$("#excluir").click(function () {
-    icon = "info"
-    title = 'Deseja realmente excluir esse Supervisor?';
-    text = 'A&ccedil;&atilde;o irrevers&iacute;vel';
-    statusInfo = "Supervisor deletado",
-    textInfo = "Exclus&atilde;o realizada."
-    swalAlertDelete(title, text, statusInfo, textInfo);
-});
 
 pegarPaises("nacionalidade");

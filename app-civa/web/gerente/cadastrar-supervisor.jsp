@@ -18,8 +18,8 @@
   
 %>
 
-<%@include file="header.xhtml"%>
-<script src="./../public/assets/js/gerenciar-supervisor.js" defer></script>
+<%@include file="header.jspf"%>
+    <script src="../public/assets/js/gerente/cadastrar-supervisor.js" defer></script>
 </head>
 
 
@@ -103,8 +103,6 @@
         <%@ include file="../partials/gerente/footer.jspf" %>
     </div>
     <!-- ./wrapper -->
-
-    <!-- REQUIRED SCRIPTS ------------------------------------------------------->
 
 </body>
 
