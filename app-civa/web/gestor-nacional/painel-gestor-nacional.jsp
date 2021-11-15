@@ -20,7 +20,6 @@
 <%@include file="header.jspf"%>
 </head>
 
-
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
 
@@ -38,20 +37,17 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Cadastrar suporte CIVA</h1>
-                        </div>
-                        <!-- /.col -->
+                            <h1 class="m-0">Painel Gestor Nacional</h1>
+                        </div><!-- /.col -->
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
-                                <li class="breadcrumb-item active">Home</li>
+                                <li class="breadcrumb-item"><a href="./pesquisar-gestor-nacional.jsp">Voltar</a></li>
+                                <li class="breadcrumb-item active">Consultar Gestor Nacional</li>
                             </ol>
                         </div>
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!-- /.container-fluid -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
             <!-- /.content-header ---------------------------------------------->
 
@@ -61,61 +57,38 @@
                     <!---------------------------------------------------------------->
 
                     <div class="row">
-                        <div class="col-12 mb-3">
-
+                        <div class="col-12">              
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados suporte CIVA</h3>
+                                    <h3 class="card-title">Dados Gestor Nacional</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <%@include file="../partials/dadospessoais-ps-cadastro.jspf" %>
+                                        <%@ include file="../partials/codigociva.jspf" %>
+                                        <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                         <hr>
-                                        <%@include file="../partials/enderecos-cadastro.jspf" %>
+                                        <%@include file="../partials/enderecos-disabled.jspf" %>
                                         <hr>
-                                        <%@include file="../partials/contatos-cadastro.jspf" %>
+                                        <%@include file="../partials/contatos-disabled.jspf" %>
                                     </div>
                                 </form>
-                            </div>
-                        </div>
-                        <!-- /.row -->
-                    </div>
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
+                            </div>          
+                            <div class="col-12 mb-4">
+                                <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
+                            </div>       
+                            <!-- /.row -->
                         </div>
                     </div>
-
-
+                    <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">Ã</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = './index.jsp'">Close</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.content -->
-                </div>
+                <%@include file="../partials/modals-cad.jspf" %>
             </div>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
 
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
@@ -123,14 +96,9 @@
     <!-- ./wrapper -->
 
     <script>
-        $(function () {
-            $('.select2').select2()
-        });
-    </script>
-    <script>
         function tratarCampos() {
             let erro = false;
-            let campos = ['name', 'surname', 'date-birth', 'identity', 'cod-civa', 'postal-code', 'logrd-name', 'telf', 'email'];
+            let campos = [];
 
             for (i = 0; i < campos.length; i++) {
                 if (document.getElementById(campos[i]).value == '') {
@@ -153,7 +121,10 @@
 
         document.getElementById('form-meus-dados').onsubmit = tratarCampos;
     </script>
-
+    <script>
+        $(function () {
+            $('.select2').select2()
+        });
+    </script>
 </body>
-
 </html>

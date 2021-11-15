@@ -17,33 +17,9 @@
    // Caso contrário é um usuário válido, pode entrar na página
   
 %>
-<!DOCTYPE html>
-<html lang="pt-br">
+<%@include file="header.jspf"%>
+</head>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>CIVA - Pesquisar Gestor</title>
-
-        <link rel="shortcut icon" href="../public/img/favicon-gs.svg" type="image/x-icon">
-
-        <!-- Google Font: Poppins -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-
-
-        <!-- Select2 -->
-        <link rel="stylesheet" href="../public/plugins/select2/css/select2.min.css">
-
-        <!-- Estilo icones -->
-        <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
-
-        <!-- Estilo pagina -->
-        <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
-
-    </head>
 
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -70,7 +46,7 @@
 
                             <div class="col-sm-6">
                                 <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
+                                    <li class="breadcrumb-item"><a href="./">Voltar</a></li>
                                     <li class="breadcrumb-item active">Consultar Gestor Nacional</li>
                                 </ol>
                             </div>
@@ -160,56 +136,56 @@
                                                     <td>123.155.189-15</td>
                                                     <td>04-07-1938</td>
                                                     <td>BRA132456789</td>
-                                                    <td><a href="painel-gestornacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Bill Withers</td>
                                                     <td>123.155.189-15</td>
                                                     <td>04-07-1938</td>
                                                     <td>BRA132456789</td>
-                                                    <td><a href="painel-gestornacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Bill Withers</td>
                                                     <td>123.155.189-15</td>
                                                     <td>04-07-1938</td>
                                                     <td>BRA132456789</td>
-                                                    <td><a href="painel-gestornacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Bill Withers</td>
                                                     <td>123.155.189-15</td>
                                                     <td>04-07-1938</td>
                                                     <td>BRA132456789</td>
-                                                    <td><a href="painel-gestornacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Bill Withers</td>
                                                     <td>123.155.189-15</td>
                                                     <td>04-07-1938</td>
                                                     <td>BRA132456789</td>
-                                                    <td><a href="painel-gestornacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Bill Withers</td>
                                                     <td>123.155.189-15</td>
                                                     <td>04-07-1938</td>
                                                     <td>BRA132456789</td>
-                                                    <td><a href="painel-gestornacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Bill Withers</td>
                                                     <td>123.155.189-15</td>
                                                     <td>04-07-1938</td>
                                                     <td>BRA132456789</td>
-                                                    <td><a href="painel-gestornacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                                 <tr>
                                                     <td>Bill Withers</td>
                                                     <td>123.155.189-15</td>
                                                     <td>04-07-1938</td>
                                                     <td>BRA132456789</td>
-                                                    <td><a href="painel-gestornacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-gestorn-acional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
 
                                             </tbody>
@@ -259,21 +235,6 @@
             <%@include file="footer.jspf"%>
         </div>
         <!-- ./wrapper -->
-
-        <!-- REQUIRED SCRIPTS ------------------------------------------------------->
-
-        <!-- jQuery -->
-        <script src="../public/plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap 4 -->
-        <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- Select2 -->
-        <script src="../public/plugins/select2/js/select2.full.min.js"></script>
-
-
-        <!-- AdminLTE App -->
-        <script src="../public/dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="../public/dist/js/demo.js"></script>
         <!-- Por Rodrigo Carlos -->
         <!-- pesquisa -->
         <script>
@@ -298,7 +259,6 @@
             }
         </script>
         <!-- tableSorter -->
-        <script src="https://cdn.jsdelivr.net/tablesorter/2.17.4/js/jquery.tablesorter.min.js"></script>
         <script>
             $('#test-table').tablesorter();
         </script>
