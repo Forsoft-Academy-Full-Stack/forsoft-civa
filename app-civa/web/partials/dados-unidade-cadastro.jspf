@@ -1,22 +1,22 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 <div class="row">
-                      <div class="form-group col-xl-6">
-                        <label for="name">Nome da unidade</label>
-                        <input type="text" class="form-control" id="name" name="name" placeholder="Hospital Pan">
-                      </div>
-                      <div class="form-group col-xl-6">
-                        <label for="doc-register">Documenta&ccedil;&atilde;o de Registro</label>
-                        <input type="text" class="form-control" id="doc-register" name="doc-register" placeholder="123456789">
-                      </div>
-                    </div>                    
-                    <div class="row"> 
-                        <div class="form-group col-6">
-                        <label for="natureza">Natureza</label>
-                          <input type="text" class="form-control" id="natureza" name="natureza" placeholder="P&uacute;blica">
-                        </div>
-                        <div class="form-group col-6">
-                        <label for="tipo-estabelecimento">Tipo de Estabelecimento</label>
-                          <input type="text" class="form-control" id="tipo-estabelecimento" name="tipo-estabelecimento" placeholder="Hospital">
-                        </div>
-                    </div>
+    <div class="form-group col-xl-6">
+        <label for="name">Nome da unidade</label>
+        <input type="text" class="form-control" id="name" name="name" placeholder="Hospital Pan">
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="doc-register">Documenta&ccedil;&atilde;o de Registro</label>
+        <input type="text" class="form-control" id="doc-register" name="doc-register" placeholder="123456789">
+    </div>
+</div>                    
+<div class="row"> 
+    <div class="form-group col-6">
+        <label for="natureza">Natureza</label>
+        <input type="text" class="form-control" id="natureza" name="natureza" placeholder="P&uacute;blica">
+    </div>
+    <div class="form-group col-6">
+        <label for="tipo-estabelecimento">Tipo de Estabelecimento</label>
+        <input type="text" class="form-control" id="tipo-estabelecimento" name="tipo-estabelecimento" placeholder="Hospital">
+    </div>
+</div>
