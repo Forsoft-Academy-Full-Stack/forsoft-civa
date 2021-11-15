@@ -67,7 +67,7 @@
                                 <!-- /.card-header -->
                                 <!-- Incio do form -->
                                 <!-- Incio do form -->
-                                <form id="form-meus-dados">
+                                <form id="form-meus-dados" method="POST">
                                     <div class="card-body">
 
                                         <%@ include file="../partials/dadospessoais-ps-cadastro.jspf" %>

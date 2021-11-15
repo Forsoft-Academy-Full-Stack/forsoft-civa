@@ -1,8 +1,10 @@
 $('.select2').select2();
 
-let campos = ["name", "surname", "genero", "date-birth",
-     "nacionalidade", "tipo-doc-1", "tipo-doc-2", "doc-2",
-     "tipo-doc-3", "doc-3",
+let campos = ["name", "surname",
+    "genero", "date-birth",
+    "nacionalidade", "tipo-doc-1",
+    "tipo-doc-2", "doc-2",
+    "tipo-doc-3", "doc-3",
     "doc-1", "country-name",
     "postal-code", "logrd-name",
     "num-name", "comple-name", "bairro",

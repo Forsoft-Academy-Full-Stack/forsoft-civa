@@ -69,7 +69,7 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="form-meus-dados">
+                                <form id="form-meus-dados" method="POST">
                                     <div class="card-body">
                                         <%@include file="../partials/dadospessoais-ps-cadastro.jspf" %>
                                         <hr>
@@ -84,7 +84,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
+                            <button type="button" class="btn btn-primary btn-lg" id="salvar" >Salvar</button>
                         </div>
                     </div>
 
