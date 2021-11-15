@@ -18,6 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/gestor-nacional/pesquisar-unidade.js" defer></script>
 </head>
 
 
@@ -33,7 +34,6 @@
 
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
-
 
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -61,8 +61,6 @@
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-
-
                     <!-- PESQUISA E FILTRO -->
                     <div class="row">
                         <div class="col-12">
@@ -188,13 +186,9 @@
 
                                         </tbody>
                                     </table>
-
-
                                 </div>
                                 <!-- /.card-body -->
-
                             </div>
-
                         </div>
 
                     </div>
@@ -219,8 +213,6 @@
                             </div>
                         </div>
                     </div>
-
-
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
@@ -232,41 +224,6 @@
         <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
-    <!-- Por Rodrigo Carlos -->
-    <!-- pesquisa -->
-    <script>
-        function pesquisaNomes() {
-            let input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById('search-table');
-            filter = input.value.toUpperCase();
-            table = document.getElementById("test-table");
-            tr = table.getElementsByTagName("tr");
 
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- tableSorter -->
-
-    <script>
-        $('#test-table').tablesorter();
-    </script>
-
-
-    <script>
-        $(function () {
-            $('.select2').select2()
-        });
-    </script>
 </body>
-
 </html>

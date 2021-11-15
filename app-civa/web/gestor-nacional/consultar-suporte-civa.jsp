@@ -18,6 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/gestor-nacional/consultar-suporte-civa.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -30,7 +31,6 @@
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@include file="menu.jspf" %>
 
-
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
 
@@ -40,13 +40,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Pesquisar suporte CIVA</h1>
+                            <h1 class="m-0">Consultar suporte CIVA</h1>
                         </div>
                         <!-- /.col -->
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
+                                <li class="breadcrumb-item"><a href="./">Voltar</a></li>
                                 <li class="breadcrumb-item active">Consultar suporte CIVA</li>
                             </ol>
                         </div>
@@ -136,58 +136,57 @@
                                                 <td>123.155.189-15</td>
                                                 <td>04-07-1938</td>
                                                 <td>BRA132456789</td>
-                                                <td><a href="telanovapainelsuporte.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Bill Withers</td>
                                                 <td>123.155.189-15</td>
                                                 <td>04-07-1938</td>
                                                 <td>BRA132456789</td>
-                                                <td><a href="telanovapainelsuporte.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Bille Withers</td>
                                                 <td>123.155.189-15</td>
                                                 <td>04-07-1938</td>
                                                 <td>BRA132456789</td>
-                                                <td><a href="telanovapainelsuporte.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Bill Withers</td>
                                                 <td>123.155.189-15</td>
                                                 <td>04-07-1938</td>
                                                 <td>BRA132456789</td>
-                                                <td><a href="telanovapainelsuporte.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Bill Withers</td>
                                                 <td>123.155.189-15</td>
                                                 <td>04-07-1938</td>
                                                 <td>BRA132456789</td>
-                                                <td><a href="telanovapainelsuporte.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Bill Withers</td>
                                                 <td>123.155.189-15</td>
                                                 <td>04-07-1938</td>
                                                 <td>BRA132456789</td>
-                                                <td><a href="telanovapainelsuporte.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Bill Withers</td>
                                                 <td>123.155.189-15</td>
                                                 <td>04-07-1938</td>
                                                 <td>BRA132456789</td>
-                                                <td><a href="telanovapainelsuporte.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
                                             <tr>
                                                 <td>Bill Withers</td>
                                                 <td>123.155.189-15</td>
                                                 <td>04-07-1938</td>
                                                 <td>BRA132456789</td>
-                                                <td><a href="telanovapainelsuporte.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                             </tr>
-
 
                                         </tbody>
                                     </table>
@@ -235,42 +234,5 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS ------------------------------------------------------->
-    <!-- Por Rodrigo Carlos -->
-    <!-- pesquisa -->
-    <script>
-        function pesquisaNomes() {
-            let input, filter, table, tr, td, i, txtValue;
-            input = document.getElementById('search-table');
-            filter = input.value.toUpperCase();
-            table = document.getElementById("test-table");
-            tr = table.getElementsByTagName("tr");
-
-            for (i = 0; i < tr.length; i++) {
-                td = tr[i].getElementsByTagName("td")[0];
-                if (td) {
-                    txtValue = td.textContent || td.innerText;
-                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                        tr[i].style.display = "";
-                    } else {
-                        tr[i].style.display = "none";
-                    }
-                }
-            }
-        }
-    </script>
-    <!-- tableSorter -->
-
-    <script>
-        $('#test-table').tablesorter();
-    </script>
-
-
-    <script>
-        $(function () {
-            $('.select2').select2()
-        });
-    </script>
 </body>
-
 </html>

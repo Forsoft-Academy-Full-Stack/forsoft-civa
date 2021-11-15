@@ -18,8 +18,8 @@
 
 %>
 <%@include file="header.jspf"%>
+<script src="../public/assets/js/gestor-nacional/painel-suporte-civa.js" defer></script>
 </head>
-
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -38,14 +38,14 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Cadastrar suporte CIVA</h1>
+                            <h1 class="m-0">Painel suporte CIVA</h1>
                         </div>
                         <!-- /.col -->
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
-                                <li class="breadcrumb-item active">Home</li>
+                                <li class="breadcrumb-item"><a href="consultar-suporte-civa.jsp">Voltar</a></li>
+                                <li class="breadcrumb-item active">Gerenciar suporte CIVA</li>
                             </ol>
                         </div>
                     </div>
@@ -71,13 +71,13 @@
                                 <!-- form start -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <%@include file="../partials/dadospessoais-ps-cadastro.jspf" %>
+                                        <%@include file="../partials/codigociva.jspf" %>
+                                        <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                         <hr>
-                                        <%@include file="../partials/enderecos-cadastro.jspf" %>
+                                        <%@include file="../partials/enderecos-disabled.jspf" %>
                                         <hr>
-                                        <%@include file="../partials/contatos-cadastro.jspf" %>
+                                        <%@include file="../partials/contatos-disabled.jspf" %>
                                     </div>
-                                </form>
                             </div>
                         </div>
                         <!-- /.row -->
@@ -87,7 +87,6 @@
                             <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
                         </div>
                     </div>
-
 
                 </div>
                 <!-- /.container-fluid -->
@@ -116,44 +115,10 @@
         </div>
         <!-- /.content-wrapper -->
 
-
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
 
-    <script>
-        $(function () {
-            $('.select2').select2()
-        });
-    </script>
-    <script>
-        function tratarCampos() {
-            let erro = false;
-            let campos = ['name', 'surname', 'date-birth', 'identity', 'cod-civa', 'postal-code', 'logrd-name', 'telf', 'email'];
-
-            for (i = 0; i < campos.length; i++) {
-                if (document.getElementById(campos[i]).value == '') {
-                    erro = true;
-                }
-            }
-
-            if (erro) {
-                alert('Todos os campos devem ser preenchidos!');
-            } else {
-                // Exibe o modal desejado, baseado no id definido.
-                $('#modal-default').modal('show');
-                console.log('funcionou');
-                event.preventDefault();
-
-            }
-
-            return !erro;
-        }
-
-        document.getElementById('form-meus-dados').onsubmit = tratarCampos;
-    </script>
-
 </body>
-
 </html>

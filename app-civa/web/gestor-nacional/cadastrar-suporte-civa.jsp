@@ -18,8 +18,8 @@
 
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/gestor-nacional/cadastrar-suporte-civa.js" defer></script>
 </head>
-
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -88,7 +88,6 @@
                         </div>
                     </div>
 
-
                 </div>
                 <!-- /.container-fluid -->
                 <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
@@ -116,44 +115,10 @@
         </div>
         <!-- /.content-wrapper -->
 
-
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
 
-    <script>
-        $(function () {
-            $('.select2').select2()
-        });
-    </script>
-    <script>
-        function tratarCampos() {
-            let erro = false;
-            let campos = ['name', 'surname', 'date-birth', 'identity', 'cod-civa', 'postal-code', 'logrd-name', 'telf', 'email'];
-
-            for (i = 0; i < campos.length; i++) {
-                if (document.getElementById(campos[i]).value == '') {
-                    erro = true;
-                }
-            }
-
-            if (erro) {
-                alert('Todos os campos devem ser preenchidos!');
-            } else {
-                // Exibe o modal desejado, baseado no id definido.
-                $('#modal-default').modal('show');
-                console.log('funcionou');
-                event.preventDefault();
-
-            }
-
-            return !erro;
-        }
-
-        document.getElementById('form-meus-dados').onsubmit = tratarCampos;
-    </script>
-
 </body>
-
 </html>

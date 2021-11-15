@@ -42,7 +42,7 @@
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
+                                <li class="breadcrumb-item"><a href="./">Voltar</a></li>
                                 <li class="breadcrumb-item active">Home</li>
                             </ol>
                         </div>
@@ -59,14 +59,14 @@
                     <!-- PDF MANUAL CIVA -->
                     <div class="row">
                         <div class="col-12 mb-4" style="height: 700px;">
-                            <iframe src="./../public/assets/manual/manual-civa.pdf"  type="application/pdf" width="100%" height="100%"></iframe>
+                            <iframe src="../public/assets/manual/manual-civa.pdf" type="application/pdf" width="100%" height="100%"></iframe>
                         </div>
                     </div>
 
 
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <a href="./../public/assets/manual/manual-civa.pdf" target="_blank"><button type="submit" class="btn btn-primary btn-lg">Abrir PDF</button></a>
+                            <a href="../public/assets/manual/manual-civa.pdf" target="_blank"><button type="submit" class="btn btn-primary btn-lg">Abrir PDF</button></a>
                         </div>
                     </div>
 
@@ -82,7 +82,6 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS -->
-
 </body>
 </html>
+

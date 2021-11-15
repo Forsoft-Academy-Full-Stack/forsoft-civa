@@ -3,9 +3,9 @@
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
-    
+
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-nacional"))) {
         // Caso for uma das duas opções
@@ -13,72 +13,57 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
 <%@include file="header.jspf"%>
 </head>
 
-    <body class="hold-transition sidebar-mini">
-        <div class="wrapper">
+<body class="hold-transition sidebar-mini">
+    <div class="wrapper">
 
-            <!-- Navbar --------------------------------------------->
-            <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-                <!-- Left navbar links -->
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" data-widget="pushmenu" href="#" role="button">
-                            <i class="fas fa-bars"></i>
-                        </a>
-                    </li>
-                    <li class="nav-item d-none d-sm-inline-block">
-                        <a href="" class="nav-link">Gestor Nacional</a>
-                    </li>
-                </ul>
-            </nav>
-            <!-- /.navbar ------------------------------------------------------->
+        <!-- Navbar --------------------------------------------->
+        <%@include file="navbar.jspf" %>
+        <!-- /.navbar ------------------------------------------------------->
 
-         <!-- MENU Main Sidebar Container ------------------------------------>
-            <%@ include file="menu.jspf" %>
+        <!-- MENU Main Sidebar Container ------------------------------------>
+        <%@ include file="menu.jspf" %>
 
-            <!-- Content Wrapper. Contains page content -------------------------->
-            <div class="content-wrapper">
-                <!-- /.content-header ---------------------------------------------->
+        <!-- Content Wrapper. Contains page content -------------------------->
+        <div class="content-wrapper">
+            <!-- /.content-header ---------------------------------------------->
 
-                <!-- Main content -->
-                <div class="content">
-                    <div class="container-fluid">
-                        <!---------------------------------------------------------------->
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <!---------------------------------------------------------------->
 
-                        <div class="row">
+                    <div class="row">
 
-                            <!-- HOME GESTOR NACIONAL -->
-                            <!-- Content Wrapper. Contains page content -->
-                            <div class="col-md-12 mt-4 mb-5">
-                                <!-- .content -->
-                                <div class="jumbotron">
-                                    <h1 class="display-4">Ol&aacute;, Gestor Nacional!</h1>
-                                    <hr class="my-4">
-                                    <p>Bem vindo ao seu painel CIVA, ${dados.nome} ${dados.sobrenome}!</p>
-                                </div>
-                                <!-- /.content -->
+                        <!-- HOME GESTOR NACIONAL -->
+                        <!-- Content Wrapper. Contains page content -->
+                        <div class="col-md-12 mt-4 mb-5">
+                            <!-- .content -->
+                            <div class="jumbotron">
+                                <h1 class="display-4">Ol&aacute;, Gestor Nacional!</h1>
+                                <hr class="my-4">
+                                <p>Bem vindo ao seu painel CIVA, ${dados.nome} ${dados.sobrenome}!</p>
                             </div>
-
+                            <!-- /.content -->
                         </div>
 
-                        <!-- /.row -->
-                    </div><!-- /.container-fluid -->
-                </div>
-                <!-- /.content -->
+                    </div>
+
+                    <!-- /.row -->
+                </div><!-- /.container-fluid -->
             </div>
-            <!-- /.content-wrapper -->
-            <!-- Main Footer -->
-              <%@include file="footer.jspf"%>
+            <!-- /.content -->
         </div>
-        <!-- ./wrapper -->
-
-        <!-- REQUIRED SCRIPTS -->
-
-    </body>
+        <!-- /.content-wrapper -->
+        <!-- Main Footer -->
+        <%@include file="footer.jspf"%>
+    </div>
+    <!-- ./wrapper -->
+</body>
 </html>

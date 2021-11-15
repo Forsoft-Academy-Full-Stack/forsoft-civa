@@ -18,6 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/gestor-nacional/painel-unidade-gestor.js" defer></script>
 </head>
 
 
@@ -200,40 +201,6 @@
         </div>
         <!-- ./wrapper -->
 
-        <script>
-            function tratarCampos() {
-                let erro = false
-                let campos = []
-
-                for (i = 0; i < campos.length; i++) {
-                    if (document.getElementById(campos[i]).value == '') {
-                        erro = true
-                    }
-                }
-
-                if (erro) {
-                    alert('Todos os campos devem ser preenchidos!')
-                } else {
-                    // Exibe o modal desejado, baseado no id definido.
-                    $('#modal-default').modal('show')
-                    console.log('funcionou')
-                    event.preventDefault()
-                }
-
-                return !erro
-            }
-
-            document.getElementById('form-meus-dados').onsubmit = tratarCampos
-        </script>
-        <!-- tableSorter -->
-        <script src="https://cdn.jsdelivr.net/tablesorter/2.17.4/js/jquery.tablesorter.min.js"></script>
-        <script>
-            $('#test-table').tablesorter()
-        </script>
-        <script>
-            $(function () {
-                $('.select2').select2()
-            })
-        </script>
     </body>
 </html>
+

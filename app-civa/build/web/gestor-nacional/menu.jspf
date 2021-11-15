@@ -19,8 +19,6 @@
             </div>
         </div>
 
-
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -133,13 +131,13 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="telanovasuporte.jsp" class="nav-link">
+                                    <a href="consultar-suporte-civa.jsp" class="nav-link">
                                         <i class="fas fa-map nav-icon"></i>
                                         <p>Consultar suporte CIVA </p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="telanovacadsuporteciva.jsp" class="nav-link">
+                                    <a href="cadastrar-suporte-civa.jsp" class="nav-link">
                                         <i class="fas fa-map-pin nav-icon"></i>
                                         <p>Cadastrar Suporte CIVA </p>
                                     </a>
@@ -148,7 +146,6 @@
                             </ul>
                         </li>
                     </ul>
-
 
                     <ul class="nav nav-treeview">
                         <li class="nav-item ">
@@ -172,12 +169,9 @@
                                         <p>Cadastrar Unidade</p>
                                     </a>
                                 </li>
-
                             </ul>
                         </li>
                     </ul>
-
-
 
                     <!-- ITEM RELATORIO USUARIO DO MENU -->
                 <li class="nav-item">
@@ -234,7 +228,7 @@
                         </li>
                         <li class="nav-item">
                             <a href="../exit" class="nav-link">
-                               <i class="fas fa-sign-out-alt nav-icon"></i>
+                                <i class="fas fa-sign-out-alt nav-icon"></i>
                                 <p>
                                     Sair
                                 </p>
