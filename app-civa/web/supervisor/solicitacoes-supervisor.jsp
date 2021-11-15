@@ -188,16 +188,6 @@
 
 
 
-  
- 
-
-
-
-
-
-
-
-
 
 
 
@@ -223,11 +213,6 @@
 <!-- AdminLTE for demo purposes -->
 <script src="./../public/dist/js/demo.js"></script>
 
-<script>
-  $(function () {
-    $('.select2').select2()
-  });
-</script>
 
 </body>
 </html>

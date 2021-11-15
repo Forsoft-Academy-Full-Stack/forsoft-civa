@@ -107,9 +107,9 @@
                     
                     <div class="col-xl-8 col-sm-12">
                       <div class="input-group  mb-2">
-                        <input type="text" class="form-control" placeholder="Pesquisar portador">
+                        <input type="text" class="form-control" placeholder="Pesquisar Unidade">
                         <div class="input-group-append">
-                          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Pesquisar Unidade</button>
+                          <button class="btn btn-outline-secondary" type="button" id="button-addon2">Pesquisar</button>
                         </div>
                       </div>
                     </div>
@@ -149,7 +149,7 @@
                     <tr>
                       <th>Nome</th>
                       <th>Estado</th>
-                      <th>Municipio</th>
+                      <th>Munic&iacute;pio</th>
                       <th>CEP</th>
                       <th></th>
                     </tr>

@@ -89,7 +89,7 @@
   
         <!-- PESQUISA E FILTRO -->
         <div class="row">
-          <div class="col-12">
+          <div class="col-xl-12">
             <div class="card">
               <div class="card-body">
                  
@@ -107,7 +107,7 @@
                     
                     <div class="col-xl-8 col-sm-12">
                       <div class="input-group  mb-2">
-                        <input type="text" class="form-control" id="pesquisar" placeholder="Pesquisar portador">
+                        <input type="text" class="form-control" id="pesquisar" placeholder="Pesquisar profissional">
                         <div class="input-group-append">
                           <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="filtrar(); return false">Pesquisar</button>
                         </div>

@@ -231,26 +231,7 @@
 
         <!-- /.row -->
       </div><!-- /.container-fluid -->
-      <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Unidade vinculada com sucesso!</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">Ã</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p></p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='./painel-profissional-saude.jsp'">Close</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
+      <%@ include file="../partials/modals-unidade-vinc.jspf" %>
     </div>
     <!-- /.content -->
   </div>
@@ -292,12 +273,29 @@
 <!-- AdminLTE for demo purposes -->
 <script src="../public/dist/js/demo.js"></script>
 <script>
-  function exibemodal() {
-    event.preventDefault();
-    $('#modal-default').modal('show');
-  }
+  function tratarCampos() {
+    let erro = false;
+    let campos = ['id-unidade'];
+   
+        for (i=0;i<campos.length;i++) {
+            if (document.getElementById(campos[i]).value == '') {
+                erro = true;
+            }
+        }
 
-  document.getElementById('form-meus-dados').onsubmit = exibemodal;
+        if (erro) {
+            alert('Todos os campos devem ser preenchidos!');
+        } else {
+            // Exibe o modal desejado, baseado no id definido.
+            $('#modal-default').modal('show');
+            console.log('funcionou');
+            event.preventDefault();
+
+        }
+
+        return !erro;
+}
+  document.getElementById('form-meus-dados').onsubmit = tratarCampos;
 </script>
 <script>
   $(function () {

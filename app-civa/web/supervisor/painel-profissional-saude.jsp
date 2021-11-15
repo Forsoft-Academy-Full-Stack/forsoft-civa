@@ -98,7 +98,7 @@
           <div class="col-12 mb-4">
               <form action="">
                   <div class="input-group">
-                      <input type="search" class="form-control form-control-lg" placeholder="Insira o codigo civa do portador">
+                      <input type="search" class="form-control form-control-lg" placeholder="Insira o código civa do portador">
                       <div class="input-group-append">
                           <button type="submit" class="btn btn-lg btn-primary">
                              Pesquisar
@@ -217,26 +217,7 @@
 
         <!-- /.row -->
       </div><!-- /.container-fluid -->
-      <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Dados salvo com sucesso!</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">Ã</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p></p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='./indexs.jsp'">Close</button>
-            </div>
-          </div>
-          <!-- /.modal-content -->
-        </div>
-        <!-- /.modal-dialog -->
-      </div>
+      <%@ include file="../partials/modals-dados-salvos.jspf" %>
     </div>
     <!-- /.content -->
   </div>
@@ -274,7 +255,7 @@
 <script>
   function tratarCampos() {
     let erro = false;
-    let campos = ['nacionality','postal-code','logrd-name','city','local','state', 'telf', 'email'];
+    let campos = ['identity','name','surname','genero','date-birth','nacionalidade','tipo-doc-1','doc-1','tipo-doc-2','doc-2','tipo-doc-3','doc-3','country-name', 'postal-code', 'logrd-name','numero','comple-name','bairro','municipio','cidade','telf','email'];
     
         for (i=0;i<campos.length;i++) {
             if (document.getElementById(campos[i]).value == '') {

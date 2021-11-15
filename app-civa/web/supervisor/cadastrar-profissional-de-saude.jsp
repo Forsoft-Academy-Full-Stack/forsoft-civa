@@ -77,7 +77,7 @@
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
-              <li class="breadcrumb-item active">Cadastrar Profissional de Saude</li>
+              <li class="breadcrumb-item active">Cadastrar Profissional de Sa&uacute;de</li>
             </ol>
           </div>
         </div><!-- /.row -->
@@ -99,7 +99,7 @@
     </div>
     <!-- /.card-header -->
     <!-- form start -->
-    <form id="form-meus-dados" action="#">
+    <form id="form-meus-dados" action="#" method="post">
         <div class="card-body">
             <%@ include file="../partials/dadospessoais-ps-cadastro.jspf" %>
             <hr>
@@ -127,28 +127,7 @@
       </div>
     </div>
     <!-- /.container-fluid -->
-            <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">Ã</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p></p>
-            </div>
-            <div class="modal-footer justify-content-between">
-              <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href='./indexsupervisor.jsp'">Close</button>
-            </div>
-          </div>
-          
-          <!-- /.modal-content -->
-    </div>
-  
-    <!-- /.content -->
-  </div>
+            <%@ include file="../partials/modals-cad.jspf" %>
 
   <!-- /.content-wrapper -->
   <!-- Main Footer -->
@@ -170,9 +149,12 @@
 <script src="../public/dist/js/demo.js"></script>
 
 <script>
+
+document.getElementById('form-meus-dados').onsubmit = tratarCampos;
+
   function tratarCampos() {
     let erro = false;
-    let campos = ['name','surname','date-birth','identity','crm','nacionality','postal-code','logrd-name','city','local','state', 'telf', 'email'];
+    let campos = ['name','surname','genero','date-birth','nacionalidade','tipo-doc-1','doc-1','tipo-doc-2','doc-2','tipo-doc-3','doc-3','country-name', 'postal-code', 'logrd-name','num-name','comple-name','local','city','state','telf','email'];
     
         for (i=0;i<campos.length;i++) {
             if (document.getElementById(campos[i]).value == '') {
@@ -193,8 +175,9 @@
         return !erro;
 }
 
-document.getElementById('form-meus-dados').onsubmit = tratarCampos;
+
 </script>
+
 <!-- VIACEP API -->
 <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script>

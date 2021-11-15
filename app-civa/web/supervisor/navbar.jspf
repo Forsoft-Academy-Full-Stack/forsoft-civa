@@ -9,7 +9,7 @@
         </a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="indexsupervisor.jsp" class="nav-link">Supervisor CIVA</a>
+        <a href="index.jsp" class="nav-link">Supervisor CIVA</a>
       </li>
     </ul>
   </nav>
