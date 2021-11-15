@@ -16,38 +16,9 @@
     
    // Caso contrário é um usuário válido, pode entrar na página
 %>
-<!DOCTYPE html>
-<html lang="pt-br">
-
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>CIVA</title>
-
-        <link rel="shortcut icon" href="../public/img/favicon-gs.svg" type="image/x-icon">
-
-        <!-- Google Font: Poppins -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-
-        <!-- Google Font: Poppins -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-
-
-
-        <!-- Select2 -->
-
-        <!-- Estilo icones -->
-        <link rel="stylesheet" href="../public/plugins/fontawesome-free/css/all.min.css">
-
-        <!-- Estilo pagina -->
-        <link rel="stylesheet" href="../public/dist/css/adminlte.min.css">
-
-    </head>
+<%@include file="header.jspf"%>
+    <script src="../public/assets/js/gestor-oms/cadastrar-gestor-oms.js" defer></script>
+</head>
 
     <body class="hold-transition sidebar-mini">
         <div class="wrapper">
@@ -96,7 +67,7 @@
                                     </div>
                                     <!-- /.cardheader -->
                                     <!-- Incio do form -->
-                                    <form action="#" id="form-cadastrar-gestor" method="post" novalidate="novalidate">
+                                    <form id="form-cadastrar-gestor" method="post" novalidate="novalidate">
                                         <div class="p-2">
                                             <%@ include file="../partials/dadospessoais-ps-cadastro.jspf" %>
                                             <hr>
@@ -149,116 +120,6 @@
         </div>
 
         <!-- ./wrapper -->
-
-        <!-- REQUIRED SCRIPTS -->
-
-        <!-- jQuery -->
-        <script src="../public/plugins/jquery/jquery.min.js"></script>
-        <!-- Bootstrap 4 -->
-        <script src="../public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-        <!-- jquery-validation -->
-        <script src="../public/plugins/jquery-validation/jquery.validate.js"></script>
-        <script src="../public/plugins/jquery-validation/additional-methods.js"></script>
-        <!-- AdminLTE App -->
-        <script src="../public/dist/js/adminlte.min.js"></script>
-        <!-- AdminLTE for demo purposes -->
-        <script src="../public/dist/js/demo.js"></script>
-        <script>
-                                        $(function () {
-                                            $.validator.setDefaults({
-                                                submitHandler: function () {
-                                                    alert("Form successful submitted!");
-                                                }
-                                            });
-                                            $('#form-cadastrar-gestor').validate({
-                                                rules: {
-                                                    nome: {
-                                                        required: true,
-                                                    },
-                                                    sobrenome: {
-                                                        required: true,
-                                                    },
-                                                    identidade: {
-                                                        required: true,
-                                                    },
-                                                    datadenascimento: {
-                                                        required: true,
-                                                    },
-                                                    email: {
-                                                        required: true,
-                                                        email: true,
-                                                    },
-                                                    contato: {
-                                                        required: true,
-                                                    },
-                                                    nacionalidade: {
-                                                        required: true,
-                                                    },
-                                                    codigopostal: {
-                                                        required: true,
-                                                    },
-                                                    endereco: {
-                                                        required: true,
-                                                    },
-                                                    numero: {
-                                                        required: true,
-                                                    },
-                                                    complemento: {
-                                                        required: true,
-                                                    },
-                                                    subdiv1: {
-                                                        required: true,
-                                                    },
-                                                    subdiv2: {
-                                                        required: true,
-                                                    },
-                                                    subdiv3: {
-                                                        required: true,
-                                                    },
-
-                                                },
-
-                                                errorElement: 'span',
-                                                errorPlacement: function (error, element) {
-                                                    error.addClass('invalid-feedback');
-                                                    element.closest('.form-group').append(error);
-                                                },
-                                                highlight: function (element, errorClass, validClass) {
-                                                    $(element).addClass('is-invalid');
-                                                },
-                                                unhighlight: function (element, errorClass, validClass) {
-                                                    $(element).removeClass('is-invalid');
-                                                }
-                                            });
-                                        });
-        </script>
-        <script>
-            function tratarCampos() {
-                let erro = false;
-                let campos = ['name', 'surname', 'identity', 'date-birth', 'nationality', 'tel', 'email'];
-
-                for (i = 0; i < campos.length; i++) {
-                    if (document.getElementById(campos[i]).value == '') {
-                        erro = true;
-                    }
-                }
-
-                if (erro) {
-                    alert('Todos os campos devem ser preenchidos!');
-                } else {
-                    // Exibe o modal desejado, baseado no id definido.
-                    $('#modal-default').modal('show');
-                    console.log('funcionou');
-                    event.preventDefault();
-
-                }
-
-                return !erro;
-            }
-
-            document.getElementById('form-cadastrar-gestor').onsubmit = tratarCampos;
-        </script>
-
     </body>
 
 </html>
