@@ -18,6 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/gerente/idioma.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

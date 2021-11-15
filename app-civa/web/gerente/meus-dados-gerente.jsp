@@ -18,7 +18,7 @@
   
 %>
 <%@include file="header.jspf"%>
-<script src="./../public/assets/js/cadastrar-supervisor.js" defer></script>
+    <script src="./../public/assets/js/gerente/meus-dados-gerente.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
