@@ -18,6 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/gestor-nacional/gerenciar-gerente.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -79,13 +80,12 @@
                         <div class="col-12">
                             <div class="card card-primary">
 
-
                                 <div class="card-header">
                                     <h3 class="card-title">Dados Gerente</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="telinha">
+                                <form id="form-gerenciar-gerente" action="POST">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="form-group col-xl-12">
@@ -115,8 +115,6 @@
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h3 class="card-title">Unidades Vinculadas</h3>
-
-
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body table-responsive p-0">
@@ -137,7 +135,6 @@
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
                                                 <td><input class="btn btn-block" type="checkbox"></td>
-
                                             </tr>
                                             <tr>
                                                 <td>Hopital Pano</td>
@@ -145,8 +142,6 @@
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
                                                 <td><input class="btn btn-block" type="checkbox"></td>
-
-
                                             </tr>
                                             <tr>
                                                 <td>Hopital Paninho</td>
@@ -154,8 +149,6 @@
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
                                                 <td><input class="btn btn-block" type="checkbox"></td>
-
-
                                             </tr>
                                             <tr>
                                                 <td>Hopital Pan</td>
@@ -163,8 +156,6 @@
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
                                                 <td><input class="btn btn-block" type="checkbox"></td>
-
-
                                             </tr>
                                         </tbody>
                                     </table>
@@ -176,11 +167,9 @@
                     </div>
                     <div class="col-12 row">
                         <div class="mb-3 mt-3">
-                            <button type="submit" class="btn btn-primary btn-lg" form="telinha">Salvar</button>
+                            <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
                         </div>
                     </div>
-
-
 
                     <!-- /.row -->
                 </div>
@@ -211,42 +200,7 @@
             <%@include file="footer.jspf"%>
         </div>
         <!-- ./wrapper -->
-
-        <script>
-            $('#test-table').tablesorter();
-        </script>
-
-        <script>
-            function tratarCampos() {
-                let erro = false;
-                let campos = [];
-
-                for (i = 0; i < campos.length; i++) {
-                    if (document.getElementById(campos[i]).value == '') {
-                        erro = true;
-                    }
-                }
-
-                if (erro) {
-                    alert('Todos os campos devem ser preenchidos!');
-                } else {
-                    // Exibe o modal desejado, baseado no id definido.
-                    $('#modal-default').modal('show');
-                    console.log('funcionou');
-                    event.preventDefault();
-
-                }
-
-                return !erro;
-            }
-
-            document.getElementById('telinha').onsubmit = tratarCampos;
-        </script>
-        <script>
-            $(function () {
-                $('.select2').select2()
-            });
-        </script>
+    </div>
 </body>
 
 </html>

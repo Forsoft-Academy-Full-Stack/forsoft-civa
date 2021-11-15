@@ -18,6 +18,7 @@
   
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/gestor-nacional/gerenciar-vacina.js" defer></script>
 </head>
 
     <body class="hold-transition sidebar-mini">
@@ -30,12 +31,8 @@
             <!-- MENU Main Sidebar Container ------------------------------------>
             <%@ include file="menu.jspf" %>
 
-
-
-
             <!-- Content Wrapper. Contains page content -------------------------->
             <div class="content-wrapper">
-
 
                 <!-- Content Header (Page header) -->
                 <div class="content-header">
@@ -58,12 +55,10 @@
                     <!-- /.container-fluid -->
                 </div>
 
-
                 <!-- Main content -->
                 <div class="content">
                     <div class="container-fluid">
                         <!---------------------------------------------------------------->
-
 
                         <!-- PESQUISA E FILTRO -->
                         <div class="row">
@@ -100,12 +95,8 @@
                                                     </div>
 
                                                 </div>
-
-
                                             </div>
                                         </div>
-
-
 
                                     </div>
                                 </div>
@@ -114,12 +105,8 @@
 
                         <!-- TABELA -->
                         <div class="row">
-
-
                             <div class="col-12">
-
                                 <div class="card">
-
                                     <!-- /.card-header -->
                                     <div class="card-body table-responsive p-0">
                                         <table id="test-table" class="table table-hover text-nowrap">
@@ -189,14 +176,8 @@
                                                     <td>12345678</td>
                                                     <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
-
-
                                             </tbody>
                                         </table>
-
-
-
-
 
                                     </div>
                                     <!-- /.card-body -->
@@ -240,42 +221,6 @@
              <%@include file="footer.jspf"%>
         </div>
         <!-- ./wrapper -->
-
-        <!-- Por Rodrigo Carlos -->
-        <!-- pesquisa -->
-        <script>
-                                                                function pesquisaNomes() {
-                                                                    let input, filter, table, tr, td, i, txtValue;
-                                                                    input = document.getElementById('search-table');
-                                                                    filter = input.value.toUpperCase();
-                                                                    table = document.getElementById("test-table");
-                                                                    tr = table.getElementsByTagName("tr");
-
-                                                                    for (i = 0; i < tr.length; i++) {
-                                                                        td = tr[i].getElementsByTagName("td")[0];
-                                                                        if (td) {
-                                                                            txtValue = td.textContent || td.innerText;
-                                                                            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                                                                                tr[i].style.display = "";
-                                                                            } else {
-                                                                                tr[i].style.display = "none";
-                                                                            }
-                                                                        }
-                                                                    }
-                                                                }
-        </script>
-        <!-- tableSorter -->
-       
-        <script>
-                                                                $('#test-table').tablesorter();
-        </script>
-
-
-        <script>
-                                                                $(function () {
-                                                                    $('.select2').select2()
-                                                                });
-        </script>
     </body>
 
 </html>
