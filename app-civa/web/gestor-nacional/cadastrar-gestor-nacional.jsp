@@ -18,6 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/gestor-nacional/cadastrar-gestor-nacional.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -68,10 +69,9 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="form-meus-dados">
+                                <form id="form-meus-dados" method="POST">
                                     <div class="card-body">
-                                        <%@include
-                                            file="../partials/dadospessoais-ps-cadastro.jspf" %>
+                                        <%@include file="../partials/dadospessoais-ps-cadastro.jspf" %>
                                             <hr />
                                             <%@include file="../partials/enderecos-cadastro.jspf" %>
                                             <hr />
@@ -81,11 +81,7 @@
                                 </div>
                             </div>
                             <div class="col-12 mb-4">
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary btn-lg"
-                                    form="form-meus-dados"
-                                    >
+                                <button type="button" id="cadastrar" class="btn btn-primary btn-lg">
                                     Cadastrar
                                 </button>
                             </div>
@@ -142,82 +138,5 @@
         </div>
         <!-- ./wrapper -->
 
-   
-        <script>
-                                            function tratarCampos() {
-                                                let erro = false
-                                                let campos = [
-                                                    'name',
-                                                    'surname',
-                                                    'date-birth',
-                                                    'identity',
-                                                    'nacionality',
-                                                    'postal-code',
-                                                    'logrd-name',
-                                                    'local',
-                                                    'city',
-                                                    'state',
-                                                    'telf',
-                                                    'email'
-                                                ]
-
-                                                for (i = 0; i < campos.length; i++) {
-                                                    if (document.getElementById(campos[i]).value == '') {
-                                                        erro = true
-                                                    }
-                                                }
-
-                                                if (erro) {
-                                                    alert('Todos os campos devem ser preenchidos!')
-                                                } else {
-                                                    // Exibe o modal desejado, baseado no id definido.
-                                                    $('#modal-default').modal('show')
-                                                    console.log('funcionou')
-                                                    event.preventDefault()
-                                                }
-
-                                                return !erro
-                                            }
-
-                                            document.getElementById('form-meus-dados').onsubmit = tratarCampos
-        </script>
-        <!-- VIACEP API -->
-        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
-        <script>
-                                            const html = {
-                                                get(element) {
-                                                    return document.querySelector(element)
-                                                }
-                                            }
-
-                                            async function getUser() {
-                                                const campoEstado = html.get('#state')
-                                                const campoCidade = html.get('#city')
-                                                const campoBairro = html.get('#local')
-                                                const campoLogradouro = html.get('#logrd-name')
-                                                // const campoDdd = html.get("#inputDdd");
-                                                const cepDigitado = html.get('#postal-code')
-
-                                                const response = await axios.get(
-                                                        `https://viacep.com.br/ws/${cepDigitado.value}/json/`
-                                                        )
-                                                const estado = response.data.uf
-                                                const cidade = response.data.localidade
-                                                const bairro = response.data.bairro
-                                                const logradouro = response.data.logradouro
-                                                // const ddd = response.data.ddd;
-
-                                                campoEstado.innerHTML = `<option selected="">${estado}</option>`
-                                                campoCidade.innerHTML = `<option selected="">${cidade}</option>`
-                                                campoBairro.innerHTML = `<option selected="">${bairro}</option>`
-                                                campoLogradouro.value = `${logradouro}`
-                                                // campoDdd.value = `${ddd}`;
-                                            }
-        </script>
-        <script>
-            $(function () {
-                $('.select2').select2()
-            })
-        </script>
     </body>
 </html>

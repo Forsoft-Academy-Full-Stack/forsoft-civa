@@ -17,7 +17,7 @@ $("#cadastrar").click(function () {
     if (tratar_campos(campos)) {
         $.get("", form.serialize(), (data, status) => {
             if (status === 'success') {
-                title = 'Gerente cadastrado com sucesso!';
+                title = 'Gestor nacional cadastrado com sucesso!';
                 text = "Cadastro realizada.";
                 swalAlertSuccess(title, text, callback);
 
