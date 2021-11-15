@@ -92,7 +92,7 @@
                                     <!-- /.card-header -->
                                     <!-- form start -->
                                     <form id="form-meus-dados">
-                                        <div class="p-2">
+                                        <div class="card-body">
                                             <div class="row"> 
                                                 <div class="form-group col-xl-6">
                                                     <label for="exampleFormControlSelect1">Nome</label>

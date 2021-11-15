@@ -96,7 +96,7 @@
                                     <!-- /.card-header -->
                                     <!-- form start -->
                                     <form id="form-meus-dados">
-                                        <div class="p-2">
+                                        <div class="card-body">
                                             <%@include file="../partials/codigociva.jspf" %>
                                             <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                             <hr>
