@@ -1,7 +1,7 @@
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    // Transformando os dados que foram colocados na sessão
+    // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
     
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");

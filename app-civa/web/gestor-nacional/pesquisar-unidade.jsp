@@ -1,7 +1,7 @@
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    // Transformando os dados que foram colocados na sessão
+    // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
     
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
@@ -9,7 +9,7 @@
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-nacional"))) {
         // Caso for uma das duas opções
-        // Redicionar para o login
+        // Redirecionar para o login
         response.sendRedirect("../login/");
 
     }
