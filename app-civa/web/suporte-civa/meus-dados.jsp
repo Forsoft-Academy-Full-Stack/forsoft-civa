@@ -23,7 +23,7 @@
 <!--então aqui é chamado o js especifico para cada página -->
 <!--e por fim o head é fechado -->
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/meus-dados-suporte-civa.js" defer></script>
+<script src="../public/assets/js/suporte-civa/meus-dados.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

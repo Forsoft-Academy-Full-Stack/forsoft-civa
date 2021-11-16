@@ -17,7 +17,7 @@
 
 %>
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/cadastrar-gerente.js" defer></script>
+<script src="../public/assets/js/suporte-civa/cadastrar-gerente.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -103,8 +103,6 @@
        <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
-
-    <!-- REQUIRED SCRIPTS ------------------------------------------------------->
 
 </body>
 

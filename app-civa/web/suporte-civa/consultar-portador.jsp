@@ -23,6 +23,7 @@
 <!--então aqui é chamado o js especifico para cada página -->
 <!--e por fim o head é fechado -->
 <%@include file="header.jspf"%>
+<script src="../public/assets/js/suporte-civa/consultar-portador.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
