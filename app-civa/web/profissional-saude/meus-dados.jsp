@@ -17,7 +17,7 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
-<script src="./../public/assets/js/meus-dados-suporte-civa.js" defer></script>
+<script src="./../public/assets/js/profissional-saude/meus-dados-suporte-civa.js" defer></script>
 </head>
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">

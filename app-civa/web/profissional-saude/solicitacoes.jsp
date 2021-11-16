@@ -15,6 +15,7 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/profissional-saude/solicitacoes.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -142,34 +143,5 @@
     </div>
     <!-- ./wrapper -->
 
-    <script>
-        $(function () {
-            $('.select2').select2();
-
-        });
-    </script>
-
-
-    <script>
-        const Toast = Swal.mixin({
-            toast: true,
-            position: 'top-start',
-            showConfirmButton: false,
-            timer: 3000,
-            timerProgressBar: true,
-            didOpen: (toast) => {
-                toast.addEventListener('mouseenter', Swal.stopTimer)
-                toast.addEventListener('mouseleave', Swal.resumeTimer)
-            }
-        })
-
-        function cancelarSolicitacao() {
-
-            Toast.fire({
-                icon: 'info',
-                title: 'Solicita&ccedil;&atilde;o cancelada'
-            })
-        }
-    </script>
 </body>
 </html>

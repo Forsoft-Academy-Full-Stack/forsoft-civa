@@ -16,6 +16,7 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
+    <script src="../public/assets/js/profissional-saude/vacinacao-internacional.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

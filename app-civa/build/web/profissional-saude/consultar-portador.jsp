@@ -3,23 +3,24 @@
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
-    
+
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("profissional-saude"))) {
         // Caso for uma das duas opções
         // Redirecionar para o login
         response.sendRedirect("../login/");
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página  
+
+    // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-      
+
         <!-- Navbar --------------------------------------------->
         <%@ include file="./navbar.jspf" %>
 
@@ -202,15 +203,15 @@
                                     </li>
                                     <li class="paginate_button page-item ">
                                         <a href="#" aria-controls="example2"data-dt-idx="3" tabindex="0" 
-                                                                              class="page-link">3</a>
+                                           class="page-link">3</a>
                                     </li>
                                     <li class="paginate_button page-item ">
                                         <a href="#" aria-controls="example2"data-dt-idx="4" tabindex="0" 
-                                                                              class="page-link">4</a>
+                                           class="page-link">4</a>
                                     </li>
                                     <li class="paginate_button page-item ">
                                         <a href="#" aria-controls="example2"data-dt-idx="5" tabindex="0" 
-                                                                              class="page-link">5</a>
+                                           class="page-link">5</a>
                                     </li>
                                     <li class="paginate_button page-item ">
                                         <a href="#" aria-controls="example2"data-dt-idx="6" tabindex="0" 
@@ -218,7 +219,7 @@
                                     </li>
                                     <li class="paginate_button page-item next" id="example2_next">
                                         <a href="#"aria-controls="example2" data-dt-idx="7" tabindex="0"
-                                            class="page-link">Pr&oacute;ximo</a>
+                                           class="page-link">Pr&oacute;ximo</a>
                                     </li>
                                 </ul>
                             </div>

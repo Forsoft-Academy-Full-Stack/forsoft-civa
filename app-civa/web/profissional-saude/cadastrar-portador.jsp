@@ -16,8 +16,9 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
-<script src="./../public/assets/js/cadastrar-portador.js" defer></script>
+    <script src="./../public/assets/js/profissional-saude/cadastrar-portador.js" defer></script>
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar --------------------------------------------->

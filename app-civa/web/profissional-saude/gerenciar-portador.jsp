@@ -17,8 +17,9 @@
 %>
 
 <%@include file="header.jspf"%>
-<script src="./../public/assets/js/painel_portador.js" defer></script>
+    <script src="../public/assets/js/profissional-saude/painel_portador.js" defer></script>
 </head>
+
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar --------------------------------------------->
@@ -165,62 +166,5 @@
         <!-- ./footer -->
     </div>
     <!-- ./wrapper -->
-    <script>
-        $(function () {
-            $('.select2').select2()
-        });
-
-        // Pegando o elemento form da pÃ¡gina
-        let form = $("#form-painel-portador");
-
-        $("#salvar").click(function () {
-
-            if (tratar_campos()) {
-                $.get("", form.serialize(), (data, status) => {
-                    if (status === 'success') {
-                        //$('#exampleModal').modal('hide');
-                        //$('#exampleModal2').modal('show');
-                        Swal.fire({
-                            icon: 'success',
-                            title: 'Dados alterados com sucesso!',
-                            text: "Altera&ccedil;&atilde;o realizada.",
-                            confirmButtonText: 'Finalizar',
-                            confirmButtonColor: '#007bff'
-                        });
-
-                        console.log("Dados enviados com sucesso :) !");
-                        // Limpando os campos do modal de altera&ccedil;&atilde;o e confirma&ccedil;&atilde;o de senha ap&oacute;s o envio
-                        //$('#exampleModal').find("#confirm-password").val("");
-                        //$('#exampleModal').find("#message-text").val("");
-                    } else {
-                        // Abrir Modal informando o erro
-                        // Por enquanto mostrar=ndo somente com o console.log()
-                        console.log("Ops... Algum erro ocorreu e seus dados n&atilde;o foram enviados :(");
-                        $('#exampleModal').modal('hide');
-
-                        Swal.fire({
-                            icon: 'error',
-                            title: '',
-                            text: 'Ops... Algum erro ocorreu e seus dados n&atilde;o foram enviados :(!',
-                            confirmButtonText: 'Finalizar'
-                                    //confirmButtonColor: '#007bff'
-                        });
-
-                        $('#exampleModal').find("#confirm-password").val("");
-                        $('#exampleModal').find("#message-text").val("");
-
-                    }
-                });
-            } else {
-                Swal.fire({
-                    icon: 'error',
-                    title: 'Oops...',
-                    text: 'Todos os campos precisam ser preenchidos!',
-                    confirmButtonColor: '#007bff'
-                })
-            }
-        });
-
-    </script>
 </body>
 </html>
