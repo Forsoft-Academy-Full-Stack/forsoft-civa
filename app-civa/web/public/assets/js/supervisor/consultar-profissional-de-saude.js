@@ -1,6 +1,5 @@
 $('.select2').select2();
 
-
 document.getElementById('form-meus-dados').onsubmit = tratarCampos;
 
 function tratarCampos() {
@@ -25,7 +24,6 @@ function tratarCampos() {
 
     return !erro;
 }
-
 
 const html = {
     get(element) {

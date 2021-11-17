@@ -4,7 +4,7 @@ $(function() {
                 
     $('#perfil').change(function(e){
     	var escolha = $("#perfil").val();
-        if (escolha =="usuario") {
+        if (escolha =="portador-civa") {
         	$("#civa").hide();
                 $('#civa-logo').hide();
                 $('#user-logo').show();

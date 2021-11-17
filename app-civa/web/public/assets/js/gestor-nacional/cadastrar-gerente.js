@@ -10,7 +10,6 @@ let campos = ["name", "surname",
     "num-name", "comple-name", "bairro",
     "city", "state", "telf", "email"];
 
-
 let form = $("#form-meus-dados");
 
 

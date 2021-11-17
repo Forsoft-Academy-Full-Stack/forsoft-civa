@@ -7,7 +7,7 @@
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
 
     // Verificando se o objeto pessoa não existe e se não é usuário
-    if ((pessoa == null) || (!session.getAttribute("perfil").equals("usuario"))) {
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("portador-civa"))) {
         // Caso for uma das duas opções
         // Redirecionar para o login
         response.sendRedirect("../login/");

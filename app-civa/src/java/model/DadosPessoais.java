@@ -5,16 +5,13 @@ package model;
  * @author randel
  */
 public class DadosPessoais {
+    private String codigoCiva;
     private String nome;
     private String sobrenome;
-    private String codigoCiva;
+    private String genero;
     private String identidade;
     private String dataNascimento;
     private String cargo;
-    private String subdivisao1;
-    private String subdivisao2;
-    private String logradouro;
-    private String paisOrigem;
     private String ddi;
     private String contato;
     
@@ -28,14 +25,6 @@ public class DadosPessoais {
     }
     private String email;
     
-    
-    public String getPaisOrigem() {
-        return paisOrigem;
-    }
-
-    public void setPaisOrigem(String paisOrigem) {
-        this.paisOrigem = paisOrigem;
-    }
 
     public String getDdi() {
         return ddi;
@@ -99,29 +88,5 @@ public class DadosPessoais {
 
     public void setCargo(String cargo) {
         this.cargo = cargo;
-    }
-
-    public String getSubdivisao1() {
-        return subdivisao1;
-    }
-
-    public void setSubdivisao1(String subdivisao1) {
-        this.subdivisao1 = subdivisao1;
-    }
-
-    public String getSubdivisao2() {
-        return subdivisao2;
-    }
-
-    public void setSubdivisao2(String subdivisao2) {
-        this.subdivisao2 = subdivisao2;
-    }
-
-    public String getLogradouro() {
-        return logradouro;
-    }
-
-    public void setLogradouro(String logradouro) {
-        this.logradouro = logradouro;
     }
 }

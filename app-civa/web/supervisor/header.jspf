@@ -1,6 +1,6 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-   <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 
 <head>
@@ -36,7 +36,6 @@
     <script src="./../public/plugins/bootstrap/js/bootstrap.bundle.min.js" defer></script>
     <!-- Select2 -->
     <script src="./../public/plugins/select2/js/select2.full.min.js" defer></script>
-
 
 
     <!-- AdminLTE App -->

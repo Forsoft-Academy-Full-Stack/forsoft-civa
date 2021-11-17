@@ -1,6 +1,7 @@
-
 package controller;
 
+import dao.LoginDao;
+import dao.PessoaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -12,6 +13,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Login;
 import model.Pessoa;
+
 /**
  *
  * @author randel
@@ -33,117 +35,40 @@ public class auth extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           /* String pathApp = request.getContextPath();*/
+ /* String pathApp = request.getContextPath();*/
             RequestDispatcher rd;
-            Login login = new Login();
-          
-            login.setPerfil(request.getParameter("perfil"));
-            
-            if(login.getPerfil().equals("usuario") ){
-                login.setEmail(request.getParameter("email"));
-                login.setSenha(request.getParameter("senha"));
-               
-            }else{
-                login.setCodigoCiva(request.getParameter("civa"));
-                login.setSenha(request.getParameter("senha"));
-            }
-            
-            // Fazer consulta no Banco de dados, com os dados vindo do formulário de login
-            // Pegar os dados da pessoa
-            // Construir o objeto Pessoa com os dados obtidos
-            
-            // Usuário
-            Pessoa pessoaPortadorCiva = new Pessoa();
-            pessoaPortadorCiva.setNome("João");
-            pessoaPortadorCiva.setSobrenome("Lopes");
-            
-            
-            // Gerente
-            Pessoa pessoaGerente = new Pessoa();
-            pessoaGerente.setNome("Lucia");
-            pessoaGerente.setSobrenome("Alves");
-            
-            // Supervisor
-            Pessoa pessoaSupervisor = new Pessoa();
-            pessoaSupervisor.setNome("Pedro");
-            pessoaSupervisor.setSobrenome("Almeida");
-                        
-            // Profissional de Saúde
-            Pessoa pessoaProfissionalSaude = new Pessoa();
-            pessoaProfissionalSaude.setNome("Victoria");
-            pessoaProfissionalSaude.setSobrenome("Strada");
-            
-            // Suporte CIVA
-            Pessoa pessoaSuporteCiva = new Pessoa();
-            pessoaSuporteCiva.setNome("Maria");
-            pessoaSuporteCiva.setSobrenome("Ferreira Gular");
-            
-            // Gestor Nacional
-            Pessoa pessoaGestorNacional = new Pessoa();
-            pessoaGestorNacional.setNome("Lucas");
-            pessoaGestorNacional.setSobrenome("Santos");
-            
-            // Gestor OMS
-            Pessoa pessoaGestorOms = new Pessoa();
-            pessoaGestorOms.setNome("Ruth");
-            pessoaGestorOms.setSobrenome("Alencar");
-            
+
+            // Pegando as informações de loginAcesso
+            Login loginAcesso = new Login();
+            loginAcesso.setPerfil(request.getParameter("perfil"));
+            loginAcesso.setEmail(request.getParameter("email"));
+            loginAcesso.setSenha(request.getParameter("senha"));
+            loginAcesso.setCodigoCiva(request.getParameter("civa"));
+
             HttpSession session = request.getSession();
-       
+
             // Inserindo o tempo de inatividade em segundos
             // 60 segundos x 30 = 30 min
             session.setMaxInactiveInterval(60 * 30);
-            
+
             // Fazer o devido redirecionamento
             // Para a página do ator adequado
             // Sempre redirecionar para o index.jsp
+            Pessoa pessoa = LoginDao.validar(loginAcesso);
             
-            if ( login.getPerfil().equals("usuario") && login.getSenha().equals("123") ) {
-                session.setAttribute("dados", pessoaPortadorCiva);
-                session.setAttribute("perfil", login.getPerfil());
-                response.sendRedirect("portador-civa/");
+            if (pessoa.getNome() != null) {
+
+                Pessoa dadosPessoa = PessoaDao.find(pessoa);
                 
-            }
-            else if (login.getPerfil().equals("gerente") && login.getSenha().equals("1234")){
-                session.setAttribute("dados", pessoaGerente);
-                session.setAttribute("perfil", login.getPerfil());
-                response.sendRedirect("gerente/");
-                
-            }
-            else if (login.getPerfil().equals("supervisor") && login.getSenha().equals("12345")){
-                session.setAttribute("dados", pessoaSupervisor);
-                session.setAttribute("perfil", login.getPerfil());
-                response.sendRedirect("supervisor/");
-                
-            }
-            else if (login.getPerfil().equals("profissional-saude") && login.getSenha().equals("123456")){
-                session.setAttribute("dados", pessoaProfissionalSaude);
-                session.setAttribute("perfil", login.getPerfil());
-                response.sendRedirect("profissional-saude/");
-                
-            }
-            else if (login.getPerfil().equals("suporte-civa") && login.getSenha().equals("1234567")){
-                session.setAttribute("dados", pessoaSupervisor);
-                session.setAttribute("perfil", login.getPerfil());
-                response.sendRedirect("suporte-civa/");
-                
-            }
-            else if (login.getPerfil().equals("gestor-nacional") && login.getSenha().equals("12345678")){
-                session.setAttribute("dados", pessoaSupervisor);
-                session.setAttribute("perfil", login.getPerfil());
-                response.sendRedirect("gestor-nacional/");
-                
-            }
-            else if (login.getPerfil().equals("gestor-oms") && login.getSenha().equals("123456789")){
-                session.setAttribute("dados", pessoaSupervisor);                   
-                session.setAttribute("perfil", login.getPerfil());
-                response.sendRedirect("gestor-oms/");
-            }
-            else {
+                session.setAttribute("perfil", loginAcesso.getPerfil());
+                session.setAttribute("dados", pessoa);
+                response.sendRedirect(loginAcesso.getPerfil() + "/");
+
+            } else {
                 // Login errado
-                response.sendRedirect(" login/");
+                response.sendRedirect("login/");
             }
-   
+
         }
     }
 
