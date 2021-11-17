@@ -4,33 +4,33 @@ package model;
  * @author randel
  */
 public class Docs {
-    private Long iddocs;
-    private Long idPessoa;
-    private Long idtipodoc;
+    private Integer iddocs;
+    private Integer idPessoa;
+    private Integer idtipodoc;
     private String documento;
     private String dataEmissao;
 
-    public Long getIddocs() {
+    public Integer getIddocs() {
         return iddocs;
     }
 
-    public void setIddocs(Long iddocs) {
+    public void setIddocs(Integer iddocs) {
         this.iddocs = iddocs;
     }
 
-    public Long getIdPessoa() {
+    public Integer getIdPessoa() {
         return idPessoa;
     }
 
-    public void setIdPessoa(Long idPessoa) {
+    public void setIdPessoa(Integer idPessoa) {
         this.idPessoa = idPessoa;
     }
 
-    public Long getIdtipodoc() {
+    public Integer getIdtipodoc() {
         return idtipodoc;
     }
 
-    public void setIdtipodoc(Long idtipodoc) {
+    public void setIdtipodoc(Integer idtipodoc) {
         this.idtipodoc = idtipodoc;
     }
 
@@ -49,6 +49,4 @@ public class Docs {
     public void setDataEmissao(String dataEmissao) {
         this.dataEmissao = dataEmissao;
     }
-    
-    
 }

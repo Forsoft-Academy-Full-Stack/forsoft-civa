@@ -1,8 +1,8 @@
 package model;
 
 public class Pessoa {
-    private Long  idPessoa;
-    private Long idNacionalidade;
+    private Integer idPessoa;
+    private Integer idNacionalidade;
     private String nome;
     private String sobrenome;
     private String dataNascimento;
@@ -26,19 +26,19 @@ public class Pessoa {
         this.genero = genero;
     }
     
-    public Long getIdPessoa() {
+    public Integer getIdPessoa() {
         return idPessoa;
     }
 
-    public void setIdPessoa(Long idPessoa) {
+    public void setIdPessoa(Integer idPessoa) {
         this.idPessoa = idPessoa;
     }
 
-    public Long getIdNacionalidade() {
+    public Integer getIdNacionalidade() {
         return idNacionalidade;
     }
 
-    public void setIdNacionalidade(Long idNacionalidade) {
+    public void setIdNacionalidade(Integer idNacionalidade) {
         this.idNacionalidade = idNacionalidade;
     }
     public String getSobrenome() {
@@ -72,7 +72,6 @@ public class Pessoa {
     public void setTelefoneDdd(String telefoneDdd) {
         this.telefoneDdd = telefoneDdd;
     }    
-    
 }
 
 
