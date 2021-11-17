@@ -69,4 +69,18 @@ public class PaisDao {
 
         return resultado;
     }
+    
+    
+     public static boolean delete(Pais pais) {
+        boolean resultado = false;
+
+        // Delete pais;
+        if (true) {
+            resultado = true;
+        }
+
+        return resultado;
+    }
+    
+    
 }
