@@ -57,7 +57,7 @@ public class LoginDao {
                 break;
                       
             case "gestor-oms":
-                if (login.getCodigoCiva().equals("6") && login.getSenha().equals("12345689")) {
+                if (login.getCodigoCiva().equals("6") && login.getSenha().equals("123456789")) {
                     dadosPessoa.setNome("Ruth");
                     dadosPessoa.setSobrenome("Alencar");
                 }

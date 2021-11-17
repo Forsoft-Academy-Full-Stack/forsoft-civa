@@ -10,5 +10,11 @@ package dao;
  * @author randel
  */
 public class GerenteDao {
-    
+    // abrir conexão
+    // executar sql
+    // lista de registros
+    // ArrayList<Gerente>
+    // Return ArrayList<Gerente>
+    // fecha conexão
+  
 }
