@@ -3,7 +3,7 @@ package model;
  *
  * @author randel
  */
-public class Reset {
+public class CodicoVerificacao {
     private Long idReset;
     private Long idAcessoPc;
     private Long idAcessoGestao;
