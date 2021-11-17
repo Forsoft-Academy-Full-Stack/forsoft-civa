@@ -4,8 +4,8 @@ package model;
  * @author randel
  */
 public class Endereco {
-    private Long idEndereco;
-    private Long idPais;
+    private Integer idEndereco;
+    private Integer idPais;
     private String tipoLogradouro;
     private String logradouro;
     private String codigoPostal;
@@ -17,19 +17,19 @@ public class Endereco {
     private String subdivisao6;
     private String subdivisao7;
     
-    public Long getIdEndereco() {
+    public Integer getIdEndereco() {
         return idEndereco;
     }
 
-    public void setIdEndereco(Long idEndereco) {
+    public void setIdEndereco(Integer idEndereco) {
         this.idEndereco = idEndereco;
     }
 
-    public Long getIdPais() {
+    public Integer getIdPais() {
         return idPais;
     }
 
-    public void setIdPais(Long idPais) {
+    public void setIdPais(Integer idPais) {
         this.idPais = idPais;
     }
 

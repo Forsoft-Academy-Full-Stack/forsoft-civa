@@ -1,36 +1,36 @@
 package model;
 
 public class Pais {
-    private Long idPais;
-    private Long idContinente;
-    private Long idCadastrante;
+    private Integer idPais;
+    private Integer idContinente;
+    private Integer idCadastrante;
     private String nomePais;
     private String orgaoResponsavel;
     private String padraoContato;
     private Integer ddi;
     private String sigla;
 
-    public Long getIdPais() {
+    public Integer getIdPais() {
         return idPais;
     }
 
-    public void setIdPais(Long idPais) {
+    public void setIdPais(Integer idPais) {
         this.idPais = idPais;
     }
 
-    public Long getIdContinente() {
+    public Integer getIdContinente() {
         return idContinente;
     }
 
-    public void setIdContinente(Long idContinente) {
+    public void setIdContinente(Integer idContinente) {
         this.idContinente = idContinente;
     }
 
-    public Long getIdCadastrante() {
+    public Integer getIdCadastrante() {
         return idCadastrante;
     }
 
-    public void setIdCadastrante(Long idCadastrante) {
+    public void setIdCadastrante(Integer idCadastrante) {
         this.idCadastrante = idCadastrante;
     }
 
@@ -72,5 +72,7 @@ public class Pais {
 
     public void setSigla(String sigla) {
         this.sigla = sigla;
-    }    
+    }
+
+    
 }
