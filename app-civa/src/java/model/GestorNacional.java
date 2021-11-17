@@ -6,10 +6,10 @@ package model;
  */
 public class GestorNacional {
     private Pessoa pessoa;
-    private Endereco endereco;
     private Docs documentacao;
     private Docs documentacao2;
     private Docs documentacao3;
+    private Endereco endereco;
 
     public Pessoa getPessoa() {
         return pessoa;
