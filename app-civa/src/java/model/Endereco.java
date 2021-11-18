@@ -9,13 +9,13 @@ public class Endereco {
     private String tipoLogradouro;
     private String logradouro;
     private String codigoPostal;
-    private String subdivisao1;
-    private String subdivisao2;
-    private String subdivisao3;
-    private String subdivisao4;
-    private String subdivisao5;
-    private String subdivisao6;
-    private String subdivisao7;
+    private String nomesubdivisao1;
+    private String nomesubdivisao2;
+    private String nomesubdivisao3;
+    private String nomesubdivisao4;
+    private String nomesubdivisao5;
+    private String nomesubdivisao6;
+    private String nomesubdivisao7;
     
     public Integer getIdEndereco() {
         return idEndereco;
@@ -57,59 +57,60 @@ public class Endereco {
         this.codigoPostal = codigoPostal;
     }
 
-    public String getSubdivisao1() {
-        return subdivisao1;
+    public String getNomesubdivisao1() {
+        return nomesubdivisao1;
     }
 
-    public void setSubdivisao1(String subdivisao1) {
-        this.subdivisao1 = subdivisao1;
+    public void setNomesubdivisao1(String nomesubdivisao1) {
+        this.nomesubdivisao1 = nomesubdivisao1;
     }
 
-    public String getSubdivisao2() {
-        return subdivisao2;
+    public String getNomesubdivisao2() {
+        return nomesubdivisao2;
     }
 
-    public void setSubdivisao2(String subdivisao2) {
-        this.subdivisao2 = subdivisao2;
+    public void setNomesubdivisao2(String nomesubdivisao2) {
+        this.nomesubdivisao2 = nomesubdivisao2;
     }
 
-    public String getSubdivisao3() {
-        return subdivisao3;
+    public String getNomesubdivisao3() {
+        return nomesubdivisao3;
     }
 
-    public void setSubdivisao3(String subdivisao3) {
-        this.subdivisao3 = subdivisao3;
+    public void setNomesubdivisao3(String nomesubdivisao3) {
+        this.nomesubdivisao3 = nomesubdivisao3;
     }
 
-    public String getSubdivisao4() {
-        return subdivisao4;
+    public String getNomesubdivisao4() {
+        return nomesubdivisao4;
     }
 
-    public void setSubdivisao4(String subdivisao4) {
-        this.subdivisao4 = subdivisao4;
+    public void setNomesubdivisao4(String nomesubdivisao4) {
+        this.nomesubdivisao4 = nomesubdivisao4;
     }
 
-    public String getSubdivisao5() {
-        return subdivisao5;
+    public String getNomesubdivisao5() {
+        return nomesubdivisao5;
     }
 
-    public void setSubdivisao5(String subdivisao5) {
-        this.subdivisao5 = subdivisao5;
+    public void setNomesubdivisao5(String nomesubdivisao5) {
+        this.nomesubdivisao5 = nomesubdivisao5;
     }
 
-    public String getSubdivisao6() {
-        return subdivisao6;
+    public String getNomesubdivisao6() {
+        return nomesubdivisao6;
     }
 
-    public void setSubdivisao6(String subdivisao6) {
-        this.subdivisao6 = subdivisao6;
+    public void setNomesubdivisao6(String nomesubdivisao6) {
+        this.nomesubdivisao6 = nomesubdivisao6;
     }
 
-    public String getSubdivisao7() {
-        return subdivisao7;
+    public String getNomesubdivisao7() {
+        return nomesubdivisao7;
     }
 
-    public void setSubdivisao7(String subdivisao7) {
-        this.subdivisao7 = subdivisao7;
-    }   
+    public void setNomesubdivisao7(String nomesubdivisao7) {
+        this.nomesubdivisao7 = nomesubdivisao7;
+    }
+    
 }

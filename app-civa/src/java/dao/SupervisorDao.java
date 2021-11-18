@@ -69,13 +69,13 @@ public class SupervisorDao {
         endereco.setIdEndereco(1);
         endereco.setIdPais(1);
         endereco.setLogradouro("Rua José");
-        endereco.setSubdivisao1("");
-        endereco.setSubdivisao2("");
-        endereco.setSubdivisao3("");
-        endereco.setSubdivisao4("");
-        endereco.setSubdivisao5("");
-        endereco.setSubdivisao6("");
-        endereco.setSubdivisao7("");
+        endereco.setNomesubdivisao1("");
+        endereco.setNomesubdivisao2("");
+        endereco.setNomesubdivisao3("");
+        endereco.setNomesubdivisao4("");
+        endereco.setNomesubdivisao5("");
+        endereco.setNomesubdivisao6("");
+        endereco.setNomesubdivisao7("");
         endereco.setTipoLogradouro("Rua");
         //"SELECT * FROM pais where nome = "+pais;
         
@@ -130,13 +130,13 @@ public class SupervisorDao {
         endereco.setIdEndereco(1);
         endereco.setIdPais(1);
         endereco.setLogradouro("Rua José");
-        endereco.setSubdivisao1("");
-        endereco.setSubdivisao2("");
-        endereco.setSubdivisao3("");
-        endereco.setSubdivisao4("");
-        endereco.setSubdivisao5("");
-        endereco.setSubdivisao6("");
-        endereco.setSubdivisao7("");
+        endereco.setNomesubdivisao1("");
+        endereco.setNomesubdivisao2("");
+        endereco.setNomesubdivisao3("");
+        endereco.setNomesubdivisao4("");
+        endereco.setNomesubdivisao5("");
+        endereco.setNomesubdivisao6("");
+        endereco.setNomesubdivisao7("");
         endereco.setTipoLogradouro("Rua");
         //"SELECT * FROM pais where nome = "+pais;
         
@@ -186,12 +186,12 @@ public class SupervisorDao {
         endereco2.setIdEndereco(1);
         endereco2.setIdPais(1);
         endereco2.setLogradouro("Rua José");
-        endereco2.setSubdivisao1("");
-        endereco2.setSubdivisao2("");
-        endereco2.setSubdivisao3("");
-        endereco2.setSubdivisao4("");
-        endereco2.setSubdivisao5("");
-        endereco2.setSubdivisao7("");
+        endereco2.setNomesubdivisao1("");
+        endereco2.setNomesubdivisao2("");
+        endereco2.setNomesubdivisao3("");
+        endereco2.setNomesubdivisao4("");
+        endereco2.setNomesubdivisao5("");
+        endereco2.setNomesubdivisao7("");
         endereco2.setTipoLogradouro("Rua");
         //"SELECT * FROM pais where nome = "+pais;
         
