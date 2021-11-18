@@ -112,5 +112,7 @@ public class Endereco {
     public void setNomesubdivisao7(String nomesubdivisao7) {
         this.nomesubdivisao7 = nomesubdivisao7;
     }
+
+
     
 }

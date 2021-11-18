@@ -5,9 +5,9 @@ package model;
  */
 public class GestorOms {
     private Pessoa pessoa;
-    private Docs documentacao;
-    private Docs documentacao2;
-    private Docs documentacao3;
+    private Docs documento1;
+    private Docs documento2;
+    private Docs documento3;
     private Endereco endereco;
 
     public Pessoa getPessoa() {
@@ -18,28 +18,28 @@ public class GestorOms {
         this.pessoa = pessoa;
     }
 
-    public Docs getDocumentacao() {
-        return documentacao;
+    public Docs getDocumento1() {
+        return documento1;
     }
 
-    public void setDocumentacao(Docs documentacao) {
-        this.documentacao = documentacao;
+    public void setDocumento1(Docs documento1) {
+        this.documento1 = documento1;
     }
 
-    public Docs getDocumentacao2() {
-        return documentacao2;
+    public Docs getDocumento2() {
+        return documento2;
     }
 
-    public void setDocumentacao2(Docs documentacao2) {
-        this.documentacao2 = documentacao2;
+    public void setDocumento2(Docs documento2) {
+        this.documento2 = documento2;
     }
 
-    public Docs getDocumentacao3() {
-        return documentacao3;
+    public Docs getDocumento3() {
+        return documento3;
     }
 
-    public void setDocumentacao3(Docs documentacao3) {
-        this.documentacao3 = documentacao3;
+    public void setDocumento3(Docs documento3) {
+        this.documento3 = documento3;
     }
 
     public Endereco getEndereco() {
