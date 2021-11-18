@@ -6,7 +6,7 @@ package model;
  */
 public class GestorNacional {
     private Pessoa pessoa;
-    private Docs documentacao;
+    private Docs documentacao1;
     private Docs documentacao2;
     private Docs documentacao3;
     private Endereco endereco;
@@ -27,12 +27,12 @@ public class GestorNacional {
         this.endereco = endereco;
     }
 
-    public Docs getDocumentacao() {
-        return documentacao;
+    public Docs getDocumentacao1() {
+        return documentacao1;
     }
 
-    public void setDocumentacao(Docs documentacao) {
-        this.documentacao = documentacao;
+    public void setDocumentacao1(Docs documentacao) {
+        this.documentacao1 = documentacao;
     }
 
     public Docs getDocumentacao2() {
