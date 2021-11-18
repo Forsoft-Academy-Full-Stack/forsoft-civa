@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import java.util.ArrayList;
@@ -12,10 +7,9 @@ import model.Endereco;
 import model.Gerente;
 import model.Pessoa;
 
-
 /**
  *
- * @author randel
+ * @author Rafael Marçal | Antonio Henrique
  */
 public class GerenteDao {
 
@@ -31,7 +25,7 @@ public class GerenteDao {
         return resultado;
     }
 
-        public static boolean update(Gerente gerente) {
+    public static boolean update(Gerente gerente) {
         boolean resultado = false;
 
         // Update pais;
@@ -41,7 +35,7 @@ public class GerenteDao {
 
         return resultado;
     }
-    
+
     public static boolean delete(Gerente gerente) {
         boolean resultado = false;
 
@@ -52,56 +46,47 @@ public class GerenteDao {
 
         return resultado;
     }
-    
+
     public static Gerente find(String gerenteNome) {
         Gerente gerente1 = new Gerente();
-        //"SELECT * FROM pais where nome = "+pais;
-        
+
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("");
-        pessoa.setSobrenome("");
-        pessoa.setGenero("");
-        pessoa.setDataNascimento("");
-        pessoa.setDdiContato("");
-        pessoa.setTelefoneDdd("");
-        
-        gerente1.setPessoa(pessoa);
-        
+        pessoa.setNome("Antônio");
+        pessoa.setSobrenome("Henrique");
+        pessoa.setGenero("Homem Cis");
+        pessoa.setDataNascimento("26-10-1998");
+        pessoa.setDdiContato("+55");
+        pessoa.setTelefoneDdd("21 9 69179669");
+
         Endereco endereco = new Endereco();
-        endereco.setTipoLogradouro("");
-        endereco.setLogradouro("");
-        endereco.setCodigoPostal("");
-        endereco.setNomesubdivisao1("");
-        endereco.setNomesubdivisao2("");
-        endereco.setNomesubdivisao3("");
-        endereco.setNomesubdivisao4("");
-        endereco.setNomesubdivisao5("");
-        endereco.setNomesubdivisao6("");
-        endereco.setNomesubdivisao7("");
-        
+        endereco.setCodigoPostal("24716591");
+        endereco.setTipoLogradouro("Rua");
+        endereco.setLogradouro("Soares dos Reis");
+        endereco.setNomesubdivisao1("América do Sul");
+        endereco.setNomesubdivisao2("Brasil");
+        endereco.setNomesubdivisao3("Sudeste");
+        endereco.setNomesubdivisao4("Rio de Janeiro");
+        endereco.setNomesubdivisao5("Região Metropolitana");
+        endereco.setNomesubdivisao6("São Gonçalo");
+        endereco.setNomesubdivisao7("Jardim Catarina");
+
+        Docs documento1 = new Docs();
+        documento1.setDataEmissao("29-09-2017");
+        documento1.setDocumento("16328761759");
+
+        Docs documento2 = new Docs();
+        documento2.setDataEmissao("29-09-2018");
+        documento2.setDocumento("16328761759");
+
+        Docs documento3 = new Docs();
+        documento3.setDataEmissao("29-09-2019");
+        documento3.setDocumento("16328761759");
+
+        gerente1.setPessoa(pessoa);
         gerente1.setEndereco(endereco);
-        
-                
-        Docs docs1 = new Docs();
-        docs1.setDocumento("");
-        docs1.setDataEmissao("");
-        
-        gerente1.setDocumento1(docs1);
-       
-        Docs docs2 = new Docs();
-        docs2.setDocumento("");
-        docs2.setDataEmissao("");
-        
-        gerente1.setDocumento1(docs2);
-        
-        Docs docs3 = new Docs();
-        docs3.setDocumento("");
-        docs3.setDataEmissao("");
-        
-        gerente1.setDocumento1(docs3);
-        
-        
-        
+        gerente1.setDocumento1(documento1);
+        gerente1.setDocumento2(documento2);
+        gerente1.setDocumento3(documento3);
 
         return gerente1;
     }
@@ -109,106 +94,91 @@ public class GerenteDao {
     public static List<Gerente> list() {
         List<Gerente> gerentes = new ArrayList<Gerente>();
 
-        Gerente gerente1 = new Gerente();
-        //"SELECT * FROM pais ;
+        Gerente gerente = new Gerente();
+
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("");
-        pessoa.setSobrenome("");
-        pessoa.setGenero("");
-        pessoa.setDataNascimento("");
-        pessoa.setDdiContato("");
-        pessoa.setTelefoneDdd("");
-        
-        gerente1.setPessoa(pessoa);
-        
+        pessoa.setNome("Antônio");
+        pessoa.setSobrenome("Henrique");
+        pessoa.setGenero("Homem Cis");
+        pessoa.setDataNascimento("26-10-1998");
+        pessoa.setDdiContato("+55");
+        pessoa.setTelefoneDdd("21 9 69179669");
+
         Endereco endereco = new Endereco();
-        endereco.setTipoLogradouro("");
-        endereco.setLogradouro("");
-        endereco.setCodigoPostal("");
-        endereco.setNomesubdivisao1("");
-        endereco.setNomesubdivisao2("");
-        endereco.setNomesubdivisao3("");
-        endereco.setNomesubdivisao4("");
-        endereco.setNomesubdivisao5("");
-        endereco.setNomesubdivisao6("");
-        endereco.setNomesubdivisao7("");
-        
-        gerente1.setEndereco(endereco);
-        
-                
-        Docs docs1 = new Docs();
-        docs1.setDocumento("");
-        docs1.setDataEmissao("");
-        
-        gerente1.setDocumento1(docs1);
-       
-        Docs docs2 = new Docs();
-        docs2.setDocumento("");
-        docs2.setDataEmissao("");
-        
-        gerente1.setDocumento1(docs2);
-        
-        Docs docs3 = new Docs();
-        docs3.setDocumento("");
-        docs3.setDataEmissao("");
-        
-        gerente1.setDocumento1(docs3);
-        //ÚLTIMO REGISTRO DO GENRETE 1//
-        
-        gerentes.add(gerente1);
-        
-        //GERENTE 2//
+        endereco.setCodigoPostal("24716591");
+        endereco.setTipoLogradouro("Rua");
+        endereco.setLogradouro("Soares dos Reis");
+        endereco.setNomesubdivisao1("América do Sul");
+        endereco.setNomesubdivisao2("Brasil");
+        endereco.setNomesubdivisao3("Sudeste");
+        endereco.setNomesubdivisao4("Rio de Janeiro");
+        endereco.setNomesubdivisao5("Região Metropolitana");
+        endereco.setNomesubdivisao6("São Gonçalo");
+        endereco.setNomesubdivisao7("Jardim Catarina");
+
+        Docs documento1 = new Docs();
+        documento1.setDataEmissao("29-09-2017");
+        documento1.setDocumento("16328761759");
+
+        Docs documento2 = new Docs();
+        documento2.setDataEmissao("29-09-2018");
+        documento2.setDocumento("16328761759");
+
+        Docs documento3 = new Docs();
+        documento3.setDataEmissao("29-09-2019");
+        documento3.setDocumento("16328761759");
+
+        gerente.setPessoa(pessoa);
+        gerente.setEndereco(endereco);
+        gerente.setDocumento1(documento1);
+        gerente.setDocumento2(documento2);
+        gerente.setDocumento3(documento3);
+
+        gerentes.add(gerente);
+
         Gerente gerente2 = new Gerente();
-        
-        //"SELECT * FROM pais ;
+
         Pessoa pessoa2 = new Pessoa();
-        pessoa2.setNome("");
-        pessoa2.setSobrenome("");
-        pessoa2.setGenero("");
-        pessoa2.setDataNascimento("");
-        pessoa2.setDdiContato("");
-        pessoa2.setTelefoneDdd("");
-        
-        gerente1.setPessoa(pessoa2);
-        
+        pessoa2.setNome("Henrique");
+        pessoa2.setSobrenome("Junior");
+        pessoa2.setGenero("Homem Cis");
+        pessoa2.setDataNascimento("15-10-1998");
+        pessoa2.setDdiContato("+351");
+        pessoa2.setTelefoneDdd("12 1 96696917");
+
         Endereco endereco2 = new Endereco();
-        endereco2.setTipoLogradouro("");
-        endereco2.setLogradouro("");
-        endereco2.setCodigoPostal("");
-        endereco2.setNomesubdivisao1("");
-        endereco2.setNomesubdivisao2("");
-        endereco2.setNomesubdivisao3("");
-        endereco2.setNomesubdivisao4("");
-        endereco2.setNomesubdivisao5("");
-        endereco2.setNomesubdivisao6("");
-        endereco2.setNomesubdivisao7("");
-        
-        gerente2.setEndereco(endereco2);
-        
-                
-        Docs docs12 = new Docs();
-        docs12.setDocumento("");
-        docs12.setDataEmissao("");
-        
-        gerente2.setDocumento1(docs12);
-       
-        Docs docs22 = new Docs();
-        docs22.setDocumento("");
-        docs22.setDataEmissao("");
-        
-        gerente2.setDocumento1(docs22);
-        
-        Docs docs32 = new Docs();
-        docs32.setDocumento("");
-        docs32.setDataEmissao("");
-        
-        gerente2.setDocumento1(docs32);
-        
-        gerentes.add(gerente2);
-        
-        
+        endereco2.setCodigoPostal("12358295");
+        endereco2.setTipoLogradouro("Avenida");
+        endereco2.setLogradouro("Reis dos Soares");
+        endereco2.setNomesubdivisao1("Europa");
+        endereco2.setNomesubdivisao2("Portugal");
+        endereco2.setNomesubdivisao3("Sul");
+        endereco2.setNomesubdivisao4("Algarve");
+        endereco2.setNomesubdivisao5("Centro");
+        endereco2.setNomesubdivisao6("Santo Gonçalves");
+        endereco2.setNomesubdivisao7("Floresta Catarina");
+
+        Docs documento12 = new Docs();
+        documento12.setDataEmissao("27-09-2020");
+        documento12.setDocumento("291632826");
+
+        Docs documento22 = new Docs();
+        documento22.setDataEmissao("27-09-2021");
+        documento22.setDocumento("291632826");
+
+        Docs documento32 = new Docs();
+        documento32.setDataEmissao("27-09-2022");
+        documento32.setDocumento("291632826");
+
+        gerente.setPessoa(pessoa);
+        gerente.setEndereco(endereco);
+        gerente.setDocumento1(documento1);
+        gerente.setDocumento2(documento2);
+        gerente.setDocumento3(documento3);
+
+        gerentes.add(gerente);
 
         return gerentes;
     }
- 
+
 }

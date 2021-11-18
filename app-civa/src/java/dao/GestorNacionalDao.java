@@ -8,7 +8,7 @@ import model.GestorNacional;
 import model.Pessoa;
 /**
  *
- * @author Geize Kele
+ * @author Geize Kele | Israel de Araujo
  */
 public class GestorNacionalDao {
     
