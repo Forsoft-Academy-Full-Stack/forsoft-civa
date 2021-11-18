@@ -4,9 +4,9 @@ package model;
  * @author randel
  */
 public class Unidade {
-    private Long idUnidade;
-    private Long idEndereco;
-    private Long numero;
+    private Integer idUnidade;
+    private Integer idEndereco;
+    private Integer numero;
     private String registro;
     private String nome;
     private String contato;
@@ -16,27 +16,27 @@ public class Unidade {
     private Boolean situacao;
     private String dataCadastro;
 
-    public Long getIdUnidade() {
+    public Integer getIdUnidade() {
         return idUnidade;
     }
 
-    public void setIdUnidade(Long idUnidade) {
+    public void setIdUnidade(Integer idUnidade) {
         this.idUnidade = idUnidade;
     }
 
-    public Long getIdEndereco() {
+    public Integer getIdEndereco() {
         return idEndereco;
     }
 
-    public void setIdEndereco(Long idEndereco) {
+    public void setIdEndereco(Integer idEndereco) {
         this.idEndereco = idEndereco;
     }
 
-    public Long getNumero() {
+    public Integer getNumero() {
         return numero;
     }
 
-    public void setNumero(Long numero) {
+    public void setNumero(Integer numero) {
         this.numero = numero;
     }
 

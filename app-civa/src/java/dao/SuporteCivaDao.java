@@ -58,13 +58,13 @@ public class SuporteCivaDao {
         endereco.setIdEndereco(1);
         endereco.setIdPais(1);
         endereco.setLogradouro("");
-        endereco.setNomeSubdivisao1("");
-        endereco.setNomeSubdivisao2("");
-        endereco.setNomeSubdivisao3("");
-        endereco.setNomeSubdivisao4("");
-        endereco.setNomeSubdivisao5("");
-        endereco.setNomeSubdivisao6("");
-        endereco.setNomeSubdivisao7("");
+        endereco.setNomesubdivisao1("");
+        endereco.setNomesubdivisao2("");
+        endereco.setNomesubdivisao3("");
+        endereco.setNomesubdivisao4("");
+        endereco.setNomesubdivisao5("");
+        endereco.setNomesubdivisao6("");
+        endereco.setNomesubdivisao7("");
         endereco.setTipoLogradouro("");
         
         suporteCiva.setPessoa(pessoa);
@@ -118,13 +118,13 @@ public class SuporteCivaDao {
         endereco.setIdEndereco(1);
         endereco.setIdPais(1);
         endereco.setLogradouro("");
-        endereco.setNomeSubdivisao1("");
-        endereco.setNomeSubdivisao2("");
-        endereco.setNomeSubdivisao3("");
-        endereco.setNomeSubdivisao4("");
-        endereco.setNomeSubdivisao5("");
-        endereco.setNomeSubdivisao6("");
-        endereco.setNomeSubdivisao7("");
+        endereco.setNomesubdivisao1("");
+        endereco.setNomesubdivisao2("");
+        endereco.setNomesubdivisao3("");
+        endereco.setNomesubdivisao4("");
+        endereco.setNomesubdivisao5("");
+        endereco.setNomesubdivisao6("");
+        endereco.setNomesubdivisao7("");
         endereco.setTipoLogradouro("");
         
         suporteCiva.setPessoa(pessoa);
@@ -173,12 +173,12 @@ public class SuporteCivaDao {
         endereco2.setIdEndereco(1);
         endereco2.setIdPais(1);
         endereco2.setLogradouro(" ");
-        endereco2.setNomeSubdivisao1("");
-        endereco2.setNomeSubdivisao2("");
-        endereco2.setNomeSubdivisao3("");
-        endereco2.setNomeSubdivisao4("");
-        endereco2.setNomeSubdivisao5("");
-        endereco2.setNomeSubdivisao7("");
+        endereco2.setNomesubdivisao1("");
+        endereco2.setNomesubdivisao2("");
+        endereco2.setNomesubdivisao3("");
+        endereco2.setNomesubdivisao4("");
+        endereco2.setNomesubdivisao5("");
+        endereco2.setNomesubdivisao7("");
         endereco2.setTipoLogradouro("");
         
         suporteCiva2.setPessoa(pessoa);
