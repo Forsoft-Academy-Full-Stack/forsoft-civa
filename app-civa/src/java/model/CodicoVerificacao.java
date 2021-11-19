@@ -1,7 +1,7 @@
 package model;
 /**
  *
- * @author randel
+ * @author randel | text
  */
 public class CodicoVerificacao {
     private Long idReset;
