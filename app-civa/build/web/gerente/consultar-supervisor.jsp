@@ -1,5 +1,12 @@
+<%@page import="model.Supervisor"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.SupervisorDao"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,6 +24,14 @@
    // Caso contrário é um usuário válido, pode entrar na página
   
 %>
+
+<%
+  //Buscar Lista de supervisores
+  List<Supervisor> lista = SupervisorDao.list();
+  
+  pageContext.setAttribute("supervisores", lista);
+%>    
+
 
 <%@include file="header.jspf"%>
     <script src="./../public/assets/js/gerente/consultar-supervisor.js" defer></script>

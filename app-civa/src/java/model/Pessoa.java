@@ -4,7 +4,7 @@ public class Pessoa {
     private Integer idPessoa;
     private Integer idNacionalidade;
     private String nomePessoa;
-    private String sobrenome;
+    private String sobrenomePessoa;
     private String dataNascimento;
     private String ddiContato;
     private String email;
@@ -43,12 +43,12 @@ public class Pessoa {
     public void setIdNacionalidade(Integer idNacionalidade) {
         this.idNacionalidade = idNacionalidade;
     }
-    public String getSobrenome() {
-        return sobrenome;
+    public String getSobrenomePessoa() {
+        return sobrenomePessoa;
     }
 
-    public void setSobrenome(String sobrenome) {
-        this.sobrenome = sobrenome;
+    public void setSobrenomePessoa(String sobrenomePessoa) {
+        this.sobrenomePessoa = sobrenomePessoa;
     }
 
     public String getDataNascimento() {
