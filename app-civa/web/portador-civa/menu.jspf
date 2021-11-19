@@ -17,7 +17,7 @@
                      alt="User Image">
             </div>
             <div class="info">
-               <span class="d-block text-light">${dados.nome} ${dados.sobrenome}</span>
+                <span class="d-block text-light">${dados.nomePessoa} ${dados.sobrenomePessoa}</span>
             </div>
         </div>
 

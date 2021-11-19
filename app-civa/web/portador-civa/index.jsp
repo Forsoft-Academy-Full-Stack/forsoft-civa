@@ -46,7 +46,7 @@
                             <div class="jumbotron">
                                 <h1 class="display-4">Ol&aacute;, Portador CIVA!</h1>
                                 <hr class="my-4">
-                                <p>Bem vindo ao seu painel CIVA, ${dados.nome} ${dados.sobrenome}!</p>
+                                <p>Bem vindo ao seu painel CIVA, ${dados.nomePessoa} ${dados.sobrenomePessoa}!</p>
                             </div>
                             <!-- /.content -->
                         </div>
