@@ -17,9 +17,9 @@ public class PessoaDao {
     public static Pessoa find(Pessoa pbusca) {
         Pessoa p = new Pessoa();
         
-        if (pbusca.getNome().equals("João") && pbusca.getSobrenome().equals("Lopes")) {
-            p.setNome(pbusca.getNome());
-            p.setSobrenome(pbusca.getSobrenome());
+        if (pbusca.getNomePessoa().equals("João") && pbusca.getSobrenomePessoa().equals("Lopes")) {
+            p.setNomePessoa(pbusca.getNomePessoa());
+            p.setSobrenomePessoa(pbusca.getSobrenomePessoa());
             p.setTelefoneDdd("21900101123");
             p.setGenero("Masculino");
             p.setDataNascimento("02-04-1999");
@@ -32,7 +32,7 @@ public class PessoaDao {
     public static boolean insert(Pessoa pinsert) {
         boolean resultado = false;
         
-        if (pinsert.getNome()!=null) {
+        if (pinsert.getNomePessoa()!=null) {
             //se conseguir inserir no banco
             
             Pais pais = PaisDao.find("Brasil");

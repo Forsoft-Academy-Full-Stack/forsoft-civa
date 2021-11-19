@@ -51,8 +51,8 @@ public class GerenteDao {
         Gerente gerente1 = new Gerente();
 
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Antônio");
-        pessoa.setSobrenome("Henrique");
+        pessoa.setNomePessoa("Antônio");
+        pessoa.setSobrenomePessoa("Henrique");
         pessoa.setGenero("Homem Cis");
         pessoa.setDataNascimento("26-10-1998");
         pessoa.setDdiContato("+55");
@@ -97,8 +97,8 @@ public class GerenteDao {
         Gerente gerente = new Gerente();
 
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Antônio");
-        pessoa.setSobrenome("Henrique");
+        pessoa.setNomePessoa("Antônio");
+        pessoa.setSobrenomePessoa("Henrique");
         pessoa.setGenero("Homem Cis");
         pessoa.setDataNascimento("26-10-1998");
         pessoa.setDdiContato("+55");
@@ -139,8 +139,8 @@ public class GerenteDao {
         Gerente gerente2 = new Gerente();
 
         Pessoa pessoa2 = new Pessoa();
-        pessoa2.setNome("Henrique");
-        pessoa2.setSobrenome("Junior");
+        pessoa2.setNomePessoa("Henrique");
+        pessoa2.setSobrenomePessoa("Junior");
         pessoa2.setGenero("Homem Cis");
         pessoa2.setDataNascimento("15-10-1998");
         pessoa2.setDdiContato("+351");

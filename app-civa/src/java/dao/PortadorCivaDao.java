@@ -2,7 +2,6 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
-import model.Acessopc;
 import model.Docs;
 import model.Endereco;
 import model.Pessoa;
@@ -30,19 +29,14 @@ public class PortadorCivaDao {
         PortadorCiva portadorciva = new PortadorCiva();
 
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("");
-        pessoa.setSobrenome("");
+        pessoa.setNomePessoa("");
+        pessoa.setSobrenomePessoa("");
         pessoa.setDataNascimento("");
         pessoa.setTelefoneDdd("");
         pessoa.setGenero("");
         pessoa.setIdNacionalidade(1);
         pessoa.setIdPessoa(1);
 
-        Acessopc acessopc = new Acessopc();
-        acessopc.setCodigoCiva(1);
-        acessopc.setEmail("");
-        acessopc.setSenha("");
-        // acessopc.setIdCadastrante(1);
 
         Docs documento1 = new Docs();
         documento1.setDataEmissao("");
@@ -81,7 +75,6 @@ public class PortadorCivaDao {
         // SELECT * FROM portadorciva where nome="";
 
         portadorciva.setPessoa(pessoa);
-        portadorciva.setAcessopc(acessopc);
         portadorciva.setDocumento1(documento1);
         portadorciva.setDocumento2(documento2);
         portadorciva.setDocumento3(documento3);
@@ -97,8 +90,8 @@ public class PortadorCivaDao {
         PortadorCiva portadorciva = new PortadorCiva();
 
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("");
-        pessoa.setSobrenome("");
+        pessoa.setNomePessoa("");
+        pessoa.setSobrenomePessoa("");
         pessoa.setDataNascimento("");
         pessoa.setTelefoneDdd("");
         pessoa.setDdiContato("");
@@ -146,8 +139,8 @@ public class PortadorCivaDao {
         PortadorCiva portadorciva2 = new PortadorCiva();
 
         Pessoa pessoa2 = new Pessoa();
-        pessoa2.setNome("");
-        pessoa2.setSobrenome("");
+        pessoa2.setNomePessoa("");
+        pessoa2.setSobrenomePessoa("");
         pessoa2.setDataNascimento("");
         pessoa2.setTelefoneDdd("");
         pessoa2.setDdiContato("");

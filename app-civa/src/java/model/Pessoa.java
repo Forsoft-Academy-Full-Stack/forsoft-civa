@@ -3,19 +3,21 @@ package model;
 public class Pessoa {
     private Integer idPessoa;
     private Integer idNacionalidade;
-    private String nome;
+    private String nomePessoa;
     private String sobrenome;
     private String dataNascimento;
     private String ddiContato;
+    private String email;
     private String telefoneDdd;
     private String genero;
+
    
-    public String getNome() {
-        return nome;
+    public String getNomePessoa() {
+        return nomePessoa;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomePessoa(String nomePessoa) {
+        this.nomePessoa = nomePessoa;
     }
 
     public String getGenero() {
@@ -64,7 +66,15 @@ public class Pessoa {
     public void setDdiContato(String ddiContato) {
         this.ddiContato = ddiContato;
     }
+    
+    public String getEmail() {
+        return email;
+    }
 
+    public void setEmail(String email) {
+        this.email = email;
+    }
+    
     public String getTelefoneDdd() {
         return telefoneDdd;
     }

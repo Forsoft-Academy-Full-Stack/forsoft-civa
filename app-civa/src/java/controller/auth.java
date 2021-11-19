@@ -56,7 +56,7 @@ public class auth extends HttpServlet {
             // Sempre redirecionar para o index.jsp
             Pessoa pessoa = LoginDao.validar(loginAcesso);
             
-            if (pessoa.getNome() != null) {
+            if (pessoa.getNomePessoa() != null) {
 
                 Pessoa dadosPessoa = PessoaDao.find(pessoa);
                 

@@ -28,8 +28,8 @@ public class GestorOmsDao {
         GestorOms gestoroms = new GestorOms();
         //"SELECT * FROM pais where nome = "+pais;
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("Ludwig");
-        pessoa.setSobrenome("Gonzaga");
+        pessoa.setNomePessoa("Ludwig");
+        pessoa.setSobrenomePessoa("Gonzaga");
         pessoa.setGenero("Homem Cis");
         pessoa.setDataNascimento("06/02/1982");
         pessoa.setDdiContato("+55");
@@ -92,8 +92,8 @@ public class GestorOmsDao {
         Pessoa pessoa = new Pessoa();
         pessoa.setDataNascimento("12-03-1977");
         pessoa.setDdiContato("+55");
-        pessoa.setNome("José");
-        pessoa.setSobrenome("Carlos");
+        pessoa.setNomePessoa("José");
+        pessoa.setSobrenomePessoa("Carlos");
         pessoa.setTelefoneDdd("983578300");
         pessoa.setGenero("homem cis");
         pessoa.setIdNacionalidade(1);
@@ -148,8 +148,8 @@ public class GestorOmsDao {
         Pessoa pessoa2 = new Pessoa();
         pessoa2.setDataNascimento("12-03-1977");
         pessoa2.setDdiContato("+55");
-        pessoa2.setNome("José");
-        pessoa2.setSobrenome("Carlos");
+        pessoa2.setNomePessoa("José");
+        pessoa2.setSobrenomePessoa("Carlos");
         pessoa2.setTelefoneDdd("983578300");
         pessoa2.setGenero("homem cis");
         pessoa2.setIdNacionalidade(1);

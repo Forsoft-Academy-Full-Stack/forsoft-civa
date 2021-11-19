@@ -50,8 +50,8 @@ public class GestorNacionalDao {
         GestorNacional gestorNacional = new GestorNacional();
         
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("");
-        pessoa.setSobrenome("");
+        pessoa.setNomePessoa("");
+        pessoa.setSobrenomePessoa("");
         pessoa.setDataNascimento("");
         pessoa.setDdiContato("");
         pessoa.setTelefoneDdd("");
@@ -103,8 +103,8 @@ public class GestorNacionalDao {
         
         //"SELECT * FROM Gestor Nacional ;
         Pessoa pessoa = new Pessoa();
-        pessoa.setNome("");
-        pessoa.setSobrenome("");
+        pessoa.setNomePessoa("");
+        pessoa.setSobrenomePessoa("");
         pessoa.setDataNascimento("");
         pessoa.setDdiContato("");
         pessoa.setTelefoneDdd("");
@@ -152,8 +152,8 @@ public class GestorNacionalDao {
         
         //"SELECT * FROM Gestor Nacional ;
         Pessoa pessoa2 = new Pessoa();
-        pessoa2.setNome("");
-        pessoa2.setSobrenome("");
+        pessoa2.setNomePessoa("");
+        pessoa2.setSobrenomePessoa("");
         pessoa2.setDataNascimento("");
         pessoa2.setDdiContato("");
         pessoa2.setTelefoneDdd("");

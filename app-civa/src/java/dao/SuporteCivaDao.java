@@ -24,8 +24,8 @@ public class SuporteCivaDao {
         
         pessoa.setDataNascimento("");
         pessoa.setDdiContato("");
-        pessoa.setNome("");
-        pessoa.setSobrenome("");
+        pessoa.setNomePessoa("");
+        pessoa.setSobrenomePessoa("");
         pessoa.setTelefoneDdd("");
         pessoa.setGenero("");
         pessoa.setIdNacionalidade(1);
@@ -85,8 +85,8 @@ public class SuporteCivaDao {
         
         pessoa.setDataNascimento("");
         pessoa.setDdiContato("");
-        pessoa.setNome("");
-        pessoa.setSobrenome("");
+        pessoa.setNomePessoa("");
+        pessoa.setSobrenomePessoa("");
         pessoa.setTelefoneDdd("");
         pessoa.setGenero("");
         pessoa.setIdNacionalidade(1);
@@ -140,8 +140,8 @@ public class SuporteCivaDao {
         Pessoa pessoa2 = new Pessoa();
         pessoa2.setDataNascimento("");
         pessoa2.setDdiContato("");
-        pessoa2.setNome("");
-        pessoa2.setSobrenome("");
+        pessoa2.setNomePessoa("");
+        pessoa2.setSobrenomePessoa("");
         pessoa2.setTelefoneDdd("");
         pessoa2.setGenero("");
         pessoa2.setIdNacionalidade(1);

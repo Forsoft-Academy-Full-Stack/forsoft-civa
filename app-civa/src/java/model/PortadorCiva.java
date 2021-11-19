@@ -9,7 +9,6 @@ public class PortadorCiva {
     private Docs documento2;
     private Docs documento3;
     private Endereco endereco;
-    private Acessopc acessopc;
     private Vacinacao vacinacao;
 
     public Pessoa getPessoa() {
@@ -60,12 +59,4 @@ public class PortadorCiva {
         this.endereco = endereco;
     }
 
-    public Acessopc getAcessopc() {
-        return acessopc;
-    }
-
-    public void setAcessopc(Acessopc acessopc) {
-        this.acessopc = acessopc;
-    }
-    
 }
