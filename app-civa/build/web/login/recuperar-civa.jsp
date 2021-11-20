@@ -1,10 +1,11 @@
 <%@include file="header.jspf"%>
 </head>
 
-<body class="login-page " cz-shortcut-listen="true" style="min-height: 465.625px; flex-direction: row; background: fcfeff;">
+<body class="content-wrapper " style="background: #fff;">
+    <!-- Main content -->
+    <%@include file="navbar.jspf" %>
+    <div class="container d-flex align-items-center justify-content-center mt-5 mb-5">
 
-    <div class="login-box">
-        <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
                 <p class="h1" style="white-space: nowrap;">Recuperar CIVA</p>
@@ -32,16 +33,15 @@
                         <a href="./index.jsp"><b>Voltar</b></a>
                     </p>
                 </div>
-                <div class="mt-5 text-center">
-                    <strong>CIVA &copy; <a href="https://www.forsoftacademy.com.br/">Forsoft Academy</a>.</strong>
-                </div>
+
             </div>
             <!-- /.card-body -->
         </div>
         <!-- /.card -->
     </div>
 
-    <!-- /.login-box -->
+    <%@include file="footer.jspf" %>
 </body>
+
 
 </html>

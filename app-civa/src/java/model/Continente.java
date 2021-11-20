@@ -5,7 +5,7 @@ package model;
  */
 public class Continente {
     private Long idContinente;
-    private String nomeContinente;
+    private String nomeContinente1;
 
     public Long getIdContinente() {
         return idContinente;
@@ -15,11 +15,11 @@ public class Continente {
         this.idContinente = idContinente;
     }
 
-    public String getNomeContinente() {
-        return nomeContinente;
+    public String getNomeContinente1() {
+        return nomeContinente1;
     }
 
-    public void setNomeContinente(String nomeContinente) {
-        this.nomeContinente = nomeContinente;
+    public void setNomeContinente1(String nomeContinente1) {
+        this.nomeContinente1 = nomeContinente1;
     }
 }
