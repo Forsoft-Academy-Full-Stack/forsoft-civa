@@ -85,7 +85,7 @@
                         <div class="col-12 mb-2">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Gestor Vinculados</h3>
+                                    <h3 class="card-title">Profissionais de Sa&uacute;de Vinculados</h3>
 
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -109,36 +109,42 @@
                                             <tr>
                                                 <td>Maria Souza da Silva</td>
                                                 <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>    
+                                                <td>BRA5521123456789</td>
                                             </tr>
                                             <tr>
                                                 <td>Maria Souza da Silva</td>
                                                 <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>    
+                                                <td>BRA5521123456789</td>
                                             </tr>
                                             <tr>
                                                 <td>Maria Souza da Silva</td>
                                                 <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>    
+                                                <td>BRA5521123456789</td>
                                             </tr>
                                             <tr>
                                                 <td>Maria Souza da Silva</td>
                                                 <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>    
+                                                <td>BRA5521123456789</td>   
                                             </tr>
                                         </tbody>
                                     </table>
+                                    <hr>
+                                    <div class="row ">
+                                        <div class="col-6 d-flex justify-content-between align-items-center ml-2 mb-2">
+                                            <a href="./vincular-profissional-saude.jsp" class="btn btn-success btn-xs">Vincular Supervisor</a>
+                                        </div>                                  
+
+                                        <div class="col-5 d-flex justify-content-between align-items-center ml-2 mb-2">
+                                            <a href="./vincular-profissional-saude.jsp" class="btn btn-success btn-xs">Desvincular Supervisor</a>
+                                        </div>
+                                    </div>
                                 </div>
                                 <!-- /.card-body -->
                             </div>
                         </div>
+
                     </div>
 
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
-                        </div>
-                    </div>
                 </div><!-- /.container-fluid -->
                 <%@ include file="../partials/modals-dados-salvos.jspf" %>
             </div>

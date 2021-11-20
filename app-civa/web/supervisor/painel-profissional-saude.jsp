@@ -56,21 +56,6 @@
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
 
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <form action="">
-                                <div class="input-group">
-                                    <input type="search" class="form-control form-control-lg" placeholder="Insira o código civa do portador">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-lg btn-primary">
-                                            Pesquisar
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-
                     <!-- DADOS PORTADOR -->
                     <div class="row mb-3">
 
@@ -98,11 +83,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 row">
-                        <div class="mb-3 mt-3">
-                            <a href="./vincular-unidade.jsp" class="btn btn-primary btn-lg">Vincular Nova unidade</a>
-                        </div>
-                    </div>
+                                    
                     <!-- TABELA VACINAS -->
                     <div class="row">
                         <div class="col-12">
@@ -119,37 +100,32 @@
                                                 <th>Estado</th>
                                                 <th>C&oacute;digo Postal</th>
                                                 <th>Identificador</th>
-                                                <th>Desvincular Unidade</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Hopital Pan</td>
+                                                <td>Hospital Pan</td>
                                                 <td>Rio de Janeiro</td>
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
-                                                <td><input class="btn btn-block" type="checkbox"></td>
                                             </tr>
                                             <tr>
-                                                <td>Hopital Pan</td>
+                                                <td>Hospital Pan</td>
                                                 <td>Rio de Janeiro</td>
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
-                                                <td><input class="btn btn-block" type="checkbox"></td>
                                             </tr>
                                             <tr>
-                                                <td>Hopital Pan</td>
+                                                <td>Hospital Pan</td>
                                                 <td>Rio de Janeiro</td>
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
-                                                <td><input class="btn btn-block" type="checkbox"></td>
                                             </tr>
                                             <tr>
-                                                <td>Hopital Pan</td>
+                                                <td>Hospital Pan</td>
                                                 <td>Rio de Janeiro</td>
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
-                                                <td><input class="btn btn-block" type="checkbox"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -159,15 +135,10 @@
                             <!-- /.card -->
                         </div>
                     </div>
-                    <div class="col-12 row">
-                        <div class="mb-3 mt-3">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-unidade-vinculada">Salvar</button>
-                        </div>
-                    </div>
 
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
-                <%@ include file="../partials/modals-dados-salvos.jspf" %>
+                <%@ include file="../partials/modals-cad-unidade.jspf" %>
             </div>
             <!-- /.content -->
         </div>
