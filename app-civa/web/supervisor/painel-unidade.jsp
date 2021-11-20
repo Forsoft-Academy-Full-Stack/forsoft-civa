@@ -131,12 +131,12 @@
                                     </table>
                                     <hr>
                                     <div class="row ">
-                                        <div class="col d-flex justify-content-xl-start align-items-center ml-4 mb-2">
+                                        <div class="col d-flex justify-content-xl-start  ml-4 mb-2">
                                             <a href="./vincular-profissional-saude.jsp" class="btn btn-success btn-xs">Vincular Supervisor</a>
                                         </div>                                  
 
                                         <div class="col  d-flex justify-content-xl-end align-items-center ml-2 mb-2 mr-4">
-                                            <a href="./vincular-profissional-saude.jsp" class="btn btn-success btn-xs">Desvincular Supervisor</a>
+                                            <a href="./vincular-profissional-saude.jsp" class="btn btn-danger btn-xs">Desvincular Supervisor</a>
                                         </div>
                                     </div>
                                 </div>

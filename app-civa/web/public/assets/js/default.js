@@ -91,3 +91,25 @@ const Toast = Swal.mixin({
     }
 })
 
+
+setAbaAtiva();
+
+
+function setAbaAtiva() {
+    let pageURL = window.location.href;
+    let abas = document.getElementsByClassName('nav-link');
+      
+   
+    for (i=0;i<abas.length;i++) {
+      
+        // Confere se a url da página possui o texto presente na linkagem do elemento
+        if (pageURL.includes(abas[i].href)) {
+            // adiciona a classe "active", alterando a cor de fundo do elemento
+            abas[i].classList.add('active');
+            
+            // adiciona a classe "menu-open" no elemento pai de toda a estrutura daquele ator (a cada .parentElement, suba uma hierarquia), fazendo as outras opções serem exibidas
+            ((abas[i].parentElement).parentElement).parentElement.classList.add('menu-open');
+            (((abas[i].parentElement).parentElement).parentElement).parentElement.classList.add('menu-open');   
+        }
+    }
+}
