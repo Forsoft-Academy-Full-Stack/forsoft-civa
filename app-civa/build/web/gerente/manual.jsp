@@ -41,10 +41,8 @@
                             <!-- /.col -->
 
                             <div class="col-sm-6">
-                                <ol class="breadcrumb float-sm-right">
-                                    <li class="breadcrumb-item">
-                                        <a href="./">Voltar</a>
-                                    </li>
+                                <ol class="breadcrumb float-sm-right">                             
+                                    <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>                                   
                                     <li class="breadcrumb-item active">Manual</li>
                                 </ol>
                             </div>
