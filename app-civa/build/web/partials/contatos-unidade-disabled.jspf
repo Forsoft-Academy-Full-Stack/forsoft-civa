@@ -7,9 +7,7 @@
                           </div>
                           <div class="form-group col-xl-6">
                             <label for="locacao">Loca&ccedil;&atilde;o</label>
-                            <select class="select2 select2-hidden-accessible" id="locacao" name="locacao" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                <option value="1" selected disabled>Fixa</option>
-                                <option value="2" disabled>M&oacute;vel</option>
-                            </select>
+                            <input type="text" class="form-control" id="locacao" name="locacao" value="Fixa" disabled>
+                            
                           </div>
                         </div>
