@@ -111,11 +111,6 @@
         <%@include file="modal-certeza.jspf" %>
     </div>
 
-    <!-- /.content -->
-    <!-- /.content-wrapper -->
-
-    <!-- ./wrapper -->
-
 </body>
 
 </html>

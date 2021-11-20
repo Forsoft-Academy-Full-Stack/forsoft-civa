@@ -90,8 +90,6 @@
         <%@include file="modal-certificado-civa.jspf" %>
         <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-</div>
-<!-- ./wrapper -->
+
 </body>
 </html>

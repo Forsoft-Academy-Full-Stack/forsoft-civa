@@ -70,16 +70,17 @@
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
                                         <hr>
                                         <%@ include file="../partials/contatos-disabled.jspf" %>
+
+                                        <div class="row float-right">
+                                            <div class="col-12 mb-4">
+                                                <a href="./index.jsp" class="btn btn-primary btn-lg">Voltar</a>
+                                            </div>
+                                        </div>
+                                        
                                     </div>
+                                        
                                 </form>
-                                <!-- card-footer -->
-                                <div class="card-footer">
-                                    <button type="button" class="btn btn-primary btn-lg" form="form-meus-dados" data-toggle="modal"
-                                            data-target="#modal-default">
-                                        Salvar
-                                    </button>
-                                </div>
-                                <!-- ./card-footer -->
+
                             </div>
                         </div>
                         <!-- /.row -->
@@ -105,7 +106,7 @@
     </div>
 
     <!-- ./wrapper -->
-    
+
 </body>
 
 </html>

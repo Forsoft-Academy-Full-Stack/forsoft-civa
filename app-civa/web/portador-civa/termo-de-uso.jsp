@@ -38,28 +38,26 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Termos de Uso</h1>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
+                        </div>    
+                    </div>  
                 </div>
-                <!-- /.container-fluid -->
             </div>
-            <!-- /.content-header ---------------------------------------------->
 
-            <!-- Main content -->
             <div class="container-fluid">
                 <!---------------------------------------------------------------->
-                <section class="content">
 
+                <section class="content">
 
                     <!-- Default box -->
                     <div class="card">
-                        <div class="d-flex align-items-center justify-content-between">
-                            <p class="text-center h4 m-5">Termos de uso e pol&iacute;ticas de privacidade</p>
-                            <div class="mr-5">
-                                <a href="./index.jsp"><button type="button" class="btn btn-primary">Voltar</button></a>
-                            </div>
+                        <div class="content-header">
+                            <div class="container-fluid">
+                                <div class="row mb-2">
+                                    <div class="col-sm-6">
+                                        <h1 class="m-0">Termos de uso</h1>
+                                    </div><!-- /.col -->
+                                </div><!-- /.row -->
+                            </div><!-- /.container-fluid -->
                         </div>
 
                         <div>
@@ -87,15 +85,16 @@
                                 condimentum risus bibendum vestibulum leo torquent etiam, quisque gravida feugiat tortor
                                 sapien, sociosqu convallis netus dui dictumst.
                             </p>
+                            <div class="row float-right mr-3">
+                                <div class="col-12 mb-4">
+                                    <a href="./index.jsp" class="btn btn-primary btn-lg">Voltar</a>
+                                </div>
+                            </div>
                         </div>
 
-
                     </div>
-                    <!-- /.card -->
-
                 </section>
 
-                <!-- /.row -->
             </div>
 
         </div>
@@ -105,11 +104,6 @@
 
         <!-- /.content -->
     </div>
-    <!-- /.content-wrapper -->
-
-
-</div>
-<!-- ./wrapper -->
 
 </body>
 

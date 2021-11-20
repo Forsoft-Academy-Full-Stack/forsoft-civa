@@ -45,7 +45,6 @@
                 </div>
                 <!-- /.container-fluid -->
             </div>
-            <!-- /.content-header ---------------------------------------------->
 
             <!-- Main content -->
 
@@ -56,7 +55,7 @@
                         <div class="col d-flex flex-column justify-content-center align-items-center">
                             <img src="../public/img/pense-bem.svg" alt="Aten&ccedil;&atilde;o, eliminar dados">
 
-                            <p class="text-center ml-5 mr-5">A elimina&ccedil;&atilde;o de seus dados &eacute; irrevers&iacute;vel, n&acute;o ser&aacute;
+                            <p class="text-center ml-5 mr-5">A elimina&ccedil;&atilde;o de seus dados &eacute; irrevers&iacute;vel, n&atilde;o ser&aacute;
                                 poss&iacute;vel recuperar seus dados de vacina&ccedil;&atilde;o caso deseje no futuro, pense bem pois a
                                 exclus&atilde;o &eacute; definitiva!</p>
                         </div>
@@ -71,8 +70,7 @@
 
                         <div class="float-right mb-3 mt-3">
                             <a href="./index.jsp"> <button type="button" class="btn btn-primary mr-3">Cancelar</button></a>
-                            <a href="./conta-eliminada.jsp"><button type="button"
-                                                                    class="btn btn-outline-danger">Excluir minha conta</button></a>
+                            <a href="./conta-eliminada.jsp"><button type="button" class="btn btn-outline-danger">Excluir minha conta</button></a>
                         </div>
 
                     </div>

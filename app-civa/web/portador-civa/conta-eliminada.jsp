@@ -38,10 +38,9 @@
                 </div>
             </div>
         </div>
-        <!-- /.modal-content -->
-
+        
     </div>
-    <!-- /.modal-dialog -->
+    
 </body>
 
 </html>
