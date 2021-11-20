@@ -1,0 +1,16 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<nav class="navbar navbar-expand navbar-white navbar-light justify-content-between border-bottom">
+    <!-- Left navbar links -->
+    <a href="./index.jsp">
+        <img src="../public/img/icon-civa-footer-darkblue.svg" alt="logo civa" width="180px" class="ml-5">
+    </a>
+    <ul class="navbar-nav mr-5">
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="index.jsp" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+            <a href="index.jsp#quemsomos" class="nav-link">Quem somos?</a>
+        </li>
+    </ul>
+</nav>
