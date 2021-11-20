@@ -86,12 +86,6 @@
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
-
-                <div class="row">
-                    <div class="col-12 mb-4 ml-2">
-                        <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
-                    </div>
-                </div>
             </div>
             <!-- /.content -->
         </div>

@@ -32,7 +32,6 @@
                         <a href="./cod-altera-senha.jsp"><b>VOLTAR</b></a>
                     </p>
                 </div>
-
             </div>
             <!-- /.card-body -->
         </div>
@@ -40,10 +39,9 @@
     </div>
 
 </div>
+    
 <%@include file="footer.jspf" %>
 <%@include file="modal-recuperar-senha.jspf" %>
 
-
 </body>
-
 </html>
