@@ -10,6 +10,7 @@ public class GestorNacional {
     private Docs documentacao2;
     private Docs documentacao3;
     private Endereco endereco;
+    private String codigoCiva;
 
     public Pessoa getPessoa() {
         return pessoa;
@@ -50,4 +51,13 @@ public class GestorNacional {
     public void setDocumentacao3(Docs documentacao3) {
         this.documentacao3 = documentacao3;
     }
+
+    public String getCodigoCiva() {
+        return codigoCiva;
+    }
+
+    public void setCodigoCiva(String codigoCiva) {
+        this.codigoCiva = codigoCiva;
+    }
+    
 }

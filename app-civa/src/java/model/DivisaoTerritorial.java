@@ -6,59 +6,84 @@ package model;
 public class DivisaoTerritorial {
     private Long idLocalidade;
     private Long idPais;
-    private String subivisao1;
-    private String subdivisao2;
-    private String subdivisao3;
-    private String subdivisao4;
-    private String subdivisao5;
-    private String subdivisao6;
-    private String subdivisao7;
+    private String tiposubivisao1;
+    private String tiposubdivisao2;
+    private String tiposubdivisao3;
+    private String tiposubdivisao4;
+    private String tiposubdivisao5;
+    private String tiposubdivisao6;
+    private String tiposubdivisao7;
 
-    public String getSubdivisao2() {
-        return subdivisao2;
+    public Long getIdLocalidade() {
+        return idLocalidade;
     }
 
-    public void setSubdivisao2(String subdivisao2) {
-        this.subdivisao2 = subdivisao2;
+    public void setIdLocalidade(Long idLocalidade) {
+        this.idLocalidade = idLocalidade;
     }
 
-    public String getSubdivisao3() {
-        return subdivisao3;
+    public Long getIdPais() {
+        return idPais;
     }
 
-    public void setSubdivisao3(String subdivisao3) {
-        this.subdivisao3 = subdivisao3;
+    public void setIdPais(Long idPais) {
+        this.idPais = idPais;
     }
 
-    public String getSubdivisao4() {
-        return subdivisao4;
+    public String getTiposubivisao1() {
+        return tiposubivisao1;
     }
 
-    public void setSubdivisao4(String subdivisao4) {
-        this.subdivisao4 = subdivisao4;
+    public void setTiposubivisao1(String tiposubivisao1) {
+        this.tiposubivisao1 = tiposubivisao1;
     }
 
-    public String getSubdivisao5() {
-        return subdivisao5;
+    public String getTiposubdivisao2() {
+        return tiposubdivisao2;
     }
 
-    public void setSubdivisao5(String subdivisao5) {
-        this.subdivisao5 = subdivisao5;
+    public void setTiposubdivisao2(String tiposubdivisao2) {
+        this.tiposubdivisao2 = tiposubdivisao2;
     }
 
-    public String getSubdivisao6() {
-        return subdivisao6;
+    public String getTiposubdivisao3() {
+        return tiposubdivisao3;
     }
 
-    public void setSubdivisao6(String subdivisao6) {
-        this.subdivisao6 = subdivisao6;
+    public void setTiposubdivisao3(String tiposubdivisao3) {
+        this.tiposubdivisao3 = tiposubdivisao3;
     }
 
-    public String getSubdivisao7() {
-        return subdivisao7;
+    public String getTiposubdivisao4() {
+        return tiposubdivisao4;
     }
 
-    public void setSubdivisao7(String subdivisao7) {
-        this.subdivisao7 = subdivisao7;
+    public void setTiposubdivisao4(String tiposubdivisao4) {
+        this.tiposubdivisao4 = tiposubdivisao4;
     }
+
+    public String getTiposubdivisao5() {
+        return tiposubdivisao5;
+    }
+
+    public void setTiposubdivisao5(String tiposubdivisao5) {
+        this.tiposubdivisao5 = tiposubdivisao5;
+    }
+
+    public String getTiposubdivisao6() {
+        return tiposubdivisao6;
+    }
+
+    public void setTiposubdivisao6(String tiposubdivisao6) {
+        this.tiposubdivisao6 = tiposubdivisao6;
+    }
+
+    public String getTiposubdivisao7() {
+        return tiposubdivisao7;
+    }
+
+    public void setTiposubdivisao7(String tiposubdivisao7) {
+        this.tiposubdivisao7 = tiposubdivisao7;
+    }
+   
 }

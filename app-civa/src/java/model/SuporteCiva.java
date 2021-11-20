@@ -11,6 +11,7 @@ public class SuporteCiva {
     private Docs documento2;
     private Docs documento3;
     private Endereco endereco;
+    private String codigoCiva;
     
     public Pessoa getPessoa() {
         return pessoa;
@@ -52,4 +53,12 @@ public class SuporteCiva {
         this.endereco = endereco;
     }
 
+    public String getCodigoCiva() {
+        return codigoCiva;
+    }
+
+    public void setCodigoCiva(String codigoCiva) {
+        this.codigoCiva = codigoCiva;
+    }
+    
 }

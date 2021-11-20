@@ -6,12 +6,33 @@ package model;
 public class Gerente {
     private Pessoa pessoa;
     private Endereco endereco;
+    private String codigoCiva;
     private Docs documento1;
     private Docs documento2;
     private Docs documento3;
 
     public Pessoa getPessoa() {
         return pessoa;
+    }
+
+    public void setPessoa(Pessoa pessoa) {
+        this.pessoa = pessoa;
+    }
+
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getCodigoCiva() {
+        return codigoCiva;
+    }
+
+    public void setCodigoCiva(String codigoCiva) {
+        this.codigoCiva = codigoCiva;
     }
 
     public Docs getDocumento1() {
@@ -37,19 +58,4 @@ public class Gerente {
     public void setDocumento3(Docs documento3) {
         this.documento3 = documento3;
     }
-
-    public void setPessoa(Pessoa pessoa) {
-        this.pessoa = pessoa;
-    }
-
-   
-
-    public Endereco getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(Endereco endereco) {
-        this.endereco = endereco;
-    }
-    
 }

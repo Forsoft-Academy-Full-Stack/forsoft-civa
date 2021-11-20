@@ -10,6 +10,7 @@ public class PortadorCiva {
     private Docs documento3;
     private Endereco endereco;
     private Vacinacao vacinacao;
+    private String codigoCiva;
 
     public Pessoa getPessoa() {
         return pessoa;
@@ -59,4 +60,12 @@ public class PortadorCiva {
         this.endereco = endereco;
     }
 
+    public String getCodigoCiva() {
+        return codigoCiva;
+    }
+
+    public void setCodigoCiva(String codigoCiva) {
+        this.codigoCiva = codigoCiva;
+    }
+    
 }
