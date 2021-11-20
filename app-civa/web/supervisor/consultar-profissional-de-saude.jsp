@@ -44,7 +44,7 @@
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./index.jsp">Voltar</a></li>
+                                <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
                                 <li class="breadcrumb-item active">Consultar Profissional da Sa&uacute;de</li>
                             </ol>
                         </div>

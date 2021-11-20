@@ -42,7 +42,7 @@
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="painel-profissional-saude.jsp">Voltar</a></li>
+                                <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
                                 <li class="breadcrumb-item active">Vincular Unidade</li>
                             </ol>
                         </div>

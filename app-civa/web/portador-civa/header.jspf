@@ -51,3 +51,4 @@
     <!-- AdminLTE for demo purposes -->
     <script src="../public/dist/js/demo.js" defer></script>
     <script src="../public/assets/js/default.js" defer></script>
+    <script src="../public/assets/js/portador-civa//header-portador-civa.js" defer></script>

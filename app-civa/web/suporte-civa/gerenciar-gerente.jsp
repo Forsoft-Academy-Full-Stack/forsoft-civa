@@ -47,7 +47,7 @@
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="./consultar-gerente.jsp">Voltar</a></li>
+                                <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
                                 <li class="breadcrumb-item active">Gerenciar Gerente</li>
                             </ol>
                         </div>
