@@ -44,7 +44,7 @@
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
+                                <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
                                 <li class="breadcrumb-item active">Gerenciar unidade</li>
                             </ol>
                         </div>
@@ -140,12 +140,12 @@
                                 </table>
                                 <hr>
                                 <div class="row ">
-                                    <div class="col-6 d-flex justify-content-between align-items-center ml-2 mb-2">
-                                        <a href="./vincular-unidade.jsp" class="btn btn-success btn-xs">Vincular Supervisor</a>
+                                    <div class="col d-flex justify-content-xl-start  ml-4 mb-2">
+                                        <a href="./vincular-supervisor.jsp" class="btn btn-success btn-xs">Vincular Supervisor</a>
                                     </div>                                  
 
-                                    <div class="col-5 d-flex justify-content-between align-items-center ml-2 mb-2">
-                                        <a href="./vincular-unidade.jsp" class="btn btn-success btn-xs">Desvincular Supervisor</a>
+                                    <div class="col  d-flex justify-content-xl-end align-items-center ml-2 mb-2 mr-4">
+                                        <a href="./desvincular-supervisor.jsp" class="btn btn-danger btn-xs">Desvincular Supervisor</a>
                                     </div>
                                 </div>
                             </div>

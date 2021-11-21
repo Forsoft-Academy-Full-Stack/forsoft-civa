@@ -1,12 +1,12 @@
 $('.select2').select2();
 
 
-let campos = ["name", "surname",
-    "genero", "date-birth",
-    "nacionality", "tipo-doc", "doc",
-    "country-name","postal-code", "logrd-name",
-    "num-name", "comple-name", "bairro",
-    "city", "state", "telf", "email"];
+let campos = ["nome", "sobrenome",
+    "genero", "data-nascimento",
+    "nacionalidade", "tipo-doc1", "doc1",
+    "nome-pais","cod-postal", "nome-logrd",
+    "nome-num", "nome-comple", "bairro",
+    "municipio", "estado", "tele", "email"];
 
 
 let form = $("#form-meus-dados");

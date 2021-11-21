@@ -2,30 +2,30 @@
 <%@ page pageEncoding="UTF-8" %>
 <div class="row"> 
     <div class="form-group col-xl-6">
-        <label for="country-name">Pais</label>
-        <input type="text" class="form-control" id="country-name" name="country-name" placeholder="Braasi">    <!-- Adicionar no JS tratarCampos() -->
+        <label for="nome-pais">Pais</label>
+        <input type="text" class="form-control" id="nome-pais" name="nome-pais" placeholder="Braasi">    <!-- Adicionar no JS tratarCampos() -->
     </div>
     <div class="form-group col-xl-6">
-        <label for="postal-code">CEP</label>
-        <input type="text" class="form-control" id="postal-code" name="postal-code" placeholder="21970-5050">
+        <label for="cod-postal">CEP</label>
+        <input type="text" class="form-control" id="cod-postal" name="cod-postal" placeholder="21970-5050">
     </div>
 </div>
 
 <div class="row"> 
     <div class="form-group col-xl-6">
-        <label for="logrd-name">Endere&ccedil;o</label>
-        <input type="text" class="form-control" id="logrd-name" name="logrd-name" placeholder="Rua do exemplo">
+        <label for="nome-logrd">Endere&ccedil;o</label>
+        <input type="text" class="form-control" id="nome-logrd" name="nome-logrd" placeholder="Rua do exemplo">
     </div>
     <div class="form-group col-xl-6">
-        <label for="num-name">N&uacute;mero</label>
-        <input type="number" class="form-control" id="num-name" name="num-name" placeholder="18">    <!-- Adicionar no JS tratarCampos() -->
+        <label for="nome-num">N&uacute;mero</label>
+        <input type="number" class="form-control" id="nome-num" name="nome-num" placeholder="18">    <!-- Adicionar no JS tratarCampos() -->
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="comple-name">Complemento</label>
-        <input type="text" class="form-control" id="comple-name" name="comple-name" placeholder="casa 50">    <!-- Adicionar no JS tratarCampos() -->
+        <label for="nome-comple">Complemento</label>
+        <input type="text" class="form-control" id="nome-comple" name="nome-comple" placeholder="casa 50">    <!-- Adicionar no JS tratarCampos() -->
     </div>
     
     <div class="form-group col-xl-6">
@@ -43,9 +43,9 @@
 
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="city">Municipio</label>
-        <select class="form-control select2 select2-hidden-accessible" id="city" name="city" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option id="city-option" selected="" disabled="" >Selecionar</option> 
+        <label for="municipio">Municipio</label>
+        <select class="form-control select2 select2-hidden-accessible" id="municipio" name="municipio" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option id="opcao-municipio" selected="" disabled="" >Selecionar</option> 
             <option>Niteroi</option>
             <option>S&atilde;o Gon&ccedil;alo</option>
             <option>Rio de Janeiro</option>
@@ -54,9 +54,9 @@
         </select>
     </div>
     <div class="form-group col-xl-6">
-        <label for="state">Estado</label>
-        <select class="form-control select2 select2-hidden-accessible" id="state" name="state" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option id="state-option" selected="" disabled="">Selecionar</option>
+        <label for="estado">Estado</label>
+        <select class="form-control select2 select2-hidden-accessible" id="estado" name="estado" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option id="opcao-estado" selected="" disabled="">Selecionar</option>
             <option>Rio de Janeiro</option>
             <option>S&atilde;o Paulo</option>
             <option>Minas Gerais</option>

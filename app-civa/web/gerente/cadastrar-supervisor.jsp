@@ -19,7 +19,8 @@
 %>
 
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gerente/cadastrar-supervisor.js" defer></script>
+    
+    <script src="./../public/assets/js/profissional-saude/cadastrar-portador.js" defer></script>
 </head>
 
 
