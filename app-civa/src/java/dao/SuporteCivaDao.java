@@ -36,21 +36,21 @@ public class SuporteCivaDao {
         documento1.setDataEmissao("");
         documento1.setDocumento("");
         documento1.setIdPessoa(1);
-        documento1.setIddocs(1);
+        documento1.setIdDocs(1);
         
         Docs documento2 = new Docs();
         
         documento2.setDataEmissao("");
         documento2.setDocumento("");
         documento2.setIdPessoa(1);
-        documento2.setIddocs(1);
+        documento2.setIdDocs(1);
                 
         Docs documento3 = new Docs();
         
         documento3.setDataEmissao("");
         documento3.setDocumento("");
         documento3.setIdPessoa(1);
-        documento3.setIddocs(1);
+        documento3.setIdDocs(1);
          
         Endereco endereco = new Endereco();
         
@@ -96,22 +96,22 @@ public class SuporteCivaDao {
         documento1.setDataEmissao("");
         documento1.setDocumento("");
         documento1.setIdPessoa(1);
-        documento1.setIddocs(1);
-        documento1.setIdtipodoc(1);
+        documento1.setIdDocs(1);
+        documento1.setIdTipoDoc(1);
                 
         Docs documento2 = new Docs();
         documento2.setDataEmissao("");
         documento2.setDocumento("");
         documento2.setIdPessoa(1);
-        documento2.setIddocs(1);
-        documento2.setIdtipodoc(1);
+        documento2.setIdDocs(1);
+        documento2.setIdTipoDoc(1);
         
         Docs documento3 = new Docs();
         documento3.setDataEmissao("");
         documento3.setDocumento("");
         documento3.setIdPessoa(1);
-        documento3.setIddocs(1);
-        documento3.setIdtipodoc(1);
+        documento3.setIdDocs(1);
+        documento3.setIdTipoDoc(1);
         
         Endereco endereco = new Endereco();
         endereco.setCodigoPostal("");
@@ -151,22 +151,22 @@ public class SuporteCivaDao {
         documento12.setDataEmissao("");
         documento12.setDocumento("");
         documento12.setIdPessoa(1);
-        documento12.setIddocs(1);
-        documento12.setIdtipodoc(1);
+        documento12.setIdDocs(1);
+        documento12.setIdTipoDoc(1);
                 
         Docs documento22 = new Docs();
         documento22.setDataEmissao("");
         documento22.setDocumento("");
         documento22.setIdPessoa(1);
-        documento22.setIddocs(1);
-        documento22.setIdtipodoc(1);
+        documento22.setIdDocs(1);
+        documento22.setIdTipoDoc(1);
         
         Docs documento32 = new Docs();
         documento32.setDataEmissao("");
         documento32.setDocumento("");
         documento32.setIdPessoa(1);
-        documento32.setIddocs(1);
-        documento32.setIdtipodoc(1);
+        documento32.setIdDocs(1);
+        documento32.setIdTipoDoc(1);
         
         Endereco endereco2 = new Endereco();
         endereco2.setCodigoPostal("");

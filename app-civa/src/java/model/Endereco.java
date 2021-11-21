@@ -6,9 +6,11 @@ package model;
 public class Endereco {
     private Integer idEndereco;
     private Integer idPais;
+    private String nomePais;
     private String tipoLogradouro;
     private String logradouro;
     private String codigoPostal;
+    private String complemento;
     private String nomesubdivisao1;
     private String nomesubdivisao2;
     private String nomesubdivisao3;
@@ -17,6 +19,23 @@ public class Endereco {
     private String nomesubdivisao6;
     private String nomesubdivisao7;
     private String numero;
+
+    public String getComplemento() {
+        return complemento;
+    }
+
+    public void setComplemento(String complemento) {
+        this.complemento = complemento;
+    }
+    
+   
+    public String getNomePais() {
+        return nomePais;
+    }
+
+    public void setNomePais(String nomePais) {
+        this.nomePais = nomePais;
+    }
     
     public String getNumero() {
         return numero;

@@ -43,8 +43,8 @@ public class GestorOmsDao {
         documento1.setDataEmissao("19-04-1945");
         documento1.setDocumento("99383946577");
         documento1.setIdPessoa(1);
-        documento1.setIddocs(1);
-        documento1.setIdtipodoc(1);
+        documento1.setIdDocs(1);
+        documento1.setIdTipoDoc(1);
         
         gestoroms.setDocumento1(documento1);
         
@@ -52,8 +52,8 @@ public class GestorOmsDao {
         documento2.setDataEmissao("19-04-1945");
         documento2.setDocumento("99383946577");
         documento2.setIdPessoa(1);
-        documento2.setIddocs(1);
-        documento2.setIdtipodoc(1);
+        documento2.setIdDocs(1);
+        documento2.setIdTipoDoc(1);
         
         gestoroms.setDocumento2(documento2);
         
@@ -61,8 +61,8 @@ public class GestorOmsDao {
         documento3.setDataEmissao("19-04-1945");
         documento3.setDocumento("99383946577");
         documento3.setIdPessoa(1);
-        documento3.setIddocs(1);
-        documento3.setIdtipodoc(1);
+        documento3.setIdDocs(1);
+        documento3.setIdTipoDoc(1);
         
         gestoroms.setDocumento3(documento3);
                
@@ -103,22 +103,22 @@ public class GestorOmsDao {
         documento1.setDataEmissao("19-04-1945");
         documento1.setDocumento("99383946577");
         documento1.setIdPessoa(1);
-        documento1.setIddocs(1);
-        documento1.setIdtipodoc(1);
+        documento1.setIdDocs(1);
+        documento1.setIdTipoDoc(1);
                 
         Docs documento2 = new Docs();
         documento2.setDataEmissao("19-04-1945");
         documento2.setDocumento("99383946577");
         documento2.setIdPessoa(1);
-        documento2.setIddocs(1);
-        documento2.setIdtipodoc(1);
+        documento2.setIdDocs(1);
+        documento2.setIdTipoDoc(1);
         
         Docs documento3 = new Docs();
         documento3.setDataEmissao("19-04-1945");
         documento3.setDocumento("99383946577");
         documento3.setIdPessoa(1);
-        documento3.setIddocs(1);
-        documento3.setIdtipodoc(1);
+        documento3.setIdDocs(1);
+        documento3.setIdTipoDoc(1);
         
         Endereco endereco = new Endereco();
         endereco.setCodigoPostal("54678000");
@@ -159,22 +159,22 @@ public class GestorOmsDao {
         documento12.setDataEmissao("19-04-1945");
         documento12.setDocumento("99383946577");
         documento12.setIdPessoa(1);
-        documento12.setIddocs(1);
-        documento12.setIdtipodoc(1);
+        documento12.setIdDocs(1);
+        documento12.setIdTipoDoc(1);
                 
         Docs documento22 = new Docs();
         documento22.setDataEmissao("19-04-1945");
         documento22.setDocumento("99383946577");
         documento22.setIdPessoa(1);
-        documento22.setIddocs(1);
-        documento22.setIdtipodoc(1);
+        documento22.setIdDocs(1);
+        documento22.setIdTipoDoc(1);
         
         Docs documento32 = new Docs();
         documento32.setDataEmissao("19-04-1945");
         documento32.setDocumento("99383946577");
         documento32.setIdPessoa(1);
-        documento32.setIddocs(1);
-        documento32.setIdtipodoc(1);
+        documento32.setIdDocs(1);
+        documento32.setIdTipoDoc(1);
         
         Endereco endereco2 = new Endereco();
         endereco2.setCodigoPostal("54678000");

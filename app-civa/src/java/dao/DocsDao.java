@@ -25,8 +25,8 @@ public class DocsDao {
         docs.setDataEmissao("");
         docs.setDocumento("");
         docs.setIdPessoa(1);
-        docs.setIddocs(idDocs);
-        docs.setIdtipodoc(2);
+        docs.setIdDocs(idDocs);
+        docs.setIdTipoDoc(2);
         
         return docs;
     }
@@ -40,8 +40,8 @@ public class DocsDao {
         docs.setDataEmissao("");
         docs.setDocumento("");
         docs.setIdPessoa(1);
-        docs.setIddocs(1);
-        docs.setIdtipodoc(2);
+        docs.setIdDocs(1);
+        docs.setIdTipoDoc(2);
         
         listaDocs.add(docs);
 
@@ -50,8 +50,8 @@ public class DocsDao {
         docs2.setDataEmissao("");
         docs2.setDocumento("");
         docs2.setIdPessoa(1);
-        docs2.setIddocs(1);
-        docs2.setIdtipodoc(2);
+        docs2.setIdDocs(1);
+        docs2.setIdTipoDoc(2);
         
         listaDocs.add(docs2);
      

@@ -18,6 +18,7 @@ import model.Supervisor;
  * @author randel
  */
 public class SupervisorDao {
+
     public static boolean insert(Supervisor supervisor) {
         boolean resultado = false;
 
@@ -32,9 +33,10 @@ public class SupervisorDao {
 
     public static Supervisor find(String nomeSupervisor) {
         Supervisor supervisor = new Supervisor();
-        
+
         Pessoa pessoa = new Pessoa();
-        pessoa.setDataNascimento("12-03-1977");
+        // data no formato AAAA/mm/dd
+        pessoa.setDataNascimento("1977-07-03");
         pessoa.setDdiContato("+55");
         pessoa.setNomePessoa("José");
         pessoa.setSobrenomePessoa("Carlos");
@@ -42,62 +44,69 @@ public class SupervisorDao {
         pessoa.setGenero("homem cis");
         pessoa.setIdNacionalidade(1);
         pessoa.setIdPessoa(1);
-        
+        pessoa.setNacionalidade("Brasileira");
+        pessoa.setEmail("jose@gmail.com");
+
         Docs documento1 = new Docs();
         documento1.setDataEmissao("19-04-1945");
         documento1.setDocumento("99383946577");
         documento1.setIdPessoa(1);
-        documento1.setIddocs(1);
-        documento1.setIdtipodoc(1);
-                
+        documento1.setIdDocs(1);
+        documento1.setIdTipoDoc(1);
+        documento1.setNomeTipoDoc("Identidade");
+
         Docs documento2 = new Docs();
         documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("99383946577");
-        documento2.setIdPessoa(1);
-        documento2.setIddocs(1);
-        documento2.setIdtipodoc(1);
-        
+        documento2.setDocumento("BR123456");
+        documento2.setIdPessoa(2);
+        documento2.setIdDocs(1);
+        documento2.setIdTipoDoc(1);
+        documento2.setNomeTipoDoc("Passaporte");
+
         Docs documento3 = new Docs();
         documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("99383946577");
+        documento3.setDocumento("987.654.564-09");
         documento3.setIdPessoa(1);
-        documento3.setIddocs(1);
-        documento3.setIdtipodoc(1);
-        
+        documento3.setIdDocs(1);
+        documento3.setIdTipoDoc(1);
+        documento3.setNomeTipoDoc("CPF");
+
         Endereco endereco = new Endereco();
         endereco.setCodigoPostal("54678000");
         endereco.setIdEndereco(1);
         endereco.setIdPais(1);
+        endereco.setNomePais("Brasil");
         endereco.setLogradouro("Rua José");
-        endereco.setNomesubdivisao1("");
-        endereco.setNomesubdivisao2("");
-        endereco.setNomesubdivisao3("");
-        endereco.setNomesubdivisao4("");
-        endereco.setNomesubdivisao5("");
-        endereco.setNomesubdivisao6("");
-        endereco.setNomesubdivisao7("");
+        // BAIRRO
+        endereco.setNomesubdivisao1("Vila Bela");
+        // Municipio
+        endereco.setNomesubdivisao2("Niterói");
+        // ESTADO
+        endereco.setNomesubdivisao3("Rio de Janeiro");
+      
         endereco.setTipoLogradouro("Rua");
         endereco.setNumero("23");
-        //"SELECT * FROM pais where nome = "+pais;
-        
+        endereco.setComplemento("Apto 10");
+
         supervisor.setPessoa(pessoa);
         supervisor.setDocumento1(documento1);
         supervisor.setDocumento2(documento2);
         supervisor.setDocumento3(documento3);
         supervisor.setEndereco(endereco);
-        supervisor.setCodigoCiva("Forsoft12763521");
-        
+        supervisor.setCodigoCiva("BR672537621576");
+
         return supervisor;
     }
 
     public static List<Supervisor> list() {
         List<Supervisor> supervisores = new ArrayList<Supervisor>();
 
-        //"SELECT * FROM pais ;
+        // Início Supervisor 1 //
         Supervisor supervisor = new Supervisor();
-        
+
         Pessoa pessoa = new Pessoa();
-        pessoa.setDataNascimento("12-03-1977");
+        // data no formato AAAA/mm/dd
+        pessoa.setDataNascimento("1977-07-03");
         pessoa.setDdiContato("+55");
         pessoa.setNomePessoa("José");
         pessoa.setSobrenomePessoa("Carlos");
@@ -105,28 +114,32 @@ public class SupervisorDao {
         pessoa.setGenero("homem cis");
         pessoa.setIdNacionalidade(1);
         pessoa.setIdPessoa(1);
-        
+        pessoa.setNacionalidade("Brasileira");
+
         Docs documento1 = new Docs();
-        documento1.setDataEmissao("19-04-1945");
+        documento1.setDataEmissao("1945-04-19");
         documento1.setDocumento("99383946577");
         documento1.setIdPessoa(1);
-        documento1.setIddocs(1);
-        documento1.setIdtipodoc(1);
-                
+        documento1.setIdDocs(1);
+        documento1.setIdTipoDoc(1);
+        documento1.setNomeTipoDoc("Identidade");
+
         Docs documento2 = new Docs();
-        documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("99383946577");
-        documento2.setIdPessoa(1);
-        documento2.setIddocs(1);
-        documento2.setIdtipodoc(1);
-        
+        documento2.setDataEmissao("1945-01-19");
+        documento2.setDocumento("1232323");
+        documento2.setIdPessoa(2);
+        documento2.setIdDocs(1);
+        documento2.setIdTipoDoc(1);
+        documento2.setNomeTipoDoc("Identidade");
+
         Docs documento3 = new Docs();
-        documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("99383946577");
+        documento3.setDataEmissao("1946-07-5");
+        documento3.setDocumento("567657567567");
         documento3.setIdPessoa(1);
-        documento3.setIddocs(1);
-        documento3.setIdtipodoc(1);
-        
+        documento3.setIdDocs(1);
+        documento3.setIdTipoDoc(1);
+        documento3.setNomeTipoDoc("Identidade");
+
         Endereco endereco = new Endereco();
         endereco.setCodigoPostal("54678000");
         endereco.setIdEndereco(1);
@@ -141,8 +154,7 @@ public class SupervisorDao {
         endereco.setNomesubdivisao7("");
         endereco.setTipoLogradouro("Rua");
         endereco.setNumero("23");
-        //"SELECT * FROM pais where nome = "+pais;
-        
+
         supervisor.setPessoa(pessoa);
         supervisor.setDocumento1(documento1);
         supervisor.setDocumento2(documento2);
@@ -151,40 +163,42 @@ public class SupervisorDao {
         supervisor.setCodigoCiva("BR672537621576");
 
         supervisores.add(supervisor);
-        
+
+        // Início Supervisor 2 //
         Supervisor supervisor2 = new Supervisor();
-        
+
         Pessoa pessoa2 = new Pessoa();
-        pessoa2.setDataNascimento("12-03-1977");
+        pessoa2.setDataNascimento("1996-07-11");
         pessoa2.setDdiContato("+55");
         pessoa2.setNomePessoa("Pedro");
         pessoa2.setSobrenomePessoa("Silva");
-        pessoa2.setTelefoneDdd("983578300");
-        pessoa2.setGenero("homem cis");
+        pessoa2.setTelefoneDdd("217687655645");
+        pessoa2.setGenero("homem trans");
         pessoa2.setIdNacionalidade(1);
-        pessoa2.setIdPessoa(1);
-        
+        pessoa2.setIdPessoa(2);
+        pessoa2.setNacionalidade("Brasileira");
+
         Docs documento12 = new Docs();
-        documento12.setDataEmissao("19-04-1945");
-        documento12.setDocumento("99383946577");
-        documento12.setIdPessoa(1);
-        documento12.setIddocs(1);
-        documento12.setIdtipodoc(1);
-                
+        documento12.setDataEmissao("1999-04-1");
+        documento12.setDocumento("7657328490");
+        documento12.setIdPessoa(2);
+        documento12.setIdDocs(1);
+        documento12.setIdTipoDoc(1);
+
         Docs documento22 = new Docs();
-        documento22.setDataEmissao("19-04-1945");
+        documento22.setDataEmissao("2000-04-1");
         documento22.setDocumento("99383946577");
-        documento22.setIdPessoa(1);
-        documento22.setIddocs(1);
-        documento22.setIdtipodoc(1);
-        
+        documento22.setIdPessoa(2);
+        documento22.setIdDocs(1);
+        documento22.setIdTipoDoc(1);
+
         Docs documento32 = new Docs();
-        documento32.setDataEmissao("19-04-1945");
+        documento32.setDataEmissao("2001-04-1");
         documento32.setDocumento("99383946577");
-        documento32.setIdPessoa(1);
-        documento32.setIddocs(1);
-        documento32.setIdtipodoc(1);
-        
+        documento32.setIdPessoa(2);
+        documento32.setIdDocs(1);
+        documento32.setIdTipoDoc(1);
+
         Endereco endereco2 = new Endereco();
         endereco2.setCodigoPostal("54678000");
         endereco2.setIdEndereco(1);
@@ -197,9 +211,9 @@ public class SupervisorDao {
         endereco2.setNomesubdivisao5("");
         endereco2.setNomesubdivisao7("");
         endereco2.setTipoLogradouro("Rua");
-        endereco2.setNumero("2378");
+        endereco2.setNumero("21");
         //"SELECT * FROM pais where nome = "+pais;
-        
+
         supervisor2.setPessoa(pessoa2);
         supervisor2.setDocumento1(documento12);
         supervisor2.setDocumento2(documento22);
@@ -209,6 +223,7 @@ public class SupervisorDao {
 
         supervisores.add(supervisor2);
 
+        // Início Supervisor 3 //
         return supervisores;
     }
 
@@ -222,9 +237,8 @@ public class SupervisorDao {
 
         return resultado;
     }
-    
-    
-     public static boolean delete(Supervisor supervisor) {
+
+    public static boolean delete(Supervisor supervisor) {
         boolean resultado = false;
 
         // Delete pais;

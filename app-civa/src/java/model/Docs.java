@@ -4,18 +4,19 @@ package model;
  * @author randel
  */
 public class Docs {
-    private Integer iddocs;
-    private Integer idPessoa;
-    private Integer idtipodoc;
+    private Integer idDocs;
     private String documento;
+    private Integer idPessoa;
+    private Integer idTipoDoc;
+    private String nomeTipoDoc;
     private String dataEmissao;
 
-    public Integer getIddocs() {
-        return iddocs;
+    public Integer getIdDocs() {
+        return idDocs;
     }
 
-    public void setIddocs(Integer iddocs) {
-        this.iddocs = iddocs;
+    public void setIdDocs(Integer idDocs) {
+        this.idDocs = idDocs;
     }
 
     public Integer getIdPessoa() {
@@ -26,12 +27,20 @@ public class Docs {
         this.idPessoa = idPessoa;
     }
 
-    public Integer getIdtipodoc() {
-        return idtipodoc;
+    public Integer getIdTipoDoc() {
+        return idTipoDoc;
     }
 
-    public void setIdtipodoc(Integer idtipodoc) {
-        this.idtipodoc = idtipodoc;
+    public void setIdTipoDoc(Integer idTipoDoc) {
+        this.idTipoDoc = idTipoDoc;
+    }
+
+    public String getNomeTipoDoc() {
+        return nomeTipoDoc;
+    }
+
+    public void setNomeTipoDoc(String nomeTipoDoc) {
+        this.nomeTipoDoc = nomeTipoDoc;
     }
 
     public String getDocumento() {

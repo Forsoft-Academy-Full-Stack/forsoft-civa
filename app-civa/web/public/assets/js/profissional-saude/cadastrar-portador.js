@@ -35,7 +35,7 @@ $("#salvar").click(function () {
 });
 
 
-pegarPaises("nacionality");
+pegarPaises("nacionalidade");
 
 
 

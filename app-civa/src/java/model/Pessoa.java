@@ -3,6 +3,7 @@ package model;
 public class Pessoa {
     private Integer idPessoa;
     private Integer idNacionalidade;
+    private String nacionalidade;
     private String nomePessoa;
     private String sobrenomePessoa;
     private String dataNascimento;
@@ -11,6 +12,13 @@ public class Pessoa {
     private String telefoneDdd;
     private String genero;
 
+    public String getNacionalidade() {
+        return nacionalidade;
+    }
+
+    public void setNacionalidade(String nacionalidade) {
+        this.nacionalidade = nacionalidade;
+    }
    
     public String getNomePessoa() {
         return nomePessoa;
