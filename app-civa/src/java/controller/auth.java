@@ -46,22 +46,18 @@ public class auth extends HttpServlet {
             loginAcesso.setCodigoCiva(request.getParameter("civa"));
 
             HttpSession session = request.getSession();
-
-            // Inserindo o tempo de inatividade em segundos
-            // 60 segundos x 30 = 30 min
-            session.setMaxInactiveInterval(60 * 30);
-
             // Fazer o devido redirecionamento
             // Para a página do ator adequado
             // Sempre redirecionar para o index.jsp
             Pessoa pessoa = LoginDao.validar(loginAcesso);
             
             if (pessoa.getNomePessoa() != null) {
-
+                    
                 Pessoa dadosPessoa = PessoaDao.find(pessoa);
                 
                 session.setAttribute("perfil", loginAcesso.getPerfil());
                 session.setAttribute("dados", pessoa);
+                session.setMaxInactiveInterval(60 * 30);
                 response.sendRedirect(loginAcesso.getPerfil() + "/");
 
             } else {

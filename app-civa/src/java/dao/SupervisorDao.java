@@ -83,7 +83,7 @@ public class SupervisorDao {
         endereco.setNomesubdivisao2("Niterói");
         // ESTADO
         endereco.setNomesubdivisao3("Rio de Janeiro");
-      
+        
         endereco.setTipoLogradouro("Rua");
         endereco.setNumero("23");
         endereco.setComplemento("Apto 10");
@@ -145,13 +145,14 @@ public class SupervisorDao {
         endereco.setIdEndereco(1);
         endereco.setIdPais(1);
         endereco.setLogradouro("Rua José");
-        endereco.setNomesubdivisao1("");
-        endereco.setNomesubdivisao2("");
-        endereco.setNomesubdivisao3("");
+        // BAIRRO
+        endereco.setNomesubdivisao1("Vila Bela");
+        // Municipio
+        endereco.setNomesubdivisao2("Niterói");
+        // ESTADO
+        endereco.setNomesubdivisao3("Rio de Janeiro");
         endereco.setNomesubdivisao4("");
         endereco.setNomesubdivisao5("");
-        endereco.setNomesubdivisao6("");
-        endereco.setNomesubdivisao7("");
         endereco.setTipoLogradouro("Rua");
         endereco.setNumero("23");
 
@@ -204,12 +205,14 @@ public class SupervisorDao {
         endereco2.setIdEndereco(1);
         endereco2.setIdPais(1);
         endereco2.setLogradouro("Rua José");
-        endereco2.setNomesubdivisao1("");
-        endereco2.setNomesubdivisao2("");
-        endereco2.setNomesubdivisao3("");
-        endereco2.setNomesubdivisao4("");
+        endereco2.setLogradouro("Rua José");
+        // BAIRRO
+        endereco2.setNomesubdivisao1("Vila Bela");
+        // Municipio
+        endereco2.setNomesubdivisao2("Niterói");
+        // ESTADO
+        endereco2.setNomesubdivisao4("Rio de Janeiro");
         endereco2.setNomesubdivisao5("");
-        endereco2.setNomesubdivisao7("");
         endereco2.setTipoLogradouro("Rua");
         endereco2.setNumero("21");
         //"SELECT * FROM pais where nome = "+pais;
@@ -222,8 +225,543 @@ public class SupervisorDao {
         supervisor2.setCodigoCiva("BR999923721873");
 
         supervisores.add(supervisor2);
-
+        
         // Início Supervisor 3 //
+        Supervisor supervisor3 = new Supervisor();
+
+        Pessoa pessoa3 = new Pessoa();
+        pessoa3.setDataNascimento("1998-07-11");
+        pessoa3.setDdiContato("+55");
+        pessoa3.setNomePessoa("Maria");
+        pessoa3.setSobrenomePessoa("Alcantara");
+        pessoa3.setTelefoneDdd("112121212");
+        pessoa3.setGenero("Mulher trans");
+        pessoa3.setIdNacionalidade(1);
+        pessoa3.setIdPessoa(3);
+        pessoa3.setNacionalidade("Brasileira");
+
+        Docs documento13 = new Docs();
+        documento13.setDataEmissao("2000-04-1");
+        documento13.setDocumento("879879879");
+        documento13.setIdPessoa(3);
+        documento13.setIdDocs(1);
+        documento13.setIdTipoDoc(1);
+
+        Docs documento23 = new Docs();
+        documento23.setDataEmissao("2001-04-1");
+        documento23.setDocumento("99383946577");
+        documento23.setIdPessoa(3);
+        documento23.setIdDocs(1);
+        documento23.setIdTipoDoc(1);
+
+        Docs documento33 = new Docs();
+        documento33.setDataEmissao("2002-04-1");
+        documento33.setDocumento("4567895445");
+        documento33.setIdPessoa(3);
+        documento33.setIdDocs(1);
+        documento33.setIdTipoDoc(1);
+
+        Endereco endereco3 = new Endereco();
+        endereco3.setCodigoPostal("67437643");
+        endereco3.setIdEndereco(1);
+        endereco3.setIdPais(1);
+        endereco3.setLogradouro("Rua C");
+        // BAIRRO
+        endereco3.setNomesubdivisao1("Santa Marta");
+        // Municipio
+        endereco3.setNomesubdivisao2("Lagos 2");
+        // ESTADO
+        endereco3.setNomesubdivisao4("Rio Grande do Norte");
+        endereco3.setNomesubdivisao5("");
+        endereco3.setTipoLogradouro("Rua");
+        endereco3.setNumero("245");
+        //"SELECT * FROM pais where nome = "+pais;
+
+        supervisor3.setPessoa(pessoa3);
+        supervisor3.setDocumento1(documento13);
+        supervisor3.setDocumento2(documento23);
+        supervisor3.setDocumento3(documento33);
+        supervisor3.setEndereco(endereco3);
+        supervisor3.setCodigoCiva("BR87675645");
+
+        supervisores.add(supervisor3);
+        
+        
+         // Início Supervisor 4 //
+        Supervisor supervisor4 = new Supervisor();
+
+        Pessoa pessoa4 = new Pessoa();
+        pessoa4.setDataNascimento("1999-09-11");
+        pessoa4.setDdiContato("+55");
+        pessoa4.setNomePessoa("Lucia");
+        pessoa4.setSobrenomePessoa("Aruda");
+        pessoa4.setTelefoneDdd("98989898");
+        pessoa4.setGenero("Mulher cis");
+        pessoa4.setIdNacionalidade(1);
+        pessoa4.setIdPessoa(4);
+        pessoa4.setNacionalidade("Brasileira");
+
+        Docs documento14 = new Docs();
+        documento14.setDataEmissao("2001-04-1");
+        documento14.setDocumento("676767676");
+        documento14.setIdPessoa(4);
+        documento14.setIdDocs(1);
+        documento14.setIdTipoDoc(1);
+
+        Docs documento24 = new Docs();
+        documento24.setDataEmissao("2002-04-1");
+        documento24.setDocumento("8787865555");
+        documento24.setIdPessoa(4);
+        documento24.setIdDocs(1);
+        documento24.setIdTipoDoc(1);
+
+        Docs documento34 = new Docs();
+        documento34.setDataEmissao("2003-05-1");
+        documento34.setDocumento("545455565");
+        documento34.setIdPessoa(4);
+        documento34.setIdDocs(1);
+        documento34.setIdTipoDoc(1);
+
+        Endereco endereco4 = new Endereco();
+        endereco4.setCodigoPostal("67734243");
+        endereco4.setIdEndereco(1);
+        endereco4.setIdPais(1);
+        endereco4.setLogradouro("Rua D");
+        // BAIRRO
+        endereco4.setNomesubdivisao1("Alto da paz");
+        // Municipio
+        endereco4.setNomesubdivisao2("Ilha");
+        // ESTADO
+        endereco4.setNomesubdivisao4("Rio Grande do Sul");
+        endereco4.setNomesubdivisao5("");
+        endereco4.setTipoLogradouro("Rua");
+        endereco4.setNumero("258");
+        //"SELECT * FROM pais where nome = "+pais;
+
+        supervisor4.setPessoa(pessoa4);
+        supervisor4.setDocumento1(documento14);
+        supervisor4.setDocumento2(documento24);
+        supervisor4.setDocumento3(documento34);
+        supervisor4.setEndereco(endereco4);
+        supervisor4.setCodigoCiva("BR7764545");
+
+        supervisores.add(supervisor4);
+        
+        // Início Supervisor 5 //
+        Supervisor supervisor5 = new Supervisor();
+
+        Pessoa pessoa5 = new Pessoa();
+        pessoa5.setDataNascimento("2003-09-15");
+        pessoa5.setDdiContato("+55");
+        pessoa5.setNomePessoa("Tadeu");
+        pessoa5.setSobrenomePessoa("Virgo");
+        pessoa5.setTelefoneDdd("954543768");
+        pessoa5.setGenero("Homen cis");
+        pessoa5.setIdNacionalidade(1);
+        pessoa5.setIdPessoa(5);
+        pessoa5.setNacionalidade("Brasileira");
+
+        Docs documento15 = new Docs();
+        documento15.setDataEmissao("2007-04-14");
+        documento15.setDocumento("123454321");
+        documento15.setIdPessoa(5);
+        documento15.setIdDocs(1);
+        documento15.setIdTipoDoc(1);
+
+        Docs documento25 = new Docs();
+        documento25.setDataEmissao("2009-04-1");
+        documento25.setDocumento("283485868");
+        documento25.setIdPessoa(5);
+        documento25.setIdDocs(1);
+        documento25.setIdTipoDoc(1);
+
+        Docs documento35 = new Docs();
+        documento35.setDataEmissao("2006-05-1");
+        documento35.setDocumento("26627667");
+        documento35.setIdPessoa(5);
+        documento35.setIdDocs(1);
+        documento35.setIdTipoDoc(1);
+
+        Endereco endereco5 = new Endereco();
+        endereco5.setCodigoPostal("62788989");
+        endereco5.setIdEndereco(1);
+        endereco5.setIdPais(1);
+        endereco5.setLogradouro("Rua F");
+        // BAIRRO
+        endereco5.setNomesubdivisao1("Vila rica");
+        // Municipio
+        endereco5.setNomesubdivisao2("Catamar");
+        // ESTADO
+        endereco5.setNomesubdivisao4("Bahia");
+        endereco5.setNomesubdivisao5("");
+        endereco5.setTipoLogradouro("Rua");
+        endereco5.setNumero("568");
+    
+
+        supervisor5.setPessoa(pessoa5);
+        supervisor5.setDocumento1(documento15);
+        supervisor5.setDocumento2(documento25);
+        supervisor5.setDocumento3(documento35);
+        supervisor5.setEndereco(endereco5);
+        supervisor5.setCodigoCiva("BR48876543");
+
+        supervisores.add(supervisor5);
+               
+        // Início Supervisor 6 //
+        Supervisor supervisor6 = new Supervisor();
+
+        Pessoa pessoa6 = new Pessoa();
+        pessoa6.setDataNascimento("2004-10-15");
+        pessoa6.setDdiContato("+55");
+        pessoa6.setNomePessoa("Izaque");
+        pessoa6.setSobrenomePessoa("Ferreira");
+        pessoa6.setTelefoneDdd("992032872");
+        pessoa6.setGenero("Homen trans");
+        pessoa6.setIdNacionalidade(1);
+        pessoa6.setIdPessoa(6);
+        pessoa6.setNacionalidade("Brasileira");
+
+        Docs documento16 = new Docs();
+        documento16.setDataEmissao("2008-06-15");
+        documento16.setDocumento("876766554");
+        documento16.setIdPessoa(6);
+        documento16.setIdDocs(1);
+        documento16.setIdTipoDoc(1);
+
+        Docs documento26 = new Docs();
+        documento26.setDataEmissao("2010-05-12");
+        documento26.setDocumento("4545677676");
+        documento26.setIdPessoa(6);
+        documento26.setIdDocs(1);
+        documento26.setIdTipoDoc(1);
+
+        Docs documento36 = new Docs();
+        documento35.setDataEmissao("2007-06-17");
+        documento35.setDocumento("9876534576");
+        documento35.setIdPessoa(6);
+        documento35.setIdDocs(1);
+        documento35.setIdTipoDoc(1);
+
+        Endereco endereco6 = new Endereco();
+        endereco6.setCodigoPostal("635467990");
+        endereco6.setIdEndereco(1);
+        endereco6.setIdPais(1);
+        endereco6.setLogradouro("Rua G");
+        // BAIRRO
+        endereco6.setNomesubdivisao1("Nova orleans");
+        // Municipio
+        endereco6.setNomesubdivisao2("Larangeiras");
+        // ESTADO
+        endereco6.setNomesubdivisao4("Mato grosso");
+        endereco6.setNomesubdivisao5("");
+        endereco6.setTipoLogradouro("Rua");
+        endereco6.setNumero("768");
+    
+        supervisor6.setPessoa(pessoa6);
+        supervisor6.setDocumento1(documento16);
+        supervisor6.setDocumento2(documento26);
+        supervisor6.setDocumento3(documento36);
+        supervisor6.setEndereco(endereco6);
+        supervisor6.setCodigoCiva("BR65765476");
+
+        supervisores.add(supervisor6);
+                
+        // Início Supervisor 6 //
+        Supervisor supervisor7 = new Supervisor();
+
+        Pessoa pessoa7 = new Pessoa();
+        pessoa7.setDataNascimento("2005-10-15");
+        pessoa7.setDdiContato("+55");
+        pessoa7.setNomePessoa("Kerolyne");
+        pessoa7.setSobrenomePessoa("Almeida");
+        pessoa7.setTelefoneDdd("999437654");
+        pessoa7.setGenero("Mulher cis");
+        pessoa7.setIdNacionalidade(1);
+        pessoa7.setIdPessoa(7);
+        pessoa7.setNacionalidade("Brasileira");
+
+        Docs documento17 = new Docs();
+        documento17.setDataEmissao("2009-07-18");
+        documento17.setDocumento("87656453");
+        documento17.setIdPessoa(7);
+        documento17.setIdDocs(1);
+        documento17.setIdTipoDoc(1);
+
+        Docs documento27 = new Docs();
+        documento27.setDataEmissao("2013-06-12");
+        documento27.setDocumento("7678565645");
+        documento27.setIdPessoa(7);
+        documento27.setIdDocs(1);
+        documento27.setIdTipoDoc(1);
+
+        Docs documento37 = new Docs();
+        documento37.setDataEmissao("2008-07-18");
+        documento37.setDocumento("87654324354");
+        documento37.setIdPessoa(7);
+        documento37.setIdDocs(1);
+        documento37.setIdTipoDoc(1);
+
+        Endereco endereco7 = new Endereco();
+        endereco7.setCodigoPostal("878756698");
+        endereco7.setIdEndereco(1);
+        endereco7.setIdPais(1);
+        endereco7.setLogradouro("Rua I");
+        // BAIRRO
+        endereco7.setNomesubdivisao1("Nova era");
+        // Municipio
+        endereco7.setNomesubdivisao2("Jurema");
+        // ESTADO
+        endereco7.setNomesubdivisao4("Ceará");
+        endereco7.setNomesubdivisao5("");
+        endereco7.setTipoLogradouro("Rua");
+        endereco7.setNumero("968");
+    
+        supervisor7.setPessoa(pessoa7);
+        supervisor7.setDocumento1(documento17);
+        supervisor7.setDocumento2(documento27);
+        supervisor7.setDocumento3(documento37);
+        supervisor7.setEndereco(endereco7);
+        supervisor7.setCodigoCiva("BR98764543");
+
+        supervisores.add(supervisor7);
+        
+         // Início Supervisor 8 //
+        Supervisor supervisor8 = new Supervisor();
+
+        Pessoa pessoa8 = new Pessoa();
+        pessoa8.setDataNascimento("1999-02-23");
+        pessoa8.setDdiContato("+55");
+        pessoa8.setNomePessoa("Marcia");
+        pessoa8.setSobrenomePessoa("Silva");
+        pessoa8.setTelefoneDdd("9965438746");
+        pessoa8.setGenero("Mulher trans");
+        pessoa8.setIdNacionalidade(1);
+        pessoa8.setIdPessoa(8);
+        pessoa8.setNacionalidade("Brasileira");
+
+        Docs documento18 = new Docs();
+        documento18.setDataEmissao("1999-03-02");
+        documento18.setDocumento("99654365");
+        documento18.setIdPessoa(8);
+        documento18.setIdDocs(1);
+        documento18.setIdTipoDoc(1);
+
+        Docs documento28 = new Docs();
+        documento28.setDataEmissao("2011-06-12");
+        documento28.setDocumento("7678565645");
+        documento28.setIdPessoa(7);
+        documento28.setIdDocs(1);
+        documento28.setIdTipoDoc(1);
+
+        Docs documento38 = new Docs();
+        documento38.setDataEmissao("2010-07-18");
+        documento38.setDocumento("87766556");
+        documento38.setIdPessoa(8);
+        documento38.setIdDocs(1);
+        documento38.setIdTipoDoc(1);
+
+        Endereco endereco8 = new Endereco();
+        endereco8.setCodigoPostal("43456567");
+        endereco8.setIdEndereco(1);
+        endereco8.setIdPais(1);
+        endereco8.setLogradouro("Rua J");
+        // BAIRRO
+        endereco8.setNomesubdivisao1("Alvorada nova");
+        // Municipio
+        endereco8.setNomesubdivisao2("Logoa grande");
+        // ESTADO
+        endereco8.setNomesubdivisao4("Alagoas");
+        endereco8.setNomesubdivisao5("");
+        endereco8.setTipoLogradouro("Rua");
+        endereco8.setNumero("1958");
+    
+        supervisor8.setPessoa(pessoa8);
+        supervisor8.setDocumento1(documento18);
+        supervisor8.setDocumento2(documento28);
+        supervisor8.setDocumento3(documento38);
+        supervisor8.setEndereco(endereco8);
+        supervisor8.setCodigoCiva("BR8776754");
+
+        supervisores.add(supervisor8);
+        
+        // Início Supervisor 8 //
+        Supervisor supervisor9 = new Supervisor();
+
+        Pessoa pessoa9 = new Pessoa();
+        pessoa9.setDataNascimento("1997-02-23");
+        pessoa9.setDdiContato("+55");
+        pessoa9.setNomePessoa("Katia");
+        pessoa9.setSobrenomePessoa("Saraiva");
+        pessoa9.setTelefoneDdd("99654734");
+        pessoa9.setGenero("Mulher cis");
+        pessoa9.setIdNacionalidade(1);
+        pessoa9.setIdPessoa(9);
+        pessoa9.setNacionalidade("Brasileira");
+
+        Docs documento19 = new Docs();
+        documento19.setDataEmissao("1995-05-08");
+        documento19.setDocumento("99546765");
+        documento19.setIdPessoa(9);
+        documento19.setIdDocs(1);
+        documento19.setIdTipoDoc(1);
+
+        Docs documento29 = new Docs();
+        documento29.setDataEmissao("2001-06-12");
+        documento29.setDocumento("7678565645");
+        documento29.setIdPessoa(8);
+        documento29.setIdDocs(1);
+        documento29.setIdTipoDoc(1);
+
+        Docs documento39 = new Docs();
+        documento39.setDataEmissao("2014-07-18");
+        documento39.setDocumento("776545435767");
+        documento39.setIdPessoa(9);
+        documento39.setIdDocs(1);
+        documento39.setIdTipoDoc(1);
+
+        Endereco endereco9 = new Endereco();
+        endereco9.setCodigoPostal("87657889");
+        endereco9.setIdEndereco(1);
+        endereco9.setIdPais(1);
+        endereco9.setLogradouro("Rua K");
+        // BAIRRO
+        endereco9.setNomesubdivisao1("Vila são paulo");
+        // Municipio
+        endereco9.setNomesubdivisao2("Monte alegre");
+        // ESTADO
+        endereco9.setNomesubdivisao4("Espiríto Santo");
+        endereco9.setNomesubdivisao5("");
+        endereco9.setTipoLogradouro("Rua");
+        endereco9.setNumero("008");
+    
+        supervisor9.setPessoa(pessoa9);
+        supervisor9.setDocumento1(documento19);
+        supervisor9.setDocumento2(documento29);
+        supervisor9.setDocumento3(documento39);
+        supervisor9.setEndereco(endereco9);
+        supervisor9.setCodigoCiva("BR87987");
+
+        supervisores.add(supervisor9);
+        
+         // Início Supervisor 10 //
+        Supervisor supervisor10 = new Supervisor();
+
+        Pessoa pessoa10 = new Pessoa();
+        pessoa10.setDataNascimento("1998-02-23");
+        pessoa10.setDdiContato("+55");
+        pessoa10.setNomePessoa("Celía");
+        pessoa10.setSobrenomePessoa("Barroso");
+        pessoa10.setTelefoneDdd("76577676");
+        pessoa10.setGenero("Mulher trans");
+        pessoa10.setIdNacionalidade(1);
+        pessoa10.setIdPessoa(10);
+        pessoa10.setNacionalidade("Brasileira");
+
+        Docs documento110 = new Docs();
+        documento110.setDataEmissao("1994-05-08");
+        documento110.setDocumento("76454656");
+        documento110.setIdPessoa(10);
+        documento110.setIdDocs(1);
+        documento110.setIdTipoDoc(1);
+
+        Docs documento210 = new Docs();
+        documento210.setDataEmissao("2002-07-12");
+        documento210.setDocumento("788878767");
+        documento210.setIdPessoa(10);
+        documento210.setIdDocs(1);
+        documento210.setIdTipoDoc(1);
+
+        Docs documento310 = new Docs();
+        documento310.setDataEmissao("2015-03-18");
+        documento310.setDocumento("8877656");
+        documento310.setIdPessoa(10);
+        documento310.setIdDocs(1);
+        documento310.setIdTipoDoc(1);
+
+        Endereco endereco10 = new Endereco();
+        endereco10.setCodigoPostal("87657889");
+        endereco10.setIdEndereco(1);
+        endereco10.setIdPais(1);
+        endereco10.setLogradouro("Rua L");
+        // BAIRRO
+        endereco10.setNomesubdivisao1("Vila são paulo");
+        // Municipio
+        endereco10.setNomesubdivisao2("Alegrete");
+        // ESTADO
+        endereco10.setNomesubdivisao4("Rio Janeiro");
+        endereco10.setNomesubdivisao5("");
+        endereco10.setTipoLogradouro("Rua");
+        endereco10.setNumero("768");
+    
+        supervisor10.setPessoa(pessoa10);
+        supervisor10.setDocumento1(documento110);
+        supervisor10.setDocumento2(documento210);
+        supervisor10.setDocumento3(documento310);
+        supervisor10.setEndereco(endereco10);
+        supervisor10.setCodigoCiva("BR4434434343");
+
+        supervisores.add(supervisor10);
+        
+         // Início Supervisor 8 //
+        Supervisor supervisor11 = new Supervisor();
+
+        Pessoa pessoa11 = new Pessoa();
+        pessoa11.setDataNascimento("1967-15-56");
+        pessoa11.setDdiContato("+55");
+        pessoa11.setNomePessoa("Amanda");
+        pessoa11.setSobrenomePessoa("Rego Barros");
+        pessoa11.setTelefoneDdd("76778787687");
+        pessoa11.setGenero("Mulher cis");
+        pessoa11.setIdNacionalidade(1);
+        pessoa11.setIdPessoa(11);
+        pessoa11.setNacionalidade("Brasileira");
+
+        Docs documento111 = new Docs();
+        documento111.setDataEmissao("1997-05-08");
+        documento111.setDocumento("76454656");
+        documento111.setIdPessoa(11);
+        documento111.setIdDocs(1);
+        documento111.setIdTipoDoc(1);
+
+        Docs documento211 = new Docs();
+        documento211.setDataEmissao("2001-06-12");
+        documento211.setDocumento("54565465");
+        documento211.setIdPessoa(11);
+        documento211.setIdDocs(1);
+        documento211.setIdTipoDoc(1);
+
+        Docs documento311 = new Docs();
+        documento311.setDataEmissao("2015-03-18");
+        documento311.setDocumento("8877656");
+        documento311.setIdPessoa(11);
+        documento311.setIdDocs(1);
+        documento311.setIdTipoDoc(1);
+
+        Endereco endereco11 = new Endereco();
+        endereco11.setCodigoPostal("54546657");
+        endereco11.setIdEndereco(1);
+        endereco11.setIdPais(1);
+        endereco11.setLogradouro("Rua M");
+        // BAIRRO
+        endereco11.setNomesubdivisao1("Vila rio grande");
+        // Municipio
+        endereco11.setNomesubdivisao2("Altos da pedra");
+        // ESTADO
+        endereco11.setNomesubdivisao4("São Paulo");
+        endereco11.setNomesubdivisao5("");
+        endereco11.setTipoLogradouro("Rua");
+        endereco11.setNumero("787");
+    
+        supervisor11.setPessoa(pessoa11);
+        supervisor11.setDocumento1(documento111);
+        supervisor11.setDocumento2(documento211);
+        supervisor11.setDocumento3(documento311);
+        supervisor11.setEndereco(endereco11);
+        supervisor11.setCodigoCiva("BR89899988");
+
+        supervisores.add(supervisor11);
+        
+                                  
         return supervisores;
     }
 
