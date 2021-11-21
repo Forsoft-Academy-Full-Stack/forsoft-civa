@@ -17,7 +17,7 @@
 
 %>
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/supervisor/vincular-unidade.js" defer></script>
+<script src="../public/assets/js/supervisor/vincular-profissional-saude.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -67,9 +67,20 @@
                                 <!-- form start -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <%@include file="../partials/codigociva-pesquisa.jspf" %>
+                                        <div class="row">
+                                            <div class="form-group col-md-11 p-0">
+                                                <label for="identity">C&oacute;digo CIVA</label>
+                                            <input type="text" class="form-control" id="identity" name="identity" placeholder="USA1223456789" >
+                                            
+                                            </div>
+                                            <div class="form-group col-md-1 pl-0 pt-3 mt-3">
+                                            <button type="button" class="btn btn-default">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                            </div>
+                                       </div> 
                                         <hr>
-                                        <%@include file="../partials/dadospessoais-disabled.jspf" %>
+                                        <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                     </div>
                                 </form>
                             </div>
@@ -77,7 +88,9 @@
 
 
                         <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Adicionar</button>
+                            <button type="button" id="vincular" class="btn btn-primary btn-lg">
+                                Vincular
+                            </button>
                         </div>
 
                         <!-- /.row -->
@@ -85,7 +98,6 @@
 
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->
-                <%@ include file="../partials/modals-unidade-vinc.jspf" %>
             </div>
             <!-- /.content -->
         </div>
@@ -95,7 +107,6 @@
         <%@ include file="footer.jspf" %>
     </div>
     <!-- ./wrapper -->
-
 </body>
 </html>
 

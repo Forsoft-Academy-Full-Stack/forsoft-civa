@@ -1,10 +1,12 @@
-    $('.select2').select2();
+$('.select2').select2();
 
-let campos = ["name", "surname", "date-birth",
-     "nacionalidade", "genero", "pais",
-    "codigopostal", "endereco",
-    "numero", "complemento", "bairro",
-    "municipio", "estado", "contato1", "locacao", "email"];
+
+let campos = ["name", "surname",
+    "genero", "date-birth",
+    "nacionality", "tipo-doc", "doc",
+    "country-name","postal-code", "logrd-name",
+    "num-name", "comple-name", "bairro",
+    "city", "state", "telf", "email"];
 
 
 let form = $("#form-meus-dados");
@@ -33,4 +35,7 @@ $("#salvar").click(function () {
 });
 
 
-pegarPaises("nacionalidade");
+pegarPaises("nacionality");
+
+
+

@@ -1,0 +1,23 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="col-sm-6 col-md-6 w-50">
+    <div class="card">
+        <div class="card-header">
+            Status: <b>Pendente</b>
+        </div>
+        <div class="card-body" style="margin-bottom: -40px;">
+            <div class="overflow-auto" style="height: 150px;">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nesciunt voluptatem rerum dolorum impedit officiis quae, reiciendis asperiores nam quaerat aliquid velit iste ea ullam assumenda voluptates, molestias dolores
+                    accusamus quisquam!
+                </p>
+            </div>
+
+            <p class="mt-2">Data solicita&ccedil;&atilde;o: 01/01/2021 </p>
+        </div>
+        <hr>
+        <div class="d-flex justify-content-between align-items-center mx-3 mb-3">
+            <button class="btn btn-outline-danger" data-toggle="modal" data-target="#modal-default">Cancelar solicitação</button>
+
+        </div>
+    </div>
+</div>

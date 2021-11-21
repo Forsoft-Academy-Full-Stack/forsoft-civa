@@ -31,149 +31,137 @@
                         </p>
                     </a>
                 </li>
-                <!-- ITEM GERENCIAR USUARIO DO MENU -->
+
+                <!-- Item Gestor Nacional -->
                 <li class="nav-item ">
                     <a href="#" class="nav-link">
-                        <!-- <i class="nav-icon fas fa-user-friends"></i> -->
-                        <p>Gestor Nacional
+                        <i class="fas fa-user-friends nav-icon"></i>
+                        <p>
+                            Gestores nacionais
                             <i class="right fas fa-angle-left"></i>
-
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-user-friends nav-icon"></i>
-                                <p>
-                                    Gestores nacionais
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="pesquisar-gestor-nacional.jsp" class="nav-link">
+                                <i class="fas fa-clipboard-check nav-icon"></i>
+                                <p>Consultar Gestor nacional</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pesquisar-gestor-nacional.jsp" class="nav-link">
-                                        <i class="fas fa-clipboard-check nav-icon"></i>
-                                        <p>Consultar Gestor nacional</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="cadastrar-gestor-nacional.jsp" class="nav-link">
-                                        <i class="fas fa-user-plus nav-icon"></i>
-                                        <p>Cadastrar Gestor nacional</p>
-                                    </a>
-                                </li>
-
-                            </ul>
                         </li>
-                    </ul>
+                        <li class="nav-item">
+                            <a href="cadastrar-gestor-nacional.jsp" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Cadastrar Gestor nacional</p>
+                            </a>
+                        </li>
 
+                    </ul>
+                </li>
+
+                <!-- Item Gerentes -->
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-friends nav-icon"></i>
+                        <p>
+                            Gerentes
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-user-friends nav-icon"></i>
-                                <p>
-                                    Gerentes
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="pesquisar-gerente.jsp" class="nav-link">
+                                <i class="fas fa-clipboard-check nav-icon"></i>
+                                <p>Consultar gerentes </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pesquisar-gerente.jsp" class="nav-link">
-                                        <i class="fas fa-clipboard-check nav-icon"></i>
-                                        <p>Consultar gerentes </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="cadastrar-gerente.jsp" class="nav-link">
-                                        <i class="fas fa-user-plus nav-icon"></i>
-                                        <p>Cadastrar gerentes</p>
-                                    </a>
-                                </li>
-
-                            </ul>
                         </li>
-                    </ul>
+                        <li class="nav-item">
+                            <a href="cadastrar-gerente.jsp" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Cadastrar gerentes</p>
+                            </a>
+                        </li>
 
+                    </ul>
+                </li>
+
+                <!-- Item Vacinas -->
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                        <p>
+                            Vacinas
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-map-marker-alt nav-icon"></i>
-                                <p>
-                                    Vacinas
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="painel-vacina.jsp" class="nav-link">
+                                <i class="fas fa-map nav-icon"></i>
+                                <p>Consultar Vacina </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="painel-vacina.jsp" class="nav-link">
-                                        <i class="fas fa-map nav-icon"></i>
-                                        <p>Consultar Vacina </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="selecionar-vacina.jsp" class="nav-link">
-                                        <i class="fas fa-map-pin nav-icon"></i>
-                                        <p>Selecionar Vacina </p>
-                                    </a>
-                                </li>
-
-                            </ul>
                         </li>
+                        <li class="nav-item">
+                            <a href="selecionar-vacina.jsp" class="nav-link">
+                                <i class="fas fa-map-pin nav-icon"></i>
+                                <p>Selecionar Vacina </p>
+                            </a>
+                        </li>
+
                     </ul>
+                </li>
+
+                <!-- Item Suporte CIVA -->                
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-map-marker-alt nav-icon"></i>
+                        <p>
+                            Suporte CIVA
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-map-marker-alt nav-icon"></i>
-                                <p>
-                                    Suporte CIVA
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="consultar-suporte-civa.jsp" class="nav-link">
+                                <i class="fas fa-map nav-icon"></i>
+                                <p>Consultar suporte CIVA </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="consultar-suporte-civa.jsp" class="nav-link">
-                                        <i class="fas fa-map nav-icon"></i>
-                                        <p>Consultar suporte CIVA </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="cadastrar-suporte-civa.jsp" class="nav-link">
-                                        <i class="fas fa-map-pin nav-icon"></i>
-                                        <p>Cadastrar Suporte CIVA </p>
-                                    </a>
-                                </li>
-
-                            </ul>
                         </li>
-                    </ul>
+                        <li class="nav-item">
+                            <a href="cadastrar-suporte-civa.jsp" class="nav-link">
+                                <i class="fas fa-map-pin nav-icon"></i>
+                                <p>Cadastrar Suporte CIVA </p>
+                            </a>
+                        </li>
 
+                    </ul>
+                </li>
+
+                <!-- Item Unidades -->                
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-syringe nav-icon"></i>
+                        <p>
+                            Unidades
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item ">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-syringe nav-icon"></i>
-                                <p>
-                                    Unidades
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                        <li class="nav-item">
+                            <a href="pesquisar-unidade.jsp" class="nav-link">
+                                <i class="fas fa-search nav-icon"></i>
+                                <p>Consultar unidade </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="pesquisar-unidade.jsp" class="nav-link">
-                                        <i class="fas fa-search nav-icon"></i>
-                                        <p>Consultar unidade </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="cadastrar-unidade.jsp" class="nav-link">
-                                        <i class="fas fa-mouse-pointer nav-icon"></i>
-                                        <p>Cadastrar Unidade</p>
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="cadastrar-unidade.jsp" class="nav-link">
+                                <i class="fas fa-mouse-pointer nav-icon"></i>
+                                <p>Cadastrar Unidade</p>
+                            </a>
                         </li>
                     </ul>
+                </li>
 
-                    <!-- ITEM RELATORIO USUARIO DO MENU -->
+                <!-- ITEM RELATORIO USUARIO DO MENU -->
                 <li class="nav-item">
                     <a href="./relatorio.jsp" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
@@ -219,11 +207,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./solicitacoes.jsp" class="nav-link">
+                            <a href="./solicitar-alteracao.jsp" class="nav-link">
                                 <i class="fas fa-inbox nav-icon"></i>
-                                <p>
-                                    Solicita&ccedil;&otilde;es pendentes
-                                </p>
+                                <p>Solicita&ccedil;&otilde;es</p>
                             </a>
                         </li>
                         <li class="nav-item">

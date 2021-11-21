@@ -53,3 +53,6 @@
     <script src="../public/dist/js/demo.js" defer></script>
     <script src="../public/assets/js/default.js" defer></script>
     <script src="../public/assets/js/suporte-civa/header-suporte-civa.js" defer></script>
+        
+    <!-- Adicionar/Remover Docs -->
+    <script src="../public/assets/js/setDocs.js" defer></script>

@@ -6,7 +6,7 @@
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
 
     // Verificando se o objeto pessoa não existe e se não é usuário
-    if ((pessoa == null) || (!session.getAttribute("perfil").equals("suporte-civa"))) {
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-nacional"))) {
         // Caso for uma das duas opções
         // Redirecionar para o login
         response.sendRedirect("../login/");
@@ -16,14 +16,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<!--Por favor não remover include nem head-->
-<!--a abertura do head é feita no header.jspf-->
-<!--Dessa forma fica menos poluído-->
-<!--os links e scripts base ficam nesse header.jspf-->
-<!--então aqui é chamado o js especifico para cada página -->
-<!--e por fim o head é fechado -->
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/suporte-civa/gerenciar-portador.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -42,13 +35,14 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Gerenciar Portador</h1>
+                            <h1 class="m-0">Solicitar Suporte</h1>
                         </div>
                         <!-- /.col -->
+
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Gerenciar portador</li>
+                                <li class="breadcrumb-item active">Solicitações</li>
                             </ol>
                         </div>
                     </div>
@@ -56,50 +50,49 @@
                 </div>
                 <!-- /.container-fluid -->
             </div>
+            <!-- /.content-header ---------------------------------------------->
+
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-                    <!-- DADOS PORTADOR -->
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Dados Portador</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <!-- Incio do form -->
-
-                                <form id="form-meus-dados">
-                                    <div class="card-body">
-                                        <%@ include file="../partials/codigociva.jspf" %>
-                                        <%@ include file="../partials/dadospessoais-disabled.jspf" %>
-                                        <hr>
-                                        <%@ include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
-                                        <%@ include file="../partials/contatos-disabled.jspf" %>
-                                    </div>
-
-                                </form>
-                                <!-- /.form ending -->
-                            </div>
-                            <!-- /.card-body -->
+                    <div class="card card-primary card-outline card-outline-tabs">
+                        <div class="card-header p-0 border-bottom-0">
+                            <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-four-pending-tab" data-toggle="pill" href="#custom-tabs-four-pending" role="tab" aria-controls="custom-tabs-four-pending" aria-selected="true">Solicita&ccedil;&otilde;es Pendentes</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="custom-tabs-four-submit-tab" data-toggle="pill" href="#custom-tabs-four-submit" role="tab" aria-controls="custom-tabs-four-submit" aria-selected="false">Nova Solicita&ccedil;&atilde;o</a>
+                                </li>                                
+                            </ul>
                         </div>
-                    </div>
-                    <!-- /.row -->
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-four-tabContent">
+                                <div class="tab-pane fade show active" id="custom-tabs-four-pending" role="tabpanel" aria-labelledby="custom-tabs-four-pending-tab">
+                                    <div class="row">
+                                        <%@include file="../partials/solicitacao-pendente.jspf" %>
+                                        <%@include file="../partials/solicitacao-pendente.jspf" %>
+                                        <%@include file="../partials/solicitacao-pendente.jspf" %>
+                                        <%@include file="../partials/solicitacao-pendente.jspf" %>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="custom-tabs-four-submit" role="tabpanel" aria-labelledby="custom-tabs-four-submit-tab">
+                                    <%@ include file="../partials/nova-solicitacao.jspf" %>
+                                </div>                              
+                            </div>
+                        </div>
+                        <!-- /.card -->
+                    </div>                   
                 </div>
-
-                <div class="col-12 mb-4">
-                    <button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button>
-                </div>
+                <!-- </div> -->
                 <!-- /.container-fluid -->
-
                 <!-- modal -->
                 <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h4 class="modal-title">Dados alterados com sucesso!</h4>
+                                <h4 class="modal-title">Solicita&ccedil;&atilde;o enviada com sucesso!</h4>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">Ã</span>
                                 </button>
@@ -136,17 +129,16 @@
                     </div>
                     <!-- /.modal-dialog -->
                 </div>
-                <!-- /.modal-dialog -->
+                <!-- /.content -->
             </div>
-            <!-- /.content -->
         </div>
+
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
-
 
 </body>
 

@@ -18,7 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gestor-nacional/gerenciar-gerente.js" defer></script>
+<script src="../public/assets/js/gestor-nacional/gerenciar-gerente.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -57,22 +57,6 @@
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
-                    <!---------------------------------------------------------------->
-
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <form action="">
-                                <div class="input-group">
-                                    <input type="search" class="form-control form-control-lg" placeholder="Insira o codigo civa do portador">
-                                    <div class="input-group-append">
-                                        <button type="submit" class="btn btn-lg btn-primary">
-                                            Pesquisar
-                                        </button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
 
                     <!-- DADOS PORTADOR -->
                     <div class="row mb-3">
@@ -104,11 +88,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-12 row">
-                        <div class="mb-3 mt-3">
-                            <a href="vincular-unidade-gestor.jsp" class="btn btn-primary btn-lg">Vincular Nova unidade</a>
-                        </div>
-                    </div>
+
                     <!-- TABELA VACINAS -->
                     <div class="row">
                         <div class="col-12">
@@ -125,7 +105,6 @@
                                                 <th style="cursor: pointer;">Estado</th>
                                                 <th style="cursor: pointer;">C&oacute;digo Postal</th>
                                                 <th style="cursor: pointer;">Identificador</th>
-                                                <th>Desvincular Unidade</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -134,28 +113,24 @@
                                                 <td>Rio de Janeiro</td>
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
-                                                <td><input class="btn btn-block" type="checkbox"></td>
                                             </tr>
                                             <tr>
                                                 <td>Hopital Pano</td>
                                                 <td>Rio de Janeiro</td>
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
-                                                <td><input class="btn btn-block" type="checkbox"></td>
                                             </tr>
                                             <tr>
                                                 <td>Hopital Paninho</td>
                                                 <td>Rio de Janeiro</td>
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
-                                                <td><input class="btn btn-block" type="checkbox"></td>
                                             </tr>
                                             <tr>
                                                 <td>Hopital Pan</td>
                                                 <td>Rio de Janeiro</td>
                                                 <td>12016-102</td>
                                                 <td><span class="tag tag-success">215648</span></td>
-                                                <td><input class="btn btn-block" type="checkbox"></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -163,11 +138,6 @@
                                 <!-- /.card-body -->
                             </div>
                             <!-- /.card -->
-                        </div>
-                    </div>
-                    <div class="col-12 row">
-                        <div class="mb-3 mt-3">
-                            <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
                         </div>
                     </div>
 
@@ -196,9 +166,10 @@
                 <!-- /.content -->
             </div>
 
-            <!-- Main Footer -->
-            <%@include file="footer.jspf"%>
         </div>
+
+        <!-- Main Footer -->
+        <%@include file="footer.jspf"%>
         <!-- ./wrapper -->
     </div>
 </body>

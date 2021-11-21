@@ -47,6 +47,8 @@
     <script src="../public/assets/js/searchCep.js" defer></script>
     <!-- TODOS PAISES SELECT NACIONALIDADE -->
     <script src="../public/assets/js/getCountry.js" defer></script>
+    <!-- Funcionalidades TextArea -->
+    <script src="../public/assets/js/textarea-funcs.js" defer></script>
 
     <!-- AdminLTE for demo purposes -->
     <script src="../public/dist/js/demo.js" defer></script>

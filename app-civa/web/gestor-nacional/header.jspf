@@ -52,3 +52,9 @@
     <script src="../public/dist/js/demo.js" defer></script>
     <script src="../public/assets/js/default.js" defer></script>
     <script src="../public/assets/js/gestor-nacional/header-gestor-nacional.js" defer></script>
+            
+    <!-- Adicionar/Remover Docs -->
+    <script src="../public/assets/js/setDocs.js" defer></script>
+    
+    <!-- Funcionalidades TextArea -->
+    <script src="../public/assets/js/textarea-funcs.js" defer></script>

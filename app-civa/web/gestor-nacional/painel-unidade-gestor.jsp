@@ -18,7 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gestor-nacional/painel-unidade-gestor.js" defer></script>
+<script src="../public/assets/js/gestor-nacional/painel-unidade-gestor.js" defer></script>
 </head>
 
 
@@ -44,7 +44,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item">
-                                   <a href="" id="go-back">Voltar</a>
+                                    <a href="" id="go-back">Voltar</a>
                                 </li>
                                 <li class="breadcrumb-item active">Home</li>
                             </ol>
@@ -137,59 +137,22 @@
                                                 </tr>
                                             </tbody>
                                         </table>
+                                        <hr>
+                                        <div class="row ">
+                                            <div class="col d-flex justify-content-xl-start  ml-4 mb-2">
+                                                <a href="./vincular-gerente.jsp" class="btn btn-success btn-xs">Vincular gerente</a>
+                                            </div>                                  
+
+                                            <div class="col  d-flex justify-content-xl-end align-items-center ml-2 mb-2 mr-4">
+                                                <a href="./desvincular-gerente.jsp" class="btn btn-danger btn-xs">Desvincular Gerente</a>
+                                            </div>
+                                        </div>
                                     </div>
                                     <!-- /.card-body -->
                                 </div>
                             </div>
                         </div>
 
-                        <div class="row">
-                            <div class="col-12 mb-4">
-                                <button
-                                    type="submit"
-                                    class="btn btn-primary btn-lg"
-                                    form="form-meus-dados"
-                                    >
-                                    Salvar
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- /.container-fluid -->
-                    <div
-                        class="modal fade"
-                        id="modal-default"
-                        style="display: none"
-                        aria-hidden="true"
-                        >
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
-                                    <button
-                                        type="button"
-                                        class="close"
-                                        data-dismiss="modal"
-                                        aria-label="Close"
-                                        >
-                                        <span aria-hidden="true">Ã</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <p></p>
-                                </div>
-                                <div class="modal-footer justify-content-between">
-                                    <button
-                                        type="button"
-                                        class="btn btn-default"
-                                        data-dismiss="modal"
-                                        onclick="location.href = './index.jsp'"
-                                        >
-                                        Close
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <!-- /.content -->

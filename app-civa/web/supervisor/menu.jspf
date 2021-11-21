@@ -25,74 +25,59 @@
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- ITENS DO MENU -->
+                <!-- Item Home -->
                 <li class="nav-item">
                     <a href="index.jsp" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
-                        <p>
-                            Home 
-                        </p>
+                        <p>Home</p>
                     </a> 
                 </li>
-                <!-- ITEM GERENCIAR USUARIO DO MENU -->
+
+                <!-- Unidade Profissional de Saúde -->                
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
-                        <!-- <i class="nav-icon fas fa-user-friends"></i> -->
-                        <p>Supervisor
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+                    <a href="#" class="nav-link"> 
+                        <i class="fas fa-user-friends nav-icon"></i>
+                        <p>Profissional de sa&uacute;de<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link"> 
-                                <i class="fas fa-user-friends nav-icon"></i>
-                                <p>
-                                    Profissional de sa&uacute;de 
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
-                            </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item ">
-                                    <a href="consultar-profissional-de-saude.jsp" class="nav-link">
-                                        <i class="fas fa-clipboard-check nav-icon"></i>
-                                        <p>Consultar Profissional </p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="cadastrar-profissional-de-saude.jsp" class="nav-link">
-                                        <i class="fas fa-user-plus nav-icon"></i>
-                                        <p>Cadastrar Profissional </p>
-                                    </a>
-                                </li>
-
-                            </ul>
-                        </li>
-                    </ul>
-                    <ul class="nav nav-treeview">
                         <li class="nav-item ">
-                            <a href="#" class="nav-link"> 
-                                <i class="fas fa-user-friends nav-icon"></i>
-                                <p>
-                                    Unidade  
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                            <a href="consultar-profissional-de-saude.jsp" class="nav-link">
+                                <i class="fas fa-clipboard-check nav-icon"></i>
+                                <p>Consultar Profissional </p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="consultar-unidade.jsp" class="nav-link ">
-                                        <i class="fas fa-clipboard-check nav-icon"></i>
-                                        <p>Consultar Unidade </p>
-                                    </a>
-                                </li>
-                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a href="cadastrar-profissional-de-saude.jsp" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Cadastrar Profissional </p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>        
+
+                <!-- Item Unidade -->
+                <li class="nav-item ">
+                    <a href="#" class="nav-link"> 
+                        <i class="fas fa-user-friends nav-icon"></i>
+                        <p>Unidade<i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="consultar-unidade.jsp" class="nav-link ">
+                                <i class="fas fa-clipboard-check nav-icon"></i>
+                                <p>Consultar Unidade </p>
+                            </a>
                         </li>
                     </ul>
-                    <!-- ITEM RELATORIO USUARIO DO MENU -->
+                </li>
+
+                <!-- ITEM RELATORIO USUARIO DO MENU -->
                 <li class="nav-item">
                     <a href="relatorio.jsp" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
-                        <p>
-                            Relat&oacute;rio
-                        </p>
+                        <p>Relat&oacute;rio</p>
                     </a> 
                 </li>
 
@@ -100,51 +85,37 @@
                 <li class="nav-item">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-user-circle"></i>
-                        <p>
-                            Perfil
-                            <i class="right fas fa-angle-left"></i>
-
-                        </p>
+                        <p>Perfil<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="meus-dados-supervisor.jsp" class="nav-link">
                                 <i class="fas fa-address-card nav-icon"></i>
-                                <p>
-                                    Meus dados
-                                </p>
+                                <p>Meus dados</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="idioma.jsp" class="nav-link"> 
                                 <i class="fas fa-language nav-icon"></i>
-                                <p>
-                                    Mudar Idioma
-                                </p>
+                                <p>Mudar Idioma</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="manual.jsp" class="nav-link"> 
                                 <i class="fas fa-question-circle nav-icon"></i>
-                                <p>
-                                    Manual CIVA
-                                </p>
+                                <p>Manual CIVA</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="solicitacoes-supervisor.jsp" class="nav-link"> 
+                            <a href="solicitar-alteracao.jsp" class="nav-link"> 
                                 <i class="fas fa-inbox nav-icon"></i>
-                                <p>
-                                    Solicita&ccedil;&otilde;es pendentes
-                                </p>
+                                <p>Solicita&ccedil;&otilde;es</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="../exit" class="nav-link">
                                 <i class="fas fa-sign-out-alt nav-icon"></i>
-                                <p>
-                                    Sair
-                                </p>
+                                <p>Sair</p>
                             </a>
                         </li>
                     </ul>

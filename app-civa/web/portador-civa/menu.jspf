@@ -97,27 +97,21 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./solicitacao-pendente.jsp" class="nav-link">
+                            <a href="./solicitar-alteracao.jsp" class="nav-link">
                                 <i class="fas fa-inbox nav-icon"></i>
-                                <p>
-                                    Solicita&ccedil;&otilde;es pendentes
-                                </p>
+                                <p>Solicita&ccedil;&otilde;es</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="./eliminar-dados.jsp" class="nav-link">
                                 <i class="nav-icon fas fa-user-times"></i>
-                                <p>
-                                    Eliminar meus dados
-                                </p>
+                                <p>Eliminar meus dados</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="./termo-de-uso.jsp" class="nav-link">
                                 <i class="nav-icon fas fa-file-alt"></i>
-                                <p>
-                                    Termos de uso
-                                </p>
+                                <p>Termos de uso</p>
                             </a>
                         </li>
 
