@@ -1,10 +1,7 @@
 package dao;
-
 import java.util.ArrayList;
 import java.util.List;
 import model.Docs;
-import model.Pais;
-
 /**
  *
  * @author randel

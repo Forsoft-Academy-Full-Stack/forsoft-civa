@@ -77,6 +77,7 @@ public class SupervisorDao {
         endereco.setNomesubdivisao6("");
         endereco.setNomesubdivisao7("");
         endereco.setTipoLogradouro("Rua");
+        endereco.setNumero("23");
         //"SELECT * FROM pais where nome = "+pais;
         
         supervisor.setPessoa(pessoa);
@@ -84,6 +85,7 @@ public class SupervisorDao {
         supervisor.setDocumento2(documento2);
         supervisor.setDocumento3(documento3);
         supervisor.setEndereco(endereco);
+        supervisor.setCodigoCiva("Forsoft12763521");
         
         return supervisor;
     }
@@ -138,6 +140,7 @@ public class SupervisorDao {
         endereco.setNomesubdivisao6("");
         endereco.setNomesubdivisao7("");
         endereco.setTipoLogradouro("Rua");
+        endereco.setNumero("23");
         //"SELECT * FROM pais where nome = "+pais;
         
         supervisor.setPessoa(pessoa);
@@ -145,6 +148,7 @@ public class SupervisorDao {
         supervisor.setDocumento2(documento2);
         supervisor.setDocumento3(documento3);
         supervisor.setEndereco(endereco);
+        supervisor.setCodigoCiva("BR672537621576");
 
         supervisores.add(supervisor);
         
@@ -153,8 +157,8 @@ public class SupervisorDao {
         Pessoa pessoa2 = new Pessoa();
         pessoa2.setDataNascimento("12-03-1977");
         pessoa2.setDdiContato("+55");
-        pessoa2.setNomePessoa("José");
-        pessoa2.setSobrenomePessoa("Carlos");
+        pessoa2.setNomePessoa("Pedro");
+        pessoa2.setSobrenomePessoa("Silva");
         pessoa2.setTelefoneDdd("983578300");
         pessoa2.setGenero("homem cis");
         pessoa2.setIdNacionalidade(1);
@@ -193,13 +197,15 @@ public class SupervisorDao {
         endereco2.setNomesubdivisao5("");
         endereco2.setNomesubdivisao7("");
         endereco2.setTipoLogradouro("Rua");
+        endereco2.setNumero("2378");
         //"SELECT * FROM pais where nome = "+pais;
         
-        supervisor2.setPessoa(pessoa);
-        supervisor2.setDocumento1(documento1);
-        supervisor2.setDocumento2(documento2);
-        supervisor2.setDocumento3(documento3);
-        supervisor2.setEndereco(endereco);
+        supervisor2.setPessoa(pessoa2);
+        supervisor2.setDocumento1(documento12);
+        supervisor2.setDocumento2(documento22);
+        supervisor2.setDocumento3(documento32);
+        supervisor2.setEndereco(endereco2);
+        supervisor2.setCodigoCiva("BR999923721873");
 
         supervisores.add(supervisor2);
 

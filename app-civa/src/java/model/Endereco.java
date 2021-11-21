@@ -16,7 +16,16 @@ public class Endereco {
     private String nomesubdivisao5;
     private String nomesubdivisao6;
     private String nomesubdivisao7;
+    private String numero;
     
+    public String getNumero() {
+        return numero;
+    }
+
+    public void setNumero(String numero) {
+        this.numero = numero;
+    }
+  
     public Integer getIdEndereco() {
         return idEndereco;
     }
