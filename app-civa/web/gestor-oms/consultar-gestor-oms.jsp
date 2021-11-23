@@ -1,5 +1,10 @@
+<%@page import="dao.GestorOmsDao"%>
+<%@page import="model.GestorOms"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,6 +22,13 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
+<%    //Buscar Lista de gestores OMS
+    List<GestorOms> listaGestoresOms = GestorOmsDao.list();
+
+    pageContext.setAttribute("gestoresOms", listaGestoresOms);
+%>   
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-oms/consultar-gestor-oms.js" defer></script>
 </head>
@@ -128,63 +140,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Tom Jobim</td>
-                                                <td>065.354.200-01</td>
-                                                <td>25-01-1927</td>
-                                                <td>BRA313123534</td>
-                                                <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Michael Jackson</td>
-                                                <td>215.489.158-14</td>
-                                                <td>29-10-1958</td>
-                                                <td>BRA312312321</td>
-                                                <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>George Michael</td>
-                                                <td>554.489.489-15</td>
-                                                <td>25-06-1963</td>
-                                                <td>BRA519194156</td>
-                                                <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Whitney Houston</td>
-                                                <td>194.891.981-48</td>
-                                                <td>09-10-1963</td>
-                                                <td>BRA651847616</td>
-                                                <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Freddie Mercury</td>
-                                                <td>221.911.911-15</td>
-                                                <td>05-09-1946</td>
-                                                <td>BRA461668464</td>
-                                                <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bryan Adams</td>
-                                                <td>634.324.123-57</td>
-                                                <td>05-11-1959</td>
-                                                <td>BRA461666523</td>
-                                                <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Elis Regina</td>
-                                                <td>884.054.264-05</td>
-                                                <td>17-05-1945</td>
-                                                <td>BRA312312323</td>
-                                                <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-
+                                            <c:forEach items="${gestoresOms}" var="gestorOms">
+                                                <tr>
+                                                    <td><c:out value="${gestorOms.pessoa.nomePessoa} ${gestorOms.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${gestorOms.documento1.documento}" /></td>
+                                                    <td><c:out value="${gestorOms.pessoa.dataNascimento}" /></td>
+                                                    <td><c:out value="${gestorOms.codigoCiva}" /></td>
+                                                    <td><a href="painel-gestor-oms.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
 

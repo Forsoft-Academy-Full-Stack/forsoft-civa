@@ -47,46 +47,56 @@ public class GerenteDao {
         return resultado;
     }
 
-    public static Gerente find(String gerenteNome) {
+    public static Gerente find(String codigoCiva) {
         Gerente gerente1 = new Gerente();
 
         Pessoa pessoa = new Pessoa();
         pessoa.setNomePessoa("Antônio");
         pessoa.setSobrenomePessoa("Henrique");
         pessoa.setGenero("Homem Cis");
-        pessoa.setDataNascimento("26-10-1998");
+        pessoa.setDataNascimento("1998-10-28");
         pessoa.setDdiContato("+55");
-        pessoa.setTelefoneDdd("21 9 69179669");
+        pessoa.setTelefoneDdd("21969179669");
+        pessoa.setNacionalidade("Brasileira");
+        pessoa.setEmail("luisalves-99@marcossousa.com");
 
         Endereco endereco = new Endereco();
         endereco.setCodigoPostal("24716591");
         endereco.setTipoLogradouro("Rua");
         endereco.setLogradouro("Soares dos Reis");
-        endereco.setNomesubdivisao1("América do Sul");
-        endereco.setNomesubdivisao2("Brasil");
-        endereco.setNomesubdivisao3("Sudeste");
-        endereco.setNomesubdivisao4("Rio de Janeiro");
-        endereco.setNomesubdivisao5("Região Metropolitana");
-        endereco.setNomesubdivisao6("São Gonçalo");
-        endereco.setNomesubdivisao7("Jardim Catarina");
-
+        // BAIRRO
+        endereco.setNomesubdivisao1("Balneário Dom Carlos");
+        // Municipio
+        endereco.setNomesubdivisao2("São Paulo");
+        // Estado
+        endereco.setNomesubdivisao3("SP");
+        endereco.setNomesubdivisao4("");
+        endereco.setNomesubdivisao5("");
+        endereco.setNomePais("Brasil");
+        endereco.setNumero("887");
+        endereco.setComplemento("Letra B");    
+               
         Docs documento1 = new Docs();
         documento1.setDataEmissao("29-09-2017");
         documento1.setDocumento("16328761759");
-
+        documento1.setNomeTipoDoc("Identidade");
+        
         Docs documento2 = new Docs();
         documento2.setDataEmissao("29-09-2018");
-        documento2.setDocumento("16328761759");
+        documento2.setDocumento("BR16328761759");
+        documento2.setNomeTipoDoc("Passaporte");
 
         Docs documento3 = new Docs();
         documento3.setDataEmissao("29-09-2019");
-        documento3.setDocumento("16328761759");
+        documento3.setDocumento("903.675.345-87");
+        documento3.setNomeTipoDoc("CPF");
 
         gerente1.setPessoa(pessoa);
         gerente1.setEndereco(endereco);
         gerente1.setDocumento1(documento1);
         gerente1.setDocumento2(documento2);
         gerente1.setDocumento3(documento3);
+        gerente1.setCodigoCiva("BR879987");
 
         return gerente1;
     }
@@ -133,7 +143,9 @@ public class GerenteDao {
         gerente.setDocumento1(documento1);
         gerente.setDocumento2(documento2);
         gerente.setDocumento3(documento3);
-
+        
+        gerente.setCodigoCiva("BR879987");
+        
         gerentes.add(gerente);
 
         Gerente gerente2 = new Gerente();
@@ -170,13 +182,15 @@ public class GerenteDao {
         documento32.setDataEmissao("27-09-2022");
         documento32.setDocumento("291632826");
 
-        gerente.setPessoa(pessoa);
-        gerente.setEndereco(endereco);
-        gerente.setDocumento1(documento1);
-        gerente.setDocumento2(documento2);
-        gerente.setDocumento3(documento3);
-
-        gerentes.add(gerente);
+        gerente2.setPessoa(pessoa2);
+        gerente2.setEndereco(endereco2);
+        gerente2.setDocumento1(documento12);
+        gerente2.setDocumento2(documento22);
+        gerente2.setDocumento3(documento32);
+        
+        gerente2.setCodigoCiva("BR99089877");
+        
+        gerentes.add(gerente2);
 
         return gerentes;
     }

@@ -1,3 +1,6 @@
+<%@page import="dao.GestorNacionalDao"%>
+<%@page import="model.GestorNacional"%>
+<%@page import="model.GestorNacional"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -17,6 +20,11 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<% 
+    GestorNacional gestorNacional = GestorNacionalDao.find("BR8987555");
+    pageContext.setAttribute("ator", gestorNacional);
+%>
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-nacional/meus-dados.js" defer></script>
 </head>
@@ -110,12 +118,12 @@
             <!-- modal -->
         </div>
         <!-- /.content -->
+          <%@include file="footer.jspf" %>
     </div>
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-    <%@include file="footer.jspf" %>
-</div>
+  
 <!-- ./wrapper -->
 </body>
 

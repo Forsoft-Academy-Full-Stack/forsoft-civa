@@ -1,5 +1,8 @@
+<%@page import="dao.GestorNacionalDao"%>
+<%@page import="model.GestorNacional"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,6 +20,13 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
+<%
+    GestorNacional gestorNacional = GestorNacionalDao.find("BR6563547");
+
+    pageContext.setAttribute("ator", gestorNacional);
+%>
+
 <%@include file="header.jspf"%>
     <script src="../public/assets/js/gestor-nacional/painel-gestor-nacional.js" defer></script>
 </head>

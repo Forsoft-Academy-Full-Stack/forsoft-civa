@@ -1,3 +1,6 @@
+<%@page import="dao.GestorOmsDao"%>
+<%@page import="dao.GestorOmsDao"%>
+<%@page import="model.GestorOms"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -17,6 +20,12 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<% 
+    GestorOms gestorOms = GestorOmsDao.find("BR16616616");
+
+    pageContext.setAttribute("ator", gestorOms);
+%> 
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-oms/meus-dados.js" defer></script>
 </head>

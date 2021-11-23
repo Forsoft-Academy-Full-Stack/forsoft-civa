@@ -35,7 +35,8 @@ public class PessoaDao {
         if (pinsert.getNomePessoa()!=null) {
             //se conseguir inserir no banco
             
-            Pais pais = PaisDao.find("Brasil");
+            // Brasil
+            Pais pais = PaisDao.find(1);
             
             Endereco e = new Endereco();
             e.setIdPais(pais.getIdPais());

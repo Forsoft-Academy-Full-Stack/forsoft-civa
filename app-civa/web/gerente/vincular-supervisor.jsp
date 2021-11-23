@@ -1,3 +1,6 @@
+<%@page import="dao.SupervisorDao"%>
+<%@page import="model.Supervisor"%>
+<%@page import="model.Supervisor"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -16,6 +19,13 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<% 
+    Supervisor supervisor = SupervisorDao.find("BR879987");
+    pageContext.setAttribute("ator", supervisor);
+%>
+
+
+
 <%@include file="header.jspf"%>
 
 </head>
@@ -70,7 +80,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-11 p-0">
                                                 <label for="identity">C&oacute;digo CIVA</label>
-                                            <input type="text" class="form-control" id="identity" name="identity" placeholder="USA1223456789" >
+                                            <input type="text" class="form-control" id="identity" name="identity" value="${ator.codigoCiva}" placeholder="USA1223456789" >
                                             
                                             </div>
                                             <div class="form-group col-md-1 pl-0 pt-3 mt-3">

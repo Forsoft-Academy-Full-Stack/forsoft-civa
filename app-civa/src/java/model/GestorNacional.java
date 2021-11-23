@@ -6,9 +6,9 @@ package model;
  */
 public class GestorNacional {
     private Pessoa pessoa;
-    private Docs documentacao1;
-    private Docs documentacao2;
-    private Docs documentacao3;
+    private Docs documento1;
+    private Docs documento2;
+    private Docs documento3;
     private Endereco endereco;
     private String codigoCiva;
 
@@ -28,28 +28,28 @@ public class GestorNacional {
         this.endereco = endereco;
     }
 
-    public Docs getDocumentacao1() {
-        return documentacao1;
+    public Docs getDocumento1() {
+        return documento1;
     }
 
-    public void setDocumentacao1(Docs documentacao) {
-        this.documentacao1 = documentacao;
+    public void setDocumento1(Docs documentacao) {
+        this.documento1 = documentacao;
     }
 
-    public Docs getDocumentacao2() {
-        return documentacao2;
+    public Docs getDocumento2() {
+        return documento2;
     }
 
-    public void setDocumentacao2(Docs documentacao2) {
-        this.documentacao2 = documentacao2;
+    public void setDocumento2(Docs documentacao2) {
+        this.documento2 = documentacao2;
     }
 
-    public Docs getDocumentacao3() {
-        return documentacao3;
+    public Docs getDocumento3() {
+        return documento3;
     }
 
-    public void setDocumentacao3(Docs documentacao3) {
-        this.documentacao3 = documentacao3;
+    public void setDocumento3(Docs documentacao3) {
+        this.documento3 = documentacao3;
     }
 
     public String getCodigoCiva() {

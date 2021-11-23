@@ -95,7 +95,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="painel-vacina.jsp" class="nav-link">
+                            <a href="gerenciar-vacina.jsp" class="nav-link">
                                 <i class="fas fa-map nav-icon"></i>
                                 <p>Consultar Vacina </p>
                             </a>

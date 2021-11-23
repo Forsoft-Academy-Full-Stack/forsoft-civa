@@ -1,5 +1,9 @@
+<%@page import="dao.SuporteCivaDao"%>
+<%@page import="model.SuporteCiva"%>
+<%@page import="model.SuporteCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -16,6 +20,10 @@
 
     // Caso contrário é um usuário válido, pode entrar na página
 
+%>
+<%    
+    SuporteCiva suporteCiva = SuporteCivaDao.find("BR98789798");
+    pageContext.setAttribute("ator", suporteCiva);
 %>
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-nacional/painel-suporte-civa.js" defer></script>

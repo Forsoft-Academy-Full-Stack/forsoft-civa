@@ -1,5 +1,10 @@
+<%@page import="java.util.List"%>
+<%@page import="dao.VacinaDao"%>
+<%@page import="model.Vacina"%>
+<%@page import="model.Vacina"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,6 +22,17 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<%    //Buscar Lista de supervisores
+    Vacina vacina = VacinaDao.find(1);
+
+    pageContext.setAttribute("vacina", vacina);
+
+    List<Vacina> listaVacinas = VacinaDao.list();
+    pageContext.setAttribute("vacinas", listaVacinas);
+%> 
+
+
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-oms/gerenciar-vacina.js" defer></script>
 </head>
@@ -100,31 +116,31 @@
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="name">ID vacina</label>
-                                                <input type="text" class="form-control" id="idvacina" name="idvacina" value="1234567" disabled>
+                                                <input type="text" class="form-control" id="idvacina" name="idvacina" value="${vacina.idVacina}" disabled>
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="surname">Dose</label>
-                                                <input type="text" class="form-control" id="dose" name="idvacina" value="2 doses" disabled>
+                                                <label for="surname">N&uacute;mero de Doses</label>
+                                                <input type="text" class="form-control" id="dose" name="idvacina" value="${vacina.numeroDoses}" disabled>
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="date-birth">Vacina</label>
-                                                <input type="text" class="form-control" id="vacina" name="vacina" value="Coronavac" disabled>
+                                                <input type="text" class="form-control" id="vacina" value="${vacina.nomeVacina}" disabled>
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="postal-code">Laborat&oacute;rio</label>
-                                                <input type="text" class="form-control" id="lab" name="lab" value="Sinovac" disabled>
+                                                <input type="text" class="form-control" id="lab" name="lab" value="${vacina.laboratorio}" disabled>
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="postal-code">Tipo de Vacina</label>
-                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="Sars cov 2" disabled>
+                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tipoVacina}" disabled>
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="postal-code">Tempo entre Doses (em dias)</label>
-                                                <input type="text" class="form-control" id="timevacina" name="timevacina" value="25" disabled>
+                                                <input type="text" class="form-control" id="timevacina" name="timevacina" value="${vacina.tempoEntreDoses}" disabled>
                                             </div>
                                             <div class="form-group col-xl-12">
                                                 <label for="postal-code">Tempo para refor&ccedil;o (em dias)</label>
-                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="45" disabled>
+                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tempoReforco}" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -148,37 +164,21 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th>ID Pa&iacute;s</th>
-                                                <th>Pa&iacute;s</th>
-                                                <th>Continente</th>
-                                                <th>Org&atilde;o de sa&uacute;de</th>
+                                                <th style="cursor: pointer;">Vacina</th>
+                                                <th style="cursor: pointer;">Laborat&oacute;rio</th>
+                                                <th style="cursor: pointer;">Número de Doses</th>
+                                                <th style="cursor: pointer;">ID Vacina</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>120</td>
-                                                <td>Brasil</td>
-                                                <td>America do Sul</td>
-                                                <td>SUS</td>
-                                            </tr>
-                                            <tr>
-                                                <td>111</td>
-                                                <td>EUA</td>
-                                                <td>America do norte</td>
-                                                <td>CDC</td>
-                                            </tr>
-                                            <tr>
-                                                <td>012</td>
-                                                <td>China</td>
-                                                <td>&Aacute;sia</td>
-                                                <td>HLF</td>
-                                            </tr>
-                                            <tr>
-                                                <td>051</td>
-                                                <td>Inglaterra</td>
-                                                <td>Europa</td>
-                                                <td>IMS</td>
-                                            </tr>
+                                             <c:forEach items="${vacinas}" var="vacina">
+                                                <tr>
+                                                    <td><c:out value="${vacina.nomeVacina}" /></td>
+                                                    <td><c:out value="${vacina.laboratorio}" /></td>                                                  
+                                                    <td><c:out value="${vacina.numeroDoses} dose(s)" /></td>
+                                                    <td><c:out value="${vacina.idVacina}" /></td>                                                
+                                                </tr>
+                                            </c:forEach> 
                                         </tbody>
                                     </table>
                                 </div>

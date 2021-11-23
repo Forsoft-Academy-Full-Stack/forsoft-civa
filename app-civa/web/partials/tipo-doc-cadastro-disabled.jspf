@@ -5,16 +5,54 @@
 
     <div class="form-group col-xl-4">
         <label for="nivel-doc">Tipo do documento</label>
-        <input id="nivel-doc" name="nivel-doc" type="text" class="form-control" value="Civil" disabled>
+        <input id="nivel-doc" name="nivel-doc" type="text" value="${pais.documento1.tipoDocumento}" class="form-control"  disabled>
     </div>
     
     <div class="form-group col-xl-4">
         <label for="nome-doc">Nome do documento</label>
-        <input id="nome-doc" name="nome-doc" type="text" class="form-control" value="CPF" disabled>
+        <input id="nome-doc" name="nome-doc" type="text" value="${pais.documento1.nomeTipoDoc}" class="form-control" disabled>
     </div>
     <div class="form-group col-xl-4">
         <label for="formato-doc">Formato do documento</label>
-        <input id="formato-doc" name="formato-doc" type="text" class="form-control" placeholder="NNN.NNN.NNN-NN" disabled>
+        <input id="formato-doc" name="formato-doc" type="text" value="${pais.documento1.formatoDocumento}" class="form-control" placeholder="NNN.NNN.NNN-NN" disabled>
+    </div>
+
+</div>
+
+
+<div class="row">
+
+    <div class="form-group col-xl-4">
+        <label for="nivel-doc">Tipo do documento 2</label>
+        <input id="nivel-doc" name="nivel-doc" type="text" value="${pais.documento2.tipoDocumento}" class="form-control"  disabled>
+    </div>
+    
+    <div class="form-group col-xl-4">
+        <label for="nome-doc">Nome do documento 2</label>
+        <input id="nome-doc" name="nome-doc" type="text" class="form-control" value="${pais.documento2.nomeTipoDoc}" disabled>
+    </div>
+    <div class="form-group col-xl-4">
+        <label for="formato-doc">Formato do documento 2</label>
+        <input id="formato-doc" name="formato-doc" type="text" class="form-control" value="${pais.documento2.formatoDocumento}" placeholder="NNN.NNN.NNN-NN" disabled>
+    </div>
+
+</div>
+
+
+<div class="row">
+
+    <div class="form-group col-xl-4">
+        <label for="nivel-doc">Tipo do documento 3</label>
+        <input id="nivel-doc" name="nivel-doc" type="text" value="${pais.documento3.tipoDocumento}" class="form-control" disabled>
+    </div>
+    
+    <div class="form-group col-xl-4">
+        <label for="nome-doc">Nome do documento 3</label>
+        <input id="nome-doc" name="nome-doc" type="text" value="${pais.documento3.nomeTipoDoc}" class="form-control"  disabled>
+    </div>
+    <div class="form-group col-xl-4">
+        <label for="formato-doc">Formato do documento 3</label>
+        <input id="formato-doc" name="formato-doc" type="text" value="${pais.documento3.formatoDocumento}" class="form-control" placeholder="NNN.NNN.NNN-NN" disabled>
     </div>
 
 </div>

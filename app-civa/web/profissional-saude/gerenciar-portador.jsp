@@ -1,5 +1,13 @@
+<%@page import="dao.VacinacaoDao"%>
+<%@page import="model.Vacinacao"%>
+<%@page import="model.Vacinacao"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.PortadorCivaDao"%>
+<%@page import="model.PortadorCiva"%>
+<%@page import="model.PortadorCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -16,8 +24,17 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 
+<%    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
+    pageContext.setAttribute("ator", portadorciva);
+%>
+<%
+    List<Vacinacao> vacinacoes = VacinacaoDao.list();
+    pageContext.setAttribute("vacinacoes", vacinacoes);
+%>  
+
+
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/profissional-saude/painel_portador.js" defer></script>
+<script src="../public/assets/js/profissional-saude/painel_portador.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -72,7 +89,6 @@
                                 <form id="form-painel-portador">
                                     <div class="card-body">
                                         <%@ include file="../partials/codigociva.jspf" %>
-                                        <hr>
                                         <%@ include file="../partials/dadospessoais-disabled.jspf" %>
                                         <hr>
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
@@ -107,42 +123,25 @@
                                                 <th>Vacina</th>
                                                 <th>Laborat&oacute;rio</th>
                                                 <th>Dose</th>
-                                                <th>Pa&i&iacute;</th>
+                                                <th>Pa&iacute;</th>
                                                 <th>Data</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Butantan</td>
-                                                <td>1&ordf; Dose</td>
-                                                <td>Brasil</td>
-                                                <td>20/03/2021</td>
-                                                <td><a href="./painel-vacinacao.jsp"
-                                                       class="btn btn-block btn-primary btn-sm">Ver mais</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Butantan</td>
-                                                <td>1&ordf; Dose</td>
-                                                <td>Brasil</td>
-                                                <td>20/03/2021</td>
-                                                <td><a href="./painel-vacinacao.jsp"
-                                                       class="btn btn-block btn-primary btn-sm">Ver mais</a>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Butantan</td>
-                                                <td>1&ordf; Dose</td>
-                                                <td>Brasil</td>
-                                                <td>20/03/2021</td>
-                                                <td><a href="./painel-vacinacao.jsp"
-                                                       class="btn btn-block btn-primary btn-sm">Ver mais</a>
-                                                </td>
-                                            </tr>
+                                            <c:forEach items="${vacinacoes}" var="vacinacao">
+                                                <tr>
+                                                    <td><c:out value="${vacinacao.vacina.nomeVacina}" /></td>
+                                                    <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>
+                                                    <td><c:out value="${vacinacao.doseAplicada}" /></td>
+                                                    <td><c:out value="${vacinacao.pais}" /></td>
+                                                    <td><c:out value="${vacinacao.dataAplicacao}" /></td>
+                                                    <td><a href="./painel-vacinacao.jsp"
+                                                           class="btn btn-block btn-primary btn-sm">Ver mais</a>
+                                                    </td>
+                                                </tr>
+                                            </c:forEach>   
+
                                         </tbody>
                                     </table>
                                 </div>

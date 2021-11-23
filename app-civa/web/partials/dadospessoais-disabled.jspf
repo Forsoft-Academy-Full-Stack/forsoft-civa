@@ -1,53 +1,38 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
-    <div class="row">
-        <div class="form-group col-xl-6">
-            <label for="name">Nome</label>
-            <input type="text" class="form-control" value="Frank" name="name" id="name" disabled>
-        </div>
-        <div class="form-group col-xl-6">
-            <label for="surname">Sobrenome</label>
-            <input type="text" class="form-control" value="Sinatra" name="surname" id="surname"  disabled>
-        </div>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" value="${ator.pessoa.nomePessoa}" name="name" id="name" disabled>
     </div>
-    <div class="row">
-        <div class="form-group col-xl-6">
-            <label for="genero">G&ecirc;nero</label>
-            <select class=" form-control select2 select2-hidden-accessible" id="genero" name="genero" style="width: 100%;" tabindex="-1" aria-hidden="true">
-              <option value="1" disabled>Selecione</option>
-              <option value="2" selected disabled>Homem Cis</option>
-              <option value="3" disabled>Mulher Cis</option>
-              <option value="3" disabled>Homem Trans</option>
-              <option value="3" disabled>Mulher Trans</option>
-              <option value="3" disabled>Outro</option>
-              <option value="3" disabled>Prefiro n&atildeo declarar</option>
-            </select>
-        </div>
-        <div class="form-group col-xl-6">
-            <label for="date-birth">Data de nascimento</label>
-            <input type="date" class="form-control" id="date-birth" name="date-birth" value="1915-11-12" disabled>
-        </div>
+    <div class="form-group col-xl-6">
+        <label for="surname">Sobrenome</label>
+        <input type="text" class="form-control" value="${ator.pessoa.sobrenomePessoa}" name="surname" id="surname"  disabled>
     </div>
-    <div class="row">
-        <div class="form-group col-xl-12">
-            <label for="nacionality">Nacionalidade</label>
-            <select class="form-control select2 select2-hidden-accessible" id="nacionality" name="nacionality" style="width: 100%;" tabindex="-1" aria-hidden="true">
-              <option value="2" selected disabled>Brasil</option>
-              <option value="3"disabled>Eua</option>
-              <option value="3"disabled>Canada</option>
-             </select>
-        </div>
+</div>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="genero">G&ecirc;nero</label>
+        <input type="text" id="genero" name="genero" class="form-control" value="${ator.pessoa.genero}" disabled>
     </div>
-    <div class="row">
-        <div class="form-group col-xl-6">
-            <label for="tipo-doc">Tipo de Documento:</label>
-            <select class="form-control select2 select2-hidden-accessible" id="tipo-doc" name="tipo-doc" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                <option value="1" selected disabled>Passaporte</option>
-                <option value="2" disabled>Identidade</option>
-            </select>
-        </div>
-        <div class="form-group col-xl-6">
-            <label for="doc">Documento</label>
-            <input type="text" class="form-control" id="doc" name="doc" disabled>
-        </div>
+    <div class="form-group col-xl-6">
+        <label for="date-birth">Data de nascimento</label>
+        <input type="date" class="form-control" id="date-birth" name="date-birth" value="${ator.pessoa.dataNascimento}" disabled>
     </div>
+</div>
+<div class="row">
+    <div class="form-group col-xl-12">
+        <label for="nacionality">Nacionalidade</label>
+        <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" value="${ator.pessoa.nacionalidade}" disabled>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="tipo-doc">Tipo de Documento:</label>
+        <input type="text" id="tipo-doc" name="tipo-doc" class="form-control" value="${ator.documento1.nomeTipoDoc}" disabled>
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="doc">Documento</label>
+        <input type="text" class="form-control" placeholder="3123123" value="${ator.documento1.documento}" id="doc" name="doc" disabled>
+    </div>
+</div>

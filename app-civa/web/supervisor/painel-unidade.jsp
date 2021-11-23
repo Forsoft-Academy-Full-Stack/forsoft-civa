@@ -1,3 +1,6 @@
+<%@page import="dao.UnidadeDao"%>
+<%@page import="model.Unidade"%>
+<%@page import="model.Unidade"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -16,6 +19,12 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<%  
+    Unidade unidade = UnidadeDao.find("7896877");
+    pageContext.setAttribute("ator", unidade);
+    pageContext.setAttribute("unidade", unidade);
+%>
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/supervisor/painel-unidade.js" defer ></script>
 </head>

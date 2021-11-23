@@ -1,5 +1,11 @@
+<%@page import="dao.UnidadeDao"%>
+<%@page import="model.Unidade"%>
+<%@page import="model.Unidade"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -15,6 +21,9 @@
 
     // Caso contrário é um usuário válido, pode entrar na página
 
+%>
+<%    List<Unidade> listaUnidade = UnidadeDao.list();
+    pageContext.setAttribute("unidades", listaUnidade);
 %>
 <!--Por favor não remover include nem head-->
 <!--a abertura do head é feita no header.jspf-->
@@ -104,7 +113,7 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th>Nome</th>
+                                                <th>Nome Unidade</th>
                                                 <th>Estado</th>
                                                 <th>Munic&iacute;pio</th>
                                                 <th>CEP</th>
@@ -112,62 +121,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Recanto do Trovador</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>Niter&oacute;i</td>
-                                                <td>50120-320</td>
-                                                <td><a href="./gerenciar-unidades.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Recanto do Trovador</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>Niter&oacute;i</td>
-                                                <td>50120-320</td>
-                                                <td><a href="./gerenciar-unidades.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Recanto do Trovador</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>Niter&oacute;i</td>
-                                                <td>50120-320</td>
-                                                <td><a href="./gerenciar-unidades.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Recanto do Trovador</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>Niter&oacute;i</td>
-                                                <td>50120-320</td>
-                                                <td><a href="./gerenciar-unidades.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Recanto do Trovador</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>Niter&oacute;i</td>
-                                                <td>50120-320</td>
-                                                <td><a href="./gerenciar-unidades.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Recanto do Trovador</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>Niter&oacute;i</td>
-                                                <td>50120-320</td>
-                                                <td><a href="./gerenciar-unidades.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Recanto do Trovador</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>Niter&oacute;i</td>
-                                                <td>50120-320</td>
-                                                <td><a href="./gerenciar-unidades.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Recanto do Trovador</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>Niter&oacute;i</td>
-                                                <td>50120-320</td>
-                                                <td><a href="./gerenciar-unidades.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
+                                            <c:forEach items="${unidades}" var="unidade">
+                                                <tr>
+                                                   <td><c:out value="${unidade.nome}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
+                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                    <td><a href="./gerenciar-unidades.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                            </c:forEach>  
                                         </tbody>
                                     </table>
                                 </div>
@@ -203,7 +165,7 @@
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-       <%@include file="footer.jspf"%>
+        <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
 

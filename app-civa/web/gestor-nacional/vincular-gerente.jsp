@@ -1,3 +1,5 @@
+<%@page import="dao.GerenteDao"%>
+<%@page import="model.Gerente"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -16,8 +18,13 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%@include file="header.jspf"%>
+<% 
+    Gerente gerente = GerenteDao.find("BR879987");
+    pageContext.setAttribute("ator", gerente);
+%>
 
+
+<%@include file="header.jspf"%>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -70,7 +77,7 @@
                                         <div class="row">
                                             <div class="form-group col-md-11 p-0">
                                                 <label for="identity">C&oacute;digo CIVA</label>
-                                            <input type="text" class="form-control" id="identity" name="identity" placeholder="USA1223456789" >
+                                            <input type="text" class="form-control" id="identity" value="${ator.codigoCiva}" name="identity" placeholder="USA1223456789" >
                                             
                                             </div>
                                             <div class="form-group col-md-1 pl-0 pt-3 mt-3">

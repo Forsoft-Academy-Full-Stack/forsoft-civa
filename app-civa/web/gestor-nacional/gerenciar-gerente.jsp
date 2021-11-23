@@ -1,5 +1,12 @@
+<%@page import="dao.UnidadeDao"%>
+<%@page import="model.Unidade"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.GerenteDao"%>
+<%@page import="model.Gerente"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -13,10 +20,19 @@
         response.sendRedirect("../login/");
 
     }
-
     // Caso contrário é um usuário válido, pode entrar na página
-
 %>
+
+<%    
+    Gerente gerentes = GerenteDao.find("BR65656566");
+    pageContext.setAttribute("ator", gerentes);
+%>
+
+<%
+    List<Unidade> listaUnidades = UnidadeDao.list();
+    pageContext.setAttribute("unidades", listaUnidades);
+%>
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-nacional/gerenciar-gerente.js" defer></script>
 </head>
@@ -74,7 +90,7 @@
                                         <div class="row">
                                             <div class="form-group col-xl-12">
                                                 <label for="identity">C&oacute;digo CIVA</label>
-                                                <input type="text" class="form-control" id="identity" value="USA1223456789" disabled>
+                                                <input type="text" class="form-control" id="identity" value="${ator.codigoCiva}" disabled>
                                             </div>
                                         </div>
                                         <hr>
@@ -101,37 +117,21 @@
                                     <table id="test-table" class="table table-hover text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th style="cursor: pointer;">Nome</th>
+                                                <th style="cursor: pointer;">Nome Unidade</th>
                                                 <th style="cursor: pointer;">Estado</th>
-                                                <th style="cursor: pointer;">C&oacute;digo Postal</th>
+                                                <th style="cursor: pointer;">CEP</th>
                                                 <th style="cursor: pointer;">Identificador</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Hopital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td><span class="tag tag-success">215648</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hopital Pano</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td><span class="tag tag-success">215648</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hopital Paninho</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td><span class="tag tag-success">215648</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hopital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td><span class="tag tag-success">215648</span></td>
-                                            </tr>
+                                            <c:forEach items="${unidades}" var="unidade">
+                                                <tr>
+                                                    <td><c:out value="${unidade.nome}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
+                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                 </div>

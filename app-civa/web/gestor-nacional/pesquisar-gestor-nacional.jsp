@@ -1,5 +1,10 @@
+<%@page import="dao.GestorNacionalDao"%>
+<%@page import="model.GestorNacional"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -15,8 +20,14 @@
     }
 
     // Caso contrário é um usuário válido, pode entrar na página
-
 %>
+
+<%    
+    List<GestorNacional> listagestoresNacionais = GestorNacionalDao.list();
+
+    pageContext.setAttribute("gestoresNacionais", listagestoresNacionais);
+%>    
+
 <%@include file="header.jspf"%>
     <script src="../public/assets/js/gestor-nacional/pesquisar-gestor-nacional.js" defer></script>
 </head>
@@ -94,13 +105,8 @@
                                                 </div>
 
                                             </div>
-
-
                                         </div>
                                     </div>
-
-
-
                                 </div>
                             </div>
                         </div>
@@ -127,72 +133,20 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Bille Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-gestorn-acional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-
+                                            <c:forEach items="${gestoresNacionais}" var="gestores">                                            
+                                                <tr>
+                                                    <td><c:out value="${gestores.pessoa.nomePessoa} ${gestores.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${gestores.documento1.documento}" /></td>
+                                                    <td><c:out value="${gestores.pessoa.dataNascimento}" /></td>
+                                                    <td><c:out value="${gestores.codigoCiva}" /></td>
+                                                    <td><a href="painel-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                            </c:forEach>      
                                         </tbody>
                                     </table>
-
-
                                 </div>
                                 <!-- /.card-body -->
-
                             </div>
-
                         </div>
 
                     </div>

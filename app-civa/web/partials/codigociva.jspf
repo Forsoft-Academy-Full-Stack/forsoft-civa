@@ -3,6 +3,6 @@
 <div class="row">
     <div class="form-group col-xl-12">
         <label for="identity">C&oacute;digo CIVA</label>
-        <input type="text" class="form-control" id="identity" name="identity" value="${ator.codigoCiva}" disabled>
+        <input type="text" class="form-control" id="identity" placeholder="Ex: BR65765900" name="identity" value="${ator.codigoCiva}" disabled>
     </div>
 </div>

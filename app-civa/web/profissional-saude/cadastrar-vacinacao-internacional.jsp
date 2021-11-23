@@ -1,3 +1,6 @@
+<%@page import="dao.PortadorCivaDao"%>
+<%@page import="model.PortadorCiva"%>
+<%@page import="model.PortadorCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -15,6 +18,12 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
+
+<%
+    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
+    pageContext.setAttribute("portadorCiva", portadorciva);
+%>
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/profissional-saude/cadastrar-vacinacao-internacional.js" async></script>
 </head>
@@ -63,22 +72,22 @@
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="nome">Nome</label>
-                                            <input type="text" class="form-control" id="nome" name="nome" value="Bryan" readonly>
+                                            <input type="text" class="form-control" id="nome" name="nome" value="${portadorCiva.pessoa.nomePessoa}" readonly>
                                         </div>
                                         <div class="form-group col-xl-6">
                                             <label for="sobrenome">Sobrenome</label>
-                                            <input type="text" class="form-control" id="sobrenome" name="sobrenome" value="Adams" readonly>
+                                            <input type="text" class="form-control" id="sobrenome" name="sobrenome" value="${portadorCiva.pessoa.sobrenomePessoa}" readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="date-birth">Data de nascimento</label>
                                             <input type="date" id="date-birth" name="date-birth"
-                                                   class="form-control" placeholder="00/00/0000" value="1945-05-17" readonly>
+                                                   class="form-control" placeholder="00/00/0000" value="${portadorCiva.pessoa.dataNascimento}" value="1945-05-17" readonly>
                                         </div>
                                         <div class="form-group col-xl-6">
                                             <label for="doc">Documento</label>
-                                            <input type="text" id="doc" name="doc" class="form-control" value="8697894894" readonly>
+                                            <input type="text" id="doc" name="doc" class="form-control" value="${portadorCiva.documento1.documento}" readonly>
                                         </div>
                                     </div>
                                 </div>

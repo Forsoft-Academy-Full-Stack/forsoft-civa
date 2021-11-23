@@ -1,5 +1,13 @@
+<%@page import="dao.UnidadeDao"%>
+<%@page import="dao.GerenteDao"%>
+<%@page import="dao.GerenteDao"%>
+<%@page import="model.Gerente"%>
+<%@page import="model.Gerente"%>
+<%@page import="model.Unidade"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,6 +25,18 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
+<%    
+    Unidade unidade = UnidadeDao.find("07.235.197/0001-97");
+    pageContext.setAttribute("ator", unidade);
+    pageContext.setAttribute("unidade", unidade);
+%>
+
+<% 
+    List<Gerente> listaGerente = GerenteDao.list();
+    pageContext.setAttribute("gerentes", listaGerente);
+%>
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-nacional/painel-unidade-gestor.js" defer></script>
 </head>
@@ -90,7 +110,7 @@
                             <div class="col-12 mb-2">
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Unidades vinculadas</h3>
+                                        <h3 class="card-title">Gerentes vinculadas</h3>
 
                                         <div class="card-tools">
                                             <div
@@ -109,32 +129,19 @@
                                             >
                                             <thead>
                                                 <tr>
-                                                    <th style="cursor: pointer">Nome</th>
+                                                    <th style="cursor: pointer">Nome Gerente</th>
                                                     <th style="cursor: pointer">Identidade</th>
                                                     <th style="cursor: pointer">C&oacute;digo Civa</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
+                                                <c:forEach items="${gerentes}" var="gerente">
                                                 <tr>
-                                                    <td>Mario Souza da Silva</td>
-                                                    <td>123.159.875-05</td>
-                                                    <td>BRA5521123456789</td>
+                                                    <td><c:out value="${gerente.pessoa.nomePessoa} ${gerente.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${gerente.documento1.documento}" /></td>
+                                                    <td><c:out value="${gerente.codigoCiva}" /></td>
                                                 </tr>
-                                                <tr>
-                                                    <td>Maria Souza da Silva</td>
-                                                    <td>123.159.875-05</td>
-                                                    <td>BRA5521123456789</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Maria Souza da Silva</td>
-                                                    <td>123.159.875-05</td>
-                                                    <td>BRA5521123456789</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Maria Souza da Silva</td>
-                                                    <td>123.159.875-05</td>
-                                                    <td>BRA5521123456789</td>
-                                                </tr>
+                                                 </c:forEach>                                                                                              
                                             </tbody>
                                         </table>
                                         <hr>

@@ -4,9 +4,8 @@ package model;
  * @author randel
  */
 public class Vacinacao {
+    private Vacina vacina;
     private Integer doseAplicada;
-    private String vacina;
-    private String laboratorio;
     private String dataAplicacao;
     private String unidade;
     private String pais;
@@ -19,20 +18,12 @@ public class Vacinacao {
         this.doseAplicada = doseAplicada;
     }
 
-    public String getVacina() {
+    public Vacina getVacina() {
         return vacina;
     }
 
-    public void setVacina(String vacina) {
+    public void setVacina(Vacina vacina) {
         this.vacina = vacina;
-    }
-
-    public String getLaboratorio() {
-        return laboratorio;
-    }
-
-    public void setLaboratorio(String laboratorio) {
-        this.laboratorio = laboratorio;
     }
 
     public String getDataAplicacao() {

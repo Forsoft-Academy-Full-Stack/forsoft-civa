@@ -1,3 +1,6 @@
+<%@page import="dao.SuporteCivaDao"%>
+<%@page import="dao.SuporteCivaDao"%>
+<%@page import="model.SuporteCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -16,6 +19,11 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<%
+    SuporteCiva suporteCiva = SuporteCivaDao.find("BR9878766");
+    pageContext.setAttribute("ator", suporteCiva);
+%>
+
 <!--Por favor não remover include nem head-->
 <!--a abertura do head é feita no header.jspf-->
 <!--Dessa forma fica menos poluído-->

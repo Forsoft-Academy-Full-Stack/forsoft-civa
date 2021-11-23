@@ -1,5 +1,12 @@
+<%@page import="dao.UnidadeDao"%>
+<%@page import="dao.GerenteDao"%>
+<%@page import="model.Unidade"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Gerente"%>
+<%@page import="model.Gerente"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -16,6 +23,18 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
+<%    
+    Gerente gerentes = GerenteDao.find("BR65656566");
+    pageContext.setAttribute("ator", gerentes);
+%>
+
+<%
+    List<Unidade> listaUnidades = UnidadeDao.list();
+    pageContext.setAttribute("unidades", listaUnidades);
+%>
+
+
 <!--Por favor não remover include nem head-->
 <!--a abertura do head é feita no header.jspf-->
 <!--Dessa forma fica menos poluído-->
@@ -105,31 +124,21 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th>Nome</th>
+                                                <th>Nome Unidade</th>
                                                 <th>Estado</th>
                                                 <th>CEP</th>
                                                 <th>Identificador</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Hopital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hopital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hopital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
+                                             <c:forEach items="${unidades}" var="unidade">
+                                                <tr>
+                                                    <td><c:out value="${unidade.nome}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
+                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
                                     <hr>

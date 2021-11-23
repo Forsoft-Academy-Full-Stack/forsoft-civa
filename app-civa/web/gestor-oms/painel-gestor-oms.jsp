@@ -1,5 +1,9 @@
+<%@page import="dao.GestorOmsDao"%>
+<%@page import="model.GestorOms"%>
+<%@page import="model.GestorOms"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -16,6 +20,11 @@
 
     // Caso contrário é um usuário válido, pode entrar na página
 %>
+
+<%    GestorOms gestorOms = GestorOmsDao.find("BR16616616");
+
+    pageContext.setAttribute("ator", gestorOms);
+%> 
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-oms/painel-gestor-oms.js" defer></script>
 </head>
@@ -71,88 +80,17 @@
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form id="form-meus-dados">
-                                    <div class="p-2">
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Nome</label>
-                                                <input type="text" class="form-control" id="name" name="name" value="Maria" disabled>
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Sobrenome</label>
-                                                <input type="text" class="form-control" id="surname" name="surname" value="Almeida" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Data de nascimento</label>
-                                                <input type="date" class="form-control" id="date-birth" name="date-birth" placeholder="00/00/0000" disabled>
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Identidade</label>
-                                                <input type="text" class="form-control" id="identity" name="identity" value="101.154.807-02" disabled>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group col-6">
-                                                <label for="exampleFormControlSelect1">Pa&iacute;s</label>
-                                                <input type="text" class="form-control" id="pais" name="pais" value="Brasil" disabled>
-                                            </div>
-                                            <div class="form-group col-6">
-                                                <label for="exampleFormControlInput1">CEP</label>
-                                                <input type="text" class="form-control" id="postal-code" name="postal-code" value="22758-006" disabled>
-                                            </div>
-                                        </div>
+                                    <div class="card-body">
+                                        <%@ include file="../partials/codigociva.jspf" %>
+                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                         <hr>
-                                        <div class="row">
-                                            <div class="form-group col-6">
-                                                <label for="exampleFormControlSelect1">Endere&ccedil;o</label>
-                                                <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Av Rio Branco">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlSelect1">N&uacute;mero</label>
-                                                <input type="text" class="form-control" id="numero" name="numero" value="64" disabled>
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlSelect1">Complemento</label>
-                                                <input type="text" class="form-control" id="complemento" name="complemento" value="201" disabled>
-                                            </div>
-
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlSelect1">Bairro</label>
-                                                <input type="text" class="form-control" id="bairro" name="bairro" value="Niteroi" disabled>
-
-                                            </div>
-                                        </div>
-
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlSelect1">Municipio</label>
-                                                <input type="text" class="form-control" id="municipio" name="municipio" value="Niteroi" disabled>
-                                            </div>
-                                            <div class="form-group col-6">
-                                                <label for="exampleFormControlSelect1">Estado</label>
-                                                <input type="text" class="form-control" id="estado" name="estado" value="Rio de Janeiro" disabled>
-
-                                            </div>
-                                        </div>
+                                        <%@ include file="../partials/enderecos-disabled.jspf" %>
                                         <hr>
-                                        <div class="row">
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Contato</label>
-                                                <input type="text" class="form-control" id="telf" name="telf" placeholder=" (21) 9 8788-9894">
-                                            </div>
-                                            <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Email</label>
-                                                <input type="email" class="form-control" id="email" name="email" placeholder="maria1612_almeida@gmail.com">
-                                            </div>
-                                        </div>
+                                        <%@ include file="../partials/contatos-disabled.jspf" %>
                                     </div>
+                                </form>                                
                             </div>
                         </div>
-
 
                         <div class="col-12 mb-4">
                             <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>

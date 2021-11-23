@@ -10,6 +10,26 @@ public class Docs {
     private Integer idTipoDoc;
     private String nomeTipoDoc;
     private String dataEmissao;
+    private String formatoDocumento;
+    private String tipoDocumento;
+
+    public String getFormatoDocumento() {
+        return formatoDocumento;
+    }
+
+    public void setFormatoDocumento(String formatoDocumento) {
+        this.formatoDocumento = formatoDocumento;
+    }
+
+    public String getTipoDocumento() {
+        return tipoDocumento;
+    }
+
+    public void setTipoDocumento(String tipoDocumento) {
+        this.tipoDocumento = tipoDocumento;
+    }
+    
+    
 
     public Integer getIdDocs() {
         return idDocs;

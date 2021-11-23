@@ -4,32 +4,32 @@
     <div class="form-group col-xl-6">
         <label for="name">Nome</label>
         <input type="text" id="name" name="name" class="form-control"
-               placeholder="Jo&atilde;o" value="${ator.pessoa.nomePessoa}" disabled>
+               placeholder="Ex: Jo&atilde;o" value="${ator.pessoa.nomePessoa}" disabled>
     </div>
     <div class="form-group col-xl-6">
         <label for="surname">Sobrenome</label>
         <input type="text" id="surname" name="surname" class="form-control"
-               placeholder="Silva" value="${ator.pessoa.sobrenomePessoa}" disabled>
+               placeholder="Ex: Silva" value="${ator.pessoa.sobrenomePessoa}" disabled>
     </div>
 </div>
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="genero">G&ecirc;nero</label>
-        <input type="text" id="genero" name="genero" class="form-control" value="${ator.pessoa.genero}" disabled>
-        
+        <input type="text" id="genero" name="genero" class="form-control" placeholder="Ex: homen trans" value="${ator.pessoa.genero}" disabled>
+
     </div>
 
     <div class="form-group col-xl-6">
         <label for="date-birth">Data de Nascimento</label>
         <input type="date" id="date-birth" name="date-birth"
-               class=" form-control form-control" value="${ator.pessoa.dataNascimento}" disabled>
+               class=" form-control form-control" placeholder="1999-2-03" value="${ator.pessoa.dataNascimento}" disabled>
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-12">
         <label for="nacionalidade">Nacionalidade</label>
-        <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" value="${ator.pessoa.nacionalidade}" disabled>
+        <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" placeholder="Ex: Brasileira" value="${ator.pessoa.nacionalidade}" disabled>
     </div>
 </div>
 
@@ -37,36 +37,36 @@
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="tipo-doc-1">Tipo de Documento</label>
-        <input type="text" id="tipo-doc" name="tipo-doc" class="form-control" value="${ator.documento1.nomeTipoDoc}" disabled>
+        <input type="text" id="tipo-doc" name="tipo-doc" class="form-control" placeholder="Ex: Identidade" value="${ator.documento1.nomeTipoDoc}" disabled>
     </div>
     <div class="form-group col-xl-6">
         <label for="doc-1">Documenta&ccedil;&atilde;o</label>
         <input type="text" id="doc-1" name="doc-1" class="form-control"
-               placeholder="3123123" value="${ator.documento1.documento}" disabled>
+               placeholder="Ex: 3123123"  value="${ator.documento1.documento}" disabled>
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="tipo-doc-2">Tipo de Documento</label>
-        <input type="text" id="tipo-doc" name="tipo-doc" class="form-control" value="${ator.documento2.nomeTipoDoc}" disabled>
-        
+        <input type="text" id="tipo-doc" name="tipo-doc" class="form-control" placeholder="Ex: Passaporte" value="${ator.documento2.nomeTipoDoc}" disabled>
+
     </div>
     <div class="form-group col-xl-6">
         <label for="doc-2">Documenta&ccedil;&atilde;o 2</label>
         <input type="text" id="tipo-doc-2" name="tipo-doc-2" class="form-control"
-               placeholder="BR12345678" value="${ator.documento2.documento}" disabled>
+               placeholder="Ex: BR12345678" value="${ator.documento2.documento}" disabled>
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="tipo-doc-3">Tipo de Documento</label>
-        <input type="text" id="tipo-doc-3" name="tipo-doc-3" class="form-control" value="${ator.documento3.nomeTipoDoc}" disabled>
+        <input type="text" id="tipo-doc-3" name="tipo-doc-3" class="form-control" placeholder="Ex: CPF" value="${ator.documento3.nomeTipoDoc}" disabled>
     </div>
     <div class="form-group col-xl-6">
         <label for="doc-3">Documenta&ccedil;&atilde;o 3</label>
         <input type="text" id="doc-3" name="doc-3" class="form-control"
-               placeholder="BR12345678" value="${ator.documento3.documento}" disabled>
+               placeholder="Ex: 08275467509" value="${ator.documento3.documento}" disabled>
     </div>
 </div>

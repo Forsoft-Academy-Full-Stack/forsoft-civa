@@ -24,69 +24,79 @@ public class GestorOmsDao {
         return resultado;
     }
 
-    public static GestorOms find(String nomegestoroms) {
-        GestorOms gestoroms = new GestorOms();
-        //"SELECT * FROM pais where nome = "+pais;
-        Pessoa pessoa = new Pessoa();
-        pessoa.setNomePessoa("Ludwig");
-        pessoa.setSobrenomePessoa("Gonzaga");
-        pessoa.setGenero("Homem Cis");
-        pessoa.setDataNascimento("06/02/1982");
-        pessoa.setDdiContato("+55");
-        pessoa.setTelefoneDdd("21999999999");
-        pessoa.setIdNacionalidade(1);
-        pessoa.setIdPessoa(1);
+    public static GestorOms find(String codigoCivaGestorOms) {
+        GestorOms gestorOms = new GestorOms();
         
-        gestoroms.setPessoa(pessoa);
+        Pessoa pessoa = new Pessoa();
+        pessoa.setDataNascimento("1996-04-12");
+        pessoa.setDdiContato("+55");
+        pessoa.setNomePessoa("José");
+        pessoa.setSobrenomePessoa("Carlos");
+        pessoa.setTelefoneDdd("983578300");
+        pessoa.setGenero("homem cis");
+        pessoa.setIdNacionalidade(1);
+        pessoa.setNacionalidade("Brasileira");
+        pessoa.setEmail("calosJose@gmail.com");
+        pessoa.setIdPessoa(1);
         
         Docs documento1 = new Docs();
         documento1.setDataEmissao("19-04-1945");
-        documento1.setDocumento("99383946577");
+        documento1.setDocumento("2334567656787");
+        documento1.setNomeTipoDoc("Identidade");
         documento1.setIdPessoa(1);
         documento1.setIdDocs(1);
         documento1.setIdTipoDoc(1);
-        
-        gestoroms.setDocumento1(documento1);
-        
+                
         Docs documento2 = new Docs();
         documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("99383946577");
+        documento2.setDocumento("BR99383946577");
+        documento2.setNomeTipoDoc("Passaporte");
         documento2.setIdPessoa(1);
         documento2.setIdDocs(1);
         documento2.setIdTipoDoc(1);
         
-        gestoroms.setDocumento2(documento2);
-        
         Docs documento3 = new Docs();
         documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("99383946577");
+        documento3.setDocumento("76554354890");
+        documento3.setNomeTipoDoc("CPF");
         documento3.setIdPessoa(1);
         documento3.setIdDocs(1);
         documento3.setIdTipoDoc(1);
         
-        gestoroms.setDocumento3(documento3);
-               
         Endereco endereco = new Endereco();
-        endereco.setTipoLogradouro("Rua");
-        endereco.setLogradouro("Rua José");
         endereco.setCodigoPostal("54678000");
-        endereco.setNomesubdivisao1("");
-        endereco.setNomesubdivisao2("");
-        endereco.setNomesubdivisao3("");
+        endereco.setIdEndereco(1);
+        endereco.setIdPais(1);
+        endereco.setLogradouro("Rua José");
+        endereco.setNomePais("Brasil");
+        endereco.setNumero("8766");
+        endereco.setComplemento("Apto 1223");
+        // Bairro
+        endereco.setNomesubdivisao1("São Marcos");
+        // Municipio
+        endereco.setNomesubdivisao2("Livramento");
+        // Estado
+        endereco.setNomesubdivisao3("RJ");
         endereco.setNomesubdivisao4("");
         endereco.setNomesubdivisao5("");
         endereco.setNomesubdivisao6("");
         endereco.setNomesubdivisao7("");
-
-        gestoroms.setEndereco(endereco);
+        endereco.setTipoLogradouro("Rua");
+        //"SELECT * FROM pais where nome = "+pais;
         
-        return gestoroms;
+        gestorOms.setPessoa(pessoa);
+        gestorOms.setDocumento1(documento1);
+        gestorOms.setDocumento2(documento2);
+        gestorOms.setDocumento3(documento3);
+        gestorOms.setEndereco(endereco);
+        gestorOms.setCodigoCiva("BR16616616");
+        
+        return gestorOms;
     }
 
         public static List<GestorOms> list() {
         List<GestorOms> gestoresoms = new ArrayList<GestorOms>();
 
-        //"SELECT * FROM pais ;
         GestorOms gestorOms = new GestorOms();
         
         Pessoa pessoa = new Pessoa();
@@ -140,6 +150,7 @@ public class GestorOmsDao {
         gestorOms.setDocumento2(documento2);
         gestorOms.setDocumento3(documento3);
         gestorOms.setEndereco(endereco);
+        gestorOms.setCodigoCiva("BR16616616");
 
         gestoresoms.add(gestorOms);
         
@@ -148,8 +159,8 @@ public class GestorOmsDao {
         Pessoa pessoa2 = new Pessoa();
         pessoa2.setDataNascimento("12-03-1977");
         pessoa2.setDdiContato("+55");
-        pessoa2.setNomePessoa("José");
-        pessoa2.setSobrenomePessoa("Carlos");
+        pessoa2.setNomePessoa("Antonio");
+        pessoa2.setSobrenomePessoa("Pedro");
         pessoa2.setTelefoneDdd("983578300");
         pessoa2.setGenero("homem cis");
         pessoa2.setIdNacionalidade(1);
@@ -190,11 +201,12 @@ public class GestorOmsDao {
         endereco2.setTipoLogradouro("Rua");
         //"SELECT * FROM pais where nome = "+pais;
         
-        gestorOms2.setPessoa(pessoa);
-        gestorOms2.setDocumento1(documento1);
-        gestorOms2.setDocumento2(documento2);
-        gestorOms2.setDocumento3(documento3);
-        gestorOms2.setEndereco(endereco);
+        gestorOms2.setPessoa(pessoa2);
+        gestorOms2.setDocumento1(documento12);
+        gestorOms2.setDocumento2(documento22);
+        gestorOms2.setDocumento3(documento32);
+        gestorOms2.setEndereco(endereco2);
+        gestorOms2.setCodigoCiva("BR898896767");
 
         gestoresoms.add(gestorOms2);
 

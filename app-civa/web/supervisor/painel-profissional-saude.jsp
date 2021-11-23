@@ -1,5 +1,20 @@
+<%-- 
+    Document   : gerenciar-supervisor
+    Created on : 22/11/2021, 01:48:28
+    Author     : felipegomes
+--%>
+
+<%@page import="dao.ProfissionalSaudeDao"%>
+<%@page import="model.ProfissionalSaude"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<!-- Importando a library JSTL -->
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -16,6 +31,14 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<%
+  //Buscar Lista de supervisores
+  ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.find("Felipe");
+  
+  pageContext.setAttribute("ator", listaProfissionalSaude);
+%>  
+
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/supervisor/painel-profissional-saude.js" defer ></script>
 </head>
@@ -38,7 +61,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Painel Supervisor</h1>
+                            <h1 class="m-0">Painel Profissional de Saúde</h1>
                         </div><!-- /.col --> 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">

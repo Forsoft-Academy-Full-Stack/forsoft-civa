@@ -5,7 +5,6 @@ package model;
  */
 public class Unidade {
     private Integer idUnidade;
-    private Integer idEndereco;
     private Integer numero;
     private String registro;
     private String nome;
@@ -15,21 +14,22 @@ public class Unidade {
     private String tipoEstabelecimento;
     private Boolean situacao;
     private String dataCadastro;
+    private Endereco endereco;
 
+    public Endereco getEndereco() {
+        return endereco;
+    }
+
+    public void setEndereco(Endereco endereco) {
+        this.endereco = endereco;
+    }
+    
     public Integer getIdUnidade() {
         return idUnidade;
     }
 
     public void setIdUnidade(Integer idUnidade) {
         this.idUnidade = idUnidade;
-    }
-
-    public Integer getIdEndereco() {
-        return idEndereco;
-    }
-
-    public void setIdEndereco(Integer idEndereco) {
-        this.idEndereco = idEndereco;
     }
 
     public Integer getNumero() {

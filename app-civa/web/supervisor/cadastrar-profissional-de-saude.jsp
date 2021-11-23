@@ -1,5 +1,11 @@
+<%@page import="dao.ProfissionalSaudeDao"%>
+<%@page import="java.util.List"%>
+<%@page import="model.ProfissionalSaude"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -12,10 +18,10 @@
         response.sendRedirect("../login/");
 
     }
-
     // Caso contrário é um usuário válido, pode entrar na página
-
 %>
+
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/supervisor/cadastrar-profissional-de-saude.js" defer></script>
 </head>

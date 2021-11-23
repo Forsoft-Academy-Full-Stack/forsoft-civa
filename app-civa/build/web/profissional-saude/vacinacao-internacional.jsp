@@ -1,3 +1,5 @@
+<%@page import="dao.PortadorCivaDao"%>
+<%@page import="model.PortadorCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -15,6 +17,13 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
+
+<%
+    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
+    pageContext.setAttribute("ator", portadorciva);
+%>
+
+
 <%@include file="header.jspf"%>
     <script src="../public/assets/js/profissional-saude/vacinacao-internacional.js" defer></script>
 </head>
@@ -56,7 +65,7 @@
                         <div class="col-12 mb-4">
                             <form id="vacinacao-internacional">
                                 <div class="input-group">
-                                    <input type="search" class="form-control form-control-lg"
+                                    <input type="search" value="${ator.codigoCiva}" class="form-control form-control-lg"
                                            placeholder="Insira o codigo civa do portador">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-lg btn-primary">
@@ -80,7 +89,7 @@
                                     <div class="card-body">
                                         <%@ include file="../partials/codigociva.jspf" %>
                                         <hr>
-                                        <%@ include file="../partials/dadospessoais-disabled.jspf" %>
+                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                         <hr>
 
                                     </div>

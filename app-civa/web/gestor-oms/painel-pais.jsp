@@ -1,5 +1,9 @@
+<%@page import="dao.PaisDao"%>
+<%@page import="model.Pais"%>
+<%@page import="model.Pais"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -16,6 +20,12 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
+<%   
+    Pais pais = PaisDao.find(1);
+
+    pageContext.setAttribute("pais", pais);
+%> 
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-oms/painel-pais.js" defer></script>
 </head>
@@ -74,8 +84,7 @@
                                         <%@include file="../partials/dados-pais-cadastro-disabled.jspf" %>
                                         <hr>
                                         <%@include file="../partials/tipo-doc-cadastro-disabled.jspf" %>
-                                        <hr>
-                                        <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>                                            
+                                                                                                  
 
                                         <!-- Bot&atilde;o ATIVAR / DESATIVAR e Excluir -->
                                         <table class="table text-nowrap">

@@ -1,5 +1,9 @@
+<%@page import="dao.UnidadeDao"%>
+<%@page import="model.Unidade"%>
+<%@page import="model.Unidade"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -16,6 +20,14 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
+<%    //Busca unidade
+    Unidade unidade = UnidadeDao.find("");
+
+    pageContext.setAttribute("ator", unidade);
+    pageContext.setAttribute("unidade", unidade);
+%>    
+
 <!--Por favor não remover include nem head-->
 <!--a abertura do head é feita no header.jspf-->
 <!--Dessa forma fica menos poluído-->

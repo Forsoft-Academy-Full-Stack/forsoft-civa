@@ -1,3 +1,6 @@
+<%@page import="dao.SupervisorDao"%>
+<%@page import="model.Supervisor"%>
+<%@page import="model.Supervisor"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -16,6 +19,12 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<%
+    Supervisor supervisor = SupervisorDao.find("BR9878766");
+    pageContext.setAttribute("ator", supervisor);
+%>
+
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/supervisor/meus-dados-supervisor.js" defer ></script>
 </head>

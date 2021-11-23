@@ -11,6 +11,7 @@ public class PortadorCiva {
     private Endereco endereco;
     private Vacinacao vacinacao;
     private String codigoCiva;
+    
 
     public Pessoa getPessoa() {
         return pessoa;

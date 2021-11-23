@@ -1,5 +1,12 @@
+<%@page import="dao.SupervisorDao"%>
+<%@page import="model.Supervisor"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.UnidadeDao"%>
+<%@page import="model.Unidade"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,6 +24,17 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<%    //Buscar Lista de supervisores
+    Unidade unidade = UnidadeDao.find("07.235.197/0001-97");
+
+    pageContext.setAttribute("unidade", unidade);
+    pageContext.setAttribute("ator", unidade);
+
+    List<Supervisor> listaSupervisores = SupervisorDao.list();
+    pageContext.setAttribute("supervisores", listaSupervisores);
+%> 
+
+
 <%@include file="header.jspf"%>
 <script src="./../public/assets/js/gerente/gerenciar-unidades.js" defer></script>
 </head>
@@ -68,7 +86,7 @@
                                 <!-- /.card-header -->
                                 <!-- Incio do form -->
                                 <form action="#" id="form-gerenciar-unidade" method="post" novalidate="novalidate">
-                                    <div class="p-2">
+                                    <div class="card-body">
                                         <%@ include file="../partials/dados-unidade-disabled.jspf" %>
                                         <hr>
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
@@ -88,7 +106,7 @@
                     <div class="col-12 mb-2">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Profissionais vinculados</h3>
+                                <h3 class="card-title">Supervisores vinculados</h3>
 
                                 <div class="card-tools">
                                     <div class="input-group input-group-sm" style="width: 150px;">
@@ -105,37 +123,21 @@
                                 <table class="table table-hover text-nowrap">
                                     <thead>
                                         <tr>
-                                            <th>Nome</th>
+                                            <th>Nome Supervisor</th>
                                             <th>Identidade</th>
                                             <th>C&oacute;digo Civa</th>
 
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td>Maria Souza da Silva</td>
-                                            <td>123.159.875-05</td>
-                                            <td>BRA5521123456789</td>
+                                        <c:forEach items="${supervisores}" var="supervisor">
+                                            <tr>
+                                                <td><c:out value="${supervisor.pessoa.nomePessoa} ${supervisor.pessoa.sobrenomePessoa}" /></td>
+                                                <td><c:out value="${supervisor.documento1.documento}" /></td>
+                                                <td><c:out value="${supervisor.codigoCiva}" /></td>
 
-                                        </tr>
-                                        <tr>
-                                            <td>Maria Souza da Silva</td>
-                                            <td>123.159.875-05</td>
-                                            <td>BRA5521123456789</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Maria Souza da Silva</td>
-                                            <td>123.159.875-05</td>
-                                            <td>BRA5521123456789</td>
-
-                                        </tr>
-                                        <tr>
-                                            <td>Maria Souza da Silva</td>
-                                            <td>123.159.875-05</td>
-                                            <td>BRA5521123456789</td>
-
-                                        </tr>
+                                            </tr>
+                                        </c:forEach>   
                                     </tbody>
                                 </table>
                                 <hr>

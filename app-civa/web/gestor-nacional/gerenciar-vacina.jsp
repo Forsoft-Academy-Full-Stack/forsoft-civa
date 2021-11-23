@@ -1,5 +1,10 @@
+<%@page import="dao.VacinaDao"%>
+<%@page import="model.Vacina"%>
+<%@page import="model.Vacina"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,8 +22,15 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
+<%   
+    List<Vacina> listaVacinas = VacinaDao.list();
+    pageContext.setAttribute("vacinas", listaVacinas);
+%>
+
+
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gestor-nacional/gerenciar-vacina.js" defer></script>
+<script src="../public/assets/js/gestor-nacional/gerenciar-vacina.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -114,68 +126,21 @@
                                             <tr>
                                                 <th style="cursor: pointer;">Vacina</th>
                                                 <th style="cursor: pointer;">Laborat&oacute;rio</th>
-                                                <th style="cursor: pointer;">Munic&iacute;pio</th>
-                                                <th style="cursor: pointer;">ID Vacina</th>
-                                                <th></th>
+                                                <th style="cursor: pointer;">Número de Doses</th>
+                                                <th style="cursor: pointer;">ID Vacina</th>                                      
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1 dose</td>
-                                                <td>12345678</td>
-                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1 dose</td>
-                                                <td>12345678</td>
-                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1 dose</td>
-                                                <td>12345678</td>
-                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1 dose</td>
-                                                <td>12345678</td>
-                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1 dose</td>
-                                                <td>12345678</td>
-                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1 dose</td>
-                                                <td>12345678</td>
-                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1 dose</td>
-                                                <td>12345678</td>
-                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1 dose</td>
-                                                <td>12345678</td>
-                                                <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
+                                            <c:forEach items="${vacinas}" var="vacina">
+                                                <tr>
+                                                    <td><c:out value="${vacina.nomeVacina}" /></td>
+                                                    <td><c:out value="${vacina.laboratorio}" /></td>                                                  
+                                                    <td><c:out value="${vacina.numeroDoses} dose(s)" /></td>
+                                                    <td><c:out value="${vacina.idVacina}" /></td>
+                                                    <td><a href="painel-vacina.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                            </c:forEach>
+
                                         </tbody>
                                     </table>
 

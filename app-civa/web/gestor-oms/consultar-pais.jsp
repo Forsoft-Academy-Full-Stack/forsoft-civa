@@ -1,5 +1,10 @@
+<%@page import="dao.PaisDao"%>
+<%@page import="model.Pais"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,6 +22,13 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
+<%   
+    List<Pais> listaPaises = PaisDao.list();
+
+    pageContext.setAttribute("paises", listaPaises);
+%>
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-oms/consultar-pais.js" defer></script>
 </head>
@@ -127,62 +139,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Brasil</td>
-                                                <td>America do Norte</td>
-                                                <td>SUS</td>
-                                                <td>165165</td>
-                                                <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brasil</td>
-                                                <td>America do Norte</td>
-                                                <td>SUS</td>
-                                                <td>165165</td>
-                                                <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brasil</td>
-                                                <td>America do Norte</td>
-                                                <td>SUS</td>
-                                                <td>165165</td>
-                                                <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brasil</td>
-                                                <td>America do Norte</td>
-                                                <td>SUS</td>
-                                                <td>165165</td>
-                                                <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brasil</td>
-                                                <td>America do Norte</td>
-                                                <td>SUS</td>
-                                                <td>165165</td>
-                                                <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brasil</td>
-                                                <td>America do Norte</td>
-                                                <td>SUS</td>
-                                                <td>165165</td>
-                                                <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brasil</td>
-                                                <td>America do Norte</td>
-                                                <td>SUS</td>
-                                                <td>165165</td>
-                                                <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Brasil</td>
-                                                <td>America do Norte</td>
-                                                <td>SUS</td>
-                                                <td>165165</td>
-                                                <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
+                                            <c:forEach items="${paises}" var="pais">
+                                                <tr>
+                                                    <td><c:out value="${pais.nomePais}" /></td>
+                                                    <td><c:out value="${pais.nomeContinente}" /></td>
+                                                    <td><c:out value="${pais.orgaoResponsavel}" /></td>
+                                                    <td><c:out value="${pais.idPais}" /></td>
+                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                            </c:forEach> 
 
                                         </tbody>
                                     </table>

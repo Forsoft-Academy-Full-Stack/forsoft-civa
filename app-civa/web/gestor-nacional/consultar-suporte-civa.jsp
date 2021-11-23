@@ -1,5 +1,11 @@
+<%@page import="dao.SuporteCivaDao"%>
+<%@page import="model.SuporteCiva"%>
+<%@page import="java.util.List"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,8 +23,15 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
+<%    
+    List<SuporteCiva> listaSuportesCiva = SuporteCivaDao.list();
+    pageContext.setAttribute("suportesCiva", listaSuportesCiva);
+%>
+
+
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gestor-nacional/consultar-suporte-civa.js" defer></script>
+<script src="../public/assets/js/gestor-nacional/consultar-suporte-civa.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -123,71 +136,23 @@
                                     <table id="test-table" class="table table-hover text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th style="cursor: pointer;">Nome</th>
+                                                <th style="cursor: pointer;">Nome Suporte CIVA</th>
                                                 <th style="cursor: pointer;">Identifica&ccedil;&atilde;o</th>
-                                                <th style="cursor: pointer;">Data</th>
+                                                <th style="cursor: pointer;">Data de Nascimento</th>
                                                 <th style="cursor: pointer;">C&oacute;digo CIVA</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bille Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-
+                                            <c:forEach items="${suportesCiva}" var="suporteCiva">   
+                                                <tr>
+                                                    <td><c:out value="${suporteCiva.pessoa.nomePessoa} ${suporteCiva.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${suporteCiva.documento1.documento}" /></td>
+                                                    <td><c:out value="${suporteCiva.pessoa.dataNascimento}" /></td>
+                                                    <td><c:out value="${suporteCiva.codigoCiva}" /></td>
+                                                    <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
 

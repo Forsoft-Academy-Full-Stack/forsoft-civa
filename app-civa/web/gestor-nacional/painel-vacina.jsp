@@ -1,5 +1,8 @@
+<%@page import="dao.VacinaDao"%>
+<%@page import="model.Vacina"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,6 +20,13 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
+
+<%   
+    Vacina vacina = VacinaDao.find(1);
+    pageContext.setAttribute("vacina", vacina);
+%>
+
 <%@include file="header.jspf"%>
     <script src="../public/assets/js/gestor-nacional/painel-vacina.js" defer></script>
 </head>
@@ -77,39 +87,39 @@
                                                 <div class="row">
                                                     <div class="form-group col-6">
                                                         <label for="id-vacina">ID vacina</label>
-                                                        <input type="text" class="form-control" id="id-vacina" name="id-vacina" value="123456789" disabled>
+                                                        <input type="text" class="form-control" id="id-vacina" name="id-vacina" value="${vacina.idVacina}" disabled>
                                                     </div>
                                                     <div class="form-group col-6">
                                                         <label for="dose">Dose</label>
-                                                        <input type="text" class="form-control" id="dose" name="dose" value="2 doses" disabled>
+                                                        <input type="text" class="form-control" id="dose" name="dose" value="${vacina.numeroDoses}" disabled>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group col-xl-6">
                                                         <label for="vacina">Vacina</label>
-                                                        <input type="text" class="form-control" id="vacina" name="vacina" value="Coronavac" disabled>
+                                                        <input type="text" class="form-control" id="vacina" name="vacina" value="${vacina.nomeVacina}" disabled>
                                                     </div>
                                                     <div class="form-group col-xl-6">
                                                         <label for="laboratorio">Laborat&oacute;rio</label>
-                                                        <input type="text" class="form-control" id="laboratorio" name="laboratorio" value="Sinovac" disabled>
+                                                        <input type="text" class="form-control" id="laboratorio" name="laboratorio" value="${vacina.laboratorio}" disabled>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="form-group col-xl-6">
                                                         <label for="tipo-vacina">Tipo de vacina</label>
-                                                        <input type="text" class="form-control" id="tipo-vacina" name="tipo-vacina" value="Sars cov 2" disabled>
+                                                        <input type="text" class="form-control" id="tipo-vacina" name="tipo-vacina" value="${vacina.tipoVacina}" disabled>
                                                     </div>
                                                     <div class="form-group col-xl-6">
                                                         <label for="tempo-doses">Tempo entre doses (em dias)</label>
-                                                        <input type="text" class="form-control" id="tempo-doses" name="tempo-doses" value="25" disabled>
+                                                        <input type="text" class="form-control" id="tempo-doses" name="tempo-doses" value="${vacina.tempoEntreDoses}" disabled>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="form-group col-xl-12">
                                                         <label for="reforco">Tempo para refor&ccedil;o (em dias)</label>
-                                                        <input type="text" class="form-control" id="reforco" name="reforco" value="45" disabled>
+                                                        <input type="text" class="form-control" id="reforco" name="reforco" value="${vacina.tempoReforco}" disabled>
                                                     </div>                                                   
                                                 </div>
 

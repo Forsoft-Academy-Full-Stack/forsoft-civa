@@ -1,5 +1,10 @@
+<%@page import="java.util.List"%>
+<%@page import="dao.ProfissionalSaudeDao"%>
+<%@page import="model.ProfissionalSaude"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -14,8 +19,14 @@
     }
 
     // Caso contrário é um usuário válido, pode entrar na página
-
 %>
+
+<%    //Buscar Lista de supervisores
+    List<ProfissionalSaude> listaProfissionaisSaude = ProfissionalSaudeDao.list();
+
+    pageContext.setAttribute("profissionaisSaude", listaProfissionaisSaude);
+%>   
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/supervisor/consultar-profissional-de-saude.js" defer></script>
 </head>
@@ -119,63 +130,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr  class="coluna">
-                                                <td  class="coluna-nome">Bill Withers</td>
-                                                <td>123.155.189-15</td>
-                                                <td>04-07-1938</td>
-                                                <td>BRA132456789</td>
-                                                <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr  class="coluna">
-                                                <td class="coluna-nome">Tom Jobim</td>
-                                                <td>065.354.200-01</td>
-                                                <td>25-01-1927</td>
-                                                <td>BRA313123534</td>
-                                                <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr  class="coluna">
-                                                <td class="coluna-nome">Michael Jackson</td>
-                                                <td>215.489.158-14</td>
-                                                <td>29-10-1958</td>
-                                                <td>BRA312312321</td>
-                                                <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr  class="coluna">
-                                                <td class="coluna-nome">George Michael</td>
-                                                <td>554.489.489-15</td>
-                                                <td>25-06-1963</td>
-                                                <td>BRA519194156</td>
-                                                <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr  class="coluna">
-                                                <td class="coluna-nome">Whitney Houston</td>
-                                                <td>194.891.981-48</td>
-                                                <td>09-10-1963</td>
-                                                <td>BRA651847616</td>
-                                                <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr  class="coluna">
-                                                <td class="coluna-nome">Freddie Mercury</td>
-                                                <td>221.911.911-15</td>
-                                                <td>05-09-1946</td>
-                                                <td>BRA461668464</td>
-                                                <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr  class="coluna">
-                                                <td class="coluna-nome">Bryan Adams</td>
-                                                <td>634.324.123-57</td>
-                                                <td>05-11-1959</td>
-                                                <td>BRA461666523</td>
-                                                <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-                                            <tr  class="coluna">
-                                                <td class="coluna-nome">Elis Regina</td>
-                                                <td>884.054.264-05</td>
-                                                <td>17-05-1945</td>
-                                                <td>BRA312312323</td>
-                                                <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
-                                            </tr>
-
+                                            <c:forEach items="${profissionaisSaude}" var="profissionalSaude">
+                                                <tr  class="coluna">
+                                                    <td><c:out value="${profissionalSaude.pessoa.nomePessoa} ${profissionalSaude.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${profissionalSaude.documento1.documento}" /></td>
+                                                    <td><c:out value="${profissionalSaude.pessoa.dataNascimento}" /></td>
+                                                    <td><c:out value="${profissionalSaude.codigoCiva}" /></td>
+                                                    <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
                                     </table>
 
