@@ -35,12 +35,15 @@ public class VacinacaoDao {
         vacina.setTipoVacina("Inativada");
         vacina.setTempoReforco(0);
         vacina.setIdVacina(000001);
+        vacina.setLote(998);
 
         vacinacao.setDataAplicacao("2021-04-12");
         vacinacao.setDoseAplicada(1);
         vacinacao.setPais("Brasil");
         vacinacao.setUnidade("Monte carlos");
         vacinacao.setVacina(vacina);
+        vacinacao.setIdVacinacao(122929);
+        vacinacao.setIdUnidade(123);
 
         return vacinacao;
     }
@@ -58,13 +61,15 @@ public class VacinacaoDao {
         vacina.setTipoVacina("Inativada");
         vacina.setTempoReforco(0);
         vacina.setIdVacina(000001);
+        vacina.setLote(998);
 
         vacinacao.setDataAplicacao("2021-04-12");
         vacinacao.setDoseAplicada(1);
         vacinacao.setPais("Brasil");
         vacinacao.setUnidade("Monte carlos");
         vacinacao.setVacina(vacina);
-     
+        vacinacao.setIdVacinacao(12292);
+        vacinacao.setIdUnidade(123);
 
         vacinacoes.add(vacinacao);
 
@@ -78,6 +83,7 @@ public class VacinacaoDao {
         vacina2.setTipoVacina("Inativada");
         vacina2.setTempoReforco(0);
         vacina2.setIdVacina(000001);
+        vacina2.setLote(1008);
         
         vacinacao2.setDataAplicacao("2021-06-14");
         vacinacao2.setDoseAplicada(2);
@@ -85,6 +91,8 @@ public class VacinacaoDao {
         vacinacao2.setPais("Brasil");
         vacinacao2.setUnidade("Monte Carlos");
         vacinacao2.setVacina(vacina2);
+        vacinacao2.setIdVacinacao(12339);
+        vacinacao2.setIdUnidade(153);
 
         vacinacoes.add(vacinacao2);
 

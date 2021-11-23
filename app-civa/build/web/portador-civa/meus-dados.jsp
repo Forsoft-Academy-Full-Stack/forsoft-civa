@@ -19,8 +19,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
+<%    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
     pageContext.setAttribute("ator", portadorciva);
 %>
 
@@ -47,6 +46,12 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Meus dados</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
+                                <li class="breadcrumb-item active">Meus Dados</li>
+                            </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
@@ -80,12 +85,12 @@
 
                                         <div class="row float-right">
                                             <div class="col-12 mb-4">
-                                                <a href="./index.jsp" class="btn btn-primary btn-lg">Voltar</a>
+                                                <!--a href="./index.jsp" class="btn btn-primary btn-lg">Voltar</a-->
                                             </div>
                                         </div>
-                                        
+
                                     </div>
-                                        
+
                                 </form>
 
                             </div>

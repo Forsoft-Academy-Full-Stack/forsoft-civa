@@ -22,7 +22,8 @@
 
 %>
 
-<%    List<Unidade> listaUnidade = UnidadeDao.list();
+<%    
+    List<Unidade> listaUnidade = UnidadeDao.list();
     pageContext.setAttribute("unidades", listaUnidade);
 %>
 <%@include file="header.jspf"%>

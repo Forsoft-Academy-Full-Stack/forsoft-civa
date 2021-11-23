@@ -7,8 +7,28 @@ public class Vacinacao {
     private Vacina vacina;
     private Integer doseAplicada;
     private String dataAplicacao;
+    private Integer idUnidade;
     private String unidade;
     private String pais;
+    private Integer idVacinacao;
+
+    public Integer getIdUnidade() {
+        return idUnidade;
+    }
+
+    public void setIdUnidade(Integer idUnidade) {
+        this.idUnidade = idUnidade;
+    }    
+    
+    public Integer getIdVacinacao() {
+        return idVacinacao;
+    }
+
+    public void setIdVacinacao(Integer idVacinacao) {
+        this.idVacinacao = idVacinacao;
+    }
+    
+    
 
     public Integer getDoseAplicada() {
         return doseAplicada;

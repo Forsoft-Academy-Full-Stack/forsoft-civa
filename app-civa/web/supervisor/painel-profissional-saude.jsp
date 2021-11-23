@@ -4,6 +4,8 @@
     Author     : felipegomes
 --%>
 
+<%@page import="dao.UnidadeDao"%>
+<%@page import="model.Unidade"%>
 <%@page import="dao.ProfissionalSaudeDao"%>
 <%@page import="model.ProfissionalSaude"%>
 <%@page import="java.util.List"%>
@@ -31,14 +33,16 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-  //Buscar Lista de supervisores
-  ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.find("Felipe");
-  
-  pageContext.setAttribute("ator", listaProfissionalSaude);
+<%    //Buscar Lista de supervisores
+    ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.find("Felipe");
+
+    pageContext.setAttribute("ator", listaProfissionalSaude);
 %>  
 
-
+<%
+    List<Unidade> listaUnidade = UnidadeDao.list();
+    pageContext.setAttribute("unidades", listaUnidade);
+%>
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/supervisor/painel-profissional-saude.js" defer ></script>
 </head>
@@ -106,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                                    
+
                     <!-- TABELA VACINAS -->
                     <div class="row">
                         <div class="col-12">
@@ -119,37 +123,22 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th>Nome</th>
+                                                <th>Nome Unidade</th>
                                                 <th>Estado</th>
                                                 <th>C&oacute;digo Postal</th>
                                                 <th>Identificador</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td><span class="tag tag-success">215648</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td><span class="tag tag-success">215648</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td><span class="tag tag-success">215648</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td><span class="tag tag-success">215648</span></td>
-                                            </tr>
+                                            <c:forEach items="${unidades}" var="unidade">
+                                                <tr>                                                   
+                                                    <td><c:out value="${unidade.nome}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
+                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                </tr>  
+                                            </c:forEach>                                           
+                                        </tbody>
                                         </tbody>
                                     </table>
                                 </div>

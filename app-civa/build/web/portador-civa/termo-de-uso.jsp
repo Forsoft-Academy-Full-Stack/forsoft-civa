@@ -38,7 +38,13 @@
                     <div class="row mb-2">
                         <div class="col-sm-6">
                             <h1 class="m-0">Termos de Uso</h1>
-                        </div>    
+                        </div> 
+                         <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
+                                <li class="breadcrumb-item active">Termo de Uso</li>
+                            </ol>
+                        </div>
                     </div>  
                 </div>
             </div>
@@ -54,7 +60,7 @@
                             <div class="container-fluid">
                                 <div class="row mb-2">
                                     <div class="col-sm-6">
-                                        <h1 class="m-0">Termos de uso</h1>
+                                        <h1 class="m-0">Descrição</h1>
                                     </div><!-- /.col -->
                                 </div><!-- /.row -->
                             </div><!-- /.container-fluid -->
@@ -87,7 +93,7 @@
                             </p>
                             <div class="row float-right mr-3">
                                 <div class="col-12 mb-4">
-                                    <a href="./index.jsp" class="btn btn-primary btn-lg">Voltar</a>
+                                    <!--a href="./index.jsp" class="btn btn-primary btn-lg">Voltar</a-->
                                 </div>
                             </div>
                         </div>

@@ -109,7 +109,6 @@ function setAbaAtiva() {
             
             // adiciona a classe "menu-open" no elemento pai de toda a estrutura daquele ator (a cada .parentElement, suba uma hierarquia), fazendo as outras opções serem exibidas
             ((abas[i].parentElement).parentElement).parentElement.classList.add('menu-open');
-            (((abas[i].parentElement).parentElement).parentElement).parentElement.classList.add('menu-open');   
         }
     }
 }

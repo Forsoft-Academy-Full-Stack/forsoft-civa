@@ -12,6 +12,16 @@ public class Vacina {
     private Integer tempoEntreDoses;
     private Integer tempoReforco;
 
+    public Integer getLote() {
+        return lote;
+    }
+
+    public void setLote(Integer lote) {
+        this.lote = lote;
+    }
+    
+    private Integer lote;
+
     public Integer getIdVacina() {
         return idVacina;
     }

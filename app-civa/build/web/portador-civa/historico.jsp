@@ -20,7 +20,8 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    List<Vacinacao> vacinacoes = VacinacaoDao.list();
+<%    
+    List<Vacinacao> vacinacoes = VacinacaoDao.list();
 
     pageContext.setAttribute("vacinacoes", vacinacoes);
 %>    
@@ -49,6 +50,12 @@
                         <div class="col-sm-6">
                             <h1 class="m-0">Hist&oacute;rico de Vacina&ccedil;&atilde;o</h1>
                         </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
+                                <li class="breadcrumb-item active">Meus Dados</li>
+                            </ol>
+                        </div>
                     </div><!-- /.row -->
                 </div><!-- /.container-fluid -->
             </div>
@@ -112,7 +119,7 @@
                             <!-- ./card-body -->
                             <div class="row float-right mr-3">
                                 <div class="col-12 mb-4">
-                                    <a href="./index.jsp" class="btn btn-primary btn-lg">Voltar</a>
+                                    <!--a href="./index.jsp" class="btn btn-primary btn-lg">Voltar</a-->
                                 </div>
                             </div>
                         </div>

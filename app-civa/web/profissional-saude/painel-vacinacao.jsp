@@ -1,5 +1,14 @@
+<%@page import="dao.ProfissionalSaudeDao"%>
+<%@page import="model.ProfissionalSaude"%>
+<%@page import="dao.PortadorCivaDao"%>
+<%@page import="model.PortadorCiva"%>
+<%@page import="dao.VacinacaoDao"%>
+<%@page import="model.Vacinacao"%>
+<%@page import="model.Vacinacao"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -15,6 +24,21 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
+
+<%    
+    PortadorCiva portadorCiva = PortadorCivaDao.find("BR9908098");
+    pageContext.setAttribute("portadorCiva", portadorCiva);
+%> 
+
+<%    
+    Vacinacao vacinacao = VacinacaoDao.find(1);
+    pageContext.setAttribute("vacinacao", vacinacao);
+%>
+
+<%    
+    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find("BR879878");
+    pageContext.setAttribute("profissionalSaude", profissionalSaude);
+%> 
 <%@include file="header.jspf"%>
     <script src="../public/assets/js/profissional-saude/painel-vacinacao.js" defer></script>
 </head>
@@ -61,23 +85,23 @@
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="name">Nome</label>
-                                            <input type="text" id="name" id="name" class="form-control"  value="Elis" disabled>
+                                            <input type="text" id="name" id="name" class="form-control"  value="${portadorCiva.pessoa.nomePessoa}" disabled>
                                         </div>
                                         <div class="form-group col-xl-6">
                                             <label for="surname">Sobrenome</label>
-                                            <input type="text" id="surname" name="surname" class="form-control" value="Regina" disabled>
+                                            <input type="text" id="surname" name="surname" class="form-control" value="${portadorCiva.pessoa.sobrenomePessoa}" disabled>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="date-birth">Data de nascimento</label>
                                             <input type="date" id="date-birth" name="date-birth"
-                                                   class="form-control" placeholder="00/00/0000" disabled>
+                                                   class="form-control" value="${portadorCiva.pessoa.dataNascimento}" placeholder="00/00/0000" disabled>
                                         </div>
                                         <div class="form-group col-xl-6">
                                             <label for="doc">Documento</label>
                                             <input type="text" id="doc" name="doc"
-                                                   class="form-control"placeholder="884.054.264-05" disabled>
+                                                   class="form-control" value="${portadorCiva.documento1.documento}" placeholder="884.054.264-05" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -96,43 +120,31 @@
                                     <div class="row">
                                         <div class="form-group col-xl-12">
                                             <label for="idvacinacao">ID vacina&ccedil;&atilde;o</label>
-                                            <input type="text" class="form-control" id="idvacinacao" name="idvacinacao" value="5649841"
+                                            <input type="text" class="form-control" id="idvacinacao" name="idvacinacao" value="${vacinacao.idVacinacao}"
                                                    readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="vacina">Vacina</label>
-                                            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
-                                                    aria-hidden="true" id="vacina" name="vacina" disabled>
-                                                <option value="2" selected>CoronaVac</option>
-                                                <option value="3">Pfizer</option>
-                                                <option value="3">AstraZeneca</option>
-                                            </select>
+                                            <input type="text" class="form-control" id="vacina" name="vacina" value="${vacinacao.vacina.nomeVacina}"
+                                                   readonly>
                                         </div>
                                         <div class="form-group col-xl-6">
                                             <label for="laboratorio">Laborat&oacute;rio</label>
-                                            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
-                                                    aria-hidden="true" id="laboratorio" name="laboratorio" disabled>
-                                                <option value="2" selected>Sinovac</option>
-                                                <option value="3">Oxford</option>
-                                                <option value="3">Sputinik V</option>
-                                            </select>
+                                            <input type="text" class="form-control" id="laboratorio" name="laboratorio" value="${vacinacao.vacina.laboratorio}"
+                                                   readonly>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="dose">Dose</label>
-                                            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
-                                                    aria-hidden="true" id="dose" name="dose" disabled>
-                                                <option value="2" selected>2Â° Dose</option>
-                                                <option value="3">1Â° Dose</option>
-                                                <option value="3">Dose unica</option>
-                                            </select>
+                                            <input type="text" class="form-control" id="dose" name="dose" value="${vacinacao.doseAplicada}"
+                                                   readonly>
                                         </div>
                                         <div class="form-group col-xl-6">
-                                            <label for="dataaplicacao">Data de aplica&ccedil;;&atilde;o</label>
-                                            <input type="date" class="form-control" value="2021-03-17" id="dataaplicacao" name="dataaplicacao"
+                                            <label for="data-aplicacao">Data de aplica&ccedil;;&atilde;o</label>
+                                            <input type="date" class="form-control" value="${vacinacao.dataAplicacao}" id="data-aplicacao" name="data-aplicacao"
                                                    disabled>
                                         </div>
                                     </div>
@@ -140,28 +152,28 @@
                                     <div class="row">
                                         <div class="form-group col-xl-12">
                                             <label for="pais">Pa&iacute;s</label>
-                                            <input type="text" class="form-control" id="pais" name="pais" value="Brasil" disabled>
+                                            <input type="text" class="form-control" id="pais" name="pais" value="${vacinacao.pais}" disabled>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="idunidade">ID unidade</label>
-                                            <input type="text" class="form-control" id="idunidade" name="idunidade" value="6518842" disabled>
+                                            <input type="text" class="form-control" id="idunidade" name="idunidade" value="${vacinacao.idUnidade}" disabled>
                                         </div>
                                         <div class="form-group col-xl-6">
                                             <label for="unidade">Unidade de vacina&ccedil;&atilde;o</label>
-                                            <input type="text" class="form-control" id="unidade" name="unidade" value="Hospital Pan" disabled>
+                                            <input type="text" class="form-control" id="unidade" value="${vacinacao.unidade}" disabled>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="codigociva">C&oacute;digo CIVA profissional</label>
-                                            <input type="text" class="form-control" id="codigociva" name="codigociva" value="BRA55123456789"
+                                            <input type="text" class="form-control" id="codigociva" name="codigociva" value="${profissionalSaude.codigoCiva}"
                                                    disabled>
                                         </div>
                                         <div class="form-group col-xl-6">
                                             <label for="lote">Lote</label>
-                                            <input type="text" class="form-control" id="lote" name="lote" value="12412412-21" disabled>
+                                            <input type="text" class="form-control" id="lote" name="lote" value="${vacinacao.vacina.lote}" disabled>
                                         </div>
                                     </div>
                                 </div>
@@ -171,7 +183,7 @@
                     <!-- /.row -->
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
+                            <!--button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button-->
                         </div>
                     </div>
                     <!-- /.row -->
