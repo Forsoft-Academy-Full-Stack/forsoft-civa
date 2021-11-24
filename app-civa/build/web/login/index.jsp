@@ -9,7 +9,7 @@
             <div class="row py-5 mt-4 align-items-center" style="background-color: #fff;">
                 <div class="col-md-5 pr-lg-2 mb-5 mb-md-0">
                     <!-- .content -->
-                    <div class="jumbotron ">
+                    <div class="jumbotron">
                         <h1 class="display-6">Bem vindo &agrave; carteira de vacina&ccedil;&atilde;o CIVA.</h1>
                     </div>
                     <!-- /.content -->
