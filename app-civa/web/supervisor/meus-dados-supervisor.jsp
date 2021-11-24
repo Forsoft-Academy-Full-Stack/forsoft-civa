@@ -1,8 +1,13 @@
+<%@page import="dao.UnidadeDao"%>
+<%@page import="model.Unidade"%>
+<%@page import="java.util.List"%>
 <%@page import="dao.SupervisorDao"%>
 <%@page import="model.Supervisor"%>
 <%@page import="model.Supervisor"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -19,10 +24,16 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-    Supervisor supervisor = SupervisorDao.find("BR9878766");
+<%    Supervisor supervisor = SupervisorDao.find("BR9878766");
     pageContext.setAttribute("ator", supervisor);
 %>
+
+<%    //Buscar Lista de supervisores
+    List<Unidade> listaUnidades = UnidadeDao.list();
+
+    pageContext.setAttribute("unidades", listaUnidades);
+%> 
+
 
 
 <%@include file="header.jspf"%>
@@ -47,13 +58,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Meus dados</h1>
+                            <h1 class="m-0">Meus Dados</h1>
                         </div><!-- /.col -->
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Meus dados</li>
+                                <li class="breadcrumb-item active">Meus Dados</li>
                             </ol>
                         </div>
                     </div><!-- /.row -->
@@ -71,7 +82,7 @@
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Meus dados</h3>
+                                    <h3 class="card-title">Dados Supervisor</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
@@ -97,7 +108,7 @@
                         <div class="col-12 mb-2">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Unidade vinculadas</h3>
+                                    <h3 class="card-title">Unidades Vinculadas</h3>
 
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -114,42 +125,21 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th>Nome</th>
+                                                <th>Nome Unidade</th>
                                                 <th>Estado</th>
                                                 <th>CEP</th>
                                                 <th>Identificador</th>
-
                                             </tr>
                                         </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
+                                          <tbody>
+                                            <c:forEach items="${unidades}" var="unidade">
+                                                <tr>                                                   
+                                                    <td><c:out value="${unidade.nome}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
+                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                </tr>
+                                            </c:forEach>    
                                         </tbody>
                                     </table>
                                 </div>
@@ -160,7 +150,7 @@
 
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
+                            <!--button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button-->
                         </div>
                     </div>
 

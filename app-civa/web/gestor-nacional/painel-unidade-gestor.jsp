@@ -66,7 +66,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="" id="go-back">Voltar</a>
                                 </li>
-                                <li class="breadcrumb-item active">Home</li>
+                                <li class="breadcrumb-item active">Painel Unidade</li>
                             </ol>
                         </div>
                     </div>

@@ -62,7 +62,7 @@
                         <i class="fas fa-user-friends nav-icon"></i>
                         <p>Unidade<i class="right fas fa-angle-left"></i></p>
                     </a>
-                    
+
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="consultar-unidade.jsp" class="nav-link ">

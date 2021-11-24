@@ -1,3 +1,6 @@
+<%@page import="dao.PortadorCivaDao"%>
+<%@page import="model.PortadorCiva"%>
+<%@page import="model.PortadorCiva"%>
 <%@page import="dao.VacinacaoDao"%>
 <%@page import="model.Vacinacao"%>
 <%@page import="java.util.List"%>
@@ -20,11 +23,12 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    
-    List<Vacinacao> vacinacoes = VacinacaoDao.list();
-
-    pageContext.setAttribute("vacinacoes", vacinacoes);
-%>    
+<%
+    List<PortadorCiva> listaPortadoresCiva = PortadorCivaDao.list();
+    
+    pageContext.setAttribute("portadorresCiva", listaPortadoresCiva);
+%>
+  
 
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/portador-civa/historico.js" defer></script>
@@ -53,7 +57,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Meus Dados</li>
+                                <li class="breadcrumb-item active">Hist&oacute;rico de Vacina&ccedil;&atilde;o</li>
                             </ol>
                         </div>
                     </div><!-- /.row -->
@@ -68,7 +72,7 @@
 
                         <div class="card-body">
                             
-                            <c:forEach items="${vacinacoes}" var="vacinacao">
+                            <c:forEach items="${portadorresCiva}" var="portadorCiva">
 
                                 <div class="row mb-4">
                                     <table class="col-sm-10 table text-nowrap">
@@ -82,9 +86,9 @@
                                         <tbody>
 
                                             <tr>
-                                                <td><c:out value="${vacinacao.vacina.nomeVacina}" /></td>
-                                                <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>
-                                                <td><c:out value="${vacinacao.doseAplicada} Dose" /></td>
+                                                <td><c:out value="${portadorCiva.vacinacao.vacina.nomeVacina}"/></td>
+                                                <td><c:out value="${portadorCiva.vacinacao.vacina.laboratorio}" /></td>
+                                                <td><c:out value="${portadorCiva.vacinacao.doseAplicada}" /></td>
                                             </tr>
 
                                         </tbody>
@@ -98,9 +102,9 @@
                                         <tbody>
 
                                             <tr>
-                                                <td><c:out value="${vacinacao.dataAplicacao}" /></td>
-                                                <td><c:out value="${vacinacao.unidade}" /></td>
-                                                <td><c:out value="${vacinacao.pais}" /></td>
+                                                <td><c:out value="${portadorCiva.vacinacao.dataAplicacao}" /></td>
+                                                <td><c:out value="${portadorCiva.vacinacao.unidade}" /></td>
+                                                <td><c:out value="${portadorCiva.vacinacao.pais}" /></td>
                                             </tr>
 
                                         </tbody>

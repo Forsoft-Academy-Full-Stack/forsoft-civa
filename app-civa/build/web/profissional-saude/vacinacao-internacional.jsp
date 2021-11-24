@@ -1,7 +1,11 @@
+<%@page import="dao.VacinacaoDao"%>
+<%@page import="model.Vacinacao"%>
+<%@page import="java.util.List"%>
 <%@page import="dao.PortadorCivaDao"%>
 <%@page import="model.PortadorCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -18,14 +22,17 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 
-<%
-    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
+<%    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
     pageContext.setAttribute("ator", portadorciva);
+%>
+<%
+    List<Vacinacao> vacinacoes = VacinacaoDao.list();
+    pageContext.setAttribute("vacinacoes", vacinacoes);
 %>
 
 
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/profissional-saude/vacinacao-internacional.js" defer></script>
+<script src="../public/assets/js/profissional-saude/vacinacao-internacional.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -117,34 +124,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1&ordf; Dose</td>
-                                                <td><span class="tag tag-success">Brasil</span></td>
-                                                <td>11/03/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1&ordf; Dose</td>
-                                                <td><span class="tag tag-success">Brasil</span></td>
-                                                <td>11/03/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1&ordf; Dose</td>
-                                                <td><span class="tag tag-success">Brasil</span></td>
-                                                <td>11/03/2021</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Coronavac</td>
-                                                <td>Sinovac</td>
-                                                <td>1&ordf; Dose</td>
-                                                <td><span class="tag tag-success">Brasil</span></td>
-                                                <td>11/03/2021</td>
-                                            </tr>
+                                            <c:forEach items="${vacinacoes}" var="vacinacao">
+                                                <tr>
+                                                    <td><c:out value="${vacinacao.vacina.nomeVacina}" /></td>
+                                                    <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>
+                                                    <td><c:out value="${vacinacao.doseAplicada}" /></td>
+                                                    <td><c:out value="${vacinacao.pais}" /></td>
+                                                    <td><c:out value="${vacinacao.dataAplicacao}" /></td>                                                    
+                                                </tr>
+                                            </c:forEach>   
                                         </tbody>
                                     </table>
                                 </div>

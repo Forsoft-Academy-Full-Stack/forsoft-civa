@@ -49,7 +49,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Pesquisar Gestor Nacional</h1>
+                            <h1 class="m-0">Consultar Gestor Nacional</h1>
                         </div>
                         <!-- /.col -->
 

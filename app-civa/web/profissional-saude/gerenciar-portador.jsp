@@ -24,7 +24,8 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 
-<%    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
+<%    
+    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
     pageContext.setAttribute("ator", portadorciva);
 %>
 <%
@@ -40,19 +41,7 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar --------------------------------------------->
-        <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-            <!-- Left navbar links -->
-            <ul class="navbar-nav">
-                <li class="nav-item">
-                    <a class="nav-link" data-widget="pushmenu" href="#" role="button">
-                        <i class="fas fa-bars"></i>
-                    </a>
-                </li>
-                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="" class="nav-link">Portador CIVA</a>
-                </li>
-            </ul>
-        </nav>
+        <%@ include file="navbar.jspf" %>
         <!-- /.navbar ------------------------------------------------------->
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@ include file="menu.jspf" %>
@@ -64,12 +53,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Painel portador CIVA</h1>
+                            <h1 class="m-0">Painel Portador CIVA</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Consultar portador</li>
+                                <li class="breadcrumb-item active">Painel Portador CIVA</li>
                             </ol>
                         </div>
                     </div><!-- /.row -->
@@ -84,7 +73,7 @@
                         <div class="col-12">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados portador</h3>
+                                    <h3 class="card-title">Dados Portador CIVA</h3>
                                 </div>
                                 <form id="form-painel-portador">
                                     <div class="card-body">
@@ -123,7 +112,7 @@
                                                 <th>Vacina</th>
                                                 <th>Laborat&oacute;rio</th>
                                                 <th>Dose</th>
-                                                <th>Pa&iacute;</th>
+                                                <th>Pa&iacute;s</th>
                                                 <th>Data</th>
                                                 <th></th>
                                             </tr>
@@ -151,7 +140,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button>
+                            <!--button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button-->
                         </div>
                     </div>
                     <!-- /.row -->

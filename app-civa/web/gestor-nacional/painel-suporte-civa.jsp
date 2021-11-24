@@ -53,7 +53,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Gerenciar suporte CIVA</li>
+                                <li class="breadcrumb-item active">Painel Suporte CIVA</li>
                             </ol>
                         </div>
                     </div>
@@ -73,7 +73,7 @@
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados suporte CIVA</h3>
+                                    <h3 class="card-title">Dados Suporte CIVA</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->

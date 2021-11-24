@@ -54,7 +54,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Consultar Gestor Nacional</li>
+                                <li class="breadcrumb-item active">Painel Gestor Nacional</li>
                             </ol>
                         </div>
                     </div><!-- /.row -->
@@ -87,7 +87,7 @@
                                 </form>
                             </div>          
                             <div class="col-12 mb-4">
-                                <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
+                                <!--button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button-->
                             </div>       
                             <!-- /.row -->
                         </div>

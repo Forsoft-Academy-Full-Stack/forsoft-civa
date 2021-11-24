@@ -75,7 +75,7 @@
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Meus dados</h3>
+                                    <h3 class="card-title">Dados do Gestor OMS</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->

@@ -50,14 +50,14 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Pesquisar Gerente</h1>
+                            <h1 class="m-0">Consultar Gerente</h1>
                         </div>
                         <!-- /.col -->
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Consultar gerentes</li>
+                                <li class="breadcrumb-item active">Consultar Gerente</li>
                             </ol>
                         </div>
                     </div>

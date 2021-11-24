@@ -20,8 +20,7 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
-<%   
-    Pais pais = PaisDao.find(1);
+<%    Pais pais = PaisDao.find(1);
 
     pageContext.setAttribute("pais", pais);
 %> 
@@ -74,7 +73,7 @@
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Meus dados</h3>
+                                    <h3 class="card-title">Dados Pa&iacute;s</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
@@ -84,14 +83,13 @@
                                         <%@include file="../partials/dados-pais-cadastro-disabled.jspf" %>
                                         <hr>
                                         <%@include file="../partials/tipo-doc-cadastro-disabled.jspf" %>
-                                                                                                  
+
 
                                         <!-- Bot&atilde;o ATIVAR / DESATIVAR e Excluir -->
-                                        <table class="table text-nowrap">
-                                            <tr>
-                                                <td><button class="btn btn-block btn-primary btn-sm col-xl-2">Excluir</button></td>
-                                            </tr>
-                                        </table>
+                                        
+                                        <hr/>
+                                        <td><button class="btn btn-block btn-primary btn-sm col-xl-2">Excluir</button></td>
+
 
                                     </div>
                                 </form>

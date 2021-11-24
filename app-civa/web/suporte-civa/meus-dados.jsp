@@ -51,7 +51,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Meus dados</h1>
+                            <h1 class="m-0">Meus Dados</h1>
                         </div>
                         <!-- /.col -->
 
@@ -78,7 +78,7 @@
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Meus dados</h3>
+                                    <h3 class="card-title">Dados Suporte CIVA</h3>
                                 </div>
 
                                 <form id="form-meus-dados">
@@ -102,6 +102,7 @@
                     <!-- /.row -->
 
                     <!-- TABELA VACINAS -->
+                    <!--
                     <div class="row">
                         <div class="col-12 mb-2">
                             <div class="card card-primary">
@@ -118,7 +119,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <!-- /.card-header -->
+                              
                                 <div class="card-body table-responsive p-0">
                                     <table class="table table-hover text-nowrap">
                                         <thead>
@@ -162,14 +163,15 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <!-- /.card-body -->
+                               
                             </div>
                         </div>
                     </div>
+                    -->
 
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <button type="button" id="salvar" class="btn btn-primary btn-lg" >Salvar</button>
+                            <!--button type="button" id="salvar" class="btn btn-primary btn-lg" >Salvar</button-->
                         </div>
                     </div>
                 </div>

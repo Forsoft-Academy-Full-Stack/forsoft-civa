@@ -71,7 +71,7 @@
                         <div class="col-12 mb-4">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Meus dados</h3>
+                                    <h3 class="card-title">Dados Gerente</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- Incio do form -->

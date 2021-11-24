@@ -59,13 +59,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Gerenciar Supervisor</h1>
+                            <h1 class="m-0">Painel Supervisor</h1>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Gerenciar Supervisor</li>
+                                <li class="breadcrumb-item active">Painel Supervisor</li>
                             </ol>
                         </div>
                     </div>
@@ -128,7 +128,7 @@
                                     <table class="table table-hover text-nowrap">
                                         <thead>
                                             <tr>
-                                                <th>Nome</th>
+                                                <th>Nome Unidade</th>
                                                 <th>Estado</th>
                                                 <th>CEP</th>
                                                 <th>Identificador</th>
@@ -142,7 +142,7 @@
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
                                                     <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
                                                 </tr>
-                                            </c:forEach>
+                                            </c:forEach>    
                                         </tbody>
                                     </table>
                                     <hr>

@@ -6,6 +6,8 @@ import model.Docs;
 import model.Endereco;
 import model.Pessoa;
 import model.PortadorCiva;
+import model.Vacina;
+import model.Vacinacao;
 
 /**
  *
@@ -86,12 +88,33 @@ public class PortadorCivaDao {
         portadorciva.setDocumento1(documento1);
         portadorciva.setDocumento3(documento3);
         portadorciva.setCodigoCiva("BR9878766");
+        
+        Vacinacao vacinacao = new Vacinacao();
+        
+        Vacina vacina = new Vacina();
+        vacina.setNomeVacina("Coronavac");
+        vacina.setLaboratorio("Sinovac/Butantan");
+        vacina.setNumeroDoses(3);
+        vacina.setTempoEntreDoses(28);
+        vacina.setTipoVacina("Inativada");
+        vacina.setTempoReforco(0);
+        vacina.setIdVacina(000001);
+        vacina.setLote(998);
 
+        vacinacao.setDataAplicacao("2021-04-12");
+        vacinacao.setDoseAplicada(1);
+        vacinacao.setPais("Brasil");
+        vacinacao.setUnidade("Monte carlos");
+        vacinacao.setVacina(vacina);
+        vacinacao.setIdVacinacao(12292);
+        vacinacao.setIdUnidade(123);
+        
         portadorciva.setPessoa(pessoa);
         portadorciva.setDocumento1(documento1);
         portadorciva.setDocumento2(documento2);
         portadorciva.setDocumento3(documento3);
         portadorciva.setEndereco(endereco);
+        portadorciva.setVacinacao(vacinacao);
 
         return portadorciva;
     }
@@ -157,10 +180,31 @@ public class PortadorCivaDao {
         endereco.setComplemento("Apto 10");
         portadoresciva.add(portadorciva);
         
+        Vacinacao vacinacao = new Vacinacao();
+        
+        Vacina vacina = new Vacina();
+        vacina.setNomeVacina("Coronavac");
+        vacina.setLaboratorio("Sinovac/Butantan");
+        vacina.setNumeroDoses(3);
+        vacina.setTempoEntreDoses(28);
+        vacina.setTipoVacina("Inativada");
+        vacina.setTempoReforco(0);
+        vacina.setIdVacina(000001);
+        vacina.setLote(998);
+
+        vacinacao.setDataAplicacao("2021-04-12");
+        vacinacao.setDoseAplicada(1);
+        vacinacao.setPais("Brasil");
+        vacinacao.setUnidade("Monte carlos");
+        vacinacao.setVacina(vacina);
+        vacinacao.setIdVacinacao(12292);
+        vacinacao.setIdUnidade(123);
+        
         portadorciva.setPessoa(pessoa);
         portadorciva.setDocumento1(documento1);
         portadorciva.setDocumento3(documento3);
         portadorciva.setCodigoCiva("BR9878766");
+        portadorciva.setVacinacao(vacinacao);
 
         PortadorCiva portadorciva2 = new PortadorCiva();
 
@@ -211,10 +255,33 @@ public class PortadorCivaDao {
         endereco2.setNomesubdivisao5("");
         endereco2.setTipoLogradouro("Rua");
         endereco2.setNumero("21");
+        
+        Vacinacao vacinacao2 = new Vacinacao();
+        
+        Vacina vacina2 = new Vacina();
+        vacina2.setNomeVacina("Coronavac");
+        vacina2.setLaboratorio("Sinovac/Butantan");
+        vacina2.setNumeroDoses(3);
+        vacina2.setTempoEntreDoses(28);
+        vacina2.setTipoVacina("Inativada");
+        vacina2.setTempoReforco(0);
+        vacina2.setIdVacina(000001);
+        vacina2.setLote(1008);
+        
+        vacinacao2.setDataAplicacao("2021-06-14");
+        vacinacao2.setDoseAplicada(2);
+       
+        vacinacao2.setPais("Brasil");
+        vacinacao2.setUnidade("Monte Carlos");
+        vacinacao2.setVacina(vacina2);
+        vacinacao2.setIdVacinacao(12339);
+        vacinacao2.setIdUnidade(153);
+        
         portadorciva2.setPessoa(pessoa2);
         portadorciva2.setDocumento1(documento12);
         portadorciva2.setDocumento3(documento32);
         portadorciva2.setCodigoCiva("BR28782282");
+        portadorciva2.setVacinacao(vacinacao2);
 
         portadoresciva.add(portadorciva2);
 

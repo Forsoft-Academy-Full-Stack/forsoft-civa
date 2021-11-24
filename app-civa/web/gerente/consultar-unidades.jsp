@@ -56,7 +56,7 @@
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Consultar unidade</li>
+                                <li class="breadcrumb-item active">Consultar Unidade</li>
                             </ol>
                         </div>
                     </div>

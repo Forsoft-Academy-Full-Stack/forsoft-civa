@@ -1,7 +1,11 @@
+<%@page import="dao.UnidadeDao"%>
+<%@page import="model.Unidade"%>
+<%@page import="java.util.List"%>
 <%@page import="dao.PortadorCivaDao"%>
 <%@page import="model.PortadorCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -18,10 +22,16 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
-<%
-    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
+<%    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
     pageContext.setAttribute("ator", portadorciva);
 %>
+
+<%    //Buscar Lista de supervisores
+    List<Unidade> listaUnidades = UnidadeDao.list();
+
+    pageContext.setAttribute("unidades", listaUnidades);
+%> 
+
 
 
 <%@include file="header.jspf"%>
@@ -42,7 +52,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Meus dados</h1>
+                            <h1 class="m-0">Meus Dados</h1>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
@@ -66,7 +76,7 @@
                         <div class="col-12 mb-3">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Meus dados</h3>
+                                    <h3 class="card-title">Dados Profissional de Sa&uacute;de</h3>
                                 </div>
                                 <form id="form-meus-dados">
                                     <div class="card-body">
@@ -90,7 +100,7 @@
                         <div class="col-12 mb-2">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Unidade vinculadas</h3>
+                                    <h3 class="card-title">Unidades Vinculadas</h3>
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">
                                             <div class="input-group-append">
@@ -111,30 +121,14 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
+                                            <c:forEach items="${unidades}" var="unidade">
+                                                <tr>                                                   
+                                                    <td><c:out value="${unidade.nome}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
+                                                    <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
+                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                </tr>
+                                            </c:forEach>  
                                         </tbody>
                                     </table>
                                 </div>
@@ -144,7 +138,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <button type="button" id="salvar" class="btn btn-primary btn-lg" >Salvar</button>
+                            <!--button type="button" id="salvar" class="btn btn-primary btn-lg" >Salvar</button-->
                         </div>
                     </div>
                 </div>

@@ -45,7 +45,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Meus dados</h1>
+                            <h1 class="m-0">Meus Dados</h1>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
@@ -69,7 +69,7 @@
 
                             <div class="card card-primary card-outline">
                                 <div class="card-header">
-                                    <h3 class="card-title">Meus dados</h3>
+                                    <h3 class="card-title">Dados Portador CIVA</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->

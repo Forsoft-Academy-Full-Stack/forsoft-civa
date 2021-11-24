@@ -93,7 +93,7 @@
                         </div>
 
                         <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button>
+                            <!--button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button-->
                         </div>
 
                         <!-- /.row -->

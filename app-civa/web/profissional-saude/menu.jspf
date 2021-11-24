@@ -61,79 +61,77 @@
                                 <p>Vacina&ccedil;&atilde;o internacional</p>
                             </a>
                         </li>
+                    </ul>
                 </li>
-            </ul>
-            </li>
 
-            <!-- ITEM RELATORIO USUARIO DO MENU -->
-            <li class="nav-item">
-                <a href="relatorio.jsp" class="nav-link">
-                    <i class="nav-icon fas fa-chart-pie"></i>
-                    <p>
-                        Relat&oacute;rio
-                    </p>
-                </a>
-            </li>
+                <!-- ITEM RELATORIO USUARIO DO MENU -->
+                <li class="nav-item">
+                    <a href="relatorio.jsp" class="nav-link">
+                        <i class="nav-icon fas fa-chart-pie"></i>
+                        <p>
+                            Relat&oacute;rio
+                        </p>
+                    </a>
+                </li>
 
-            <!-- ITEM PERFIL DO MENU -->
-            <li class="nav-item">
+                <!-- ITEM PERFIL DO MENU -->
+                <li class="nav-item">
 
-                <a href="#" class="nav-link">
-                    <i class="nav-icon fas fa-user-circle"></i>
-                    <p>
-                        Perfil
-                        <i class="right fas fa-angle-left"></i>
-                    </p>
-                </a>
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-user-circle"></i>
+                        <p>
+                            Perfil
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
 
-                <ul class="nav nav-treeview">
-                    <li class="nav-item">
-                        <a href="meus-dados.jsp" class="nav-link">
-                            <i class="fas fa-address-card nav-icon"></i>
-                            <p>
-                                Meus dados
-                            </p>
-                        </a>
-                    </li>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="meus-dados.jsp" class="nav-link">
+                                <i class="fas fa-address-card nav-icon"></i>
+                                <p>
+                                    Meus dados
+                                </p>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="idioma.jsp" class="nav-link">
-                            <i class="fas fa-language nav-icon"></i>
-                            <p>
-                                Mudar Idioma
-                            </p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="idioma.jsp" class="nav-link">
+                                <i class="fas fa-language nav-icon"></i>
+                                <p>
+                                    Mudar Idioma
+                                </p>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="manual.jsp" class="nav-link">
-                            <i class="fas fa-question-circle nav-icon"></i>
-                            <p>
-                                Manual CIVA
-                            </p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="manual.jsp" class="nav-link">
+                                <i class="fas fa-question-circle nav-icon"></i>
+                                <p>
+                                    Manual CIVA
+                                </p>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="solicitar-alteracao.jsp" class="nav-link">
-                            <i class="fas fa-inbox nav-icon"></i>
-                            <p>
-                                Solicita&ccedil;&otilde;es
-                            </p>
-                        </a>
-                    </li>
+                        <li class="nav-item">
+                            <a href="solicitar-alteracao.jsp" class="nav-link">
+                                <i class="fas fa-inbox nav-icon"></i>
+                                <p>
+                                    Solicita&ccedil;&otilde;es
+                                </p>
+                            </a>
+                        </li>
 
-                    <li class="nav-item">
-                        <a href="../exit" class="nav-link">
-                            <i class="fas fa-sign-out-alt nav-icon"></i>
-                            <p>
-                                Sair
-                            </p>
-                        </a>
-                    </li>
-
-                </ul>
-            </li>
+                        <li class="nav-item">
+                            <a href="../exit" class="nav-link">
+                                <i class="fas fa-sign-out-alt nav-icon"></i>
+                                <p>
+                                    Sair
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

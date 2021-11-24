@@ -71,7 +71,7 @@
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Meus dados</h3>
+                                    <h3 class="card-title">Dados Unidade</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
@@ -94,7 +94,7 @@
                         <div class="col-12 mb-2">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Profissionais de Sa&uacute;de Vinculados</h3>
+                                    <h3 class="card-title">Profissionais da Sa&uacute;de Vinculados</h3>
 
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">

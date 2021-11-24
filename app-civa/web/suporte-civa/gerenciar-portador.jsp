@@ -52,13 +52,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Gerenciar Portador</h1>
+                            <h1 class="m-0">Painel Portador CIVA</h1>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Gerenciar portador</li>
+                                <li class="breadcrumb-item active">Consultar Portador CIVA</li>
                             </ol>
                         </div>
                     </div>
@@ -75,7 +75,7 @@
                         <div class="col-12 mb-4">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados Portador</h3>
+                                    <h3 class="card-title">Dados Portador CIVA</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- Incio do form -->
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="col-12 mb-4">
-                    <button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button>
+                    <!--button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button-->
                 </div>
                 <!-- /.container-fluid -->
 
