@@ -14,7 +14,7 @@
     <div class="form-group col-xl-6">
         <label for="genero">G&ecirc;nero</label>
         <select class="form-control select2 select2-hidden-accessible" id="genero" name="genero" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="1" selected disabled>Selecionar g&ecirc;nero</option>
+            <option value="1" selected disabled>Selecionar G&ecirc;nero</option>
             <option value="2">Homem Cis</option>
             <option value="3">Mulher Cis</option>
             <option value="3">Homem Trans</option>
@@ -24,7 +24,7 @@
         </select>
     </div>
     <div class="form-group col-xl-6">
-        <label for="data-nascimento">Data de nascimento</label>
+        <label for="data-nascimento">Data de Nascimento</label>
         <input type="date" class="form-control" id="data-nascimento" name="data-nascimento" placeholder="1915-11-12">
     </div>
 </div>
@@ -40,7 +40,7 @@
     <div class="form-group col-xl-6">
         <label for="tipo-doc1">Tipo de Documento:</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1" name="tipo-doc1" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar documento</option>
+            <option value="" selected disabled>Selecionar Tipo de Documento</option>
             <option value="1">Passaporte</option>
             <option value="2">Identidade</option>
         </select>
@@ -55,9 +55,9 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc2">Tipo de Documento:</label>
+        <label for="tipo-doc2">Tipo de Documento 2:</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc2" name="tipo-doc2" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar documento</option>
+            <option value="" selected disabled>Selecionar Tipo de Documento 2</option>
             <option value="1">Passaporte</option>
             <option value="2">Identidade</option>
         </select>
@@ -72,9 +72,9 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc3">Tipo de Documento:</label>
+        <label for="tipo-doc3">Tipo de Documento 3:</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc3" name="tipo-doc3" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar documento</option>
+            <option value="" selected disabled>Selecionar Tipo de Documento 3</option>
             <option value="1">Passaporte</option>
             <option value="2">Identidade</option>
         </select>
@@ -89,9 +89,9 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc4">Tipo de Documento:</label>
+        <label for="tipo-doc4">Tipo de Documento 4:</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc4" name="tipo-doc4" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar documento</option>
+            <option value="" selected disabled>Selecionar Tipo de Documento 4</option>
             <option value="1">Passaporte</option>
             <option value="2">Identidade</option>
         </select>
@@ -106,9 +106,9 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc5">Tipo de Documento:</label>
+        <label for="tipo-doc5">Tipo de Documento 5:</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc5" name="tipo-doc5" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar documento</option>
+            <option value="" selected disabled>Selecionar Tipo de Documento 5</option>
             <option value="1">Passaporte</option>
             <option value="2">Identidade</option>
         </select>

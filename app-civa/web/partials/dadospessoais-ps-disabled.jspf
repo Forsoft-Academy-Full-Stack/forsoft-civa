@@ -48,7 +48,7 @@
 
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc-2">Tipo de Documento</label>
+        <label for="tipo-doc-2">Tipo de Documento 2</label>
         <input type="text" id="tipo-doc" name="tipo-doc" class="form-control" placeholder="Ex: Passaporte" value="${ator.documento2.nomeTipoDoc}" disabled>
 
     </div>
@@ -61,7 +61,7 @@
 
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc-3">Tipo de Documento</label>
+        <label for="tipo-doc-3">Tipo de Documento 3</label>
         <input type="text" id="tipo-doc-3" name="tipo-doc-3" class="form-control" placeholder="Ex: CPF" value="${ator.documento3.nomeTipoDoc}" disabled>
     </div>
     <div class="form-group col-xl-6">

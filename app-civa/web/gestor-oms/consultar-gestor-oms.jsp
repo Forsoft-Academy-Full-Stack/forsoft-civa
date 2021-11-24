@@ -134,9 +134,8 @@
                                             <tr>
                                                 <th>Nome</th>
                                                 <th>Identifica&ccedil;&atilde;o</th>
-                                                <th>Data</th>
-                                                <th>C&oacute;digo CIVA</th>
-                                                <th></th>
+                                                <th>Data de Nascimento</th>
+                                                <th>C&oacute;digo CIVA</th>                                             
                                             </tr>
                                         </thead>
                                         <tbody>

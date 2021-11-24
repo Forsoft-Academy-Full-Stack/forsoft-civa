@@ -94,7 +94,7 @@
                         <div class="col-12 mb-2">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Profissionais da Sa&uacute;de Vinculados</h3>
+                                    <h3 class="card-title">Profissionais de Sa&uacute;de Vinculados</h3>
 
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">
@@ -141,11 +141,11 @@
                                     <hr>
                                     <div class="row ">
                                         <div class="col d-flex justify-content-xl-start  ml-4 mb-2">
-                                            <a href="./vincular-profissional-saude.jsp" class="btn btn-success btn-xs">Vincular Profissional da Sa&uacute;de</a>
+                                            <a href="./vincular-profissional-saude.jsp" class="btn btn-success btn-xs">Vincular Profissional de Sa&uacute;de</a>
                                         </div>                                  
 
                                         <div class="col  d-flex justify-content-xl-end align-items-center ml-2 mb-2 mr-4">
-                                            <a href="./desvincular-profissional-saude.jsp" class="btn btn-danger btn-xs">Desvincular Profissional da Sa&uacute;de</a>
+                                            <a href="./desvincular-profissional-saude.jsp" class="btn btn-danger btn-xs">Desvincular Profissional de Sa&uacute;de</a>
                                         </div>
                                     </div>
                                 </div>

@@ -119,7 +119,7 @@
                                             <tr>
                                                 <th>Nome</th>
                                                 <th>Identifica&ccedil;&atilde;o</th>
-                                                <th>Data</th>
+                                                <th>Data de Nascimento</th>
                                                 <th>C&oacute;digo CIVA</th>
                                                 <th></th>
                                             </tr>

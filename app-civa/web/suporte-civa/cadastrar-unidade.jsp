@@ -96,7 +96,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-12 mb-4">
-                                    <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
+                                    <button type="button" class="btn btn-primary btn-lg" id="salvar">Cadastrar</button>
                                 </div>
                             </div>
                         </div>

@@ -2,7 +2,7 @@
 <%@ page pageEncoding="UTF-8" %>
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="name">Nome da unidade</label>
+        <label for="name">Nome da Unidade</label>
         <input type="text" class="form-control" id="name" name="name" value="${unidade.nome}" disabled>
     </div>
     <div class="form-group col-xl-6">

@@ -52,12 +52,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Vacina&ccedil;&atilde;o internacional</h1>
+                            <h1 class="m-0">Vacina&ccedil;&atilde;o Internacional</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Consultador portador</li>
+                                <li class="breadcrumb-item active">Vacina&ccedil;&atilde;o Internacional</li>
                             </ol>
                         </div>
                     </div><!-- /.row -->
@@ -109,7 +109,7 @@
                         <div class="col-12">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Hist&oacute;rico de vacinação</h3>
+                                    <h3 class="card-title">Hist&oacute;rico de Vacinação</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body table-responsive p-0">

@@ -94,7 +94,7 @@
                         <div class="col-12 mb-4">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Hist&oacute;rico de vacina&ccedil;&atilde;o</h3>
+                                    <h3 class="card-title">Hist&oacute;rico de Vacina&ccedil;&atilde;o</h3>
                                     <div class="card-tools">
                                         <div class="input-group input-group-sm" style="width: 150px;">
 

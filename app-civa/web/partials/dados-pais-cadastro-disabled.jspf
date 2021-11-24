@@ -17,11 +17,11 @@
 </div>
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="exampleFormControlInput1">&Oacute;rg&atilde;o de sa&uacute;de</label>
+        <label for="exampleFormControlInput1">&Oacute;rg&atilde;o de Sa&uacute;de</label>
         <input type="text" class="form-control" id="orgaodesaude" value="${pais.orgaoResponsavel}" placeholder="SUS" disabled>
     </div>
      <div class="form-group col-xl-6">
-        <label for="exampleFormControlSelect1">Fuso hor&aacute;rio</label>
+        <label for="exampleFormControlSelect1">Fuso Hor&aacute;rio</label>
         <input id="fuso-horario" name="fuso-horario" type="text" class="form-control" value="${pais.fusoHorario}" placeholder="UTC-3" disabled>
     </div>
 </div>

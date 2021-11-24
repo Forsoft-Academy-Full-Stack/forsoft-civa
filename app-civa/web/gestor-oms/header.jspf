@@ -52,6 +52,10 @@
     <script src="../public/dist/js/demo.js" defer></script>
     <script src="../public/assets/js/default.js" defer></script>
     <script src="../public/assets/js/gestor-oms//header-gestor-oms.js" defer></script>   
+  
     
     <!-- Adicionar/Remover Docs -->
-    <script src="../public/assets/js/setDocs.js"></script>
+    <script src="../public/assets/js/setDocs.js" defer></script>
+    
+    <!-- Funcionalidades TextArea -->
+    <script src="../public/assets/js/textarea-funcs.js" defer></script>

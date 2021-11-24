@@ -37,7 +37,7 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Mudar idioma</h1>
+                            <h1 class="m-0">Mudar Idioma</h1>
                         </div>
                         <!-- /.col -->
 
@@ -46,7 +46,7 @@
 
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
 
-                                <li class="breadcrumb-item active">Mudar idioma</li>
+                                <li class="breadcrumb-item active">Mudar Idioma</li>
                             </ol>
                         </div>
                     </div>

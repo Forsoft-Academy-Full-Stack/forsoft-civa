@@ -93,7 +93,7 @@
               
                 <div class="row">
                     <div class="col-12 mb-4 ml-2">
-                        <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
+                        <button type="button" class="btn btn-primary btn-lg" id="salvar">Cdastrar</button>
                     </div>
                 </div>
             </div>

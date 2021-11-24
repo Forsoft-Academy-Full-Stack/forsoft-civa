@@ -59,12 +59,12 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Painel vacina&ccedil;&atilde;o</h1>
+                            <h1 class="m-0">Painel Vacina&ccedil;&atilde;o</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Painel portador CIVA</li>
+                                <li class="breadcrumb-item active">Painel Vacina&ccedil;&atilde;o</li>
                             </ol>
                         </div>
                     </div><!-- /.row -->
@@ -79,7 +79,7 @@
                         <div class="col-12 mb-4">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados portador</h3>
+                                    <h3 class="card-title">Dados Portador CIVA</h3>
                                 </div>
                                 <div class="card-body">
                                     <div class="row">
@@ -94,7 +94,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
-                                            <label for="date-birth">Data de nascimento</label>
+                                            <label for="date-birth">Data de Nascimento</label>
                                             <input type="date" id="date-birth" name="date-birth"
                                                    class="form-control" value="${portadorCiva.pessoa.dataNascimento}" placeholder="00/00/0000" disabled>
                                         </div>
@@ -113,13 +113,13 @@
                         <div class="col-12 mb-4">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados vacina&ccedil;&atilde;o</h3>
+                                    <h3 class="card-title">Dados Vacina&ccedil;&atilde;o</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="form-group col-xl-12">
-                                            <label for="idvacinacao">ID vacina&ccedil;&atilde;o</label>
+                                            <label for="idvacinacao">ID Vacina&ccedil;&atilde;o</label>
                                             <input type="text" class="form-control" id="idvacinacao" name="idvacinacao" value="${vacinacao.idVacinacao}"
                                                    readonly>
                                         </div>
@@ -143,7 +143,7 @@
                                                    readonly>
                                         </div>
                                         <div class="form-group col-xl-6">
-                                            <label for="data-aplicacao">Data de aplica&ccedil;;&atilde;o</label>
+                                            <label for="data-aplicacao">Data de Aplica&ccedil;;&atilde;o</label>
                                             <input type="date" class="form-control" value="${vacinacao.dataAplicacao}" id="data-aplicacao" name="data-aplicacao"
                                                    disabled>
                                         </div>
@@ -157,17 +157,17 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
-                                            <label for="idunidade">ID unidade</label>
+                                            <label for="idunidade">ID Unidade</label>
                                             <input type="text" class="form-control" id="idunidade" name="idunidade" value="${vacinacao.idUnidade}" disabled>
                                         </div>
                                         <div class="form-group col-xl-6">
-                                            <label for="unidade">Unidade de vacina&ccedil;&atilde;o</label>
+                                            <label for="unidade">Unidade de Vacina&ccedil;&atilde;o</label>
                                             <input type="text" class="form-control" id="unidade" value="${vacinacao.unidade}" disabled>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
-                                            <label for="codigociva">C&oacute;digo CIVA profissional</label>
+                                            <label for="codigociva">C&oacute;digo CIVA Profissional</label>
                                             <input type="text" class="form-control" id="codigociva" name="codigociva" value="${profissionalSaude.codigoCiva}"
                                                    disabled>
                                         </div>

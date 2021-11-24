@@ -18,7 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gestor-nacional/relatorio.js" defer></script>
+<script src="../public/assets/js/gestor-nacional/relatorio.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -38,10 +38,18 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Relatorio</h1>
+                            <h1 class="m-0">Relat&oacute;rio</h1>
+                        </div>
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
+                                <li class="breadcrumb-item active">Relat&oacute;rio</li>
+                            </ol>
                         </div><!-- /.col --> 
-                    </div><!-- /.row -->
-                </div><!-- /.container-fluid -->
+                    </div>
+                    <!-- /.row -->
+                </div>
+                <!-- /.container-fluid -->
             </div>
             <!-- /.content-header ---------------------------------------------->
 

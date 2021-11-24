@@ -127,7 +127,7 @@
                                             <tr>
                                                 <th style="cursor: pointer;">Nome</th>
                                                 <th style="cursor: pointer;">Identifica&ccedil;&atilde;o</th>
-                                                <th style="cursor: pointer;">Data</th>
+                                                <th style="cursor: pointer;">Data de Nascimento</th>
                                                 <th style="cursor: pointer;">C&oacute;digo CIVA</th>
                                                 <th style="cursor: pointer;"></th>
                                             </tr>

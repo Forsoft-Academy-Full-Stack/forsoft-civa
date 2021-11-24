@@ -55,13 +55,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Gerenciar Vacina</h1>
+                            <h1 class="m-0">Painel Vacina</h1>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Gerenciar vacina</li>
+                                <li class="breadcrumb-item active">Painel Vacina</li>
                             </ol>
                         </div>
                     </div>
@@ -115,7 +115,7 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="name">ID vacina</label>
+                                                <label for="name">ID Vacina</label>
                                                 <input type="text" class="form-control" id="idvacina" name="idvacina" value="${vacina.idVacina}" disabled>
                                             </div>
                                             <div class="form-group col-xl-6">
@@ -139,7 +139,7 @@
                                                 <input type="text" class="form-control" id="timevacina" name="timevacina" value="${vacina.tempoEntreDoses}" disabled>
                                             </div>
                                             <div class="form-group col-xl-12">
-                                                <label for="postal-code">Tempo para refor&ccedil;o (em dias)</label>
+                                                <label for="postal-code">Tempo para Refor&ccedil;o (em dias)</label>
                                                 <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tempoReforco}" disabled>
                                             </div>
                                         </div>
@@ -155,7 +155,7 @@
                         <div class="col-12">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Hist&oacute;rico de vacinas</h3>
+                                    <h3 class="card-title">Hist&oacute;rico de Vacinas</h3>
 
 
                                 </div>
@@ -191,7 +191,7 @@
 
                     <div class="col-12 row">
                         <div class="mb-3 mt-3">
-                            <button type="submit" class="btn btn-primary btn-lg" form="formulario">Salvar</button>
+                            <!--button type="submit" class="btn btn-primary btn-lg" form="formulario">Salvar</button-->
                         </div>
                     </div>
 
