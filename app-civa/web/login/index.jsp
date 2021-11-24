@@ -64,7 +64,7 @@
                                     <!-- /.col -->
                                 </div>
                             </form>
-                            <div class="mb-3 d-flex justify-content-between">
+                            <div class="mb-3 d-flex justify-content-between my-4">
                                 <p class="mb-1">
                                     <a href="./recuperar-senha.jsp">Esqueceu sua senha?</a>
                                 </p>
@@ -76,7 +76,7 @@
                                 <a href="./validar-civa.jsp" class="btn btn-outline-primary"><i class="fas fa-qrcode mr-1"></i>VALIDAR
                                     CIVA</a>
                             </div>
-                            <div class="d-flex justify-content-center  mt-3">
+                            <div class="d-flex justify-content-center  my-3">
                                 <p>N&atilde;o tem uma conta ainda? <span class="text-danger"> <a href="./cadastro-portador.jsp"><b>Criar conta</b></span></a>
                                 </p>
                             </div>
@@ -112,7 +112,7 @@
                                 <input type="text" id="name" class="form-control" name="name">
                             </div>
                             <div class="form-group">
-                                <label for="email">E-Mail</label>
+                                <label for="email">E-mail</label>
                                 <input type="email" id="email" class="form-control" name="email">
                             </div>
                             <div class="form-group">
