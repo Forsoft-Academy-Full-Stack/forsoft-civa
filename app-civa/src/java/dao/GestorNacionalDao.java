@@ -47,64 +47,13 @@ public class GestorNacionalDao {
     }
 
     public static GestorNacional find(String codigoCivaGestorNacional) {
-        GestorNacional gestorNacional = new GestorNacional();
+       for (GestorNacional gestorNacional : GestorNacionalDao.list()) {
+            if( gestorNacional.getCodigoCiva().equals( codigoCivaGestorNacional )){
+                return gestorNacional;
+            }
+        }
 
-        Pessoa pessoa = new Pessoa();
-        pessoa.setEmail("lcsantos@gmail.com");
-        pessoa.setNacionalidade("Brasileira");
-        pessoa.setNomePessoa("Lucas");
-        pessoa.setSobrenomePessoa("Santos");
-        pessoa.setDataNascimento("1990-11-20");
-        pessoa.setDdiContato("55");
-        pessoa.setTelefoneDdd("2121332323");
-        pessoa.setGenero("homem trans");
-        gestorNacional.setCodigoCiva("BR12671812");
-
-        gestorNacional.setPessoa(pessoa);
-
-        Docs docs1 = new Docs();
-        docs1.setDocumento("1261526533");
-        docs1.setDataEmissao("1998-02-01");
-        docs1.setNomeTipoDoc("Identidade");
-
-        gestorNacional.setDocumento1(docs1);
-
-        Docs docs2 = new Docs();
-        docs2.setDocumento("365635273");
-        docs2.setDataEmissao("1997-02-03");
-        docs2.setNomeTipoDoc("Passaporte");
-
-        gestorNacional.setDocumento2(docs2);
-
-        Docs docs3 = new Docs();
-        docs3.setDocumento("125162412");
-        docs3.setDataEmissao("2000-12-03");
-        docs3.setNomeTipoDoc("Cpf");
-
-        gestorNacional.setDocumento3(docs3);
-
-        Endereco endereco = new Endereco();
-        endereco.setNomePais("Brasil");
-        endereco.setTipoLogradouro("Rua");
-        endereco.setLogradouro("Agariba");
-        endereco.setComplemento("101");
-        endereco.setNumero("88");
-        endereco.setCodigoPostal("3216216");
-        // Subdivisão 1 definida como bairro
-        endereco.setNomesubdivisao1("Engenho Novo");
-        // || || definida como munícipio
-        endereco.setNomesubdivisao2("Rio de Janeiro");
-        // || || definida como estado
-        endereco.setNomesubdivisao3("RJ");
-        endereco.setNomesubdivisao4("");
-        endereco.setNomesubdivisao5("");
-        endereco.setNomesubdivisao6("");
-        endereco.setNomesubdivisao7("");
-
-        gestorNacional.setEndereco(endereco);
-        gestorNacional.setCodigoCiva("BR8987555");
-
-        return gestorNacional;
+        return null;
 
     }
 

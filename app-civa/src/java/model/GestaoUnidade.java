@@ -8,6 +8,15 @@ public class GestaoUnidade {
     private Long idAcessoGestao;
     private Long idUnidade;
 
+    public GestaoUnidade(Long idGestaoUnidade, Long idAcessoGestao, Long idUnidade) {
+        this.idGestaoUnidade = idGestaoUnidade;
+        this.idAcessoGestao = idAcessoGestao;
+        this.idUnidade = idUnidade;
+    }
+
+    public GestaoUnidade() {
+    }        
+
     public Long getIdGestaoUnidade() {
         return idGestaoUnidade;
     }

@@ -8,6 +8,15 @@ public class VacinaPais {
     private Long idPais;
     private Long idVacina;
 
+    public VacinaPais(Long idVacinaPais, Long idPais, Long idVacina) {
+        this.idVacinaPais = idVacinaPais;
+        this.idPais = idPais;
+        this.idVacina = idVacina;
+    }  
+
+    public VacinaPais() {
+    }
+    
     public Long getIdVacinaPais() {
         return idVacinaPais;
     }

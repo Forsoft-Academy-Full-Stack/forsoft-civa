@@ -11,6 +11,19 @@ public class Gerente{
     private Docs documento2;
     private Docs documento3;
 
+    public Gerente(Pessoa pessoa, Endereco endereco, String codigoCiva, Docs documento1, Docs documento2, Docs documento3) {
+        this.pessoa = pessoa;
+        this.endereco = endereco;
+        this.codigoCiva = codigoCiva;
+        this.documento1 = documento1;
+        this.documento2 = documento2;
+        this.documento3 = documento3;
+    }
+
+    public Gerente() {
+    }
+        
+
     public Pessoa getPessoa() {
         return pessoa;
     }

@@ -9,6 +9,16 @@ public class NivelAcesso {
     private Long idAcessoGestao;
     private String nivelAcesso;
 
+    public NivelAcesso(Long idNivelacesso, Long idAcessoPc, Long idAcessoGestao, String nivelAcesso) {
+        this.idNivelacesso = idNivelacesso;
+        this.idAcessoPc = idAcessoPc;
+        this.idAcessoGestao = idAcessoGestao;
+        this.nivelAcesso = nivelAcesso;
+    }
+
+    public NivelAcesso() {
+    }        
+       
     public Long getIdNivelacesso() {
         return idNivelacesso;
     }

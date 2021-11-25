@@ -10,6 +10,17 @@ public class TipoDoc {
     private String formatoDoc;
     private String nivel;
 
+    public TipoDoc(Long idTipoDoc, Long idPais, String nomeDoc, String formatoDoc, String nivel) {
+        this.idTipoDoc = idTipoDoc;
+        this.idPais = idPais;
+        this.nomeDoc = nomeDoc;
+        this.formatoDoc = formatoDoc;
+        this.nivel = nivel;
+    }       
+
+    public TipoDoc() {
+    }
+
     public Long getIdTipoDoc() {
         return idTipoDoc;
     }

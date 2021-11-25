@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import model.Vacina;
 import model.Vacinacao;
 
@@ -24,28 +25,13 @@ public class VacinacaoDao {
     }
 
     public static Vacinacao find(Integer idVacinacao) {
-      
-        Vacinacao vacinacao = new Vacinacao();
-        
-        Vacina vacina = new Vacina();
-        vacina.setNomeVacina("Coronavac");
-        vacina.setLaboratorio("Sinovac/Butantan");
-        vacina.setNumeroDoses(3);
-        vacina.setTempoEntreDoses(28);
-        vacina.setTipoVacina("Inativada");
-        vacina.setTempoReforco(0);
-        vacina.setIdVacina(000001);
-        vacina.setLote(998);
-
-        vacinacao.setDataAplicacao("2021-04-12");
-        vacinacao.setDoseAplicada(1);
-        vacinacao.setPais("Brasil");
-        vacinacao.setUnidade("Monte carlos");
-        vacinacao.setVacina(vacina);
-        vacinacao.setIdVacinacao(122929);
-        vacinacao.setIdUnidade(123);
-
-        return vacinacao;
+      for (Vacinacao vacinacao : VacinacaoDao.list()) {
+            if( Objects.equals(vacinacao.getIdVacinacao(), idVacinacao) ){
+                return vacinacao;
+            }
+        }
+       
+        return null;
     }
 
     public static List<Vacinacao> list() {

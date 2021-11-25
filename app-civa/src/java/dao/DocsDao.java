@@ -1,6 +1,7 @@
 package dao;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import model.Docs;
 /**
  *
@@ -20,15 +21,13 @@ public class DocsDao {
     }
 
     public static Docs find(Integer idDocs) {
-        Docs docs = new Docs();
+        for ( Docs docs : DocsDao.list() ) {
+            if( Objects.equals(docs.getIdDocs(), idDocs) ){
+                return docs;
+            }
+        }
         
-        docs.setDataEmissao("");
-        docs.setDocumento("");
-        docs.setIdPessoa(1);
-        docs.setIdDocs(idDocs);
-        docs.setIdTipoDoc(2);
-        
-        return docs;
+        return null;
     }
 
     public static List<Docs> list() {

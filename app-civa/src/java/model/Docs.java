@@ -13,6 +13,21 @@ public class Docs {
     private String formatoDocumento;
     private String tipoDocumento;
 
+    public Docs(Integer idDocs, String documento, Integer idPessoa, Integer idTipoDoc, String nomeTipoDoc, String dataEmissao, String formatoDocumento, String tipoDocumento) {
+        this.idDocs = idDocs;
+        this.documento = documento;
+        this.idPessoa = idPessoa;
+        this.idTipoDoc = idTipoDoc;
+        this.nomeTipoDoc = nomeTipoDoc;
+        this.dataEmissao = dataEmissao;
+        this.formatoDocumento = formatoDocumento;
+        this.tipoDocumento = tipoDocumento;
+    }  
+
+    public Docs() {
+    }
+    
+
     public String getFormatoDocumento() {
         return formatoDocumento;
     }

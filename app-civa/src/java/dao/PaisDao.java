@@ -24,49 +24,13 @@ public class PaisDao {
     }
 
     public static Pais find(Integer idPais) {
-        //"SELECT * FROM pais ;
-        Pais pais1 = new Pais();
-        pais1.setSigla("BR");
-        pais1.setNomePais("Brasil");
-        pais1.setIdContinente(1);
-        pais1.setOrgaoResponsavel("SUS");
-        pais1.setPadraoContato("(xx) x xxxx-xxxx");
-        pais1.setNomeContinente("América do Sul");
-        pais1.setDdi(21);
-        pais1.setIdPais(1);
-        pais1.setFusoHorario("BRT Hora de Brasília UTC−3");
-        
-        Docs documento1 = new Docs();
-        documento1.setDataEmissao("19-04-1945");
-        documento1.setDocumento("99383946577");
-        documento1.setIdDocs(1);
-        documento1.setIdTipoDoc(1);
-        documento1.setNomeTipoDoc("Identidade");
-        documento1.setTipoDocumento("Civil");
-        documento1.setFormatoDocumento("XXXXXXXXXXX");
+       for (Pais pais : PaisDao.list()) {
+            if( pais.getIdPais().equals( idPais )){
+                return pais;
+            }
+        }
 
-        Docs documento2 = new Docs();
-        documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("BR123456");
-        documento2.setIdPessoa(2);
-        documento2.setIdDocs(1);
-        documento2.setIdTipoDoc(1);
-        documento2.setNomeTipoDoc("Passaporte");
-        documento2.setTipoDocumento("Civil");
-        documento2.setFormatoDocumento("XXXXXXXXXXX");
-
-        Docs documento3 = new Docs();
-        documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("987.654.564-09");
-        documento3.setNomeTipoDoc("CPF");
-        documento3.setTipoDocumento("Civil");
-        documento3.setFormatoDocumento("XXX.XXX.XXX-XX");
-        
-        pais1.setDocumento1(documento1);
-        pais1.setDocumento2(documento2);
-        pais1.setDocumento3(documento3);
-
-        return pais1;
+        return null;
     }
 
     public static List<Pais> list() {

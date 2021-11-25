@@ -25,73 +25,13 @@ public class GestorOmsDao {
     }
 
     public static GestorOms find(String codigoCivaGestorOms) {
-        GestorOms gestorOms = new GestorOms();
-        
-        Pessoa pessoa = new Pessoa();
-        pessoa.setDataNascimento("1996-04-12");
-        pessoa.setDdiContato("+55");
-        pessoa.setNomePessoa("José");
-        pessoa.setSobrenomePessoa("Carlos");
-        pessoa.setTelefoneDdd("983578300");
-        pessoa.setGenero("homem cis");
-        pessoa.setIdNacionalidade(1);
-        pessoa.setNacionalidade("Brasileira");
-        pessoa.setEmail("calosJose@gmail.com");
-        pessoa.setIdPessoa(1);
-        
-        Docs documento1 = new Docs();
-        documento1.setDataEmissao("19-04-1945");
-        documento1.setDocumento("2334567656787");
-        documento1.setNomeTipoDoc("Identidade");
-        documento1.setIdPessoa(1);
-        documento1.setIdDocs(1);
-        documento1.setIdTipoDoc(1);
-                
-        Docs documento2 = new Docs();
-        documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("BR99383946577");
-        documento2.setNomeTipoDoc("Passaporte");
-        documento2.setIdPessoa(1);
-        documento2.setIdDocs(1);
-        documento2.setIdTipoDoc(1);
-        
-        Docs documento3 = new Docs();
-        documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("76554354890");
-        documento3.setNomeTipoDoc("CPF");
-        documento3.setIdPessoa(1);
-        documento3.setIdDocs(1);
-        documento3.setIdTipoDoc(1);
-        
-        Endereco endereco = new Endereco();
-        endereco.setCodigoPostal("54678000");
-        endereco.setIdEndereco(1);
-        endereco.setIdPais(1);
-        endereco.setLogradouro("Rua José");
-        endereco.setNomePais("Brasil");
-        endereco.setNumero("8766");
-        endereco.setComplemento("Apto 1223");
-        // Bairro
-        endereco.setNomesubdivisao1("São Marcos");
-        // Municipio
-        endereco.setNomesubdivisao2("Livramento");
-        // Estado
-        endereco.setNomesubdivisao3("RJ");
-        endereco.setNomesubdivisao4("");
-        endereco.setNomesubdivisao5("");
-        endereco.setNomesubdivisao6("");
-        endereco.setNomesubdivisao7("");
-        endereco.setTipoLogradouro("Rua");
-        //"SELECT * FROM pais where nome = "+pais;
-        
-        gestorOms.setPessoa(pessoa);
-        gestorOms.setDocumento1(documento1);
-        gestorOms.setDocumento2(documento2);
-        gestorOms.setDocumento3(documento3);
-        gestorOms.setEndereco(endereco);
-        gestorOms.setCodigoCiva("BR16616616");
-        
-        return gestorOms;
+        for (GestorOms gestorOms : GestorOmsDao.list()) {
+            if( gestorOms.getCodigoCiva().equals( codigoCivaGestorOms )){
+                return gestorOms;
+            }
+        }
+
+        return null;
     }
 
         public static List<GestorOms> list() {

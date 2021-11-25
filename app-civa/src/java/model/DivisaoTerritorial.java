@@ -14,6 +14,21 @@ public class DivisaoTerritorial {
     private String tiposubdivisao6;
     private String tiposubdivisao7;
 
+    public DivisaoTerritorial(Long idLocalidade, Long idPais, String tiposubivisao1, String tiposubdivisao2, String tiposubdivisao3, String tiposubdivisao4, String tiposubdivisao5, String tiposubdivisao6, String tiposubdivisao7) {
+        this.idLocalidade = idLocalidade;
+        this.idPais = idPais;
+        this.tiposubivisao1 = tiposubivisao1;
+        this.tiposubdivisao2 = tiposubdivisao2;
+        this.tiposubdivisao3 = tiposubdivisao3;
+        this.tiposubdivisao4 = tiposubdivisao4;
+        this.tiposubdivisao5 = tiposubdivisao5;
+        this.tiposubdivisao6 = tiposubdivisao6;
+        this.tiposubdivisao7 = tiposubdivisao7;
+    }         
+
+    public DivisaoTerritorial() {
+    }        
+
     public Long getIdLocalidade() {
         return idLocalidade;
     }

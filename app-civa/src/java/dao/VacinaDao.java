@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import model.Vacina;
 
 /**
@@ -23,16 +24,13 @@ public class VacinaDao {
     }
 
     public static Vacina find(Integer idVacina) {                 
-        Vacina vacina = new Vacina();
-        vacina.setNomeVacina("Coronavac");
-        vacina.setLaboratorio("Sinovac/Butantan");
-        vacina.setNumeroDoses(3);
-        vacina.setTempoEntreDoses(28);
-        vacina.setTipoVacina("Inativada");
-        vacina.setTempoReforco(0);
-        vacina.setIdVacina(000001);     
-
-        return vacina;
+       for (Vacina vacina : VacinaDao.list()) {
+            if( Objects.equals(vacina.getIdVacina(), idVacina) ){
+                return vacina;
+            }
+        }
+       
+        return null;
     }
 
     public static List<Vacina> list() {

@@ -8,7 +8,6 @@ import model.Pessoa;
 import model.PortadorCiva;
 import model.Vacina;
 import model.Vacinacao;
-
 /**
  *
  * @author Otacilio Lima
@@ -28,95 +27,13 @@ public class PortadorCivaDao {
     }
 
     public static PortadorCiva find(String codigoCivaPortadorCiva) {
-        PortadorCiva portadorciva = new PortadorCiva();
+       for (PortadorCiva portadorCiva : PortadorCivaDao.list()) {
+            if( portadorCiva.getCodigoCiva().equals( codigoCivaPortadorCiva )){
+                return portadorCiva;
+            }
+        }
 
-        Pessoa pessoa = new Pessoa();
-        // data no formato AAAA/mm/dd
-        pessoa.setDataNascimento("1977-07-03");
-        pessoa.setDdiContato("+55");
-        pessoa.setNomePessoa("José");
-        pessoa.setSobrenomePessoa("Carlos");
-        pessoa.setTelefoneDdd("983578300");
-        pessoa.setGenero("homem cis");
-        pessoa.setIdNacionalidade(1);
-        pessoa.setIdPessoa(1);
-        pessoa.setNacionalidade("Brasileira");
-        pessoa.setEmail("jose@gmail.com");
-
-        Docs documento1 = new Docs();
-        documento1.setDataEmissao("19-04-1945");
-        documento1.setDocumento("99383946577");
-        documento1.setIdPessoa(1);
-        documento1.setIdDocs(1);
-        documento1.setIdTipoDoc(1);
-        documento1.setNomeTipoDoc("Identidade");
-
-        Docs documento2 = new Docs();
-        documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("BR123456");
-        documento2.setIdPessoa(2);
-        documento2.setIdDocs(1);
-        documento2.setIdTipoDoc(1);
-        documento2.setNomeTipoDoc("Passaporte");
-
-        Docs documento3 = new Docs();
-        documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("987.654.564-09");
-        documento3.setIdPessoa(1);
-        documento3.setIdDocs(1);
-        documento3.setIdTipoDoc(1);
-        documento3.setNomeTipoDoc("CPF");
-
-        Endereco endereco = new Endereco();
-        endereco.setCodigoPostal("54678000");
-        endereco.setIdEndereco(1);
-        endereco.setIdPais(1);
-        endereco.setNomePais("Brasil");
-        endereco.setLogradouro("Rua José");
-        // BAIRRO
-        endereco.setNomesubdivisao1("Vila Bela");
-        // Municipio
-        endereco.setNomesubdivisao2("Niterói");
-        // ESTADO
-        endereco.setNomesubdivisao3("Rio de Janeiro");
-
-        endereco.setTipoLogradouro("Rua");
-        endereco.setNumero("23");
-        endereco.setComplemento("Apto 10");
-        
-        portadorciva.setPessoa(pessoa);
-        portadorciva.setDocumento1(documento1);
-        portadorciva.setDocumento3(documento3);
-        portadorciva.setCodigoCiva("BR9878766");
-        
-        Vacinacao vacinacao = new Vacinacao();
-        
-        Vacina vacina = new Vacina();
-        vacina.setNomeVacina("Coronavac");
-        vacina.setLaboratorio("Sinovac/Butantan");
-        vacina.setNumeroDoses(3);
-        vacina.setTempoEntreDoses(28);
-        vacina.setTipoVacina("Inativada");
-        vacina.setTempoReforco(0);
-        vacina.setIdVacina(000001);
-        vacina.setLote(998);
-
-        vacinacao.setDataAplicacao("2021-04-12");
-        vacinacao.setDoseAplicada(1);
-        vacinacao.setPais("Brasil");
-        vacinacao.setUnidade("Monte carlos");
-        vacinacao.setVacina(vacina);
-        vacinacao.setIdVacinacao(12292);
-        vacinacao.setIdUnidade(123);
-        
-        portadorciva.setPessoa(pessoa);
-        portadorciva.setDocumento1(documento1);
-        portadorciva.setDocumento2(documento2);
-        portadorciva.setDocumento3(documento3);
-        portadorciva.setEndereco(endereco);
-        portadorciva.setVacinacao(vacinacao);
-
-        return portadorciva;
+        return null;
     }
 
     public static List<PortadorCiva> list() {

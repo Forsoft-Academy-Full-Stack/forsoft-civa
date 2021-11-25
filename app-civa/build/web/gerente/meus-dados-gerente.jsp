@@ -22,10 +22,9 @@
   
 %>
 <%    //Buscar Lista de supervisores
-    Gerente gerente = GerenteDao.find(pessoa.getCondigoCiva());
-
+    Gerente gerente = GerenteDao.find(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", gerente);
-%> 
+%>
 
 
 <%@include file="header.jspf"%>

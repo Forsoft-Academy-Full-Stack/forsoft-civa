@@ -26,7 +26,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    //Buscar Lista de supervisores
+<%
     String codigoCivaSupervisor = request.getParameter("codigoCiva");
     Supervisor supervisor = SupervisorDao.find(codigoCivaSupervisor);
 

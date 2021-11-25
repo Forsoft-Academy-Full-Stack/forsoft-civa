@@ -9,6 +9,16 @@ public class Login {
     private String senha;
     private String perfil;
     private String codigoCiva;
+
+    public Login(String email, String senha, String perfil, String codigoCiva) {
+        this.email = email;
+        this.senha = senha;
+        this.perfil = perfil;
+        this.codigoCiva = codigoCiva;
+    }
+
+    public Login() {
+    }        
     
     public String getCodigoCiva() {
         return codigoCiva;

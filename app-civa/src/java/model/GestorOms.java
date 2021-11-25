@@ -11,6 +11,18 @@ public class GestorOms {
     private Endereco endereco;
     private String codigoCiva;
 
+    public GestorOms(Pessoa pessoa, Docs documento1, Docs documento2, Docs documento3, Endereco endereco, String codigoCiva) {
+        this.pessoa = pessoa;
+        this.documento1 = documento1;
+        this.documento2 = documento2;
+        this.documento3 = documento3;
+        this.endereco = endereco;
+        this.codigoCiva = codigoCiva;
+    }       
+
+    public GestorOms() {
+    }
+
     public Pessoa getPessoa() {
         return pessoa;
     }

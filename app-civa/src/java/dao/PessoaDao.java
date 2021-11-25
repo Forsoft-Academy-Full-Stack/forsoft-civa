@@ -7,7 +7,6 @@ package dao;
 import model.Endereco;
 import model.Pais;
 import model.Pessoa;
-
 /**
  *
  * @author miguel.bispo

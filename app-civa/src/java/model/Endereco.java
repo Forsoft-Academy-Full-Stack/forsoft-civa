@@ -20,6 +20,27 @@ public class Endereco {
     private String nomesubdivisao7;
     private String numero;
 
+    public Endereco(Integer idEndereco, Integer idPais, String nomePais, String tipoLogradouro, String logradouro, String codigoPostal, String complemento, String nomesubdivisao1, String nomesubdivisao2, String nomesubdivisao3, String nomesubdivisao4, String nomesubdivisao5, String nomesubdivisao6, String nomesubdivisao7, String numero) {
+        this.idEndereco = idEndereco;
+        this.idPais = idPais;
+        this.nomePais = nomePais;
+        this.tipoLogradouro = tipoLogradouro;
+        this.logradouro = logradouro;
+        this.codigoPostal = codigoPostal;
+        this.complemento = complemento;
+        this.nomesubdivisao1 = nomesubdivisao1;
+        this.nomesubdivisao2 = nomesubdivisao2;
+        this.nomesubdivisao3 = nomesubdivisao3;
+        this.nomesubdivisao4 = nomesubdivisao4;
+        this.nomesubdivisao5 = nomesubdivisao5;
+        this.nomesubdivisao6 = nomesubdivisao6;
+        this.nomesubdivisao7 = nomesubdivisao7;
+        this.numero = numero;
+    }
+
+    public Endereco() {
+    }        
+       
     public String getComplemento() {
         return complemento;
     }

@@ -2,6 +2,7 @@ package dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import model.Endereco;
 import model.Pais;
 import model.Unidade;
@@ -24,101 +25,26 @@ public class UnidadeDao {
         return resultado;
     }
 
-    public static Unidade find(String registro) {
-       Unidade unidade = new Unidade();
-
-        Endereco endereco = new Endereco();
-        endereco.setIdEndereco(1);
-        endereco.setCodigoPostal("76542445");
-        // BAIRRO
-        endereco.setNomesubdivisao1("Vila são marcos");
-        // MUNICIPIO
-        endereco.setNomesubdivisao2("Rio de Janeiro");
-          // ESTADO
-        endereco.setNomesubdivisao3("Rio de Janeiro");
-        endereco.setLogradouro("Tatuí");
-        endereco.setNomePais("Brasil");
-        endereco.setNumero("5543");
-        endereco.setComplemento("Conjunto A");
+    public static Unidade find(Integer idUnidade) {
         
-        unidade.setEndereco(endereco);
+        for (Unidade unidade : UnidadeDao.list()) {
+            if( Objects.equals(unidade.getIdUnidade(), idUnidade) ){
+                return unidade;
+            }
+        }
         
-        unidade.setContato("+55 9985563445");
-        unidade.setDataCadastro("2021-01-10");
-        unidade.setIdUnidade(1);
-        unidade.setLocacao("Fixa");
-        unidade.setNatureza("Privada");
-        unidade.setNome("Bezerra da Silva");
-        unidade.setNumero(23);
-        unidade.setRegistro("07.235.197/0001-97");
-        unidade.setSituacao(Boolean.TRUE);
-        unidade.setTipoEstabelecimento("Hospital");
-
-        return unidade;
+        return null;
     }
 
     public static List<Unidade> list() {
-        List<Unidade> unidades = new ArrayList<Unidade>();
-
-        //"SELECT * FROM pais ;
-        Unidade unidade = new Unidade();
-
-        Endereco endereco = new Endereco();
-        endereco.setIdEndereco(1);
-        endereco.setCodigoPostal("76542445");
-        // BAIRRO
-        endereco.setNomesubdivisao1("Vila são marcos");
-        // MUNICIPIO
-        endereco.setNomesubdivisao2("Rio de Janeiro");
-          // ESTADO
-        endereco.setNomesubdivisao3("Rio de Janeiro");
-        
-        endereco.setLogradouro("Tatuí");
-        endereco.setNomePais("Brasil");
-        
-        unidade.setEndereco(endereco);
-        
-        unidade.setContato("+55 9985563445");
-        unidade.setDataCadastro("2021-01-10");
-        unidade.setIdUnidade(1);
-        unidade.setLocacao("Privada");
-        unidade.setNatureza("");
-        unidade.setNome("Bezerra da Silva");
-        unidade.setNumero(23);
-        unidade.setRegistro("07.235.197/0001-97");
-        unidade.setSituacao(Boolean.TRUE);
-        unidade.setTipoEstabelecimento("Hospital");
-
+        List<Unidade> unidades = new ArrayList<Unidade>();              
+       
+        Endereco endereco = new Endereco(1, 1, "Brasil", "Rua", "Tatuí", "76542445", "Apto 14", "Vila são marcos", "Niterói", "Rio de Janeiro", "", "", "", "", "23");        
+        Unidade unidade = new Unidade(1, 23, "07.235.197/0001-97", "Bezerra da Silva", "+55 9985563445", "Fixa", "Privada", "Hospital", true, "2021-01-10", endereco);
         unidades.add(unidade);
-
-        Unidade unidade2 = new Unidade();
-
-        unidade2.setContato("21 88545765");
-        unidade2.setDataCadastro("2021-04-15");
-        unidade2.setIdUnidade(1);
-        unidade2.setLocacao("Fixa");
-        unidade2.setNatureza("Pública");
-        unidade2.setNome("Alfonso Padilha");
-        unidade2.setNumero(23);
-        unidade2.setRegistro("47.408.010/0001-24");
-        unidade2.setSituacao(Boolean.TRUE);
-        unidade2.setTipoEstabelecimento("Posto");
         
-        Endereco endereco2 = new Endereco();
-        endereco2.setIdEndereco(1);
-        endereco2.setCodigoPostal("321232123");
-        // BAIRRO
-        endereco2.setNomesubdivisao1("Montes belos");
-        // MUNICIPIO
-        endereco2.setNomesubdivisao2("Terraria");
-         // ESTADO
-        endereco2.setNomesubdivisao3("Piauí");
-        
-        endereco2.setLogradouro("Serrinha");
-        endereco2.setNomePais("Brasil");
-        
-        unidade2.setEndereco(endereco2);
-
+        Endereco endereco2 = new Endereco(2, 1, "Brasil", "Rua", "Serrinha", "321232123", "Apto 14", "Montes belos", "Terraria", "Piauí", "", "", "", "", "897");        
+        Unidade unidade2 = new Unidade(2, 55, "47.408.010/0001-24", "Alfonso Padilha", "21 88545765", "Fixa", "Pública", "Posto", true, "2021-04-15", endereco2);
         unidades.add(unidade2);
 
         return unidades;

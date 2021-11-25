@@ -48,90 +48,13 @@ public class GerenteDao {
     }
 
     public static Gerente find(String codigoCivaGerente) {
-        Gerente gerente = new Gerente();
-        Pessoa pessoa = new Pessoa();
-        Endereco endereco = new Endereco();
-        Docs documento1 = new Docs();
-        Docs documento2 = new Docs();
-        Docs documento3 = new Docs();
+       for (Gerente gerente : GerenteDao.list()) {
+            if( gerente.getCodigoCiva().equals( codigoCivaGerente )){
+                return gerente;
+            }
+        }        
 
-        switch (codigoCivaGerente) {
-            case "BR879987":
-                pessoa.setNomePessoa("Antônio");
-                pessoa.setSobrenomePessoa("Henrique");
-                pessoa.setGenero("Homem Cis");
-                pessoa.setDataNascimento("1998-11-24");
-                pessoa.setDdiContato("+55");
-                pessoa.setTelefoneDdd("21 9 69179669");
-
-                endereco.setCodigoPostal("24716591");
-                endereco.setTipoLogradouro("Rua");
-                endereco.setLogradouro("Soares dos Reis");
-                endereco.setNomesubdivisao1("América do Sul");
-                endereco.setNomesubdivisao2("Brasil");
-                endereco.setNomesubdivisao3("Sudeste");
-                endereco.setNomesubdivisao4("Rio de Janeiro");
-                endereco.setNomesubdivisao5("Região Metropolitana");
-                endereco.setNomesubdivisao6("São Gonçalo");
-                endereco.setNomesubdivisao7("Jardim Catarina");
-
-                documento1.setDataEmissao("29-09-2017");
-                documento1.setDocumento("16328761759");
-
-                documento2.setDataEmissao("29-09-2018");
-                documento2.setDocumento("16328761759");
-
-                documento3.setDataEmissao("29-09-2019");
-                documento3.setDocumento("16328761759");
-
-                gerente.setPessoa(pessoa);
-                gerente.setEndereco(endereco);
-                gerente.setDocumento1(documento1);
-                gerente.setDocumento2(documento2);
-                gerente.setDocumento3(documento3);
-
-                gerente.setCodigoCiva("BR879987");
-                break;
-
-            case "BR99089877":
-
-                pessoa.setNomePessoa("Henrique");
-                pessoa.setSobrenomePessoa("Junior");
-                pessoa.setGenero("Homem Cis");
-                pessoa.setDataNascimento("1998-10-15");
-                pessoa.setDdiContato("+351");
-                pessoa.setTelefoneDdd("12 1 96696917");
-
-                endereco.setCodigoPostal("12358295");
-                endereco.setTipoLogradouro("Avenida");
-                endereco.setLogradouro("Reis dos Soares");
-                endereco.setNomesubdivisao1("Europa");
-                endereco.setNomesubdivisao2("Portugal");
-                endereco.setNomesubdivisao3("Sul");
-                endereco.setNomesubdivisao4("Algarve");
-                endereco.setNomesubdivisao5("Centro");
-                endereco.setNomesubdivisao6("Santo Gonçalves");
-                endereco.setNomesubdivisao7("Floresta Catarina");
-
-                documento1.setDataEmissao("27-09-2020");
-                documento1.setDocumento("291632826");
-
-                documento2.setDataEmissao("27-09-2021");
-                documento2.setDocumento("291632826");
-
-                documento3.setDataEmissao("27-09-2022");
-                documento3.setDocumento("291632826");
-
-                gerente.setPessoa(pessoa);
-                gerente.setEndereco(endereco);
-                gerente.setDocumento1(documento1);
-                gerente.setDocumento2(documento2);
-                gerente.setDocumento3(documento3);
-                gerente.setCodigoCiva("BR99089877");
-                break;
-        }
-
-        return gerente;
+        return null;
     }
 
     public static List<Gerente> list() {

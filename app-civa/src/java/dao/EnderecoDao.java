@@ -1,18 +1,10 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import model.Endereco;
 
-
-/**
- *
- * @author miguel.bispo
- */
 public class EnderecoDao {
 
     public static boolean insert(Endereco endereco) {
@@ -28,23 +20,13 @@ public class EnderecoDao {
     }
 
     public static Endereco find(Integer idEndereco) {
-        //"SELECT * FROM endereco where idendereco = " + idEndereco;
-        Endereco endereco = new Endereco();
-
-        endereco.setCodigoPostal("");
-        endereco.setIdEndereco(idEndereco);
-        endereco.setIdPais(1);
-        endereco.setTipoLogradouro("");
-        endereco.setLogradouro("");
-        endereco.setNomesubdivisao1("");
-        endereco.setNomesubdivisao2("");
-        endereco.setNomesubdivisao3("");
-        endereco.setNomesubdivisao4("");
-        endereco.setNomesubdivisao5("");
-        endereco.setNomesubdivisao6("");
-        endereco.setNomesubdivisao7("");
-
-        return endereco;
+        for (Endereco unidade : EnderecoDao.list()) {
+            if( Objects.equals(unidade.getIdEndereco(), idEndereco) ){
+                return unidade;
+            }
+        }
+        
+        return null;
     }
 
     public static List<Endereco> list() {

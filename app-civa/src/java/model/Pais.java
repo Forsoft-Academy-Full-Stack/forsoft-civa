@@ -15,8 +15,25 @@ public class Pais {
     private Docs documento2;
     private Docs documento3;
     private String fusoHorario;
-    
-    
+
+    public Pais(Integer idPais, Integer idContinente, String nomeContinente, Integer idCadastrante, String nomePais, String orgaoResponsavel, String padraoContato, Integer ddi, String sigla, Docs documento1, Docs documento2, Docs documento3, String fusoHorario) {
+        this.idPais = idPais;
+        this.idContinente = idContinente;
+        this.nomeContinente = nomeContinente;
+        this.idCadastrante = idCadastrante;
+        this.nomePais = nomePais;
+        this.orgaoResponsavel = orgaoResponsavel;
+        this.padraoContato = padraoContato;
+        this.ddi = ddi;
+        this.sigla = sigla;
+        this.documento1 = documento1;
+        this.documento2 = documento2;
+        this.documento3 = documento3;
+        this.fusoHorario = fusoHorario;
+    }       
+
+    public Pais() {
+    }        
 
     public String getFusoHorario() {
         return fusoHorario;

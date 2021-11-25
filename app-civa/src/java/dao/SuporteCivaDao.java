@@ -19,70 +19,13 @@ import model.Pessoa;
 public class SuporteCivaDao {
 
     public static SuporteCiva find(String codigoCivaSuporteCiva) {
-         SuporteCiva suporteCiva = new SuporteCiva();
-
-        Pessoa pessoa = new Pessoa();
-        // data no formato AAAA/mm/dd
-        pessoa.setDataNascimento("1977-07-03");
-        pessoa.setDdiContato("+55");
-        pessoa.setNomePessoa("José");
-        pessoa.setSobrenomePessoa("Carlos");
-        pessoa.setTelefoneDdd("983578300");
-        pessoa.setGenero("homem cis");
-        pessoa.setIdNacionalidade(1);
-        pessoa.setIdPessoa(1);
-        pessoa.setNacionalidade("Brasileira");
-        pessoa.setEmail("jose@gmail.com");
-
-        Docs documento1 = new Docs();
-        documento1.setDataEmissao("19-04-1945");
-        documento1.setDocumento("99383946577");
-        documento1.setIdPessoa(1);
-        documento1.setIdDocs(1);
-        documento1.setIdTipoDoc(1);
-        documento1.setNomeTipoDoc("Identidade");
-
-        Docs documento2 = new Docs();
-        documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("BR123456");
-        documento2.setIdPessoa(2);
-        documento2.setIdDocs(1);
-        documento2.setIdTipoDoc(1);
-        documento2.setNomeTipoDoc("Passaporte");
-
-        Docs documento3 = new Docs();
-        documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("987.654.564-09");
-        documento3.setIdPessoa(1);
-        documento3.setIdDocs(1);
-        documento3.setIdTipoDoc(1);
-        documento3.setNomeTipoDoc("CPF");
-
-        Endereco endereco = new Endereco();
-        endereco.setCodigoPostal("54678000");
-        endereco.setIdEndereco(1);
-        endereco.setIdPais(1);
-        endereco.setNomePais("Brasil");
-        endereco.setLogradouro("Rua José");
-        // BAIRRO
-        endereco.setNomesubdivisao1("Vila Bela");
-        // Municipio
-        endereco.setNomesubdivisao2("Niterói");
-        // ESTADO
-        endereco.setNomesubdivisao3("Rio de Janeiro");
-
-        endereco.setTipoLogradouro("Rua");
-        endereco.setNumero("23");
-        endereco.setComplemento("Apto 10");
-
-        suporteCiva.setPessoa(pessoa);
-        suporteCiva.setDocumento1(documento1);
-        suporteCiva.setDocumento2(documento2);
-        suporteCiva.setDocumento3(documento3);
-        suporteCiva.setEndereco(endereco);
-        suporteCiva.setCodigoCiva("BR98789798");
-
-        return suporteCiva;
+       for (SuporteCiva suporteCiva : SuporteCivaDao.list()) {
+            if( suporteCiva.getCodigoCiva().equals( codigoCivaSuporteCiva )){
+                return suporteCiva;
+            }
+        }
+      
+        return null;
     }
 
     public static List<SuporteCiva> list() {

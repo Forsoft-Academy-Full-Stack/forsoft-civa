@@ -20,11 +20,12 @@
         response.sendRedirect("../login/");
 
     }
-
+    
     // Caso contrário é um usuário válido, pode entrar na página
-
 %>
-<%    Supervisor supervisor = SupervisorDao.find("BR9878766");
+
+<%  
+    Supervisor supervisor = SupervisorDao.find(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", supervisor);
 %>
 

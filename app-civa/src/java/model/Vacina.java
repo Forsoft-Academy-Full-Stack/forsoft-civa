@@ -12,6 +12,20 @@ public class Vacina {
     private Integer tempoEntreDoses;
     private Integer tempoReforco;
 
+    public Vacina(Integer idVacina, String laboratorio, Integer numeroDoses, String nomeVacina, String tipoVacina, Integer tempoEntreDoses, Integer tempoReforco, Integer lote) {
+        this.idVacina = idVacina;
+        this.laboratorio = laboratorio;
+        this.numeroDoses = numeroDoses;
+        this.nomeVacina = nomeVacina;
+        this.tipoVacina = tipoVacina;
+        this.tempoEntreDoses = tempoEntreDoses;
+        this.tempoReforco = tempoReforco;
+        this.lote = lote;
+    }        
+
+    public Vacina() {
+    }
+
     public Integer getLote() {
         return lote;
     }

@@ -16,6 +16,23 @@ public class Unidade {
     private String dataCadastro;
     private Endereco endereco;
 
+    public Unidade(Integer idUnidade, Integer numero, String registro, String nome, String contato, String locacao, String natureza, String tipoEstabelecimento, Boolean situacao, String dataCadastro, Endereco endereco) {
+        this.idUnidade = idUnidade;
+        this.numero = numero;
+        this.registro = registro;
+        this.nome = nome;
+        this.contato = contato;
+        this.locacao = locacao;
+        this.natureza = natureza;
+        this.tipoEstabelecimento = tipoEstabelecimento;
+        this.situacao = situacao;
+        this.dataCadastro = dataCadastro;
+        this.endereco = endereco;
+    }       
+
+    public Unidade() {
+    }
+    
     public Endereco getEndereco() {
         return endereco;
     }

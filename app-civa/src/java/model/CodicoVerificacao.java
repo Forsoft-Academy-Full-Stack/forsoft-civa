@@ -10,6 +10,19 @@ public class CodicoVerificacao {
     private Integer codigo;
     private Boolean ativo;
 
+    public CodicoVerificacao(Long idReset, Long idAcessoPc, Long idAcessoGestao, Integer codigo, Boolean ativo) {
+        this.idReset = idReset;
+        this.idAcessoPc = idAcessoPc;
+        this.idAcessoGestao = idAcessoGestao;
+        this.codigo = codigo;
+        this.ativo = ativo;
+    }     
+
+    public CodicoVerificacao() {
+    }
+    
+    
+
     public Long getIdReset() {
         return idReset;
     }

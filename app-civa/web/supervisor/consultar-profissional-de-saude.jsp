@@ -136,7 +136,7 @@
                                                     <td><c:out value="${profissionalSaude.documento1.documento}" /></td>
                                                     <td><c:out value="${profissionalSaude.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${profissionalSaude.codigoCiva}" /></td>
-                                                    <td><a href="./painel-profissional-saude.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="./painel-profissional-saude.jsp?codigoCiva=<c:out value="${profissionalSaude.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

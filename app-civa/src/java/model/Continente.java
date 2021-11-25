@@ -7,6 +7,14 @@ public class Continente {
     private Long idContinente;
     private String nomeContinente1;
 
+    public Continente(Long idContinente, String nomeContinente1) {
+        this.idContinente = idContinente;
+        this.nomeContinente1 = nomeContinente1;
+    } 
+
+    public Continente() {
+    }        
+
     public Long getIdContinente() {
         return idContinente;
     }

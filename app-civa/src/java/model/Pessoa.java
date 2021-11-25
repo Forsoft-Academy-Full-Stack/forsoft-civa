@@ -11,14 +11,36 @@ public class Pessoa {
     private String email;
     private String telefoneDdd;
     private String genero;
-    private String condigoCiva;
+    private String codigoCiva;
 
-    public String getCondigoCiva() {
-        return condigoCiva;
+    public Pessoa(Integer idPessoa, Integer idNacionalidade,
+                  String nacionalidade, String nomePessoa,
+                  String sobrenomePessoa, String dataNascimento,
+                  String ddiContato, String email,
+                  String telefoneDdd, String genero, String codigoCiva){
+            
+        this.idPessoa = idPessoa;
+        this.idNacionalidade = idNacionalidade;
+        this.nacionalidade = nacionalidade;
+        this.nomePessoa = nomePessoa;
+        this.sobrenomePessoa = sobrenomePessoa;
+        this.dataNascimento = dataNascimento;
+        this.ddiContato = ddiContato;
+        this.email = email;
+        this.telefoneDdd = telefoneDdd;
+        this.genero = genero;
+        this.codigoCiva = codigoCiva;
     }
 
-    public void setCondigoCiva(String condigoCiva) {
-        this.condigoCiva = condigoCiva;
+    public Pessoa() {
+    }        
+    
+    public String getCodigoCiva() {
+        return codigoCiva;
+    }
+
+    public void setCodigoCiva(String codigoCiva) {
+        this.codigoCiva = codigoCiva;
     }
     
     

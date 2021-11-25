@@ -12,6 +12,19 @@ public class Vacinacao {
     private String pais;
     private Integer idVacinacao;
 
+    public Vacinacao(Vacina vacina, Integer doseAplicada, String dataAplicacao, Integer idUnidade, String unidade, String pais, Integer idVacinacao) {
+        this.vacina = vacina;
+        this.doseAplicada = doseAplicada;
+        this.dataAplicacao = dataAplicacao;
+        this.idUnidade = idUnidade;
+        this.unidade = unidade;
+        this.pais = pais;
+        this.idVacinacao = idVacinacao;
+    }  
+
+    public Vacinacao() {
+    }
+    
     public Integer getIdUnidade() {
         return idUnidade;
     }

@@ -12,6 +12,8 @@
 <%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
 <!-- Importando a library JSTL -->
 
@@ -33,8 +35,10 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
 <%    //Buscar Lista de supervisores
-    ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.find("Felipe");
+    String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
+    ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.find(codigoCivaProfissionalSaude);
 
     pageContext.setAttribute("ator", listaProfissionalSaude);
 %>  

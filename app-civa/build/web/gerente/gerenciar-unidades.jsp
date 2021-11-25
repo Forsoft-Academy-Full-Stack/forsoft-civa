@@ -24,8 +24,9 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    //Buscar Lista de supervisores
-    Unidade unidade = UnidadeDao.find("07.235.197/0001-97");
+<%
+    Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+    Unidade unidade = UnidadeDao.find(idUnidade);           
 
     pageContext.setAttribute("unidade", unidade);
     pageContext.setAttribute("ator", unidade);
