@@ -11,6 +11,17 @@ public class Pessoa {
     private String email;
     private String telefoneDdd;
     private String genero;
+    private String condigoCiva;
+
+    public String getCondigoCiva() {
+        return condigoCiva;
+    }
+
+    public void setCondigoCiva(String condigoCiva) {
+        this.condigoCiva = condigoCiva;
+    }
+    
+    
 
     public String getNacionalidade() {
         return nacionalidade;

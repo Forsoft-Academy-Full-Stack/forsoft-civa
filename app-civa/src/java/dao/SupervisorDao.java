@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
 import java.util.ArrayList;
 import java.util.List;
 import model.Docs;
 import model.Endereco;
-import model.Pais;
 import model.Pessoa;
 import model.Supervisor;
 
@@ -31,69 +25,177 @@ public class SupervisorDao {
         return resultado;
     }
 
-    public static Supervisor find(String nomeSupervisor) {
+    public static Supervisor find(String codigoCivaSupervisor) {
         Supervisor supervisor = new Supervisor();
-
         Pessoa pessoa = new Pessoa();
-        // data no formato AAAA/mm/dd
-        pessoa.setDataNascimento("1977-07-03");
-        pessoa.setDdiContato("+55");
-        pessoa.setNomePessoa("José");
-        pessoa.setSobrenomePessoa("Carlos");
-        pessoa.setTelefoneDdd("983578300");
-        pessoa.setGenero("homem cis");
-        pessoa.setIdNacionalidade(1);
-        pessoa.setIdPessoa(1);
-        pessoa.setNacionalidade("Brasileira");
-        pessoa.setEmail("jose@gmail.com");
-
         Docs documento1 = new Docs();
-        documento1.setDataEmissao("19-04-1945");
-        documento1.setDocumento("99383946577");
-        documento1.setIdPessoa(1);
-        documento1.setIdDocs(1);
-        documento1.setIdTipoDoc(1);
-        documento1.setNomeTipoDoc("Identidade");
-
         Docs documento2 = new Docs();
-        documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("BR123456");
-        documento2.setIdPessoa(2);
-        documento2.setIdDocs(1);
-        documento2.setIdTipoDoc(1);
-        documento2.setNomeTipoDoc("Passaporte");
-
         Docs documento3 = new Docs();
-        documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("987.654.564-09");
-        documento3.setIdPessoa(1);
-        documento3.setIdDocs(1);
-        documento3.setIdTipoDoc(1);
-        documento3.setNomeTipoDoc("CPF");
-
         Endereco endereco = new Endereco();
-        endereco.setCodigoPostal("54678000");
-        endereco.setIdEndereco(1);
-        endereco.setIdPais(1);
-        endereco.setNomePais("Brasil");
-        endereco.setLogradouro("Rua José");
-        // BAIRRO
-        endereco.setNomesubdivisao1("Vila Bela");
-        // Municipio
-        endereco.setNomesubdivisao2("Niterói");
-        // ESTADO
-        endereco.setNomesubdivisao3("Rio de Janeiro");
-        
-        endereco.setTipoLogradouro("Rua");
-        endereco.setNumero("23");
-        endereco.setComplemento("Apto 10");
 
-        supervisor.setPessoa(pessoa);
-        supervisor.setDocumento1(documento1);
-        supervisor.setDocumento2(documento2);
-        supervisor.setDocumento3(documento3);
-        supervisor.setEndereco(endereco);
-        supervisor.setCodigoCiva("BR672537621576");
+        switch (codigoCivaSupervisor) {
+            case "BR672537621576":
+
+                // data no formato AAAA/mm/dd
+                pessoa.setDataNascimento("1977-07-03");
+                pessoa.setDdiContato("+55");
+                pessoa.setNomePessoa("José");
+                pessoa.setSobrenomePessoa("Carlos");
+                pessoa.setTelefoneDdd("983578300");
+                pessoa.setGenero("homem cis");
+                pessoa.setIdNacionalidade(1);
+                pessoa.setIdPessoa(1);
+                pessoa.setNacionalidade("Brasileira");
+
+                documento1.setDataEmissao("1945-04-19");
+                documento1.setDocumento("99383946577");
+                documento1.setIdPessoa(1);
+                documento1.setIdDocs(1);
+                documento1.setIdTipoDoc(1);
+                documento1.setNomeTipoDoc("Identidade");
+
+                documento2.setDataEmissao("1945-01-19");
+                documento2.setDocumento("1232323");
+                documento2.setIdPessoa(2);
+                documento2.setIdDocs(1);
+                documento2.setIdTipoDoc(1);
+                documento2.setNomeTipoDoc("Identidade");
+
+                documento3.setDataEmissao("1946-07-5");
+                documento3.setDocumento("567657567567");
+                documento3.setIdPessoa(1);
+                documento3.setIdDocs(1);
+                documento3.setIdTipoDoc(1);
+                documento3.setNomeTipoDoc("Identidade");
+
+                endereco.setCodigoPostal("54678000");
+                endereco.setIdEndereco(1);
+                endereco.setIdPais(1);
+                endereco.setLogradouro("Rua José");
+                // BAIRRO
+                endereco.setNomesubdivisao1("Vila Bela");
+                // Municipio
+                endereco.setNomesubdivisao2("Niterói");
+                // ESTADO
+                endereco.setNomesubdivisao3("Rio de Janeiro");
+                endereco.setNomesubdivisao4("");
+                endereco.setNomesubdivisao5("");
+                endereco.setTipoLogradouro("Rua");
+                endereco.setNumero("23");
+                supervisor.setPessoa(pessoa);
+                supervisor.setDocumento1(documento1);
+                supervisor.setDocumento2(documento2);
+                supervisor.setDocumento3(documento3);
+                supervisor.setEndereco(endereco);
+                supervisor.setCodigoCiva("BR672537621576");
+
+                break;
+
+            case "BR999923721873":
+                // data no formato AAAA/mm/dd
+                pessoa.setDataNascimento("1996-07-11");
+                pessoa.setDdiContato("+55");
+                pessoa.setNomePessoa("Pedro");
+                pessoa.setSobrenomePessoa("Silva");
+                pessoa.setTelefoneDdd("217687655645");
+                pessoa.setGenero("homem trans");
+                pessoa.setIdNacionalidade(1);
+                pessoa.setIdPessoa(2);
+                pessoa.setNacionalidade("Brasileira");
+
+                documento1.setDataEmissao("1999-04-1");
+                documento1.setDocumento("7657328490");
+                documento1.setIdPessoa(2);
+                documento1.setIdDocs(1);
+                documento1.setIdTipoDoc(1);
+
+                documento2.setDataEmissao("2000-04-1");
+                documento2.setDocumento("99383946577");
+                documento2.setIdPessoa(2);
+                documento2.setIdDocs(1);
+                documento2.setIdTipoDoc(1);
+
+                documento3.setDataEmissao("2001-04-1");
+                documento3.setDocumento("99383946577");
+                documento3.setIdPessoa(2);
+                documento3.setIdDocs(1);
+                documento3.setIdTipoDoc(1);
+
+                endereco.setCodigoPostal("54678000");
+                endereco.setIdEndereco(1);
+                endereco.setIdPais(1);
+                endereco.setLogradouro("Rua José");
+                endereco.setLogradouro("Rua José");
+                // BAIRRO
+                endereco.setNomesubdivisao1("Vila Bela");
+                // Municipio
+                endereco.setNomesubdivisao2("Niterói");
+                // ESTADO
+                endereco.setNomesubdivisao4("Rio de Janeiro");
+                endereco.setNomesubdivisao5("");
+                endereco.setTipoLogradouro("Rua");
+                endereco.setNumero("21");
+                //"SELECT * FROM pais where nome = "+pais;
+
+                supervisor.setPessoa(pessoa);
+                supervisor.setDocumento1(documento1);
+                supervisor.setDocumento2(documento2);
+                supervisor.setDocumento3(documento3);
+                supervisor.setEndereco(endereco);
+                supervisor.setCodigoCiva("BR999923721873");
+                break;
+
+            case "BR87675645":
+                pessoa.setDataNascimento("1998-07-11");
+                pessoa.setDdiContato("+55");
+                pessoa.setNomePessoa("Maria");
+                pessoa.setSobrenomePessoa("Alcantara");
+                pessoa.setTelefoneDdd("112121212");
+                pessoa.setGenero("Mulher trans");
+                pessoa.setIdNacionalidade(1);
+                pessoa.setIdPessoa(3);
+                pessoa.setNacionalidade("Brasileira");
+
+                documento1.setDataEmissao("2000-04-1");
+                documento1.setDocumento("879879879");
+                documento1.setIdPessoa(3);
+                documento1.setIdDocs(1);
+                documento1.setIdTipoDoc(1);
+                documento2.setDataEmissao("2001-04-1");
+                documento2.setDocumento("99383946577");
+                documento2.setIdPessoa(3);
+                documento2.setIdDocs(1);
+                documento2.setIdTipoDoc(1);
+
+                documento3.setDataEmissao("2002-04-1");
+                documento3.setDocumento("4567895445");
+                documento3.setIdPessoa(3);
+                documento3.setIdDocs(1);
+                documento3.setIdTipoDoc(1);
+
+                endereco.setCodigoPostal("67437643");
+                endereco.setIdEndereco(1);
+                endereco.setIdPais(1);
+                endereco.setLogradouro("Rua C");
+                // BAIRRO
+                endereco.setNomesubdivisao1("Santa Marta");
+                // Municipio
+                endereco.setNomesubdivisao2("Lagos 2");
+                // ESTADO
+                endereco.setNomesubdivisao4("Rio Grande do Norte");
+                endereco.setNomesubdivisao5("");
+                endereco.setTipoLogradouro("Rua");
+                endereco.setNumero("245");
+
+                supervisor.setPessoa(pessoa);
+                supervisor.setDocumento1(documento1);
+                supervisor.setDocumento2(documento2);
+                supervisor.setDocumento3(documento3);
+                supervisor.setEndereco(endereco);
+                supervisor.setCodigoCiva("BR87675645");
+                break;
+
+        }
 
         return supervisor;
     }
@@ -225,7 +327,7 @@ public class SupervisorDao {
         supervisor2.setCodigoCiva("BR999923721873");
 
         supervisores.add(supervisor2);
-        
+
         // Início Supervisor 3 //
         Supervisor supervisor3 = new Supervisor();
 
@@ -285,9 +387,8 @@ public class SupervisorDao {
         supervisor3.setCodigoCiva("BR87675645");
 
         supervisores.add(supervisor3);
-        
-        
-         // Início Supervisor 4 //
+
+        // Início Supervisor 4 //
         Supervisor supervisor4 = new Supervisor();
 
         Pessoa pessoa4 = new Pessoa();
@@ -346,7 +447,7 @@ public class SupervisorDao {
         supervisor4.setCodigoCiva("BR7764545");
 
         supervisores.add(supervisor4);
-        
+
         // Início Supervisor 5 //
         Supervisor supervisor5 = new Supervisor();
 
@@ -396,7 +497,6 @@ public class SupervisorDao {
         endereco5.setNomesubdivisao5("");
         endereco5.setTipoLogradouro("Rua");
         endereco5.setNumero("568");
-    
 
         supervisor5.setPessoa(pessoa5);
         supervisor5.setDocumento1(documento15);
@@ -406,7 +506,7 @@ public class SupervisorDao {
         supervisor5.setCodigoCiva("BR48876543");
 
         supervisores.add(supervisor5);
-               
+
         // Início Supervisor 6 //
         Supervisor supervisor6 = new Supervisor();
 
@@ -456,7 +556,7 @@ public class SupervisorDao {
         endereco6.setNomesubdivisao5("");
         endereco6.setTipoLogradouro("Rua");
         endereco6.setNumero("768");
-    
+
         supervisor6.setPessoa(pessoa6);
         supervisor6.setDocumento1(documento16);
         supervisor6.setDocumento2(documento26);
@@ -465,7 +565,7 @@ public class SupervisorDao {
         supervisor6.setCodigoCiva("BR65765476");
 
         supervisores.add(supervisor6);
-                
+
         // Início Supervisor 6 //
         Supervisor supervisor7 = new Supervisor();
 
@@ -515,7 +615,7 @@ public class SupervisorDao {
         endereco7.setNomesubdivisao5("");
         endereco7.setTipoLogradouro("Rua");
         endereco7.setNumero("968");
-    
+
         supervisor7.setPessoa(pessoa7);
         supervisor7.setDocumento1(documento17);
         supervisor7.setDocumento2(documento27);
@@ -524,8 +624,8 @@ public class SupervisorDao {
         supervisor7.setCodigoCiva("BR98764543");
 
         supervisores.add(supervisor7);
-        
-         // Início Supervisor 8 //
+
+        // Início Supervisor 8 //
         Supervisor supervisor8 = new Supervisor();
 
         Pessoa pessoa8 = new Pessoa();
@@ -574,7 +674,7 @@ public class SupervisorDao {
         endereco8.setNomesubdivisao5("");
         endereco8.setTipoLogradouro("Rua");
         endereco8.setNumero("1958");
-    
+
         supervisor8.setPessoa(pessoa8);
         supervisor8.setDocumento1(documento18);
         supervisor8.setDocumento2(documento28);
@@ -583,7 +683,7 @@ public class SupervisorDao {
         supervisor8.setCodigoCiva("BR8776754");
 
         supervisores.add(supervisor8);
-        
+
         // Início Supervisor 8 //
         Supervisor supervisor9 = new Supervisor();
 
@@ -633,7 +733,7 @@ public class SupervisorDao {
         endereco9.setNomesubdivisao5("");
         endereco9.setTipoLogradouro("Rua");
         endereco9.setNumero("008");
-    
+
         supervisor9.setPessoa(pessoa9);
         supervisor9.setDocumento1(documento19);
         supervisor9.setDocumento2(documento29);
@@ -642,8 +742,8 @@ public class SupervisorDao {
         supervisor9.setCodigoCiva("BR87987");
 
         supervisores.add(supervisor9);
-        
-         // Início Supervisor 10 //
+
+        // Início Supervisor 10 //
         Supervisor supervisor10 = new Supervisor();
 
         Pessoa pessoa10 = new Pessoa();
@@ -692,7 +792,7 @@ public class SupervisorDao {
         endereco10.setNomesubdivisao5("");
         endereco10.setTipoLogradouro("Rua");
         endereco10.setNumero("768");
-    
+
         supervisor10.setPessoa(pessoa10);
         supervisor10.setDocumento1(documento110);
         supervisor10.setDocumento2(documento210);
@@ -701,8 +801,8 @@ public class SupervisorDao {
         supervisor10.setCodigoCiva("BR4434434343");
 
         supervisores.add(supervisor10);
-        
-         // Início Supervisor 8 //
+
+        // Início Supervisor 8 //
         Supervisor supervisor11 = new Supervisor();
 
         Pessoa pessoa11 = new Pessoa();
@@ -751,7 +851,7 @@ public class SupervisorDao {
         endereco11.setNomesubdivisao5("");
         endereco11.setTipoLogradouro("Rua");
         endereco11.setNumero("787");
-    
+
         supervisor11.setPessoa(pessoa11);
         supervisor11.setDocumento1(documento111);
         supervisor11.setDocumento2(documento211);
@@ -760,8 +860,7 @@ public class SupervisorDao {
         supervisor11.setCodigoCiva("BR89899988");
 
         supervisores.add(supervisor11);
-        
-                                  
+
         return supervisores;
     }
 

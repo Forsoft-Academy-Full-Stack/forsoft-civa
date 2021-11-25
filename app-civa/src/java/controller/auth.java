@@ -53,7 +53,7 @@ public class auth extends HttpServlet {
             
             if (pessoa.getNomePessoa() != null) {
                     
-                Pessoa dadosPessoa = PessoaDao.find(pessoa);
+                //Pessoa dadosPessoa = PessoaDao.find(pessoa);
                 
                 session.setAttribute("perfil", loginAcesso.getPerfil());
                 session.setAttribute("dados", pessoa);

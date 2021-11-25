@@ -27,7 +27,8 @@
 
 %>
 <%    //Buscar Lista de supervisores
-    Supervisor supervisor = SupervisorDao.find("");
+    String codigoCivaSupervisor = request.getParameter("codigoCiva");
+    Supervisor supervisor = SupervisorDao.find(codigoCivaSupervisor);
 
     pageContext.setAttribute("ator", supervisor);
 %> 

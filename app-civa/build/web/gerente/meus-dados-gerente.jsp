@@ -22,7 +22,7 @@
   
 %>
 <%    //Buscar Lista de supervisores
-    Gerente gerente = GerenteDao.find("BR98743212");
+    Gerente gerente = GerenteDao.find(pessoa.getCondigoCiva());
 
     pageContext.setAttribute("ator", gerente);
 %> 

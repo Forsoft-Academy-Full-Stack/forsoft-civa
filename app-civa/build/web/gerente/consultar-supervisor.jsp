@@ -175,7 +175,7 @@
                                                     <td><c:out value="${supervisor.codigoCiva}" /></td>
                                                     <td>
                                                         <a
-                                                            href="./gerenciar-supervisor.jsp"
+                                                            href="./gerenciar-supervisor.jsp?codigoCiva=<c:out value="${supervisor.codigoCiva}" />"
                                                             class="btn btn-block btn-primary btn-sm"
                                                             >Gerenciar</a
                                                         >

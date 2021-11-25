@@ -1,7 +1,9 @@
 package dao;
 
+import model.Gerente;
 import model.Login;
 import model.Pessoa;
+import model.Supervisor;
 
 /**
  *
@@ -11,21 +13,38 @@ public class LoginDao {
 
     public static Pessoa validar(Login login) {
         Pessoa dadosPessoa = new Pessoa();
+        Gerente gerente = new Gerente();
+    
 
         //Tratamento dos dados e configuração na sessão
         switch (login.getPerfil()) {
             case "portador-civa":
                 if (login.getEmail().equals("joaolopes@gmail.com") && login.getSenha().equals("123")) {
                     dadosPessoa.setNomePessoa("João");
-                    dadosPessoa.setSobrenomePessoa("Lopes");
+                    dadosPessoa.setSobrenomePessoa("Lopes");                
                 }
                 break;
                 
             case "gerente":
-                if (login.getCodigoCiva().equals("1") && login.getSenha().equals("1234")) {
-                    dadosPessoa.setNomePessoa("Lucia");
-                    dadosPessoa.setSobrenomePessoa("Alves");
+              
+                if (login.getCodigoCiva().equals("BR879987") && login.getSenha().equals("1234")) {
+                    gerente = GerenteDao.find( login.getCodigoCiva() );
+                    
+                    dadosPessoa.setNomePessoa(gerente.getPessoa().getNomePessoa());
+                    dadosPessoa.setSobrenomePessoa(gerente.getPessoa().getSobrenomePessoa());
+                    dadosPessoa.setCondigoCiva(gerente.getCodigoCiva());
+
                 }
+                
+                if (login.getCodigoCiva().equals("BR99089877") && login.getSenha().equals("1234")) {
+                    gerente = GerenteDao.find( login.getCodigoCiva() );
+                    
+                    dadosPessoa.setNomePessoa(gerente.getPessoa().getNomePessoa());
+                    dadosPessoa.setSobrenomePessoa(gerente.getPessoa().getSobrenomePessoa());
+                    dadosPessoa.setCondigoCiva(gerente.getCodigoCiva());
+
+                }
+                
                 break;
                 
             case "supervisor":
@@ -61,7 +80,7 @@ public class LoginDao {
                     dadosPessoa.setNomePessoa("Ruth");
                     dadosPessoa.setSobrenomePessoa("Alencar");
                 }
-                break;
+                break;               
         }
 
         return dadosPessoa;

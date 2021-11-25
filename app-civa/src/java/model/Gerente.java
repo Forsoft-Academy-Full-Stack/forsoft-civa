@@ -3,7 +3,7 @@ package model;
  *
  * @author randel
  */
-public class Gerente {
+public class Gerente{
     private Pessoa pessoa;
     private Endereco endereco;
     private String codigoCiva;
