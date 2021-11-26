@@ -21,8 +21,9 @@
 
 %>
 
-<%    //Busca unidade
-    Unidade unidade = UnidadeDao.find("");
+<%
+    Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+    Unidade unidade = UnidadeDao.find(idUnidade);
 
     pageContext.setAttribute("ator", unidade);
     pageContext.setAttribute("unidade", unidade);

@@ -145,7 +145,7 @@
                                                     <td><c:out value="${pais.nomeContinente}" /></td>
                                                     <td><c:out value="${pais.orgaoResponsavel}" /></td>
                                                     <td><c:out value="${pais.idPais}" /></td>
-                                                    <td><a href="painel-pais.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-pais.jsp?idPais=<c:out value="${pais.idPais}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                             </c:forEach> 
 

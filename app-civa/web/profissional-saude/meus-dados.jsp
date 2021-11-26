@@ -1,3 +1,5 @@
+<%@page import="dao.ProfissionalSaudeDao"%>
+<%@page import="model.ProfissionalSaude"%>
 <%@page import="dao.UnidadeDao"%>
 <%@page import="model.Unidade"%>
 <%@page import="java.util.List"%>
@@ -22,8 +24,9 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
-<%    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
-    pageContext.setAttribute("ator", portadorciva);
+<%    
+    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find(pessoa.getCodigoCiva());
+    pageContext.setAttribute("ator", profissionalSaude);
 %>
 
 <%    //Buscar Lista de supervisores

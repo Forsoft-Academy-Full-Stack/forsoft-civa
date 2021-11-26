@@ -20,7 +20,9 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
-<%    Pais pais = PaisDao.find(1);
+<%    
+    Integer idPais = Integer.parseInt(request.getParameter("idPais"));
+    Pais pais = PaisDao.find(idPais);
 
     pageContext.setAttribute("pais", pais);
 %> 

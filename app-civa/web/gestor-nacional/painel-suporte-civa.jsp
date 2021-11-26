@@ -22,7 +22,8 @@
 
 %>
 <%    
-    SuporteCiva suporteCiva = SuporteCivaDao.find("BR98789798");
+    String codigoCivaSuporteCiva = request.getParameter("codigoCiva");
+    SuporteCiva suporteCiva = SuporteCivaDao.find(codigoCivaSuporteCiva);
     pageContext.setAttribute("ator", suporteCiva);
 %>
 <%@include file="header.jspf"%>

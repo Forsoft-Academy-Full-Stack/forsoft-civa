@@ -19,8 +19,9 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%  
-    Unidade unidade = UnidadeDao.find("7896877");
+<%  Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+    Unidade unidade = UnidadeDao.find(idUnidade);
+    
     pageContext.setAttribute("ator", unidade);
     pageContext.setAttribute("unidade", unidade);
 %>

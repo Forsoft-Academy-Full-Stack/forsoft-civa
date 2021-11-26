@@ -21,7 +21,8 @@
 
 %>
 <%
-    Supervisor Supervisor = SupervisorDao.find("");
+    String codigoCivaSupervisor = request.getParameter("codigoCiva");
+    Supervisor Supervisor = SupervisorDao.find(codigoCivaSupervisor);
 
     pageContext.setAttribute("ator", Supervisor);
 %>    
@@ -83,7 +84,7 @@
                                 <!-- Incio do form -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <%@ include file="../partials/codigociva.jspf" %>
+                                     
                                         <%@ include file="../partials/codigociva.jspf" %>
 
                                         <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>

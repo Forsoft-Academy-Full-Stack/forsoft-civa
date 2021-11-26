@@ -23,8 +23,9 @@
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%    
-    Gerente gerentes = GerenteDao.find("BR65656566");
+<%  
+    String codigoCivaGerente = request.getParameter("codigoCiva");  
+    Gerente gerentes = GerenteDao.find(codigoCivaGerente);
     pageContext.setAttribute("ator", gerentes);
 %>
 

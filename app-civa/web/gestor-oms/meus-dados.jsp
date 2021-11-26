@@ -21,7 +21,7 @@
 
 %>
 <% 
-    GestorOms gestorOms = GestorOmsDao.find("BR16616616");
+    GestorOms gestorOms = GestorOmsDao.find(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("ator", gestorOms);
 %> 

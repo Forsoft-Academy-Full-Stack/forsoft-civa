@@ -22,12 +22,15 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 
-<%    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
+<%  
+    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+    
+    PortadorCiva portadorciva = PortadorCivaDao.find(codigoCivaPortadorCiva);
+    
+    portadorciva = portadorciva != null ? portadorciva : new PortadorCiva();
+    
     pageContext.setAttribute("ator", portadorciva);
-%>
-<%
-    List<Vacinacao> vacinacoes = VacinacaoDao.list();
-    pageContext.setAttribute("vacinacoes", vacinacoes);
+    pageContext.setAttribute("vacinacoes", portadorciva.getListaVacinacao());
 %>
 
 
@@ -70,9 +73,9 @@
                     <!---------------------------------------------------------------->
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <form id="vacinacao-internacional">
+                            <form action="" id="vacinacao-internacional" method="get">
                                 <div class="input-group">
-                                    <input type="search" value="${ator.codigoCiva}" class="form-control form-control-lg"
+                                    <input type="search" id="codigoCiva" name="codigoCiva" value="${ator.codigoCiva}" class="form-control form-control-lg"
                                            placeholder="Insira o codigo civa do portador">
                                     <div class="input-group-append">
                                         <button type="submit" class="btn btn-lg btn-primary">

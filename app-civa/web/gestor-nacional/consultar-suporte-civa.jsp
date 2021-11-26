@@ -150,7 +150,7 @@
                                                     <td><c:out value="${suporteCiva.documento1.documento}" /></td>
                                                     <td><c:out value="${suporteCiva.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${suporteCiva.codigoCiva}" /></td>
-                                                    <td><a href="painel-suporte-civa.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-suporte-civa.jsp?codigoCiva=<c:out value="${suporteCiva.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

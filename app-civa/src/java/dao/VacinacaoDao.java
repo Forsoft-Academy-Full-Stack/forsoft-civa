@@ -33,6 +33,16 @@ public class VacinacaoDao {
        
         return null;
     }
+    
+     public static Vacinacao find(Integer idVacinacao, List<Vacinacao> listaVacinacaoPortador) {
+      for (Vacinacao vacinacao : listaVacinacaoPortador) {
+            if( Objects.equals(vacinacao.getIdVacinacao(), idVacinacao) ){
+                return vacinacao;
+            }
+        }
+       
+        return null;
+    }
 
     public static List<Vacinacao> list() {
         List<Vacinacao> vacinacoes = new ArrayList<Vacinacao>();

@@ -26,7 +26,7 @@ public class SupervisorDao {
     }
 
     public static Supervisor find(String codigoCivaSupervisor) {
-    
+        
         for (Supervisor supervisor : SupervisorDao.list()) {
             if( supervisor.getCodigoCiva().equals( codigoCivaSupervisor )){
                 return supervisor;
@@ -49,7 +49,7 @@ public class SupervisorDao {
         //String nomeTipoDoc, String dataEmissao, String formatoDocumento, String tipoDocumento
         Docs documento1 = new Docs(1, "99383946577", 1, 1, "Identidade", "1945-04-19", "XXXXXXXXXXX", "Civil");         
         Docs documento2 = new Docs(2, "21676786876", 1, 2, "Passaporte", "1946-05-20", "XXXXXXXXXXX", "Civil");        
-        Docs documento3 = new Docs(3, "06543456478", 1, 3, "CPF", "1946-07-5", "09878765678", "Civil");     
+        Docs documento3 = new Docs(3, "06543456478", 1, 3, "CPF", "1946-07-5", "XXX.XXX.XXX-XX", "Civil");     
             
         //Integer idEndereco, Integer idPais, String nomePais, String tipoLogradouro,
         //String logradouro, String codigoPostal, String complemento, String nomesubdivisao1 (Bairro),

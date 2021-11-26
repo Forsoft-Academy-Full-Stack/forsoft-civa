@@ -131,7 +131,7 @@
                                                     <td><c:out value="${gerente.documento1.documento}" /></td>
                                                     <td><c:out value="${gerente.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${gerente.codigoCiva}" /></td>
-                                                    <td><a href="gerenciar-gerente.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="gerenciar-gerente.jsp?codigoCiva=<c:out value="${gerente.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

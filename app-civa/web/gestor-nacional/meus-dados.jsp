@@ -21,7 +21,7 @@
 
 %>
 <% 
-    GestorNacional gestorNacional = GestorNacionalDao.find("BR8987555");
+    GestorNacional gestorNacional = GestorNacionalDao.find(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", gestorNacional);
 %>
 

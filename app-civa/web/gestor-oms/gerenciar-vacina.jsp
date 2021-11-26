@@ -23,7 +23,9 @@
 
 %>
 <%    //Buscar Lista de supervisores
-    Vacina vacina = VacinaDao.find(1);
+    
+    Integer idVacina = Integer.parseInt(request.getParameter("idVacina"));
+    Vacina vacina = VacinaDao.find(idVacina);
 
     pageContext.setAttribute("vacina", vacina);
 

@@ -19,7 +19,8 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
+<%    
+    PortadorCiva portadorciva = PortadorCivaDao.find(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", portadorciva);
 %>
 

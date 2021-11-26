@@ -21,7 +21,9 @@
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%    GestorOms gestorOms = GestorOmsDao.find("BR16616616");
+<%    
+    String codigoCivaGestorOms = request.getParameter("codigoCiva");
+    GestorOms gestorOms = GestorOmsDao.find(codigoCivaGestorOms);
 
     pageContext.setAttribute("ator", gestorOms);
 %> 

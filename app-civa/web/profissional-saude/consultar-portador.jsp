@@ -129,7 +129,7 @@
                                                     <td><c:out value="${portador.documento1.documento}" /></td>
                                                     <td><c:out value="${portador.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${portador.codigoCiva}" /></td>
-                                                    <td><a href="./gerenciar-portador.jsp"
+                                                    <td><a href="./gerenciar-portador.jsp?codigoCiva=<c:out value="${portador.codigoCiva}" />"
                                                            class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                             </c:forEach>     

@@ -128,7 +128,7 @@
                                                     <td><c:out value="${supervisor.documento1.documento}" /></td>
                                                     <td><c:out value="${supervisor.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${supervisor.codigoCiva}" /></td>
-                                                    <td><a href="./gerenciar-supervisor.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="./gerenciar-supervisor.jsp?codigoCiva=<c:out value="${supervisor.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                             </c:forEach>
 

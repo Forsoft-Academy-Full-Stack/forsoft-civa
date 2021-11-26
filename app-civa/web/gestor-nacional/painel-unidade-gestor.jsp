@@ -27,7 +27,9 @@
 %>
 
 <%    
-    Unidade unidade = UnidadeDao.find("07.235.197/0001-97");
+    Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+    Unidade unidade = UnidadeDao.find(idUnidade);
+    
     pageContext.setAttribute("ator", unidade);
     pageContext.setAttribute("unidade", unidade);
 %>

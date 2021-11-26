@@ -21,8 +21,9 @@
 
 %>
 
-<%    //Buscar Lista de suporteCiva
-    GestorNacional GestorNacional = GestorNacionalDao.find("");
+<% 
+    String codigoCivaGestorNacional = request.getParameter("codigoCiva");
+    GestorNacional GestorNacional = GestorNacionalDao.find(codigoCivaGestorNacional);
 
     pageContext.setAttribute("ator", GestorNacional);
 %> 

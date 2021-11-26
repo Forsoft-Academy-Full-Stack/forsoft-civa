@@ -1,7 +1,6 @@
 package model;
 
 import java.util.List;
-
 /**
  *
  * @author randel
@@ -16,18 +15,28 @@ public class PortadorCiva {
     private List<Vacinacao> listaVacinacao;
     private String codigoCiva;
 
-    public PortadorCiva(Pessoa pessoa, Docs documento1, Docs documento2, Docs documento3, Endereco endereco, Vacinacao vacinacao, String codigoCiva) {
+    public PortadorCiva(Pessoa pessoa, Docs documento1, Docs documento2, Docs documento3, Endereco endereco, Vacinacao vacinacao, List<Vacinacao> listaVacinacao, String codigoCiva) {
         this.pessoa = pessoa;
         this.documento1 = documento1;
         this.documento2 = documento2;
         this.documento3 = documento3;
         this.endereco = endereco;
         this.vacinacao = vacinacao;
+        this.listaVacinacao = listaVacinacao;
         this.codigoCiva = codigoCiva;
-    }            
-
+    }
+    
     public PortadorCiva() {
     }
+    
+
+    public List<Vacinacao> getListaVacinacao() {
+        return listaVacinacao;
+    }
+
+    public void setListaVacinacao(List<Vacinacao> listaVacinacao) {
+        this.listaVacinacao = listaVacinacao;
+    }        
 
     public Pessoa getPessoa() {
         return pessoa;

@@ -30,70 +30,26 @@ public class SuporteCivaDao {
 
     public static List<SuporteCiva> list() {
         List<SuporteCiva> suportesCiva = new ArrayList<SuporteCiva>();
-
-        SuporteCiva suporteCiva = new SuporteCiva();
-
-        Pessoa pessoa = new Pessoa();
-        // data no formato AAAA/mm/dd
-        pessoa.setDataNascimento("1977-07-03");
-        pessoa.setDdiContato("+55");
-        pessoa.setNomePessoa("José");
-        pessoa.setSobrenomePessoa("Carlos");
-        pessoa.setTelefoneDdd("983578300");
-        pessoa.setGenero("homem cis");
-        pessoa.setIdNacionalidade(1);
-        pessoa.setIdPessoa(1);
-        pessoa.setNacionalidade("Brasileira");
-        pessoa.setEmail("jose@gmail.com");
-
-        Docs documento1 = new Docs();
-        documento1.setDataEmissao("19-04-1945");
-        documento1.setDocumento("99383946577");
-        documento1.setIdPessoa(1);
-        documento1.setIdDocs(1);
-        documento1.setIdTipoDoc(1);
-        documento1.setNomeTipoDoc("Identidade");
-
-        Docs documento2 = new Docs();
-        documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("BR123456");
-        documento2.setIdPessoa(2);
-        documento2.setIdDocs(1);
-        documento2.setIdTipoDoc(1);
-        documento2.setNomeTipoDoc("Passaporte");
-
-        Docs documento3 = new Docs();
-        documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("987.654.564-09");
-        documento3.setIdPessoa(1);
-        documento3.setIdDocs(1);
-        documento3.setIdTipoDoc(1);
-        documento3.setNomeTipoDoc("CPF");
-
-        Endereco endereco = new Endereco();
-        endereco.setCodigoPostal("54678000");
-        endereco.setIdEndereco(1);
-        endereco.setIdPais(1);
-        endereco.setNomePais("Brasil");
-        endereco.setLogradouro("Rua José");
-        // BAIRRO
-        endereco.setNomesubdivisao1("Vila Bela");
-        // Municipio
-        endereco.setNomesubdivisao2("Niterói");
-        // ESTADO
-        endereco.setNomesubdivisao3("Rio de Janeiro");
-
-        endereco.setTipoLogradouro("Rua");
-        endereco.setNumero("23");
-        endereco.setComplemento("Apto 10");
-
-        suporteCiva.setPessoa(pessoa);
-        suporteCiva.setDocumento1(documento1);
-        suporteCiva.setDocumento2(documento2);
-        suporteCiva.setDocumento3(documento3);
-        suporteCiva.setEndereco(endereco);
-        suporteCiva.setCodigoCiva("BR98789798");
-
+       
+        // Início Supervisor 1 //
+       //Integer idPessoa, Integer idNacionalidade, String nacionalidade, String nomePessoa,
+       //String sobrenomePessoa, String dataNascimento, String ddiContato,
+       //String email, String telefoneDdd, String genero, String codigoCiva
+        Pessoa pessoa = new Pessoa(1, 1, "Brasileira", "Josef", "Carl", "1977-07-03", "+55", "joséCarlos@gmail.com", "983578300", "homem cis", "BR672537621576867876");
+                
+        //Integer idDocs, String documento, Integer idPessoa, Integer idTipoDoc,
+        //String nomeTipoDoc, String dataEmissao, String formatoDocumento, String tipoDocumento
+        Docs documento1 = new Docs(1, "299383946577", 1, 1, "Identidade", "1945-04-19", "XXXXXXXXXXX", "Civil");         
+        Docs documento2 = new Docs(2, "121676786876", 1, 2, "Passaporte", "1946-05-20", "XXXXXXXXXXX", "Civil");        
+        Docs documento3 = new Docs(3, "906543456478", 1, 3, "CPF", "1946-07-5", "XXX.XXX.XXX-XX", "Civil");     
+            
+        //Integer idEndereco, Integer idPais, String nomePais, String tipoLogradouro,
+        //String logradouro, String codigoPostal, String complemento, String nomesubdivisao1 (Bairro),
+        //String nomesubdivisao2 (Municipio), String nomesubdivisao3 (Estado), String nomesubdivisao4, String nomesubdivisao5,
+        //String nomesubdivisao6, String nomesubdivisao7, String numero
+        Endereco endereco = new Endereco(1, 1, "Brasil", "Rua", "Rua José", "54678000", "Apto 14", "Vila Bela", "Niterói", "Rio de Janeiro", "", "", "", "", "23");
+   
+        SuporteCiva suporteCiva = new SuporteCiva(pessoa, documento1, documento2, documento3, endereco, pessoa.getCodigoCiva());
         suportesCiva.add(suporteCiva);
 
         SuporteCiva suporteCiva2 = new SuporteCiva();

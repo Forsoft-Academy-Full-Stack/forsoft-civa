@@ -38,168 +38,72 @@ public class PortadorCivaDao {
 
     public static List<PortadorCiva> list() {
         List<PortadorCiva> portadoresciva = new ArrayList<PortadorCiva>();
-
-        // SELECT * FROM PortadorCiva;
-        PortadorCiva portadorciva = new PortadorCiva();
-
-        Pessoa pessoa = new Pessoa();
-        // data no formato AAAA/mm/dd
-        pessoa.setDataNascimento("1977-07-03");
-        pessoa.setDdiContato("+55");
-        pessoa.setNomePessoa("José");
-        pessoa.setSobrenomePessoa("Carlos");
-        pessoa.setTelefoneDdd("983578300");
-        pessoa.setGenero("homem cis");
-        pessoa.setIdNacionalidade(1);
-        pessoa.setIdPessoa(1);
-        pessoa.setNacionalidade("Brasileira");
-        pessoa.setEmail("jose@gmail.com");
-
-        Docs documento1 = new Docs();
-        documento1.setDataEmissao("19-04-1945");
-        documento1.setDocumento("99383946577");
-        documento1.setIdPessoa(1);
-        documento1.setIdDocs(1);
-        documento1.setIdTipoDoc(1);
-        documento1.setNomeTipoDoc("Identidade");
-
-        Docs documento2 = new Docs();
-        documento2.setDataEmissao("19-04-1945");
-        documento2.setDocumento("BR123456");
-        documento2.setIdPessoa(2);
-        documento2.setIdDocs(1);
-        documento2.setIdTipoDoc(1);
-        documento2.setNomeTipoDoc("Passaporte");
-
-        Docs documento3 = new Docs();
-        documento3.setDataEmissao("19-04-1945");
-        documento3.setDocumento("987.654.564-09");
-        documento3.setIdPessoa(1);
-        documento3.setIdDocs(1);
-        documento3.setIdTipoDoc(1);
-        documento3.setNomeTipoDoc("CPF");
-
-        Endereco endereco = new Endereco();
-        endereco.setCodigoPostal("54678000");
-        endereco.setIdEndereco(1);
-        endereco.setIdPais(1);
-        endereco.setNomePais("Brasil");
-        endereco.setLogradouro("Rua José");
-        // BAIRRO
-        endereco.setNomesubdivisao1("Vila Bela");
-        // Municipio
-        endereco.setNomesubdivisao2("Niterói");
-        // ESTADO
-        endereco.setNomesubdivisao3("Rio de Janeiro");
-
-        endereco.setTipoLogradouro("Rua");
-        endereco.setNumero("23");
-        endereco.setComplemento("Apto 10");
-        portadoresciva.add(portadorciva);
-        
-        Vacinacao vacinacao = new Vacinacao();
-        
-        Vacina vacina = new Vacina();
-        vacina.setNomeVacina("Coronavac");
-        vacina.setLaboratorio("Sinovac/Butantan");
-        vacina.setNumeroDoses(3);
-        vacina.setTempoEntreDoses(28);
-        vacina.setTipoVacina("Inativada");
-        vacina.setTempoReforco(0);
-        vacina.setIdVacina(000001);
-        vacina.setLote(998);
-
-        vacinacao.setDataAplicacao("2021-04-12");
-        vacinacao.setDoseAplicada(1);
-        vacinacao.setPais("Brasil");
-        vacinacao.setUnidade("Monte carlos");
-        vacinacao.setVacina(vacina);
-        vacinacao.setIdVacinacao(12292);
-        vacinacao.setIdUnidade(123);
-        
-        portadorciva.setPessoa(pessoa);
-        portadorciva.setDocumento1(documento1);
-        portadorciva.setDocumento3(documento3);
-        portadorciva.setCodigoCiva("BR9878766");
-        portadorciva.setVacinacao(vacinacao);
-
-        PortadorCiva portadorciva2 = new PortadorCiva();
-
-        Pessoa pessoa2 = new Pessoa();
-        pessoa2.setDataNascimento("1996-07-11");
-        pessoa2.setDdiContato("+55");
-        pessoa2.setNomePessoa("Pedro");
-        pessoa2.setSobrenomePessoa("Silva");
-        pessoa2.setTelefoneDdd("217687655645");
-        pessoa2.setGenero("homem trans");
-        pessoa2.setIdNacionalidade(1);
-        pessoa2.setIdPessoa(2);
-        pessoa2.setNacionalidade("Brasileira");
-
-        Docs documento12 = new Docs();
-        documento12.setDataEmissao("1999-04-1");
-        documento12.setDocumento("7657328490");
-        documento12.setIdPessoa(2);
-        documento12.setIdDocs(1);
-        documento12.setIdTipoDoc(1);
-
-        Docs documento22 = new Docs();
-        documento22.setDataEmissao("2000-04-1");
-        documento22.setDocumento("99383946577");
-        documento22.setIdPessoa(2);
-        documento22.setIdDocs(1);
-        documento22.setIdTipoDoc(1);
-
-        Docs documento32 = new Docs();
-        documento32.setDataEmissao("2001-04-1");
-        documento32.setDocumento("99383946577");
-        documento32.setIdPessoa(2);
-        documento32.setIdDocs(1);
-        documento32.setIdTipoDoc(1);
-
-        Endereco endereco2 = new Endereco();
-        endereco2.setCodigoPostal("54678000");
-        endereco2.setIdEndereco(1);
-        endereco2.setIdPais(1);
-        endereco2.setLogradouro("Rua José");
-        endereco2.setLogradouro("Rua José");
-        // BAIRRO
-        endereco2.setNomesubdivisao1("Vila Bela");
-        // Municipio
-        endereco2.setNomesubdivisao2("Niterói");
-        // ESTADO
-        endereco2.setNomesubdivisao4("Rio de Janeiro");
-        endereco2.setNomesubdivisao5("");
-        endereco2.setTipoLogradouro("Rua");
-        endereco2.setNumero("21");
-        
-        Vacinacao vacinacao2 = new Vacinacao();
-        
-        Vacina vacina2 = new Vacina();
-        vacina2.setNomeVacina("Coronavac");
-        vacina2.setLaboratorio("Sinovac/Butantan");
-        vacina2.setNumeroDoses(3);
-        vacina2.setTempoEntreDoses(28);
-        vacina2.setTipoVacina("Inativada");
-        vacina2.setTempoReforco(0);
-        vacina2.setIdVacina(000001);
-        vacina2.setLote(1008);
-        
-        vacinacao2.setDataAplicacao("2021-06-14");
-        vacinacao2.setDoseAplicada(2);
        
-        vacinacao2.setPais("Brasil");
-        vacinacao2.setUnidade("Monte Carlos");
-        vacinacao2.setVacina(vacina2);
-        vacinacao2.setIdVacinacao(12339);
-        vacinacao2.setIdUnidade(153);
+       //Integer idPessoa, Integer idNacionalidade, String nacionalidade, String nomePessoa,
+       //String sobrenomePessoa, String dataNascimento, String ddiContato,
+       //String email, String telefoneDdd, String genero, String codigoCiva
+        Pessoa pessoa = new Pessoa(1, 1, "Brasileira", "Fernado", "Mendes", "1978-07-03", "+55", "fernando@gmail.com", "983578300", "homem cis", "BR9878766");
         
-        portadorciva2.setPessoa(pessoa2);
-        portadorciva2.setDocumento1(documento12);
-        portadorciva2.setDocumento3(documento32);
-        portadorciva2.setCodigoCiva("BR28782282");
-        portadorciva2.setVacinacao(vacinacao2);
+        //Integer idDocs, String documento, Integer idPessoa, Integer idTipoDoc,
+        //String nomeTipoDoc, String dataEmissao, String formatoDocumento, String tipoDocumento
+        Docs documento1 = new Docs(1, "993839465878", 1, 1, "Identidade", "1947-04-19", "XXXXXXXXXXX", "Civil");         
+        Docs documento2 = new Docs(2, "21676790890", 1, 2, "Passaporte", "1948-05-20", "XXXXXXXXXXX", "Civil");        
+        Docs documento3 = new Docs(3, "096543456478", 1, 3, "CPF", "1956-07-5", "XXXXXXXXXXX", "Civil");
 
+        //Integer idEndereco, Integer idPais, String nomePais, String tipoLogradouro,
+        //String logradouro, String codigoPostal, String complemento, String nomesubdivisao1 (Bairro),
+        //String nomesubdivisao2 (Municipio), String nomesubdivisao3 (Estado), String nomesubdivisao4, String nomesubdivisao5,
+        //String nomesubdivisao6, String nomesubdivisao7, String numero
+        Endereco endereco = new Endereco(1, 1, "Brasil", "Rua", "Rua José", "54678000", "Apto 14", "Vila Bela", "Niterói", "Rio de Janeiro", "", "", "", "", "23");
+        
+        List<Vacinacao> listaVacinacao = new ArrayList<Vacinacao>();
+        
+        // Integer idVacina, String laboratorio, Integer numeroDoses, String nomeVacina, String tipoVacina, Integer tempoEntreDoses, Integer tempoReforco, Integer lote
+        Vacina vacina = new Vacina(1, "Sinovac/Butantan", 3, "Coronavac", "Inativada", 28, 0, 998);        
+
+        // Vacina vacina, Integer doseAplicada, String dataAplicacao, Integer idUnidade, String unidade, String pais, Integer idVacinacao
+        Vacinacao vacinacao1 = new Vacinacao(vacina, 1, "2021-04-12", 1, "Monte carlos 2", "Brasil", 100);
+        Vacinacao vacinacao2 = new Vacinacao(vacina, 2, "2021-06-12", 1, "Monte carlos 2", "Brasil", 101);
+        
+        listaVacinacao.add(vacinacao1);
+        listaVacinacao.add(vacinacao2);
+        
+        PortadorCiva portadorciva = new PortadorCiva(pessoa, documento1, documento2, documento3, endereco, vacinacao1, listaVacinacao, pessoa.getCodigoCiva());
+        portadoresciva.add(portadorciva);            
+ 
+
+        //Integer idPessoa, Integer idNacionalidade, String nacionalidade, String nomePessoa,
+       //String sobrenomePessoa, String dataNascimento, String ddiContato,
+       //String email, String telefoneDdd, String genero, String codigoCiva
+        Pessoa pessoa2 = new Pessoa(2, 1, "Brasileira", "Alberto", "Silva", "1978-07-03", "+55", "alberto@gmail.com", "983578300", "homem cis", "BR987879998");
+        
+        //Integer idDocs, String documento, Integer idPessoa, Integer idTipoDoc,
+        //String nomeTipoDoc, String dataEmissao, String formatoDocumento, String tipoDocumento
+        Docs documento12 = new Docs(1, "993839465878", 2, 1, "Identidade", "1947-04-19", "XXXXXXXXXXX", "Civil");         
+        Docs documento22 = new Docs(2, "21676790890", 2, 2, "Passaporte", "1948-05-20", "XXXXXXXXXXX", "Civil");        
+        Docs documento32 = new Docs(3, "096543456478", 2, 3, "CPF", "1956-07-5", "XXXXXXXXXXX", "Civil");
+
+        //Integer idEndereco, Integer idPais, String nomePais, String tipoLogradouro,
+        //String logradouro, String codigoPostal, String complemento, String nomesubdivisao1 (Bairro),
+        //String nomesubdivisao2 (Municipio), String nomesubdivisao3 (Estado), String nomesubdivisao4, String nomesubdivisao5,
+        //String nomesubdivisao6, String nomesubdivisao7, String numero
+        Endereco endereco2 = new Endereco(1, 1, "Brasil", "Rua", "Rua José", "54678000", "Apto 14", "Vila Bela", "Niterói", "Rio de Janeiro", "", "", "", "", "23");
+        
+        List<Vacinacao> listaVacinacao2 = new ArrayList<Vacinacao>();
+        
+        // Integer idVacina, String laboratorio, Integer numeroDoses, String nomeVacina, String tipoVacina, Integer tempoEntreDoses, Integer tempoReforco, Integer lote
+        Vacina vacina2 = new Vacina(1, "Sinovac/Butantan", 3, "Coronavac", "Inativada", 28, 0, 1233);        
+
+        // Vacina vacina, Integer doseAplicada, String dataAplicacao, Integer idUnidade, String unidade, String pais, Integer idVacinacao
+        Vacinacao vacinacao12 = new Vacinacao(vacina2, 1, "2021-04-16", 2, "Hospital Pan", "Brasil", 102);
+        Vacinacao vacinacao22 = new Vacinacao(vacina2, 2, "2021-06-21", 2, "Hospital Pan", "Brasil", 103);
+        Vacinacao vacinacao23 = new Vacinacao(vacina2, 3, "2021-08-14", 2, "Hospital Pan", "Brasil", 104);
+        
+        listaVacinacao2.add(vacinacao12);
+        listaVacinacao2.add(vacinacao22);
+        listaVacinacao2.add(vacinacao23);
+        
+        PortadorCiva portadorciva2 = new PortadorCiva(pessoa2, documento12, documento22, documento32, endereco2, vacinacao2, listaVacinacao2, pessoa2.getCodigoCiva());
         portadoresciva.add(portadorciva2);
 
         return portadoresciva;

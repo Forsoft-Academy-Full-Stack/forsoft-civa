@@ -25,15 +25,18 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 
-<%    
-    PortadorCiva portadorCiva = PortadorCivaDao.find("BR9908098");
-    pageContext.setAttribute("portadorCiva", portadorCiva);
-%> 
+<%  
+    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+    PortadorCiva portadorCiva = PortadorCivaDao.find(codigoCivaPortadorCiva);
 
-<%    
-    Vacinacao vacinacao = VacinacaoDao.find(1);
+    Integer idVacinacao = Integer.parseInt(request.getParameter("idVacinacao"));
+    Vacinacao vacinacao = VacinacaoDao.find(idVacinacao, portadorCiva.getListaVacinacao());
+    
+    pageContext.setAttribute("portadorCiva", portadorCiva);
     pageContext.setAttribute("vacinacao", vacinacao);
-%>
+    
+
+%> 
 
 <%    
     ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find("BR879878");
@@ -168,7 +171,7 @@
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="codigociva">C&oacute;digo CIVA Profissional</label>
-                                            <input type="text" class="form-control" id="codigociva" name="codigociva" value="${profissionalSaude.codigoCiva}"
+                                            <input type="text" class="form-control" id="codigociva" name="codigociva" value="${portadorCiva.codigoCiva}"
                                                    disabled>
                                         </div>
                                         <div class="form-group col-xl-6">

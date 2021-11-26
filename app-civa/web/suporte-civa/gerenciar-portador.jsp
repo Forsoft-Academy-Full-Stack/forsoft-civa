@@ -20,7 +20,8 @@
 
 %>
 <%
-    PortadorCiva PortadorCiva = PortadorCivaDao.find("");
+    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+    PortadorCiva PortadorCiva = PortadorCivaDao.find(codigoCivaPortadorCiva);
 
     pageContext.setAttribute("ator", PortadorCiva);
 %>  

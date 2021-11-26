@@ -24,9 +24,9 @@
 
 %>
 <%
-    List<PortadorCiva> listaPortadoresCiva = PortadorCivaDao.list();
+    PortadorCiva portadorCiva = PortadorCivaDao.find(pessoa.getCodigoCiva());
     
-    pageContext.setAttribute("portadorresCiva", listaPortadoresCiva);
+    pageContext.setAttribute("portadorCiva", portadorCiva);
 %>
   
 
@@ -72,7 +72,7 @@
 
                         <div class="card-body">
                             
-                            <c:forEach items="${portadorresCiva}" var="portadorCiva">
+                            <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
 
                                 <div class="row mb-4">
                                     <table class="col-sm-10 table text-nowrap">
@@ -86,9 +86,9 @@
                                         <tbody>
 
                                             <tr>
-                                                <td><c:out value="${portadorCiva.vacinacao.vacina.nomeVacina}"/></td>
-                                                <td><c:out value="${portadorCiva.vacinacao.vacina.laboratorio}" /></td>
-                                                <td><c:out value="${portadorCiva.vacinacao.doseAplicada}" /></td>
+                                                <td><c:out value="${vacinacao.vacina.nomeVacina}"/></td>
+                                                <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>
+                                                <td><c:out value="${vacinacao.doseAplicada}" /></td>
                                             </tr>
 
                                         </tbody>
@@ -102,9 +102,9 @@
                                         <tbody>
 
                                             <tr>
-                                                <td><c:out value="${portadorCiva.vacinacao.dataAplicacao}" /></td>
-                                                <td><c:out value="${portadorCiva.vacinacao.unidade}" /></td>
-                                                <td><c:out value="${portadorCiva.vacinacao.pais}" /></td>
+                                                <td><c:out value="${vacinacao.dataAplicacao}" /></td>
+                                                <td><c:out value="${vacinacao.unidade}" /></td>
+                                                <td><c:out value="${vacinacao.pais}" /></td>
                                             </tr>
 
                                         </tbody>

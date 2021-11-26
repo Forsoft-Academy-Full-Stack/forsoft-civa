@@ -25,13 +25,12 @@
 %>
 
 <%    
-    PortadorCiva portadorciva = PortadorCivaDao.find("BR9878766");
-    pageContext.setAttribute("ator", portadorciva);
+    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+    PortadorCiva portadorCiva = PortadorCivaDao.find(codigoCivaPortadorCiva);
+    
+    pageContext.setAttribute("ator", portadorCiva);
+    pageContext.setAttribute("portadorCiva", portadorCiva);
 %>
-<%
-    List<Vacinacao> vacinacoes = VacinacaoDao.list();
-    pageContext.setAttribute("vacinacoes", vacinacoes);
-%>  
 
 
 <%@include file="header.jspf"%>
@@ -118,14 +117,18 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${vacinacoes}" var="vacinacao">
+                                            
+                                            <c:set var="codigoCivaPortadorCiva" value="${portadorCiva.codigoCiva}"/>
+                                            
+                                            <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
+                                                
                                                 <tr>
                                                     <td><c:out value="${vacinacao.vacina.nomeVacina}" /></td>
                                                     <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>
                                                     <td><c:out value="${vacinacao.doseAplicada}" /></td>
                                                     <td><c:out value="${vacinacao.pais}" /></td>
                                                     <td><c:out value="${vacinacao.dataAplicacao}" /></td>
-                                                    <td><a href="./painel-vacinacao.jsp"
+                                                    <td><a href="./painel-vacinacao.jsp?codigoCiva=<c:out value="${codigoCivaPortadorCiva}"/>&idVacinacao=<c:out value="${vacinacao.idVacinacao}"/>"
                                                            class="btn btn-block btn-primary btn-sm">Ver mais</a>
                                                     </td>
                                                 </tr>

@@ -125,13 +125,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${gestoresNacionais}" var="ator">
+                                            <c:forEach items="${gestoresNacionais}" var="gestorNacional">
                                                 <tr>
-                                                    <td><c:out value="${ator.pessoa.nomePessoa} ${ator.pessoa.sobrenomePessoa}" /></td>
-                                                    <td><c:out value="${ator.documento1.documento}" /></td>
-                                                    <td><c:out value="${ator.pessoa.dataNascimento}" /></td>
-                                                    <td><c:out value="${ator.codigoCiva}" /></td>
-                                                    <td><a href="./gerenciar-gestor-nacional.jsp" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><c:out value="${gestorNacional.pessoa.nomePessoa} ${gestorNacional.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${gestorNacional.documento1.documento}" /></td>
+                                                    <td><c:out value="${gestorNacional.pessoa.dataNascimento}" /></td>
+                                                    <td><c:out value="${gestorNacional.codigoCiva}" /></td>
+                                                    <td><a href="./gerenciar-gestor-nacional.jsp?codigoCiva=<c:out value="${gestorNacional.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
                                                 </tr>
                                             </c:forEach>                                           
                                         </tbody>

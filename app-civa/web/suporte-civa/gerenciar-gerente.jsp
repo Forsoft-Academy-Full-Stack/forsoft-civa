@@ -25,8 +25,9 @@
 %>
 
 <%    
-    Gerente gerentes = GerenteDao.find("BR65656566");
-    pageContext.setAttribute("ator", gerentes);
+    String codigoCivaGerente = request.getParameter("codigoCiva");
+    Gerente gerente = GerenteDao.find(codigoCivaGerente);
+    pageContext.setAttribute("ator", gerente);
 %>
 
 <%

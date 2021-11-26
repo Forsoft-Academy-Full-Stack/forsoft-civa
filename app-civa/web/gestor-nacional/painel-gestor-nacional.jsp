@@ -22,7 +22,9 @@
 %>
 
 <%
-    GestorNacional gestorNacional = GestorNacionalDao.find("BR6563547");
+    
+    String codigoCivaGestorNacional = request.getParameter("codigoCiva");
+    GestorNacional gestorNacional = GestorNacionalDao.find(codigoCivaGestorNacional);
 
     pageContext.setAttribute("ator", gestorNacional);
 %>
