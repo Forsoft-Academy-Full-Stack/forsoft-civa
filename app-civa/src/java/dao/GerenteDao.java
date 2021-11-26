@@ -131,7 +131,7 @@ public class GerenteDao {
         Gerente gerente5 = new Gerente(pessoa5, endereco5, pessoa5.getCodigoCiva(), documento15, documento25, documento35);       
         gerentes.add(gerente5);
 
-        // Início Gerente 8 //   
+        // Início Gerente 6 //   
         Pessoa pessoa6 = new Pessoa(26, 1, "Brasileira", "Katarina", "Martine", "1999-03-10", "+55", "katarinamartine@gmail.com", "985895585", "mulher trans", "BR998555655");      
      
         Docs documento16 = new Docs(35, "9875522005", 6, 1, "Identidade", "2000-07-10", "XXXXXXXXXXX", "Civil");  

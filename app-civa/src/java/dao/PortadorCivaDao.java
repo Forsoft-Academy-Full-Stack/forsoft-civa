@@ -54,7 +54,7 @@ public class PortadorCivaDao {
         //String logradouro, String codigoPostal, String complemento, String nomesubdivisao1 (Bairro),
         //String nomesubdivisao2 (Municipio), String nomesubdivisao3 (Estado), String nomesubdivisao4, String nomesubdivisao5,
         //String nomesubdivisao6, String nomesubdivisao7, String numero
-        Endereco endereco = new Endereco(1, 1, "Brasil", "Rua", "Rua José", "54678000", "Apto 14", "Vila Bela", "Niterói", "Rio de Janeiro", "", "", "", "", "23");
+        Endereco endereco = new Endereco(1, 1, "Brasil", "Rua", "Tatuí", "76542445", "Apto 14", "Vila são marcos", "Niterói", "Rio de Janeiro", "", "", "", "", "23");        
         
         List<Vacinacao> listaVacinacao = new ArrayList<Vacinacao>();
         
@@ -63,7 +63,10 @@ public class PortadorCivaDao {
 
         // Vacina vacina, Integer doseAplicada, String dataAplicacao, Integer idUnidade, String unidade, String pais, Integer idVacinacao
         Vacinacao vacinacao1 = new Vacinacao(vacina, 1, "2021-04-12", 1, "Monte carlos 2", "Brasil", 100);
-        Vacinacao vacinacao2 = new Vacinacao(vacina, 2, "2021-06-12", 1, "Monte carlos 2", "Brasil", 101);
+        vacinacao1.setCodigoCivaCadastrante("BR4434434343");
+        
+        Vacinacao vacinacao2 = new Vacinacao(vacina, 2, "2021-06-12", 1, "Monte carlos 2", "Brasil", 101);    
+        vacinacao2.setCodigoCivaCadastrante("BR89899988");
         
         listaVacinacao.add(vacinacao1);
         listaVacinacao.add(vacinacao2);
@@ -87,7 +90,7 @@ public class PortadorCivaDao {
         //String logradouro, String codigoPostal, String complemento, String nomesubdivisao1 (Bairro),
         //String nomesubdivisao2 (Municipio), String nomesubdivisao3 (Estado), String nomesubdivisao4, String nomesubdivisao5,
         //String nomesubdivisao6, String nomesubdivisao7, String numero
-        Endereco endereco2 = new Endereco(1, 1, "Brasil", "Rua", "Rua José", "54678000", "Apto 14", "Vila Bela", "Niterói", "Rio de Janeiro", "", "", "", "", "23");
+        Endereco endereco2 = new Endereco(2, 1, "Brasil", "Rua", "Serrinha", "321232123", "Apto 14", "Montes belos", "Terraria", "Piauí", "", "", "", "", "897");        
         
         List<Vacinacao> listaVacinacao2 = new ArrayList<Vacinacao>();
         
@@ -96,8 +99,11 @@ public class PortadorCivaDao {
 
         // Vacina vacina, Integer doseAplicada, String dataAplicacao, Integer idUnidade, String unidade, String pais, Integer idVacinacao
         Vacinacao vacinacao12 = new Vacinacao(vacina2, 1, "2021-04-16", 2, "Hospital Pan", "Brasil", 102);
+        vacinacao12.setCodigoCivaCadastrante("BR4434434343");
         Vacinacao vacinacao22 = new Vacinacao(vacina2, 2, "2021-06-21", 2, "Hospital Pan", "Brasil", 103);
+        vacinacao22.setCodigoCivaCadastrante("BR89899988");
         Vacinacao vacinacao23 = new Vacinacao(vacina2, 3, "2021-08-14", 2, "Hospital Pan", "Brasil", 104);
+        vacinacao23.setCodigoCivaCadastrante("BR4434434343");
         
         listaVacinacao2.add(vacinacao12);
         listaVacinacao2.add(vacinacao22);

@@ -1,9 +1,11 @@
 package model;
+
 /**
  *
  * @author randel
  */
 public class Vacinacao {
+
     private Vacina vacina;
     private Integer doseAplicada;
     private String dataAplicacao;
@@ -11,6 +13,7 @@ public class Vacinacao {
     private String unidade;
     private String pais;
     private Integer idVacinacao;
+    private String codigoCivaCadastrante;
 
     public Vacinacao(Vacina vacina, Integer doseAplicada, String dataAplicacao, Integer idUnidade, String unidade, String pais, Integer idVacinacao) {
         this.vacina = vacina;
@@ -20,19 +23,27 @@ public class Vacinacao {
         this.unidade = unidade;
         this.pais = pais;
         this.idVacinacao = idVacinacao;
-    }  
+    }
 
     public Vacinacao() {
     }
-    
+
+    public String getCodigoCivaCadastrante() {
+        return codigoCivaCadastrante;
+    }
+
+    public void setCodigoCivaCadastrante(String codigoCivaCadastrante) {
+        this.codigoCivaCadastrante = codigoCivaCadastrante;
+    }
+
     public Integer getIdUnidade() {
         return idUnidade;
     }
 
     public void setIdUnidade(Integer idUnidade) {
         this.idUnidade = idUnidade;
-    }    
-    
+    }
+
     public Integer getIdVacinacao() {
         return idVacinacao;
     }
@@ -40,8 +51,6 @@ public class Vacinacao {
     public void setIdVacinacao(Integer idVacinacao) {
         this.idVacinacao = idVacinacao;
     }
-    
-    
 
     public Integer getDoseAplicada() {
         return doseAplicada;
@@ -82,5 +91,5 @@ public class Vacinacao {
     public void setPais(String pais) {
         this.pais = pais;
     }
-    
+
 }

@@ -37,8 +37,8 @@ public class UnidadeDao {
     }
 
     public static List<Unidade> list() {
-        List<Unidade> unidades = new ArrayList<Unidade>();              
-       
+        List<Unidade> unidades = new ArrayList<Unidade>();                        
+        
         Endereco endereco = new Endereco(1, 1, "Brasil", "Rua", "Tatuí", "76542445", "Apto 14", "Vila são marcos", "Niterói", "Rio de Janeiro", "", "", "", "", "23");        
         Unidade unidade = new Unidade(1, 23, "07.235.197/0001-97", "Bezerra da Silva", "+55 9985563445", "Fixa", "Privada", "Hospital", true, "2021-01-10", endereco);
         unidades.add(unidade);
@@ -46,6 +46,8 @@ public class UnidadeDao {
         Endereco endereco2 = new Endereco(2, 1, "Brasil", "Rua", "Serrinha", "321232123", "Apto 14", "Montes belos", "Terraria", "Piauí", "", "", "", "", "897");        
         Unidade unidade2 = new Unidade(2, 55, "47.408.010/0001-24", "Alfonso Padilha", "21 88545765", "Fixa", "Pública", "Posto", true, "2021-04-15", endereco2);
         unidades.add(unidade2);
+        
+        
 
         return unidades;
     }

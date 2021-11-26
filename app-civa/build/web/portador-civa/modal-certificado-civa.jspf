@@ -1,4 +1,5 @@
 <%-- any content can be specified here e.g.: --%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page pageEncoding="UTF-8" %>
 <div class="modal fade show " id="modal-default" style="display: none; padding-right: 17px;" aria-modal="true">
     <div class="modal-dialog ">
@@ -13,61 +14,60 @@
                 <div class="form-group">
                     <label for="certificado-nome">Nome</label>
                     <input type="text" class="form-control form-control-sm" id="certificado-nome"
-                           value="João Lopes" disabled>
+                           value="${portadorCiva.pessoa.nomePessoa}" disabled>
                 </div>
                 <div class="row">
                     <div class="form-group col mb-3">
                         <label for="certificado-civa-id">Código CIVA</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-civa-id" value="BR55123456789"
+                        <input type="text" class="form-control form-control-sm" id="certificado-civa-id" value="${portadorCiva.codigoCiva}"
                                disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col mb-3">
                         <label for="certificado-identidade">Identidade</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-identidade" value="123.456.789-09"
+                        <input type="text" class="form-control form-control-sm" id="certificado-identidade" value="${portadorCiva.documento1.documento}"
                                disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col mb-3">
                         <label for="certificado-vacina">Vacina</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-vacina" value="Coronavac"
+                        <input type="text" class="form-control form-control-sm" id="certificado-vacina" value="${portadorCiva.listaVacinacao[0].vacina.nomeVacina}"
                                disabled>
                     </div>
                     <div class="form-group col mb-3">
                         <label for="certificado-dose">Doses</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-dose" value="2" disabled>
+                        <input type="text" class="form-control form-control-sm" id="certificado-dose" value="${portadorCiva.listaVacinacao[0].vacina.numeroDoses}" disabled>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="form-group col mb-3">
-                        <label for="certificado-data-aplicacao">Data de aplicação dose 1</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-data-aplicacao" value="08/03/2021"
-                               disabled>
+                </div>   
+                <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
+                    <div class="row">
+
+                        <div class="form-group col-12 mb-3">
+                            <label for="certificado-data-aplicacao">Data de aplicação dose <c:out value="${vacinacao.doseAplicada}"/></label>
+                            <input type="date" class="form-control form-control-sm" id="certificado-data-aplicacao" value="${vacinacao.dataAplicacao}"
+                                   disabled>
+                        </div>                              
                     </div>
-                    <div class="form-group col mb-3">
-                        <label for="certificado-data-aplicacao">Data de aplicação dose 2</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-data-aplicacao" value="20/05/2021"
-                               disabled>
-                    </div>
-                </div>
+
+                </c:forEach>
                 <div class="row">
                     <div class="form-group col mb-3">
                         <label for="certificado-unidade">Unidade</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-unidade" value="Hospital Santa Casa"
+                        <input type="text" class="form-control form-control-sm" id="certificado-unidade" value="${unidade.nome}"
                                disabled>
                     </div>
                     <div class="form-group col mb-3">
                         <label for="certificado-cep">CEP</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-cep" value="20715-310"
+                        <input type="text" class="form-control form-control-sm" id="certificado-cep" value="${unidade.endereco.codigoPostal}"
                                disabled>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col mb-3">
                         <label for="certificado-vacinador">Nome do vacinador</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-vacinador" value="Geraldo Antônio da Silva"
+                        <input type="text" class="form-control form-control-sm" id="certificado-vacinador" value="${profissionalSaude.pessoa.nomePessoa} ${profissionalSaude.pessoa.sobrenomePessoa}"
                                disabled>
                     </div>
                 </div>

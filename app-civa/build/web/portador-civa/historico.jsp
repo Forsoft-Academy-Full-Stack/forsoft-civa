@@ -1,3 +1,7 @@
+<%@page import="dao.ProfissionalSaudeDao"%>
+<%@page import="model.ProfissionalSaude"%>
+<%@page import="model.Unidade"%>
+<%@page import="dao.UnidadeDao"%>
 <%@page import="dao.PortadorCivaDao"%>
 <%@page import="model.PortadorCiva"%>
 <%@page import="model.PortadorCiva"%>
@@ -23,12 +27,17 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-    PortadorCiva portadorCiva = PortadorCivaDao.find(pessoa.getCodigoCiva());
-    
+<%    PortadorCiva portadorCiva = PortadorCivaDao.find(pessoa.getCodigoCiva());
+
     pageContext.setAttribute("portadorCiva", portadorCiva);
+
+    Unidade unidade = UnidadeDao.find(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
+    pageContext.setAttribute("unidade", unidade);
+
+    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find(portadorCiva.getListaVacinacao().get(0).getCodigoCivaCadastrante());
+    pageContext.setAttribute("profissionalSaude", profissionalSaude);
 %>
-  
+
 
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/portador-civa/historico.js" defer></script>
@@ -71,11 +80,20 @@
                     <div class="card card-primary card-outline">
 
                         <div class="card-body">
-                            
-                            <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
+                            <div class="col aling-items-center mb-4">
+                                <div>
+                                    <img src="../public/img/qrcode.png" alt="" height="">
+                                </div>
+                                <div class="btn-group pl-2"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                                                    data-target="#modal-default">Visualizar</button></div>
+                            </div>
 
-                                <div class="row mb-4">
-                                    <table class="col-sm-10 table text-nowrap">
+                            <div class="row mb-4">
+
+                                <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
+
+
+                                    <table class="col-xl-12 table text-nowrap">
                                         <thead>
                                             <tr>
                                                 <th>Vacina</th>
@@ -109,16 +127,12 @@
 
                                         </tbody>
                                     </table>
-                                    <div class="col aling-items-center p-3">
-                                        <div>
-                                            <img src="../public/img/qrcode.png" alt="">
-                                        </div>
-                                        <div class="btn-group pl-2"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                                                            data-target="#modal-default">Visualizar</button></div>
-                                    </div>
-                                </div>
-                                <!-- ./row -->
-                            </c:forEach>     
+
+                                </c:forEach>   
+
+                            </div>
+                            <!-- ./row -->
+
 
                             <!-- ./card-body -->
                             <div class="row float-right mr-3">

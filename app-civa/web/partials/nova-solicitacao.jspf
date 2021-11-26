@@ -6,29 +6,29 @@
         <div class="row">
             <div class="form-group col-xl-12">
                 <label for="name">C&oacute;digo CIVA</label>
-                <input type="text" class="form-control" id="code-civa" name="code-civa" placeholder="BR123456" disabled>
+                <input type="text" class="form-control" id="code-civa" name="code-civa" value="${ator.codigoCiva}" placeholder="BR123456" disabled>
             </div>
 
             <div class="form-group col-xl-6">
                 <label for="name">Nome</label>
-                <input type="text" class="form-control" id="name" name="name" placeholder="Ricardo" disabled>
+                <input type="text" class="form-control" id="name" name="name" value="${ator.pessoa.nomePessoa}" placeholder="Ricardo" disabled>
             </div>
             <div class="form-group col-xl-6">
                 <label for="sobrenome">Sobrenome</label>
-                <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Milos" disabled>
+                <input type="text" class="form-control" id="sobrenome" name="sobrenome" value="${ator.pessoa.sobrenomePessoa}" placeholder="Milos" disabled>
             </div>
             <div class="col-xl-6">
                 <label for="doc">Tipo de Doc</label>
-                <input type="text" class="form-control" id="tipo-doc" name="tipo-doc" value="CPF" disabled></input>
+                <input type="text" class="form-control" id="tipo-doc" name="tipo-doc" value="${ator.documento1.nomeTipoDoc}" disabled></input>
 
             </div>
             <div class="form-group col-xl-6">
                 <label for="doc-register">Documento</label>
-                <input type="text" class="form-control" id="doc" name="doc" placeholder="123456789" disabled>
+                <input type="text" class="form-control" id="doc" name="doc" value="${ator.documento1.documento}" placeholder="123456789" disabled>
             </div>
             <div class="form-group col-xl-12">
                 <label for="senha">Senha</label>
-                <input type="password" class="form-control" id="senha" name="senha" placeholder="********">
+                <input type="password" class="form-control" id="senha" name="senha" placeholder="Insira novamente a sua senha">
             </div>            
         </div>
         <div class="row">

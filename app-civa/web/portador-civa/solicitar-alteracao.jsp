@@ -1,3 +1,6 @@
+<%@page import="dao.PortadorCivaDao"%>
+<%@page import="model.PortadorCiva"%>
+<%@page import="model.PortadorCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -15,6 +18,11 @@
 
     // Caso contrário é um usuário válido, pode entrar na página
 
+%>
+<%  
+    PortadorCiva portadorciva = PortadorCivaDao.find(pessoa.getCodigoCiva());
+    
+    pageContext.setAttribute("ator", portadorciva);
 %>
 <%@include file="header.jspf"%>
 </head>

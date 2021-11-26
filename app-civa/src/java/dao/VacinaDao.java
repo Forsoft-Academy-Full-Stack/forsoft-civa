@@ -36,52 +36,22 @@ public class VacinaDao {
     public static List<Vacina> list() {
         List<Vacina> vacinas = new ArrayList<Vacina>();
         
-        Vacina vacina = new Vacina();
-        vacina.setNomeVacina("Coronavac");
-        vacina.setLaboratorio("Sinovac/Butantan");
-        vacina.setNumeroDoses(3);
-        vacina.setTempoEntreDoses(28);
-        vacina.setTipoVacina("Inativada");
-        vacina.setTempoReforco(0);
-        vacina.setIdVacina(000001);
-        
+        //Integer idVacina, String laboratorio, Integer numeroDoses,
+        //String nomeVacina, String tipoVacina, Integer tempoEntreDoses,
+        //Integer tempoReforco, Integer lote
+        Vacina vacina = new Vacina(1, "Sinovac/Butantan", 3, "Coronavac", "Inativada", 28, 0, 701);
         vacinas.add(vacina);
                
-        Vacina vacina2 = new Vacina();
-        vacina2.setNomeVacina("AstraZeneca");
-        vacina2.setLaboratorio("Oxford/AstraZeneca");
-        vacina2.setNumeroDoses(2);
-        vacina2.setTempoEntreDoses(30);
-        vacina2.setTipoVacina("Vetor Viral");
-        vacina2.setTempoReforco(0);
-        vacina2.setIdVacina(000002);
-        
+        Vacina vacina2 = new Vacina(2, "Oxford/AstraZeneca", 2, "AstraZeneca", "Vetor Viral", 30, 0, 802);
         vacinas.add(vacina2);
         
-        Vacina vacina3 = new Vacina();
-        vacina3.setNomeVacina("Janssen");
-        vacina3.setLaboratorio("Janssen Pharmaceutical Companies (Johnson)");
-        vacina3.setNumeroDoses(1);
-        vacina3.setTipoVacina("Vetor Viral");
-        vacina3.setTempoReforco(0);
-        vacina3.setTempoEntreDoses(0);
-        
-        vacina3.setIdVacina(000003);
-        
+        Vacina vacina3 = new Vacina(3, "Janssen Pharmaceutical Companies (Johnson)", 1, "Janssen", "Vetor Viral", 0, 0, 902);     
         vacinas.add(vacina3);
                 
-        Vacina vacina4 = new Vacina();
-        vacina4.setNomeVacina("Pfizer");
-        vacina4.setLaboratorio("BioNTech/Fosun Pharma/Pfizer");
-        vacina4.setNumeroDoses(2);
-        vacina4.setTempoEntreDoses(21);
-        vacina4.setTipoVacina("Genética");
-        vacina4.setTempoReforco(0);
-        vacina4.setIdVacina(000004);
         
+        Vacina vacina4 = new Vacina(4, "BioNTech/Fosun Pharma/Pfizer", 2, "Pfizer", "Genética", 21, 0, 1002);             
         vacinas.add(vacina4);
-    
-        
+            
         return vacinas;
     }
 
