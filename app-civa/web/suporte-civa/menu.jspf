@@ -17,7 +17,7 @@
                 <img src="../public/img/no-user.svg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <span class="d-block text-light">${dados.nomePessoa} ${dados.sobrenomePessoa}</span>
+                <span class="d-block text-light text-wrap text-center">${dados.nomePessoa} ${dados.sobrenomePessoa}</span>
             </div>
         </div>
 

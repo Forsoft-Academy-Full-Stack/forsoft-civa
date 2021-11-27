@@ -27,8 +27,8 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    PortadorCiva portadorCiva = PortadorCivaDao.find(pessoa.getCodigoCiva());
-
+<%  
+    PortadorCiva portadorCiva = PortadorCivaDao.find(pessoa.getCodigoCiva());
     pageContext.setAttribute("portadorCiva", portadorCiva);
 
     Unidade unidade = UnidadeDao.find(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
@@ -78,24 +78,26 @@
             <div class="content ">
                 <div class="container-fluid">
                     <div class="card card-primary card-outline">
+                        <div class="col col-xl-2 aling-items-center mb-1">
+                            <div>
+                                <img class="img-fluid" src="../public/img/qrcode.png" alt="código civa" >
+                            </div>
+                            <div class="btn-group pl-2">
+                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
+                                        data-target="#modal-default">Visualizar
+                                </button>
+                            </div>
+                        </div>
 
                         <div class="card-body">
-                            <div class="col aling-items-center mb-4">
-                                <div>
-                                    <img src="../public/img/qrcode.png" alt="" height="">
-                                </div>
-                                <div class="btn-group pl-2"><button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                                                    data-target="#modal-default">Visualizar</button></div>
-                            </div>
 
-                            <div class="row mb-4">
-
+                            <div class="row mb-4">                               
                                 <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
 
+                                    <table class="col-xl-12 table text-nowrap table-striped  ">
 
-                                    <table class="col-xl-12 table text-nowrap">
                                         <thead>
-                                            <tr>
+                                            <tr class="table-primary">
                                                 <th>Vacina</th>
                                                 <th>Laborat&oacute;rio</th>
                                                 <th>Dose</th>
@@ -103,23 +105,23 @@
                                         </thead>
                                         <tbody>
 
-                                            <tr>
-                                                <td><c:out value="${vacinacao.vacina.nomeVacina}"/></td>
+                                            <tr class="table-light">
+                                                <td ><c:out value="${vacinacao.vacina.nomeVacina}"/></td>
                                                 <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>
                                                 <td><c:out value="${vacinacao.doseAplicada}" /></td>
                                             </tr>
 
                                         </tbody>
                                         <thead>
-                                            <tr>
-                                                <th>Data de aplica&ccedil;&atilde;o</th>
+                                            <tr class="table-primary">
+                                                <th>Data de Aplica&ccedil;&atilde;o</th>
                                                 <th>Estabelecimento</th>
                                                 <th>Pa&iacute;s</th>
                                             </tr>
                                         </thead>
                                         <tbody>
 
-                                            <tr>
+                                            <tr class="table-light">
                                                 <td><c:out value="${vacinacao.dataAplicacao}" /></td>
                                                 <td><c:out value="${vacinacao.unidade}" /></td>
                                                 <td><c:out value="${vacinacao.pais}" /></td>
@@ -133,7 +135,6 @@
                             </div>
                             <!-- ./row -->
 
-
                             <!-- ./card-body -->
                             <div class="row float-right mr-3">
                                 <div class="col-12 mb-4">
@@ -141,8 +142,6 @@
                                 </div>
                             </div>
                         </div>
-
-
 
                     </div>
                 </div>

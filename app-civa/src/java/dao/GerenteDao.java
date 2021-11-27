@@ -64,7 +64,7 @@ public class GerenteDao {
        //Integer idPessoa, Integer idNacionalidade, String nacionalidade, String nomePessoa,
        //String sobrenomePessoa, String dataNascimento, String ddiContato,
        //String email, String telefoneDdd, String genero, String codigoCiva
-        Pessoa pessoa = new Pessoa(22, 1, "Brasileira", "Maria", "Ferreira", "1980-08-02", "+55", "mariaferreira@gmail.com", "987898758", "mulher cis", "BR89855455");
+        Pessoa pessoa = new Pessoa(22, 1, "Brasileira", "Maria", "Ferreira de Almeida", "1980-08-02", "+55", "mariaferreira@gmail.com", "987898758", "mulher cis", "BR89855455");
                 
         //Integer idDocs, String documento, Integer idPessoa, Integer idTipoDoc,
         //String nomeTipoDoc, String dataEmissao, String formatoDocumento, String tipoDocumento

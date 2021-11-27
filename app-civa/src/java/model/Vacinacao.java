@@ -1,5 +1,4 @@
 package model;
-
 /**
  *
  * @author randel

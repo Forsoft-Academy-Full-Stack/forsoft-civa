@@ -1,3 +1,5 @@
+<%@page import="dao.UnidadeDao"%>
+<%@page import="model.Unidade"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -15,6 +17,13 @@
 
     // Caso contrário é um usuário válido, pode entrar na página
 
+%>
+<%
+    PortadorCiva portadorCiva = PortadorCivaDao.find(pessoa.getCodigoCiva());
+    pageContext.setAttribute("portadorCiva", portadorCiva);
+
+    Unidade unidade = UnidadeDao.find(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
+    pageContext.setAttribute("unidade", unidade);
 %>
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/portador-civa/validar-civa-logado.js" defer></script>

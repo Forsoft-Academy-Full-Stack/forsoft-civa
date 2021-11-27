@@ -42,7 +42,7 @@ public class PortadorCivaDao {
        //Integer idPessoa, Integer idNacionalidade, String nacionalidade, String nomePessoa,
        //String sobrenomePessoa, String dataNascimento, String ddiContato,
        //String email, String telefoneDdd, String genero, String codigoCiva
-        Pessoa pessoa = new Pessoa(1, 1, "Brasileira", "Fernado", "Mendes", "1978-07-03", "+55", "fernando@gmail.com", "983578300", "homem cis", "BR9878766");
+        Pessoa pessoa = new Pessoa(1, 1, "Brasileira", "Fernado", "Mendes de Ferreira", "1978-07-03", "+55", "fernando@gmail.com", "983578300", "homem cis", "BR9878766");
         
         //Integer idDocs, String documento, Integer idPessoa, Integer idTipoDoc,
         //String nomeTipoDoc, String dataEmissao, String formatoDocumento, String tipoDocumento
@@ -66,7 +66,7 @@ public class PortadorCivaDao {
         vacinacao1.setCodigoCivaCadastrante("BR4434434343");
         
         Vacinacao vacinacao2 = new Vacinacao(vacina, 2, "2021-06-12", 1, "Monte carlos 2", "Brasil", 101);    
-        vacinacao2.setCodigoCivaCadastrante("BR89899988");
+        vacinacao2.setCodigoCivaCadastrante("BR672537621576");
         
         listaVacinacao.add(vacinacao1);
         listaVacinacao.add(vacinacao2);
@@ -101,7 +101,7 @@ public class PortadorCivaDao {
         Vacinacao vacinacao12 = new Vacinacao(vacina2, 1, "2021-04-16", 2, "Hospital Pan", "Brasil", 102);
         vacinacao12.setCodigoCivaCadastrante("BR4434434343");
         Vacinacao vacinacao22 = new Vacinacao(vacina2, 2, "2021-06-21", 2, "Hospital Pan", "Brasil", 103);
-        vacinacao22.setCodigoCivaCadastrante("BR89899988");
+        vacinacao22.setCodigoCivaCadastrante("BR672537621576");
         Vacinacao vacinacao23 = new Vacinacao(vacina2, 3, "2021-08-14", 2, "Hospital Pan", "Brasil", 104);
         vacinacao23.setCodigoCivaCadastrante("BR4434434343");
         
@@ -136,4 +136,5 @@ public class PortadorCivaDao {
 
         return resultado;
     }
+      
 }
