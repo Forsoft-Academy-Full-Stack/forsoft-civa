@@ -15,6 +15,7 @@
         
         <%
         String redirectURL = "./login/";
+        session.invalidate();
         response.sendRedirect(redirectURL);
         %>
     </body>

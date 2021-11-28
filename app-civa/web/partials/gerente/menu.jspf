@@ -48,12 +48,12 @@
                                 <p>Consultar Supervisor </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!--li class="nav-item">
                             <a href="./cadastrar-supervisor.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
                                 <p>Cadastrar Supervisor </p>
                             </a>
-                        </li>
+                        </li-->
 
                     </ul>
                 </li>

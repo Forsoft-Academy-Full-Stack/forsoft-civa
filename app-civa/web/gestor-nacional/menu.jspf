@@ -48,12 +48,12 @@
                                 <p>Consultar Gestor nacional</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!--li class="nav-item">
                             <a href="cadastrar-gestor-nacional.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
                                 <p>Cadastrar Gestor nacional</p>
                             </a>
-                        </li>
+                        </li-->
 
                     </ul>
                 </li>
@@ -74,12 +74,12 @@
                                 <p>Consultar gerentes </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!--li class="nav-item">
                             <a href="cadastrar-gerente.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
                                 <p>Cadastrar gerentes</p>
                             </a>
-                        </li>
+                        </li-->
 
                     </ul>
                 </li>
@@ -126,12 +126,12 @@
                                 <p>Consultar suporte CIVA </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!--li class="nav-item">
                             <a href="cadastrar-suporte-civa.jsp" class="nav-link">
                                 <i class="fas fa-map-pin nav-icon"></i>
                                 <p>Cadastrar Suporte CIVA </p>
                             </a>
-                        </li>
+                        </li-->
 
                     </ul>
                 </li>
@@ -152,12 +152,12 @@
                                 <p>Consultar unidade </p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!--li class="nav-item">
                             <a href="cadastrar-unidade.jsp" class="nav-link">
                                 <i class="fas fa-mouse-pointer nav-icon"></i>
                                 <p>Cadastrar Unidade</p>
                             </a>
-                        </li>
+                        </li-->
                     </ul>
                 </li>
 

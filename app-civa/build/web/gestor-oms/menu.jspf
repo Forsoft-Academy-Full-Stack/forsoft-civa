@@ -15,7 +15,7 @@
                 <img src="../public/img/no-user.svg" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <span class="d-block text-light text-wrap text-center">${dados.nomePessoa} ${dados.sobrenomePessoa}</span>
+                <span class="d-block text-light">${dados.nomePessoa} ${dados.sobrenomePessoa}</span>
             </div>
         </div>
 
@@ -44,28 +44,11 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item ">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-user-friends nav-icon"></i>
-                                <p>
-                                    Gestores OMS
-                                    <i class="right fas fa-angle-left"></i>
-                                </p>
+                            <a href="consultar-gestor-oms.jsp" class="nav-link">
+                                <i class="fas fa-search nav-icon"></i>
+                                <p>Consultar Gestor OMS</p>
                             </a>
-                            <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a href="consultar-gestor-oms.jsp" class="nav-link">
-                                        <i class="fas fa-clipboard-check nav-icon"></i>
-                                        <p>Consultar Gestor OMS</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="cadastrar-gestor-oms.jsp" class="nav-link">
-                                        <i class="fas fa-user-plus nav-icon"></i>
-                                        <p>Cadastrar Gestor OMS</p>
-                                    </a>
-                                </li>
 
-                            </ul>
                         </li>
                     </ul>
 

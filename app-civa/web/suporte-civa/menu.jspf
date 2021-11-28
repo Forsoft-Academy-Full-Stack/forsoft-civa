@@ -92,16 +92,16 @@
                         </p>
                     </a>
                     <ul class="nav nav-treeview">
-                        <li class="nav-item">
+                        <li class="nav-item text-sm ">
                             <a href="./consultar-gestor-nacional.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Gestor nacional</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item text-sm">
                             <a href="./cadastrar-gestor-nacional.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
-                                <p>Cadastrar Gestor nacional</p>
+                                <p class="text-wrap">Cadastrar Gestor nacional</p>
                             </a>
                         </li>
 
