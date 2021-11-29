@@ -18,7 +18,7 @@
   
 %>
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gestor-oms/cadastrar-gestor-nacional.js" defer></script>
+   <script src="../public/assets/js/gestor-oms/cadastrar-pais.js" defer></script>
 </head>
 
     <body class="hold-transition sidebar-mini">
@@ -84,7 +84,7 @@
 
                         <div class="col-12 row">
                             <div class="mb-3 mt-3">
-                                <button type="submit" class="btn btn-primary btn-lg" form="caralho">Cadastrar</button>
+                                <button type="button" class="btn btn-primary btn-lg" id="salvar">Cadastrar</button>
                             </div>
                         </div>
 

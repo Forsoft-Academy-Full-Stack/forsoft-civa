@@ -1,25 +1,52 @@
 $('.select2').select2();
-function tratarCampos() {
-    let erro = false;
-    let campos = ['idpais', 'pais', 'orgaodesaude', 'documentacaops'];
 
-    for (i = 0; i < campos.length; i++) {
-        if (document.getElementById(campos[i]).value == '') {
-            erro = true;
-        }
-    }
+let campos = ["pais", "continente",
+    "orgao-saude", "fuso-horario",
+    "tipo-doc", "nome-doc",
+    "formato-doc"];
 
-    if (erro) {
-        alert('Todos os campos devem ser preenchidos!');
+let campos_dados_pessoais = ["nome", "sobrenome",
+    "genero", "data-nascimento",
+    "nacionalidade", "tipo-doc1", "doc1"];
+
+let form = $("#form-meus-dados");
+
+$("#prosseguir").click(() => {
+    if (tratar_campos(campos)) {
+
+        location.href = "cadastrar-gestor-nacional.jsp";
+        
+
     } else {
-        // Exibe o modal desejado, baseado no id definido.
-        $('#modal-default').modal('show');
-        console.log('funcionou');
-        event.preventDefault();
+        title = 'Campos não preenchidos!';
+        text = 'Todos os campos precisam ser preenchidos!';
+        swalAlertError(title, text, callback);
+    }
+});
 
+
+$("#salvar").click(() => {
+
+    if (tratar_campos(campos_dados_pessoais)) {
+        $.get("", form.serialize(), (data, status) => {
+            if (status === 'success') {
+                title = 'Pa&iacute;s cadastrado com sucesso!';
+                text = "Cadastro realizada.";
+                swalAlertSuccess(title, text, callback);
+
+            } else {
+                title = 'Erro!';
+                text = 'Algum erro ocorreu e seus dados não foram enviados.';
+                swalAlertError(title, text, callback);
+            }
+        });
+
+    } else {
+        title = 'Campos não preenchidos!';
+        text = 'Todos os campos precisam ser preenchidos!';
+        swalAlertError(title, text, callback);
     }
 
-    return !erro;
-}
+});
 
-document.getElementById('form-meus-dados').onsubmit = tratarCampos;
+pegarPaises("nacionalidade");

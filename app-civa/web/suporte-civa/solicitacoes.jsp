@@ -82,6 +82,7 @@
                                 <div class="d-flex justify-content-between align-items-center mx-3 mb-3">
                                     <button type="button" onclick="cancelarSolicitacao()" class="btn btn-outline-danger">Cancelar
                                         solicita&ccedil;&atilde;o</button>
+                                    <button type="button" onclick="" class="btn btn-primary">Painel</button>
                                 </div>
                             </div>
                         </div>
@@ -104,6 +105,7 @@
                                 <div class="d-flex justify-content-between align-items-center mx-3 mb-3">
                                     <button type="button" onclick="cancelarSolicitacao()" class="btn btn-outline-danger">Cancelar
                                         solicita&ccedil;&atilde;o</button>
+                                    <button type="button" onclick="" class="btn btn-primary">Painel</button>
 
                                 </div>
                             </div>
@@ -127,6 +129,7 @@
                                 <div class="d-flex justify-content-between align-items-center mx-3 mb-3">
                                     <button type="button" onclick="cancelarSolicitacao()" class="btn btn-outline-danger">Cancelar
                                         solicita&ccedil;&atilde;o</button>
+                                    <button type="button" onclick="" class="btn btn-primary">Painel</button>
 
                                 </div>
                             </div>
@@ -150,6 +153,7 @@
                                 <div class="d-flex justify-content-between align-items-center mx-3 mb-3">
                                     <button type="button" onclick="cancelarSolicitacao()" class="btn btn-outline-danger">Cancelar
                                         solicita&ccedil;&atilde;o</button>
+                                    <button type="button" onclick="" class="btn btn-primary">Painel</button>
 
                                 </div>
                             </div>

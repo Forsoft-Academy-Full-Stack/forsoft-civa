@@ -20,9 +20,15 @@
 
 %>
 <% 
-    Gerente gerente = GerenteDao.find("BR879987");
+    String codigoCivaGerente = request.getParameter("codigoCiva");    
+      
+    Gerente gerente = GerenteDao.find(codigoCivaGerente);
+    
+    gerente = gerente != null ? gerente : new Gerente();
+    
     pageContext.setAttribute("ator", gerente);
 %>
+
 
 
 <%@include file="header.jspf"%>
@@ -74,16 +80,16 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="form-meus-dados">
+                                <form action="" id="form-meus-dados" method="GET">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="form-group col-md-11 p-0">
-                                                <label for="identity">C&oacute;digo CIVA</label>
-                                            <input type="text" class="form-control" id="identity" value="${ator.codigoCiva}" name="identity" placeholder="BR1223456789" >
+                                                <label for="codigoCiva">C&oacute;digo CIVA</label>
+                                            <input type="text" class="form-control" id="codigoCiva" value="${ator.codigoCiva}" name="codigoCiva" placeholder="BR1223456789" >
                                             
                                             </div>
                                             <div class="form-group col-md-1 pl-0 pt-3 mt-3">
-                                            <button type="button" class="btn btn-default">
+                                            <button type="submit" form="form-meus-dados" class="btn btn-default">
                                                 <i class="fa fa-search"></i>
                                             </button>
                                             </div>

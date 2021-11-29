@@ -113,7 +113,8 @@
                                                 <th>Dose</th>
                                                 <th>Pa&iacute;s</th>
                                                 <th>Data</th>
-                                                <th></th>
+                                                  <th><a href="./cadastrar-vacinacao-internacional.jsp"
+                                                       class="btn btn-block btn-primary btn-sm">Nova Vacina&ccedil&amacr;o</a></th>
                                             </tr>
                                         </thead>
                                         <tbody>

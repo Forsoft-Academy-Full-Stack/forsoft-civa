@@ -1,3 +1,5 @@
+<%@page import="model.ProfissionalSaude"%>
+<%@page import="dao.ProfissionalSaudeDao"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -16,6 +18,11 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<%    
+    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find(pessoa.getCodigoCiva());
+    pageContext.setAttribute("ator", profissionalSaude);
+%>
+
 <%@include file="header.jspf"%>
 </head>
 

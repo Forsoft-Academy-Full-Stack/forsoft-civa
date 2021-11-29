@@ -1,9 +1,6 @@
 
 <%@include file="header.jspf"%>
-    <script src="../public/dist/js/trata-dados.js" defer></script>
-    <script defer>
-        $('#modal-default').modal('hide');
-    </script>
+   <script src="../public/assets/js/login/cadastrar-portador.js" defer></script>
 </head>
 
 <body class="content-wrapper" style="background: #fff;">
@@ -26,13 +23,15 @@
                                 <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                 <hr>
                                 <%@ include file="../partials/contatos-cadastro.jspf" %>
+                                  <hr>
+                                <%@ include file="../partials/senha-cadastro.jspf" %>
                                 <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                    <label class="form-check-label" for="exampleCheck1">Li e concordo com os <a href="./termo-uso.jsp">Termos de Uso e Pol&iacute;ticas de Privacidade.</a></label>
+                                    <input type="checkbox" class="form-check-input" id="termos-uso">
+                                    <label class="form-check-label" for="termos-uso">Li e concordo com os <a href="./termo-uso.jsp">Termos de Uso e Pol&iacute;ticas de Privacidade.</a></label>
                                 </div>
                                 <div class="mb-3 mt-3 d-flex justify-content-center">
-                                    <a href="./index.jsp" class="btn btn-secondary btn-lg mr-3">Voltar</a>
-                                    <button type="submit" class="btn btn-primary btn-lg" form="form-cad-portador" data-toggle="modal" data-target="#modal-default">Cadastrar</button>
+                                    <a href="../" class="btn btn-secondary btn-lg mr-3">Voltar</a>
+                                    <button type="button" class="btn btn-primary btn-lg" id="salvar">Cadastrar</button>
                                 </div>
                             </div>
                         </form>

@@ -12,11 +12,11 @@
         // Redirecionar para o login
         response.sendRedirect("../login/");
     }
-    
+
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%@include file="header.jspf"%>
-    <script src="./../public/assets/js/profissional-saude/cadastrar-portador.js" defer></script>
+<script src="./../public/assets/js/profissional-saude/cadastrar-portador.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -67,6 +67,8 @@
                                             <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                             <hr>
                                             <%@ include file="../partials/contatos-cadastro.jspf" %>
+                                            <hr>
+                                            <%@ include file="../partials/senha-cadastro.jspf" %>
                                         </div>
                                     </form>
                                     <!-- /.form ending -->
@@ -132,6 +134,7 @@
         <!-- Main Footer -->
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
+        <%@include file="../partials/confirmar-senha.jspf"%>
     </div>
     <!-- ./wrapper -->
 </body>

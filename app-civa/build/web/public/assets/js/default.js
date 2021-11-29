@@ -46,6 +46,17 @@ function swalAlertSuccess(title, text, callback){
     }).then(callback);
 }
 
+function swalAlertInfo(title, text, callback){
+    Swal.fire({
+        icon: 'info',
+        title: title,
+        text: text,
+        confirmButtonText: 'Finalizar',
+        confirmButtonColor: '#007bff',
+        html: text
+    }).then(callback);
+}
+
 function swalAlertError(title, text, callback){
     Swal.fire({
         icon: 'error',

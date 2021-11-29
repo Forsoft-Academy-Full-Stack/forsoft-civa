@@ -23,7 +23,7 @@
 <!--então aqui é chamado o js especifico para cada página -->
 <!--e por fim o head é fechado -->
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/profissional-saude/cadastrar-portador.js" defer></script>
+  <script src="../public/assets/js/profissional-saude/cadastrar-portador.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -81,7 +81,10 @@
 
                                         <hr>
                                         <%@ include file="../partials/contatos-cadastro.jspf" %> 
+                                         <hr>
+                                            <%@ include file="../partials/senha-cadastro.jspf" %>
                                         </div>
+                                        
 
                                     </form>
                                     <!-- /.form ending -->
@@ -94,8 +97,6 @@
                             </div>
 
                         </div>
-
-
 
 
                         <!-- /.row -->
@@ -155,6 +156,7 @@
         <!-- Main Footer -->
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
+        <%@include file="../partials/confirmar-senha.jspf"%>
 
     </div>
     <!-- ./wrapper -->

@@ -85,7 +85,7 @@
 
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <a href="cadastrar-gestor-nacional.jsp"><button type="button" class="btn btn-primary btn-lg" form="form-meus-dados">Prosseguir</button></a>
+                           <button type="button" class="btn btn-primary btn-lg" id="prosseguir">Prosseguir</button>
                         </div>
                     </div>
 

@@ -22,7 +22,7 @@ public class LoginDao {
         switch (login.getPerfil()) {
             case "portador-civa":
                 for (PortadorCiva portadorCiva : PortadorCivaDao.list()) {
-                    if( login.getEmail().equals( portadorCiva.getPessoa().getEmail() ) && login.getSenha().equals("123")){                        
+                    if( login.getEmail().trim().equals( portadorCiva.getPessoa().getEmail().trim() ) && login.getSenha().trim().equals("123")){                        
                     
                         dadosPessoa.setNomePessoa(portadorCiva.getPessoa().getNomePessoa());
                         dadosPessoa.setSobrenomePessoa(portadorCiva.getPessoa().getSobrenomePessoa());
@@ -34,7 +34,7 @@ public class LoginDao {
                 
             case "gerente":                                
                 for (Gerente gerente : GerenteDao.list()) {
-                    if( login.getCodigoCiva().equals( gerente.getCodigoCiva() ) && login.getSenha().equals("1234")){                        
+                    if( login.getCodigoCiva().trim().equals( gerente.getCodigoCiva().trim() ) && login.getSenha().trim().equals("1234")){                        
                     
                         dadosPessoa.setNomePessoa(gerente.getPessoa().getNomePessoa());
                         dadosPessoa.setSobrenomePessoa(gerente.getPessoa().getSobrenomePessoa());
@@ -46,7 +46,7 @@ public class LoginDao {
                 
             case "supervisor":
                 for (Supervisor supervisor : SupervisorDao.list()) {
-                    if( login.getCodigoCiva().equals( supervisor.getCodigoCiva() ) && login.getSenha().equals("12345")){                                                                        
+                    if( login.getCodigoCiva().trim().equals( supervisor.getCodigoCiva().trim() ) && login.getSenha().trim().equals("12345")){                                                                        
                     
                         dadosPessoa.setNomePessoa(supervisor.getPessoa().getNomePessoa());
                         dadosPessoa.setSobrenomePessoa(supervisor.getPessoa().getSobrenomePessoa());
@@ -58,7 +58,7 @@ public class LoginDao {
                 
             case "profissional-saude":
                 for (ProfissionalSaude profissionalSaude : ProfissionalSaudeDao.list()) {
-                    if( login.getCodigoCiva().equals( profissionalSaude.getCodigoCiva() ) && login.getSenha().equals("123456")){                                                
+                    if( login.getCodigoCiva().trim().equals( profissionalSaude.getCodigoCiva().trim() ) && login.getSenha().trim().equals("123456")){                                                
                     
                         dadosPessoa.setNomePessoa(profissionalSaude.getPessoa().getNomePessoa());
                         dadosPessoa.setSobrenomePessoa(profissionalSaude.getPessoa().getSobrenomePessoa());
@@ -70,7 +70,7 @@ public class LoginDao {
                 
             case "suporte-civa":
                 for (SuporteCiva suporteCiva : SuporteCivaDao.list()) {
-                    if( login.getCodigoCiva().equals( suporteCiva.getCodigoCiva() ) && login.getSenha().equals("1234567")){                      
+                    if( login.getCodigoCiva().trim().equals( suporteCiva.getCodigoCiva().trim() ) && login.getSenha().trim().equals("1234567")){                      
                     
                         dadosPessoa.setNomePessoa(suporteCiva.getPessoa().getNomePessoa());
                         dadosPessoa.setSobrenomePessoa(suporteCiva.getPessoa().getSobrenomePessoa());
@@ -82,7 +82,7 @@ public class LoginDao {
                 
             case "gestor-nacional":
                 for (GestorNacional gestorNacional : GestorNacionalDao.list()) {
-                    if( login.getCodigoCiva().equals( gestorNacional.getCodigoCiva() ) && login.getSenha().equals("12345678")){                                             
+                    if( login.getCodigoCiva().trim().equals( gestorNacional.getCodigoCiva().trim() ) && login.getSenha().trim().equals("12345678")){                                             
                     
                         dadosPessoa.setNomePessoa(gestorNacional.getPessoa().getNomePessoa());
                         dadosPessoa.setSobrenomePessoa(gestorNacional.getPessoa().getSobrenomePessoa());
@@ -94,7 +94,7 @@ public class LoginDao {
                       
             case "gestor-oms":
                 for (GestorOms gestorOms : GestorOmsDao.list()) {
-                    if( login.getCodigoCiva().equals( gestorOms.getCodigoCiva() ) && login.getSenha().equals("123456789")){                        
+                    if( login.getCodigoCiva().trim().equals( gestorOms.getCodigoCiva().trim() ) && login.getSenha().trim().equals("123456789")){                        
                     
                         dadosPessoa.setNomePessoa(gestorOms.getPessoa().getNomePessoa());
                         dadosPessoa.setSobrenomePessoa(gestorOms.getPessoa().getSobrenomePessoa());

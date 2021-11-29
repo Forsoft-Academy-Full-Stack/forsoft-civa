@@ -1,10 +1,8 @@
 $('.select2').select2();
 
-let campos = ["name-unidade", "documento-registro", "tipo-estabelecimento",
-     "natureza", "pais",
-    "codigopostal", "endereco",
-    "numero", "complemento", "bairro",
-    "municipio", "estado", "contato1", "locacao"];
+let campos = ["nome", "documento-registro", "natureza","tipo-estabelecimento", 
+    "nome-pais","cod-postal", "nome-logrd","nome-num", "nome-comple", "bairro","municipio", "estado", 
+    "tele","locacao"];
 
 
 let form = $("#form-meus-dados");

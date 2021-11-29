@@ -1,3 +1,5 @@
+<%@page import="dao.GerenteDao"%>
+<%@page import="model.Gerente"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -16,6 +18,12 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<%  
+    Gerente gerente = GerenteDao.find(pessoa.getCodigoCiva());
+    
+    pageContext.setAttribute("ator", gerente);
+%>
+
 <%@include file="header.jspf"%>
 </head>
 

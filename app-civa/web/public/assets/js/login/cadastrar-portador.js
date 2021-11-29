@@ -7,26 +7,23 @@ let campos = ["nome", "sobrenome",
     "nome-num", "nome-comple", "bairro",
     "municipio", "estado", "tele", "email", "senha", "confirmar-senha"];
 
-let campos_confirmar_senha = ["senha-confirmacao"];
-
 let form = $("#form-meus-dados");
-let modal_confirmar_senha = $("#modal-confirmar-senha");
 
 $("#salvar").click(() => {
-    
-    if (tratar_campos(campos)) {
-        
-        modal_confirmar_senha.modal("show");
 
-        $("#confirmar").click(() => {
-            if (tratar_campos(campos_confirmar_senha)) {
-                modal_confirmar_senha.modal("hide");
-                
+    if (tratar_campos(campos)) {
+        let mesma_senha = $("#senha").val() === $("#confirmar-senha").val();
+
+        if (mesma_senha) {
+            if ($("#termos-uso").is(":checked")) {
                 $.get("", form.serialize(), (data, status) => {
                     if (status === 'success') {
-                        title = 'Cadastro realizada com sucesso!';
-                        text = "Cadastro realizado.";   
-                        swalAlertSuccess(title, text, callback);
+                        title = 'Conta Criada!';
+                        text = "Sua conta foi criada com sucesso! Fa&ccedil;a o login!.";
+                        swalAlertSuccess(title, text, () => {
+                            location.href = '../';
+                        });
+
 
                     } else {
                         title = 'Erro!';
@@ -35,11 +32,15 @@ $("#salvar").click(() => {
                     }
                 });
             } else {
-                title = 'Campos n&atilde;o preenchidos!';
-                text = 'Todos os campos precisam ser preenchidos!';
-                swalAlertError(title, text, callback);
+                title = 'Termos de Uso';
+                text = 'Para criar o cadastro &eacute; precisso ler e aceitar os termos de uso ';
+                swalAlertInfo(title, text, callback);
             }
-        });
+        } else {
+            title = 'Senhas diferentes!';
+            text = 'Inserir senha e confirma&ccedil;&atilde;o de senha iguais.';
+            swalAlertError(title, text, callback);
+        }
 
     } else {
         title = 'Campos n&atilde;o preenchidos!';
@@ -50,6 +51,5 @@ $("#salvar").click(() => {
 
 
 pegarPaises("nacionalidade");
-
 
 
