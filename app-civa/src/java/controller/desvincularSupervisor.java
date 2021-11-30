@@ -41,12 +41,12 @@ public class desvincularSupervisor extends HttpServlet {
             /* TODO output your page here. You may use following sample code. */
             
             if(request.getParameter("codigo-civa").equals("BR98743212")){
-                  Gerente gerente = GerenteDao.find("BR98743212");
+                  //Gerente gerente = GerenteDao.find("BR98743212");
                   System.err.println("entrou");
                 
                   HttpSession session = request.getSession();
                   
-                  session.setAttribute("ator", gerente);
+                  //session.setAttribute("ator", gerente);
                   //RequestDispatcher rd = request.getRequestDispatcher("/gerente/desvincular-supervisor.jsp");
                   //rd.forward(request, response); 
                   response.sendRedirect("./gerente/");

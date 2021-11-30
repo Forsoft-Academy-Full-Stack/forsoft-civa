@@ -89,8 +89,7 @@ public class LoginDao {
                         dadosPessoa = new Pessoa();
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
-                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
-                        System.err.println("teste" + rs.getString("nome"));
+                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));                      
                     }
 
                     break;

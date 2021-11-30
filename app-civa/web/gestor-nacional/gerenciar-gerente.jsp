@@ -25,12 +25,12 @@
 
 <%  
     String codigoCivaGerente = request.getParameter("codigoCiva");  
-    Gerente gerentes = GerenteDao.find(codigoCivaGerente);
-    pageContext.setAttribute("ator", gerentes);
+    Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
+    pageContext.setAttribute("ator", gerente);
 %>
 
 <%
-    List<Unidade> listaUnidades = UnidadeDao.list();
+    List<Unidade> listaUnidades = UnidadeDao.listUnidadeByGerente(codigoCivaGerente);
     pageContext.setAttribute("unidades", listaUnidades);
 %>
 
@@ -130,7 +130,7 @@
                                                     <td><c:out value="${unidade.nome}" /></td>
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
                                                     <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
-                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                    <td><c:out value="${unidade.idUnidade}" /></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>
