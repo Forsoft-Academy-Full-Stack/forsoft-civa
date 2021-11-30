@@ -26,12 +26,8 @@ public class PortadorCivaDao {
         return resultado;
     }
 
-    public static PortadorCiva find(String codigoCivaPortadorCiva) {
-       for (PortadorCiva portadorCiva : PortadorCivaDao.list()) {
-            if( portadorCiva.getCodigoCiva().equals( codigoCivaPortadorCiva )){
-                return portadorCiva;
-            }
-        }
+    public static PortadorCiva findByCodigoCiva(String codigoCivaPortadorCiva) {
+      
 
         return null;
     }
