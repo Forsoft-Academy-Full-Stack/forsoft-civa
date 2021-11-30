@@ -5,41 +5,45 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import model.Gerente;
-import model.GestorNacional;
-import model.GestorOms;
 import model.Login;
 import model.Pessoa;
-import model.PortadorCiva;
-import model.ProfissionalSaude;
-import model.Supervisor;
-import model.SuporteCiva;
 
 public class LoginDao {
 
     public static Pessoa validar(Login login) {
         Connection connection = ConnectionFactory.getConnection();
-
+        String sqlPortador = "";
+        String sqlGestao = "";
         Pessoa dadosPessoa = null;
-
-        //Tratamento dos dados e configuração na sessão
-        try {
-            Statement stmt = connection.createStatement();
-            ResultSet rs = null;
-            String sql = "";
-
-            switch (login.getPerfil()) {
-                case "portador-civa":
-
-                    sql = "SELECT nomepessoa AS nome,\n"
+        
+        sqlPortador = "SELECT nomepessoa AS nome,\n"
                             + "       sobrenomepessoa AS sobrenome,\n"
                             + "       codigocivapc as codigociva\n"
                             + "FROM pessoa AS p\n"
                             + "LEFT JOIN acessopc AS acp\n"
                             + "ON p.idpessoa = acp.idpessoa\n"
                             + "WHERE acp.emailpc = ? AND acp.senhapc = ? ;";
+        
+        sqlGestao = "SELECT p.nomepessoa AS nome,\n"
+                            + "       p.sobrenomepessoa AS sobrenome,\n"
+                            + "       acg.codigocivagestao AS codigociva\n"
+                            + "FROM pessoa AS p\n"
+                            + "LEFT JOIN acessogestao AS acg\n"
+                            + "ON p.idpessoa = acg.idpessoa\n"
+                            + "WHERE acg.codigocivagestao LIKE ?\n"
+                            + "	AND acg.senhagestao = ?\n"
+                            + " AND acg.cargo LIKE ?;";
+        
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+          
 
-                    PreparedStatement ps = connection.prepareStatement(sql);
+            switch (login.getPerfil()) {
+                case "portador-civa":                    
+                    
+                    ps = connection.prepareStatement(sqlPortador);
 
                     ps.setString(1, login.getEmail().trim());
                     ps.setString(2, login.getSenha().trim());
@@ -51,80 +55,114 @@ public class LoginDao {
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                         dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
                     }
-                    
-                    System.err.println(dadosPessoa.getNomePessoa());
-                    //ResultSet rs = ps.executeQuery();
-                    // rs = stmt.executeQuery("SELECT * FROM pessoa WHERE email=" + login.getEmail() + " and senha=" + login.getSenha());
+
                     break;
 
-                case "gerente":
-                    for (Gerente gerente : GerenteDao.list()) {
-                        if (login.getCodigoCiva().trim().equals(gerente.getCodigoCiva().trim()) && login.getSenha().trim().equals("1234")) {
+                case "gerente":                    
+                    ps = connection.prepareStatement(sqlGestao);
 
-                            dadosPessoa.setNomePessoa(gerente.getPessoa().getNomePessoa());
-                            dadosPessoa.setSobrenomePessoa(gerente.getPessoa().getSobrenomePessoa());
-                            dadosPessoa.setCodigoCiva(gerente.getCodigoCiva());
-                        }
+                    ps.setString(1, login.getCodigoCiva().trim());
+                    ps.setString(2, login.getSenha().trim());
+                    ps.setString(3, "Gerente");
+                    
+                    rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        dadosPessoa = new Pessoa();
+                        dadosPessoa.setNomePessoa(rs.getString("nome"));
+                        dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
                     }
 
                     break;
 
                 case "supervisor":
-                    for (Supervisor supervisor : SupervisorDao.list()) {
-                        if (login.getCodigoCiva().trim().equals(supervisor.getCodigoCiva().trim()) && login.getSenha().trim().equals("12345")) {
+                    ps = connection.prepareStatement(sqlGestao);
 
-                            dadosPessoa.setNomePessoa(supervisor.getPessoa().getNomePessoa());
-                            dadosPessoa.setSobrenomePessoa(supervisor.getPessoa().getSobrenomePessoa());
-                            dadosPessoa.setCodigoCiva(supervisor.getCodigoCiva());
-                        }
+                    ps.setString(1, login.getCodigoCiva().trim());
+                    ps.setString(2, login.getSenha().trim());
+                    ps.setString(3, "Supervisor");
+                    
+                    rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        dadosPessoa = new Pessoa();
+                        dadosPessoa.setNomePessoa(rs.getString("nome"));
+                        dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                        System.err.println("teste" + rs.getString("nome"));
                     }
 
                     break;
 
                 case "profissional-saude":
-                    for (ProfissionalSaude profissionalSaude : ProfissionalSaudeDao.list()) {
-                        if (login.getCodigoCiva().trim().equals(profissionalSaude.getCodigoCiva().trim()) && login.getSenha().trim().equals("123456")) {
+                    ps = connection.prepareStatement(sqlGestao);
 
-                            dadosPessoa.setNomePessoa(profissionalSaude.getPessoa().getNomePessoa());
-                            dadosPessoa.setSobrenomePessoa(profissionalSaude.getPessoa().getSobrenomePessoa());
-                            dadosPessoa.setCodigoCiva(profissionalSaude.getCodigoCiva());
-                        }
+                    ps.setString(1, login.getCodigoCiva().trim());
+                    ps.setString(2, login.getSenha().trim());
+                    ps.setString(3, "Profissional de Saúde");
+                    
+                    rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        dadosPessoa = new Pessoa();
+                        dadosPessoa.setNomePessoa(rs.getString("nome"));
+                        dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
                     }
 
                     break;
 
                 case "suporte-civa":
-                    for (SuporteCiva suporteCiva : SuporteCivaDao.list()) {
-                        if (login.getCodigoCiva().trim().equals(suporteCiva.getCodigoCiva().trim()) && login.getSenha().trim().equals("1234567")) {
+                    ps = connection.prepareStatement(sqlGestao);
 
-                            dadosPessoa.setNomePessoa(suporteCiva.getPessoa().getNomePessoa());
-                            dadosPessoa.setSobrenomePessoa(suporteCiva.getPessoa().getSobrenomePessoa());
-                            dadosPessoa.setCodigoCiva(suporteCiva.getCodigoCiva());
-                        }
+                    ps.setString(1, login.getCodigoCiva().trim());
+                    ps.setString(2, login.getSenha().trim());
+                    ps.setString(3, "suporte civa");
+                    
+                    rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        dadosPessoa = new Pessoa();
+                        dadosPessoa.setNomePessoa(rs.getString("nome"));
+                        dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
                     }
 
                     break;
 
                 case "gestor-nacional":
-                    for (GestorNacional gestorNacional : GestorNacionalDao.list()) {
-                        if (login.getCodigoCiva().trim().equals(gestorNacional.getCodigoCiva().trim()) && login.getSenha().trim().equals("12345678")) {
+                    ps = connection.prepareStatement(sqlGestao);
 
-                            dadosPessoa.setNomePessoa(gestorNacional.getPessoa().getNomePessoa());
-                            dadosPessoa.setSobrenomePessoa(gestorNacional.getPessoa().getSobrenomePessoa());
-                            dadosPessoa.setCodigoCiva(gestorNacional.getCodigoCiva());
-                        }
+                    ps.setString(1, login.getCodigoCiva().trim());
+                    ps.setString(2, login.getSenha().trim());
+                    ps.setString(3, "Gestor Nacional");
+                    
+                    rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        dadosPessoa = new Pessoa();
+                        dadosPessoa.setNomePessoa(rs.getString("nome"));
+                        dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
                     }
 
                     break;
 
                 case "gestor-oms":
-                    for (GestorOms gestorOms : GestorOmsDao.list()) {
-                        if (login.getCodigoCiva().trim().equals(gestorOms.getCodigoCiva().trim()) && login.getSenha().trim().equals("123456789")) {
+                    ps = connection.prepareStatement(sqlGestao);
 
-                            dadosPessoa.setNomePessoa(gestorOms.getPessoa().getNomePessoa());
-                            dadosPessoa.setSobrenomePessoa(gestorOms.getPessoa().getSobrenomePessoa());
-                            dadosPessoa.setCodigoCiva(gestorOms.getCodigoCiva());
-                        }
+                    ps.setString(1, login.getCodigoCiva().trim());
+                    ps.setString(2, login.getSenha().trim());
+                    ps.setString(3, "Gestor OMS");
+                    
+                    rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        dadosPessoa = new Pessoa();
+                        dadosPessoa.setNomePessoa(rs.getString("nome"));
+                        dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
                     }
 
                     break;
