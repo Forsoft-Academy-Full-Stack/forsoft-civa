@@ -28,14 +28,49 @@ public class VacinaDao {
 
         return resultado;
     }
+    
+    public static Vacina findByNome(String nomeVacina) {
+        Connection connection = ConnectionFactory.getConnection();
+        Vacina vacina = null;
+
+        String sql = "";
+        sql = "SELECT * FROM vacina AS vac\n"
+                + "WHERE vac.nomevacina LIKE ?; ";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, "%"+nomeVacina+"%");
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                vacina = new Vacina();
+                vacina.setIdVacina(rs.getInt("idvacina"));
+                vacina.setLaboratorio(rs.getString("laboratorio"));
+                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNomeVacina(rs.getString("nomevacina"));
+                vacina.setTipoVacina(rs.getString("tipodevacina"));
+                vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
+                vacina.setTempoReforco(rs.getInt("tempoparareforco"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VacinaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return vacina;
+    }
 
     public static Vacina findById(Integer idVacina) {
         Connection connection = ConnectionFactory.getConnection();
         Vacina vacina = null;
 
         String sql = "";
-        sql = "SELECT * FROM vacina AS vac \n"
-                + "WHERE vac.idvacina = ?;";
+        sql = "SELECT * FROM vacina AS vac\n"
+                + "WHERE vac.idvacina = ?; ";
 
         try {
             Statement stmt = connection.createStatement();
@@ -44,6 +79,50 @@ public class VacinaDao {
 
             ps = connection.prepareStatement(sql);
             ps.setInt(1, idVacina);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                vacina = new Vacina();
+                vacina.setIdVacina(rs.getInt("idvacina"));
+                vacina.setLaboratorio(rs.getString("laboratorio"));
+                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNomeVacina(rs.getString("nomevacina"));
+                vacina.setTipoVacina(rs.getString("tipodevacina"));
+                vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
+                vacina.setTempoReforco(rs.getInt("tempoparareforco"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VacinaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return vacina;
+    }
+
+    public static Vacina findByIdGestorNacional(String codigoCivaGestorNacional) {
+        Connection connection = ConnectionFactory.getConnection();
+        Vacina vacina = null;
+
+        String sql = "";
+        sql = "SELECT vac.idvacina, vac.laboratorio, vac.numerodedoses, vac.nomevacina,\n"
+                + "    vac.tipodevacina, vac.tempoentredoses, vac.tempoparareforco FROM vacina vac\n"
+                + "    LEFT JOIN vacina_do_pais vdp \n"
+                + "    ON vac.idvacina =vdp.idvacina \n"
+                + "    WHERE vdp.idpais = (\n"
+                + "    SELECT pa.idpais FROM acessogestao ag\n"
+                + "    LEFT JOIN pessoa peag\n"
+                + "    ON ag.idpessoa = peag.idpessoa\n"
+                + "    LEFT JOIN pais pa\n"
+                + "    ON peag.idpaisdenascimento = pa.idpais\n"
+                + "    WHERE ag.codigocivagestao = ?;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaGestorNacional);
             rs = ps.executeQuery();
 
             if (rs.next()) {

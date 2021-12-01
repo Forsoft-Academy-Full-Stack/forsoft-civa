@@ -23,8 +23,7 @@
 
 %>
 
-<%   
-    List<Vacina> listaVacinas = VacinaDao.listByGestorNacional(pessoa.getCodigoCiva());
+<%    List<Vacina> listaVacinas = VacinaDao.listByGestorNacional(pessoa.getCodigoCiva());
     pageContext.setAttribute("vacinas", listaVacinas);
 %>
 
@@ -78,37 +77,40 @@
                             <div class="card">
                                 <div class="card-body">
 
+                                    <form action="" method="GET">
+                                        <div class="row">
+                                            <div class="row col-md-12 col-sm-12">
+                                                <div class="col-xl-2 col-sm-12 mb-2">
+                                                    <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                        <option value="nome-az">Nome A - Z</option>
+                                                        <option value="nome-za">Nome Z - A</option>
+                                                        <option value="cpf-asc">CPF crescente</option>
+                                                        <option value="cpf-des">CPF decrescente</option>
+                                                    </select>
+                                                </div>
 
-                                    <div class="row">
-                                        <div class="row col-md-12 col-sm-12">
-                                            <div class="col-xl-2 col-sm-12 mb-2">
-                                                <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                    <option value="1">Nome A - Z</option>
-                                                    <option value="2">Nome Z - A</option>
-                                                    <option value="3">CPF crescente</option>
-                                                    <option value="3">CPF decrescente</option>
-                                                </select>
-                                            </div>
-
-                                            <div class="col-xl-8 col-sm-12">
-                                                <div class="input-group  mb-2">
-                                                    <input type="text" class="form-control" id="search-table" placeholder="Pesquisar por vacina">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="pesquisaNomes(); return false">Pesquisar</button>
+                                                <div class="col-xl-8 col-sm-12">
+                                                    <div class="input-group  mb-2">
+                                                        <input type="text" class="form-control" id="search-table" placeholder="Pesquisar por vacina">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="pesquisaNomes(); return false">Pesquisar</button>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="col-2">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-default">CSV</button>
-                                                    <button type="button" class="btn btn-default">PDF</button>
-                                                    <button type="button" class="btn btn-default">Excel</button>
+                                                <div class="col-2">
+                                                    <div class="btn-group">
+                                                        <button type="button" class="btn btn-default">CSV</button>
+                                                        <button type="button" class="btn btn-default">PDF</button>
+                                                        <button type="button" class="btn btn-default">Excel</button>
+                                                    </div>
+
                                                 </div>
-
                                             </div>
                                         </div>
-                                    </div>
+
+                                    </form>
+
 
                                 </div>
                             </div>

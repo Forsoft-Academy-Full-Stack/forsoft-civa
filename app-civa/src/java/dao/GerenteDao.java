@@ -22,8 +22,8 @@ import model.Pessoa;
 public class GerenteDao {
 
     public static Gerente findByCodigoCiva(String codigoCivaGerente) {
-        Connection connection = ConnectionFactory.getConnection();
-
+        Connection connection = ConnectionFactory.getConnection();            
+         
         Gerente gerente = null;
         Pessoa pessoa = null;
         Docs documento1 = null;
@@ -75,6 +75,8 @@ public class GerenteDao {
             ResultSet rs = null;
 
             ps = connection.prepareStatement(sql);
+            
+            
             ps.setString(1, codigoCivaGerente);
 
             rs = ps.executeQuery();
@@ -90,6 +92,7 @@ public class GerenteDao {
                 pessoa.setEmail(rs.getString("email"));
                 pessoa.setCodigoCiva(rs.getString("codigociva"));
 
+                // Pegar nacionalidade
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());
                 pessoa.setNacionalidade(pais.getNomePais());
 

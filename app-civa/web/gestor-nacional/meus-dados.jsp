@@ -19,9 +19,9 @@
 
     // Caso contrário é um usuário válido, pode entrar na página
 
-%>
+%>  
 <% 
-    GestorNacional gestorNacional = GestorNacionalDao.find(pessoa.getCodigoCiva());
+    GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", gestorNacional);
 %>
 

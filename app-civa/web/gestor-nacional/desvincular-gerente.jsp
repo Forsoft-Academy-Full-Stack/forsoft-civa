@@ -22,7 +22,7 @@
 <% 
     String codigoCivaGerente = request.getParameter("codigoCiva");    
       
-    Gerente gerente = GerenteDao.find(codigoCivaGerente);
+    Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
     
     gerente = gerente != null ? gerente : new Gerente();
     

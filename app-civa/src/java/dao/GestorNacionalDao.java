@@ -85,9 +85,7 @@ public class GestorNacionalDao {
             rs = ps.executeQuery();
 
             pessoa = new Pessoa();
-            endereco = new Endereco();
-            
-             
+            endereco = new Endereco();                         
 
             if (rs.next()) {
                 
