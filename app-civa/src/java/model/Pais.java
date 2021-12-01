@@ -15,6 +15,7 @@ public class Pais {
     private Docs documento2;
     private Docs documento3;
     private String fusoHorario;
+    private DivisaoTerritorial divisaoTerritorial;
 
     public Pais(Integer idPais, Integer idContinente, String nomeContinente, Integer idCadastrante, String nomePais, String orgaoResponsavel, String padraoContato, Integer ddi, String sigla, Docs documento1, Docs documento2, Docs documento3, String fusoHorario) {
         this.idPais = idPais;
@@ -140,5 +141,12 @@ public class Pais {
     public void setSigla(String sigla) {
         this.sigla = sigla;
     }
+    
+    public DivisaoTerritorial getDivisaoTerritorial() {
+        return divisaoTerritorial;
+    }
 
+    public void setDivisaoTerritorial(DivisaoTerritorial divisaoTerritorial) {
+        this.divisaoTerritorial = divisaoTerritorial;
+    }
 }

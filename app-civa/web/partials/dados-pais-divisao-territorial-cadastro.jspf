@@ -1,0 +1,45 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="subdivisao1">Primeira SubDivisão</label>
+        <input type="text" class="form-control" value="" id="subdivisao3" name="subdivisao1">
+    </div>
+
+    <div class="form-group col-xl-6">
+        <label for="subdivisao2">Segunda SubDivisão</label>
+        <input type="text" class="form-control" value="" id="subdivisao3" name="subdivisao2">
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="subdivisao3">Terceira SubDivisão</label>
+        <input type="text" class="form-control" value="" id="subdivisao3" name="subdivisao3">
+    </div>
+    
+    <div class="form-group col-xl-6">
+        <label for="subdivisao4">Quarta SubDivisão</label>
+        <input type="text" class="form-control" value="" id="subdivisao4" name="subdivisao4">
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="subdivisao5">Quinta SubDivisão</label>
+        <input type="text" class="form-control" value="" id="subdivisao5" name="subdivisao5">
+    </div>
+
+    <div class="form-group col-xl-6">
+        <label for="subdivisao6">Terceira SubDivisão</label>
+        <input type="text" class="form-control" value="" id="subdivisao6" name="subdivisao6">
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="subdivisao5">Quinta SubDivisão</label>
+        <input type="text" class="form-control" value="" id="subdivisao5" name="subdivisao5">
+    </div>
+</div>

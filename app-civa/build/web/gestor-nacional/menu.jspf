@@ -32,6 +32,32 @@
                     </a>
                 </li>
 
+                <!-- País -->
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-friends nav-icon"></i>
+                        <p>
+                            País
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="gerenciar-pais.jsp" class="nav-link">
+                                <i class="fas fa-clipboard-check nav-icon"></i>
+                                <p>Gerenciar País</p>
+                            </a>
+                        </li>
+                        <!--li class="nav-item">
+                            <a href="cadastrar-gestor-nacional.jsp" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Cadastrar Gestor nacional</p>
+                            </a>
+                        </li-->
+
+                    </ul>
+                </li>                
+                
                 <!-- Item Gestor Nacional -->
                 <li class="nav-item ">
                     <a href="#" class="nav-link">

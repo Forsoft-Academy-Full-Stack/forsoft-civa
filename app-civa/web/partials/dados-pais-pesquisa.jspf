@@ -4,12 +4,12 @@
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="pais">Pa&iacute;s</label>
-        <input type="text" class="form-control" placeholder="Brasil" id="pais" name="pais">
+        <input type="text" class="form-control" value="Brasil" id="pais" name="pais">
     </div>
     
     <div class="form-group col-xl-6">
         <label for="continente">Continente</label>
-        <select id="continente" name="continente" class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+        <select id="continente" name="continente" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option selected value="" selected>Am&eacute;rica do Sul</option>
             <option value="1">Am&eacute;rica do Norte</option>
             <option value="2">Europa</option>
@@ -22,24 +22,24 @@
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="ddi">DDI</label>
-        <input type="text" class="form-control" placeholder="+xx" id="ddi" name="ddi">
+        <input type="text" class="form-control" value="+xx" id="ddi" name="ddi">
     </div>
     
     <div class="form-group col-xl-6">
         <label for="padrao-contato">Padrão dos Contatos</label>
-        <input type="text" class="form-control" placeholder="xxxxx-xxxx" id="padrao-contato" name="padrao-contato">
+        <input type="text" class="form-control" value="xxxxx-xxxx" id="padrao-contato" name="padrao-contato">
     </div>    
 </div>
 
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="orgao-saude">&Oacute;rg&atilde;o de sa&uacute;de</label>
-        <input type="text" class="form-control" id="orgao-saude" name="orgao-saude" placeholder="SUS">
+        <input type="text" class="form-control" id="orgao-saude" name="orgao-saude" value="SUS">
     </div>
     
     <div class="form-group col-xl-6">
         <label for="fuso-horario">Fuso hor&aacute;rio</label>
-        <select id="fuso-horario" name="fuso-horario" class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
+        <select id="fuso-horario" name="fuso-horario" class="form-control select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option selected value="2" selected>UTC-3</option>
             <option value="3">UTC-2</option>
             <option value="3">UTC-1</option>

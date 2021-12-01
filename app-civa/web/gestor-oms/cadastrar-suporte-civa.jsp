@@ -38,14 +38,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Cadastrar Pa&iacute;s</h1>
+                            <h1 class="m-0">Cadastrar Suportde CIVA</h1>
                         </div>
                         <!-- /.col -->
-
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Cadastrar Pa&iacute;s</li>
+                                <li class="breadcrumb-item active">Cadastrar Suportde CIVA</li>
                             </ol>
                         </div>
                     </div>
@@ -55,42 +54,45 @@
             </div>
             <!-- /.content-header ---------------------------------------------->
 
+
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
-
                     <div class="row mb-3">
-                        <div class="col-xl-12">
 
+                        <div class="col-12">
                             <div class="card card-primary">
+
+
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados Pa&iacute;s</h3>
+                                    <h3 class="card-title">Dados Suportde CIVA</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="form-meus-dados">
+                                <form action="#" id="form-cad-portador" method="post" novalidate="novalidate">
                                     <div class="card-body">
 
-                                        <%@include file="../partials/dados-pais-cadastro.jspf" %>
-                                        <hr class = "m mt-4">
-                                        <%@include file="../partials/tipo-doc-cadastro.jspf" %>
+                                        <%@include file="../partials/dadospessoais-ps-cadastro.jspf" %>
                                         <hr class = "mb-4 mt-4">
-                                        <%@include file="../partials/dados-pais-divisao-territorial-cadastro.jspf" %>
+                                        <%@ include file="../partials/enderecos-cadastro.jspf" %>
+                                        <hr class = "mb-4 mt-4">
+                                        <%@ include file="../partials/contatos-cadastro.jspf" %>
+                                        
                                     </div>
-                                </form>    
+
+                                </form>
                             </div>
-                                    <a href="../public/dist/css/adminlte.min.css.map"></a>
-                        </div>
-                        <!-- /.row -->
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                           <button type="button" class="btn btn-primary btn-lg" id="prosseguir">Prosseguir</button>
                         </div>
                     </div>
 
+                    <div class="col-12 row">
+                        <div class="mb-3 mt-3">
+                            <button type="button" class="btn btn-primary btn-lg" id="salvar">Cadastrar</button>
+                        </div>
+                    </div>
+
+                    <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
                 <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
@@ -106,7 +108,7 @@
                                 <p></p>
                             </div>
                             <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = 'cadastrarpais.jsp'">Close</button>
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = 'ui112.jsp'">Close</button>
                             </div>
                         </div>
                         <!-- /.modal-content -->
@@ -121,6 +123,8 @@
         <!-- Main Footer -->
         <%@include file="footer.jspf" %>
     </div>
+    <!-- ./wrapper -->
 
-</body
+</body>
+
 </html>
