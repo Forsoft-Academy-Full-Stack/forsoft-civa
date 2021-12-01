@@ -28,16 +28,16 @@
 %>
 <%
     String codigoCivaSupervisor = request.getParameter("codigoCiva");
-    Supervisor supervisor = SupervisorDao.find(codigoCivaSupervisor);
+    Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
 
     pageContext.setAttribute("ator", supervisor);
 %> 
 
 
 <%    //Buscar Lista de supervisores
-    List<Unidade> listaUnidades = UnidadeDao.list();
+    //List<Unidade> listaUnidades = UnidadeDao.list();
 
-    pageContext.setAttribute("unidades", listaUnidades);
+    //pageContext.setAttribute("unidades", listaUnidades);
 %> 
 
 

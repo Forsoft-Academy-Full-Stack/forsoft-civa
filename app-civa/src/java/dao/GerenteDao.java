@@ -200,7 +200,7 @@ public class GerenteDao {
         return gerentes;
 
     }
-
+    
     public static List<Gerente> listByIdUnidade(Integer idUnidade) {
         Connection connection = ConnectionFactory.getConnection();
         List<Gerente> gerentes = null;
@@ -263,6 +263,8 @@ public class GerenteDao {
         return gerentes;
     }
 
+    
+    
     public static boolean insert(Gerente gerente) {
         boolean resultado = false;
 

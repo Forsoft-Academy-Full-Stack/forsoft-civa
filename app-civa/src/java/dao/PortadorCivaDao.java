@@ -175,7 +175,7 @@ public class PortadorCivaDao {
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
             }
-                        
+            
             ps = connection.prepareStatement(sql2);
             ps.setString(1, codigoCivaPortadorCiva);
             rs = ps.executeQuery();

@@ -25,7 +25,7 @@
 %>
 
 <%    //Buscar Lista de supervisores
-    List<Supervisor> listaSupervisores = SupervisorDao.list();
+    List<Supervisor> listaSupervisores = SupervisorDao.listByGerente(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("supervisores", listaSupervisores);
 %>    
