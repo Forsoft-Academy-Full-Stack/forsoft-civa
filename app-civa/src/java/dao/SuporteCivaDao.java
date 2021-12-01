@@ -64,7 +64,7 @@ public class SuporteCivaDao {
                 pessoa = new Pessoa();
                 documento1 = new Docs();
                                 
-                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setNomePessoa(rs.getString("nomepessoa"));
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
                 pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
                 documento1.setDocumento(rs.getString("documento"));
@@ -73,6 +73,7 @@ public class SuporteCivaDao {
                 suporteCiva.setPessoa(pessoa);
                 suporteCiva.setDocumento1(documento1);
                 suporteCiva.setCodigoCiva(pessoa.getCodigoCiva());
+                System.out.println("teste " + pessoa.getNomePessoa());
                 
                 suportesCiva.add(suporteCiva);
 
