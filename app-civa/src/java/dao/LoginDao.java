@@ -42,7 +42,6 @@ public class LoginDao {
 
             switch (login.getPerfil()) {
                 case "portador-civa":                    
-                    
                     ps = connection.prepareStatement(sqlPortador);
 
                     ps.setString(1, login.getEmail().trim());

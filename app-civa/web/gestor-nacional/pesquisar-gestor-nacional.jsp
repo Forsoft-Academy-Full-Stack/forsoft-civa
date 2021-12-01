@@ -23,7 +23,7 @@
 %>
 
 <%    
-    List<GestorNacional> listagestoresNacionais = GestorNacionalDao.list();
+    List<GestorNacional> listagestoresNacionais = GestorNacionalDao.listByGestorNacional(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("gestoresNacionais", listagestoresNacionais);
 %>    

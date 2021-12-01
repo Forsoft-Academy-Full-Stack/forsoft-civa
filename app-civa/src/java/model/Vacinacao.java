@@ -6,7 +6,7 @@ package model;
 public class Vacinacao {
 
     private Vacina vacina;
-    private Integer doseAplicada;
+    private String doseAplicada;
     private String dataAplicacao;
     private Integer idUnidade;
     private String unidade;
@@ -14,7 +14,7 @@ public class Vacinacao {
     private Integer idVacinacao;
     private String codigoCivaCadastrante;
 
-    public Vacinacao(Vacina vacina, Integer doseAplicada, String dataAplicacao, Integer idUnidade, String unidade, String pais, Integer idVacinacao) {
+    public Vacinacao(Vacina vacina, String doseAplicada, String dataAplicacao, Integer idUnidade, String unidade, String pais, Integer idVacinacao) {
         this.vacina = vacina;
         this.doseAplicada = doseAplicada;
         this.dataAplicacao = dataAplicacao;
@@ -51,11 +51,11 @@ public class Vacinacao {
         this.idVacinacao = idVacinacao;
     }
 
-    public Integer getDoseAplicada() {
+    public String getDoseAplicada() {
         return doseAplicada;
     }
 
-    public void setDoseAplicada(Integer doseAplicada) {
+    public void setDoseAplicada(String doseAplicada) {
         this.doseAplicada = doseAplicada;
     }
 

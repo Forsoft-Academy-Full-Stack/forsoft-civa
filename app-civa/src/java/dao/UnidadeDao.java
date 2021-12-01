@@ -13,7 +13,6 @@ import java.util.logging.Logger;
 import model.Endereco;
 import model.Pais;
 import model.Unidade;
-
 /**
  *
  * @author randel
@@ -49,8 +48,7 @@ public class UnidadeDao {
             ps.setString(1, codigoCivaGerente);
             rs = ps.executeQuery();
 
-            while (rs.next()) {
-               
+            while (rs.next()) {               
                 unidade = new Unidade();
                 endereco = new Endereco();
 

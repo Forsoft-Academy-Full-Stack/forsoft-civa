@@ -1,3 +1,4 @@
+<%@page import="dao.VacinaDao"%>
 <%@page import="dao.VacinacaoDao"%>
 <%@page import="model.Vacinacao"%>
 <%@page import="model.Vacinacao"%>
@@ -26,10 +27,11 @@
 
 <%    
     String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
-    PortadorCiva portadorCiva = PortadorCivaDao.find(codigoCivaPortadorCiva);
+    PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);       
     
     pageContext.setAttribute("ator", portadorCiva);
     pageContext.setAttribute("portadorCiva", portadorCiva);
+    
 %>
 
 
