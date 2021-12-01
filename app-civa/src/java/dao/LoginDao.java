@@ -116,7 +116,7 @@ public class LoginDao {
 
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
-                    ps.setString(3, "suporte civa");
+                    ps.setString(3, "Suporte");
                     
                     rs = ps.executeQuery();
 

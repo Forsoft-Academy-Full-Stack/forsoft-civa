@@ -25,7 +25,7 @@
 %>
 
 <%    
-    List<SuporteCiva> listaSuportesCiva = SuporteCivaDao.list();
+    List<SuporteCiva> listaSuportesCiva = SuporteCivaDao.listByGestorNacional(pessoa.getCodigoCiva());
     pageContext.setAttribute("suportesCiva", listaSuportesCiva);
 %>
 

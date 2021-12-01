@@ -1,14 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Docs;
-import model.Endereco;
 import model.SuporteCiva;
 import model.Pessoa;
 
@@ -19,97 +20,67 @@ import model.Pessoa;
 public class SuporteCivaDao {
 
     public static SuporteCiva find(String codigoCivaSuporteCiva) {
-       for (SuporteCiva suporteCiva : SuporteCivaDao.list()) {
-            if( suporteCiva.getCodigoCiva().equals( codigoCivaSuporteCiva )){
-                return suporteCiva;
-            }
-        }
-      
         return null;
     }
 
-    public static List<SuporteCiva> list() {
-        List<SuporteCiva> suportesCiva = new ArrayList<SuporteCiva>();
-       
-        // Início Supervisor 1 //
-       //Integer idPessoa, Integer idNacionalidade, String nacionalidade, String nomePessoa,
-       //String sobrenomePessoa, String dataNascimento, String ddiContato,
-       //String email, String telefoneDdd, String genero, String codigoCiva
-        Pessoa pessoa = new Pessoa(1, 1, "Brasileira", "Josef", "Carl", "1977-07-03", "+55", "joséCarlos@gmail.com", "983578300", "homem cis", "BR672537621576867876");
+    public static List<SuporteCiva> listByGestorNacional(String codigoCivaGestorNacional) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<SuporteCiva> suportesCiva = null;
+        SuporteCiva suporteCiva;
+        Pessoa pessoa;
+        Docs documento1;
+        String sql = "";   
+        
+        sql = "SELECT DISTINCT peag.nomepessoa,\n"
+                + "	       doc.documento,\n"
+                + "	       peag.datadenascimento,\n"
+                + "	       ag.codigocivagestao\n"
+                + "FROM pessoa peag\n"
+                + "LEFT JOIN docs doc \n"
+                + "on peag.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc \n"
+                + "ON tidoc.idtipodoc = doc.idtipodoc \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "on peag.idpessoa = ag.idpessoa\n"
+                + "WHERE ag.cargo = 'Suporte'\n"
+                + "AND tidoc.nivel ='Primário'\n"
+                + "AND peag.idpaisdenascimento = (\n"
+                + "SELECT peag.idpaisdenascimento FROM pessoa peag\n"
+                + "LEFT JOIN acessogestao ag\n"
+                + "ON peag.idpessoa = ag.idpessoa\n"
+                + "WHERE ag.codigocivagestao = ?);";
+
+        try {
+            suportesCiva = new ArrayList<>();
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaGestorNacional);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pessoa = new Pessoa();
+                documento1 = new Docs();
+                                
+                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+                pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
+                documento1.setDocumento(rs.getString("documento"));
                 
-        //Integer idDocs, String documento, Integer idPessoa, Integer idTipoDoc,
-        //String nomeTipoDoc, String dataEmissao, String formatoDocumento, String tipoDocumento
-        Docs documento1 = new Docs(1, "299383946577", 1, 1, "Identidade", "1945-04-19", "XXXXXXXXXXX", "Civil");         
-        Docs documento2 = new Docs(2, "121676786876", 1, 2, "Passaporte", "1946-05-20", "XXXXXXXXXXX", "Civil");        
-        Docs documento3 = new Docs(3, "906543456478", 1, 3, "CPF", "1946-07-5", "XXX.XXX.XXX-XX", "Civil");     
-            
-        //Integer idEndereco, Integer idPais, String nomePais, String tipoLogradouro,
-        //String logradouro, String codigoPostal, String complemento, String nomesubdivisao1 (Bairro),
-        //String nomesubdivisao2 (Municipio), String nomesubdivisao3 (Estado), String nomesubdivisao4, String nomesubdivisao5,
-        //String nomesubdivisao6, String nomesubdivisao7, String numero
-        Endereco endereco = new Endereco(1, 1, "Brasil", "Rua", "Rua José", "54678000", "Apto 14", "Vila Bela", "Niterói", "Rio de Janeiro", "", "", "", "", "23");
-   
-        SuporteCiva suporteCiva = new SuporteCiva(pessoa, documento1, documento2, documento3, endereco, pessoa.getCodigoCiva());
-        suportesCiva.add(suporteCiva);
+                suporteCiva = new SuporteCiva();
+                suporteCiva.setPessoa(pessoa);
+                suporteCiva.setDocumento1(documento1);
+                suporteCiva.setCodigoCiva(pessoa.getCodigoCiva());
+                
+                suportesCiva.add(suporteCiva);
 
-        SuporteCiva suporteCiva2 = new SuporteCiva();
+            }
 
-        Pessoa pessoa2 = new Pessoa();
-        pessoa2.setDataNascimento("1996-07-11");
-        pessoa2.setDdiContato("+55");
-        pessoa2.setNomePessoa("Pedro");
-        pessoa2.setSobrenomePessoa("Silva");
-        pessoa2.setTelefoneDdd("217687655645");
-        pessoa2.setGenero("homem trans");
-        pessoa2.setIdNacionalidade(1);
-        pessoa2.setIdPessoa(2);
-        pessoa2.setNacionalidade("Brasileira");
-
-        Docs documento12 = new Docs();
-        documento12.setDataEmissao("1999-04-1");
-        documento12.setDocumento("7657328490");
-        documento12.setIdPessoa(2);
-        documento12.setIdDocs(1);
-        documento12.setIdTipoDoc(1);
-
-        Docs documento22 = new Docs();
-        documento22.setDataEmissao("2000-04-1");
-        documento22.setDocumento("99383946577");
-        documento22.setIdPessoa(2);
-        documento22.setIdDocs(1);
-        documento22.setIdTipoDoc(1);
-
-        Docs documento32 = new Docs();
-        documento32.setDataEmissao("2001-04-1");
-        documento32.setDocumento("99383946577");
-        documento32.setIdPessoa(2);
-        documento32.setIdDocs(1);
-        documento32.setIdTipoDoc(1);
-
-        Endereco endereco2 = new Endereco();
-        endereco2.setCodigoPostal("54678000");
-        endereco2.setIdEndereco(1);
-        endereco2.setIdPais(1);
-        endereco2.setLogradouro("Rua José");
-        endereco2.setLogradouro("Rua José");
-        // BAIRRO
-        endereco2.setNomesubdivisao1("Vila Bela");
-        // Municipio
-        endereco2.setNomesubdivisao2("Niterói");
-        // ESTADO
-        endereco2.setNomesubdivisao4("Rio de Janeiro");
-        endereco2.setNomesubdivisao5("");
-        endereco2.setTipoLogradouro("Rua");
-        endereco2.setNumero("21");
-
-        suporteCiva2.setPessoa(pessoa2);
-        suporteCiva2.setDocumento1(documento12);
-        suporteCiva2.setDocumento2(documento22);
-        suporteCiva2.setDocumento3(documento32);
-        suporteCiva2.setEndereco(endereco2);
-        suporteCiva2.setCodigoCiva("BR115566787");
-
-        suportesCiva.add(suporteCiva2);
+        } catch (SQLException ex) {
+            Logger.getLogger(SuporteCivaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         return suportesCiva;
     }
