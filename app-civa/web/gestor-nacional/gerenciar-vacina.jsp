@@ -24,7 +24,7 @@
 %>
 
 <%   
-    List<Vacina> listaVacinas = VacinaDao.list();
+    List<Vacina> listaVacinas = VacinaDao.listByGestorNacional(pessoa.getCodigoCiva());
     pageContext.setAttribute("vacinas", listaVacinas);
 %>
 

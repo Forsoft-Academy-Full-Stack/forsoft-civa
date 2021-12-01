@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import model.Docs;
 import model.Endereco;
 import model.Gerente;
+import model.Pais;
 import model.Pessoa;
 
 /**
@@ -31,7 +32,7 @@ public class GerenteDao {
         Endereco endereco = null;
 
         String sql = "SELECT ag.codigocivagestao AS codigociva,\n"
-                + "       peag.nomepessoa AS nome,\n"
+                + "       peag.nomepessoa AS nome, peag.idpessoa,\n"
                 + "       peag.sobrenomepessoa AS sobrenome,\n"
                 + "       peag.genero,\n"
                 + "       peag.datadenascimento AS datanascimento,\n"
@@ -80,6 +81,7 @@ public class GerenteDao {
 
             if (rs.next()) {
                 pessoa = new Pessoa();
+                pessoa.setIdPessoa(rs.getInt("idpessoa"));
                 pessoa.setNomePessoa(rs.getString("nome"));
                 pessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                 pessoa.setGenero(rs.getString("genero"));
@@ -88,11 +90,14 @@ public class GerenteDao {
                 pessoa.setEmail(rs.getString("email"));
                 pessoa.setCodigoCiva(rs.getString("codigociva"));
 
+                Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());
+                pessoa.setNacionalidade(pais.getNomePais());
+
                 endereco = new Endereco();
                 endereco.setNomePais(rs.getString("pais"));
                 endereco.setCodigoPostal(rs.getString("codigopostal"));
                 endereco.setTipoLogradouro(rs.getString("tipologradouro"));
-                endereco.setLogradouro(endereco.getTipoLogradouro() +" "+ rs.getString("logradouro"));
+                endereco.setLogradouro(endereco.getTipoLogradouro() + " " + rs.getString("logradouro"));
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
                 endereco.setNomesubdivisao1(rs.getString("subdivisao"));
@@ -164,7 +169,7 @@ public class GerenteDao {
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
             ResultSet rs = null;
-            
+
             ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaGestorNacional);
             rs = ps.executeQuery();
@@ -191,8 +196,70 @@ public class GerenteDao {
 
         return gerentes;
 
-    }    
-          
+    }
+
+    public static List<Gerente> listByIdUnidade(Integer idUnidade) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<Gerente> gerentes = null;
+        Gerente gerente;
+        Pessoa pessoa;
+        Docs documento1;
+
+        String sql = "";
+        sql = "   SELECT peag.nomepessoa,  peag.sobrenomepessoa, \n"
+                + "	      doc.documento,\n"
+                + "           ag.codigocivagestao\n"
+                + "	FROM pessoa peag \n"
+                + "    LEFT JOIN acessogestao ag \n"
+                + "        ON peag.idpessoa = ag.idpessoa  \n"
+                + "    LEFT JOIN docs doc \n"
+                + "        ON peag.idpessoa = doc.idpessoa  \n"
+                + "    LEFT JOIN acessogestao_unidade aguni \n"
+                + "        ON ag.idacessogestao = aguni.idacessogestao  \n"
+                + "    LEFT JOIN unidade uni \n"
+                + "        ON aguni.idunidade = uni.idunidade  \n"
+                + "    LEFT JOIN tipodoc tidoc \n"
+                + "        ON doc.idtipodoc = tidoc.idtipodoc  \n"
+                + "    WHERE uni.idunidade = ?\n"
+                + "    AND tidoc.nivel = 'Primário'\n"
+                + "    AND ag.cargo = 'Gerente';";
+
+        try {
+            gerentes = new ArrayList<>();
+            
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+            
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idUnidade);
+            rs = ps.executeQuery();
+            
+            while(rs.next()){
+                gerente = new Gerente();
+                
+                pessoa = new Pessoa();
+                pessoa.setNomePessoa(rs.getString("nomepessoa"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
+                pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
+                
+                documento1 = new Docs();
+                documento1.setDocumento(rs.getString("documento"));
+                
+                gerente.setPessoa(pessoa);
+                gerente.setDocumento1(documento1);
+                gerente.setCodigoCiva(pessoa.getCodigoCiva());
+                
+                gerentes.add(gerente);
+            }
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(GerenteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return gerentes;
+    }
+
     public static boolean insert(Gerente gerente) {
         boolean resultado = false;
 

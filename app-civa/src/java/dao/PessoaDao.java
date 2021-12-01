@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package dao;
 
 import java.sql.Connection;
@@ -11,14 +7,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import model.Endereco;
-import model.Pais;
 import model.Pessoa;
 
-/**
- *
- * @author miguel.bispo
- */
 public class PessoaDao {
 
     public static Pessoa findById(Integer idPessoa) {
@@ -60,16 +50,7 @@ public class PessoaDao {
         boolean resultado = false;
 
         if (pinsert.getNomePessoa() != null) {
-            //se conseguir inserir no banco
-
-            // Brasil
-            Pais pais = PaisDao.find(1);
-
-            Endereco e = new Endereco();
-            e.setIdPais(pais.getIdPais());
-            EnderecoDao.insert(e);
-
-            resultado = true;
+           resultado = true;
         }
 
         return resultado;

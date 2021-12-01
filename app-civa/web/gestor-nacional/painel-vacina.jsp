@@ -24,7 +24,7 @@
 
 <%   
     Integer idVacina = Integer.parseInt(request.getParameter("idVacina"));
-    Vacina vacina = VacinaDao.find(idVacina);
+    Vacina vacina = VacinaDao.findById(idVacina);
     pageContext.setAttribute("vacina", vacina);
 %>
 

@@ -19,8 +19,7 @@ import model.Vacinacao;
  *
  * @author randel
  */
-public class VacinacaoDao {
-    
+public class VacinacaoDao {    
      public static List<Vacinacao> listByPortadorCiva(String codigoCivaPortador) {
         Connection connection = ConnectionFactory.getConnection();
         

@@ -1,8 +1,14 @@
 package dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Vacina;
 
 /**
@@ -10,7 +16,7 @@ import model.Vacina;
  * @author randel
  */
 public class VacinaDao {
-    
+
     public static boolean insert(Vacina vacina) {
         boolean resultado = false;
 
@@ -23,35 +29,93 @@ public class VacinaDao {
         return resultado;
     }
 
-    public static Vacina find(Integer idVacina) {                 
-       for (Vacina vacina : VacinaDao.list()) {
-            if( Objects.equals(vacina.getIdVacina(), idVacina) ){
-                return vacina;
+    public static Vacina findById(Integer idVacina) {
+        Connection connection = ConnectionFactory.getConnection();
+        Vacina vacina = null;
+
+        String sql = "";
+        sql = "SELECT * FROM vacina AS vac \n"
+                + "WHERE vac.idvacina = ?;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idVacina);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                vacina = new Vacina();
+                vacina.setIdVacina(rs.getInt("idvacina"));
+                vacina.setLaboratorio(rs.getString("laboratorio"));
+                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNomeVacina(rs.getString("nomevacina"));
+                vacina.setTipoVacina(rs.getString("tipodevacina"));
+                vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
+                vacina.setTempoReforco(rs.getInt("tempoparareforco"));
             }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VacinaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-       
-        return null;
+
+        return vacina;
     }
 
-    public static List<Vacina> list() {
-        List<Vacina> vacinas = new ArrayList<Vacina>();
-        
-        //Integer idVacina, String laboratorio, Integer numeroDoses,
-        //String nomeVacina, String tipoVacina, Integer tempoEntreDoses,
-        //Integer tempoReforco, Integer lote
-        Vacina vacina = new Vacina(1, "Sinovac/Butantan", 3, "Coronavac", "Inativada", 28, 0, 701);
-        vacinas.add(vacina);
-               
-        Vacina vacina2 = new Vacina(2, "Oxford/AstraZeneca", 2, "AstraZeneca", "Vetor Viral", 30, 0, 802);
-        vacinas.add(vacina2);
-        
-        Vacina vacina3 = new Vacina(3, "Janssen Pharmaceutical Companies (Johnson)", 1, "Janssen", "Vetor Viral", 0, 0, 902);     
-        vacinas.add(vacina3);
-                
-        
-        Vacina vacina4 = new Vacina(4, "BioNTech/Fosun Pharma/Pfizer", 2, "Pfizer", "Genética", 21, 0, 1002);             
-        vacinas.add(vacina4);
-            
+    public static List<Vacina> listByGestorNacional(String codigoCivaGestorNacional) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "";
+        List<Vacina> vacinas = null;
+        Vacina vacina;
+
+        sql = "SELECT vac.idvacina,\n"
+                + "	   vac.laboratorio,\n"
+                + "	   vac.numerodedoses,\n"
+                + "       vac.nomevacina,\n"
+                + "       vac.tipodevacina,\n"
+                + "	   vac.tempoentredoses,\n"
+                + "       vac.tempoparareforco \n"
+                + "FROM vacina vac\n"
+                + "LEFT JOIN vacina_do_pais vdp \n"
+                + "ON vac.idvacina =vdp.idvacina \n"
+                + "WHERE vdp.idpais = (\n"
+                + "SELECT pa.idpais FROM acessogestao ag\n"
+                + "LEFT JOIN pessoa peag\n"
+                + "ON ag.idpessoa = peag.idpessoa\n"
+                + "LEFT JOIN pais pa\n"
+                + "ON peag.idpaisdenascimento = pa.idpais\n"
+                + "WHERE ag.codigocivagestao = ?)";
+
+        try {
+            vacinas = new ArrayList<>();
+
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaGestorNacional);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                vacina = new Vacina();
+                vacina.setIdVacina(rs.getInt("idvacina"));
+                vacina.setLaboratorio(rs.getString("laboratorio"));
+                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNomeVacina(rs.getString("nomevacina"));
+                vacina.setTipoVacina(rs.getString("tipodevacina"));
+                vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
+                vacina.setTempoReforco(rs.getInt("tempoparareforco"));
+
+                vacinas.add(vacina);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VacinaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return vacinas;
     }
 
@@ -65,7 +129,7 @@ public class VacinaDao {
 
         return resultado;
     }
-    
+
     public static boolean delete(Vacina vacina) {
         boolean resultado = false;
 
@@ -76,5 +140,5 @@ public class VacinaDao {
 
         return resultado;
     }
-    
+
 }

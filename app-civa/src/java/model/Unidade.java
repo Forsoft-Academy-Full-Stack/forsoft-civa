@@ -5,18 +5,18 @@ package model;
  */
 public class Unidade {
     private Integer idUnidade;
-    private Integer numero;
+    private String numero;
     private String registro;
     private String nome;
     private String contato;
     private String locacao;
     private String natureza;
     private String tipoEstabelecimento;
-    private Boolean situacao;
+    private String situacao;
     private String dataCadastro;
     private Endereco endereco;
 
-    public Unidade(Integer idUnidade, Integer numero, String registro, String nome, String contato, String locacao, String natureza, String tipoEstabelecimento, Boolean situacao, String dataCadastro, Endereco endereco) {
+    public Unidade(Integer idUnidade, String numero, String registro, String nome, String contato, String locacao, String natureza, String tipoEstabelecimento, String situacao, String dataCadastro, Endereco endereco) {
         this.idUnidade = idUnidade;
         this.numero = numero;
         this.registro = registro;
@@ -49,11 +49,11 @@ public class Unidade {
         this.idUnidade = idUnidade;
     }
 
-    public Integer getNumero() {
+    public String getNumero() {
         return numero;
     }
 
-    public void setNumero(Integer numero) {
+    public void setNumero(String numero) {
         this.numero = numero;
     }
 
@@ -105,11 +105,11 @@ public class Unidade {
         this.tipoEstabelecimento = tipoEstabelecimento;
     }
 
-    public Boolean getSituacao() {
+    public String getSituacao() {
         return situacao;
     }
 
-    public void setSituacao(Boolean situacao) {
+    public void setSituacao(String situacao) {
         this.situacao = situacao;
     }
 

@@ -56,7 +56,7 @@ public class auth extends HttpServlet {
                 
                 session.setAttribute("perfil", loginAcesso.getPerfil());
                 session.setAttribute("dados", pessoa);
-                session.setMaxInactiveInterval(60 * 30);
+                session.setMaxInactiveInterval(60 * 90);
                 response.sendRedirect(loginAcesso.getPerfil() + "/");
 
             } else {

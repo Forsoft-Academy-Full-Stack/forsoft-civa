@@ -13,11 +13,65 @@ import java.util.logging.Logger;
 import model.Endereco;
 import model.Pais;
 import model.Unidade;
+
 /**
  *
  * @author randel
  */
 public class UnidadeDao {
+
+    public static List<Unidade> listUnidadeByGestorNacional(String codigoCivaGestorNacional) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<Unidade> unidades = null;
+        Unidade unidade = null;
+        Endereco endereco = null;
+
+        String sql = "";
+        sql = "SELECT uni.nomeunidade, en.nomesubdivisao1 AS subdivisao3, en.nomesubdivisao2 AS subdivisao2,\n"
+                + "    en.codigopostal, uni.idunidade FROM unidade uni\n"
+                + "    LEFT JOIN endereco en \n"
+                + "        ON uni.idendereco = en.idendereco\n"
+                + "    LEFT JOIN pais pa \n"
+                + "        ON en.idpais = pa.idpais \n"
+                + "    WHERE pa.idpais=(\n"
+                + "    SELECT peag.idpaisdenascimento FROM pessoa peag\n"
+                + "    LEFT JOIN acessogestao ag\n"
+                + "    ON peag.idpessoa = ag.idpessoa\n"
+                + "    WHERE ag.codigocivagestao = ?)";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+            unidades = new ArrayList<>();
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaGestorNacional);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                unidade = new Unidade();
+                endereco = new Endereco();
+
+                unidade.setIdUnidade(rs.getInt("idunidade"));
+                unidade.setNome(rs.getString("nomeunidade"));
+
+                endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
+                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
+                endereco.setCodigoPostal(rs.getString("codigopostal"));
+
+                unidade.setEndereco(endereco);
+
+                unidades.add(unidade);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return unidades;
+    }
 
     public static List<Unidade> listUnidadeByGerente(String codigoCivaGerente) {
         Connection connection = ConnectionFactory.getConnection();
@@ -48,7 +102,7 @@ public class UnidadeDao {
             ps.setString(1, codigoCivaGerente);
             rs = ps.executeQuery();
 
-            while (rs.next()) {               
+            while (rs.next()) {
                 unidade = new Unidade();
                 endereco = new Endereco();
 
@@ -71,6 +125,75 @@ public class UnidadeDao {
         return unidades;
     }
 
+    public static Unidade findById(Integer idUnidade) {
+        Connection connection = ConnectionFactory.getConnection();
+        Unidade unidade = null;
+        Endereco endereco = null;
+        String sql = "";
+        String sql2 = "";
+
+        sql = "SELECT DISTINCT  uni.nomeunidade,\n"
+                + "		uni.registrodaunidade,\n"
+                + "		uni.natureza,\n"
+                + "		uni.tipodeestabelecimento,\n"
+                + "		pa.nomedopais,\n"
+                + "		en.codigopostal,\n"
+                + "		en.tipodelogradouro,\n"
+                + "		en.logradouro,\n"
+                + "		uni.numeroendereco,\n"
+                + "		uni.situacao,\n"
+                + "		en.nomesubdivisao3 AS subdivisao1,\n"
+                + "		en.nomesubdivisao2 AS subdivisao2,\n"
+                + "		en.nomesubdivisao1 AS subdivisao3,\n"
+                + "		uni.contato,\n"
+                + "		uni.locacao \n"
+                + "FROM unidade uni\n"
+                + "    LEFT JOIN endereco en \n"
+                + "    ON uni.idendereco = en.idendereco\n"
+                + "    LEFT JOIN pais pa \n"
+                + "    ON en.idpais = pa.idpais\n"
+                + "    WHERE uni.idunidade = ?;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idUnidade);
+            rs = ps.executeQuery();
+
+            endereco = new Endereco();
+            unidade = new Unidade();
+            
+            if (rs.next()) {
+                endereco.setNomePais(rs.getString("nomedopais"));
+                endereco.setCodigoPostal(rs.getString("codigopostal"));
+                endereco.setTipoLogradouro(rs.getString("tipodelogradouro"));
+                endereco.setLogradouro(rs.getString("logradouro"));
+                endereco.setNomesubdivisao1(rs.getString("subdivisao1"));
+                endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
+                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
+                endereco.setNumero(rs.getString("numeroendereco"));
+
+                unidade.setNome(rs.getString("nomeunidade"));
+                unidade.setRegistro(rs.getString("registrodaunidade"));
+                unidade.setNatureza(rs.getString("natureza"));
+                unidade.setTipoEstabelecimento(rs.getString("tipodeestabelecimento"));        
+                unidade.setSituacao(rs.getString("situacao"));
+                unidade.setContato(rs.getString("contato"));
+                unidade.setLocacao(rs.getString("locacao"));
+                unidade.setEndereco(endereco);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return unidade;
+    }
+
     public static boolean insert(Pais pais) {
         boolean resultado = false;
 
@@ -83,29 +206,9 @@ public class UnidadeDao {
         return resultado;
     }
 
-    public static Unidade find(Integer idUnidade) {
-
-        for (Unidade unidade : UnidadeDao.list()) {
-            if (Objects.equals(unidade.getIdUnidade(), idUnidade)) {
-                return unidade;
-            }
-        }
-
-        return null;
-    }
-
     public static List<Unidade> list() {
-        List<Unidade> unidades = new ArrayList<Unidade>();
-
-        Endereco endereco = new Endereco(1, 1, "Brasil", "Rua", "Tatuí", "76542445", "Apto 14", "Vila são marcos", "Niterói", "Rio de Janeiro", "", "", "", "", "23");
-        Unidade unidade = new Unidade(1, 23, "07.235.197/0001-97", "Bezerra da Silva", "+55 9985563445", "Fixa", "Privada", "Hospital", true, "2021-01-10", endereco);
-        unidades.add(unidade);
-
-        Endereco endereco2 = new Endereco(2, 1, "Brasil", "Rua", "Serrinha", "321232123", "Apto 14", "Montes belos", "Terraria", "Piauí", "", "", "", "", "897");
-        Unidade unidade2 = new Unidade(2, 55, "47.408.010/0001-24", "Alfonso Padilha", "21 88545765", "Fixa", "Pública", "Posto", true, "2021-04-15", endereco2);
-        unidades.add(unidade2);
-
-        return unidades;
+     
+        return null;
     }
 
     public static boolean update(Unidade unidadeNova) {

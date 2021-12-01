@@ -25,7 +25,7 @@
 %>
 
 <% 
-    List<Unidade> listaUnidade = UnidadeDao.list();
+    List<Unidade> listaUnidade = UnidadeDao.listUnidadeByGestorNacional(pessoa.getCodigoCiva());
     pageContext.setAttribute("unidades", listaUnidade);
 %>
 
