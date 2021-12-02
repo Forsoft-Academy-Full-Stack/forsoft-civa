@@ -72,7 +72,7 @@ public class GestorNacionalDao {
                 + "        LEFT JOIN tipodoc tidoc\n"
                 + "            ON doc.idtipodoc = tidoc.idtipodoc\n"
                 + "        WHERE ag.codigocivagestao = ?;";
-        
+
         sql3 = "";
 
         try {
@@ -85,10 +85,10 @@ public class GestorNacionalDao {
             rs = ps.executeQuery();
 
             pessoa = new Pessoa();
-            endereco = new Endereco();                         
+            endereco = new Endereco();
 
             if (rs.next()) {
-                
+
                 pessoa.setIdPessoa(rs.getInt("idpessoa"));
                 pessoa.setCodigoCiva(rs.getString("codigociva"));
                 pessoa.setNomePessoa(rs.getString("nome"));
@@ -97,7 +97,7 @@ public class GestorNacionalDao {
                 pessoa.setDataNascimento(rs.getString("datanascimento"));
                 pessoa.setTelefoneDdd(rs.getString("telefonecomddd"));
                 pessoa.setEmail(rs.getString("emailgestao"));
-                
+
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());
                 pessoa.setNacionalidade(pais.getNomePais());
 
@@ -111,8 +111,7 @@ public class GestorNacionalDao {
                 endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
                 endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
             }
-            
-          
+
             ps = connection.prepareStatement(sql2);
             ps.setString(1, codigoCivaGestorNacional);
             rs = ps.executeQuery();
@@ -135,7 +134,7 @@ public class GestorNacionalDao {
                 documento3.setDocumento(rs.getString("documento"));
                 documento3.setNomeTipoDoc(rs.getString("nomedoc"));
             }
-            
+
             gestorNacional = new GestorNacional(pessoa, documento1, documento2, documento3, endereco, pessoa.getCodigoCiva());
 
         } catch (SQLException ex) {
@@ -153,24 +152,33 @@ public class GestorNacionalDao {
         Docs documento1;
         String sql = "";
 
-        sql = "SELECT DISTINCT peag.nomepessoa AS nome,"
-                + "            doc.documento,"
-                + "            peag.datadenascimento, \n"
-                + "            ag.codigocivagestao "
-                + "    FROM pessoa peag\n"
-                + "    LEFT JOIN docs doc \n"
-                + "        on peag.idpessoa = doc.idpessoa\n"
-                + "    LEFT JOIN tipodoc tidoc \n"
-                + "        ON tidoc.idtipodoc = doc.idtipodoc \n"
-                + "    LEFT JOIN acessogestao ag \n"
-                + "        on peag.idpessoa = ag.idpessoa\n"
-                + "    WHERE ag.cargo = 'Gestor Nacional'\n"
-                + "    AND tidoc.nivel ='Primário'\n"
-                + "    AND peag.idpaisdenascimento = (\n"
-                + "        SELECT peag.idpaisdenascimento FROM pessoa peag\n"
-                + "        LEFT JOIN acessogestao ag\n"
-                + "            ON peag.idpessoa = ag.idpessoa\n"
-                + "        WHERE ag.codigocivagestao = ? );";
+        sql = "SELECT peag.nomepessoa AS nome,\n"
+                + "       peag.sobrenomepessoa,\n"
+                + "       doc.documento,\n"
+                + "       peag.datadenascimento,\n"
+                + "       ag.codigocivagestao\n"
+                + "FROM pessoa peag\n"
+                + "LEFT JOIN docs doc \n"
+                + "ON peag.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc \n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "ON ag.idpessoa = peag.idpessoa\n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa \n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "WHERE ag.cargo='Gestor Nacional'  \n"
+                + "AND tidoc.nivel = 'Primário'\n"
+                + "AND en.idpais = \n"
+                + "(SELECT en.idpais FROM pessoa peag \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "WHERE ag.codigocivagestao = ?/*Código CIVA do Suporte Logado*/);";
 
         try {
             gestoresNacionais = new ArrayList<>();
@@ -206,7 +214,7 @@ public class GestorNacionalDao {
 
         return gestoresNacionais;
     }
-    
+
     public static List<GestorNacional> listByGestorNacional(String codigoCivaGestorNacional) {
         Connection connection = ConnectionFactory.getConnection();
         GestorNacional gestorNacional;

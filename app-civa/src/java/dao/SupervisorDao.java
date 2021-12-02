@@ -102,11 +102,10 @@ public class SupervisorDao {
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
                 pessoa.setTelefoneDdd(rs.getString("telefonecomddd"));
                 pessoa.setEmail(rs.getString("emailgestao"));
-                
-                  // Pegar nacionalidade
+
+                // Pegar nacionalidade
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());
                 pessoa.setNacionalidade(pais.getNomePais());
-
 
                 endereco = new Endereco();
                 endereco.setNomePais(rs.getString("pais"));
@@ -128,22 +127,21 @@ public class SupervisorDao {
                 documento1 = new Docs();
                 documento1.setDocumento(rs.getString("documento"));
                 documento1.setNomeTipoDoc(rs.getString("nomedoc"));
-            }            
-            
+            }
+
             if (rs.next()) {
                 documento2 = new Docs();
                 documento2.setDocumento(rs.getString("documento"));
                 documento2.setNomeTipoDoc(rs.getString("nomedoc"));
             }
-            
+
             if (rs.next()) {
                 documento3 = new Docs();
                 documento3.setDocumento(rs.getString("documento"));
                 documento3.setNomeTipoDoc(rs.getString("nomedoc"));
             }
-             
+
             supervisor = new Supervisor(pessoa, documento1, documento2, documento3, endereco, pessoa.getCodigoCiva());
-            
 
         } catch (SQLException ex) {
             Logger.getLogger(SupervisorDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -285,7 +283,7 @@ public class SupervisorDao {
 
         return supervisores;
     }
-    
+
     public static List<Supervisor> listBySuporteCiva(String codigoCivaSuporte) {
         Connection connection = ConnectionFactory.getConnection();
         List<Supervisor> supervisores = new ArrayList<Supervisor>();
@@ -296,7 +294,7 @@ public class SupervisorDao {
         String sql = "";
 
         sql = "SELECT peag.nomepessoa AS nome,\n"
-                + "       peag.sobrenomepessoa AS sobrenome,\n"
+                + "	   peag.sobrenomepessoa AS sobrenome,\n"
                 + "       doc.documento,\n"
                 + "       peag.datadenascimento,\n"
                 + "       ag.codigocivagestao AS codigociva\n"
@@ -307,17 +305,20 @@ public class SupervisorDao {
                 + "ON doc.idtipodoc = tidoc.idtipodoc \n"
                 + "LEFT JOIN acessogestao ag \n"
                 + "ON ag.idpessoa = peag.idpessoa\n"
-                + "LEFT JOIN acessogestao_unidade aguni \n"
-                + "ON ag.idacessogestao = aguni.idacessogestao \n"
                 + "WHERE ag.cargo='Supervisor'  \n"
                 + "AND tidoc.nivel = 'Primário'\n"
-                + "AND aguni.idunidade IN \n"
-                + "(SELECT uni.idunidade from unidade uni\n"
-                + "LEFT JOIN acessogestao_unidade aguni\n"
-                + "ON uni.idunidade = aguni.idunidade\n"
+                + "AND ag.codigocivagestao LIKE \n"
+                + "CONCAT( \n"
+                + "(SELECT pa.sigla FROM pessoa peag \n"
                 + "LEFT JOIN acessogestao ag \n"
-                + "ON aguni.idacessogestao = ag.idacessogestao \n"
-                + "WHERE ag.codigocivagestao = ?);";
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "LEFT JOIN pais pa \n"
+                + "ON en.idpais = pa.idpais  \n"
+                + "WHERE ag.codigocivagestao = ?),'%');";
 
         try {
             Statement stmt = connection.createStatement();
@@ -352,7 +353,7 @@ public class SupervisorDao {
 
         return supervisores;
     }
-    
+
     // Refazer
     public static List<Supervisor> list(String codigoCivaGerente) {
         Connection connection = ConnectionFactory.getConnection();

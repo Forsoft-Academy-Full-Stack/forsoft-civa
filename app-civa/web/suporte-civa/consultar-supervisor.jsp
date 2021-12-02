@@ -21,7 +21,7 @@
 
 %>
 <%  
-    List<Supervisor> listaSupervisor = SupervisorDao.list(pessoa.getCodigoCiva());
+    List<Supervisor> listaSupervisor = SupervisorDao.listBySuporteCiva(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("supervisores", listaSupervisor);
 %>   

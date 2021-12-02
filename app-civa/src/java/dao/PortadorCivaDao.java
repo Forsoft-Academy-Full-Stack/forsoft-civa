@@ -30,23 +30,31 @@ public class PortadorCivaDao {
         Docs documento1;
         String sql = "";
 
-        sql = "SELECT peag.nomepessoa AS nome,\n"
-                + "   peag.sobrenomepessoa,"
-                + "	   doc.documento,\n"
-                + "	   peag.datadenascimento, \n"
-                + "	   ag.codigocivapc\n"
-                + "FROM pessoa AS peag\n"
-                + "LEFT JOIN docs AS doc \n"
-                + "on peag.idpessoa = doc.idpessoa\n"
-                + "LEFT JOIN tipodoc tidoc \n"
-                + "ON tidoc.idtipodoc = doc.idtipodoc \n"
-                + "LEFT JOIN acessopc ag \n"
-                + "on peag.idpessoa = ag.idpessoa\n"
-                + "AND peag.idpaisdenascimento = (\n"
-                + "SELECT peag.idpaisdenascimento FROM pessoa peag\n"
-                + "LEFT JOIN acessogestao ag\n"
-                + "ON peag.idpessoa = ag.idpessoa\n"
-                + "WHERE  ag.codigocivagestao = ? AND tidoc.nivel ='Primário') LIMIT 20;";
+        sql = "SELECT pepc.nomepessoa AS nome,\n"
+                + "       pepc.sobrenomepessoa,\n"
+                + "       doc.documento,\n"
+                + "       pepc.datadenascimento,\n"
+                + "       apc.codigocivapc\n"
+                + "FROM pessoa pepc\n"
+                + "    LEFT JOIN docs doc \n"
+                + "    ON pepc.idpessoa = doc.idpessoa\n"
+                + "    LEFT JOIN tipodoc tidoc \n"
+                + "    ON doc.idtipodoc = tidoc.idtipodoc \n"
+                + "    LEFT JOIN acessopc apc \n"
+                + "    ON apc.idpessoa = pepc.idpessoa\n"
+                + "    WHERE tidoc.nivel = 'Primário'\n"
+                + "    AND apc.codigocivapc LIKE \n"
+                + "    CONCAT( \n"
+                + "    (SELECT pa.sigla FROM pessoa peag \n"
+                + "    LEFT JOIN acessogestao ag \n"
+                + "    on ag.idpessoa = peag.idpessoa \n"
+                + "    LEFT JOIN pessoa_endereco peen \n"
+                + "    ON peag.idpessoa =peen.idpessoa\n"
+                + "    LEFT JOIN endereco en \n"
+                + "    ON peen.idendereco =en.idendereco \n"
+                + "    LEFT JOIN pais pa \n"
+                + "    ON en.idpais = pa.idpais  \n"
+                + "   	WHERE ag.codigocivagestao = ? ),'%') LIMIT 20;";
 
         try {
             portadoresCiva = new ArrayList<>();
@@ -83,8 +91,7 @@ public class PortadorCivaDao {
 
         return portadoresCiva;
     }
-    
-  
+
     public static List<PortadorCiva> listByProfissionalSaude(String codigoCivaProfissionalSaude) {
         Connection connection = ConnectionFactory.getConnection();
         PortadorCiva portadorCiva;
@@ -330,8 +337,8 @@ public class PortadorCivaDao {
 
         return portadorCiva;
     }
-    
-      public static PortadorCiva findByCodigoCivaVacinacaoInternacional(String codigoCivaPortadorCiva) {
+
+    public static PortadorCiva findByCodigoCivaVacinacaoInternacional(String codigoCivaPortadorCiva) {
         Connection connection = ConnectionFactory.getConnection();
         PortadorCiva portadorCiva = null;
         Pessoa pessoa = null;
@@ -431,7 +438,6 @@ public class PortadorCivaDao {
 
             vacinacoes = VacinacaoDao.listByPortadorCivaInternacional(codigoCivaPortadorCiva);
 
-          
             portadorCiva.setListaVacinacao(vacinacoes);
             portadorCiva.setPessoa(pessoa);
             portadorCiva.setEndereco(endereco);

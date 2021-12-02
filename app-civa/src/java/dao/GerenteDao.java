@@ -22,8 +22,8 @@ import model.Pessoa;
 public class GerenteDao {
 
     public static Gerente findByCodigoCiva(String codigoCivaGerente) {
-        Connection connection = ConnectionFactory.getConnection();            
-         
+        Connection connection = ConnectionFactory.getConnection();
+
         Gerente gerente = null;
         Pessoa pessoa = null;
         Docs documento1 = null;
@@ -75,8 +75,7 @@ public class GerenteDao {
             ResultSet rs = null;
 
             ps = connection.prepareStatement(sql);
-            
-            
+
             ps.setString(1, codigoCivaGerente);
 
             rs = ps.executeQuery();
@@ -139,7 +138,7 @@ public class GerenteDao {
 
         return gerente;
     }
-    
+
     public static List<Gerente> listBySuporteCiva(String codigoCivaSuporte) {
         Connection connection = ConnectionFactory.getConnection();
         List<Gerente> gerentes = null;
@@ -147,23 +146,34 @@ public class GerenteDao {
         Pessoa pessoa;
         Docs documento1;
 
-        String sql = "SELECT DISTINCT peag.nomepessoa AS nome,\n"
-                + "	              doc.documento AS documento,\n"
-                + "                   peag.datadenascimento AS datanascimento,\n"
-                + "	              ag.codigocivagestao AS codigociva\n"
+        String sql = "SELECT peag.nomepessoa AS nome,\n"
+                + "        peag.sobrenomepessoa,\n"
+                + "        doc.documento,\n"
+                + "        peag.datadenascimento AS datanascimento,\n"
+                + "        ag.codigocivagestao AS codigociva\n"
+                + "\n"
                 + "FROM pessoa peag\n"
                 + "LEFT JOIN docs doc \n"
-                + "on peag.idpessoa = doc.idpessoa\n"
+                + "ON peag.idpessoa = doc.idpessoa\n"
                 + "LEFT JOIN tipodoc tidoc \n"
                 + "ON doc.idtipodoc = tidoc.idtipodoc \n"
                 + "LEFT JOIN acessogestao ag \n"
-                + "on peag.idpessoa = ag.idpessoa\n"
-                + "WHERE ag.cargo = 'Gerente'\n"
-                + "	AND tidoc.nivel ='Primário'\n"
-                + "	AND peag.idpaisdenascimento = ( SELECT peag.idpaisdenascimento FROM pessoa peag\n"
-                + "					LEFT JOIN acessogestao ag\n"
-                + "					ON peag.idpessoa = ag.idpessoa\n"
-                + "					WHERE ag.codigocivagestao = ?)\n"
+                + "ON ag.idpessoa = peag.idpessoa\n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa \n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "WHERE ag.cargo='Gerente'  \n"
+                + "AND tidoc.nivel = 'Primário'\n"
+                + "AND en.idpais = \n"
+                + "(SELECT en.idpais FROM pessoa peag \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa =peen.idpessoa\n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco =en.idendereco \n"
+                + "WHERE ag.codigocivagestao = ? /*Código CIVA do Suporte Logado*/);"
                 + " ";
 
         try {
@@ -183,6 +193,7 @@ public class GerenteDao {
                 documento1 = new Docs();
 
                 pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
                 documento1.setDocumento(rs.getString("documento"));
                 pessoa.setDataNascimento(rs.getString("datanascimento"));
 
@@ -261,7 +272,7 @@ public class GerenteDao {
         return gerentes;
 
     }
-    
+
     public static List<Gerente> listByIdUnidade(Integer idUnidade) {
         Connection connection = ConnectionFactory.getConnection();
         List<Gerente> gerentes = null;
@@ -290,33 +301,33 @@ public class GerenteDao {
 
         try {
             gerentes = new ArrayList<>();
-            
+
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
             ResultSet rs = null;
-            
+
             ps = connection.prepareStatement(sql);
             ps.setInt(1, idUnidade);
             rs = ps.executeQuery();
-            
-            while(rs.next()){
+
+            while (rs.next()) {
                 gerente = new Gerente();
-                
+
                 pessoa = new Pessoa();
                 pessoa.setNomePessoa(rs.getString("nomepessoa"));
                 pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
                 pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
-                
+
                 documento1 = new Docs();
                 documento1.setDocumento(rs.getString("documento"));
-                
+
                 gerente.setPessoa(pessoa);
                 gerente.setDocumento1(documento1);
                 gerente.setCodigoCiva(pessoa.getCodigoCiva());
-                
+
                 gerentes.add(gerente);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(GerenteDao.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -324,8 +335,6 @@ public class GerenteDao {
         return gerentes;
     }
 
-    
-    
     public static boolean insert(Gerente gerente) {
         boolean resultado = false;
 
