@@ -1,3 +1,5 @@
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.sql.Array"%>
 <%@page import="dao.VacinacaoDao"%>
 <%@page import="model.Vacinacao"%>
 <%@page import="java.util.List"%>
@@ -23,14 +25,14 @@
 %>
 
 <%  
-    //String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
     
-    //PortadorCiva portadorciva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
-    
-    //portadorciva = portadorciva.getListaVacinacao() != null ? portadorciva : new PortadorCiva();
-    
+    //PortadorCiva portadorciva = PortadorCivaDao.findByCodigoCivaVacinacaoInternacional(codigoCivaPortadorCiva);
+  
     //pageContext.setAttribute("ator", portadorciva);
     //pageContext.setAttribute("vacinacoes", portadorciva.getListaVacinacao());
+      pageContext.setAttribute("vacinacoes", VacinacaoDao.listByPortadorCivaInternacional(codigoCivaPortadorCiva));
+    
 %>
 
 

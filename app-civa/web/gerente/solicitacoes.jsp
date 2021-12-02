@@ -17,10 +17,6 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    //Buscar Lista de supervisores
-    Gerente gerente = GerenteDao.findByCodigoCiva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("ator", gerente);
-%>
 
 <%@include file="header.jspf"%>
 <script src="./../public/assets/js/gerente/solicitacoes.js" defer></script>

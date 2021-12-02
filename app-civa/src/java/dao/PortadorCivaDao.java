@@ -83,7 +83,8 @@ public class PortadorCivaDao {
 
         return portadoresCiva;
     }
-
+    
+  
     public static List<PortadorCiva> listByProfissionalSaude(String codigoCivaProfissionalSaude) {
         Connection connection = ConnectionFactory.getConnection();
         PortadorCiva portadorCiva;
@@ -318,6 +319,119 @@ public class PortadorCivaDao {
             vacinacoes = VacinacaoDao.listByPortadorCiva(codigoCivaPortadorCiva);
 
             System.err.println(vacinacoes.get(0).getVacina().getNomeVacina());
+            portadorCiva.setListaVacinacao(vacinacoes);
+            portadorCiva.setPessoa(pessoa);
+            portadorCiva.setEndereco(endereco);
+            portadorCiva.setCodigoCiva(pessoa.getCodigoCiva());
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PortadorCivaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return portadorCiva;
+    }
+    
+      public static PortadorCiva findByCodigoCivaVacinacaoInternacional(String codigoCivaPortadorCiva) {
+        Connection connection = ConnectionFactory.getConnection();
+        PortadorCiva portadorCiva = null;
+        Pessoa pessoa = null;
+        Docs documento1 = null;
+        Endereco endereco = null;
+        List<Vacinacao> vacinacoes = null;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            String sql = "";
+            String sql2 = "";
+
+            sql = " SELECT apc.codigocivapc, pepc.idpessoa, "
+                    + " pepc.nomepessoa,"
+                    + " pepc.sobrenomepessoa,"
+                    + " pepc.genero,  \n"
+                    + " pepc.datadenascimento,"
+                    + " pa.nomedopais,"
+                    + " en.codigopostal,"
+                    + " en.nomesubdivisao1 AS subdivisao3, \n"
+                    + " en.nomesubdivisao2 AS subdivisao2,"
+                    + " en.nomesubdivisao3 AS subdivisao1,"
+                    + " en.tipodelogradouro,"
+                    + " en.logradouro,"
+                    + " peen.numero,"
+                    + " peen.complemento, \n"
+                    + " pepc.ddidocontato,"
+                    + " pepc.telefonecomddd,"
+                    + " apc.emailpc \n"
+                    + "    FROM pessoa pepc\n"
+                    + "    LEFT JOIN acessopc apc\n"
+                    + "    ON pepc.idpessoa = apc.idpessoa\n"
+                    + "    LEFT JOIN pais pa\n"
+                    + "    ON pepc.idpaisdenascimento = pa.idpais\n"
+                    + "    LEFT JOIN pessoa_endereco peen\n"
+                    + "    ON pepc.idpessoa = peen.idpessoa\n"
+                    + "    LEFT JOIN endereco en\n"
+                    + "    ON peen.idendereco = en.idendereco\n"
+                    + "    WHERE apc.codigocivapc = ?;";
+
+            sql2 = "SELECT doc.documento, \n"
+                    + "	   tidoc.nomedoc AS tipodocumento\n"
+                    + "FROM pessoa pepc\n"
+                    + "LEFT JOIN acessopc apc\n"
+                    + "ON pepc.idpessoa = apc.idpessoa\n"
+                    + "LEFT JOIN docs doc\n"
+                    + "ON pepc.idpessoa = doc.idpessoa\n"
+                    + "LEFT JOIN tipodoc tidoc\n"
+                    + "ON doc.idtipodoc = tidoc.idtipodoc\n"
+                    + "WHERE apc.codigocivapc = ?;";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaPortadorCiva);
+            rs = ps.executeQuery();
+
+            portadorCiva = new PortadorCiva();
+
+            if (rs.next()) {
+                pessoa = new Pessoa();
+                pessoa.setIdPessoa(rs.getInt("idpessoa"));
+                pessoa.setCodigoCiva(rs.getString("codigocivapc"));
+                pessoa.setNomePessoa(rs.getString("nomepessoa"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
+                pessoa.setGenero(rs.getString("genero"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+                pessoa.setTelefoneDdd(rs.getString("ddidocontato"));
+                pessoa.setDdiContato(rs.getString("telefonecomddd"));
+                pessoa.setEmail(rs.getString("emailpc"));
+
+                // Pegar nacionalidade
+                Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());
+                pessoa.setNacionalidade(pais.getNomePais());
+
+                endereco = new Endereco();
+                endereco.setCodigoPostal(rs.getString("codigopostal"));
+                endereco.setNomesubdivisao1(rs.getString("subdivisao1"));
+                endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
+                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
+                endereco.setTipoLogradouro(rs.getString("tipodelogradouro"));
+                endereco.setLogradouro(endereco.getTipoLogradouro() + " " + rs.getString("logradouro"));
+                endereco.setNumero(rs.getString("numero"));
+                endereco.setComplemento(rs.getString("complemento"));
+                endereco.setNomePais(rs.getString("nomedopais"));
+            }
+
+            ps = connection.prepareStatement(sql2);
+            ps.setString(1, codigoCivaPortadorCiva);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                documento1 = new Docs();
+                documento1.setDocumento(rs.getString("documento"));
+                documento1.setNomeTipoDoc(rs.getString("tipodocumento"));
+                portadorCiva.setDocumento1(documento1);
+            }
+
+            vacinacoes = VacinacaoDao.listByPortadorCivaInternacional(codigoCivaPortadorCiva);
+
+          
             portadorCiva.setListaVacinacao(vacinacoes);
             portadorCiva.setPessoa(pessoa);
             portadorCiva.setEndereco(endereco);

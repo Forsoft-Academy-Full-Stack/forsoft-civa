@@ -24,7 +24,7 @@
 %>
 
 <%    //Buscar Lista de gestores OMS
-    List<Vacina> listaVacinas = VacinaDao.list();
+    List<Vacina> listaVacinas = VacinaDao.listByGestorOms();
 
     pageContext.setAttribute("vacinas", listaVacinas);
 %> 

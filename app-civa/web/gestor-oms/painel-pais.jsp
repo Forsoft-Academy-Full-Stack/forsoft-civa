@@ -22,7 +22,7 @@
 %>
 <%    
     Integer idPais = Integer.parseInt(request.getParameter("idPais"));
-    Pais pais = PaisDao.findById(idPais);
+    Pais pais = PaisDao.findByIdPais(idPais);
 
     pageContext.setAttribute("pais", pais);
 %> 

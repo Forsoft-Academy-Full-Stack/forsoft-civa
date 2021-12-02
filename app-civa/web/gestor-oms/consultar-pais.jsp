@@ -24,7 +24,7 @@
 %>
 
 <%   
-    List<Pais> listaPaises = PaisDao.list();
+    List<Pais> listaPaises = PaisDao.listPais();
 
     pageContext.setAttribute("paises", listaPaises);
 %>
