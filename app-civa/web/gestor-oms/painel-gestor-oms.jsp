@@ -23,7 +23,7 @@
 
 <%    
     String codigoCivaGestorOms = request.getParameter("codigoCiva");
-    GestorOms gestorOms = GestorOmsDao.find(codigoCivaGestorOms);
+    GestorOms gestorOms = GestorOmsDao.findByCodigCiva(codigoCivaGestorOms);
 
     pageContext.setAttribute("ator", gestorOms);
 %> 

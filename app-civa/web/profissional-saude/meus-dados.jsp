@@ -25,12 +25,12 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%    
-    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find(pessoa.getCodigoCiva());
+    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", profissionalSaude);
 %>
 
 <%    //Buscar Lista de supervisores
-    List<Unidade> listaUnidades = UnidadeDao.list();
+    List<Unidade> listaUnidades = UnidadeDao.listUnidadeByProfissionalSaude(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("unidades", listaUnidades);
 %> 
@@ -128,8 +128,8 @@
                                                 <tr>                                                   
                                                     <td><c:out value="${unidade.nome}" /></td>
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
-                                                    <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
                                                     <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                    <td><c:out value="${unidade.idUnidade}" /></td>
                                                 </tr>
                                             </c:forEach>  
                                         </tbody>

@@ -27,11 +27,14 @@ public class VacinacaoDao {
         Vacinacao vacinacao = null;
         Vacina vacina = null;
 
-        String sql = "SELECT vac.nomevacina AS vacina,\n"
-                + "       vac.laboratorio,\n"
+        String sql = "SELECT vac.idvacina, vacao.lote, vac.nomevacina AS vacina,\n"
+                + "       vac.laboratorio, vac.numerodedoses,\n"
                 + "       vacao.doseaplicada,\n"
                 + "       pa.nomedopais AS pais,\n"
-                + "       vacao.datadeaplicacao AS dataaplicacao\n"
+                + "       vacao.datadeaplicacao AS dataaplicacao,"
+                + "       uni.nomeunidade,"
+                + "       vacao.idacessogestao,\n"
+                + "       uni.idunidade"
                 + "       from vacinacao vacao\n"
                 + "LEFT JOIN acessopc apc \n"
                 + "ON vacao.idacessopc = apc.idacessopc\n"
@@ -61,16 +64,22 @@ public class VacinacaoDao {
                 vacina = new Vacina();
                 vacinacao = new Vacinacao();
                 
+                
                 vacina.setNomeVacina(rs.getString("vacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
+                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
                 
                 vacinacao.setVacina(vacina);
             
                 vacinacao.setDoseAplicada(rs.getString("doseaplicada"));
                 vacinacao.setPais(rs.getString("pais"));
                 vacinacao.setDataAplicacao(rs.getString("dataaplicacao"));
-                
-                vacinacoes.add(vacinacao);                
+                vacinacao.setIdVacinacao(Integer.parseInt(rs.getString("idvacina")));
+                vacinacao.setUnidade(rs.getString("nomeunidade"));
+                vacinacao.setCodigoCivaCadastrante(rs.getString("idacessogestao"));
+                vacinacao.setIdUnidade(rs.getInt("idunidade"));
+                vacina.setLote(rs.getString("lote"));
+                vacinacoes.add(vacinacao);               
             }
 
         } catch (SQLException ex) {

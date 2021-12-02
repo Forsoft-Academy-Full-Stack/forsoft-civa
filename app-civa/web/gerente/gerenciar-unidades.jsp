@@ -31,7 +31,7 @@
     pageContext.setAttribute("unidade", unidade);
     pageContext.setAttribute("ator", unidade);
 
-    List<Supervisor> listaSupervisores = SupervisorDao.listByGerente(pessoa.getCodigoCiva());
+    List<Supervisor> listaSupervisores = SupervisorDao.listByUnidade(idUnidade);
     pageContext.setAttribute("supervisores", listaSupervisores);
 %> 
 

@@ -20,7 +20,7 @@
 
 %>
 <% 
-    GestorNacional gestorNacional = GestorNacionalDao.find(pessoa.getCodigoCiva());
+    GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", gestorNacional);
 %>
 <%@include file="header.jspf"%>

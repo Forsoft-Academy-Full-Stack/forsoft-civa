@@ -21,7 +21,7 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 <%    
-    List<PortadorCiva> listaPortadores = PortadorCivaDao.listDadosPessoais();
+    List<PortadorCiva> listaPortadores = PortadorCivaDao.listByProfissionalSaude(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("portadoresCiva", listaPortadores);
 %>    

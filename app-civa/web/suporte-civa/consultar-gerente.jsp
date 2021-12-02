@@ -24,7 +24,7 @@
 %>
 
 <%
-    List<Gerente> listaGerentes = GerenteDao.list();
+    List<Gerente> listaGerentes = GerenteDao.listBySuporteCiva(pessoa.getCodigoCiva());
     pageContext.setAttribute("gerentes", listaGerentes);
 %>
 <!--Por favor não remover include nem head-->

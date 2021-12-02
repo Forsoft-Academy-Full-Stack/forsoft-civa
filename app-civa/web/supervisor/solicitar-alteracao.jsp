@@ -20,7 +20,7 @@
 
 %>
 <%  
-    Supervisor supervisor = SupervisorDao.find(pessoa.getCodigoCiva());
+    Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", supervisor);
 %>
 <%@include file="header.jspf"%>

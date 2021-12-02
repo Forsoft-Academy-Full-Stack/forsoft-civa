@@ -22,7 +22,7 @@
 %>
 
 <%    //Buscar Lista de suporteCiva
-    List<GestorNacional> listaGestorNacional = GestorNacionalDao.list();
+    List<GestorNacional> listaGestorNacional = GestorNacionalDao.listBySuporteCiva(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("gestoresNacionais", listaGestorNacional);
 %>    

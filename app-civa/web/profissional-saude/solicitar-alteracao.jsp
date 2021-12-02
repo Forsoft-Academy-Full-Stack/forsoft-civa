@@ -19,7 +19,7 @@
 
 %>
 <%    
-    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find(pessoa.getCodigoCiva());
+    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", profissionalSaude);
 %>
 

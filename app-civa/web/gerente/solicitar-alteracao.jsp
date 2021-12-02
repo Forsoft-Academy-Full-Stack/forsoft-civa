@@ -19,7 +19,7 @@
 
 %>
 <%  
-    Gerente gerente = GerenteDao.find(pessoa.getCodigoCiva());
+    Gerente gerente = GerenteDao.findByCodigoCiva(pessoa.getCodigoCiva());
     
     pageContext.setAttribute("ator", gerente);
 %>

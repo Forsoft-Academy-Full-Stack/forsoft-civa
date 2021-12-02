@@ -25,12 +25,12 @@
 %>
 
 <%  
-    Supervisor supervisor = SupervisorDao.find(pessoa.getCodigoCiva());
+    Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", supervisor);
 %>
 
 <%    //Buscar Lista de supervisores
-    List<Unidade> listaUnidades = UnidadeDao.list();
+    List<Unidade> listaUnidades = UnidadeDao.listUnidadeBySupervisor(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("unidades", listaUnidades);
 %> 

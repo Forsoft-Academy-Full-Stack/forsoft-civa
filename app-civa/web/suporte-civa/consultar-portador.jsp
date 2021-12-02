@@ -22,7 +22,7 @@
 
 %>
 <%   
-    List<PortadorCiva> listaPortadorCiva = PortadorCivaDao.list();
+    List<PortadorCiva> listaPortadorCiva = PortadorCivaDao.listBySuporteCiva(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("portadoresCiva", listaPortadorCiva);
 %> 

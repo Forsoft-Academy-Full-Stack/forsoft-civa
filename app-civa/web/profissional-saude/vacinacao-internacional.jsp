@@ -23,14 +23,14 @@
 %>
 
 <%  
-    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+    //String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
     
-    PortadorCiva portadorciva = PortadorCivaDao.find(codigoCivaPortadorCiva);
+    //PortadorCiva portadorciva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
     
-    portadorciva = portadorciva != null ? portadorciva : new PortadorCiva();
+    //portadorciva = portadorciva.getListaVacinacao() != null ? portadorciva : new PortadorCiva();
     
-    pageContext.setAttribute("ator", portadorciva);
-    pageContext.setAttribute("vacinacoes", portadorciva.getListaVacinacao());
+    //pageContext.setAttribute("ator", portadorciva);
+    //pageContext.setAttribute("vacinacoes", portadorciva.getListaVacinacao());
 %>
 
 

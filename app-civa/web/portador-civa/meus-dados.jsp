@@ -20,7 +20,7 @@
 
 %>
 <%    
-    PortadorCiva portadorciva = PortadorCivaDao.find(pessoa.getCodigoCiva());
+    PortadorCiva portadorciva = PortadorCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", portadorciva);
 %>
 

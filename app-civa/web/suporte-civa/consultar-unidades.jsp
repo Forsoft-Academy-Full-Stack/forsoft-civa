@@ -23,7 +23,7 @@
 
 %>
 <%  
-    List<Unidade> listaUnidade = UnidadeDao.list();
+    List<Unidade> listaUnidade = UnidadeDao.listUnidadeSuporteCiva(pessoa.getCodigoCiva());
     pageContext.setAttribute("unidades", listaUnidade);
 %>
 <!--Por favor não remover include nem head-->

@@ -11,8 +11,9 @@ public class Vacina {
     private String tipoVacina;
     private Integer tempoEntreDoses;
     private Integer tempoReforco;
+    private String lote;
 
-    public Vacina(Integer idVacina, String laboratorio, Integer numeroDoses, String nomeVacina, String tipoVacina, Integer tempoEntreDoses, Integer tempoReforco, Integer lote) {
+    public Vacina(Integer idVacina, String laboratorio, Integer numeroDoses, String nomeVacina, String tipoVacina, Integer tempoEntreDoses, Integer tempoReforco, String lote) {
         this.idVacina = idVacina;
         this.laboratorio = laboratorio;
         this.numeroDoses = numeroDoses;
@@ -26,15 +27,13 @@ public class Vacina {
     public Vacina() {
     }
 
-    public Integer getLote() {
+    public String getLote() {
         return lote;
     }
 
-    public void setLote(Integer lote) {
+    public void setLote(String lote) {
         this.lote = lote;
     }
-    
-    private Integer lote;
 
     public Integer getIdVacina() {
         return idVacina;

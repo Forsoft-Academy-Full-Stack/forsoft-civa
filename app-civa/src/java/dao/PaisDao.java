@@ -29,6 +29,10 @@ public class PaisDao {
 
         return resultado;
     }
+    
+     public static Pais findById(Integer idPais) {
+         return null;
+     }
 
     public static Pais findByIdPessoa(Integer idPessoa) {
         Connection connection = ConnectionFactory.getConnection();

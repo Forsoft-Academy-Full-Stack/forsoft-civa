@@ -28,14 +28,14 @@
 
 %>
 <%  
-    PortadorCiva portadorCiva = PortadorCivaDao.find(pessoa.getCodigoCiva());
+    PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
     pageContext.setAttribute("portadorCiva", portadorCiva);
 
-    Unidade unidade = UnidadeDao.find(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
+    Unidade unidade = UnidadeDao.findById(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
     pageContext.setAttribute("unidade", unidade);
 
-    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find(portadorCiva.getListaVacinacao().get(0).getCodigoCivaCadastrante());
-    pageContext.setAttribute("profissionalSaude", profissionalSaude);
+   // ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(portadorCiva.getListaVacinacao().get(0).getCodigoCivaCadastrante());
+  //  pageContext.setAttribute("profissionalSaude", profissionalSaude);
 %>
 
 
@@ -157,7 +157,7 @@
 
 
     <!-- MODAL CERTIFICADO CIVA -->
-    <%@include file="modal-certificado-civa.jspf" %>
+    <!--%@include file="modal-certificado-civa.jspf" %-->
 
 </body>
 </html>

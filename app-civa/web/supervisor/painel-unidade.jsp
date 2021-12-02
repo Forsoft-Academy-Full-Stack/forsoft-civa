@@ -1,8 +1,12 @@
+<%@page import="dao.ProfissionalSaudeDao"%>
+<%@page import="model.ProfissionalSaude"%>
+<%@page import="java.util.List"%>
 <%@page import="dao.UnidadeDao"%>
 <%@page import="model.Unidade"%>
 <%@page import="model.Unidade"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -20,10 +24,13 @@
 
 %>
 <%  Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
-    Unidade unidade = UnidadeDao.find(idUnidade);
-    
+    Unidade unidade = UnidadeDao.findById(idUnidade);
+
+    List<ProfissionalSaude> profissionaisSaude = ProfissionalSaudeDao.listByUnidade(idUnidade);
+
     pageContext.setAttribute("ator", unidade);
     pageContext.setAttribute("unidade", unidade);
+    pageContext.setAttribute("profissionaisSaude", profissionaisSaude);
 %>
 
 <%@include file="header.jspf"%>
@@ -116,28 +123,15 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>Maria Souza da Silva</td>
-                                                <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Maria Souza da Silva</td>
-                                                <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Maria Souza da Silva</td>
-                                                <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Maria Souza da Silva</td>
-                                                <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>   
-                                            </tr>
+                                            <c:forEach items="${profissionaisSaude}" var="profissional">
+                                                <tr>
+                                                    <td><c:out value="${profissional.pessoa.nomePessoa} ${profissional.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${profissional.documento1.documento}" /></td>
+                                                    <td><c:out value="${profissional.codigoCiva}" /></td>
+                                                </tr>
+                                            </c:forEach>
                                         </tbody>
-               
+
                                     </table>
                                     <hr>
                                     <div class="row ">

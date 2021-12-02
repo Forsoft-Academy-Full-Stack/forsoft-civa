@@ -22,7 +22,7 @@
 %>
 
 <%    //Buscar Lista de supervisores
-    List<ProfissionalSaude> listaProfissionaisSaude = ProfissionalSaudeDao.list();
+    List<ProfissionalSaude> listaProfissionaisSaude = ProfissionalSaudeDao.listBySupervisor(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("profissionaisSaude", listaProfissionaisSaude);
 %>   

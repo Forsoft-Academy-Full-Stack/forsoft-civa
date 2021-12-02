@@ -18,6 +18,178 @@ import model.Unidade;
  * @author randel
  */
 public class UnidadeDao {
+    
+    public static List<Unidade> listUnidadeSuporteCiva(String codigoCivaSuporte) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<Unidade> unidades = null;
+        Unidade unidade = null;
+        Endereco endereco = null;
+
+        String sql = "";
+        sql = "SELECT uni.nomeunidade,\n"
+                + "   uni.idunidade,\n"
+                + "   en.nomesubdivisao1 AS subdivisao3,\n"
+                + "   en.nomesubdivisao2 AS subdivisao2,\n"
+                + "   en.codigopostal,\n"
+                + "   uni.registrodaunidade\n"
+                + "FROM unidade uni\n"
+                + "left join acessogestao_unidade aguni \n"
+                + "on uni.idunidade = aguni.idunidade \n"
+                + "left join endereco en \n"
+                + "on uni.idendereco = en.idendereco \n"
+                + "LEFT JOIN acessogestao ag\n"
+                + "on ag.idacessogestao = aguni.idacessogestao  \n"
+                + "LEFT JOIN pessoa peag \n"
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "Where ag.codigocivagestao = ?;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+            unidades = new ArrayList<>();
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaSuporte);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                unidade = new Unidade();
+                endereco = new Endereco();
+
+                unidade.setIdUnidade(rs.getInt("idunidade"));
+                unidade.setNome(rs.getString("nomeunidade"));
+
+                endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
+                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
+                endereco.setCodigoPostal(rs.getString("codigopostal"));
+
+                unidade.setEndereco(endereco);
+
+                unidades.add(unidade);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return unidades;
+    }
+
+    public static List<Unidade> listUnidadeBySupervisor(String codigoCivaSupervisor) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<Unidade> unidades = null;
+        Unidade unidade = null;
+        Endereco endereco = null;
+
+        String sql = "";
+        sql = "SELECT uni.nomeunidade,\n"
+                + "   uni.idunidade,\n"
+                + "   en.nomesubdivisao1 AS subdivisao3,\n"
+                + "   en.nomesubdivisao2 AS subdivisao2,\n"
+                + "   en.codigopostal,\n"
+                + "   uni.registrodaunidade\n"
+                + "FROM unidade uni\n"
+                + "left join acessogestao_unidade aguni \n"
+                + "on uni.idunidade = aguni.idunidade \n"
+                + "left join endereco en \n"
+                + "on uni.idendereco = en.idendereco \n"
+                + "LEFT JOIN acessogestao ag\n"
+                + "on ag.idacessogestao = aguni.idacessogestao  \n"
+                + "LEFT JOIN pessoa peag \n"
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "Where ag.codigocivagestao = ?;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+            unidades = new ArrayList<>();
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaSupervisor);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                unidade = new Unidade();
+                endereco = new Endereco();
+
+                unidade.setIdUnidade(rs.getInt("idunidade"));
+                unidade.setNome(rs.getString("nomeunidade"));
+
+                endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
+                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
+                endereco.setCodigoPostal(rs.getString("codigopostal"));
+
+                unidade.setEndereco(endereco);
+
+                unidades.add(unidade);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return unidades;
+    }
+
+    public static List<Unidade> listUnidadeByProfissionalSaude(String codigoCivaProfissionalSaude) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<Unidade> unidades = null;
+        Unidade unidade = null;
+        Endereco endereco = null;
+
+        String sql = "";
+        sql = "SELECT uni.nomeunidade,\n"
+                + "   uni.idunidade,\n"
+                + "   en.nomesubdivisao1 AS subdivisao3,\n"
+                + "   en.codigopostal,\n"
+                + "   uni.registrodaunidade\n"
+                + "FROM unidade uni\n"
+                + "left join acessogestao_unidade aguni \n"
+                + "on uni.idunidade = aguni.idunidade \n"
+                + "left join endereco en \n"
+                + "on uni.idendereco = en.idendereco \n"
+                + "LEFT JOIN acessogestao ag\n"
+                + "on ag.idacessogestao = aguni.idacessogestao  \n"
+                + "LEFT JOIN pessoa peag \n"
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "Where ag.codigocivagestao = ?;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+            unidades = new ArrayList<>();
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaProfissionalSaude);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                unidade = new Unidade();
+                endereco = new Endereco();
+
+                unidade.setIdUnidade(rs.getInt("idunidade"));
+                unidade.setNome(rs.getString("nomeunidade"));
+
+                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
+                endereco.setCodigoPostal(rs.getString("codigopostal"));
+
+                unidade.setEndereco(endereco);
+
+                unidades.add(unidade);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return unidades;
+    }
 
     public static List<Unidade> listUnidadeByGestorNacional(String codigoCivaGestorNacional) {
         Connection connection = ConnectionFactory.getConnection();
@@ -81,6 +253,7 @@ public class UnidadeDao {
         String sql = "SELECT uni.idunidade AS identificador, \n"
                 + "       nomeunidade AS nome,\n"
                 + "       en.nomesubdivisao1 AS subdivisao3,\n"
+                + "       en.nomesubdivisao2 AS subdivisao2,\n"
                 + "       en.codigopostal\n"
                 + "FROM unidade uni \n"
                 + "LEFT JOIN endereco en  \n"
@@ -109,6 +282,7 @@ public class UnidadeDao {
                 unidade.setNome(rs.getString("nome"));
 
                 endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
+                endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
                 endereco.setCodigoPostal(rs.getString("codigopostal"));
 
                 unidade.setEndereco(endereco);
@@ -122,8 +296,10 @@ public class UnidadeDao {
         }
 
         return unidades;
-    }    
-    
+    }
+
+  
+
     public static Unidade findById(Integer idUnidade) {
         Connection connection = ConnectionFactory.getConnection();
         Unidade unidade = null;
@@ -164,7 +340,7 @@ public class UnidadeDao {
 
             endereco = new Endereco();
             unidade = new Unidade();
-            
+
             if (rs.next()) {
                 endereco.setNomePais(rs.getString("nomedopais"));
                 endereco.setCodigoPostal(rs.getString("codigopostal"));
@@ -178,7 +354,7 @@ public class UnidadeDao {
                 unidade.setNome(rs.getString("nomeunidade"));
                 unidade.setRegistro(rs.getString("registrodaunidade"));
                 unidade.setNatureza(rs.getString("natureza"));
-                unidade.setTipoEstabelecimento(rs.getString("tipodeestabelecimento"));        
+                unidade.setTipoEstabelecimento(rs.getString("tipodeestabelecimento"));
                 unidade.setSituacao(rs.getString("situacao"));
                 unidade.setContato(rs.getString("contato"));
                 unidade.setLocacao(rs.getString("locacao"));
@@ -206,7 +382,7 @@ public class UnidadeDao {
     }
 
     public static List<Unidade> list() {
-     
+
         return null;
     }
 

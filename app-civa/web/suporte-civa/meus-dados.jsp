@@ -20,7 +20,7 @@
 
 %>
 <%
-    SuporteCiva suporteCiva = SuporteCivaDao.find(pessoa.getCodigoCiva());
+    SuporteCiva suporteCiva = SuporteCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", suporteCiva);
 %>
 

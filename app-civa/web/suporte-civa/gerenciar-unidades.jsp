@@ -23,7 +23,7 @@
 
 <%
     Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
-    Unidade unidade = UnidadeDao.find(idUnidade);
+    Unidade unidade = UnidadeDao.findById(idUnidade);
 
     pageContext.setAttribute("ator", unidade);
     pageContext.setAttribute("unidade", unidade);

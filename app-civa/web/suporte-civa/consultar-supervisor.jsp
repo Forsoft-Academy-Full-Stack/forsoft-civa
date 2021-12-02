@@ -20,7 +20,8 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    List<Supervisor> listaSupervisor = SupervisorDao.list();
+<%  
+    List<Supervisor> listaSupervisor = SupervisorDao.list(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("supervisores", listaSupervisor);
 %>   

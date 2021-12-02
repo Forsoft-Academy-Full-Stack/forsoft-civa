@@ -24,7 +24,7 @@
 %>
 
 <%    //Buscar Lista de gestores OMS
-    List<GestorOms> listaGestoresOms = GestorOmsDao.list();
+    List<GestorOms> listaGestoresOms = GestorOmsDao.listByGestorOms();
 
     pageContext.setAttribute("gestoresOms", listaGestoresOms);
 %>   

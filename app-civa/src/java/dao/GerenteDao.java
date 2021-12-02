@@ -43,7 +43,7 @@ public class GerenteDao {
                 + "       peen.numero, peen.complemento, \n"
                 + "       en.nomesubdivisao1 AS subdivisao3,\n"
                 + "       en.nomesubdivisao2  AS subdivisao2,\n"
-                + "       en.nomesubdivisao3  AS subdivisao, \n"
+                + "       en.nomesubdivisao3  AS subdivisao1, \n"
                 + "	   peag.telefonecomddd AS contato,\n"
                 + "       ag.emailgestao AS email\n"
                 + "FROM pessoa peag \n"
@@ -103,7 +103,7 @@ public class GerenteDao {
                 endereco.setLogradouro(endereco.getTipoLogradouro() + " " + rs.getString("logradouro"));
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
-                endereco.setNomesubdivisao1(rs.getString("subdivisao"));
+                endereco.setNomesubdivisao1(rs.getString("subdivisao1"));
                 endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
                 endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
             }
@@ -138,6 +138,67 @@ public class GerenteDao {
         }
 
         return gerente;
+    }
+    
+    public static List<Gerente> listBySuporteCiva(String codigoCivaSuporte) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<Gerente> gerentes = null;
+        Gerente gerente;
+        Pessoa pessoa;
+        Docs documento1;
+
+        String sql = "SELECT DISTINCT peag.nomepessoa AS nome,\n"
+                + "	              doc.documento AS documento,\n"
+                + "                   peag.datadenascimento AS datanascimento,\n"
+                + "	              ag.codigocivagestao AS codigociva\n"
+                + "FROM pessoa peag\n"
+                + "LEFT JOIN docs doc \n"
+                + "on peag.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc \n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "on peag.idpessoa = ag.idpessoa\n"
+                + "WHERE ag.cargo = 'Gerente'\n"
+                + "	AND tidoc.nivel ='Primário'\n"
+                + "	AND peag.idpaisdenascimento = ( SELECT peag.idpaisdenascimento FROM pessoa peag\n"
+                + "					LEFT JOIN acessogestao ag\n"
+                + "					ON peag.idpessoa = ag.idpessoa\n"
+                + "					WHERE ag.codigocivagestao = ?)\n"
+                + " ";
+
+        try {
+            gerentes = new ArrayList<>();
+
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaSuporte);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                gerente = new Gerente();
+                pessoa = new Pessoa();
+                documento1 = new Docs();
+
+                pessoa.setNomePessoa(rs.getString("nome"));
+                documento1.setDocumento(rs.getString("documento"));
+                pessoa.setDataNascimento(rs.getString("datanascimento"));
+
+                gerente.setPessoa(pessoa);
+                gerente.setDocumento1(documento1);
+                gerente.setCodigoCiva(rs.getString("codigociva"));
+
+                gerentes.add(gerente);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GerenteDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return gerentes;
+
     }
 
     public static List<Gerente> listByGestorNacional(String codigoCivaGestorNacional) {

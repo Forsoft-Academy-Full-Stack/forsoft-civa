@@ -23,7 +23,7 @@
 %>
 
 <%    
-    List<Unidade> listaUnidade = UnidadeDao.list();
+    List<Unidade> listaUnidade = UnidadeDao.listUnidadeBySupervisor(pessoa.getCodigoCiva());
     pageContext.setAttribute("unidades", listaUnidade);
 %>
 <%@include file="header.jspf"%>

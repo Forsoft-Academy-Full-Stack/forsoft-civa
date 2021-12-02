@@ -38,13 +38,13 @@
 
 <%    //Buscar Lista de supervisores
     String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
-    ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.find(codigoCivaProfissionalSaude);
+    ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
 
     pageContext.setAttribute("ator", listaProfissionalSaude);
 %>  
 
 <%
-    List<Unidade> listaUnidade = UnidadeDao.list();
+    List<Unidade> listaUnidade = UnidadeDao.listUnidadeByProfissionalSaude(codigoCivaProfissionalSaude);
     pageContext.setAttribute("unidades", listaUnidade);
 %>
 <%@include file="header.jspf"%>
@@ -138,8 +138,8 @@
                                                 <tr>                                                   
                                                     <td><c:out value="${unidade.nome}" /></td>
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
-                                                    <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
                                                     <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                    <td><c:out value="${unidade.idUnidade}" /></td>
                                                 </tr>  
                                             </c:forEach>                                           
                                         </tbody>

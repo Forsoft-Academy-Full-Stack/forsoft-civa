@@ -145,6 +145,68 @@ public class GestorNacionalDao {
         return gestorNacional;
     }
 
+    public static List<GestorNacional> listBySuporteCiva(String codigoCivaSuportel) {
+        Connection connection = ConnectionFactory.getConnection();
+        GestorNacional gestorNacional;
+        List<GestorNacional> gestoresNacionais = null;
+        Pessoa pessoa;
+        Docs documento1;
+        String sql = "";
+
+        sql = "SELECT DISTINCT peag.nomepessoa AS nome,"
+                + "            doc.documento,"
+                + "            peag.datadenascimento, \n"
+                + "            ag.codigocivagestao "
+                + "    FROM pessoa peag\n"
+                + "    LEFT JOIN docs doc \n"
+                + "        on peag.idpessoa = doc.idpessoa\n"
+                + "    LEFT JOIN tipodoc tidoc \n"
+                + "        ON tidoc.idtipodoc = doc.idtipodoc \n"
+                + "    LEFT JOIN acessogestao ag \n"
+                + "        on peag.idpessoa = ag.idpessoa\n"
+                + "    WHERE ag.cargo = 'Gestor Nacional'\n"
+                + "    AND tidoc.nivel ='Primário'\n"
+                + "    AND peag.idpaisdenascimento = (\n"
+                + "        SELECT peag.idpaisdenascimento FROM pessoa peag\n"
+                + "        LEFT JOIN acessogestao ag\n"
+                + "            ON peag.idpessoa = ag.idpessoa\n"
+                + "        WHERE ag.codigocivagestao = ? );";
+
+        try {
+            gestoresNacionais = new ArrayList<>();
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaSuportel);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pessoa = new Pessoa();
+                documento1 = new Docs();
+                gestorNacional = new GestorNacional();
+
+                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+                pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
+                documento1.setDocumento(rs.getString("documento"));
+
+                gestorNacional.setPessoa(pessoa);
+                gestorNacional.setDocumento1(documento1);
+                gestorNacional.setCodigoCiva(pessoa.getCodigoCiva());
+
+                gestoresNacionais.add(gestorNacional);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return gestoresNacionais;
+    }
+    
     public static List<GestorNacional> listByGestorNacional(String codigoCivaGestorNacional) {
         Connection connection = ConnectionFactory.getConnection();
         GestorNacional gestorNacional;
