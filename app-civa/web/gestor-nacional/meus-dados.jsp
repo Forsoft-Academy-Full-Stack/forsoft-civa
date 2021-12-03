@@ -79,11 +79,12 @@
                                 <!-- form start -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <%@include file="../partials/codigociva.jspf" %>
-                                        <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
-                                        <hr>
+                                        <%@ include file="../partials/codigociva.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@include file="../partials/dadospessoais-disabled.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@include file="../partials/contatos-disabled.jspf" %>
                                     </div>
                                 </form>

@@ -139,7 +139,7 @@
                                                     <td><c:out value="${gestorNacional.documento1.documento}" /></td>
                                                     <td><c:out value="${gestorNacional.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${gestorNacional.codigoCiva}" /></td>
-                                                    <td><a href="painel-gestor-nacional.jsp?codigoCiva=<c:out value="${gestorNacional.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-gestor-nacional.jsp?codigoCiva=<c:out value="${gestorNacional.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Consultar</a></td>
                                                 </tr>
                                             </c:forEach>      
                                         </tbody>

@@ -139,7 +139,7 @@
                                                     <td><c:out value="${vacina.laboratorio}" /></td>                                                  
                                                     <td><c:out value="${vacina.numeroDoses} dose(s)" /></td>
                                                     <td><c:out value="${vacina.idVacina}" /></td>
-                                                    <td><a href="painel-vacina.jsp?idVacina=<c:out value="${vacina.idVacina}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-vacina.jsp?idVacina=<c:out value="${vacina.idVacina}" />" class="btn btn-block btn-primary btn-sm">Consultar</a></td>
                                                 </tr>
                                             </c:forEach>
 

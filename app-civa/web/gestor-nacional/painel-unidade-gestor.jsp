@@ -93,13 +93,11 @@
                                 <!-- form start -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <%@include file="../partials/dados-unidade-disabled.jspf"
-                                                   %>
-                                        <hr />
-                                        <%@include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr />
-                                        <%@include
-                                            file="../partials/contatos-unidade-disabled.jspf" %>
+                                        <%@include file="../partials/dados-unidade-disabled.jspf"%>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@include file="../partials/enderecos-disabled.jspf"%>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@include file="../partials/contatos-unidade-disabled.jspf" %>
                                         </div>
                                     </form>
                                 </div>
@@ -112,7 +110,7 @@
                             <div class="col-12 mb-2">
                                 <div class="card card-primary">
                                     <div class="card-header">
-                                        <h3 class="card-title">Gerentes vinculadas</h3>
+                                        <h3 class="card-title">Gerentes vinculados</h3>
 
                                         <div class="card-tools">
                                             <div

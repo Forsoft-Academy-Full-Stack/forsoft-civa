@@ -88,17 +88,12 @@
                                 <!-- form start -->
                                 <form id="form-gerenciar-gerente" action="POST">
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="form-group col-xl-12">
-                                                <label for="identity">C&oacute;digo CIVA</label>
-                                                <input type="text" class="form-control" id="identity" value="${ator.codigoCiva}" disabled>
-                                            </div>
-                                        </div>
-                                        <hr>
-                                        <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
-                                        <hr>
+                                        <%@ include file="../partials/codigociva.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@include file="../partials/dadospessoais-disabled.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@include file="../partials/contatos-disabled.jspf" %>
                                     </div>
                                 </form>
