@@ -21,11 +21,16 @@
 
 %>
 
-<% 
-    String codigoCivaGestorNacional = request.getParameter("codigoCiva");
-    GestorNacional GestorNacional = GestorNacionalDao.findByCodigociva(codigoCivaGestorNacional);
+<%  
+    try {
+        String codigoCivaGestorNacional = request.getParameter("codigoCiva");
+        GestorNacional GestorNacional = GestorNacionalDao.findByCodigociva(codigoCivaGestorNacional);
 
-    pageContext.setAttribute("ator", GestorNacional);
+        pageContext.setAttribute("ator", GestorNacional);
+
+    } catch (Exception e) {
+    }
+
 %> 
 
 <!--Por favor não remover include nem head-->

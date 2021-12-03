@@ -19,11 +19,16 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
-    PortadorCiva PortadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
+<%  
+    try {
+        String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+        PortadorCiva PortadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
 
-    pageContext.setAttribute("ator", PortadorCiva);
+        pageContext.setAttribute("ator", PortadorCiva);
+
+    } catch (Exception e) {
+    }
+
 %>  
 
 

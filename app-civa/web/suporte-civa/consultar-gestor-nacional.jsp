@@ -21,10 +21,15 @@
 
 %>
 
-<%    //Buscar Lista de suporteCiva
-    List<GestorNacional> listaGestorNacional = GestorNacionalDao.listBySuporteCiva(pessoa.getCodigoCiva());
+<%  
+    try {
+        List<GestorNacional> listaGestorNacional = GestorNacionalDao.listBySuporteCiva(pessoa.getCodigoCiva());
 
-    pageContext.setAttribute("gestoresNacionais", listaGestorNacional);
+        pageContext.setAttribute("gestoresNacionais", listaGestorNacional);
+
+    } catch (Exception e) {
+    }
+
 %>    
 
 <!--Por favor não remover include nem head-->

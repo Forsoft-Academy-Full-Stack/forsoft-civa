@@ -21,12 +21,17 @@
 
 %>
 
-<%
-    Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
-    Unidade unidade = UnidadeDao.findById(idUnidade);
+<%  
+    try {
+        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        Unidade unidade = UnidadeDao.findById(idUnidade);
 
-    pageContext.setAttribute("ator", unidade);
-    pageContext.setAttribute("unidade", unidade);
+        pageContext.setAttribute("ator", unidade);
+        pageContext.setAttribute("unidade", unidade);
+
+    } catch (Exception e) {
+    }
+
 %>    
 
 <!--Por favor não remover include nem head-->
@@ -100,7 +105,7 @@
                         </div>
                     </div>
                     <!-- /.row -->
-                                       
+
                     <!-- TABELA VACINAS -->
                     <!--
                     <div class="row">
@@ -220,7 +225,7 @@
         </div>
         <!-- /.content -->
         <!-- Main Footer -->
-       <%@include file="footer.jspf"%>
+        <%@include file="footer.jspf"%>
     </div>
     <!-- /.content-wrapper -->
     <!-- ./wrapper -->

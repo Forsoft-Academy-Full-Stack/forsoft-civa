@@ -20,19 +20,22 @@
         response.sendRedirect("../login/");
 
     }
-    
+
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%  
-    Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("ator", supervisor);
-%>
+<% 
+    try {
+        Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("ator", supervisor);
 
-<%    //Buscar Lista de supervisores
-    List<Unidade> listaUnidades = UnidadeDao.listUnidadeBySupervisor(pessoa.getCodigoCiva());
+        List<Unidade> listaUnidades = UnidadeDao.listUnidadeBySupervisor(pessoa.getCodigoCiva());
 
-    pageContext.setAttribute("unidades", listaUnidades);
+        pageContext.setAttribute("unidades", listaUnidades);
+
+    } catch (Exception e) {
+    }
+
 %> 
 
 
@@ -132,7 +135,7 @@
                                                 <th>Identificador</th>
                                             </tr>
                                         </thead>
-                                          <tbody>
+                                        <tbody>
                                             <c:forEach items="${unidades}" var="unidade">
                                                 <tr>                                                   
                                                     <td><c:out value="${unidade.nome}" /></td>

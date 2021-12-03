@@ -23,8 +23,13 @@
 
 %>
 <%  
-    List<Unidade> listaUnidade = UnidadeDao.listUnidadeSuporteCiva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("unidades", listaUnidade);
+    try {
+        List<Unidade> listaUnidade = UnidadeDao.listUnidadeSuporteCiva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("unidades", listaUnidade);
+
+    } catch (Exception e) {
+    }
+
 %>
 <!--Por favor não remover include nem head-->
 <!--a abertura do head é feita no header.jspf-->
@@ -124,7 +129,7 @@
                                         <tbody>
                                             <c:forEach items="${unidades}" var="unidade">
                                                 <tr>
-                                                   <td><c:out value="${unidade.nome}" /></td>
+                                                    <td><c:out value="${unidade.nome}" /></td>
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
                                                     <td><c:out value="${unidade.endereco.codigoPostal}" /></td>

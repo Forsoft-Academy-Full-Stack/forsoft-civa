@@ -36,16 +36,19 @@
 
 %>
 
-<%    //Buscar Lista de supervisores
-    String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
-    ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
+<%  
+    try {
+        String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
+        ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
 
-    pageContext.setAttribute("ator", listaProfissionalSaude);
-%>  
+        pageContext.setAttribute("ator", listaProfissionalSaude);
 
-<%
-    List<Unidade> listaUnidade = UnidadeDao.listUnidadeByProfissionalSaude(codigoCivaProfissionalSaude);
-    pageContext.setAttribute("unidades", listaUnidade);
+        List<Unidade> listaUnidade = UnidadeDao.listUnidadeByProfissionalSaude(codigoCivaProfissionalSaude);
+        pageContext.setAttribute("unidades", listaUnidade);
+
+    } catch (Exception e) {
+    }
+
 %>
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/supervisor/painel-profissional-saude.js" defer ></script>

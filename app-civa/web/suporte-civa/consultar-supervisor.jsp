@@ -21,9 +21,14 @@
 
 %>
 <%  
-    List<Supervisor> listaSupervisor = SupervisorDao.listBySuporteCiva(pessoa.getCodigoCiva());
+    try {
+        List<Supervisor> listaSupervisor = SupervisorDao.listBySuporteCiva(pessoa.getCodigoCiva());
 
-    pageContext.setAttribute("supervisores", listaSupervisor);
+        pageContext.setAttribute("supervisores", listaSupervisor);
+
+    } catch (Exception e) {
+    }
+
 %>   
 <!--Por favor não remover include nem head-->
 <!--a abertura do head é feita no header.jspf-->

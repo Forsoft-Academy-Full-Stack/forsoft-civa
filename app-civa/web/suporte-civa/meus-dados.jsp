@@ -19,9 +19,14 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-    SuporteCiva suporteCiva = SuporteCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("ator", suporteCiva);
+<%  
+    try {
+        SuporteCiva suporteCiva = SuporteCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("ator", suporteCiva);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 <!--Por favor não remover include nem head-->

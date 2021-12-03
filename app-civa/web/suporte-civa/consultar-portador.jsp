@@ -21,10 +21,15 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%   
-    List<PortadorCiva> listaPortadorCiva = PortadorCivaDao.listBySuporteCiva(pessoa.getCodigoCiva());
+<%  
+    try {
+        List<PortadorCiva> listaPortadorCiva = PortadorCivaDao.listBySuporteCiva(pessoa.getCodigoCiva());
 
-    pageContext.setAttribute("portadoresCiva", listaPortadorCiva);
+        pageContext.setAttribute("portadoresCiva", listaPortadorCiva);
+
+    } catch (Exception e) {
+    }
+
 %> 
 
 
@@ -137,7 +142,7 @@
                                             <c:forEach items="${portadoresCiva}" var="portador">
                                                 <tr>
                                                     <td><c:out value="${portador.pessoa.nomePessoa} ${portador.pessoa.sobrenomePessoa}" /></td>
-                                                     <td><c:out value="${portador.documento1.documento}" /></td>
+                                                    <td><c:out value="${portador.documento1.documento}" /></td>
                                                     <td><c:out value="${portador.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${portador.codigoCiva}" /></td>
                                                     <td><a href="./painel-portador.jsp?codigoCiva=<c:out value="${portador.codigoCiva}" />"

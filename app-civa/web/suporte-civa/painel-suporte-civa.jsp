@@ -21,10 +21,10 @@
 %>
 
 <% 
-    String codigoCivaSuporteCiva = request.getParameter("codigoCiva");
-    SuporteCiva SuporteCiva = SuporteCivaDao.findByCodigociva(codigoCivaSuporteCiva);
+    //String codigoCivaSuporteCiva = request.getParameter("codigoCiva");
+    //SuporteCiva SuporteCiva = SuporteCivaDao.findByCodigociva(codigoCivaSuporteCiva);
 
-    pageContext.setAttribute("ator", SuporteCiva);
+    //pageContext.setAttribute("ator", SuporteCiva);
 %> 
 
 <!--Por favor não remover include nem head-->

@@ -20,8 +20,12 @@
 
 %>
 <%  
-    Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("ator", supervisor);
+    try {
+        Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("ator", supervisor);
+    } catch (Exception e) {
+    }
+
 %>
 <%@include file="header.jspf"%>
 </head>

@@ -24,15 +24,18 @@
 
 %>
 
-<%    
-    String codigoCivaGerente = request.getParameter("codigoCiva");
-    Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
-    pageContext.setAttribute("ator", gerente);
-%>
+<%  
+    try {
+        String codigoCivaGerente = request.getParameter("codigoCiva");
+        Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
+        pageContext.setAttribute("ator", gerente);
 
-<%
-    List<Unidade> listaUnidades = UnidadeDao.listUnidadeSuporteCiva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("unidades", listaUnidades);
+        List<Unidade> listaUnidades = UnidadeDao.listUnidadeSuporteCiva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("unidades", listaUnidades);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 

@@ -20,10 +20,16 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    String codigoCivaSupervisor = request.getParameter("codigoCiva");
-    Supervisor Supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
+<%  
+    try {
+        String codigoCivaSupervisor = request.getParameter("codigoCiva");
+        Supervisor Supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
 
-    pageContext.setAttribute("ator", Supervisor);
+        pageContext.setAttribute("ator", Supervisor);
+
+    } catch (Exception e) {
+    }
+
 %>    
 
 

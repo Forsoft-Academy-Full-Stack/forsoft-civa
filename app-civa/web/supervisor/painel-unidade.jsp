@@ -23,14 +23,20 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%  Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
-    Unidade unidade = UnidadeDao.findById(idUnidade);
+<%  
+    try {
+        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        Unidade unidade = UnidadeDao.findById(idUnidade);
 
-    List<ProfissionalSaude> profissionaisSaude = ProfissionalSaudeDao.listByUnidade(idUnidade);
+        List<ProfissionalSaude> profissionaisSaude = ProfissionalSaudeDao.listByUnidade(idUnidade);
 
-    pageContext.setAttribute("ator", unidade);
-    pageContext.setAttribute("unidade", unidade);
-    pageContext.setAttribute("profissionaisSaude", profissionaisSaude);
+        pageContext.setAttribute("ator", unidade);
+        pageContext.setAttribute("unidade", unidade);
+        pageContext.setAttribute("profissionaisSaude", profissionaisSaude);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>
