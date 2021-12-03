@@ -138,7 +138,7 @@
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
                                                     <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
-                                                    <td><a href="painel-unidade.jsp?idUnidade=<c:out value="${unidade.idUnidade}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="painel-unidade.jsp?idUnidade=<c:out value="${unidade.idUnidade}" />" class="btn btn-block btn-primary btn-sm">Consultar</a></td>
                                                 </tr>  
                                             </c:forEach>                                           
                                         </tbody>
@@ -154,12 +154,7 @@
                     </div>
 
                     <!-- PAGINA&Ccedil;&Atilde;O -->
-                    <div class="row">      
-                        <div class="col-6">
-
-                            <%@ include file="paginacao.jspf" %>
-                        </div>
-                    </div>
+                    <%@ include file="/partials/paginacao.jspf" %>
 
                     <!-- /.row -->
                 </div><!-- /.container-fluid -->

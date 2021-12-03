@@ -19,8 +19,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%  
-    try {
+<%    try {
         SuporteCiva suporteCiva = SuporteCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
         pageContext.setAttribute("ator", suporteCiva);
 
@@ -79,8 +78,6 @@
                     <!---------------------------------------------------------------->
                     <div class="row">
                         <div class="col-12 mb-3">
-
-
                             <div class="card card-primary">
                                 <div class="card-header">
                                     <h3 class="card-title">Dados Suporte CIVA</h3>
@@ -96,12 +93,7 @@
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-disabled.jspf" %>    
                                     </div>
-
                                 </form>
-
-                                <!-- /.card-header -->
-                                <!-- form start -->
-
                             </div>
                         </div>
                     </div>
@@ -123,8 +115,7 @@
                             <p></p>
                         </div>
                         <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal"
-                                    onclick="location.href = './meus-dados.jsp'">Close</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = './meus-dados.jsp'">Close</button>
                         </div>
                     </div>
                     <!-- /.modal-content -->
