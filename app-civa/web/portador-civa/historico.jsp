@@ -35,8 +35,8 @@
         Unidade unidade = UnidadeDao.findById(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
         pageContext.setAttribute("unidade", unidade);
 
-        // ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(portadorCiva.getListaVacinacao().get(0).getCodigoCivaCadastrante());
-        //  pageContext.setAttribute("profissionalSaude", profissionalSaude);
+        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(portadorCiva.getListaVacinacao().get(0).getCodigoCivaCadastrante());
+        pageContext.setAttribute("profissionalSaude", profissionalSaude);
     } catch (Exception e) {
     }
 
@@ -161,7 +161,7 @@
 
 
     <!-- MODAL CERTIFICADO CIVA -->
-    <!--%@include file="modal-certificado-civa.jspf" %-->
+    <%@include file="modal-certificado-civa.jspf" %>
 
 </body>
 </html>
