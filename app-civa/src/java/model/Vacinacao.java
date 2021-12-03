@@ -4,7 +4,6 @@ package model;
  * @author randel
  */
 public class Vacinacao {
-
     private Vacina vacina;
     private String doseAplicada;
     private String dataAplicacao;
@@ -13,6 +12,10 @@ public class Vacinacao {
     private String pais;
     private Integer idVacinacao;
     private String codigoCivaCadastrante;
+    private String hora;
+
+   
+    
 
     public Vacinacao(Vacina vacina, String doseAplicada, String dataAplicacao, Integer idUnidade, String unidade, String pais, Integer idVacinacao) {
         this.vacina = vacina;
@@ -23,8 +26,12 @@ public class Vacinacao {
         this.pais = pais;
         this.idVacinacao = idVacinacao;
     }
-
-    public Vacinacao() {
+    
+     public String getHora() {
+        return hora;
+    }
+    
+    public Vacinacao() { 
     }
 
     public String getCodigoCivaCadastrante() {
@@ -72,7 +79,11 @@ public class Vacinacao {
     }
 
     public void setDataAplicacao(String dataAplicacao) {
-        this.dataAplicacao = dataAplicacao;
+        String dataAplicacaoNova = dataAplicacao.substring(0, 10);
+        String horaNova = dataAplicacao.substring(13, dataAplicacao.length());
+        this.hora = horaNova;
+        
+        this.dataAplicacao = dataAplicacaoNova;        
     }
 
     public String getUnidade() {
@@ -90,5 +101,5 @@ public class Vacinacao {
     public void setPais(String pais) {
         this.pais = pais;
     }
-
+    
 }

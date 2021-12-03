@@ -26,24 +26,22 @@
 %>
 
 <%  
-    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
-    PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
+    try {
+        String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+        PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
 
-    Integer idVacinacao = Integer.parseInt(request.getParameter("idVacinacao"));
-    Vacinacao vacinacao = VacinacaoDao.find(idVacinacao, portadorCiva.getListaVacinacao());
-    
-    pageContext.setAttribute("portadorCiva", portadorCiva);
-    pageContext.setAttribute("vacinacao", vacinacao);
-    
+        Integer idVacinacao = Integer.parseInt(request.getParameter("idVacinacao"));
+        Vacinacao vacinacao = VacinacaoDao.find(idVacinacao, portadorCiva.getListaVacinacao());
+
+        pageContext.setAttribute("portadorCiva", portadorCiva);
+        pageContext.setAttribute("vacinacao", vacinacao);
+    } catch (Exception e) {
+    }
 
 %> 
 
-<%    
-    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find("BR879878");
-    pageContext.setAttribute("profissionalSaude", profissionalSaude);
-%> 
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/profissional-saude/painel-vacinacao.js" defer></script>
+<script src="../public/assets/js/profissional-saude/painel-vacinacao.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -140,14 +138,22 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                        <div class="form-group col-xl-6">
+                                        <div class="form-group col-xl-12">
                                             <label for="dose">Dose</label>
                                             <input type="text" class="form-control" id="dose" name="dose" value="${vacinacao.doseAplicada}"
                                                    readonly>
+                                        </div>                                                                               
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-xl-6">
+                                            <label for="data-aplicacao">Data de Aplica&ccedil;&atilde;o</label>
+                                            <input type="date" class="form-control" value="${vacinacao.dataAplicacao}" id="data-aplicacao" name="data-aplicacao"
+                                                   disabled>
                                         </div>
                                         <div class="form-group col-xl-6">
-                                            <label for="data-aplicacao">Data de Aplica&ccedil;;&atilde;o</label>
-                                            <input type="date" class="form-control" value="${vacinacao.dataAplicacao}" id="data-aplicacao" name="data-aplicacao"
+                                            <label for="data-aplicacao">Hora da Aplica&ccedil;&atilde;o</label>
+                                            <input type="time" class="form-control" value="${vacinacao.hora}" id="data-aplicacao" name="data-aplicacao"
                                                    disabled>
                                         </div>
                                     </div>

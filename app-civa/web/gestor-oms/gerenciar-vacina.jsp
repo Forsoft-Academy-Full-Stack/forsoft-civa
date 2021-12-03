@@ -22,14 +22,18 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    //Buscar Lista de supervisores
-    Integer idVacina = Integer.parseInt(request.getParameter("idVacina"));
-    Vacina vacina = VacinaDao.findById(idVacina);
+<%  
+    try {
+        Integer idVacina = Integer.parseInt(request.getParameter("idVacina"));
+        Vacina vacina = VacinaDao.findById(idVacina);
 
-    pageContext.setAttribute("vacina", vacina);
+        pageContext.setAttribute("vacina", vacina);
 
-    List<Vacina> listaVacinas = VacinaDao.listByGestorOms();
-    pageContext.setAttribute("vacinas", listaVacinas);
+        List<Vacina> listaVacinas = VacinaDao.listByGestorOms();
+        pageContext.setAttribute("vacinas", listaVacinas);
+    } catch (Exception e) {
+    }
+
 %> 
 
 
@@ -150,7 +154,7 @@
                             </div>
                         </div>
                     </div>
-                                            
+
                     <div class="col-12 row">
                         <div class="mb-3 mt-3">
                             <button type="submit" class="btn btn-primary btn-lg" form="formulario">Salvar</button>

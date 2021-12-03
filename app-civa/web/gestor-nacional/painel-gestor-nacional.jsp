@@ -21,15 +21,20 @@
 
 %>
 
-<%
-    String codigoCivaGestorNacional = request.getParameter("codigoCiva");
-    GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(codigoCivaGestorNacional);
-    
-    pageContext.setAttribute("ator", gestorNacional);
+<%  
+    try {
+        String codigoCivaGestorNacional = request.getParameter("codigoCiva");
+        GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(codigoCivaGestorNacional);
+
+        pageContext.setAttribute("ator", gestorNacional);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gestor-nacional/painel-gestor-nacional.js" defer></script>
+<script src="../public/assets/js/gestor-nacional/painel-gestor-nacional.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

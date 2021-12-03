@@ -26,17 +26,20 @@
 
 %>
 
-<%    
-    Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
-    Unidade unidade = UnidadeDao.findById(idUnidade);
-    
-    pageContext.setAttribute("ator", unidade);
-    pageContext.setAttribute("unidade", unidade);
-%>
+<%  
+    try {
+        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        Unidade unidade = UnidadeDao.findById(idUnidade);
 
-<% 
-    List<Gerente> listaGerente = GerenteDao.listByIdUnidade(idUnidade);
-    pageContext.setAttribute("gerentes", listaGerente);
+        pageContext.setAttribute("ator", unidade);
+        pageContext.setAttribute("unidade", unidade);
+
+        List<Gerente> listaGerente = GerenteDao.listByIdUnidade(idUnidade);
+        pageContext.setAttribute("gerentes", listaGerente);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>
@@ -98,79 +101,79 @@
                                         <%@include file="../partials/enderecos-disabled.jspf"%>
                                         <hr  class = "mb-4 mt-4">
                                         <%@include file="../partials/contatos-unidade-disabled.jspf" %>
-                                        </div>
-                                    </form>
-                                </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
-                        <!-- /.row -->
+                    </div>
+                    <!-- /.row -->
 
-                        <!-- TABELA VACINAS -->
-                        <div class="row">
-                            <div class="col-12 mb-2">
-                                <div class="card card-primary">
-                                    <div class="card-header">
-                                        <h3 class="card-title">Gerentes vinculados</h3>
+                    <!-- TABELA VACINAS -->
+                    <div class="row">
+                        <div class="col-12 mb-2">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Gerentes vinculados</h3>
 
-                                        <div class="card-tools">
-                                            <div
-                                                class="input-group input-group-sm"
-                                                style="width: 150px"
-                                                >
-                                                <div class="input-group-append"></div>
-                                            </div>
+                                    <div class="card-tools">
+                                        <div
+                                            class="input-group input-group-sm"
+                                            style="width: 150px"
+                                            >
+                                            <div class="input-group-append"></div>
                                         </div>
                                     </div>
-                                    <!-- /.card-header -->
-                                    <div class="card-body table-responsive p-0">
-                                        <table
-                                            id="test-table"
-                                            class="table table-hover text-nowrap"
-                                            >
-                                            <thead>
-                                                <tr>
-                                                    <th style="cursor: pointer">Nome Gerente</th>
-                                                    <th style="cursor: pointer">Identidade</th>
-                                                    <th style="cursor: pointer">C&oacute;digo Civa</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <c:forEach items="${gerentes}" var="gerente">
+                                </div>
+                                <!-- /.card-header -->
+                                <div class="card-body table-responsive p-0">
+                                    <table
+                                        id="test-table"
+                                        class="table table-hover text-nowrap"
+                                        >
+                                        <thead>
+                                            <tr>
+                                                <th style="cursor: pointer">Nome Gerente</th>
+                                                <th style="cursor: pointer">Identidade</th>
+                                                <th style="cursor: pointer">C&oacute;digo Civa</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <c:forEach items="${gerentes}" var="gerente">
                                                 <tr>
                                                     <td><c:out value="${gerente.pessoa.nomePessoa} ${gerente.pessoa.sobrenomePessoa}" /></td>
                                                     <td><c:out value="${gerente.documento1.documento}" /></td>
                                                     <td><c:out value="${gerente.codigoCiva}" /></td>
                                                 </tr>
-                                                 </c:forEach>                                                                                              
-                                            </tbody>
-                                        </table>
-                                        <hr>
-                                        <div class="row ">
-                                            <div class="col d-flex justify-content-xl-start  ml-4 mb-2">
-                                                <a href="./vincular-gerente.jsp" class="btn btn-success btn-xs">Vincular gerente</a>
-                                            </div>                                  
+                                            </c:forEach>                                                                                              
+                                        </tbody>
+                                    </table>
+                                    <hr>
+                                    <div class="row ">
+                                        <div class="col d-flex justify-content-xl-start  ml-4 mb-2">
+                                            <a href="./vincular-gerente.jsp" class="btn btn-success btn-xs">Vincular gerente</a>
+                                        </div>                                  
 
-                                            <div class="col  d-flex justify-content-xl-end align-items-center ml-2 mb-2 mr-4">
-                                                <a href="./desvincular-gerente.jsp" class="btn btn-danger btn-xs">Desvincular Gerente</a>
-                                            </div>
+                                        <div class="col  d-flex justify-content-xl-end align-items-center ml-2 mb-2 mr-4">
+                                            <a href="./desvincular-gerente.jsp" class="btn btn-danger btn-xs">Desvincular Gerente</a>
                                         </div>
                                     </div>
-                                    <!-- /.card-body -->
                                 </div>
+                                <!-- /.card-body -->
                             </div>
                         </div>
-
                     </div>
+
                 </div>
-                <!-- /.content -->
             </div>
-            <!-- /.content-wrapper -->
-
-            <!-- Main Footer -->
-            <%@include file="footer.jspf"%>
+            <!-- /.content -->
         </div>
-        <!-- ./wrapper -->
+        <!-- /.content-wrapper -->
 
-    </body>
+        <!-- Main Footer -->
+        <%@include file="footer.jspf"%>
+    </div>
+    <!-- ./wrapper -->
+
+</body>
 </html>
 

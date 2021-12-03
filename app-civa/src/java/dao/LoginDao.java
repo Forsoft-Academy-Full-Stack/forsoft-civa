@@ -15,33 +15,32 @@ public class LoginDao {
         String sqlPortador = "";
         String sqlGestao = "";
         Pessoa dadosPessoa = null;
-        
+
         sqlPortador = "SELECT nomepessoa AS nome,\n"
-                            + "       sobrenomepessoa AS sobrenome,\n"
-                            + "       codigocivapc as codigociva\n"
-                            + "FROM pessoa AS p\n"
-                            + "LEFT JOIN acessopc AS acp\n"
-                            + "ON p.idpessoa = acp.idpessoa\n"
-                            + "WHERE acp.emailpc = ? AND acp.senhapc = ? ;";
-        
+                + "       sobrenomepessoa AS sobrenome,\n"
+                + "       codigocivapc as codigociva\n"
+                + "FROM pessoa AS p\n"
+                + "LEFT JOIN acessopc AS acp\n"
+                + "ON p.idpessoa = acp.idpessoa\n"
+                + "WHERE acp.emailpc = ? AND acp.senhapc = ? ;";
+
         sqlGestao = "SELECT p.nomepessoa AS nome,\n"
-                            + "       p.sobrenomepessoa AS sobrenome,\n"
-                            + "       acg.codigocivagestao AS codigociva\n"
-                            + "FROM pessoa AS p\n"
-                            + "LEFT JOIN acessogestao AS acg\n"
-                            + "ON p.idpessoa = acg.idpessoa\n"
-                            + "WHERE acg.codigocivagestao LIKE ?\n"
-                            + "	AND acg.senhagestao = ?\n"
-                            + " AND acg.cargo LIKE ?;";
-        
+                + "       p.sobrenomepessoa AS sobrenome,\n"
+                + "       acg.codigocivagestao AS codigociva\n"
+                + "FROM pessoa AS p\n"
+                + "LEFT JOIN acessogestao AS acg\n"
+                + "ON p.idpessoa = acg.idpessoa\n"
+                + "WHERE acg.codigocivagestao LIKE ?\n"
+                + "	AND acg.senhagestao = ?\n"
+                + " AND acg.cargo LIKE ?;";
+
         try {
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
             ResultSet rs = null;
-          
 
             switch (login.getPerfil()) {
-                case "portador-civa":                    
+                case "portador-civa":
                     ps = connection.prepareStatement(sqlPortador);
 
                     ps.setString(1, login.getEmail().trim());
@@ -57,13 +56,13 @@ public class LoginDao {
 
                     break;
 
-                case "gerente":                    
+                case "gerente":
                     ps = connection.prepareStatement(sqlGestao);
 
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
                     ps.setString(3, "Gerente");
-                    
+
                     rs = ps.executeQuery();
 
                     if (rs.next()) {
@@ -81,14 +80,14 @@ public class LoginDao {
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
                     ps.setString(3, "Supervisor");
-                    
+
                     rs = ps.executeQuery();
 
                     if (rs.next()) {
                         dadosPessoa = new Pessoa();
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
-                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));                      
+                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
                     }
 
                     break;
@@ -99,7 +98,7 @@ public class LoginDao {
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
                     ps.setString(3, "Profissional de Saúde");
-                    
+
                     rs = ps.executeQuery();
 
                     if (rs.next()) {
@@ -117,7 +116,7 @@ public class LoginDao {
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
                     ps.setString(3, "Suporte");
-                    
+
                     rs = ps.executeQuery();
 
                     if (rs.next()) {
@@ -135,7 +134,7 @@ public class LoginDao {
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
                     ps.setString(3, "Gestor Nacional");
-                    
+
                     rs = ps.executeQuery();
 
                     if (rs.next()) {
@@ -153,7 +152,25 @@ public class LoginDao {
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
                     ps.setString(3, "Gestor OMS");
-                    
+
+                    rs = ps.executeQuery();
+
+                    if (rs.next()) {
+                        dadosPessoa = new Pessoa();
+                        dadosPessoa.setNomePessoa(rs.getString("nome"));
+                        dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                        dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                    }
+
+                    break;
+
+                case "administrador-oms":
+                    ps = connection.prepareStatement(sqlGestao);
+
+                    ps.setString(1, login.getCodigoCiva().trim());
+                    ps.setString(2, login.getSenha().trim());
+                    ps.setString(3, "Administrador");
+
                     rs = ps.executeQuery();
 
                     if (rs.next()) {

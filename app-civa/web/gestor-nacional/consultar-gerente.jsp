@@ -23,9 +23,14 @@
 
 %>
 
-<%
-    List<Gerente> listaGerentes = GerenteDao.listByGestorNacional(pessoa.getCodigoCiva());
-    pageContext.setAttribute("gerentes", listaGerentes);
+<%  
+    try {
+        List<Gerente> listaGerentes = GerenteDao.listByGestorNacional(pessoa.getCodigoCiva());
+        pageContext.setAttribute("gerentes", listaGerentes);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>

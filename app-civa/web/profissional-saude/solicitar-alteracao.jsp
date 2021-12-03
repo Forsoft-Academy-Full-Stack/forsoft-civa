@@ -18,9 +18,14 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    
-    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("ator", profissionalSaude);
+<%  
+    try {
+        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("ator", profissionalSaude);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>

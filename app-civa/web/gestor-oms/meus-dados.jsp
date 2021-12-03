@@ -20,10 +20,15 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<% 
-    GestorOms gestorOms = GestorOmsDao.findByCodigCiva(pessoa.getCodigoCiva());
+<%  
+    
+    try {
+        GestorOms gestorOms = GestorOmsDao.findByCodigCiva(pessoa.getCodigoCiva());
 
-    pageContext.setAttribute("ator", gestorOms);
+        pageContext.setAttribute("ator", gestorOms);
+    } catch (Exception e) {
+    }
+
 %> 
 
 <%@include file="header.jspf"%>

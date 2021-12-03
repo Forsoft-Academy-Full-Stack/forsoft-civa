@@ -19,9 +19,14 @@
 
 %>
 <%  
-    Gerente gerente = GerenteDao.findByCodigoCiva(pessoa.getCodigoCiva());
-    
-    pageContext.setAttribute("ator", gerente);
+    try {
+        Gerente gerente = GerenteDao.findByCodigoCiva(pessoa.getCodigoCiva());
+
+        pageContext.setAttribute("ator", gerente);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>

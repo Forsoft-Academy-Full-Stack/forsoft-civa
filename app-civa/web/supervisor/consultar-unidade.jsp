@@ -22,9 +22,14 @@
 
 %>
 
-<%    
-    List<Unidade> listaUnidade = UnidadeDao.listUnidadeBySupervisor(pessoa.getCodigoCiva());
-    pageContext.setAttribute("unidades", listaUnidade);
+<%  
+    try {
+        List<Unidade> listaUnidade = UnidadeDao.listUnidadeBySupervisor(pessoa.getCodigoCiva());
+        pageContext.setAttribute("unidades", listaUnidade);
+
+    } catch (Exception e) {
+    }
+
 %>
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/supervisor/consultar-unidade.js" defer></script>

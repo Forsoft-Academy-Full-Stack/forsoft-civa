@@ -19,9 +19,13 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    
-    PortadorCiva portadorciva = PortadorCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("ator", portadorciva);
+<%  
+    try {
+        PortadorCiva portadorciva = PortadorCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("ator", portadorciva);
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>

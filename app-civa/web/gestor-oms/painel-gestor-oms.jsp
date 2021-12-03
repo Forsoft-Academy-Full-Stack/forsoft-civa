@@ -21,11 +21,16 @@
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%    
-    String codigoCivaGestorOms = request.getParameter("codigoCiva");
-    GestorOms gestorOms = GestorOmsDao.findByCodigCiva(codigoCivaGestorOms);
+<%  
+    try {
+        String codigoCivaGestorOms = request.getParameter("codigoCiva");
+        GestorOms gestorOms = GestorOmsDao.findByCodigCiva(codigoCivaGestorOms);
 
-    pageContext.setAttribute("ator", gestorOms);
+        pageContext.setAttribute("ator", gestorOms);
+
+    } catch (Exception e) {
+    }
+
 %> 
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-oms/painel-gestor-oms.js" defer></script>

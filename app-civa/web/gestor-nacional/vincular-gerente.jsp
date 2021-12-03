@@ -18,14 +18,17 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<% 
-    String codigoCivaGerente = request.getParameter("codigoCiva");    
-      
-    Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
-    
-    gerente = gerente != null ? gerente : new Gerente();
-    
-    pageContext.setAttribute("ator", gerente);
+<%  
+    try {
+        String codigoCivaGerente = request.getParameter("codigoCiva");
+
+        Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
+
+        pageContext.setAttribute("ator", gerente);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 
@@ -82,15 +85,15 @@
                                         <div class="row">
                                             <div class="form-group col-md-11 p-0">
                                                 <label for="codigoCiva">C&oacute;digo CIVA</label>
-                                            <input type="text" class="form-control" id="codigoCiva" value="${ator.codigoCiva}" name="codigoCiva" placeholder="USA1223456789" >
-                                            
+                                                <input type="text" class="form-control" id="codigoCiva" value="${ator.codigoCiva}" name="codigoCiva" placeholder="USA1223456789" >
+
                                             </div>
                                             <div class="form-group col-md-1 pl-0 pt-3 mt-3">
-                                            <button type="subimit" form="form-meus-dados" class="btn btn-default">
-                                                <i class="fa fa-search"></i>
-                                            </button>
+                                                <button type="subimit" form="form-meus-dados" class="btn btn-default">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
                                             </div>
-                                       </div> 
+                                        </div> 
                                         <hr>
                                         <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                     </div>

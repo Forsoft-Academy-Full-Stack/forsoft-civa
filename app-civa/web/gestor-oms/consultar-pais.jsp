@@ -23,10 +23,14 @@
 
 %>
 
-<%   
-    List<Pais> listaPaises = PaisDao.listPais();
+<%  
+    try {
+        List<Pais> listaPaises = PaisDao.listPais();
 
-    pageContext.setAttribute("paises", listaPaises);
+        pageContext.setAttribute("paises", listaPaises);
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>

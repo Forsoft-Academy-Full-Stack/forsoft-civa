@@ -25,13 +25,18 @@
 %>
 
 <%  
-    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+   try {
+        String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
     
-    //PortadorCiva portadorciva = PortadorCivaDao.findByCodigoCivaVacinacaoInternacional(codigoCivaPortadorCiva);
+        PortadorCiva portadorciva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
   
-    //pageContext.setAttribute("ator", portadorciva);
-    //pageContext.setAttribute("vacinacoes", portadorciva.getListaVacinacao());
-      pageContext.setAttribute("vacinacoes", VacinacaoDao.listByPortadorCivaInternacional(codigoCivaPortadorCiva));
+        pageContext.setAttribute("ator", portadorciva);
+        pageContext.setAttribute("vacinacoes", portadorciva.getListaVacinacao());
+        pageContext.setAttribute("vacinacoes", VacinacaoDao.listByPortadorCivaInternacional(codigoCivaPortadorCiva));
+           
+    } catch (Exception e) {          
+    }
+   
     
 %>
 
@@ -125,7 +130,7 @@
                                                 <th>Laborat&oacute;rio</th>
                                                 <th>Dose</th>
                                                 <th>Pa&iacute;s</th>
-                                                <th>Data</th>
+                                                <th>Data da Aplicação</th>
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -148,7 +153,7 @@
                     </div>
                     <div class="col-12 row">
                         <div class="mb-3 mt-3">
-                            <a href="./cadastrar-vacinacao.jsp">
+                            <a href="./cadastrar-vacinacao.jsp?codigoCiva=<c:out value="${ator.codigoCiva}" />">
                                 <button type="button" id="cadastro" class="btn btn-primary btn-lg">Cadastrar vacina&ccedil;&atilde;o</button>
                             </a>
                         </div>

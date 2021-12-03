@@ -20,11 +20,16 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
-<%    
-    Integer idPais = Integer.parseInt(request.getParameter("idPais"));
-    Pais pais = PaisDao.findByIdPais(idPais);
+<%  
+    try {
+        Integer idPais = Integer.parseInt(request.getParameter("idPais"));
+        Pais pais = PaisDao.findByIdPais(idPais);
 
-    pageContext.setAttribute("pais", pais);
+        pageContext.setAttribute("pais", pais);
+
+    } catch (Exception e) {
+    }
+
 %> 
 
 <%@include file="header.jspf"%>

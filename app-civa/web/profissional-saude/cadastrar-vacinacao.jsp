@@ -1,5 +1,9 @@
+<%@page import="dao.PortadorCivaDao"%>
+<%@page import="model.PortadorCiva"%>
+<%@page import="model.PortadorCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -15,6 +19,21 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
+
+<%
+  
+   try {
+        String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+    
+        PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
+  
+        pageContext.setAttribute("portadorCiva", portadorCiva);
+           
+    } catch (Exception e) {
+          response.sendRedirect("./vacinacao.jsp");
+    }
+%>
+
 <%@include file="header.jspf"%>
 </head>
 
@@ -59,24 +78,24 @@
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="nome">Nome</label>
-                                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: Frank" value="Elis"
+                                            <input type="text" class="form-control" id="nome" name="nome" placeholder="Ex: Frank" value="${portadorCiva.pessoa.nomePessoa}"
                                                    disabled>
                                         </div>
                                         <div class="form-group col-xl-6">
                                             <label for="sobrenome">Sobrenome</label>
                                             <input type="text" class="form-control" id="sobrenome" name="sobrenome" placeholder="Ex: Sinatra"
-                                                   value="Regina" disabled>
+                                                   value="${portadorCiva.pessoa.sobrenomePessoa}" disabled>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="data-nasc">Data de Nascimento</label>
-                                            <input type="date" class="form-control" id="data-nasc" name="data-nasc" value="1945-05-17"
+                                            <input type="date" class="form-control" id="data-nasc" name="data-nasc" value="${portadorCiva.pessoa.dataNascimento}"
                                                    disabled>
                                         </div>
                                         <div class="form-group col-xl-6">
                                             <label for="identidade">Documento</label>
-                                            <input type="text" class="form-control" id="identidade" name="identidade" value="884.054.264-05" disabled>
+                                            <input type="text" class="form-control" id="identidade" name="identidade" value="${portadorCiva.documento1.documento}" disabled>
                                         </div>
                                     </div>
                                 </div>

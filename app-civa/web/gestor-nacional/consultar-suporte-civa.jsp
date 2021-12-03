@@ -24,9 +24,14 @@
 
 %>
 
-<%    
-    List<SuporteCiva> listaSuportesCiva = SuporteCivaDao.listByGestorNacional(pessoa.getCodigoCiva());
-    pageContext.setAttribute("suportesCiva", listaSuportesCiva);
+<%  
+    try {
+        List<SuporteCiva> listaSuportesCiva = SuporteCivaDao.listByGestorNacional(pessoa.getCodigoCiva());
+        pageContext.setAttribute("suportesCiva", listaSuportesCiva);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 

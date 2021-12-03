@@ -21,10 +21,14 @@
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%    //Buscar Lista de supervisores
-    List<ProfissionalSaude> listaProfissionaisSaude = ProfissionalSaudeDao.listBySupervisor(pessoa.getCodigoCiva());
+<%  
+    try {
+        List<ProfissionalSaude> listaProfissionaisSaude = ProfissionalSaudeDao.listBySupervisor(pessoa.getCodigoCiva());
 
-    pageContext.setAttribute("profissionaisSaude", listaProfissionaisSaude);
+        pageContext.setAttribute("profissionaisSaude", listaProfissionaisSaude);
+    } catch (Exception e) {
+    }
+
 %>   
 
 <%@include file="header.jspf"%>

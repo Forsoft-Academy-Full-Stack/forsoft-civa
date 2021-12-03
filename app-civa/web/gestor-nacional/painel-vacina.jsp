@@ -22,14 +22,18 @@
 %>
 
 
-<%   
-    Integer idVacina = Integer.parseInt(request.getParameter("idVacina"));
-    Vacina vacina = VacinaDao.findById(idVacina);
-    pageContext.setAttribute("vacina", vacina);
+<%  
+    try {
+        Integer idVacina = Integer.parseInt(request.getParameter("idVacina"));
+        Vacina vacina = VacinaDao.findById(idVacina);
+        pageContext.setAttribute("vacina", vacina);
+
+    } catch (Exception e) {
+    }
 %>
 
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gestor-nacional/painel-vacina.js" defer></script>
+<script src="../public/assets/js/gestor-nacional/painel-vacina.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

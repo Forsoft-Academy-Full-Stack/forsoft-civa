@@ -23,10 +23,14 @@
 
 %>
 
-<%    //Buscar Lista de gestores OMS
-    List<GestorOms> listaGestoresOms = GestorOmsDao.listByGestorOms();
+<%  
+    try {
+        List<GestorOms> listaGestoresOms = GestorOmsDao.listByGestorOms();
 
-    pageContext.setAttribute("gestoresOms", listaGestoresOms);
+        pageContext.setAttribute("gestoresOms", listaGestoresOms);
+    } catch (Exception e) {
+    }
+
 %>   
 
 <%@include file="header.jspf"%>

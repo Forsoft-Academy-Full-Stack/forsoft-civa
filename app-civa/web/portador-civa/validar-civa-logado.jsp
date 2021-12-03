@@ -18,12 +18,16 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-    PortadorCiva portadorCiva = PortadorCivaDao.find(pessoa.getCodigoCiva());
-    pageContext.setAttribute("portadorCiva", portadorCiva);
+<%  
+    try {
+        PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("portadorCiva", portadorCiva);
 
-    Unidade unidade = UnidadeDao.find(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
-    pageContext.setAttribute("unidade", unidade);
+        Unidade unidade = UnidadeDao.findById(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
+        pageContext.setAttribute("unidade", unidade);
+    } catch (Exception e) {
+    }
+
 %>
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/portador-civa/validar-civa-logado.js" defer></script>

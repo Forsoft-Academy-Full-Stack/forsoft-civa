@@ -24,15 +24,20 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-    Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
-    Unidade unidade = UnidadeDao.findById(idUnidade);    
+<%  
+    try {
+        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        Unidade unidade = UnidadeDao.findById(idUnidade);
 
-    pageContext.setAttribute("unidade", unidade);
-    pageContext.setAttribute("ator", unidade);
+        pageContext.setAttribute("unidade", unidade);
+        pageContext.setAttribute("ator", unidade);
 
-    List<Supervisor> listaSupervisores = SupervisorDao.listByUnidade(idUnidade);
-    pageContext.setAttribute("supervisores", listaSupervisores);
+        List<Supervisor> listaSupervisores = SupervisorDao.listByUnidade(idUnidade);
+        pageContext.setAttribute("supervisores", listaSupervisores);
+
+    } catch (Exception e) {
+    }
+
 %> 
 
 

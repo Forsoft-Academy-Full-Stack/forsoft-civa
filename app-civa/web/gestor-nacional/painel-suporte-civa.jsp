@@ -21,10 +21,14 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%    
-    String codigoCivaSuporteCiva = request.getParameter("codigoCiva");
-    SuporteCiva suporteCiva = SuporteCivaDao.findByCodigoCiva(codigoCivaSuporteCiva);
-    pageContext.setAttribute("ator", suporteCiva);
+<%  
+    try {
+        String codigoCivaSuporteCiva = request.getParameter("codigoCiva");
+        SuporteCiva suporteCiva = SuporteCivaDao.findByCodigoCiva(codigoCivaSuporteCiva);
+        pageContext.setAttribute("ator", suporteCiva);
+    } catch (Exception e) {
+    }
+
 %>
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-nacional/painel-suporte-civa.js" defer></script>
@@ -94,7 +98,7 @@
                     </div>
 
                 </div>
-                
+
             </div>
             <!-- /.content -->
         </div>

@@ -25,12 +25,17 @@
 
 %>
 
-<%    //Buscar Lista de supervisores
-    List<Supervisor> listaSupervisores = SupervisorDao.list(pessoa.getCodigoCiva());
+<%  
+    try {
+        List<Supervisor> listaSupervisores = SupervisorDao.list(pessoa.getCodigoCiva());
 
-    listaSupervisores = (listaSupervisores != null) ? listaSupervisores : new ArrayList<>();
-    
-    pageContext.setAttribute("supervisores", listaSupervisores);
+        listaSupervisores = (listaSupervisores != null) ? listaSupervisores : new ArrayList<>();
+
+        pageContext.setAttribute("supervisores", listaSupervisores);
+
+    } catch (Exception e) {
+    }
+
 %>    
 
 

@@ -19,14 +19,18 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<% 
-    String codigoCivaSupervisor = request.getParameter("codigoCiva");    
-      
-    Supervisor supervisor = SupervisorDao.find(codigoCivaSupervisor);
-    
-    supervisor = supervisor != null ? supervisor : new Supervisor();
-    
-    pageContext.setAttribute("ator", supervisor);
+<%  
+    try {
+        String codigoCivaSupervisor = request.getParameter("codigoCiva");
+
+        Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
+
+        pageContext.setAttribute("ator", supervisor);
+
+    } catch (Exception e) {
+    }
+
+
 %>
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gerente/desvincular-supervisor.js" defer></script>
@@ -84,7 +88,7 @@
                                                 <label for="codigo-civa">C&oacute;digo CIVA</label>
                                                 <input type="text" class="form-control" id="codigoCiva" name="codigoCiva" value="${ator.codigoCiva}" placeholder="USA1223456789" >
                                             </div>
-                                            
+
                                             <div class="form-group col-md-1 pl-0 pt-3 mt-3">
                                                 <button id="pesquisa" type="submit" class="btn btn-default">
                                                     <i class="fa fa-search"></i>

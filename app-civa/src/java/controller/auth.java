@@ -51,9 +51,7 @@ public class auth extends HttpServlet {
             // Sempre redirecionar para o index.jsp
             Pessoa pessoa = LoginDao.validar(loginAcesso);
             
-            if (pessoa != null) {                    
-                //Pessoa dadosPessoa = PessoaDao.find(pessoa);
-                
+            if (pessoa != null) {                                              
                 session.setAttribute("perfil", loginAcesso.getPerfil());
                 session.setAttribute("dados", pessoa);
                 session.setMaxInactiveInterval(60 * 90);

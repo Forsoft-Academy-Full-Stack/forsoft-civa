@@ -19,9 +19,13 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<% 
-    GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("ator", gestorNacional);
+<%  
+    try {
+        GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("ator", gestorNacional);
+    } catch (Exception e) {
+    }
+
 %>
 <%@include file="header.jspf"%>
 </head>

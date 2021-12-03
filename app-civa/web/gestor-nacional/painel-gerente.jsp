@@ -23,15 +23,18 @@
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%  
-    String codigoCivaGerente = request.getParameter("codigoCiva");  
-    Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
-    pageContext.setAttribute("ator", gerente);
-%>
-
 <%
-    List<Unidade> listaUnidades = UnidadeDao.listUnidadeByGerente(codigoCivaGerente);
-    pageContext.setAttribute("unidades", listaUnidades);
+    try {
+        String codigoCivaGerente = request.getParameter("codigoCiva");
+        Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
+        pageContext.setAttribute("ator", gerente);
+
+        List<Unidade> listaUnidades = UnidadeDao.listUnidadeByGerente(codigoCivaGerente);
+        pageContext.setAttribute("unidades", listaUnidades);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>

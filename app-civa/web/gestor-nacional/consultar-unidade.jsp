@@ -25,8 +25,12 @@
 %>
 
 <% 
-    List<Unidade> listaUnidade = UnidadeDao.listUnidadeByGestorNacional(pessoa.getCodigoCiva());
-    pageContext.setAttribute("unidades", listaUnidade);
+    try {
+        List<Unidade> listaUnidade = UnidadeDao.listUnidadeByGestorNacional(pessoa.getCodigoCiva());
+        pageContext.setAttribute("unidades", listaUnidade);
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>

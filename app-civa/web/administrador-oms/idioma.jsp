@@ -1,11 +1,24 @@
+<%
+    // Transformando os dados que foram colocados na seção
+    // em um objeto pessoa novamente
+
+    Pessoa pessoa = (Pessoa) session.getAttribute("dados");
+
+    // Verificando se o objeto pessoa não existe e se não é usuário
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("administrador-oms"))) {
+        // Caso for uma das duas opções
+        // Redirecionar para o login
+        response.sendRedirect("../login/");
+
+    }
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
+%>
+
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!--Por favor não remover include nem head-->
-<!--a abertura do head é feita no header.jspf-->
-<!--Dessa forma fica menos poluído-->
-<!--os links e scripts base ficam nesse header.jspf-->
-<!--então aqui é chamado o js especifico para cada página -->
-<!--e por fim o head é fechado -->
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/suporte-civa/idioma.js" defer></script>
 </head>

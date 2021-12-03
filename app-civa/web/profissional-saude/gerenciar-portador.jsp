@@ -25,13 +25,17 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 
-<%    
-    String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
-    PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);       
-    
-    pageContext.setAttribute("ator", portadorCiva);
-    pageContext.setAttribute("portadorCiva", portadorCiva);
-    
+<%  
+    try {
+        String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+        PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
+
+        pageContext.setAttribute("ator", portadorCiva);
+        pageContext.setAttribute("portadorCiva", portadorCiva);
+    } catch (Exception e) {
+    }
+
+
 %>
 
 
@@ -115,16 +119,16 @@
                                                 <th>Laborat&oacute;rio</th>
                                                 <th>Dose</th>
                                                 <th>Pa&iacute;s</th>
-                                                <th>Data</th>
-                                                  
+                                                <th>Data de Aplica&ccedil;&atilde;o</th>
+
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
+
                                             <c:set var="codigoCivaPortadorCiva" value="${portadorCiva.codigoCiva}"/>
-                                            
+
                                             <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
-                                                
+
                                                 <tr>
                                                     <td><c:out value="${vacinacao.vacina.nomeVacina}" /></td>
                                                     <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>

@@ -22,14 +22,18 @@
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%    
-    List<GestorNacional> listagestoresNacionais = GestorNacionalDao.listByGestorNacional(pessoa.getCodigoCiva());
+<%  
+    try {
+        List<GestorNacional> listagestoresNacionais = GestorNacionalDao.listByGestorNacional(pessoa.getCodigoCiva());
 
-    pageContext.setAttribute("gestoresNacionais", listagestoresNacionais);
+        pageContext.setAttribute("gestoresNacionais", listagestoresNacionais);
+    } catch (Exception e) {
+    }
+
 %>    
 
 <%@include file="header.jspf"%>
-    <script src="../public/assets/js/gestor-nacional/pesquisar-gestor-nacional.js" defer></script>
+<script src="../public/assets/js/gestor-nacional/pesquisar-gestor-nacional.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

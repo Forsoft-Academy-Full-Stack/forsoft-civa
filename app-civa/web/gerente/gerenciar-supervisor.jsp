@@ -26,18 +26,20 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-    String codigoCivaSupervisor = request.getParameter("codigoCiva");
-    Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
+<%  
+    try {
+        String codigoCivaSupervisor = request.getParameter("codigoCiva");
+        Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
 
-    pageContext.setAttribute("ator", supervisor);
-%> 
+        pageContext.setAttribute("ator", supervisor);
 
+        List<Unidade> listaUnidades = UnidadeDao.listUnidadeBySupervisor(codigoCivaSupervisor);
 
-<%    //Buscar Lista de unidades
-    List<Unidade> listaUnidades = UnidadeDao.listUnidadeBySupervisor(codigoCivaSupervisor);
+        pageContext.setAttribute("unidades", listaUnidades);
 
-    pageContext.setAttribute("unidades", listaUnidades);
+    } catch (Exception e) {
+    }
+
 %> 
 
 

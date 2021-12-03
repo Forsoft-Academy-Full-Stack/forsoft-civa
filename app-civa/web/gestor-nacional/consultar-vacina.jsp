@@ -23,8 +23,14 @@
 
 %>
 
-<%    List<Vacina> listaVacinas = VacinaDao.listByGestorNacional(pessoa.getCodigoCiva());
-    pageContext.setAttribute("vacinas", listaVacinas);
+<%  
+    try {
+        List<Vacina> listaVacinas = VacinaDao.listByGestorNacional(pessoa.getCodigoCiva());
+        pageContext.setAttribute("vacinas", listaVacinas);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 

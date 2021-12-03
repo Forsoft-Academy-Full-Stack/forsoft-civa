@@ -23,10 +23,16 @@
 
 %>
 
-<%    //Buscar Lista de supervisores
-    List<Unidade> listaUnidades = UnidadeDao.listUnidadeByGerente(pessoa.getCodigoCiva());
+<%    
+    
+    try {
+        List<Unidade> listaUnidades = UnidadeDao.listUnidadeByGerente(pessoa.getCodigoCiva());
 
-    pageContext.setAttribute("unidades", listaUnidades);
+        pageContext.setAttribute("unidades", listaUnidades);
+
+    } catch (Exception e) {
+    }
+
 %> 
 
 <%@include file="header.jspf"%>

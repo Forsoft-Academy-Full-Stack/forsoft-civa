@@ -18,9 +18,14 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<% 
-    ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.find("BR879987");
-    pageContext.setAttribute("ator", profissionalSaude);
+<% try {
+          String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
+          ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
+          pageContext.setAttribute("ator", profissionalSaude);
+            
+        } catch (Exception e) {
+        }
+  
 %>
 
 <%@include file="header.jspf"%>
@@ -72,16 +77,16 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="form-meus-dados">
+                                <form action="" id="form-meus-dados" method="GET">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="form-group col-md-11 p-0">
-                                                <label for="identity">C&oacute;digo CIVA</label>
-                                            <input type="text" class="form-control" id="identity" name="identity" value="${ator.codigoCiva}" placeholder="USA1223456789" >
+                                                <label for="codigoCiva">C&oacute;digo CIVA</label>
+                                            <input type="text" class="form-control" id="codigoCiva" name="codigoCiva" value="${ator.codigoCiva}" placeholder="USA1223456789" >
                                             
                                             </div>
                                             <div class="form-group col-md-1 pl-0 pt-3 mt-3">
-                                            <button type="button" class="btn btn-default">
+                                            <button type="submit" class="btn btn-default">
                                                 <i class="fa fa-search"></i>
                                             </button>
                                             </div>
