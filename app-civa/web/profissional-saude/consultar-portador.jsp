@@ -133,8 +133,8 @@
                                                     <td><c:out value="${portador.documento1.documento}" /></td>
                                                     <td><c:out value="${portador.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${portador.codigoCiva}" /></td>
-                                                    <td><a href="./gerenciar-portador.jsp?codigoCiva=<c:out value="${portador.codigoCiva}" />"
-                                                           class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="./painel-portador.jsp?codigoCiva=<c:out value="${portador.codigoCiva}" />"
+                                                           class="btn btn-block btn-primary btn-sm">Consultar</a></td>
                                                 </tr>
                                             </c:forEach>     
                                         </tbody>
@@ -145,48 +145,7 @@
                         </div>
                     </div>
                     <!-- PAGINA&Ccedil;&Atilde;O -->
-                    <div class="row">
-                        <div class="col-6">
-
-                            <div class="dataTables_paginate paging_simple_numbers" id="example2_paginate">
-                                <ul class="pagination">
-                                    <li class="paginate_button page-item previous disabled" id="example2_previous">
-                                        <a href="#" aria-controls="example2" data-dt-idx="0" tabindex="0"
-                                           class="page-link">Anterior</a>
-                                    </li>
-
-                                    <li class="paginate_button page-item active">
-                                        <a href="#" aria-controls="example2"data-dt-idx="1" tabindex="0" 
-                                           class="page-link">1</a>
-                                    </li>
-                                    <li class="paginate_button page-item ">
-                                        <a href="#" aria-controls="example2"data-dt-idx="2" tabindex="0" 
-                                           class="page-link">2</a>
-                                    </li>
-                                    <li class="paginate_button page-item ">
-                                        <a href="#" aria-controls="example2"data-dt-idx="3" tabindex="0" 
-                                           class="page-link">3</a>
-                                    </li>
-                                    <li class="paginate_button page-item ">
-                                        <a href="#" aria-controls="example2"data-dt-idx="4" tabindex="0" 
-                                           class="page-link">4</a>
-                                    </li>
-                                    <li class="paginate_button page-item ">
-                                        <a href="#" aria-controls="example2"data-dt-idx="5" tabindex="0" 
-                                           class="page-link">5</a>
-                                    </li>
-                                    <li class="paginate_button page-item ">
-                                        <a href="#" aria-controls="example2"data-dt-idx="6" tabindex="0" 
-                                           class="page-link">6</a>
-                                    </li>
-                                    <li class="paginate_button page-item next" id="example2_next">
-                                        <a href="#"aria-controls="example2" data-dt-idx="7" tabindex="0"
-                                           class="page-link">Pr&oacute;ximo</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <%@include file="../partials/paginacao.jspf" %>
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->

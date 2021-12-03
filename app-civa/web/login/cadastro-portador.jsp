@@ -19,11 +19,11 @@
                         <form id="form-cad-portador">
                             <div class="card-body">                     
                                 <%@ include file="../partials/dadospessoais-cadastro.jspf" %>
-                                <hr>
+                                <hr  class = "mb-4 mt-4">
                                 <%@ include file="../partials/enderecos-cadastro.jspf" %>
-                                <hr>
+                                <hr  class = "mb-4 mt-4">
                                 <%@ include file="../partials/contatos-cadastro.jspf" %>
-                                  <hr>
+                                <hr  class = "mb-4 mt-4">
                                 <%@ include file="../partials/senha-cadastro.jspf" %>
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="termos-uso">
