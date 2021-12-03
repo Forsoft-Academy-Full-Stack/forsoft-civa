@@ -23,7 +23,7 @@
 
 <%  
     try {
-        List<ProfissionalSaude> listaProfissionaisSaude = ProfissionalSaudeDao.listBySupervisor(pessoa.getCodigoCiva());
+        List<ProfissionalSaude> listaProfissionaisSaude = ProfissionalSaudeDao.listBySuporteCiva(pessoa.getCodigoCiva());
 
         pageContext.setAttribute("profissionaisSaude", listaProfissionaisSaude);
     } catch (Exception e) {

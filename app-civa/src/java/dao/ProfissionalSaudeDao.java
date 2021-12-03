@@ -11,10 +11,10 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Docs;
 import model.Endereco;
-import model.Gerente;
 import model.Pais;
 import model.ProfissionalSaude;
 import model.Pessoa;
+import model.Supervisor;
 
 /**
  *
@@ -145,6 +145,76 @@ public class ProfissionalSaudeDao {
         return profissionalSaude;
     }
 
+    public static List<ProfissionalSaude> listBySuporteCiva(String codigoCivaSuporte) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<ProfissionalSaude> profissionaisSaude = new ArrayList<>();
+        ProfissionalSaude profissionalSaude;
+        Pessoa pessoa = null;
+        Docs documento1 = null;
+
+        String sql = "";
+
+        sql = "SELECT peag.nomepessoa AS nome,\n"
+                + "	   peag.sobrenomepessoa AS sobrenome,\n"
+                + "       doc.documento,\n"
+                + "       peag.datadenascimento,\n"
+                + "       ag.codigocivagestao AS codigociva\n"
+                + "FROM pessoa peag\n"
+                + "LEFT JOIN docs doc \n"
+                + "ON peag.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc \n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "ON ag.idpessoa = peag.idpessoa\n"
+                + "WHERE ag.cargo='Profissional de Saúde'  \n"
+                + "AND tidoc.nivel = 'Primário'\n"
+                + "AND ag.codigocivagestao LIKE \n"
+                + "CONCAT( \n"
+                + "(SELECT pa.sigla FROM pessoa peag \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "LEFT JOIN pais pa \n"
+                + "ON en.idpais = pa.idpais  \n"
+                + "WHERE ag.codigocivagestao = ?),'%');";
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaSuporte);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pessoa = new Pessoa();
+                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                pessoa.setCodigoCiva(rs.getString("codigociva"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+
+                documento1 = new Docs();
+                documento1.setDocumento(rs.getString("documento"));
+
+                profissionalSaude = new ProfissionalSaude();
+                profissionalSaude.setPessoa(pessoa);
+                profissionalSaude.setDocumento1(documento1);
+                profissionalSaude.setCodigoCiva(pessoa.getCodigoCiva());
+
+                profissionaisSaude.add(profissionalSaude);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SupervisorDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return profissionaisSaude;
+    }
+    
     public static List<ProfissionalSaude> listBySupervisor(String codigoSupervisor) {
         Connection connection = ConnectionFactory.getConnection();
         List<ProfissionalSaude> profissionaisSaude = null;

@@ -22,9 +22,9 @@
 %>
 
 <%   
-    //List<SuporteCiva> listaSuporteCiva = SuporteCivaDao.listBySuporteCiva(pessoa.getCodigoCiva());
+    List<SuporteCiva> listaSuporteCiva = SuporteCivaDao.listByGestorNacional(pessoa.getCodigoCiva());
 
-    //pageContext.setAttribute("suporteCiva", listaSuporteCiva);
+    pageContext.setAttribute("suporteCiva", listaSuporteCiva);
 %>    
 
 <!--Por favor não remover include nem head-->
