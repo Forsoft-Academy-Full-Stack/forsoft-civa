@@ -1,15 +1,40 @@
+<%@page import="dao.GestorOmsDao"%>
+<%@page import="dao.GestorOmsDao"%>
+<%@page import="model.GestorOms"%>
 <%@page import="dao.SuporteCivaDao"%>
 <%@page import="dao.SuporteCivaDao"%>
 <%@page import="model.SuporteCiva"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    // Transformando os dados que foram colocados na seção
+    // em um objeto pessoa novamente
 
-<!--Por favor não remover include nem head-->
-<!--a abertura do head é feita no header.jspf-->
-<!--Dessa forma fica menos poluído-->
-<!--os links e scripts base ficam nesse header.jspf-->
-<!--então aqui é chamado o js especifico para cada página -->
-<!--e por fim o head é fechado -->
+    Pessoa pessoa = (Pessoa) session.getAttribute("dados");
+
+    // Verificando se o objeto pessoa não existe e se não é usuário
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("administrador-oms"))) {
+        // Caso for uma das duas opções
+        // Redirecionar para o login
+        response.sendRedirect("../login/");
+
+    }
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
+%>
+<%    
+    try {
+        GestorOms administradorOms = GestorOmsDao.findAdministrador(pessoa.getCodigoCiva());
+
+        administradorOms = administradorOms != null ? administradorOms : new GestorOms();
+
+        pageContext.setAttribute("ator", administradorOms);
+    } catch (Exception ex) {
+    }
+
+%> 
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/suporte-civa/meus-dados.js" defer></script>
 </head>
@@ -73,81 +98,9 @@
 
                                 </form>
 
-                                <!-- /.card-header -->
-                                <!-- form start -->
-
                             </div>
                         </div>
-                    </div>
-                    <!-- /.row -->
-
-                    <!-- TABELA VACINAS -->
-                    <!--
-                    <div class="row">
-                        <div class="col-12 mb-2">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Unidade vinculadas</h3>
-
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-
-                                            <div class="input-group-append">
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Estado</th>
-                                                <th>CEP</th>
-                                                <th>Identificador</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    -->
+                    </div>                
 
                     <div class="row">
                         <div class="col-12 mb-4">

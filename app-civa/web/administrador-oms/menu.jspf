@@ -44,13 +44,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item text-sm ">
-                            <a href="./consultar-gestor-oms" class="nav-link">
+                            <a href="./consultar-gestor-oms.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Gestor OMS</p>
                             </a>
                         </li>
                         <li class="nav-item text-sm">
-                            <a href="./cadastrar-gestor-oms" class="nav-link">
+                            <a href="./cadastrar-gestor-oms.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
                                 <p class="text-wrap">Cadastrar Gestor OMS</p>
                             </a>

@@ -33,6 +33,7 @@
                                         <option value="suporte-civa">Suporte CIVA</option>
                                         <option value="gestor-nacional">Gestor Nacional</option>
                                         <option value="gestor-oms">Gestor OMS</option>
+                                        <option value="administrador-oms">Administrador OMS</option>
                                     </select>
                                 </div>
                                 <div class="input-group mb-3">
