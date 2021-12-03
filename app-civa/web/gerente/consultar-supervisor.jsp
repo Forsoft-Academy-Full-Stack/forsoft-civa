@@ -31,7 +31,7 @@
 
         listaSupervisores = (listaSupervisores != null) ? listaSupervisores : new ArrayList<>();
 
-        pageContext.setAttribute("supervisores", listaSupervisores);
+        pageContext.setAttribute("supervisor", listaSupervisores);
 
     } catch (Exception e) {
     }
@@ -183,9 +183,9 @@
                                                     <td><c:out value="${supervisor.codigoCiva}" /></td>
                                                     <td>
                                                         <a
-                                                            href="./gerenciar-supervisor.jsp?codigoCiva=<c:out value="${supervisor.codigoCiva}" />"
+                                                            href="./painel-supervisor.jsp?codigoCiva=<c:out value="${supervisor.codigoCiva}" />"
                                                             class="btn btn-block btn-primary btn-sm"
-                                                            >Gerenciar</a
+                                                            >Consultar</a
                                                         >
                                                     </td>
                                                 </tr>

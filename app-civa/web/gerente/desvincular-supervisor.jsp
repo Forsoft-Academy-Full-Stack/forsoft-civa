@@ -95,7 +95,7 @@
                                                 </button>
                                             </div>
                                         </div> 
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                     </div>
                                 </form>

@@ -20,10 +20,14 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
-<%    
-    List<PortadorCiva> listaPortadores = PortadorCivaDao.listByProfissionalSaude(pessoa.getCodigoCiva());
+<%  
+    try {
+        List<PortadorCiva> listaPortadores = PortadorCivaDao.listByProfissionalSaude(pessoa.getCodigoCiva());
 
-    pageContext.setAttribute("portadoresCiva", listaPortadores);
+        pageContext.setAttribute("portadoresCiva", listaPortadores);
+    } catch (Exception e) {
+    }
+
 %>    
 
 
@@ -125,7 +129,7 @@
                                         <tbody>
                                             <c:forEach items="${portadoresCiva}" var="portador">
                                                 <tr>
-                                                   <td><c:out value="${portador.pessoa.nomePessoa} ${portador.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${portador.pessoa.nomePessoa} ${portador.pessoa.sobrenomePessoa}" /></td>
                                                     <td><c:out value="${portador.documento1.documento}" /></td>
                                                     <td><c:out value="${portador.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${portador.codigoCiva}" /></td>

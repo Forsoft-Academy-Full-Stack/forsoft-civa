@@ -20,9 +20,14 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>  
-<% 
-    GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("ator", gestorNacional);
+<%  
+    try {
+        GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("ator", gestorNacional);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 <%@include file="header.jspf"%>
@@ -119,13 +124,13 @@
             <!-- modal -->
         </div>
         <!-- /.content -->
-          <%@include file="footer.jspf" %>
+        <%@include file="footer.jspf" %>
     </div>
     <!-- /.content-wrapper -->
 
     <!-- Main Footer -->
-  
-<!-- ./wrapper -->
+
+    <!-- ./wrapper -->
 </body>
 
 </html>

@@ -93,18 +93,13 @@
                                 <form id="form-meus-dados">
                                     <div class="card-body">
                                         <%@ include file="../partials/codigociva.jspf" %>
-                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/dadospessoais-disabled.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-disabled.jspf" %>
-                                        <hr>
-                                        <div class="row">
-                                            <div class="col-12 mb-4">
-                                                <button type="button" class="btn btn-danger btn-xl"
-                                                        id="excluir">Excluir</button>
-                                            </div>
-                                        </div>
+                                        
                                     </div>
 
                                 </form>

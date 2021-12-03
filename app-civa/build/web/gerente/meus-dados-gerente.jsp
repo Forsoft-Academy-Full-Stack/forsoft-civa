@@ -7,9 +7,9 @@
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
-    
+
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gerente"))) {
         // Caso for uma das duas opções
@@ -17,18 +17,23 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
-<%    //Buscar Lista de supervisores
-    Gerente gerente = GerenteDao.findByCodigoCiva(pessoa.getCodigoCiva());
-    pageContext.setAttribute("ator", gerente);
+<%  
+    try {
+        Gerente gerente = GerenteDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        pageContext.setAttribute("ator", gerente);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 
 <%@include file="header.jspf"%>
-    <script src="./../public/assets/js/gerente/meus-dados-gerente.js" defer></script>
+<script src="./../public/assets/js/gerente/meus-dados-gerente.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -52,7 +57,7 @@
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
-                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
+                                <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
                                 <li class="breadcrumb-item active">Meus Dados</li>
                             </ol>
                         </div>
@@ -78,12 +83,11 @@
                                 <form id="form-meus-dados">
                                     <div class="card-body">
                                         <%@ include file="../partials/codigociva.jspf" %>
-                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
-
-                                        <hr>
-
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/dadospessoais-disabled.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-disabled.jspf" %>
                                     </div>
 
