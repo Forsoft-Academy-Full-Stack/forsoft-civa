@@ -28,14 +28,14 @@
 %>
 <%
     String codigoCivaSupervisor = request.getParameter("codigoCiva");
-    Supervisor supervisor = SupervisorDao.find(codigoCivaSupervisor);
+    Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
 
     pageContext.setAttribute("ator", supervisor);
 %> 
 
 
-<%    //Buscar Lista de supervisores
-    List<Unidade> listaUnidades = UnidadeDao.list();
+<%    //Buscar Lista de unidades
+    List<Unidade> listaUnidades = UnidadeDao.listUnidadeBySupervisor(codigoCivaSupervisor);
 
     pageContext.setAttribute("unidades", listaUnidades);
 %> 
@@ -140,8 +140,8 @@
                                                 <tr>                                                   
                                                     <td><c:out value="${unidade.nome}" /></td>
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
-                                                    <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
                                                     <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
+                                                    <td><c:out value="${unidade.idUnidade}" /></td>
                                                 </tr>
                                             </c:forEach>    
                                         </tbody>

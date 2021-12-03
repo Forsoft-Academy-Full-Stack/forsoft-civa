@@ -4,7 +4,7 @@
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-   
+
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("suporte-civa"))) {
         // Caso for uma das duas opções
@@ -12,9 +12,9 @@
         response.sendRedirect("../login/");
 
     }
-    
-   // Caso contrário é um usuário válido, pode entrar na página
-  
+
+    // Caso contrário é um usuário válido, pode entrar na página
+
 %>
 <!--Por favor não remover include nem head-->
 <!--a abertura do head é feita no header.jspf-->
@@ -23,12 +23,12 @@
 <!--então aqui é chamado o js especifico para cada página -->
 <!--e por fim o head é fechado -->
 <%@include file="header.jspf"%>
-  <script src="../public/assets/js/profissional-saude/cadastrar-portador.js" defer></script>
+<script src="../public/assets/js/profissional-saude/cadastrar-portador.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
-      <!-- Navbar --------------------------------------------->
+        <!-- Navbar --------------------------------------------->
         <%@include file="navbar.jspf" %>
         <!-- /.navbar ------------------------------------------------------->
 
@@ -75,16 +75,14 @@
                                     <form id="form-meus-dados">
                                         <div class="card-body">
                                             <%@ include file="../partials/dadospessoais-cadastro.jspf" %>
-                                        <hr>
-
-                                        <%@ include file="../partials/enderecos-cadastro.jspf" %>
-
-                                        <hr>
-                                        <%@ include file="../partials/contatos-cadastro.jspf" %> 
-                                         <hr>
+                                            <hr  class = "mb-4 mt-4">
+                                            <%@ include file="../partials/enderecos-cadastro.jspf" %>
+                                            <hr  class = "mb-4 mt-4">
+                                            <%@ include file="../partials/contatos-cadastro.jspf" %> 
+                                            <hr  class = "mb-4 mt-4">
                                             <%@ include file="../partials/senha-cadastro.jspf" %>
                                         </div>
-                                        
+
 
                                     </form>
                                     <!-- /.form ending -->
@@ -124,7 +122,7 @@
                     </div>
                     <div class="modal-footer justify-content-between">
                         <button type="button" class="btn btn-default" data-dismiss="modal"
-                            onclick="location.href='../ndex.jsp'">Finalizar</button>
+                                onclick="location.href = '../ndex.jsp'">Finalizar</button>
                     </div>
                 </div>
                 <!-- /.modal-content -->

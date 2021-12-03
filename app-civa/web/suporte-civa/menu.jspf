@@ -56,6 +56,55 @@
                     </ul>
                 </li>
 
+                <!--Item Profissional da Saúde-->
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-friends nav-icon"></i>
+                        <p>Profissional da Saúde<i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./consultar-profissional-de-saude.jsp" class="nav-link">
+                                <i class="fas fa-clipboard-check nav-icon"></i>
+                                <p>Consultar Profissional da Saúde</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./cadastrar-profissional-de-saude.jsp" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Cadastrar Profissional da Saúde</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li> 
+
+                <!--Item Supervisor-->
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-friends nav-icon"></i>
+                        <p>
+                            Supervisor
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="./consultar-supervisor.jsp" class="nav-link">
+                                <i class="fas fa-clipboard-check nav-icon"></i>
+                                <p>Consultar supervisor</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./cadastrar-supervisor.jsp" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p>Cadastrar supervisor</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
                 <!--Item Gerente-->
                 <li class="nav-item ">
                     <a href="#" class="nav-link">
@@ -82,12 +131,35 @@
                     </ul>
                 </li> 
 
+                <!--Item Supervisores CIVA-->
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-friends nav-icon"></i>
+                        <p>Supervisores CIVA<i class="right fas fa-angle-left"></i></p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item text-sm ">
+                            <a href="./consultar-suporte-civa.jsp" class="nav-link">
+                                <i class="fas fa-clipboard-check nav-icon"></i>
+                                <p>Consultar Supervisores CIVA</p>
+                            </a>
+                        </li>
+                        <li class="nav-item text-sm">
+                            <a href="./cadastrar-suporte-civa.jsp" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p class="text-wrap">Cadastrar Supervisores CIVA</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>  
+
                 <!--Item Gestores Naciocionais-->
                 <li class="nav-item ">
                     <a href="#" class="nav-link">
                         <i class="fas fa-user-friends nav-icon"></i>
                         <p>
-                            Gestores nacionais
+                            Gestores Nacionais
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -106,33 +178,7 @@
                         </li>
 
                     </ul>
-                </li> 
-
-                <!--Item Suporte CIVA-->
-                <li class="nav-item ">
-                    <a href="#" class="nav-link">
-                        <i class="fas fa-user-friends nav-icon"></i>
-                        <p>
-                            Supervisor
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="./consultar-supervisor.jsp" class="nav-link">
-                                <i class="fas fa-clipboard-check nav-icon"></i>
-                                <p>Consultar supervisor</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="./cadastrar-supervisor.jsp" class="nav-link">
-                                <i class="fas fa-user-plus nav-icon"></i>
-                                <p>Cadastrar supervisor</p>
-                            </a>
-                        </li>
-
-                    </ul>
-                </li>
+                </li>                
 
                 <!--Item Unidades-->
                 <!--li class="nav-item ">

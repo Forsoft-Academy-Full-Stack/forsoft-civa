@@ -1,3 +1,4 @@
+<%@page import="java.util.ArrayList"%>
 <%@page import="dao.SupervisorDao"%>
 <%@page import="model.Supervisor"%>
 <%@page import="model.Supervisor"%>
@@ -25,8 +26,10 @@
 %>
 
 <%    //Buscar Lista de supervisores
-    List<Supervisor> listaSupervisores = SupervisorDao.list();
+    List<Supervisor> listaSupervisores = SupervisorDao.list(pessoa.getCodigoCiva());
 
+    listaSupervisores = (listaSupervisores != null) ? listaSupervisores : new ArrayList<>();
+    
     pageContext.setAttribute("supervisores", listaSupervisores);
 %>    
 

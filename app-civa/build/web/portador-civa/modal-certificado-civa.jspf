@@ -41,15 +41,16 @@
                         <input type="text" class="form-control form-control-sm" id="certificado-vacina" value="${portadorCiva.listaVacinacao[0].vacina.nomeVacina}"
                                disabled>
                     </div>
-                    <div class="form-group col mb-3">
+                    <!--div class="form-group col mb-3">
                         <label for="certificado-dose">Doses</label>
                         <input type="text" class="form-control form-control-sm" id="certificado-dose" value="${portadorCiva.listaVacinacao[0].vacina.numeroDoses}" disabled>
-                    </div>
+                    </div-->
                 </div>   
                 <!--c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao"-->                
 
                 <% for (int i = 0; i < portadorCiva.getListaVacinacao().size(); i++) { %>
-                    <div class="row">
+                   
+                   <div class="row">
 
                         <div class="form-group col-12 mb-3">
                             
@@ -64,11 +65,11 @@
                             <label for="certificado-vacinador">Nome do Vacinador</label>    
                             
 
-                            <input type="text" class="form-control form-control-sm" id="certificado-vacinador" value="<%= ProfissionalSaudeDao.find(portadorCiva.getListaVacinacao().get(i).getCodigoCivaCadastrante()).getPessoa().getNomePessoa()%> <%= ProfissionalSaudeDao.find(portadorCiva.getListaVacinacao().get(i).getCodigoCivaCadastrante()).getPessoa().getSobrenomePessoa()%>"
+                            <input type="text" class="form-control form-control-sm" id="certificado-vacinador" value="<%= ProfissionalSaudeDao.findByCodigoCiva(portadorCiva.getListaVacinacao().get(i).getCodigoCivaCadastrante()).getPessoa().getNomePessoa()%> <%= ProfissionalSaudeDao.findByCodigoCiva(portadorCiva.getListaVacinacao().get(i).getCodigoCivaCadastrante()).getPessoa().getSobrenomePessoa()%>"
                                    disabled>
                         </div>
                     </div>
-                <%}%>
+                <%} %>
                 <!--/c:forEach-->
 
                 <div class="row">

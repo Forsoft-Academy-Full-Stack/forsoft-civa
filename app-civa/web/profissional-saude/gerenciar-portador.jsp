@@ -79,11 +79,12 @@
                                 <form id="form-painel-portador">
                                     <div class="card-body">
                                         <%@ include file="../partials/codigociva.jspf" %>
-                                        <%@ include file="../partials/dadospessoais-disabled.jspf" %>
-                                        <hr>
-                                        <%@ include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
-                                        <%@ include file="../partials/contatos-disabled.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/dadospessoais-alteracao.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/enderecos-alteracao.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/contatos-alteracao.jspf" %>
                                     </div>
                                 </form>
                             </div>
@@ -115,8 +116,7 @@
                                                 <th>Dose</th>
                                                 <th>Pa&iacute;s</th>
                                                 <th>Data</th>
-                                                  <th><a href="./cadastrar-vacinacao-internacional.jsp"
-                                                       class="btn btn-block btn-primary btn-sm">Nova Vacina&ccedil&amacr;o</a></th>
+                                                  
                                             </tr>
                                         </thead>
                                         <tbody>
@@ -146,7 +146,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <!--button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button-->
+                            <button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button>
                         </div>
                     </div>
                     <!-- /.row -->

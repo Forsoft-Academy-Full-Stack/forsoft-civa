@@ -23,7 +23,6 @@
 
 %>
 <%    //Buscar Lista de supervisores
-    
     Integer idVacina = Integer.parseInt(request.getParameter("idVacina"));
     Vacina vacina = VacinaDao.findById(idVacina);
 
@@ -118,31 +117,31 @@
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="name">ID Vacina</label>
-                                                <input type="text" class="form-control" id="idvacina" name="idvacina" value="${vacina.idVacina}" disabled>
+                                                <input type="text" class="form-control" id="idvacina" name="idvacina" value="${vacina.idVacina}">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="surname">N&uacute;mero de Doses</label>
-                                                <input type="text" class="form-control" id="dose" name="idvacina" value="${vacina.numeroDoses}" disabled>
+                                                <input type="text" class="form-control" id="dose" name="idvacina" value="${vacina.numeroDoses}">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="date-birth">Vacina</label>
-                                                <input type="text" class="form-control" id="vacina" value="${vacina.nomeVacina}" disabled>
+                                                <input type="text" class="form-control" id="vacina" value="${vacina.nomeVacina}">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="postal-code">Laborat&oacute;rio</label>
-                                                <input type="text" class="form-control" id="lab" name="lab" value="${vacina.laboratorio}" disabled>
+                                                <input type="text" class="form-control" id="lab" name="lab" value="${vacina.laboratorio}">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="postal-code">Tipo de Vacina</label>
-                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tipoVacina}" disabled>
+                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tipoVacina}">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="postal-code">Tempo entre Doses (em dias)</label>
-                                                <input type="text" class="form-control" id="timevacina" name="timevacina" value="${vacina.tempoEntreDoses}" disabled>
+                                                <input type="text" class="form-control" id="timevacina" name="timevacina" value="${vacina.tempoEntreDoses}">
                                             </div>
                                             <div class="form-group col-xl-12">
                                                 <label for="postal-code">Tempo para Refor&ccedil;o (em dias)</label>
-                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tempoReforco}" disabled>
+                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tempoReforco}">
                                             </div>
                                         </div>
                                     </div>
@@ -151,49 +150,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- TABELA VACINAS -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Hist&oacute;rico de Vacinas</h3>
-
-
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th style="cursor: pointer;">Vacina</th>
-                                                <th style="cursor: pointer;">Laborat&oacute;rio</th>
-                                                <th style="cursor: pointer;">Número de Doses</th>
-                                                <th style="cursor: pointer;">ID Vacina</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                             <c:forEach items="${vacinas}" var="vacina">
-                                                <tr>
-                                                    <td><c:out value="${vacina.nomeVacina}" /></td>
-                                                    <td><c:out value="${vacina.laboratorio}" /></td>                                                  
-                                                    <td><c:out value="${vacina.numeroDoses} dose(s)" /></td>
-                                                    <td><c:out value="${vacina.idVacina}" /></td>                                                
-                                                </tr>
-                                            </c:forEach> 
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
-                    </div>
-
-
+                                            
                     <div class="col-12 row">
                         <div class="mb-3 mt-3">
-                            <!--button type="submit" class="btn btn-primary btn-lg" form="formulario">Salvar</button-->
+                            <button type="submit" class="btn btn-primary btn-lg" form="formulario">Salvar</button>
                         </div>
                     </div>
 

@@ -93,11 +93,12 @@
                                 <form id="form-meus-dados">
                                     <div class="card-body">
                                         <%@ include file="../partials/codigociva.jspf" %>
-                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
-                                        <hr>
-                                        <%@ include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
-                                        <%@ include file="../partials/contatos-disabled.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/dadospessoais-alteracao.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/enderecos-alteracao.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/contatos-alteracao.jspf" %>
                                     </div>
 
                                 </form>
@@ -108,56 +109,10 @@
                     </div>
                     <!-- /.row -->
 
-                    <!--
+
                     <div class="row">
                         <div class="col-12 mb-4">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Unidades Vinculadas</h3>
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-                                            <div class="input-group-append">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Nome Unidade</th>
-                                                <th>Estado</th>
-                                                <th>CEP</th>
-                                                <th>Identificador</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                             <c:forEach items="${unidades}" var="unidade">
-                                                <tr>
-                                                    <td><c:out value="${unidade.nome}" /></td>
-                                                    <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
-                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
-                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
-                                                </tr>
-                                            </c:forEach>
-                                        </tbody>
-                                    </table>
-                                    <hr>
-                                    <div class="d-flex justify-content-between align-items-center ml-2 mb-2">
-                                        <a href="./vincular-unidade.jsp" class="btn btn-success btn-xs">Vincular
-                                            Unidade</a>
-                                    </div>
-                                </div>
-                              
-                            </div>
-                    
-                        </div>
-                    </div>
-                    -->
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <!--button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button-->
+                            <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
                         </div>
                     </div>
                 </div>

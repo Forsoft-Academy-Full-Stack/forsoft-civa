@@ -26,12 +26,12 @@
 %>
 <%
     Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
-    Unidade unidade = UnidadeDao.find(idUnidade);           
+    Unidade unidade = UnidadeDao.findById(idUnidade);    
 
     pageContext.setAttribute("unidade", unidade);
     pageContext.setAttribute("ator", unidade);
 
-    List<Supervisor> listaSupervisores = SupervisorDao.list();
+    List<Supervisor> listaSupervisores = SupervisorDao.listByUnidade(idUnidade);
     pageContext.setAttribute("supervisores", listaSupervisores);
 %> 
 

@@ -84,10 +84,11 @@
                                 <form id="form-meus-dados">
                                     <div class="card-body">
                                         <%@ include file="../partials/codigociva.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-disabled.jspf" %>    
                                     </div>
 
@@ -100,80 +101,6 @@
                         </div>
                     </div>
                     <!-- /.row -->
-
-                    <!-- TABELA VACINAS -->
-                    <!--
-                    <div class="row">
-                        <div class="col-12 mb-2">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Unidade vinculadas</h3>
-
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-
-                                            <div class="input-group-append">
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Estado</th>
-                                                <th>CEP</th>
-                                                <th>Identificador</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Hospital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    -->
-
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <!--button type="button" id="salvar" class="btn btn-primary btn-lg" >Salvar</button-->
-                        </div>
-                    </div>
                 </div>
 
             </div>

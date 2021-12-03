@@ -1,9 +1,9 @@
-<%@page import="dao.SupervisorDao"%>
-<%@page import="model.Supervisor"%>
+<%@page import="dao.GestorNacionalDao"%>
+<%@page import="model.GestorNacional"%>
+<%@page import="model.GestorNacional"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -20,13 +20,13 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%
-    String codigoCivaSupervisor = request.getParameter("codigoCiva");
-    Supervisor Supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
 
-    pageContext.setAttribute("ator", Supervisor);
-%>    
+<% 
+    String codigoCivaGestorNacional = request.getParameter("codigoCiva");
+    GestorNacional GestorNacional = GestorNacionalDao.findByCodigociva(codigoCivaGestorNacional);
 
+    pageContext.setAttribute("ator", GestorNacional);
+%> 
 
 <!--Por favor não remover include nem head-->
 <!--a abertura do head é feita no header.jspf-->
@@ -35,7 +35,7 @@
 <!--então aqui é chamado o js especifico para cada página -->
 <!--e por fim o head é fechado -->
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/supervisor/gerenciar-supervisor.js" defer></script>
+<script src="../public/assets/js/suporte-civa/gerenciar-gestor-nacional.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -54,13 +54,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Painel Supervisor</h1>
+                            <h1 class="m-0">Painel Gestor Nacional</h1>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Painel Supervisor</li>
+                                <li class="breadcrumb-item active">Painel Gestor Nacional</li>
                             </ol>
                         </div>
                     </div>
@@ -77,22 +77,20 @@
                         <div class="col-12 mb-4">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados Supervisor</h3>
+                                    <h3 class="card-title">Dados Gestor Nacional</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- Incio do form -->
                                 <!-- Incio do form -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                     
                                         <%@ include file="../partials/codigociva.jspf" %>
-
-                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
-
-                                        <hr>
-                                        <%@ include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
-                                        <%@ include file="../partials/contatos-disabled.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/dadospessoais-alteracao.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/enderecos-alteracao.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@ include file="../partials/contatos-alteracao.jspf" %>
                                     </div>
 
                                 </form>
@@ -102,71 +100,13 @@
                         </div>
                     </div>
                     <!-- /.row -->
-                    
-                    <!--
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Unidades Vinculadas</h3>
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-                                            <div class="input-group-append">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                               
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Estado</th>
-                                                <th>CEP</th>
-                                                <th>Identificador</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Hopital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hopital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
-                                            <tr>
-                                                <td>Hopital Pan</td>
-                                                <td>Rio de Janeiro</td>
-                                                <td>12016-102</td>
-                                                <td>215648</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <hr>
-                                    <div class="d-flex justify-content-between align-items-center ml-2 mb-2">
-                                        <a href="./vincular-unidade.jsp" class="btn btn-success btn-xs">Vincular
-                                            Unidade</a>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    -->
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <!--button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button-->
-                        </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-12 mb-4 ml-2">
+                        <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
                     </div>
                 </div>
-                <!-- /.container-fluid -->
-
             </div>
 
             <!-- modal -->
@@ -216,7 +156,7 @@
         <!-- /.content-wrapper -->
 
         <!-- Main Footer -->
-       <%@include file="footer.jspf"%>
+        <%@include file="footer.jspf"%>
     </div>
     <!-- ./wrapper -->
 

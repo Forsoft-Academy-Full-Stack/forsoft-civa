@@ -1,0 +1,38 @@
+   <%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="name">Nome</label>
+        <input type="text" class="form-control" value="${ator.pessoa.nomePessoa}" name="name" id="name" >
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="surname">Sobrenome</label>
+        <input type="text" class="form-control" value="${ator.pessoa.sobrenomePessoa}" name="surname" id="surname"  >
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="genero">G&ecirc;nero</label>
+        <input type="text" id="genero" name="genero" class="form-control" value="${ator.pessoa.genero}" >
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="date-birth">Data de nascimento</label>
+        <input type="date" class="form-control" id="date-birth" name="date-birth" value="${ator.pessoa.dataNascimento}" >
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-xl-12">
+        <label for="nacionality">Nacionalidade</label>
+        <input type="text" id="nacionalidade" name="nacionalidade" class="form-control" value="${ator.pessoa.nacionalidade}" >
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="tipo-doc">Tipo de Documento:</label>
+        <input type="text" id="tipo-doc" name="tipo-doc" class="form-control" value="${ator.documento1.nomeTipoDoc}" >
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="doc">Documento</label>
+        <input type="text" class="form-control" placeholder="3123123" value="${ator.documento1.documento}" id="doc" name="doc" >
+    </div>
+</div>

@@ -87,7 +87,7 @@
                                             </div>
                                             <div class="col-xl-8 col-sm-12">
                                                 <div class="input-group  mb-2">
-                                                    <input type="text" class="form-control" id="pesquisar" name="pesquisar" placeholder="Pesquisar portador">
+                                                    <input type="text" class="form-control" id="pesquisar" name="pesquisar" placeholder="Pesquisar Gestor Nacional">
                                                     <div class="input-group-append">
                                                         <button class="btn btn-outline-secondary" type="button" id="button-addon2" name="button-addon2">Pesquisar</button>
                                                     </div>
@@ -131,7 +131,7 @@
                                                     <td><c:out value="${gestorNacional.documento1.documento}" /></td>
                                                     <td><c:out value="${gestorNacional.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${gestorNacional.codigoCiva}" /></td>
-                                                    <td><a href="./gerenciar-gestor-nacional.jsp?codigoCiva=<c:out value="${gestorNacional.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="./painel-gestor-nacional.jsp?codigoCiva=<c:out value="${gestorNacional.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Consultar</a></td>
                                                 </tr>
                                             </c:forEach>                                           
                                         </tbody>

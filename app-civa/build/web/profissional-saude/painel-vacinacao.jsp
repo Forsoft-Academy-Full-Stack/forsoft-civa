@@ -27,7 +27,7 @@
 
 <%  
     String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
-    PortadorCiva portadorCiva = PortadorCivaDao.find(codigoCivaPortadorCiva);
+    PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
 
     Integer idVacinacao = Integer.parseInt(request.getParameter("idVacinacao"));
     Vacinacao vacinacao = VacinacaoDao.find(idVacinacao, portadorCiva.getListaVacinacao());

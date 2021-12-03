@@ -1,0 +1,48 @@
+
+    <%-- any content can be specified here e.g.: --%>
+    <%@ page pageEncoding="UTF-8" %>
+    <div class="row"> 
+        <div class="form-group col-xl-12">
+            <label for="country-name">Pais</label>
+            <input type="text" class="form-control" id="country-name" name="country-name" placeholder="Ex: Brasil" value="${ator.endereco.nomePais}">    <!-- Adicionar no JS tratarCampos() -->
+        </div>
+        <div class="form-group col-xl-12">
+            <label for="postal-code">CEP</label>
+            <input type="text" class="form-control" id="postal-code" placeholder="Ex: 38046-392" value="${ator.endereco.codigoPostal}">
+        </div>
+    </div>
+    
+    <div class="row"> 
+        <div class="form-group col-xl-6">
+            <label for="logrd-name">Endere&ccedil;o</label>
+            <input type="text" class="form-control" id="logrd-name" name="logrd-name" placeholder="Ex: Rua M11" value="${ator.endereco.logradouro}">
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="numero">N&uacute;mero</label>
+            <input type="number" class="form-control" id="numero" name="numero" placeholder="Ex: 521" value="${ator.endereco.numero}">    <!-- Adicionar no JS tratarCampos() -->
+        </div>
+    </div>
+    
+    
+    <div class="row">
+        <div class="form-group col-xl-6">
+            <label for="comple-name">Complemento</label>
+            <input type="text" class="form-control" id="comple-name" name="comple-name" placeholder="Ex: Apto 111" value="${ator.endereco.complemento}">    <!-- Adicionar no JS tratarCampos() -->
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="bairro">Bairro</label>
+            <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Ex: Parque das Laranjeiras" value="${ator.endereco.nomesubdivisao1}"> 
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="form-group col-xl-6">
+            <label for="municipio">Mun&iacute;cipio</label>
+            <input type="text" class="form-control" id="municipio" name="municipio" placeholder="Ex: Uberaba" value="${ator.endereco.nomesubdivisao2}"> 
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="estado">Estado</label>
+            <input type="text" class="form-control" id="cidade" name="estado" placeholder="Ex: MG" value="${ator.endereco.nomesubdivisao3}"> 
+        </div>
+    
+    </div>

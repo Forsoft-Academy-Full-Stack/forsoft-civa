@@ -24,7 +24,7 @@
 %>
 
 <%    //Buscar Lista de supervisores
-    List<Unidade> listaUnidades = UnidadeDao.list();
+    List<Unidade> listaUnidades = UnidadeDao.listUnidadeByGerente(pessoa.getCodigoCiva());
 
     pageContext.setAttribute("unidades", listaUnidades);
 %> 

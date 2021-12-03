@@ -56,9 +56,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="vacinacao-internacional.jsp" class="nav-link">
+                            <a href="vacinacao.jsp" class="nav-link">
                                 <i class="fas fa-stethoscope nav-icon"></i>
-                                <p>Vacina&ccedil;&atilde;o internacional</p>
+                                <p>Cadastrar Vacina&ccedil;&atilde;o </p>
                             </a>
                         </li>
                     </ul>
