@@ -74,7 +74,7 @@
                                 <form id="form-meus-dados">
                                     <div class="card-body">
                                         <div class="row">
-                                            <div class="col-xl-12">
+                                            <div class="form-group col-xl-12">
                                                 <label for="nationality">Nome</label>
                                                 <select class="form-control" id="nome" name="nome">
                                                     <option selected>Selecionar</option>
@@ -83,7 +83,7 @@
                                                     <option>Astrazeneca</option>
                                                 </select>
                                             </div>
-                                            <div class="col-xl-12">
+                                            <div class="form-group col-xl-12">
                                                 <label for="nationality">Laborat&oacute;rio</label>
                                                 <select class="form-control" id="lab" name="lab">
                                                     <option selected>Selecionar</option>

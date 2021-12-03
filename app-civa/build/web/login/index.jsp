@@ -27,9 +27,9 @@
                                             style="width: 100%;" tabindex="-1" aria-hidden="true">
                                         <option value="not-user" selected readonly>Selecionar acesso</option>
                                         <option value="portador-civa">Usu&aacute;rio</option>
-                                        <option value="gerente">Gerente</option>
-                                        <option value="supervisor">Supervisor</option>
                                         <option value="profissional-saude">Profissional da Sa&uacute;de</option>
+                                        <option value="supervisor">Supervisor</option>
+                                        <option value="gerente">Gerente</option>                                      
                                         <option value="suporte-civa">Suporte CIVA</option>
                                         <option value="gestor-nacional">Gestor Nacional</option>
                                         <option value="gestor-oms">Gestor OMS</option>

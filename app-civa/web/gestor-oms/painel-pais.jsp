@@ -83,14 +83,10 @@
                                     <div class="card-body">
 
                                         <%@include file="../partials/dados-pais-cadastro-disabled.jspf" %>
-                                        <hr>
+                                        <hr class = "m mt-4">
                                         <%@include file="../partials/tipo-doc-cadastro-disabled.jspf" %>
-
-
-                                        <!-- Bot&atilde;o ATIVAR / DESATIVAR e Excluir -->
-                                        
-                                        <hr/>
-                                        <td><button class="btn btn-block btn-primary btn-sm col-xl-2">Excluir</button></td>
+                                        <hr class = "mb-4 mt-4">
+                                        <%@include file="../partials/dados-pais-divisao-territorial-pesquisa.jspf" %>
 
 
                                     </div>
