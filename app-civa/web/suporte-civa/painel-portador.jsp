@@ -19,8 +19,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%  
-    try {
+<%    try {
         String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
         PortadorCiva PortadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
 
@@ -106,8 +105,9 @@
                     <!-- /.row -->
                 </div>
 
-                <div class="col-12 mb-4">
-                    <button type="button" id="salvar" class="btn btn-primary btn-lg">Salvar</button>
+                <div class="col-12 pb-4 d-flex justify-content-between">
+                    <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
+                    <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                 </div>
                 <!-- /.container-fluid -->
 

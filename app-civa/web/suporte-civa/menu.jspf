@@ -131,11 +131,11 @@
                     </ul>
                 </li> 
 
-                <!--Item Supervisores CIVA-->
+                <!--Item Suporte CIVA-->
                 <li class="nav-item ">
                     <a href="#" class="nav-link">
                         <i class="fas fa-user-friends nav-icon"></i>
-                        <p>Supervisores CIVA<i class="right fas fa-angle-left"></i></p>
+                        <p>Suporte CIVA<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item text-sm ">
@@ -249,11 +249,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./solicitacoes.jsp" class="nav-link">
+                            <a href="solicitar-alteracao.jsp" class="nav-link"> 
                                 <i class="fas fa-inbox nav-icon"></i>
-                                <p>
-                                    Solicita&ccedil;&otilde;es pendentes
-                                </p>
+                                <p>Solicita&ccedil;&otilde;es</p>
                             </a>
                         </li>
                         <li class="nav-item">

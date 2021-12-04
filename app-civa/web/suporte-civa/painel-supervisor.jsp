@@ -20,8 +20,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%  
-    try {
+<%    try {
         String codigoCivaSupervisor = request.getParameter("codigoCiva");
         Supervisor Supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
 
@@ -105,12 +104,12 @@
                             <!-- /.card-body -->
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
-                        </div>
+                    <!-- Botões Savlar / Excluir -->                
+                    <div class="col-12 pb-4 d-flex justify-content-between">
+                        <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
+                        <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                     </div>
+                    
                 </div>
                 <!-- /.container-fluid -->
 

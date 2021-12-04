@@ -1,11 +1,9 @@
 <%@page import="dao.GestorOmsDao"%>
-<%@page import="dao.GestorOmsDao"%>
 <%@page import="model.GestorOms"%>
-<%@page import="dao.SuporteCivaDao"%>
-<%@page import="dao.SuporteCivaDao"%>
-<%@page import="model.SuporteCiva"%>
+<%@page import="model.GestorOms"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -21,22 +19,21 @@
     }
 
     // Caso contrário é um usuário válido, pode entrar na página
-
 %>
-<%    
-    try {
-        GestorOms administradorOms = GestorOmsDao.findAdministrador(pessoa.getCodigoCiva());
 
-        administradorOms = administradorOms != null ? administradorOms : new GestorOms();
+<%    try {
 
-        pageContext.setAttribute("ator", administradorOms);
-    } catch (Exception ex) {
+        String codigoCivaGestorOms = request.getParameter("codigoCiva");
+        GestorOms gestorOms = GestorOmsDao.findByCodigCiva(codigoCivaGestorOms);
+
+        pageContext.setAttribute("ator", gestorOms);
+
+    } catch (Exception e) {
     }
 
 %> 
-
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/suporte-civa/meus-dados.js" defer></script>
+<script src="../public/assets/js/gestor-oms/painel-gestor-oms.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -47,7 +44,8 @@
         <!-- /.navbar ------------------------------------------------------->
 
         <!-- MENU Main Sidebar Container ------------------------------------>
-        <%@include  file="menu.jspf"%>
+        <%@include file="menu.jspf" %>
+
 
         <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
@@ -56,14 +54,14 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Meus Dados</h1>
+                            <h1 class="m-0">Painel Gestor OMS</h1>
                         </div>
                         <!-- /.col -->
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Meus Dados</li>
+                                <li class="breadcrumb-item active">Painel Gestor OMS</li>
                             </ol>
                         </div>
                     </div>
@@ -77,71 +75,71 @@
             <div class="content">
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
+
                     <div class="row">
-                        <div class="col-12 mb-3">
+                        <div class="col-12">
 
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados Administrador OMS</h3>
+                                    <h3 class="card-title">Dados Gestor OMS</h3>
                                 </div>
-
+                                <!-- /.card-header -->
+                                <!-- form start -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <%@ include file="../partials/codigociva.jspf" %>
+                                        <%@ include file="../partials/codigociva.jspf"%>
                                         <hr  class = "mb-4 mt-4">
-                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
+                                        <%@ include file="../partials/dadospessoais-alteracao.jspf"%>
                                         <hr  class = "mb-4 mt-4">
-                                        <%@ include file="../partials/enderecos-disabled.jspf" %>
+                                        <%@ include file="../partials/enderecos-alteracao.jspf"%>
                                         <hr  class = "mb-4 mt-4">
-                                        <%@ include file="../partials/contatos-disabled.jspf" %>    
+                                        <%@ include file="../partials/contatos-alteracao.jspf"%>
                                     </div>
-
-                                </form>
-
+                                </form>                                
                             </div>
                         </div>
-                    </div>                
 
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <!--button type="button" id="salvar" class="btn btn-primary btn-lg" >Salvar</button-->
+                        <div class="col-12 pb-4 d-flex justify-content-between">
+                            <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
+                            <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                         </div>
-                    </div>
-                </div>
 
-            </div>
-            <!-- /.container-fluid -->
-            <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">Ã</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p></p>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal"
-                                    onclick="location.href = './meus-dados.jsp'">Close</button>
-                        </div>
                     </div>
-                    <!-- /.modal-content -->
+
+                    <!-- /.row -->
                 </div>
-                <!-- /.content -->
+                <!-- /.container-fluid -->
+                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Solicita&ccedil;&atilde;o enviada com sucesso!</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">Ã</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p></p>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = 'painelgestoroms.jsp'">Close</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.content -->
+                </div>
             </div>
+            <!-- /.content -->
         </div>
-        <!-- /.content -->
-        <%@include file="footer.jspf"%>
+        <!-- /.content-wrapper -->
+
+
+        <!-- Main Footer -->
+        <%@include file="footer.jspf" %>
     </div>
-    <!-- /.content-wrapper -->
-
-
     <!-- ./wrapper -->
 
 </body>
-
 </html>

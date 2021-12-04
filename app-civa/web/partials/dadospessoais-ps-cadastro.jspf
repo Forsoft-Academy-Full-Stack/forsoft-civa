@@ -1,123 +1,129 @@
-<%-- any content can be specified here e.g.: --%>
-<%@ page pageEncoding="UTF-8" %>
-<div class="row">
-    <div class="form-group col-xl-6">
-        <label for="nome">Nome</label>
-        <input type="text" class="form-control" Placeholder="Frank" name="nome" id="nome">
+
+    <%-- any content can be specified here e.g.: --%>
+    <%@ page pageEncoding="UTF-8" %>
+    <div class="row">
+        <div class="form-group col-xl-6">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" placeholder="Frank" name="nome" id="nome">
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="sobrenome">Sobrenome</label>
+            <input type="text" class="form-control" placeholder="Sinatra" name="sobrenome" id="sobrenome"  >
+        </div>
     </div>
-    <div class="form-group col-xl-6">
-        <label for="sobrenome">Sobrenome</label>
-        <input type="text" class="form-control" placeholder="Sinatra" name="sobrenome" id="sobrenome"  >
+    <div class="row">
+        <div class="form-group col-xl-6">
+            <label for="genero">G&ecirc;nero</label>
+            <select class="form-control select2 select2-hidden-accessible" id="genero" name="genero" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <option value="" selected disabled>Selecionar G&ecirc;nero</option>
+                <option value="2">Homem Cis</option>
+                <option value="3">Mulher Cis</option>
+                <option value="3">Homem Trans</option>
+                <option value="3">Mulher Trans</option>
+                <option value="3">Outro</option>
+                <option value="3">Prefiro n&atildeo declarar</option>
+            </select>
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="data-nascimento">Data de Nascimento</label>
+            <input type="date" class="form-control" id="data-nascimento" name="data-nascimento" placeholder="1915-11-12">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="form-group col-xl-6">
-        <label for="genero">G&ecirc;nero</label>
-        <select class="form-control select2 select2-hidden-accessible" id="genero" name="genero" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="1" selected disabled>Selecionar G&ecirc;nero</option>
-            <option value="2">Homem Cis</option>
-            <option value="3">Mulher Cis</option>
-            <option value="3">Homem Trans</option>
-            <option value="3">Mulher Trans</option>
-            <option value="3">Outro</option>
-            <option value="3">Prefiro n&atilde;o declarar</option>
-        </select>
+    <div class="row">
+        <div class="form-group col-xl-12">
+            <label for="nacionalidade">Nacionalidade</label>
+            <select class="form-control select2 select2-hidden-accessible" id="nacionalidade" name="nacionalidade" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <option value="" selected disabled>Selecionar Nacionalidade</option>
+            </select>
+        </div>
     </div>
-    <div class="form-group col-xl-6">
-        <label for="data-nascimento">Data de Nascimento</label>
-        <input type="date" class="form-control" id="data-nascimento" name="data-nascimento" placeholder="1915-11-12">
+    <div class="row">
+        <div class="form-group col-xl-6">
+            <label for="tipo-doc1">Tipo de Documento:</label>
+            <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1" name="tipo-doc1" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <option value="" selected disabled>Selecionar Tipo de Documento</option>
+                <option value="1" >Passaporte</option>
+                <option value="2">Identidade</option>
+                <option value="3">CPF</option>
+            </select>
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="doc1" style="display:flex;align-items:center;gap:2px;">Documento
+                <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
+                <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;" disabled="true"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
+            </label>
+            <input type="text" class="form-control" placeholder="2346567689" id="doc1" name="doc1">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="form-group col-xl-12">
-        <label for="nacionalidade">Nacionalidade</label>
-        <select class="form-control select2 select2-hidden-accessible" id="nacionalidade" name="nacionalidade" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar Nacionalidade</option>       
-        </select>
+    <div class="row optional" style="display:none;">
+        <div class="form-group col-xl-6">
+            <label for="tipo-doc2">Tipo de Documento 2:</label>
+            <select class="form-control select2 select2-hidden-accessible" id="tipo-doc2" name="tipo-doc2" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <option value="" selected disabled>Selecionar Tipo de Documento 2</option>
+                <option value="1">Passaporte</option>
+                <option value="2">Identidade</option>
+                <option value="3">CPF</option>
+            </select>
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="doc2" style="display:flex;align-items:center;gap:2px;">Documento 2
+                <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
+                <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
+            </label>
+            <input type="text" class="form-control" placeholder="2346567689" id="doc2" name="doc2">
+        </div>
     </div>
-</div>
-<div class="row">
-    <div class="form-group col-xl-6">
-        <label for="tipo-doc1">Tipo de Documento:</label>
-        <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1" name="tipo-doc1" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar Tipo de Documento</option>
-            <option value="1">Passaporte</option>
-            <option value="2">Identidade</option>
-        </select>
+    <div class="row optional" style="display:none;">
+        <div class="form-group col-xl-6">
+            <label for="tipo-doc3">Tipo de Documento 3:</label>
+            <select class="form-control select2 select2-hidden-accessible" id="tipo-doc3" name="tipo-doc3" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <option value="" selected disabled>Selecionar Tipo de Documento 3</option>
+                <option value="1">Passaporte</option>
+                <option value="2">Identidade</option>
+                <option value="3">CPF</option>
+            </select>
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="doc3" style="display:flex;align-items:center;gap:2px;">Documento 3
+                <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
+                <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
+            </label>
+            <input type="text" class="form-control" placeholder="2346567689" id="doc3" name="doc3">
+        </div>
     </div>
-    <div class="form-group col-xl-6">
-        <label for="doc1" style="display:flex;align-items:center;gap:2px;">Documento
-            <button type="button" class="btn btn-primary btn-xs add" style="width:25px;border-radius:50%;margin-left:5px;">+</button>
-            <button type="button" class="btn btn-danger btn-xs rmv" style="width:25px;border-radius:50%;" disabled="true">-</button>
-        </label>
-        <input type="text" class="form-control" placeholder="862327136127" id="doc1" name="doc1">
+    <div class="row optional" style="display:none;">
+        <div class="form-group col-xl-6">
+            <label for="tipo-doc4">Tipo de Documento 4:</label>
+            <select class="form-control select2 select2-hidden-accessible" id="tipo-doc4" name="tipo-doc4" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <option value="" selected disabled>Selecionar Tipo de Documento 4</option>
+                <option value="1">Passaporte</option>
+                <option value="2">Identidade</option>
+                <option value="3">CPF</option>
+            </select>
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="doc4" style="display:flex;align-items:center;gap:2px;">Documento 4
+                <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
+                <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
+            </label>
+            <input type="text" class="form-control" placeholder="2346567689" id="doc4" name="doc4">
+        </div>
     </div>
-</div>
-<div class="row optional" style="display:none;">
-    <div class="form-group col-xl-6">
-        <label for="tipo-doc2">Tipo de Documento 2:</label>
-        <select class="form-control select2 select2-hidden-accessible" id="tipo-doc2" name="tipo-doc2" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar Tipo de Documento 2</option>
-            <option value="1">Passaporte</option>
-            <option value="2">Identidade</option>
-        </select>
+    <div class="row optional" style="display:none;">
+        <div class="form-group col-xl-6">
+            <label for="tipo-doc5">Tipo de Documento 5:</label>
+            <select class="form-control select2 select2-hidden-accessible" id="tipo-doc5" name="tipo-doc5" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                <option value="" selected disabled>Selecionar Tipo de Documento 5</option>
+                <option value="1">Passaporte</option>
+                <option value="2">Identidade</option>
+                <option value="3">CPF</option>
+            </select>
+        </div>
+        <div class="form-group col-xl-6">
+            <label for="doc5" style="display:flex;align-items:center;gap:2px;">Documento 5
+                <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;" disabled="true"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
+                <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
+            </label>
+            <input type="text" class="form-control" placeholder="2346567689" id="doc5" name="doc5">
+        </div>
     </div>
-    <div class="form-group col-xl-6">
-        <label for="doc2" style="display:flex;align-items:center;gap:2px;">Documento 2
-            <button type="button" class="btn btn-primary btn-xs add" style="width:25px;border-radius:50%; margin-left:5px;">+</button>
-            <button type="button" class="btn btn-danger btn-xs rmv" style="width:25px;border-radius:50%;">-</button>
-        </label>
-        <input type="text" class="form-control" placeholder="862327136127" id="doc2" name="doc2">
-    </div>
-</div>
-<div class="row optional" style="display:none;">
-    <div class="form-group col-xl-6">
-        <label for="tipo-doc3">Tipo de Documento 3:</label>
-        <select class="form-control select2 select2-hidden-accessible" id="tipo-doc3" name="tipo-doc3" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar Tipo de Documento 3</option>
-            <option value="1">Passaporte</option>
-            <option value="2">Identidade</option>
-        </select>
-    </div>
-    <div class="form-group col-xl-6">
-        <label for="doc3" style="display:flex;align-items:center;gap:2px;">Documento 3
-            <button type="button" class="btn btn-primary btn-xs add" style="width:25px;border-radius:50%; margin-left:5px;">+</button>
-            <button type="button" class="btn btn-danger btn-xs rmv" style="width:25px;border-radius:50%;">-</button>
-        </label>
-        <input type="text" class="form-control" placeholder="862327136127" id="doc3" name="doc3">
-    </div>
-</div>
-<div class="row optional" style="display:none;">
-    <div class="form-group col-xl-6">
-        <label for="tipo-doc4">Tipo de Documento 4:</label>
-        <select class="form-control select2 select2-hidden-accessible" id="tipo-doc4" name="tipo-doc4" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar Tipo de Documento 4</option>
-            <option value="1">Passaporte</option>
-            <option value="2">Identidade</option>
-        </select>
-    </div>
-    <div class="form-group col-xl-6">
-        <label for="doc4" style="display:flex;align-items:center;gap:2px;">Documento 4
-            <button type="button" class="btn btn-primary btn-xs add" style="width:25px;border-radius:50%; margin-left:5px;">+</button>
-            <button type="button" class="btn btn-danger btn-xs rmv" style="width:25px;border-radius:50%;">-</button>
-        </label>
-        <input type="text" class="form-control" placeholder="862327136127" id="doc4" name="doc4">
-    </div>
-</div>
-<div class="row optional" style="display:none;">
-    <div class="form-group col-xl-6">
-        <label for="tipo-doc5">Tipo de Documento 5:</label>
-        <select class="form-control select2 select2-hidden-accessible" id="tipo-doc5" name="tipo-doc5" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar Tipo de Documento 5</option>
-            <option value="1">Passaporte</option>
-            <option value="2">Identidade</option>
-        </select>
-    </div>
-    <div class="form-group col-xl-6">
-        <label for="doc5" style="display:flex;align-items:center;gap:2px;">Documento 5
-            <button type="button" class="btn btn-primary btn-xs add" style="width:25px;border-radius:50%; margin-left:5px;" disabled="true">+</button>
-            <button type="button" class="btn btn-danger btn-xs rmv" style="width:25px;border-radius:50%;">-</button>
-        </label>
-        <input type="text" class="form-control" placeholder="862327136127" id="doc5" name="doc5">
-    </div>
-</div>

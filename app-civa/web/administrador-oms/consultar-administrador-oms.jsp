@@ -1,5 +1,5 @@
-<%@page import="dao.GestorOmsDao"%>
-<%@page import="model.GestorOms"%>
+<%@page import="dao.AdministradorOmsDao"%>
+<%@page import="model.AdministradorOms"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
@@ -23,9 +23,11 @@
 
 %>
 
-<%    try {
-        List<GestorOms> listaGestorOms = GestorOmsDao.listByGestorOms();
-        pageContext.setAttribute("GestorOms", listaGestorOms);
+<%    
+       
+    try {
+        List<AdministradorOms> listaAdministradorOms = AdministradorOmsDao.listByAdiministradorOms();
+        pageContext.setAttribute("AdministradorOms", listaAdministradorOms);
 
     } catch (Exception e) {
     }
@@ -56,14 +58,14 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Consultar Gestor OMS</h1>
+                            <h1 class="m-0">Consultar Administrador OMS</h1>
                         </div>
                         <!-- /.col -->
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Consultar Gestor OMS</li>
+                                <li class="breadcrumb-item active">Consultar Administrador OMS</li>
                             </ol>
                         </div>
                     </div>
@@ -98,7 +100,7 @@
 
                                             <div class="col-xl-8 col-sm-12">
                                                 <div class="input-group  mb-2">
-                                                    <input type="text" class="form-control" placeholder="Pesquisar Gestor">
+                                                    <input type="text" class="form-control" placeholder="Pesquisar Administrador">
                                                     <div class="input-group-append">
                                                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Pesquisar</button>
                                                     </div>
@@ -142,13 +144,13 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <c:forEach items="${GestorOms}" var="gestorOms">
+                                            <c:forEach items="${AdministradorOms}" var="administradorOms">
                                                 <tr>
-                                                    <td><c:out value="${gestorOms.pessoa.nomePessoa} ${gestorOms.pessoa.sobrenomePessoa}" /></td>
-                                                    <td><c:out value="${gestorOms.documento1.documento}" /></td>
-                                                    <td><c:out value="${gestorOms.pessoa.dataNascimento}" /></td>
-                                                    <td><c:out value="${gestorOms.codigoCiva}" /></td>
-                                                    <td><a href="painel-gestor-oms.jsp?codigoCiva=<c:out value="${administradorOms.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Consultar</a></td>
+                                                    <td><c:out value="${administradorOms.pessoa.nomePessoa} ${administradorOms.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${administradorOms.documento1.documento}" /></td>
+                                                    <td><c:out value="${administradorOms.pessoa.dataNascimento}" /></td>
+                                                    <td><c:out value="${administradorOms.codigoCiva}" /></td>
+                                                    <td><a href="painel-administrador-oms.jsp?codigoCiva=<c:out value="${administradorOms.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Consultar</a></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

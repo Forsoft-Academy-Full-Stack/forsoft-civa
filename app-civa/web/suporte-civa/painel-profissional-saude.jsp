@@ -36,8 +36,7 @@
 
 %>
 
-<%  
-    try {
+<%    try {
         String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
         ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
 
@@ -117,42 +116,10 @@
                             </div>
                         </div>
                     </div>
-
-                    <!-- TABELA VACINAS -->
-                    <div class="row">
-                        <div class="col-12">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Unidades Vinculadas</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Nome Unidade</th>
-                                                <th>Estado</th>
-                                                <th>C&oacute;digo Postal</th>
-                                                <th>Identificador</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <c:forEach items="${unidades}" var="unidade">
-                                                <tr>                                                   
-                                                    <td><c:out value="${unidade.nome}" /></td>
-                                                    <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
-                                                    <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
-                                                    <td><c:out value="${unidade.idUnidade}" /></td>
-                                                </tr>  
-                                            </c:forEach>                                           
-                                        </tbody>
-                                        </tbody>
-                                    </table>
-                                </div>
-                                <!-- /.card-body -->
-                            </div>
-                            <!-- /.card -->
-                        </div>
+                    <!-- Botões Savlar / Excluir -->                
+                    <div class="col-12 pb-4 d-flex justify-content-between">
+                        <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
+                        <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                     </div>
 
                     <!-- /.row -->

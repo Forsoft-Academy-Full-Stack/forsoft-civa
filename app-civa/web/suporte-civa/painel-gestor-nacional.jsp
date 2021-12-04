@@ -21,8 +21,7 @@
 
 %>
 
-<%  
-    try {
+<%    try {
         String codigoCivaGestorNacional = request.getParameter("codigoCiva");
         GestorNacional GestorNacional = GestorNacionalDao.findByCodigociva(codigoCivaGestorNacional);
 
@@ -107,10 +106,9 @@
                     <!-- /.row -->
                 </div>
 
-                <div class="row">
-                    <div class="col-12 mb-4 ml-2">
-                        <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
-                    </div>
+                <div class="col-12 pb-4 d-flex justify-content-between">
+                    <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
+                    <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                 </div>
             </div>
 

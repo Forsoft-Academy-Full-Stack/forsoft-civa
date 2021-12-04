@@ -58,6 +58,31 @@
 
                     </ul>
                 </li> 
+                <!--Item Administrador OMS-->
+                <li class="nav-item ">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-user-friends nav-icon"></i>
+                        <p>
+                            Administrador OMS
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item text-sm ">
+                            <a href="./consultar-administrador-oms.jsp" class="nav-link">
+                                <i class="fas fa-clipboard-check nav-icon"></i>
+                                <p>Consultar Administrador OMS</p>
+                            </a>
+                        </li>
+                        <li class="nav-item text-sm">
+                            <a href="./cadastrar-administrador-oms.jsp" class="nav-link">
+                                <i class="fas fa-user-plus nav-icon"></i>
+                                <p class="text-wrap">Cadastrar Administrador OMS</p>
+                            </a>
+                        </li>
+
+                    </ul>
+                </li> 
                 <!-- ITEM RELATORIO USUARIO DO MENU -->
                 <li class="nav-item">
                     <a href="./relatorio.jsp" class="nav-link">
@@ -101,11 +126,9 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./solicitacoes.jsp" class="nav-link">
+                            <a href="solicitar-alteracao.jsp" class="nav-link"> 
                                 <i class="fas fa-inbox nav-icon"></i>
-                                <p>
-                                    Solicita&ccedil;&otilde;es pendentes
-                                </p>
+                                <p>Solicita&ccedil;&otilde;es</p>
                             </a>
                         </li>
                         <li class="nav-item">

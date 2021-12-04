@@ -24,8 +24,7 @@
 
 %>
 
-<%  
-    try {
+<%    try {
         String codigoCivaGerente = request.getParameter("codigoCiva");
         Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
         pageContext.setAttribute("ator", gerente);
@@ -111,68 +110,62 @@
                         </div>
                     </div>
                     <!-- /.row -->
-
-
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
-                        </div>
+                    <div class="col-12 pb-4 d-flex justify-content-between">
+                        <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
+                        <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                     </div>
                 </div>
-                <!-- /.container-fluid -->
 
+                <!-- modal -->
+                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Dados alterados com sucesso!</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">Ã</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p></p>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- modal erro -->
+                <div class="modal fade" id="modal-default2" style="display: none;" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Todos os dados obrigatorios devem ser preenchidos!</h4>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">Ã</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p></p>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
+                            </div>
+                        </div>
+                        <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                </div>
+                <!-- /.content -->
             </div>
+            <!-- /.content-wrapper -->
 
-            <!-- modal -->
-            <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Dados alterados com sucesso!</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">Ã</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p></p>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div>
-            <!-- modal erro -->
-            <div class="modal fade" id="modal-default2" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Todos os dados obrigatorios devem ser preenchidos!</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">Ã</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p></p>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div>
-            <!-- /.content -->
+            <!-- Main Footer -->
+            <%@include file="footer.jspf"%>
         </div>
-        <!-- /.content-wrapper -->
-
-        <!-- Main Footer -->
-        <%@include file="footer.jspf"%>
-    </div>
-    <!-- ./wrapper -->
+        <!-- ./wrapper -->
 
 </body>
 

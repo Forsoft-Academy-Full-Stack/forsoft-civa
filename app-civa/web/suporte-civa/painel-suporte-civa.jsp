@@ -20,11 +20,9 @@
 
 %>
 
-<% 
-    //String codigoCivaSuporteCiva = request.getParameter("codigoCiva");
-    //SuporteCiva SuporteCiva = SuporteCivaDao.findByCodigociva(codigoCivaSuporteCiva);
-
-    //pageContext.setAttribute("ator", SuporteCiva);
+<%    String codigoCivaSuporteCiva = request.getParameter("codigoCiva");
+    SuporteCiva SuporteCiva = SuporteCivaDao.findByCodigoCiva(codigoCivaSuporteCiva);
+    pageContext.setAttribute("ator", SuporteCiva);
 %> 
 
 <!--Por favor não remover include nem head-->
@@ -99,13 +97,13 @@
                         </div>
                     </div>
                     <!-- /.row -->
-                </div>
-
-                <div class="row">
-                    <div class="col-12 mb-4 ml-2">
-                        <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
+                    <!-- Botões Savlar / Excluir -->                
+                    <div class="col-12 pb-4 d-flex justify-content-between">
+                        <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
+                        <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                     </div>
                 </div>
+
             </div>
 
             <!-- modal -->

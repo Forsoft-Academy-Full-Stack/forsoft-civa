@@ -1,6 +1,5 @@
-<%@page import="dao.GestorOmsDao"%>
-<%@page import="model.GestorOms"%>
-<%@page import="model.GestorOms"%>
+<%@page import="dao.AdministradorOmsDao"%>
+<%@page import="model.AdministradorOms"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -21,17 +20,16 @@
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%  
+<%   
     try {
 
-        String codigoCivaGestorOms = request.getParameter("codigoCiva");
-        GestorOms gestorOms = GestorOmsDao.findByCodigCiva(codigoCivaGestorOms);
+        String codigoCivaAdministradorOms = request.getParameter("codigoCiva");
+        AdministradorOms administradorOms = AdministradorOmsDao.findByCodigCiva(codigoCivaAdministradorOms);
 
-        pageContext.setAttribute("ator", gestorOms);
+        pageContext.setAttribute("ator", administradorOms);
 
     } catch (Exception e) {
     }
-
 %> 
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-oms/painel-gestor-oms.js" defer></script>
@@ -89,23 +87,23 @@
                                 <!-- form start -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <%@ include file="../partials/codigociva.jspf" %>
+                                        <%@ include file="../partials/codigociva.jspf"%>
                                         <hr  class = "mb-4 mt-4">
-                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
+                                        <%@ include file="../partials/dadospessoais-alteracao.jspf"%>
                                         <hr  class = "mb-4 mt-4">
-                                        <%@ include file="../partials/enderecos-disabled.jspf" %>
+                                        <%@ include file="../partials/enderecos-alteracao.jspf"%>
                                         <hr  class = "mb-4 mt-4">
-                                        <%@ include file="../partials/contatos-disabled.jspf" %>
+                                        <%@ include file="../partials/contatos-alteracao.jspf"%>
                                     </div>
                                 </form>                                
                             </div>
                         </div>
 
-                        <div class="col-12 mb-4">
-                            <!--button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Salvar</button-->
+                        <div class="col-12 pb-4 d-flex justify-content-between">
+                            <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
+                            <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                         </div>
 
-                        <!-- /.row -->
                     </div>
 
                     <!-- /.row -->
