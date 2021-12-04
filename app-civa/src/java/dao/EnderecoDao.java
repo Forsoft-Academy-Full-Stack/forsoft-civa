@@ -1,31 +1,68 @@
 package dao;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Endereco;
 
 public class EnderecoDao {
 
-    public static boolean insert(Endereco endereco) {
-        boolean resultado = false;
+    public static int insert(Endereco endereco) {
+        Connection connection = ConnectionFactory.getConnection();
+        int idEndereco = -1;
 
-        // Insert into Endereco values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
-            resultado = true;
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            String sql = "";
+
+            sql = "INSERT INTO endereco\n"
+                    + "(idpais, tipodelogradouro, logradouro, codigopostal, nomesubdivisao1, nomesubdivisao2, nomesubdivisao3, nomesubdivisao4, nomesubdivisao5, nomesubdivisao6, nomesubdivisao7)\n"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setInt(1, endereco.getIdPais());
+            ps.setString(2, endereco.getTipoLogradouro());
+            ps.setString(3, endereco.getLogradouro());
+            ps.setString(4, endereco.getCodigoPostal());
+            ps.setString(5, endereco.getNomesubdivisao1());
+            ps.setString(6, endereco.getNomesubdivisao2());
+            ps.setString(7, endereco.getNomesubdivisao3());
+            ps.setString(8, endereco.getNomesubdivisao4());
+            ps.setString(9, endereco.getNomesubdivisao5());
+            ps.setString(10, endereco.getNomesubdivisao6());
+            ps.setString(11, endereco.getNomesubdivisao7());
+
+            ps.executeUpdate();
+
+            rs = ps.getGeneratedKeys();
+
+            if (rs.next()) {
+                idEndereco = rs.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(EnderecoDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return resultado;
+        return idEndereco;
     }
 
     public static Endereco find(Integer idEndereco) {
         for (Endereco unidade : EnderecoDao.list()) {
-            if( Objects.equals(unidade.getIdEndereco(), idEndereco) ){
+            if (Objects.equals(unidade.getIdEndereco(), idEndereco)) {
                 return unidade;
             }
         }
-        
+
         return null;
     }
 

@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -277,16 +279,97 @@ public class GestorNacionalDao {
         return gestoresNacionais;
     }
 
-    public static boolean insert(GestorNacional gestornacional) {
+    public static boolean insert(GestorNacional gestornacional, int idCadastrante) {
         boolean resultado = false;
 
-        // Insert into Gestor Nacional values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
-            resultado = true;
+        Pessoa pessoa = gestornacional.getPessoa();
+        Docs documento1 = gestornacional.getDocumento1();
+        Endereco endereco = gestornacional.getEndereco();
+
+        try {
+
+            // Pessoa
+            // Verificar se a pessoa já tem cadastro no sistema
+            // Se não tiver cadastrar e pegar o idPessoa gerado
+            // Caso tenha pegar o idPessoa do banco de dados
+            // Inserir idNacionalidade, nome, sobrenome, genero
+            // dataDeNascimento, ddiDoContato e telefoneComDdd
+            int idPessoa = PessoaDao.insert(pessoa);                      
+
+            // Endereço
+            // Inserir o endereço
+            // Pegar o idEndereco gerado
+            int idEndereco = EnderecoDao.insert(endereco);
+             System.err.println(idEndereco);
+
+            // Pessoa Endereco (Vincular)
+            // Inserir o idPessoa e IdEndereco na Tabela pessoa_endereco
+            int idPessoaEndereco = PessoaDao.vincularEndereco(idPessoa, idEndereco, endereco.getNumero(), endereco.getComplemento());
+
+            System.err.println(idPessoaEndereco);
+            
+            
+            // Tipodoc
+            // Pegar idTipodoc pelo Nometipodoc vindo do formulário
+            int idTipoDoc = DocsDao.findIdTipodoc(documento1.getNomeTipoDoc());
+
+            // Cadastrar na tabela Docs
+            // O idTipoDoc, idPessoa documento e data de emissão
+            Boolean resultDocs = DocsDao.insert(idTipoDoc, idPessoa, documento1.getDocumento(), documento1.getDataEmissao());
+
+            System.err.println("Docs enviado: " + resultDocs);
+             
+            // Cadastrar na tabela acessoGestão
+            // idPessoa, idCadastrante, codigoCiva, cargo, email, senha e data de registro
+            Date data = new Date();
+            SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
+            
+            String codigoCivaGestorNacional = GestorNacionalDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
+            System.err.println(codigoCivaGestorNacional);
+             
+            String cargo = "Gestor Nacional";
+            resultado = PessoaDao.insertAcessoGestao(idPessoa, idCadastrante, cargo, codigoCivaGestorNacional, pessoa.getEmail(), formatador.format(data));
+
+          
+   System.err.println("Chegou no dao do gestor nacional " + gestornacional.getPessoa().getNomePessoa());
+        } catch (Exception e) {
         }
 
+     
+
         return resultado;
+    }
+
+    public static String gerarCodigoCiva(String nomePais, int idPessoa) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "";
+        String atorSigla = "GR";
+        String codigoCiva = "";
+        String sigla = PaisDao.getSiglaByName(nomePais);
+
+        sql = "SELECT COUNT(*) + 100000000 + ? AS codigo\n"
+                + "FROM acessogestao AS acg\n"
+                + "WHERE acg.cargo LIKE 'Gestor Nacional';";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idPessoa);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                codigoCiva = String.valueOf(rs.getInt("codigo"));                
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return sigla + codigoCiva + atorSigla;
+
     }
 
     public static boolean update(GestorNacional gestorNacional) {
@@ -324,5 +407,9 @@ public class GestorNacionalDao {
     public static List<GestorNacional> list() {
         List<GestorNacional> gestoresNacionais = new ArrayList<GestorNacional>();
         return gestoresNacionais;
+    }
+
+    public static String createCodigoCiva() {
+        return "";
     }
 }

@@ -264,8 +264,7 @@ public class SupervisorDao {
                 pessoa.setNomePessoa(rs.getString("nome"));
                 pessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                 pessoa.setCodigoCiva(rs.getString("codigociva"));
-                pessoa.setDataNascimento(rs.getString("datadenascimento"));
-                System.err.println(pessoa.getNomePessoa());
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));           
 
                 documento1 = new Docs();
                 documento1.setDocumento(rs.getString("documento"));

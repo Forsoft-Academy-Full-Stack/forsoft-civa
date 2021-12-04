@@ -71,4 +71,5 @@ public class GestorNacional {
         this.codigoCiva = codigoCiva;
     }
     
+    
 }

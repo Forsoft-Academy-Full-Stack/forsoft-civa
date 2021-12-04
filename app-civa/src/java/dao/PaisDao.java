@@ -235,4 +235,93 @@ public class PaisDao {
         return resultado;
     }
 
+    public static String getSiglaByName(String nomePais) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sigla = null;
+        
+        String sql = "SELECT p.sigla FROM\n"
+                + "pais AS p\n"
+                + "WHERE p.nomedopais LIKE ?;";
+        
+         try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, nomePais);
+            rs = ps.executeQuery();
+
+       
+            if (rs.next()) {
+                sigla = rs.getString("sigla");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        return sigla;
+    }
+         
+    public static int getIdPaisByName(String nomePais) {
+        Connection connection = ConnectionFactory.getConnection();
+        int idPais  = -1;
+        
+        String sql = "SELECT p.idpais FROM\n"
+                + "pais AS p\n"
+                + "WHERE p.nomedopais LIKE ?;";
+        
+         try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, nomePais);
+            rs = ps.executeQuery();
+
+       
+            if (rs.next()) {
+                idPais = rs.getInt("idpais");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        return idPais;
+    }
+        
+    public static String getDdiByName(String nomePais) {
+        Connection connection = ConnectionFactory.getConnection();
+        String ddi  = null;
+        
+        String sql = "SELECT p.ddi FROM\n"
+                + "pais AS p\n"
+                + "WHERE p.nomedopais LIKE ?;";
+        
+         try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, nomePais);
+            rs = ps.executeQuery();
+
+       
+            if (rs.next()) {
+                ddi = rs.getString("ddi");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        return ddi;
+    }
 }

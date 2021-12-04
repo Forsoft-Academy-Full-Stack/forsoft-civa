@@ -1,59 +1,96 @@
 package dao;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.Docs;
+
 /**
  *
  * @author randel
  */
 public class DocsDao {
-    public static boolean insert(Docs docs) {
+
+    public static boolean insert(int idTipoDoc, int idPessoa, String documento, String dataEmissao) {
+        Connection connection = ConnectionFactory.getConnection();
         boolean resultado = false;
 
-        // Insert into Docs values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "";
+
+            sql = "INSERT INTO docs\n"
+                    + "(idpessoa, idtipodoc, documento, datadeemissao)\n"
+                    + "VALUES(?, ?, ?, ?);";
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idPessoa);
+            ps.setInt(2, idTipoDoc);
+            ps.setString(3, documento);
+            ps.setString(4, dataEmissao);
+            
+            ps.executeUpdate();
+            
             resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DocsDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;
     }
 
+    public static int findIdTipodoc(String nomeDoc) {
+        Connection connection = ConnectionFactory.getConnection();
+        int idTipoDoc = -1;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "";
+
+            sql = "SELECT tpc.idtipodoc FROM tipodoc as tpc\n"
+                    + "WHERE tpc.nomedoc LIKE ? ;";
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, nomeDoc);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idTipoDoc = rs.getInt("idtipodoc");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(DocsDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return idTipoDoc;
+
+    }
+
     public static Docs find(Integer idDocs) {
-        for ( Docs docs : DocsDao.list() ) {
-            if( Objects.equals(docs.getIdDocs(), idDocs) ){
+        for (Docs docs : DocsDao.list()) {
+            if (Objects.equals(docs.getIdDocs(), idDocs)) {
                 return docs;
             }
         }
-        
+
         return null;
     }
 
     public static List<Docs> list() {
         List<Docs> listaDocs = new ArrayList<Docs>();
 
-        //"SELECT * FROM Docs ;
-        Docs docs = new Docs();
-        
-        docs.setDataEmissao("");
-        docs.setDocumento("");
-        docs.setIdPessoa(1);
-        docs.setIdDocs(1);
-        docs.setIdTipoDoc(2);
-        
-        listaDocs.add(docs);
-
-        Docs docs2 = new Docs();
-        
-        docs2.setDataEmissao("");
-        docs2.setDocumento("");
-        docs2.setIdPessoa(1);
-        docs2.setIdDocs(1);
-        docs2.setIdTipoDoc(2);
-        
-        listaDocs.add(docs2);
-     
         return listaDocs;
     }
 
@@ -67,7 +104,7 @@ public class DocsDao {
 
         return resultado;
     }
-    
+
     public static boolean delete(Docs docs) {
         boolean resultado = false;
 
@@ -78,5 +115,5 @@ public class DocsDao {
 
         return resultado;
     }
-    
+
 }

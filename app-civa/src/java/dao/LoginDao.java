@@ -18,7 +18,8 @@ public class LoginDao {
 
         sqlPortador = "SELECT nomepessoa AS nome,\n"
                 + "       sobrenomepessoa AS sobrenome,\n"
-                + "       codigocivapc as codigociva\n"
+                + "       codigocivapc as codigociva,"
+                + "       p.idpessoa \n"
                 + "FROM pessoa AS p\n"
                 + "LEFT JOIN acessopc AS acp\n"
                 + "ON p.idpessoa = acp.idpessoa\n"
@@ -26,7 +27,8 @@ public class LoginDao {
 
         sqlGestao = "SELECT p.nomepessoa AS nome,\n"
                 + "       p.sobrenomepessoa AS sobrenome,\n"
-                + "       acg.codigocivagestao AS codigociva\n"
+                + "       acg.codigocivagestao AS codigociva, \n"
+                + "       p.idpessoa \n"
                 + "FROM pessoa AS p\n"
                 + "LEFT JOIN acessogestao AS acg\n"
                 + "ON p.idpessoa = acg.idpessoa\n"
@@ -52,6 +54,7 @@ public class LoginDao {
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                         dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                        dadosPessoa.setIdPessoa(rs.getInt("idpessoa"));
                     }
 
                     break;
@@ -70,6 +73,7 @@ public class LoginDao {
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                         dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                        dadosPessoa.setIdPessoa(rs.getInt("idpessoa"));
                     }
 
                     break;
@@ -88,6 +92,7 @@ public class LoginDao {
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                         dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                        dadosPessoa.setIdPessoa(rs.getInt("idpessoa"));
                     }
 
                     break;
@@ -106,6 +111,7 @@ public class LoginDao {
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                         dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                        dadosPessoa.setIdPessoa(rs.getInt("idpessoa"));
                     }
 
                     break;
@@ -124,6 +130,7 @@ public class LoginDao {
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                         dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                        dadosPessoa.setIdPessoa(rs.getInt("idpessoa"));
                     }
 
                     break;
@@ -142,6 +149,7 @@ public class LoginDao {
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                         dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                        dadosPessoa.setIdPessoa(rs.getInt("idpessoa"));
                     }
 
                     break;
@@ -160,6 +168,7 @@ public class LoginDao {
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                         dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                        dadosPessoa.setIdPessoa(rs.getInt("idpessoa"));
                     }
 
                     break;
@@ -178,6 +187,7 @@ public class LoginDao {
                         dadosPessoa.setNomePessoa(rs.getString("nome"));
                         dadosPessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                         dadosPessoa.setCodigoCiva(rs.getString("codigociva"));
+                        dadosPessoa.setIdPessoa(rs.getInt("idpessoa"));
                     }
 
                     break;
