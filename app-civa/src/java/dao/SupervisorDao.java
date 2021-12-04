@@ -219,18 +219,18 @@ public class SupervisorDao {
 
     public static List<Supervisor> listByGerente(String codigoCivaGerente) {
         Connection connection = ConnectionFactory.getConnection();
-        List<Supervisor> supervisores = new ArrayList<Supervisor>();
-        Supervisor supervisor;
+        List<Supervisor> supervisores = new ArrayList<>();
+        Supervisor supervisor = null;
         Pessoa pessoa = null;
         Docs documento1 = null;
 
         String sql = "";
 
         sql = "SELECT peag.nomepessoa AS nome,\n"
-                + "       peag.sobrenomepessoa AS sobrenome,\n"
-                + "       doc.documento,\n"
-                + "       peag.datadenascimento,\n"
-                + "       ag.codigocivagestao AS codigociva\n"
+                + "	   peag.sobrenomepessoa AS sobrenome,\n"
+                + "	   doc.documento,\n"
+                + "	   peag.datadenascimento,\n"
+                + "	  ag.codigocivagestao AS codigociva\n"
                 + "FROM pessoa peag\n"
                 + "LEFT JOIN docs doc \n"
                 + "ON peag.idpessoa = doc.idpessoa\n"
@@ -242,7 +242,7 @@ public class SupervisorDao {
                 + "ON ag.idacessogestao = aguni.idacessogestao \n"
                 + "WHERE ag.cargo='Supervisor'  \n"
                 + "AND tidoc.nivel = 'Primário'\n"
-                + "AND aguni.idunidade IN \n"
+                + "AND aguni.idunidade = \n"
                 + "(SELECT uni.idunidade from unidade uni\n"
                 + "LEFT JOIN acessogestao_unidade aguni\n"
                 + "ON uni.idunidade = aguni.idunidade\n"
@@ -260,10 +260,12 @@ public class SupervisorDao {
 
             while (rs.next()) {
                 pessoa = new Pessoa();
+
                 pessoa.setNomePessoa(rs.getString("nome"));
                 pessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                 pessoa.setCodigoCiva(rs.getString("codigociva"));
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
+                System.err.println(pessoa.getNomePessoa());
 
                 documento1 = new Docs();
                 documento1.setDocumento(rs.getString("documento"));

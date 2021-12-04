@@ -27,11 +27,9 @@
 
 <%  
     try {
-        List<Supervisor> listaSupervisores = SupervisorDao.list(pessoa.getCodigoCiva());
+        List<Supervisor> listaSupervisores = SupervisorDao.listByGerente(pessoa.getCodigoCiva());
 
-        listaSupervisores = (listaSupervisores != null) ? listaSupervisores : new ArrayList<>();
-
-        pageContext.setAttribute("supervisor", listaSupervisores);
+        pageContext.setAttribute("supervisores", listaSupervisores);
 
     } catch (Exception e) {
     }
