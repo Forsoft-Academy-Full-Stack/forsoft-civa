@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.Docs;
 import model.Endereco;
 import model.Pais;
 import model.Unidade;
@@ -18,7 +19,7 @@ import model.Unidade;
  * @author randel
  */
 public class UnidadeDao {
-    
+
     public static List<Unidade> listUnidadeSuporteCiva(String codigoCivaSuporte) {
         Connection connection = ConnectionFactory.getConnection();
         List<Unidade> unidades = null;
@@ -26,22 +27,27 @@ public class UnidadeDao {
         Endereco endereco = null;
 
         String sql = "";
-        sql = "SELECT uni.nomeunidade,\n"
-                + "   uni.idunidade,\n"
-                + "   en.nomesubdivisao1 AS subdivisao3,\n"
-                + "   en.nomesubdivisao2 AS subdivisao2,\n"
-                + "   en.codigopostal,\n"
-                + "   uni.registrodaunidade\n"
-                + "FROM unidade uni\n"
-                + "left join acessogestao_unidade aguni \n"
-                + "on uni.idunidade = aguni.idunidade \n"
-                + "left join endereco en \n"
-                + "on uni.idendereco = en.idendereco \n"
-                + "LEFT JOIN acessogestao ag\n"
-                + "on ag.idacessogestao = aguni.idacessogestao  \n"
-                + "LEFT JOIN pessoa peag \n"
-                + "on ag.idpessoa = peag.idpessoa \n"
-                + "Where ag.codigocivagestao = ?;";
+        sql = "SELECT distinct u.nomeunidade,\n"
+                + "				u.idunidade,\n"
+                + "				en.nomesubdivisao1 AS subdivisao3,\n"
+                + "				en.nomesubdivisao2 AS subdivisao2,\n"
+                + "				en.codigopostal,\n"
+                + "				u.registrodaunidade\n"
+                + "FROM unidade as u\n"
+                + "left join endereco as en\n"
+                + "on u.idendereco = en.idendereco\n"
+                + "left join pais as pa\n"
+                + "on en.idpais = pa.idpais\n"
+                + "where pa.idpais = (select pa.idpais from pessoa AS pe\n"
+                + "		  left join acessogestao AS ag\n"
+                + "		  on pe.idpessoa = ag.idpessoa\n"
+                + "		  left join pessoa_endereco AS pen\n"
+                + "		  on pen.idpessoa = pe.idpessoa\n"
+                + "		  left join endereco as en\n"
+                + "		  on pen.idendereco = en.idendereco\n"
+                + "		  left join pais as pa\n"
+                + "		  on en.idpais = pa.idpais	\n"
+                + "		  Where ag.codigocivagestao = ?)";
 
         try {
             Statement stmt = connection.createStatement();
@@ -298,8 +304,6 @@ public class UnidadeDao {
         return unidades;
     }
 
-  
-
     public static Unidade findById(Integer idUnidade) {
         Connection connection = ConnectionFactory.getConnection();
         Unidade unidade = null;
@@ -369,13 +373,47 @@ public class UnidadeDao {
         return unidade;
     }
 
-    public static boolean insert(Pais pais) {
+    public static boolean insert(Unidade unidade) {
+        Endereco endereco = unidade.getEndereco();
+        try {
+            int idEndereco = EnderecoDao.insert(endereco);
+        } catch (Exception e) {
+            System.err.println("Deu ruim");
+        }
+        int idEndereco = -1;
+
+        Connection connection = ConnectionFactory.getConnection();
+
         boolean resultado = false;
 
-        // Insert into Pais values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
+        String sql = "INSERT INTO unidade\n"
+                + "(idendereco, numeroendereco, nomeunidade, contato, locacao, natureza, tipodeestabelecimento, situacao, datadecadastro, registrodaunidade)\n"
+                + "VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?);";
+        try {
+            ResultSet rs = null;
+
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setInt(1, idEndereco);
+            ps.setString(2, endereco.getNumero());
+            ps.setString(3, unidade.getNome());
+            ps.setString(4, unidade.getContato());
+            ps.setString(5, unidade.getLocacao());
+            ps.setString(6, unidade.getNatureza());
+            ps.setString(7, unidade.getTipoEstabelecimento());
+            ps.setString(8, unidade.getSituacao());
+            ps.setString(9, unidade.getDataCadastro());
+            ps.setString(10, unidade.getRegistro());
+
+            int i = ps.executeUpdate();
+            System.err.println("teste: " + i);
+
+            rs = ps.getGeneratedKeys();
+
             resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;

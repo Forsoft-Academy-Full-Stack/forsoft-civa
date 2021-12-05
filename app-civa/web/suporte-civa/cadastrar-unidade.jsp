@@ -90,6 +90,7 @@
                                         <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                         <hr>
                                         <%@ include file="../partials/contatos-unidade-cadastro.jspf" %>
+                                        <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
                                     </div>
 
                                 </form>

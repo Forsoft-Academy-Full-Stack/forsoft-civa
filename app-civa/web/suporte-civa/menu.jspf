@@ -141,7 +141,7 @@
                         <li class="nav-item text-sm ">
                             <a href="./consultar-suporte-civa.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
-                                <p>Consultar Suporte CIVA CIVA</p>
+                                <p>Consultar Suporte CIVA</p>
                             </a>
                         </li>
                         <li class="nav-item text-sm">

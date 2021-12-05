@@ -68,16 +68,6 @@
     </div>
     <!-- ./wrapper -->
 
-    <!-- REQUIRED SCRIPTS ------------------------------------------------------->
-
-    <!-- jQuery -->
-    <script src="${pageContext.request.contextPath}/public/plugins/jquery/jquery.min.js"></script>
-    <!-- Bootstrap 4 -->
-    <script src="${pageContext.request.contextPath}/public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <!-- AdminLTE App -->
-    <script src="${pageContext.request.contextPath}/public/dist/js/adminlte.min.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <script src="${pageContext.request.contextPath}/public/dist/js/demo.js"></script>
-
+ 
 </body>
 </html>

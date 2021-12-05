@@ -58,10 +58,10 @@ public class PessoaDao {
                     + "(idpaisdenascimento, nomepessoa, sobrenomepessoa, genero, datadenascimento, ddidocontato, telefonecomddd)\n"
                     + "VALUES(?, ?, ?, ?, ?, ?, ?);";
 
-            System.err.println("Chegou aquiu");
+           
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            System.err.println("Chegou aquiu tb");
+           
             ps.setInt(1, pessoa.getIdNacionalidade());
             ps.setString(2, pessoa.getNomePessoa());
             ps.setString(3, pessoa.getSobrenomePessoa());
@@ -71,9 +71,9 @@ public class PessoaDao {
             ps.setString(7, pessoa.getTelefoneDdd());
 
             int i = ps.executeUpdate();
-            System.err.println("Chegou aquiu tb tb" + i);
+         
             rs = ps.getGeneratedKeys();
-            System.err.println("Chegou aquiu tb tb" + rs);
+           
 
             if (rs.next()) {
                 idPessoa = rs.getInt(1);
