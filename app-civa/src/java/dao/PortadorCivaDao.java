@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -213,13 +215,128 @@ public class PortadorCivaDao {
         return portadoresCivas;
     }
 
-    public static boolean insert(PortadorCiva portadorciva) {
+    public static List<PortadorCiva> listBySuporteCivaNomePortador(String codigoSuporteCiva, String nome) {
+        Connection connection = ConnectionFactory.getConnection();
+        PortadorCiva portadorCiva;
+        List<PortadorCiva> portadoresCiva = null;
+        Pessoa pessoa;
+        Docs documento1;
+        String sql = "";
+
+        sql = "SELECT pepc.nomepessoa AS nome,\n"
+                + "	pepc.sobrenomepessoa,\n"
+                + "	doc.documento,\n"
+                + "	pepc.datadenascimento,\n"
+                + "	apc.codigocivapc\n"
+                + "FROM pessoa pepc\n"
+                + "LEFT JOIN docs doc \n"
+                + "ON pepc.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc\n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc\n"
+                + "LEFT JOIN acessopc apc \n"
+                + "ON apc.idpessoa = pepc.idpessoa\n"
+                + "WHERE tidoc.nivel = 'Primário'\n"
+                + "AND apc.codigocivapc LIKE \n"
+                + "CONCAT( \n"
+                + "(SELECT pa.sigla FROM pessoa peag\n"
+                + "LEFT JOIN acessogestao ag\n"
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "LEFT JOIN pais pa \n"
+                + "ON en.idpais = pa.idpais  \n"
+                + "WHERE ag.codigocivagestao = ? ),'%') AND pepc.nomepessoa LIKE ?  LIMIT 20;";
+
+        try {
+            portadoresCiva = new ArrayList<>();
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoSuporteCiva);
+            ps.setString(2, "%" + nome + "%");
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pessoa = new Pessoa();
+                documento1 = new Docs();
+                portadorCiva = new PortadorCiva();
+
+                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+                pessoa.setCodigoCiva(rs.getString("codigocivapc"));
+                documento1.setDocumento(rs.getString("documento"));
+
+                portadorCiva.setPessoa(pessoa);
+                portadorCiva.setDocumento1(documento1);
+                portadorCiva.setCodigoCiva(pessoa.getCodigoCiva());
+
+                portadoresCiva.add(portadorCiva);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return portadoresCiva;
+    }
+
+    public static boolean insert(PortadorCiva portadorCiva, int idCadastrante) {
         boolean resultado = false;
 
-        // Insert into PortadorCIVA values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
-            resultado = true;
+        Pessoa pessoa = portadorCiva.getPessoa();
+        Docs documento1 = portadorCiva.getDocumento1();
+        Endereco endereco = portadorCiva.getEndereco();
+
+        try {
+
+            // Pessoa
+            // Verificar se a pessoa já tem cadastro no sistema
+            // Se não tiver cadastrar e pegar o idPessoa gerado
+            // Caso tenha pegar o idPessoa do banco de dados
+            // Inserir idNacionalidade, nome, sobrenome, genero
+            // dataDeNascimento, ddiDoContato e telefoneComDdd
+            int idPessoa = PessoaDao.insert(pessoa);
+
+            // Endereço
+            // Inserir o endereço
+            // Pegar o idEndereco gerado
+            int idEndereco = EnderecoDao.insert(endereco);
+            System.err.println(idEndereco);
+
+            // Pessoa Endereco (Vincular)
+            // Inserir o idPessoa e IdEndereco na Tabela pessoa_endereco
+            int idPessoaEndereco = PessoaDao.vincularEndereco(idPessoa, idEndereco, endereco.getNumero(), endereco.getComplemento());
+
+            System.err.println(idPessoaEndereco);
+
+            // Tipodoc
+            // Pegar idTipodoc pelo Nometipodoc vindo do formulário
+            int idTipoDoc = DocsDao.findIdTipodoc(documento1.getNomeTipoDoc());
+
+            // Cadastrar na tabela Docs
+            // O idTipoDoc, idPessoa documento e data de emissão
+            Boolean resultDocs = DocsDao.insert(idTipoDoc, idPessoa, documento1.getDocumento(), documento1.getDataEmissao());
+
+            System.err.println("Docs enviado: " + resultDocs);
+
+            // Cadastrar na tabela acessoGestão
+            // idPessoa, idCadastrante, codigoCiva, cargo, email, senha e data de registro
+            Date data = new Date();
+            SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
+
+            String codigoCivaPortador = PortadorCivaDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
+            System.err.println(codigoCivaPortador);
+
+            resultado = PessoaDao.insertAcessoPc(idPessoa, idCadastrante, codigoCivaPortador, pessoa.getEmail(), formatador.format(data));
+
+            System.err.println("Chegou no dao do portador civa " + portadorCiva.getPessoa().getNomePessoa());
+        } catch (Exception e) {
         }
 
         return resultado;
@@ -282,6 +399,8 @@ public class PortadorCivaDao {
             ps.setString(1, codigoCivaPortadorCiva);
             rs = ps.executeQuery();
 
+            System.err.println("executou");
+
             portadorCiva = new PortadorCiva();
 
             if (rs.next()) {
@@ -296,9 +415,12 @@ public class PortadorCivaDao {
                 pessoa.setDdiContato(rs.getString("telefonecomddd"));
                 pessoa.setEmail(rs.getString("emailpc"));
 
+                System.err.println("pessoa");
                 // Pegar nacionalidade
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());
                 pessoa.setNacionalidade(pais.getNomePais());
+
+                System.err.println("pais");
 
                 endereco = new Endereco();
                 endereco.setCodigoPostal(rs.getString("codigopostal"));
@@ -310,6 +432,7 @@ public class PortadorCivaDao {
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
                 endereco.setNomePais(rs.getString("nomedopais"));
+
             }
 
             ps = connection.prepareStatement(sql2);
@@ -323,9 +446,15 @@ public class PortadorCivaDao {
                 portadorCiva.setDocumento1(documento1);
             }
 
-            vacinacoes = VacinacaoDao.listByPortadorCiva(codigoCivaPortadorCiva);
+            try {
+                vacinacoes = VacinacaoDao.listByPortadorCiva(codigoCivaPortadorCiva);
+                System.err.println(vacinacoes.get(0).getVacina().getNomeVacina());
+                portadorCiva.setListaVacinacao(vacinacoes);
+            } catch (Exception e) {
+                System.err.println("sem vacinacao");
+            }
 
-            System.err.println(vacinacoes.get(0).getVacina().getNomeVacina());
+          
             portadorCiva.setListaVacinacao(vacinacoes);
             portadorCiva.setPessoa(pessoa);
             portadorCiva.setEndereco(endereco);
@@ -333,6 +462,7 @@ public class PortadorCivaDao {
 
         } catch (SQLException ex) {
             Logger.getLogger(PortadorCivaDao.class.getName()).log(Level.SEVERE, null, ex);
+            System.err.println("Erro dao: " + ex.getErrorCode() + " " + ex.getMessage());
         }
 
         return portadorCiva;
@@ -448,6 +578,37 @@ public class PortadorCivaDao {
         }
 
         return portadorCiva;
+    }
+
+    public static String gerarCodigoCiva(String nomePais, int idPessoa) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "";
+        String atorSigla = "PC";
+        String codigoCiva = "";
+        String sigla = PaisDao.getSiglaByName(nomePais);
+
+        sql = "SELECT COUNT(*) + 100000000 + ? AS codigo\n"
+                + "FROM acessopc AS apc;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idPessoa);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                codigoCiva = String.valueOf(rs.getInt("codigo"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return sigla + codigoCiva + atorSigla;
+
     }
 
     public static List<PortadorCiva> list() {

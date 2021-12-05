@@ -50,7 +50,7 @@ public class PessoaDao {
         Connection connection = ConnectionFactory.getConnection();
         int idPessoa = -1;
 
-        try {    
+        try {
             ResultSet rs = null;
             String sql = "";
 
@@ -61,7 +61,7 @@ public class PessoaDao {
             System.err.println("Chegou aquiu");
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-             System.err.println("Chegou aquiu tb");
+            System.err.println("Chegou aquiu tb");
             ps.setInt(1, pessoa.getIdNacionalidade());
             ps.setString(2, pessoa.getNomePessoa());
             ps.setString(3, pessoa.getSobrenomePessoa());
@@ -71,9 +71,9 @@ public class PessoaDao {
             ps.setString(7, pessoa.getTelefoneDdd());
 
             int i = ps.executeUpdate();
- System.err.println("Chegou aquiu tb tb" + i);
+            System.err.println("Chegou aquiu tb tb" + i);
             rs = ps.getGeneratedKeys();
-             System.err.println("Chegou aquiu tb tb" + rs);
+            System.err.println("Chegou aquiu tb tb" + rs);
 
             if (rs.next()) {
                 idPessoa = rs.getInt(1);
@@ -102,8 +102,8 @@ public class PessoaDao {
                     + "VALUES(?, ?, ?, ?, ?, ?, ?);";
 
             ps = connection.prepareStatement(sql);
-            
-            ps.setInt(1, idPessoa);             
+
+            ps.setInt(1, idPessoa);
             ps.setInt(2, idCadastrante);
             ps.setString(3, codigoCiva);
             ps.setString(4, cargo);
@@ -117,7 +117,41 @@ public class PessoaDao {
         } catch (SQLException ex) {
             Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
+        return resultado;
+
+    }
+
+    public static boolean insertAcessoPc(int idPessoa, int idCadastrante, String codigoCiva, String email, String dataRegistro) {
+        Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "";
+
+            sql = "INSERT INTO acessopc\n"
+                    + "(idpessoa, idcadastrante, codigocivapc, emailpc, senhapc, dataregistropc)\n"
+                    + "VALUES(?, ?, ?, ?, ?, ?);";
+
+            ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, idPessoa);
+            ps.setInt(2, idCadastrante);
+            ps.setString(3, codigoCiva);
+            ps.setString(4, email);
+            ps.setString(5, "12345");
+            ps.setString(6, dataRegistro);
+
+            ps.executeUpdate();
+
+            resultado = true;
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
         return resultado;
 
     }

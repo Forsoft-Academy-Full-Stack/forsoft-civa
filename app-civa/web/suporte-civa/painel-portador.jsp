@@ -21,11 +21,12 @@
 %>
 <%    try {
         String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
-        PortadorCiva PortadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
-
-        pageContext.setAttribute("ator", PortadorCiva);
+        PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
+        System.err.println(portadorCiva.getPessoa().getNomePessoa() + "puchopu");
+        pageContext.setAttribute("ator", portadorCiva);
 
     } catch (Exception e) {
+        System.err.println("Esse foi o erro: " + e.getMessage());
     }
 
 %>  

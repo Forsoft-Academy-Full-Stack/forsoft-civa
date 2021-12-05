@@ -38,9 +38,9 @@
 
 <%    try {
         String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
-        ProfissionalSaude listaProfissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
+        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
 
-        pageContext.setAttribute("ator", listaProfissionalSaude);
+        pageContext.setAttribute("ator", profissionalSaude);
 
         List<Unidade> listaUnidade = UnidadeDao.listUnidadeByProfissionalSaude(codigoCivaProfissionalSaude);
         pageContext.setAttribute("unidades", listaUnidade);
@@ -106,6 +106,29 @@
                                         <%@include file="../partials/codigociva.jspf" %>
                                         <hr>
                                         <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
+                                        <div class="row">
+                                            <div class="form-group col-xl-6">
+                                                <label for="tipo-doc-4">Tipo de Documento 4</label>
+                                                <input type="text" id="tipo-doc-4" name="tipo-doc-4" class="form-control" placeholder="Ex: CPF" value="${ator.documento4.nomeTipoDoc}" disabled>
+                                            </div>
+                                            <div class="form-group col-xl-6">
+                                                <label for="doc4">Documenta&ccedil;&atilde;o 4</label>
+                                                <input type="text" id="doc4" name="doc4" class="form-control"
+                                                       placeholder="Ex: 08275467509" value="${ator.documento4.documento}" disabled>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="form-group col-xl-6">
+                                                <label for="tipo-doc-5">Tipo de Documento 5</label>
+                                                <input type="text" id="tipo-doc-5" name="tipo-doc-5" class="form-control" placeholder="Ex: CPF" value="${ator.documento5.nomeTipoDoc}" disabled>
+                                            </div>
+                                            <div class="form-group col-xl-6">
+                                                <label for="doc5">Documenta&ccedil;&atilde;o 5</label>
+                                                <input type="text" id="doc4" name="doc5" class="form-control"
+                                                       placeholder="Ex: 08275467509" value="${ator.documento5.documento}" disabled>
+                                            </div>
+                                        </div>
+
                                         <hr>
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
                                         <hr>

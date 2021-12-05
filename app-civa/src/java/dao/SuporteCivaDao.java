@@ -35,7 +35,7 @@ public class SuporteCivaDao {
         String sql2 = "";
 
         sql = " SELECT ag.codigocivagestao,\n"
-                    + "               peag.idpessoa,\n"
+                + "               peag.idpessoa,\n"
                 + "               peag.nomepessoa,\n"
                 + "               peag.sobrenomepessoa,\n"
                 + "               peag.genero,\n"
@@ -98,7 +98,7 @@ public class SuporteCivaDao {
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
                 pessoa.setTelefoneDdd(rs.getString("telefonecomddd"));
                 pessoa.setEmail(rs.getString("emailgestao"));
-                
+
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());
                 pessoa.setNacionalidade(pais.getNomePais());
 
@@ -126,12 +126,12 @@ public class SuporteCivaDao {
                 documento2.setNomeTipoDoc(rs.getString("nomedoc"));
                 documento2.setDocumento(rs.getString("documento"));
             }
-            
-             if (rs.next()) {
+
+            if (rs.next()) {
                 documento3.setNomeTipoDoc(rs.getString("nomedoc"));
                 documento3.setDocumento(rs.getString("documento"));
             }
-            
+
             suporteCiva = new SuporteCiva(pessoa, documento1, documento2, documento3, endereco, pessoa.getCodigoCiva());
 
         } catch (SQLException ex) {
@@ -205,6 +205,37 @@ public class SuporteCivaDao {
         return suportesCiva;
     }
 
+    public static String gerarCodigoCiva(String nomePais, int idPessoa) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "";
+        String atorSigla = "SPT";
+        String codigoCiva = "";
+        String sigla = PaisDao.getSiglaByName(nomePais);
+
+        sql = "SELECT COUNT(*) + 100000000 + ? AS codigo\n"
+                + "FROM acessogestao AS acg\n"
+                + "WHERE acg.cargo LIKE 'Suporte';";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idPessoa);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                codigoCiva = String.valueOf(rs.getInt("codigo"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return sigla + codigoCiva + atorSigla;
+    }
+        
     public static boolean insert(SuporteCiva suporteCiva) {
         boolean resultado = false;
 

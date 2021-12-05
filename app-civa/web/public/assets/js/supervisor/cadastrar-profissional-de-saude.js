@@ -1,33 +1,38 @@
 $('.select2').select2();
 
-const html = {
-    get(element) {
-        return document.querySelector(element);
-    }
-}
+let campos = ["nome", "sobrenome",
+    "genero", "data-nascimento",
+    "nacionalidade", "tipo-doc1", "doc1",
+    "nome-pais", "cod-postal", "nome-logrd",
+    "nome-num", "nome-comple", "bairro",
+    "municipio", "estado", "tele", "email"];
 
-const filtro = html.get('#pesquisar');
-const filtrobotao = html.get('#button-addon2');
-// filtro.addEventListener("input", function(){
-function filtrar() {
-    const unidades = document.querySelectorAll('.coluna');
-    if (filtro.value.length > 0) {
-        for (let i = 0; i < unidades.length; i++) {
-            const lugar = unidades[i];
-            const tdNome = lugar.querySelector('.coluna-nome');
-            const nome = tdNome.textContent;
-            const expressao = new RegExp(this.value, "i");
-            if (!expressao.test(nome)) {
-                lugar.classList.add("invisivel");
-            } else {
-                lugar.classList.remove("invisivel");
+
+let form = $("#form-meus-dados");
+
+
+$("#salvar").click(function () {
+
+    if (tratar_campos(campos)) {
+        $.post("/app-civa/profissionalSaude", form.serialize(), (data, status, jqXHR) => {
+            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
+            if (status === 'success') {
+                title = 'Profissinal de Sa&uacute;de cadastrado com sucesso!';
+                text = "Cadastro realizada.";
+                swalAlertSuccess(title, text, callback);
+
             }
-        }
-
+        }).fail(function (jqxhr, settings, ex) {
+            title = 'Erro!';
+            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
+            swalAlertError(title, text, callback);
+        });
     } else {
-        for (let i = 0; i < unidades.length; i++) {
-            const lugar = unidades[i];
-            lugar.classList.remove("invisivel");
-        }
+        title = 'Campos n&atilde;o preenchidos!';
+        text = 'Todos os campos precisam ser preenchidos!';
+        swalAlertError(title, text, callback);
     }
-}
+});
+
+
+pegarPaises("nacionalidade");

@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -29,6 +31,8 @@ public class ProfissionalSaudeDao {
         Docs documento1 = null;
         Docs documento2 = null;
         Docs documento3 = null;
+        Docs documento4 = null;
+        Docs documento5 = null;
         Endereco endereco = null;
 
         String sql = "";
@@ -135,8 +139,22 @@ public class ProfissionalSaudeDao {
                 documento3.setNomeTipoDoc(rs.getString("nomedoc"));
                 documento3.setDocumento(rs.getString("documento"));
             }
+            
+            if (rs.next()) {
+                documento4 = new Docs();
+                documento4.setNomeTipoDoc(rs.getString("nomedoc"));
+                documento4.setDocumento(rs.getString("documento"));
+            }
+            
+              if (rs.next()) {
+                documento5 = new Docs();
+                documento5.setNomeTipoDoc(rs.getString("nomedoc"));
+                documento5.setDocumento(rs.getString("documento"));
+            }
 
             profissionalSaude = new ProfissionalSaude(pessoa, documento1, documento2, documento3, endereco, pessoa.getCodigoCiva());
+            profissionalSaude.setDocumento4(documento4);
+            profissionalSaude.setDocumento5(documento5);
 
         } catch (SQLException ex) {
             Logger.getLogger(ProfissionalSaudeDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -214,7 +232,7 @@ public class ProfissionalSaudeDao {
 
         return profissionaisSaude;
     }
-    
+
     public static List<ProfissionalSaude> listBySupervisor(String codigoSupervisor) {
         Connection connection = ConnectionFactory.getConnection();
         List<ProfissionalSaude> profissionaisSaude = null;
@@ -289,7 +307,7 @@ public class ProfissionalSaudeDao {
         ProfissionalSaude profissionalsaude;
         Pessoa pessoa;
         Docs documento1;
-        
+
         String sql = "";
         sql = "SELECT peag.nomepessoa AS nome,\n"
                 + "	   peag.sobrenomepessoa AS sobrenome,\n"
@@ -313,8 +331,8 @@ public class ProfissionalSaudeDao {
                 + "LEFT JOIN acessogestao ag\n"
                 + "ON aguni.idacessogestao = ag.idacessogestao\n"
                 + "WHERE uni.idunidade = ?)";
-        
-         try {
+
+        try {
             profissionaisSaude = new ArrayList<>();
 
             Statement stmt = connection.createStatement();
@@ -351,13 +369,138 @@ public class ProfissionalSaudeDao {
 
     }
 
-    public static boolean insert(ProfissionalSaude profissionalsaude) {
+    public static String gerarCodigoCiva(String nomePais, int idPessoa) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "";
+        String atorSigla = "PS";
+        String codigoCiva = "";
+        String sigla = PaisDao.getSiglaByName(nomePais);
+
+        sql = "SELECT COUNT(*) + 100000000 + ? AS codigo\n"
+                + "FROM acessogestao AS acg\n"
+                + "WHERE acg.cargo LIKE 'Profissional de Saúde';";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idPessoa);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                codigoCiva = String.valueOf(rs.getInt("codigo"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return sigla + codigoCiva + atorSigla;
+
+    }
+
+    public static boolean insert(ProfissionalSaude profissionalSaude, int idCadastrante) {
         boolean resultado = false;
 
-        // Insert into ProfissionalSaude values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
-            resultado = true;
+        Pessoa pessoa = profissionalSaude.getPessoa();
+
+        // São até 5 tipos de documentos
+        Docs documento1 = profissionalSaude.getDocumento1();
+        Docs documento2 = profissionalSaude.getDocumento2();
+        Docs documento3 = profissionalSaude.getDocumento3();
+        Docs documento4 = profissionalSaude.getDocumento4();
+        Docs documento5 = profissionalSaude.getDocumento5();
+
+        Endereco endereco = profissionalSaude.getEndereco();
+
+        try {
+
+            // Pessoa
+            // Verificar se a pessoa já tem cadastro no sistema
+            // Se não tiver cadastrar e pegar o idPessoa gerado
+            // Caso tenha pegar o idPessoa do banco de dados
+            // Inserir idNacionalidade, nome, sobrenome, genero
+            // dataDeNascimento, ddiDoContato e telefoneComDdd
+            int idPessoa = PessoaDao.insert(pessoa);
+
+            // Endereço
+            // Inserir o endereço
+            // Pegar o idEndereco gerado
+            int idEndereco = EnderecoDao.insert(endereco);
+            System.err.println(idEndereco);
+
+            // Pessoa Endereco (Vincular)
+            // Inserir o idPessoa e IdEndereco na Tabela pessoa_endereco
+            int idPessoaEndereco = PessoaDao.vincularEndereco(idPessoa, idEndereco, endereco.getNumero(), endereco.getComplemento());
+
+            System.err.println(idPessoaEndereco);
+             System.err.println("Doc2" + documento2.getNomeTipoDoc());
+
+            // Tipodoc
+            // Pegar idTipodoc pelo Nometipodoc vindo do formulário
+            int idTipoDoc = DocsDao.findIdTipodoc(documento1.getNomeTipoDoc());
+            
+            if (idTipoDoc != -1) {
+                // Cadastrar na tabela Docs
+                // O idTipoDoc, idPessoa documento e data de emissão
+                Boolean resultDocs = DocsDao.insert(idTipoDoc, idPessoa, documento1.getDocumento(), documento1.getDataEmissao());
+
+                System.err.println("Docs enviado 1: " + resultDocs);
+            }
+            
+             System.err.println(documento2.getNomeTipoDoc());
+            
+            int idTipoDoc2 = DocsDao.findIdTipodoc(documento2.getNomeTipoDoc());
+            if (idTipoDoc2 != -1) {
+                // Cadastrar na tabela Docs
+                // O idTipoDoc, idPessoa documento e data de emissão
+                Boolean resultDocs = DocsDao.insert(idTipoDoc2, idPessoa, documento2.getDocumento(), documento2.getDataEmissao());
+
+                System.err.println("Docs enviado 2: " + resultDocs);
+            }
+            
+            int idTipoDoc3 = DocsDao.findIdTipodoc(documento3.getNomeTipoDoc());
+            if (idTipoDoc3 != -1) {
+                // Cadastrar na tabela Docs
+                // O idTipoDoc, idPessoa documento e data de emissão
+                Boolean resultDocs = DocsDao.insert(idTipoDoc3, idPessoa, documento3.getDocumento(), documento3.getDataEmissao());
+
+                System.err.println("Docs enviado 3: " + resultDocs);
+            }
+            
+            int idTipoDoc4 = DocsDao.findIdTipodoc(documento4.getNomeTipoDoc());
+            if (idTipoDoc4 != -1) {
+                // Cadastrar na tabela Docs
+                // O idTipoDoc, idPessoa documento e data de emissão
+                Boolean resultDocs = DocsDao.insert(idTipoDoc4, idPessoa, documento4.getDocumento(), documento4.getDataEmissao());
+
+                System.err.println("Docs enviado 4: " + resultDocs);
+            }
+            
+            int idTipoDoc5 = DocsDao.findIdTipodoc(documento5.getNomeTipoDoc());
+            if (idTipoDoc5 != -1) {
+                // Cadastrar na tabela Docs
+                // O idTipoDoc, idPessoa documento e data de emissão
+                Boolean resultDocs = DocsDao.insert(idTipoDoc5, idPessoa, documento5.getDocumento(), documento5.getDataEmissao());
+
+                System.err.println("Docs enviado 5: " + resultDocs);
+            }
+
+            // Cadastrar na tabela acessoGestão
+            // idPessoa, idCadastrante, codigoCiva, cargo, email, senha e data de registro
+            Date data = new Date();
+            SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
+
+            String codigoCivaGestorNacional = ProfissionalSaudeDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
+            System.err.println(codigoCivaGestorNacional);
+
+            String cargo = "Profissional de Saúde";
+            resultado = PessoaDao.insertAcessoGestao(idPessoa, idCadastrante, cargo, codigoCivaGestorNacional, pessoa.getEmail(), formatador.format(data));
+
+            System.err.println("Chegou no dao do profissional de Saude " + profissionalSaude.getPessoa().getNomePessoa());
+        } catch (Exception e) {
         }
 
         return resultado;

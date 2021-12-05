@@ -42,7 +42,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./consultar-portador.jsp" class="nav-link">
+                            <a href="./consultar-portador.jsp?nome=" class="nav-link">
                                 <i class="fas fa-search nav-icon"></i>
                                 <p>Consultar Portador</p>
                             </a>
@@ -141,13 +141,13 @@
                         <li class="nav-item text-sm ">
                             <a href="./consultar-suporte-civa.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
-                                <p>Consultar Supervisores CIVA</p>
+                                <p>Consultar Suporte CIVA CIVA</p>
                             </a>
                         </li>
                         <li class="nav-item text-sm">
                             <a href="./cadastrar-suporte-civa.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
-                                <p class="text-wrap">Cadastrar Supervisores CIVA</p>
+                                <p class="text-wrap">Cadastrar Suporte CIVA</p>
                             </a>
                         </li>
 

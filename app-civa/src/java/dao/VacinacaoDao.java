@@ -24,7 +24,7 @@ public class VacinacaoDao {
     public static List<Vacinacao> listByPortadorCivaInternacional(String codigoCivaPortador) {
         Connection connection = ConnectionFactory.getConnection();
 
-        List<Vacinacao> vacinacoes = null;
+        List<Vacinacao>  vacinacoes = new ArrayList<>();
         Vacinacao vacinacao = null;
         Vacina vacina = null;
 
@@ -55,7 +55,7 @@ public class VacinacaoDao {
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
             ResultSet rs = null;
-            vacinacoes = new ArrayList<>();
+            //vacinacoes = new ArrayList<>();
 
             ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaPortador);
@@ -84,6 +84,7 @@ public class VacinacaoDao {
 
         } catch (SQLException ex) {
             Logger.getLogger(VacinacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+              
         }
 
         return vacinacoes;
@@ -92,7 +93,7 @@ public class VacinacaoDao {
     public static List<Vacinacao> listByPortadorCiva(String codigoCivaPortador) {
         Connection connection = ConnectionFactory.getConnection();
 
-        List<Vacinacao> vacinacoes = null;
+        List<Vacinacao> vacinacoes = new ArrayList<>();
         Vacinacao vacinacao = null;
         Vacina vacina = null;
 
@@ -123,7 +124,7 @@ public class VacinacaoDao {
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
             ResultSet rs = null;
-            vacinacoes = new ArrayList<>();
+           
 
             ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaPortador);

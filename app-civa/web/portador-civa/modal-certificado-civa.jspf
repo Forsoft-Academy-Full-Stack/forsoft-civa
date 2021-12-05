@@ -52,7 +52,7 @@
                         </div>
                         <div class="form-group col-6 mb-3">
                             <label for="lote">Lote</label>
-                            <input type="text" class="form-control form-control-sm" id="lote" value=""
+                            <input type="text" class="form-control form-control-sm" id="lote" value="${vacinacao.vacina.lote}"
                                    disabled>
                         </div>
                     </div>          

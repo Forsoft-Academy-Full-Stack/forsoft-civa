@@ -13,26 +13,27 @@ let form = $("#form-meus-dados");
 let modal_confirmar_senha = $("#modal-confirmar-senha");
 
 $("#salvar").click(() => {
-    
+
     if (tratar_campos(campos)) {
-        
+
         modal_confirmar_senha.modal("show");
 
         $("#confirmar").click(() => {
             if (tratar_campos(campos_confirmar_senha)) {
                 modal_confirmar_senha.modal("hide");
-                
-                $.get("", form.serialize(), (data, status) => {
+
+                $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
+                    console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                     if (status === 'success') {
-                        title = 'Cadastro realizada com sucesso!';
-                        text = "Cadastro realizado.";   
+                        title = 'Portador cadastrado com sucesso!';
+                        text = "Cadastro realizada.";
                         swalAlertSuccess(title, text, callback);
 
-                    } else {
-                        title = 'Erro!';
-                        text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
-                        swalAlertError(title, text, callback);
                     }
+                }).fail(function (jqxhr, settings, ex) {
+                    title = 'Erro!';
+                    text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
+                    swalAlertError(title, text, callback);
                 });
             } else {
                 title = 'Campos n&atilde;o preenchidos!';

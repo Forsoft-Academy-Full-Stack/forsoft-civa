@@ -286,6 +286,38 @@ public class GestorOmsDao {
         return gestoresOms;
     }
 
+   public static String gerarCodigoCiva(String nomePais, int idPessoa) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "";
+        String atorSigla = "GM";
+        String codigoCiva = "";
+        String sigla = PaisDao.getSiglaByName(nomePais);
+
+        sql = "SELECT COUNT(*) + 100000000 + ? AS codigo\n"
+                + "FROM acessogestao AS acg\n"
+                + "WHERE acg.cargo LIKE 'Gestor OMS';";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idPessoa);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                codigoCiva = String.valueOf(rs.getInt("codigo"));                
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return "OMS"+ codigoCiva + atorSigla;
+
+    }
+    
     public static boolean update(GestorOms gestoromsNovo) {
         boolean resultado = false;
 

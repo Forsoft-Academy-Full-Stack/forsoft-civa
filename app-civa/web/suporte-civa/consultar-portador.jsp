@@ -21,11 +21,19 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%  
-    try {
-        List<PortadorCiva> listaPortadorCiva = PortadorCivaDao.listBySuporteCiva(pessoa.getCodigoCiva());
+<%    try {
+        String nomePessoa = null;
+        nomePessoa = request.getParameter("nome");
+     
+        if (nomePessoa.equals("") || nomePessoa == null) {
+            List<PortadorCiva> listaPortadorCiva = PortadorCivaDao.listBySuporteCiva(pessoa.getCodigoCiva());
+            pageContext.setAttribute("portadoresCiva", listaPortadorCiva);
 
-        pageContext.setAttribute("portadoresCiva", listaPortadorCiva);
+        } else {      
+            List<PortadorCiva> listaPortadorCiva = PortadorCivaDao.listBySuporteCivaNomePortador(pessoa.getCodigoCiva(), nomePessoa);
+            pageContext.setAttribute("portadoresCiva", listaPortadorCiva);
+
+        }
 
     } catch (Exception e) {
     }
@@ -78,32 +86,45 @@
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
                     <!-- PESQUISA E FILTRO -->
+
                     <div class="row">
                         <div class="col-12">
                             <div class="card">
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="row col-md-12 col-sm-12">
+
+
                                             <div class="col-xl-2 col-sm-12 mb-2">
-                                                <select class="select2 select2-hidden-accessible" id="ordem-de-listagem"
-                                                        name="ordem-de-listagem" style="width: 100%;" tabindex="-1"
-                                                        aria-hidden="true">
-                                                    <option value="1">Nome A - Z</option>
-                                                    <option value="2">Nome Z - A</option>
-                                                    <option value="3">CPF crescente</option>
-                                                    <option value="3">CPF decrescente</option>
-                                                </select>
+                                                <form action="" method="GET" id="pesquisa">
+                                                    <select class="select2 select2-hidden-accessible" id="ordem-de-listagem"
+                                                            name="ordem-de-listagem" style="width: 100%;" tabindex="-1"
+                                                            aria-hidden="true">
+                                                        <option value="nome">Nome A - Z</option>
+                                                        <option value="nome">Nome Z - A</option>
+                                                        <option value="cpf">CPF crescente</option>
+                                                        <option value="cpf">CPF decrescente</option>
+                                                    </select>
+                                                </form>
+
                                             </div>
+
+
                                             <div class="col-xl-8 col-sm-12">
+                                                 <form action="" method="GET" id="pesquisa2">
                                                 <div class="input-group  mb-2">
-                                                    <input type="text" class="form-control" id="pesquisar"
-                                                           name="pesquisar" placeholder="Pesquisar portador">
+                                                    <input type="text" class="form-control" id="nome"
+                                                           name="nome" placeholder="Pesquisar portador">
                                                     <div class="input-group-append">
-                                                        <button class="btn btn-outline-secondary" type="button"
-                                                                id="button-addon2" name="button-addon2">Pesquisar</button>
+                                                        <button class="btn btn-outline-secondary" type="submit"
+                                                               form="pesquisa2">Pesquisar</button>
                                                     </div>
                                                 </div>
+                                                     </form>
                                             </div>
+                                     
+
+
 
                                             <div class="col-2">
                                                 <div class="btn-group">

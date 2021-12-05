@@ -1,5 +1,6 @@
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -77,7 +78,7 @@
                                         <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-cadastro.jspf" %> 
-                                        <input type="hidden" value="cadastrar" class="form-control" id="option" name="option" placeholder="cadastrar@gmail.com">
+                                        <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
                                     </div>
 
                                 </form>

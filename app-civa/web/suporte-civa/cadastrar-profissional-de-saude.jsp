@@ -71,13 +71,14 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="form-meus-dados" action="#" method="post">
+                                <form id="form-meus-dados">
                                     <div class="card-body">
                                         <%@ include file="../partials/dadospessoais-ps-cadastro.jspf" %>
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-cadastro.jspf" %>
+                                        <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
                                     </div>
 
                                 </form>
@@ -85,7 +86,7 @@
                         </div>
 
                         <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Cadastrar</button>
+                            <button type="button" class="btn btn-primary btn-lg" id="salvar">Cadastrar</button>
                         </div>
 
                         <!-- /.row -->
