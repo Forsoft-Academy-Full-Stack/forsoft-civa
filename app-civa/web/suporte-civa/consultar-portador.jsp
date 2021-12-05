@@ -111,16 +111,16 @@
 
 
                                             <div class="col-xl-8 col-sm-12">
-                                                 <form action="" method="GET" id="pesquisa2">
-                                                <div class="input-group  mb-2">
-                                                    <input type="text" class="form-control" id="nome"
-                                                           name="nome" placeholder="Pesquisar portador">
-                                                    <div class="input-group-append">
-                                                        <button class="btn btn-outline-secondary" type="submit"
-                                                               form="pesquisa2">Pesquisar</button>
+                                                <form action="" method="GET" id="pesquisa2">
+                                                    <div class="input-group  mb-2">
+                                                        <input type="text" class="form-control" id="nome"
+                                                               name="nome" placeholder="Pesquisar portador">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-secondary" type="submit"
+                                                                    form="pesquisa2">Pesquisar</button>
+                                                        </div>
                                                     </div>
-                                                </div>
-                                                     </form>
+                                                </form>
                                             </div>
                                      
 

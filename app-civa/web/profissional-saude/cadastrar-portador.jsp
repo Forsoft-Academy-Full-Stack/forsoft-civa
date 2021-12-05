@@ -69,6 +69,7 @@
                                             <%@ include file="../partials/contatos-cadastro.jspf" %>
                                             <hr  class = "mb-4 mt-4">
                                             <%@ include file="../partials/senha-cadastro.jspf" %>
+                                            <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
                                         </div>
                                     </form>
                                     <!-- /.form ending -->
