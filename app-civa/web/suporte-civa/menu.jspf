@@ -181,7 +181,7 @@
                 </li>                
 
                 <!--Item Unidades-->
-                <!--li class="nav-item ">
+                <li class="nav-item ">
                     <a href="#" class="nav-link">
                         <i class="fas fa-syringe nav-icon"></i>
                         <p>
@@ -204,7 +204,7 @@
                         </li>
 
                     </ul>
-                </li-->
+                </li>
 
                 <!-- ITEM RELATORIO USUARIO DO MENU -->
                 <li class="nav-item">

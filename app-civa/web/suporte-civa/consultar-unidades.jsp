@@ -133,7 +133,7 @@
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao3}" /></td>
                                                     <td><c:out value="${unidade.endereco.nomesubdivisao2}" /></td>
                                                     <td><c:out value="${unidade.endereco.codigoPostal}" /></td>
-                                                    <td><a href="./gerenciar-unidades.jsp?idUnidade=<c:out value="${unidade.idUnidade}" />" class="btn btn-block btn-primary btn-sm">Gerenciar</a></td>
+                                                    <td><a href="./painel-unidades.jsp?idUnidade=<c:out value="${unidade.idUnidade}" />" class="btn btn-block btn-primary btn-sm">Consultar</a></td>
                                                 </tr>
                                             </c:forEach>  
                                         </tbody>

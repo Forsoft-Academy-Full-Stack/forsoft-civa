@@ -105,73 +105,9 @@
                         </div>
                     </div>
                     <!-- /.row -->
-
-                    <!-- TABELA VACINAS -->
-                    <!--
-                    <div class="row">
-                        <div class="col-12 mb-4">
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Profissionais vinculados</h3>
-
-                                    <div class="card-tools">
-                                        <div class="input-group input-group-sm" style="width: 150px;">
-
-                                            <div class="input-group-append">
-
-
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                              
-                                <div class="card-body table-responsive p-0">
-                                    <table class="table table-hover text-nowrap">
-                                        <thead>
-                                            <tr>
-                                                <th>Nome</th>
-                                                <th>Identidade</th>
-                                                <th>C&oacute;digo Civa</th>
-
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td>Maria Souza da Silva</td>
-                                                <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Maria Souza da Silva</td>
-                                                <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Maria Souza da Silva</td>
-                                                <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>
-
-                                            </tr>
-                                            <tr>
-                                                <td>Maria Souza da Silva</td>
-                                                <td>123.159.875-05</td>
-                                                <td>BRA5521123456789</td>
-
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                             
-                            </div>
-                        </div>
-                    </div>
-                    -->
-                    <div class="row">
-                        <div class="col-12 mb-4 ">
-                            <!--button type="submit" class="btn btn-primary btn-lg" id="salvar">Salvar</button-->
-                        </div>
+                    <div class="col-12 pb-4 d-flex justify-content-between">
+                        <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
+                        <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                     </div>
 
                 </div>

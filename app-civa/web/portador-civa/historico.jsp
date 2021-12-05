@@ -27,8 +27,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<%  
-    try {
+<%    try {
         PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
         pageContext.setAttribute("portadorCiva", portadorCiva);
 
@@ -94,9 +93,9 @@
                         </div>
 
                         <div class="card-body">
+                            <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
+                                <div class="row mb-4 border border-info rounded-lg shadow-sm">                               
 
-                            <div class="row mb-4">                               
-                                <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
 
                                     <table class="col-xl-12 table text-nowrap table-striped  ">
 
@@ -134,9 +133,10 @@
                                         </tbody>
                                     </table>
 
-                                </c:forEach>   
 
-                            </div>
+
+                                </div>
+                            </c:forEach> 
                             <!-- ./row -->
 
                             <!-- ./card-body -->

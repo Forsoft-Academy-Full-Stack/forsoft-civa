@@ -35,6 +35,7 @@
                                disabled>
                     </div>
                 </div>
+                <hr  class = "mb-4 mt-4">           
                 <div class="row">                   
                     <!--div class="form-group col mb-3">
                         <label for="certificado-dose">Doses</label>
@@ -43,12 +44,18 @@
                 </div>   
                 <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">                
 
-                    
-                     <div class="form-group col mb-3">
-                        <label for="certificado-vacina">Vacina</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-vacina" value="${portadorCiva.listaVacinacao[0].vacina.nomeVacina}"
-                               disabled>
-                    </div>
+                    <div class="row">
+                        <div class="form-group col-6 mb-3">
+                            <label for="certificado-vacina">Vacina</label>
+                            <input type="text" class="form-control form-control-sm" id="certificado-vacina" value="${portadorCiva.listaVacinacao[0].vacina.nomeVacina}"
+                                   disabled>
+                        </div>
+                        <div class="form-group col-6 mb-3">
+                            <label for="lote">Lote</label>
+                            <input type="text" class="form-control form-control-sm" id="lote" value=""
+                                   disabled>
+                        </div>
+                    </div>          
                     <div class="row">
 
                         <div class="form-group col-6 mb-3">
@@ -73,23 +80,23 @@
                             <input type="text" class="form-control form-control-sm" id="certificado-vacinador" value=""
                                    disabled>
                         </div>
-                    </div>
+                    </div>                          
 
+
+                    <div class="row">
+                        <div class="form-group col mb-3">
+                            <label for="certificado-unidade">Unidade</label>
+                            <input type="text" class="form-control form-control-sm" id="certificado-unidade" value="${unidade.nome}"
+                                   disabled>
+                        </div>
+                        <div class="form-group col mb-3">
+                            <label for="certificado-cep">CEP</label>
+                            <input type="text" class="form-control form-control-sm" id="certificado-cep" value="${unidade.endereco.codigoPostal}"
+                                   disabled>
+                        </div>
+                    </div>
+                    <hr  class = "mb-4 mt-4">                                         
                 </c:forEach>
-
-                <div class="row">
-                    <div class="form-group col mb-3">
-                        <label for="certificado-unidade">Unidade</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-unidade" value="${unidade.nome}"
-                               disabled>
-                    </div>
-                    <div class="form-group col mb-3">
-                        <label for="certificado-cep">CEP</label>
-                        <input type="text" class="form-control form-control-sm" id="certificado-cep" value="${unidade.endereco.codigoPostal}"
-                               disabled>
-                    </div>
-                </div>
-
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                     <button type="button" class="btn btn-primary">Download</button>
