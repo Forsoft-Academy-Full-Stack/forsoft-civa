@@ -5268,7 +5268,9 @@ INSERT INTO forsoft.acessogestao
     (80, 66, 'USA000000013PS', 'Profissional de Saúde', 'belindathorne@mail.com', '41227@MSKP', '2021-10-12 - 10:12', 1),
     (81, 60, 'USA000000014PS', 'Profissional de Saúde', 'jonathanvargas@gmail.com', '76998@YAAA', '2021-10-12 - 10:48', 1),
     (82, 66, 'USA000000015PS', 'Profissional de Saúde', 'paulalavigne@yahoo.com', '49727@YUEM', '2021-10-12 - 16:24', 1),
-    (83, 60, 'USA000000016PS', 'Profissional de Saúde', 'rickdavis@mail.com.br', '70137@ULQO', '2021-10-12 - 17:55', 1)
+    (83, 60, 'USA000000016PS', 'Profissional de Saúde', 'rickdavis@mail.com.br', '70137@ULQO', '2021-10-12 - 17:55', 1),
+    (264,2,'BRA000000001SPT','Suporte','orcar@suporte.com','lCA0Zi@nGz#Z','2021-08-01 - 08:00',1),
+    (111,0,'ADM000000001OMS','Administrador','adrien@gmail.com','ADMlCA0Zi@nGz#Z','2021-04-01',1);
 ;
 
 /* Tabela Acesso Gestão _ Unidade*/
