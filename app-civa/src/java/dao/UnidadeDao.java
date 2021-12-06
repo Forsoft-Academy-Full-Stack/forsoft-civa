@@ -374,13 +374,15 @@ public class UnidadeDao {
     }
 
     public static boolean insert(Unidade unidade) {
+         int idEndereco = -1;
         Endereco endereco = unidade.getEndereco();
         try {
-            int idEndereco = EnderecoDao.insert(endereco);
+           idEndereco = EnderecoDao.insert(endereco);
         } catch (Exception e) {
             System.err.println("Deu ruim");
         }
-        int idEndereco = -1;
+       
+         System.err.println(idEndereco);
 
         Connection connection = ConnectionFactory.getConnection();
 

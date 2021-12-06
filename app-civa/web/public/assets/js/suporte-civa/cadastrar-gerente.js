@@ -11,7 +11,6 @@ let campos = ["nome", "sobrenome",
 let form = $("#form-meus-dados");
 
 $("#salvar").click(function () {
-
     if (tratar_campos(campos)) {
         $.post("/app-civa/gerente", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);

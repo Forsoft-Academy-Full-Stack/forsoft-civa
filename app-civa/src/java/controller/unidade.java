@@ -85,7 +85,7 @@ public class unidade extends HttpServlet {
                     
                     Boolean result = UnidadeDao.insert(unidade);
                       System.err.println("depois de unidade: " + result);
-                     System.err.println(result);
+                   
 
                     if (!result) {
                         response.sendError(404);
