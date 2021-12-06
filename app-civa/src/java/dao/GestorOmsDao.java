@@ -5,7 +5,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,19 +22,7 @@ import model.Pessoa;
  * @author Kerolen | Ludwig
  */
 public class GestorOmsDao {
-
-    public static boolean insert(GestorOms gestoroms) {
-        boolean resultado = false;
-
-        // Insert into Pais values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
-            resultado = true;
-        }
-
-        return resultado;
-    }
-    
+      
      public static GestorOms findAdministrador(String codigoCivaAdministradorOms) {
         Connection connection = ConnectionFactory.getConnection();
         GestorOms gestoroms = null;
@@ -317,6 +307,64 @@ public class GestorOmsDao {
         return "OMS"+ codigoCiva + atorSigla;
 
     }
+   
+   public static boolean insert(GestorOms gestorOms, int idCadastrante) {
+        boolean resultado = false;
+
+        Pessoa pessoa = gestorOms.getPessoa();
+        Docs documento1 = gestorOms.getDocumento1();
+        Endereco endereco = gestorOms.getEndereco();
+
+        try {
+
+            // Pessoa
+            // Verificar se a pessoa já tem cadastro no sistema
+            // Se não tiver cadastrar e pegar o idPessoa gerado
+            // Caso tenha pegar o idPessoa do banco de dados
+            // Inserir idNacionalidade, nome, sobrenome, genero
+            // dataDeNascimento, ddiDoContato e telefoneComDdd
+            int idPessoa = PessoaDao.insert(pessoa);
+
+            // Endereço
+            // Inserir o endereço
+            // Pegar o idEndereco gerado
+            int idEndereco = EnderecoDao.insert(endereco);
+            System.err.println(idEndereco);
+
+            // Pessoa Endereco (Vincular)
+            // Inserir o idPessoa e IdEndereco na Tabela pessoa_endereco
+            int idPessoaEndereco = PessoaDao.vincularEndereco(idPessoa, idEndereco, endereco.getNumero(), endereco.getComplemento());
+
+            System.err.println(idPessoaEndereco);
+
+            // Tipodoc
+            // Pegar idTipodoc pelo Nometipodoc vindo do formulário
+            int idTipoDoc = DocsDao.findIdTipodoc(documento1.getNomeTipoDoc());
+
+            // Cadastrar na tabela Docs
+            // O idTipoDoc, idPessoa documento e data de emissão
+            Boolean resultDocs = DocsDao.insert(idTipoDoc, idPessoa, documento1.getDocumento(), documento1.getDataEmissao());
+
+            System.err.println("Docs enviado: " + resultDocs);
+
+            // Cadastrar na tabela acessoGestão
+            // idPessoa, idCadastrante, codigoCiva, cargo, email, senha e data de registro
+            Date data = new Date();
+            SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
+
+            String codigoCivaSuporteCiva = SuporteCivaDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
+            System.err.println(codigoCivaSuporteCiva);
+
+            String cargo = "Suporte";
+            resultado = PessoaDao.insertAcessoGestao(idPessoa, idCadastrante, cargo, codigoCivaSuporteCiva, pessoa.getEmail(), formatador.format(data));
+
+            System.err.println("Chegou no dao do suporte civa " + gestorOms.getPessoa().getNomePessoa());
+        } catch (Exception e) {
+        }
+
+        return resultado;
+    }
+
     
     public static boolean update(GestorOms gestoromsNovo) {
         boolean resultado = false;
