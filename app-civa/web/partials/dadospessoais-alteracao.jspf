@@ -2,12 +2,12 @@
 <%@ page pageEncoding="UTF-8" %>
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="name">Nome</label>
-        <input type="text" class="form-control" value="${ator.pessoa.nomePessoa}" name="name" id="name" >
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" value="${ator.pessoa.nomePessoa}" name="nome" id="nome" >
     </div>
     <div class="form-group col-xl-6">
-        <label for="surname">Sobrenome</label>
-        <input type="text" class="form-control" value="${ator.pessoa.sobrenomePessoa}" name="surname" id="surname"  >
+        <label for="sobrenome">Sobrenome</label>
+        <input type="text" class="form-control" value="${ator.pessoa.sobrenomePessoa}" name="sobrenome" id="sobrenome"  >
     </div>
 </div>
 <div class="row">
@@ -16,8 +16,8 @@
         <input type="text" id="genero" name="genero" class="form-control" value="${ator.pessoa.genero}" >
     </div>
     <div class="form-group col-xl-6">
-        <label for="date-birth">Data de nascimento</label>
-        <input type="date" class="form-control" id="date-birth" name="date-birth" value="${ator.pessoa.dataNascimento}" >
+        <label for="ddata-nascimento">Data de nascimento</label>
+        <input type="date" class="form-control" id="data-nascimento" name="data-nascimento" value="${ator.pessoa.dataNascimento}" >
     </div>
 </div>
 <div class="row">
@@ -28,11 +28,11 @@
 </div>
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc">Tipo de Documento:</label>
-        <input type="text" id="tipo-doc" name="tipo-doc" class="form-control" value="${ator.documento1.nomeTipoDoc}" >
+        <label for="tipo-doc1">Tipo de Documento:</label>
+        <input type="text" id="tipo-doc1" name="tipo-doc1" class="form-control" value="${ator.documento1.nomeTipoDoc}" >
     </div>
     <div class="form-group col-xl-6">
-        <label for="doc">Documento</label>
-        <input type="text" class="form-control" placeholder="3123123" value="${ator.documento1.documento}" id="doc" name="doc" >
+        <label for="doc1">Documento</label>
+        <input type="text" class="form-control" placeholder="3123123" value="${ator.documento1.documento}" id="doc1" name="doc1" >
     </div>
 </div>

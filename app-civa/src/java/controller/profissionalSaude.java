@@ -111,9 +111,50 @@ public class profissionalSaude extends HttpServlet {
                     break;
 
                 case "atualizar":
-                    System.err.println("atualizado");
-                    System.err.println(request.getParameter("nome"));
-                    System.err.println(request.getParameter("sobrenome"));
+                    pessoa.setNomePessoa(request.getParameter("nome"));
+                    pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
+                    pessoa.setGenero(request.getParameter("genero"));
+                    pessoa.setDataNascimento(request.getParameter("data-nascimento"));
+                    pessoa.setNacionalidade(request.getParameter("nacionalidade"));
+                    pessoa.setTelefoneDdd(request.getParameter("tele"));
+                    pessoa.setEmail(request.getParameter("email"));
+                                      
+                    documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
+                    documento1.setDocumento(request.getParameter("doc1"));
+                    
+                    // Pegar o restante dos documentos opcionais
+                    documento2.setNomeTipoDoc(request.getParameter("tipo-doc2"));
+                    documento2.setDocumento(request.getParameter("doc2"));
+                    
+                    documento3.setNomeTipoDoc(request.getParameter("tipo-doc3"));
+                    documento3.setDocumento(request.getParameter("doc3"));
+                    
+                    documento4.setNomeTipoDoc(request.getParameter("tipo-doc4"));
+                    documento4.setDocumento(request.getParameter("doc4"));
+                    
+                    documento5.setNomeTipoDoc(request.getParameter("tipo-doc5"));
+                    documento5.setDocumento(request.getParameter("doc5"));
+                    
+                    endereco.setNomePais(request.getParameter("nome-pais"));
+                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
+                    
+                    endereco.setCodigoPostal(request.getParameter("cod-postal"));
+                    endereco.setLogradouro(request.getParameter("nome-logrd"));
+                    endereco.setNumero(request.getParameter("nome-num"));
+                    endereco.setComplemento(request.getParameter("nome-comple"));
+                    endereco.setNomesubdivisao3(request.getParameter("bairro"));
+                    endereco.setNomesubdivisao2(request.getParameter("municipio"));
+                    endereco.setNomesubdivisao1(request.getParameter("estado"));
+                    endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
+
+                    profissionalSaude.setPessoa(pessoa);
+                    profissionalSaude.setDocumento1(documento1);
+                    profissionalSaude.setDocumento2(documento2);
+                    profissionalSaude.setDocumento3(documento3);
+                    profissionalSaude.setDocumento4(documento4);
+                    profissionalSaude.setDocumento5(documento5);
+                    profissionalSaude.setEndereco(endereco);
                     break;
 
                 case "deletar":

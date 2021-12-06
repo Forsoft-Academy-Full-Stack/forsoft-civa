@@ -69,50 +69,86 @@ public class EnderecoDao {
     public static List<Endereco> list() {
         List<Endereco> enderecos = new ArrayList<Endereco>();
 
-        //"SELECT * FROM endereco;
-        Endereco endereco = new Endereco();
-
-        endereco.setCodigoPostal("");
-        endereco.setIdEndereco(1);
-        endereco.setIdPais(1);
-        endereco.setTipoLogradouro("");
-        endereco.setLogradouro("");
-        endereco.setNomesubdivisao1("");
-        endereco.setNomesubdivisao2("");
-        endereco.setNomesubdivisao3("");
-        endereco.setNomesubdivisao4("");
-        endereco.setNomesubdivisao5("");
-        endereco.setNomesubdivisao6("");
-        endereco.setNomesubdivisao7("");
-
-        enderecos.add(endereco);
-
-        Endereco endereco2 = new Endereco();
-
-        endereco2.setCodigoPostal("");
-        endereco2.setIdEndereco(1);
-        endereco2.setIdPais(1);
-        endereco2.setTipoLogradouro("");
-        endereco2.setLogradouro("");
-        endereco2.setNomesubdivisao1("");
-        endereco2.setNomesubdivisao2("");
-        endereco2.setNomesubdivisao3("");
-        endereco2.setNomesubdivisao4("");
-        endereco2.setNomesubdivisao5("");
-        endereco2.setNomesubdivisao6("");
-        endereco2.setNomesubdivisao7("");
-
-        enderecos.add(endereco2);
-
         return enderecos;
     }
 
-    public static boolean update(Endereco enderecoNovo) {
-        boolean resultado = false;
+    public static int getIdEnderecoByIdPessoa(int idPessoa) {
+        Connection connection = ConnectionFactory.getConnection();
+        int idEndereco = -1;
 
-        // Update endereco;
-        if (true) {
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            String sql = "";
+
+            sql = "SELECT en.idendereco\n"
+                    + "FROM endereco AS en\n"
+                    + "LEFT JOIN pessoa_endereco AS pen\n"
+                    + "ON en.idendereco = pen.idendereco\n"
+                    + "LEFT JOIN pessoa AS pe\n"
+                    + "ON pen.idpessoa = pe.idpessoa\n"
+                    + "WHERE pe.idpessoa = ?;";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, idPessoa);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idEndereco = rs.getInt("idendereco");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return idEndereco;
+    }
+
+    public static boolean update(Endereco endereco) {
+        Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "UPDATE endereco\n"
+                    + "SET idpais=?,"
+                    + "tipodelogradouro=?,"
+                    + " logradouro=?,"
+                    + "codigopostal=?,"
+                    + "nomesubdivisao1=?,"
+                    + " nomesubdivisao2=?,"
+                    + " nomesubdivisao3=?,"
+                    + "nomesubdivisao4=?,"
+                    + "nomesubdivisao5=?,"
+                    + "nomesubdivisao6=?,"
+                    + " nomesubdivisao7=?\n"
+                    + "WHERE idendereco=?;";
+
+            ps = connection.prepareStatement(sql);
+         
+            ps.setInt(1, endereco.getIdPais());
+            ps.setString(2, endereco.getTipoLogradouro().trim());
+            ps.setString(3, endereco.getLogradouro().trim());
+            ps.setString(4, endereco.getCodigoPostal().trim());
+            ps.setString(5, endereco.getNomesubdivisao1().trim());
+            ps.setString(6, endereco.getNomesubdivisao2().trim());
+            ps.setString(7, endereco.getNomesubdivisao3().trim());
+            ps.setString(8, endereco.getNomesubdivisao4().trim());
+            ps.setString(9, endereco.getNomesubdivisao5().trim());
+            ps.setString(10, endereco.getNomesubdivisao6().trim());
+            ps.setString(11, endereco.getNomesubdivisao7().trim());
+            ps.setInt(12, endereco.getIdEndereco());
+
+            ps.executeUpdate();
+
             resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;

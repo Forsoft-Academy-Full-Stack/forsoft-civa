@@ -37,9 +37,9 @@ public class DocsDao {
             ps.setInt(2, idTipoDoc);
             ps.setString(3, documento);
             ps.setString(4, dataEmissao);
-            
+
             ps.executeUpdate();
-            
+
             resultado = true;
 
         } catch (SQLException ex) {
@@ -94,12 +94,63 @@ public class DocsDao {
         return listaDocs;
     }
 
-    public static boolean update(Docs docs) {
-        boolean resultado = false;
+    public static int getIdDocs(int idPessoa) {
+        Connection connection = ConnectionFactory.getConnection();
+        int idDocs = -1;
 
-        // Update pais;
-        if (true) {
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            String sql = "";
+
+            sql = "SELECT dc.iddocs \n"
+                    + "FROM docs AS dc \n"
+                    + "LEFT JOIN pessoa AS pe\n"
+                    + "ON dc.idpessoa = pe.idpessoa\n"
+                    + "WHERE pe.idpessoa = ?;";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, idPessoa);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idDocs = rs.getInt("iddocs");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return idDocs;
+    }
+
+    public static Boolean update(Docs documento) {
+        Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "UPDATE docs\n"
+                    + "SET idtipodoc=?,"
+                    + "    documento=?"
+                    + "WHERE iddocs=?;";
+
+            ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, documento.getIdTipoDoc());
+            ps.setString(2, documento.getDocumento());
+            ps.setInt(3, documento.getIdDocs());
+
+            ps.executeUpdate();
+
             resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;

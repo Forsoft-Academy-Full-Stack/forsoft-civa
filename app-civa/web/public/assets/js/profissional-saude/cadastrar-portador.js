@@ -25,7 +25,7 @@ $("#salvar").click(() => {
                 $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
                     console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                     if (status === 'success') {
-                        title = 'Portador cadastrado com sucesso!';
+                        title = 'Portador atualizado com sucesso!';
                         text = "Cadastro realizada.";
                         swalAlertSuccess(title, text, callback);
 

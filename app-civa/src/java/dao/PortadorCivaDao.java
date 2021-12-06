@@ -311,9 +311,7 @@ public class PortadorCivaDao {
 
             // Pessoa Endereco (Vincular)
             // Inserir o idPessoa e IdEndereco na Tabela pessoa_endereco
-            int idPessoaEndereco = PessoaDao.vincularEndereco(idPessoa, idEndereco, endereco.getNumero(), endereco.getComplemento());
-
-            System.err.println(idPessoaEndereco);
+            int idPessoaEndereco = PessoaDao.vincularEndereco(idPessoa, idEndereco, endereco.getNumero(), endereco.getComplemento());    
 
             // Tipodoc
             // Pegar idTipodoc pelo Nometipodoc vindo do formulário
@@ -321,9 +319,7 @@ public class PortadorCivaDao {
 
             // Cadastrar na tabela Docs
             // O idTipoDoc, idPessoa documento e data de emissão
-            Boolean resultDocs = DocsDao.insert(idTipoDoc, idPessoa, documento1.getDocumento(), documento1.getDataEmissao());
-
-            System.err.println("Docs enviado: " + resultDocs);
+            Boolean resultDocs = DocsDao.insert(idTipoDoc, idPessoa, documento1.getDocumento(), documento1.getDataEmissao());     
 
             // Cadastrar na tabela acessoGestão
             // idPessoa, idCadastrante, codigoCiva, cargo, email, senha e data de registro
@@ -331,11 +327,9 @@ public class PortadorCivaDao {
             SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
 
             String codigoCivaPortador = PortadorCivaDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
-            System.err.println(codigoCivaPortador);
-
+           
             resultado = PessoaDao.insertAcessoPc(idPessoa, idCadastrante, codigoCivaPortador, pessoa.getEmail(), formatador.format(data));
-
-            System.err.println("Chegou no dao do portador civa " + portadorCiva.getPessoa().getNomePessoa());
+      
         } catch (Exception e) {
         }
 
@@ -454,7 +448,6 @@ public class PortadorCivaDao {
                 System.err.println("sem vacinacao");
             }
 
-          
             portadorCiva.setListaVacinacao(vacinacoes);
             portadorCiva.setPessoa(pessoa);
             portadorCiva.setEndereco(endereco);
@@ -616,14 +609,27 @@ public class PortadorCivaDao {
         return portadoresciva;
     }
 
-    public static boolean update(PortadorCiva portadorcivaNovo) {
-        boolean resultado = false;
+    public static boolean update(PortadorCiva portadorCiva) {
+        Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+        Pessoa pessoa = portadorCiva.getPessoa();     
+        Docs documento1 = portadorCiva.getDocumento1();
+        Endereco endereco = portadorCiva.getEndereco();
 
-        // Update portadorciva;
-        if (true) {
-            resultado = true;
+        try {
+           // Atualiza os dados da pessoa
+           Boolean pessoaResult = PessoaDao.update(pessoa);
+           
+           // Atualiza os dados do documento
+           Boolean docsResult = DocsDao.update(documento1);
+           
+           // Atualiza os dados endereco
+           Boolean enderecoResult = EnderecoDao.update(endereco);
+           
+           resultado = true;
+           
+        } catch (Exception e) {
         }
-
         return resultado;
     }
 

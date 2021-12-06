@@ -42,13 +42,13 @@ public class suporte extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-           SuporteCiva suporteCiva = new  SuporteCiva();
+            SuporteCiva suporteCiva = new SuporteCiva();
             Pessoa pessoa = new Pessoa();
             Docs documento1 = new Docs();
             Endereco endereco = new Endereco();
 
             String option = request.getParameter("option");
-            
+
             HttpSession session = request.getSession();
 
             switch (option) {
@@ -60,14 +60,14 @@ public class suporte extends HttpServlet {
                     pessoa.setNacionalidade(request.getParameter("nacionalidade"));
                     pessoa.setTelefoneDdd(request.getParameter("tele"));
                     pessoa.setEmail(request.getParameter("email"));
-                   
+
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
 
                     endereco.setNomePais(request.getParameter("nome-pais"));
                     pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
                     pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
-                    
+
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
                     endereco.setNumero(request.getParameter("nome-num"));
@@ -81,7 +81,7 @@ public class suporte extends HttpServlet {
                     suporteCiva.setDocumento1(documento1);
                     suporteCiva.setEndereco(endereco);
 
-                   int idCadastrante = (int) session.getAttribute("idPessoa");
+                    int idCadastrante = (int) session.getAttribute("idPessoa");
 
                     Boolean result = SuporteCivaDao.insert(suporteCiva, idCadastrante);
 
@@ -92,9 +92,34 @@ public class suporte extends HttpServlet {
                     break;
 
                 case "atualizar":
-                    System.err.println("atualizado");
-                    System.err.println(request.getParameter("nome"));
-                    System.err.println(request.getParameter("sobrenome"));
+                    pessoa.setNomePessoa(request.getParameter("nome"));
+                    pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
+                    pessoa.setGenero(request.getParameter("genero"));
+                    pessoa.setDataNascimento(request.getParameter("data-nascimento"));
+                    pessoa.setNacionalidade(request.getParameter("nacionalidade"));
+                    pessoa.setTelefoneDdd(request.getParameter("tele"));
+                    pessoa.setEmail(request.getParameter("email"));
+
+                    documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
+                    documento1.setDocumento(request.getParameter("doc1"));
+
+                    endereco.setNomePais(request.getParameter("nome-pais"));
+                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
+
+                    endereco.setCodigoPostal(request.getParameter("cod-postal"));
+                    endereco.setLogradouro(request.getParameter("nome-logrd"));
+                    endereco.setNumero(request.getParameter("nome-num"));
+                    endereco.setComplemento(request.getParameter("nome-comple"));
+                    endereco.setNomesubdivisao3(request.getParameter("bairro"));
+                    endereco.setNomesubdivisao2(request.getParameter("municipio"));
+                    endereco.setNomesubdivisao1(request.getParameter("estado"));
+                    endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
+
+                    suporteCiva.setPessoa(pessoa);
+                    suporteCiva.setDocumento1(documento1);
+                    suporteCiva.setEndereco(endereco);
+
                     break;
 
                 case "deletar":

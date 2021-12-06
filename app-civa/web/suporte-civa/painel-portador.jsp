@@ -95,6 +95,7 @@
                                         <%@ include file="../partials/enderecos-alteracao.jspf" %>
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-alteracao.jspf" %>
+                                        <input type="hidden" value="atualizar" class="form-control" id="option" name="option">
                                     </div>
 
                                 </form>
@@ -112,48 +113,6 @@
                 </div>
                 <!-- /.container-fluid -->
 
-                <!-- modal -->
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Dados alterados com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">Ã</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
-                <!-- modal erro -->
-                <div class="modal fade" id="modal-default2" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Todos os dados obrigatorios devem ser preenchidos!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">Ã</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.modal-dialog -->
-                </div>
                 <!-- /.modal-dialog -->
             </div>
             <!-- /.content -->
