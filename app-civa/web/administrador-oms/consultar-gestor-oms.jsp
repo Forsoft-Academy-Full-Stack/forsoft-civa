@@ -148,7 +148,7 @@
                                                     <td><c:out value="${gestorOms.documento1.documento}" /></td>
                                                     <td><c:out value="${gestorOms.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${gestorOms.codigoCiva}" /></td>
-                                                    <td><a href="painel-gestor-oms.jsp?codigoCiva=<c:out value="${administradorOms.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Consultar</a></td>
+                                                    <td><a href="painel-gestor-oms.jsp?codigoCiva=<c:out value="${gestorOms.codigoCiva}" />" class="btn btn-block btn-primary btn-sm">Consultar</a></td>
                                                 </tr>
                                             </c:forEach>
                                         </tbody>

@@ -1,20 +1,20 @@
 $('.select2').select2();
 
 let form = $("#form-painel-portador");
-let arrayCampos = ["laboratorio", "vacina", "numerodoses",
-    "lote", "unidade", "date-birth", "identity"];
+let campos = ["laboratorio", "vacina", "numerodoses",
+    "lote", "unidade"];
 let valor;
 
 $("#cadastro").click(function () {
   
-    if (tratar_campos(arrayCampos)) {
+    if (tratar_campos(campos)) {
        
         $.get("", form.serialize(), (data, status) => {
-            console.log("Entrou 2")
+            console.log("Entrou 2");
             if (status === 'success') {
                 title = 'Cadastro realizado com sucesso!';
                 text = "Vacina&ccedil;&atilde;o cadastrada.";
-                swalAlertSuccess(title, text, limparCamposCadastroVacinacao);
+                swalAlertSuccess(title, text, () => {document.location.reload();});
 
             } else {
                 title = 'Erro!';

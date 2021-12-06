@@ -17,7 +17,7 @@
 
 %>
 <%@include file="header.jspf"%>
-<script src="contatar-suporte.jsp" defer></script>
+<script src="../public/assets/js/portador-civa/contatar-suporte.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -70,15 +70,14 @@
                             </div>
                             <div class="form-group">
                                 <label for="problema">Escreva seu problema, d&uacute;vida ou sugest&atilde;o.</label>
-                                <textarea id="compose-textarea" id="problema" name="problema" class="form-control"></textarea>
+                                <textarea id="problema" name="problema" class="form-control"></textarea>
                             </div>
                         </form>
                     </div>
                     <!-- ./card-body -->
                     <div class="card-footer">
                         <div class="float-right">
-                            <button type="button" class="btn btn-primary" form="contato-suporte" data-toggle="modal"
-                                    data-target="#modal-default">Enviar</button>
+                            <button type="button" class="btn btn-primary" form="contato-suporte" id="enviar-suporte">Enviar</button>
                         </div>
 
                     </div>
@@ -87,11 +86,7 @@
 
             <!-- /.content -->
         </div>
-        <!-- /.content-wrapper -->
-
-        <!-- modal start -->
-        <%@include file="modal-mensagem-enviada.jspf" %>
-        <!-- ./modal -->
+        <!-- /.content-wrapper -->       
         <!-- Main Footer -->
         <%@include file="footer.jspf" %>
 

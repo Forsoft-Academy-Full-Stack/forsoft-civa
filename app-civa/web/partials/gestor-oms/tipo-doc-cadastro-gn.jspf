@@ -3,8 +3,8 @@
 
 <div class="row">
     <div class="form-group col-xl-4">
-        <label for="tipo-doc1">Tipo do Documento:</label>
-        <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1" name="tipo-doc1" style="width: 100%;" tabindex="-1" aria-hidden="true">
+        <label for="tipo-doc1-p">Tipo do Documento:</label>
+        <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1-p" name="tipo-doc1-p" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento</option>
             <option value="1" >Passaporte</option>
             <option value="2">Identidade</option>
@@ -12,15 +12,15 @@
         </select>
     </div>
     <div class="form-group col-xl-4">
-        <label for="doc1" style="display:flex;align-items:center;gap:2px;">Nome do Documento</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc1" name="doc1">
+        <label for="doc1-p" style="display:flex;align-items:center;gap:2px;">Nome do Documento</label>
+        <input type="text" class="form-control" placeholder="2346567689" id="doc1-p" name="doc1-p">
     </div>
     <div class="form-group col-xl-4">
-        <label for="form-doc1" style="display:flex;align-items:center;gap:2px;">Formato do Documento
+        <label for="form-doc1-p" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;" disabled="true"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc1" name="form-doc1">
+        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc1-p" name="form-doc1-p">
     </div>
 </div>
 <div class="row optional" style="display:none;">

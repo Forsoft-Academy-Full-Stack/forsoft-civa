@@ -17,6 +17,7 @@
 
 %>
 <%@include file="header.jspf"%>
+<script src="../public/assets/js/portador-civa/redefinir-senha.js"></script>
 </head>
 
 <body class="login-page " cz-shortcut-listen="true"
@@ -30,7 +31,7 @@
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Insira a sua nova senha abaixo.</p>
-                <form action="recover-password.jsp" method="post">
+                <form id="nova-senha" method="post">
                     <div class="input-group mb-3">
                         <input type="password" class="form-control" id="passw" name="passw" placeholder="Digite a senha">
                     </div>
@@ -39,7 +40,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">ENVIAR</button>
+                            <button type="submit" class="btn btn-primary btn-block" id="enviar">ENVIAR</button>
                         </div>
                         <!-- /.col -->
                     </div>

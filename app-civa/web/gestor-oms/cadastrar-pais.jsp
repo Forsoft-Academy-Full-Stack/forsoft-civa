@@ -60,59 +60,62 @@
                 <div class="container-fluid">
                     <!---------------------------------------------------------------->
 
-                    <div class="row mb-3">
-                        <div class="col-xl-12">
-
-                            <div class="card card-primary">
-                                <div class="card-header">
-                                    <h3 class="card-title">Dados Pa&iacute;s</h3>
-                                </div>
-                                <!-- /.card-header -->
-                                <!-- form start -->
-                                <form id="form-meus-dados">
-                                    <div class="card-body">
-
+                    <div class="card card-primary card-outline card-outline-tabs">
+                        <div class="card-header p-0 border-bottom-0">
+                            <ul class="nav nav-tabs" id="custom-tabs-four-tab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="custom-tabs-four-country-tab" data-toggle="pill" href="#custom-tabs-four-country" role="tab" aria-controls="custom-tabs-four-country" aria-selected="true">Dados Pa&iacute;s</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="custom-tabs-four-national-tab" data-toggle="pill" href="#custom-tabs-four-national" role="tab" aria-controls="custom-tabs-four-national" aria-selected="false">Dados Gestor Nacional</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="custom-tabs-four-support-tab" data-toggle="pill" href="#custom-tabs-four-support" role="tab" aria-controls="custom-tabs-four-support" aria-selected="false">Dados Suporte CIVA</a>
+                                </li>                                                    
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content" id="custom-tabs-four-tabContent">
+                                <div class="tab-pane fade show active" id="custom-tabs-four-country" role="tabpanel" aria-labelledby="custom-tabs-four-country-tab">
+                                    <form id="dados-pais">
                                         <%@include file="../partials/dados-pais-cadastro.jspf" %>
-                                        <hr class = "m mt-4">
-                                        <%@include file="../partials/tipo-doc-cadastro.jspf" %>
+                                        <hr class = "mb-4 mt-4">
+                                        <%@include file="../partials/gestor-oms/tipo-doc-cadastro-gn.jspf" %>
                                         <hr class = "mb-4 mt-4">
                                         <%@include file="../partials/dados-pais-divisao-territorial-cadastro.jspf" %>
-                                    </div>
-                                </form>    
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="custom-tabs-four-national" role="tabpanel" aria-labelledby="custom-tabs-four-national-tab">
+                                    <form id="dados-gestor-nacional">
+                                        <%@include file="../partials/gestor-oms/dadospessoais-ps-cadastro-gn.jspf" %>
+                                        <hr class = "mb-4 mt-4">
+                                        <%@ include file="../partials/gestor-oms/enderecos-cadastro-gn.jspf" %>
+                                        <hr class = "mb-4 mt-4">
+                                        <%@ include file="../partials/gestor-oms/contatos-cadastro-gn.jspf" %>
+                                    </form>
+                                </div>
+                                <div class="tab-pane fade" id="custom-tabs-four-support" role="tabpanel" aria-labelledby="custom-tabs-four-support-tab">
+                                    <form id="dados-suporte-civa">
+                                        <%@include file="../partials/dadospessoais-ps-cadastro.jspf" %>
+                                        <hr class = "mb-4 mt-4">
+                                        <%@ include file="../partials/enderecos-cadastro.jspf" %>
+                                        <hr class = "mb-4 mt-4">
+                                        <%@ include file="../partials/contatos-cadastro.jspf" %>
+                                    </form>
+                                </div>                                                    
                             </div>
-                                    <a href="../public/dist/css/adminlte.min.css.map"></a>
                         </div>
-                        <!-- /.row -->
+                        <!-- /.card -->
                     </div>
 
                     <div class="row">
                         <div class="col-12 mb-4">
-                           <button type="button" class="btn btn-primary btn-lg" id="prosseguir">Prosseguir</button>
+                            <button type="button" class="btn btn-primary btn-lg" id="cadastrar">Cadastrar</button>
                         </div>
                     </div>
 
                 </div>
-                <!-- /.container-fluid -->
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">Ã</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = 'cadastrarpais.jsp'">Close</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.content -->
-                </div>
+                <!-- /.container-fluid -->                
             </div>
             <!-- /.content -->
         </div>

@@ -18,7 +18,7 @@
 
 %>
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/gestor-oms/cadastrar-pais.js" defer></script>
+<script src="../public/assets/js/gestor-nacional/gerenciar-pais.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -87,7 +87,7 @@
 
                     <div class="row">
                         <div class="col-12 mb-4">
-                           <button type="button" class="btn btn-primary btn-lg" id="prosseguir">Salvar</button>
+                           <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
                         </div>
                     </div>
 

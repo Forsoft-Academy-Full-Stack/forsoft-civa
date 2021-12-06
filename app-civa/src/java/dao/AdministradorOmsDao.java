@@ -278,12 +278,12 @@ public class AdministradorOmsDao {
         return adiministradoresOms;
     }
 
-    public static String gerarCodigoCiva(String nomePais, int idPessoa) {
+    public static String gerarCodigoCiva(int idPessoa) {
         Connection connection = ConnectionFactory.getConnection();
         String sql = "";
         String atorSigla = "ADM";
         String codigoCiva = "";
-        String sigla = PaisDao.getSiglaByName(nomePais);
+      
 
         sql = "SELECT COUNT(*) + 100000000 + ? AS codigo\n"
                 + "FROM acessogestao AS acg\n"
@@ -306,7 +306,7 @@ public class AdministradorOmsDao {
             Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-        return sigla + codigoCiva + atorSigla;
+        return atorSigla + codigoCiva + "OMS";
 
     }
     
@@ -354,13 +354,14 @@ public class AdministradorOmsDao {
             Date data = new Date();
             SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
 
-            String codigoCivaSuporteCiva = SuporteCivaDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
-            System.err.println(codigoCivaSuporteCiva);
+            String codigoCivaAdministrador = AdministradorOmsDao.gerarCodigoCiva(idPessoa);
+            System.err.println(codigoCivaAdministrador);
 
-            String cargo = "Suporte";
-            resultado = PessoaDao.insertAcessoGestao(idPessoa, idCadastrante, cargo, codigoCivaSuporteCiva, pessoa.getEmail(), formatador.format(data));
+            String cargo = "Administrador";
+            resultado = PessoaDao.insertAcessoGestao(idPessoa, idCadastrante, cargo, codigoCivaAdministrador, pessoa.getEmail(), formatador.format(data));
 
             System.err.println("Chegou no dao do suporte civa " + administradorOms.getPessoa().getNomePessoa());
+            
         } catch (Exception e) {
         }
 

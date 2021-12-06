@@ -18,7 +18,7 @@
 %>
 
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/suporte-civa/cadastrar-gestor-oms" defer></script>
+<script src="../public/assets/js/administrador-oms/cadastrar-gestor-oms.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -37,13 +37,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Cadastrar Gestor OMS</h1>
+                            <h1 class="m-0">Cadastrar Administrador OMS</h1>
                         </div>
                         <!-- /.col -->
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Cadastrar Gestor OMS</li>
+                                <li class="breadcrumb-item active">Cadastrar Administrador OMS</li>
                             </ol>
                         </div>
                     </div>
@@ -60,10 +60,9 @@
                         <div class="col-12 mb-4">
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados Gestor OMS</h3>
+                                    <h3 class="card-title">Dados Administrador OMS</h3>
                                 </div>
                                 <!-- /.card-header -->
-                                <!-- Incio do form -->
                                 <!-- Incio do form -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">

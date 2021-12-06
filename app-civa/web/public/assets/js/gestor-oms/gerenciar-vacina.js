@@ -1,26 +1,25 @@
 $('.select2').select2();
 
-document.getElementById('formulario').onsubmit = tratarCampos
+let campos = ['idvacina', 'dose', 'vacina', 'lab', 'typevacina', 'timevacina', 'timereforco'];
 
-function tratarCampos() {
-    let erro = false;
-    let campos = ['dose', 'vacina', 'lab'];
+let form = $("#form-vacina");
+$("#salvar").click(function () {    
+    if (tratar_campos(campos)) {
+        $.get("", form.serialize(), (data, status) => {
+            if (status === 'success') {
+                title = 'Dados alterados com sucesso!';
+                text = "";
+                swalAlertSuccess(title, text, () => {document.location.reload();});
 
-    for (i = 0; i < campos.length; i++) {
-        if (document.getElementById(campos[i]).value == '') {
-            erro = true;
-        }
-    }
-
-    if (erro) {
-        alert('Todos os campos devem ser preenchidos!');
+            } else {
+                title = 'Erro!';
+                text = 'Algum erro ocorreu e os dados n&atilde;o foram enviados.';
+                swalAlertError(title, text, callback);
+            }
+        });
     } else {
-        // Exibe o modal desejado, baseado no id definido.
-        $('#modal-default').modal('show');
-        console.log('funcionou');
-        event.preventDefault();
-
-    }
-
-    return !erro;
-}
+        title = 'Campos n&atilde;o preenchidos!';
+        text = 'Todos os campos precisam ser preenchidos para poder enviar!';
+        swalAlertError(title, text, callback);
+    }    
+});

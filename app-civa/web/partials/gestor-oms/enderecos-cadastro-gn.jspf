@@ -1,0 +1,67 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="row"> 
+    <div class="form-group col-xl-6">
+        <label for="nome-pais-gn">Pais</label>
+        <input type="text" class="form-control" id="nome-pais-gn" name="nome-pais-gn" placeholder="Brasil">    <!-- Adicionar no JS tratarCampos() -->
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="cod-postal-gn">CEP</label>
+        <input type="text" class="form-control" id="cod-postal-gn" name="cod-postal-gn" placeholder="21970-5050">
+    </div>
+</div>
+
+<div class="row"> 
+    <div class="form-group col-xl-6">
+        <label for="nome-logrd-gn">Endere&ccedil;o</label>
+        <input type="text" class="form-control" id="nome-logrd-gn" name="nome-logrd-gn" placeholder="Rua Olímpia">
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="nome-num-gn">N&uacute;mero</label>
+        <input type="number" class="form-control" id="nome-num-gn" name="nome-num-gn" placeholder="18">    <!-- Adicionar no JS tratarCampos() -->
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="nome-comple-gn">Complemento</label>
+        <input type="text" class="form-control" id="nome-comple-gn" name="nome-comple-gn" placeholder="Apto 404">    <!-- Adicionar no JS tratarCampos() -->
+    </div>
+    
+    <div class="form-group col-xl-6">
+        <label for="bairro-gn">Bairro</label>
+        <select class="form-control select2 select2-hidden-accessible" id="bairro-gn" name="bairro-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option id="local-option" selected="" disabled="">Selecionar Bairro</option> 
+            <option>Niteroi</option>
+            <option>S&atilde;o Gon&ccedil;alo</option>
+            <option>Rio de Janeiro</option>
+            <option>Itaborai</option>
+            <option>Marica</option>
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="municipio-gn">Munic&iacute;pio</label>
+        <select class="form-control select2 select2-hidden-accessible" id="municipio-gn" name="municipio-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option id="opcao-municipio" selected="" disabled="" >Selecionar Munic&iacute;pio</option> 
+            <option>Niter&oacute;i</option>
+            <option>S&atilde;o Gon&ccedil;alo</option>
+            <option>Rio de Janeiro</option>
+            <option>Itaborai</option>
+            <option>Marica</option>
+        </select>
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="estado-gn">Estado</label>
+        <select class="form-control select2 select2-hidden-accessible" id="estado-gn" name="estado-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option id="opcao-estado" selected="" disabled="">Selecionar Estado</option>
+            <option>Rio de Janeiro</option>
+            <option>S&atilde;o Paulo</option>
+            <option>Minas Gerais</option>
+            <option>Rio Grande do Sul</option>
+            <option>Bahia</option>
+        </select>
+    </div>
+</div>

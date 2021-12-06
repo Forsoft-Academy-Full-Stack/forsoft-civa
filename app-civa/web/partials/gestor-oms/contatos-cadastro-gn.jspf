@@ -1,0 +1,12 @@
+<%-- any content can be specified here e.g.: --%>
+<%@ page pageEncoding="UTF-8" %>
+<div class="row">
+    <div class="form-group col-xl-6">
+        <label for="tele-gn">Contato</label>
+        <input type="text" class="form-control" id="tele-gn" name="tele-gn" placeholder="21965138761">
+    </div>
+    <div class="form-group col-xl-6">
+        <label for="email-gn">Email</label>
+        <input type="email" class="form-control" id="email-gn" name="email-gn" placeholder="exemplo@gmail.com">
+    </div>
+</div>

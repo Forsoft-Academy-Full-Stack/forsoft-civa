@@ -72,33 +72,9 @@
                     </div>
                     <!-- /.row -->
                 </div>
-                <!-- /.container-fluid -->
-
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Dados alterados com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">Ã</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = './gerenciarvacina.jsp'">Close</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.content -->
-                </div>
-
+                <!-- /.container-fluid -->               
             </div>
             <!-- /.content-header ---------------------------------------------->
-
-
             <!-- Main content -->
             <div class="content">
                 <div class="container-fluid">
@@ -110,42 +86,41 @@
                         <div class="col-12">
                             <div class="card card-primary">
 
-
                                 <div class="card-header">
                                     <h3 class="card-title">Dados Vacina</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="formulario">
+                                <form id="form-vacina">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="name">ID Vacina</label>
+                                                <label for="idvacina">ID Vacina</label>
                                                 <input type="text" class="form-control" id="idvacina" name="idvacina" value="${vacina.idVacina}">
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="surname">N&uacute;mero de Doses</label>
-                                                <input type="text" class="form-control" id="dose" name="idvacina" value="${vacina.numeroDoses}">
+                                                <label for="dose">N&uacute;mero de Doses</label>
+                                                <input type="text" class="form-control" id="dose" name="dose" value="${vacina.numeroDoses}">
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="date-birth">Vacina</label>
-                                                <input type="text" class="form-control" id="vacina" value="${vacina.nomeVacina}">
+                                                <label for="vacina">Vacina</label>
+                                                <input type="text" class="form-control" id="vacina" name="vacina" value="${vacina.nomeVacina}">
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="postal-code">Laborat&oacute;rio</label>
+                                                <label for="lab">Laborat&oacute;rio</label>
                                                 <input type="text" class="form-control" id="lab" name="lab" value="${vacina.laboratorio}">
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="postal-code">Tipo de Vacina</label>
+                                                <label for="typevacina">Tipo de Vacina</label>
                                                 <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tipoVacina}">
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="postal-code">Tempo entre Doses (em dias)</label>
+                                                <label for="timevacina">Tempo entre Doses (em dias)</label>
                                                 <input type="text" class="form-control" id="timevacina" name="timevacina" value="${vacina.tempoEntreDoses}">
                                             </div>
                                             <div class="form-group col-xl-12">
-                                                <label for="postal-code">Tempo para Refor&ccedil;o (em dias)</label>
-                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tempoReforco}">
+                                                <label for="timereforco">Tempo para Refor&ccedil;o (em dias)</label>
+                                                <input type="text" class="form-control" id="timereforco" name="timereforco" value="${vacina.tempoReforco}">
                                             </div>
                                         </div>
                                     </div>
@@ -155,9 +130,9 @@
                         </div>
                     </div>
 
-                    <div class="col-12 row">
-                        <div class="mb-3 mt-3">
-                            <button type="submit" class="btn btn-primary btn-lg" form="formulario">Salvar</button>
+                    <div class="col-12 row mb-3 mt-3">
+                        <div>
+                            <button type="button" class="btn btn-primary btn-lg" id="salvar">Salvar</button>
                         </div>
                     </div>
 

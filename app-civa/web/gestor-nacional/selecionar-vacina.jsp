@@ -73,8 +73,8 @@
                                     <div class="card-body">
                                         <div class="row"> 
                                             <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlSelect1">Nome</label>
-                                                <select class="form-control select2 select2-hidden-accessible" id="state" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                <label for="nome-vac">Nome</label>
+                                                <select class="form-control select2 select2-hidden-accessible" id="nome-vac" name="nome-vac" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                                     <option selected>Coronavac</option>
                                                     <option>vac</option>
                                                     <option>vac</option>
@@ -83,8 +83,8 @@
                                         </div>
                                         <div class="row"> 
                                             <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlSelect1">Laborat&oacute;rio</label>
-                                                <select class="form-control select2 select2-hidden-accessible" id="state" style="width: 100%;" tabindex="-1" aria-hidden="true">
+                                                <label for="laboratorio">Laborat&oacute;rio</label>
+                                                <select class="form-control select2 select2-hidden-accessible" id="laboratorio" name="laboratorio" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                                     <option selected>Sinovac</option>
                                                     <option>Pfizer</option>
                                                 </select>
@@ -92,26 +92,26 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Tipo de Vacina</label>
-                                                <input type="text" class="form-control" id="tipovac" value="Sars cov2" disabled>
+                                                <label for="tipovac">Tipo de Vacina</label>
+                                                <input type="text" class="form-control" id="tipovac" name="tipovac" value="Sars cov2" disabled>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Quantidade de doses</label>
-                                                <input type="text" class="form-control" id="doses" value="2" disabled>
+                                                <label for="doses">Quantidade de doses</label>
+                                                <input type="text" class="form-control" id="doses" name="doses" value="2" disabled>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Intervalo das doses(dias)</label>
-                                                <input type="text" class="form-control" id="timedoses" value="25" disabled>
+                                                <label for="timedoses">Intervalo das doses(dias)</label>
+                                                <input type="text" class="form-control" id="timedoses" name="timedoses" value="25" disabled>
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Tempo para refor&ccedil;o(dias)</label>
-                                                <input type="text" class="form-control" id="reforco" value="45" disabled>
+                                                <label for="reforco">Tempo para refor&ccedil;o(dias)</label>
+                                                <input type="text" class="form-control" id="reforco" name="reforco" value="45" disabled>
                                             </div>
                                         </div>
                                     </div>
@@ -121,36 +121,13 @@
 
 
                         <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Cadastrar</button>
+                            <button type="button" class="btn btn-primary btn-lg" id="cadastrar" form="form-meus-dados">Cadastrar</button>
                         </div>
 
                         <!-- /.row -->
                     </div>
-
-
                     <!-- /.row -->
-                </div><!-- /.container-fluid -->
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">Ã</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal"
-                                        onclick="location.href = './index.jsp'">Close</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.content -->
-                </div>
+                </div><!-- /.container-fluid -->                
             </div>
             <!-- /.content -->
         </div>
@@ -158,7 +135,6 @@
         <!-- Main Footer -->
         <%@include file="footer.jspf"%>
     </div>
-
     <!-- ./wrapper -->
 
 </body>

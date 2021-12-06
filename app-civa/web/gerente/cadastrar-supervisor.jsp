@@ -18,8 +18,7 @@
   
 %>
 
-<%@include file="header.jspf"%>
-    
+<%@include file="header.jspf"%>    
     <script src="./../public/assets/js/profissional-saude/cadastrar-portador.js" defer></script>
 </head>
 
@@ -70,14 +69,12 @@
                                 <!-- Incio do form -->
                                 <form id="form-meus-dados" method="POST">
                                     <div class="card-body">
-
                                         <%@ include file="../partials/dadospessoais-ps-cadastro.jspf" %>
                                         <hr>
-
                                         <%@ include file="../partials/enderecos-cadastro.jspf" %>
-
                                         <hr>
                                         <%@ include file="../partials/contatos-cadastro.jspf" %>
+                                        <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
                                     </div>
 
                                 </form>

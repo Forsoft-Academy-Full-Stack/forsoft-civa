@@ -20,8 +20,7 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
-<%  
-    try {
+<%    try {
         Integer idPais = Integer.parseInt(request.getParameter("idPais"));
         Pais pais = PaisDao.findByIdPais(idPais);
 
@@ -91,46 +90,29 @@
                                         <hr class = "m mt-4">
                                         <%@include file="../partials/tipo-doc-cadastro-disabled.jspf" %>
                                         <hr class = "mb-4 mt-4">
-                                        <%@include file="../partials/dados-pais-divisao-territorial-pesquisa.jspf" %>
-
+                                        <%@include file="../partials/dados-pais-divisao-territorial-pesquisa.jspf" %>                                                                                
 
                                     </div>
                                 </form>
+
                             </div>
                         </div>
                         <!-- /.row -->
                     </div>
-
-
-                </div>
-                <!-- /.container-fluid -->
-
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Exclus&atilde;o realizada com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">Ã</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = './painelpais.jsp'">Close</button>
-                            </div>
+                    <div class="row">
+                        <div class="col-12 pb-4">
+                            <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                         </div>
-                        <!-- /.modal-content -->
                     </div>
-                    <!-- /.content -->
+
+
                 </div>
+                <!-- /.container-fluid -->                
 
             </div>
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->
-
 
         <!-- Main Footer -->
         <%@include file="footer.jspf" %>

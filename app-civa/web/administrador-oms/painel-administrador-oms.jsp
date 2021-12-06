@@ -53,14 +53,14 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Painel Gestor OMS</h1>
+                            <h1 class="m-0">Painel Administrador OMS</h1>
                         </div>
                         <!-- /.col -->
 
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="" id="go-back">Voltar</a></li>
-                                <li class="breadcrumb-item active">Painel Gestor OMS</li>
+                                <li class="breadcrumb-item active">Painel Administrador OMS</li>
                             </ol>
                         </div>
                     </div>
@@ -81,7 +81,7 @@
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados Gestor OMS</h3>
+                                    <h3 class="card-title">Dados Administrador OMS</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
@@ -109,26 +109,6 @@
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Solicita&ccedil;&atilde;o enviada com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">Ã</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="location.href = 'painelgestoroms.jsp'">Close</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.content -->
-                </div>
             </div>
             <!-- /.content -->
         </div>

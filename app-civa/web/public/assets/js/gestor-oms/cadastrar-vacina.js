@@ -1,26 +1,25 @@
 $('.select2').select2();
 
-function tratarCampos() {
-    let erro = false;
-    let campos = ['name', 'lab', 'tipo-vacina', 'doses', 'intervalo-dose', 'tempo-reforco'];
+let campos = ['nome', 'lab', 'tipo-vacina', 'doses', 'intervalo-dose', 'tempo-reforco'];
 
-    for (i = 0; i < campos.length; i++) {
-        if (document.getElementById(campos[i]).value == '') {
-            erro = true;
-        }
-    }
+let form = $("#form-vacina");
+$("#cadastrar").click(function () {  
+    if (tratar_campos(campos)) {
+        $.get("", form.serialize(), (data, status) => {
+            if (status === 'success') {
+                title = 'Vacina cadastrada com sucesso!';
+                text = "";
+                swalAlertSuccess(title, text, () => {document.location.reload();});
 
-    if (erro) {
-        alert('Todos os campos devem ser preenchidos!');
+            } else {
+                title = 'Erro!';
+                text = 'Algum erro ocorreu e os dados n&atilde;o foram enviados.';
+                swalAlertError(title, text, callback);
+            }
+        });
     } else {
-        // Exibe o modal desejado, baseado no id definido.
-        $('#modal-default').modal('show');
-        console.log('funcionou');
-        event.preventDefault();
-
-    }
-
-    return !erro;
-}
-
-document.getElementById('form-meus-dados').onsubmit = tratarCampos;
+        title = 'Campos n&atilde;o preenchidos!';
+        text = 'Todos os campos precisam ser preenchidos para poder enviar!';
+        swalAlertError(title, text, callback);
+    }    
+});

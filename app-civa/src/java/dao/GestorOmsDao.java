@@ -352,13 +352,13 @@ public class GestorOmsDao {
             Date data = new Date();
             SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
 
-            String codigoCivaSuporteCiva = SuporteCivaDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
-            System.err.println(codigoCivaSuporteCiva);
+            String codigoCivaGestorOms = GestorOmsDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
+            System.err.println(codigoCivaGestorOms);
 
-            String cargo = "Suporte";
-            resultado = PessoaDao.insertAcessoGestao(idPessoa, idCadastrante, cargo, codigoCivaSuporteCiva, pessoa.getEmail(), formatador.format(data));
+            String cargo = "Gestor OMS";
+            resultado = PessoaDao.insertAcessoGestao(idPessoa, idCadastrante, cargo, codigoCivaGestorOms, pessoa.getEmail(), formatador.format(data));
 
-            System.err.println("Chegou no dao do suporte civa " + gestorOms.getPessoa().getNomePessoa());
+            System.err.println("Chegou no dao do gestor oms " + gestorOms.getPessoa().getNomePessoa());
         } catch (Exception e) {
         }
 

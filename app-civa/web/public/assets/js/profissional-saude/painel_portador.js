@@ -1,11 +1,11 @@
 
-let campos = ["nome", "sobrenome", "datanascimento",
-              "documento", "nacionalidade", "codigociva", 
-              "codigopostal", "logradouro", "numerorua", 
-              "complemento", "bairro", "cidade", "estado",
-              "contato", "email"];
+let campos = ["identity", "name", "surname", "genero",
+              "date-birth", "nacionalidade", "tipo-doc", 
+              "doc", "country-name", "postal-code", 
+              "logrd-name", "numero", "comple-name", "bairro",
+              "municipio", "cidade", "telf", "email"];
 
-$('.select2').select2()
+$('.select2').select2();
 
 // Pegando o elemento form da p&aacute;gina
 let form = $("#form-painel-portador");
@@ -21,8 +21,6 @@ $("#salvar").click(function () {
                 swalAlertSuccess(title, text, callback);
 
             } else {
-                $('#exampleModal').modal('hide');
-
                 title = 'Erro!';
                 text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
                 swalAlertError(title, text, callback);
@@ -36,4 +34,4 @@ $("#salvar").click(function () {
 });
 
 
-//pegarPaises('nacionalidade');
+pegarPaises('nacionalidade');

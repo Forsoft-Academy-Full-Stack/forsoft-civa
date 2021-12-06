@@ -29,6 +29,7 @@
 %>
 
 <%@include file="header.jspf"%>
+<script src="../public/assets/js/nova-solicitacao.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

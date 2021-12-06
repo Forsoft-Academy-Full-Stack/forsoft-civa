@@ -71,22 +71,22 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="form-meus-dados">
+                                <form id="form-vacina">
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="form-group col-xl-12">
-                                                <label for="nationality">Nome</label>
+                                                <label for="nome">Nome</label>
                                                 <select class="form-control" id="nome" name="nome">
-                                                    <option selected>Selecionar</option>
+                                                    <option selected disabled>Selecionar</option>
                                                     <option>Coronavac</option>
                                                     <option>Pfizer</option>
                                                     <option>Astrazeneca</option>
                                                 </select>
                                             </div>
                                             <div class="form-group col-xl-12">
-                                                <label for="nationality">Laborat&oacute;rio</label>
+                                                <label for="lab">Laborat&oacute;rio</label>
                                                 <select class="form-control" id="lab" name="lab">
-                                                    <option selected>Selecionar</option>
+                                                    <option selected disabled>Selecionar</option>
                                                     <option>sinovac</option>
                                                     <option>----</option>
                                                     <option>----</option>
@@ -95,17 +95,17 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-xl-12">
-                                                <label for="exampleFormControlInput1">Tipo de Vacina</label>
+                                                <label for="tipo-vacina">Tipo de Vacina</label>
                                                 <input type="text" class="form-control" id="tipo-vacina" name="tipo-vacina">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-12">
-                                                <label for="exampleFormControlSelect1">Quantidade de doses</label>
+                                                <label for="doses">Quantidade de doses</label>
                                                 <select class="select2 select2-hidden-accessible" id="doses" name="doses" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                                                    <option selected>Selecionar</option>
-                                                    <option value="2">1 Dose</option>
-                                                    <option value="3">2 Dose</option>
+                                                    <option selected disabled>Selecionar</option>
+                                                    <option value="1">1 Dose</option>
+                                                    <option value="2">2 Dose</option>
                                                     <option value="3">3 Dose</option>
                                                 </select>
                                             </div>
@@ -114,12 +114,12 @@
 
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Intervalo das doses (em dias)</label>
+                                                <label for="intervalo-dose">Intervalo das doses (em dias)</label>
                                                 <input type="text" class="form-control" id="intervalo-dose" name="intervalo-dose">
                                             </div>
 
                                             <div class="form-group col-xl-6">
-                                                <label for="exampleFormControlInput1">Tempo para refor&ccedil;o (em dias)</label>
+                                                <label for="tempo-reforco">Tempo para refor&ccedil;o (em dias)</label>
                                                 <input type="text" class="form-control" id="tempo-reforco" name="tempo-reforco">
                                             </div>
 
@@ -131,36 +131,14 @@
 
 
                         <div class="col-12 mb-4">
-                            <button type="submit" class="btn btn-primary btn-lg" form="form-meus-dados">Cadastrar</button>
+                            <button type="button" class="btn btn-primary btn-lg" id="cadastrar">Cadastrar</button>
                         </div>
 
                         <!-- /.row -->
                     </div>
-
-
                     <!-- /.row -->
                 </div>
-                <!-- /.container-fluid -->
-                <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h4 class="modal-title">Cadastro realizado com sucesso!</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">Ã</span>
-                                </button>
-                            </div>
-                            <div class="modal-body">
-                                <p></p>
-                            </div>
-                            <div class="modal-footer justify-content-between">
-                                <button type="button" class="btn btn-default" data-dismiss="modal" form="form-meus-dados" onclick="location.href = 'o3cadastrarvacina.jsp'">Close</button>
-                            </div>
-                        </div>
-                        <!-- /.modal-content -->
-                    </div>
-                    <!-- /.content -->
-                </div>
+                <!-- /.container-fluid -->                
             </div>
             <!-- /.content -->
         </div>
@@ -170,7 +148,6 @@
         <%@include file="footer.jspf" %>
     </div>
     <!-- ./wrapper -->
-
 
 </body>
 </html>

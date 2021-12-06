@@ -1,12 +1,7 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package controller;
 
 import dao.AdministradorOmsDao;
 import dao.PaisDao;
-import dao.SuporteCivaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -19,12 +14,7 @@ import model.AdministradorOms;
 import model.Docs;
 import model.Endereco;
 import model.Pessoa;
-import model.SuporteCiva;
 
-/**
- *
- * @author ANAPAULA
- */
 @WebServlet(name = "administradorOms", urlPatterns = {"/administradorOms"})
 public class administradorOms extends HttpServlet {
 
@@ -81,7 +71,7 @@ public class administradorOms extends HttpServlet {
                     administradorOms.setDocumento1(documento1);
                     administradorOms.setEndereco(endereco);
 
-                   int idCadastrante = (int) session.getAttribute("idPessoa");
+                    int idCadastrante = (int) session.getAttribute("idPessoa");
 
                     Boolean result = AdministradorOmsDao.insert(administradorOms, idCadastrante);
 
