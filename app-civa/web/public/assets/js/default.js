@@ -81,7 +81,7 @@ function swalAlertDelete(title, text, callback) {
         html: text
     }).then((result) => {
         if (result.isConfirmed) {
-          callback();
+            callback();
         }
     });
 }
@@ -116,5 +116,12 @@ function setAbaAtiva() {
             // adiciona a classe "menu-open" no elemento pai de toda a estrutura daquele ator (a cada .parentElement, suba uma hierarquia), fazendo as outras opções serem exibidas
             ((abas[i].parentElement).parentElement).parentElement.classList.add('menu-open');
         }
+
+    }
+
+    if (pageURL.endsWith('portador-civa/')) {
+        abas[1].classList.add('active');
+    } else if (pageURL.endsWith('/')) {
+        abas[2].classList.add('active');
     }
 }
