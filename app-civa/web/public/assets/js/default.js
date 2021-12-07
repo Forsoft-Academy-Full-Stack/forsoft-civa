@@ -8,23 +8,24 @@ let confirmButtonText;
 let confirmButtonCollor;
 let statusInfo;
 let textInfo;
-let callback = () => { };
+let callback = () => {
+};
 
 
 tratar_campos = (campos) => {
     let erro = false;
-  
+
     for (i = 0; i < campos.length; i++) {
         if (document.getElementById(campos[i]).value === '') {
             erro = true;
-         
+
         }
     }
     return !erro;
 
 }
 
-function swalAlert(icon, title, text, confirmButtonText, confirmButtonCollor, callback){
+function swalAlert(icon, title, text, confirmButtonText, confirmButtonCollor, callback) {
     Swal.fire({
         icon: icon,
         title: title,
@@ -35,7 +36,7 @@ function swalAlert(icon, title, text, confirmButtonText, confirmButtonCollor, ca
     }).then(callback);
 }
 
-function swalAlertSuccess(title, text, callback){
+function swalAlertSuccess(title, text, callback) {
     Swal.fire({
         icon: 'success',
         title: title,
@@ -46,7 +47,7 @@ function swalAlertSuccess(title, text, callback){
     }).then(callback);
 }
 
-function swalAlertInfo(title, text, callback){
+function swalAlertInfo(title, text, callback) {
     Swal.fire({
         icon: 'info',
         title: title,
@@ -57,7 +58,7 @@ function swalAlertInfo(title, text, callback){
     }).then(callback);
 }
 
-function swalAlertError(title, text, callback){
+function swalAlertError(title, text, callback) {
     Swal.fire({
         icon: 'error',
         title: title,
@@ -68,7 +69,7 @@ function swalAlertError(title, text, callback){
     }).then(callback);
 }
 
-function swalAlertDelete(title, text, statusInfo, textInfo){
+function swalAlertDelete(title, text, callback) {
     Swal.fire({
         title: title,
         text: text,
@@ -78,15 +79,11 @@ function swalAlertDelete(title, text, statusInfo, textInfo){
         cancelButtonColor: '#d33',
         confirmButtonText: 'Deletar',
         html: text
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            statusInfo,
-            textInfo,
-            'success'
-          )
+          callback();
         }
-      })
+    });
 }
 
 
@@ -100,22 +97,22 @@ const Toast = Swal.mixin({
         toast.addEventListener('mouseenter', Swal.stopTimer)
         toast.addEventListener('mouseleave', Swal.resumeTimer)
     }
-})
+});
 
 setAbaAtiva();
 
 function setAbaAtiva() {
     let pageURL = window.location.href;
     let abas = document.getElementsByClassName('nav-link');
-      
-   
-    for (i=0;i<abas.length;i++) {
-      
+
+
+    for (i = 0; i < abas.length; i++) {
+
         // Confere se a url da página possui o texto presente na linkagem do elemento
         if (pageURL.includes(abas[i].href)) {
             // adiciona a classe "active", alterando a cor de fundo do elemento
             abas[i].classList.add('active');
-            
+
             // adiciona a classe "menu-open" no elemento pai de toda a estrutura daquele ator (a cada .parentElement, suba uma hierarquia), fazendo as outras opções serem exibidas
             ((abas[i].parentElement).parentElement).parentElement.classList.add('menu-open');
         }

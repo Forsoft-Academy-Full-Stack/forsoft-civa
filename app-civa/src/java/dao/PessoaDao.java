@@ -95,8 +95,8 @@ public class PessoaDao {
             String sql = "";
 
             sql = "INSERT INTO acessogestao\n"
-                    + "(idpessoa, idcadastrante, codigocivagestao, cargo, emailgestao, senhagestao, dataregistrogestao)\n"
-                    + "VALUES(?, ?, ?, ?, ?, ?, ?);";
+                    + "(idpessoa, idcadastrante, codigocivagestao, cargo, emailgestao, senhagestao, dataregistrogestao, statusgestao)\n"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 
             ps = connection.prepareStatement(sql);
 
@@ -107,6 +107,7 @@ public class PessoaDao {
             ps.setString(5, email);
             ps.setString(6, "12345");
             ps.setString(7, dataRegistro);
+            ps.setInt(8, 1);
 
             ps.executeUpdate();
 
@@ -130,8 +131,8 @@ public class PessoaDao {
             String sql = "";
 
             sql = "INSERT INTO acessopc\n"
-                    + "(idpessoa, idcadastrante, codigocivapc, emailpc, senhapc, dataregistropc)\n"
-                    + "VALUES(?, ?, ?, ?, ?, ?);";
+                    + "(idpessoa, idcadastrante, codigocivapc, emailpc, senhapc, dataregistropc, statuspc)\n"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?);";
 
             ps = connection.prepareStatement(sql);
 
@@ -141,10 +142,12 @@ public class PessoaDao {
             ps.setString(4, email);
             ps.setString(5, "12345");
             ps.setString(6, dataRegistro);
+            ps.setInt(7, 1);
 
             ps.executeUpdate();
-
+          
             resultado = true;
+              System.err.println("Finalidou: " + true);
         } catch (SQLException ex) {
             Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -208,7 +211,6 @@ public class PessoaDao {
 
             ps = connection.prepareStatement(sql);
 
-            
             ps.setInt(1, pessoa.getIdNacionalidade());
             ps.setString(2, pessoa.getNomePessoa());
             ps.setString(3, pessoa.getSobrenomePessoa());
@@ -218,7 +220,7 @@ public class PessoaDao {
             ps.setString(7, pessoa.getTelefoneDdd());
             ps.setInt(8, pessoa.getIdPessoa());
 
-            ps.executeUpdate();            
+            ps.executeUpdate();
 
             resultado = true;
 
@@ -323,9 +325,9 @@ public class PessoaDao {
         return idAcessoPc;
     }
 
-    public static Boolean updateAcessoGestao(String email, int idAcessocGestao) {
+    public static boolean updateAcessoGestao(String email, int idAcessocGestao) {
         Connection connection = ConnectionFactory.getConnection();
-        Boolean resultado = false;
+        boolean resultado = false;
 
         try {
             Statement stmt = connection.createStatement();
@@ -379,6 +381,59 @@ public class PessoaDao {
         }
 
         return idAcessoPc;
+    }
+
+    public static boolean desativarAcessoPc(int idAcessoPc) {
+        Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "UPDATE acessopc\n"
+                    + "SET statuspc=?\n"
+                    + "WHERE idacessopc=?;";
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, 0);
+            ps.setInt(2, idAcessoPc);
+            ps.executeUpdate();
+
+            resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return resultado;
+    }
+
+    public static boolean desativarAcessoGestao(int idAcessocGestao) {
+        Connection connection = ConnectionFactory.getConnection();
+        boolean resultado = false;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "UPDATE acessogestao\n"
+                    + "SET statusgestao=?\n"
+                    + "WHERE idacessogestao=?;";
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, 0);
+            ps.setInt(2, idAcessocGestao);
+            ps.executeUpdate();
+
+            resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return resultado;
+
     }
 
 }

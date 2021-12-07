@@ -56,7 +56,7 @@ public class PortadorCivaDao {
                 + "    ON peen.idendereco = en.idendereco \n"
                 + "    LEFT JOIN pais pa \n"
                 + "    ON en.idpais = pa.idpais  \n"
-                + "   	WHERE ag.codigocivagestao = ? ),'%') LIMIT 20;";
+                + "   	WHERE ag.codigocivagestao = ? ),'%') AND apc.statuspc = true order by apc.codigocivapc desc limit 20;";
 
         try {
             portadoresCiva = new ArrayList<>();
@@ -118,7 +118,7 @@ public class PortadorCivaDao {
                 + "SELECT peag.idpaisdenascimento FROM pessoa peag\n"
                 + "LEFT JOIN acessogestao ag\n"
                 + "ON peag.idpessoa = ag.idpessoa\n"
-                + "WHERE  ag.codigocivagestao = ? AND tidoc.nivel ='Primário') LIMIT 20;";
+                + "WHERE  ag.codigocivagestao = ? AND tidoc.nivel ='Primário') AND ag.statuspc = true LIMIT 20;";
 
         try {
             portadoresCiva = new ArrayList<>();
@@ -178,7 +178,7 @@ public class PortadorCivaDao {
                 + "LEFT JOIN acessopc AS acp\n"
                 + "ON p.idpessoa = acp.idpessoa\n"
                 + "LEFT JOIN docs AS dc\n"
-                + "on p.idpessoa = dc.idpessoa;\n";
+                + "on p.idpessoa = dc.idpessoa AND apc.statuspc = true;\n";
 
         try {
             Statement stmt = connection.createStatement();
@@ -247,7 +247,7 @@ public class PortadorCivaDao {
                 + "ON peen.idendereco = en.idendereco \n"
                 + "LEFT JOIN pais pa \n"
                 + "ON en.idpais = pa.idpais  \n"
-                + "WHERE ag.codigocivagestao = ? ),'%') AND pepc.nomepessoa LIKE ?  LIMIT 20;";
+                + "WHERE ag.codigocivagestao = ? ),'%') AND pepc.nomepessoa LIKE ? AND apc.statuspc = true LIMIT 20;";
 
         try {
             portadoresCiva = new ArrayList<>();
@@ -376,7 +376,7 @@ public class PortadorCivaDao {
                     + "    ON pepc.idpessoa = peen.idpessoa\n"
                     + "    LEFT JOIN endereco en\n"
                     + "    ON peen.idendereco = en.idendereco\n"
-                    + "    WHERE apc.codigocivapc = ?;";
+                    + "    WHERE apc.codigocivapc = ? AND apc.statuspc = true;";
 
             sql2 = "SELECT doc.documento, \n"
                     + "	   tidoc.nomedoc AS tipodocumento\n"
@@ -387,7 +387,7 @@ public class PortadorCivaDao {
                     + "ON pepc.idpessoa = doc.idpessoa\n"
                     + "LEFT JOIN tipodoc tidoc\n"
                     + "ON doc.idtipodoc = tidoc.idtipodoc\n"
-                    + "WHERE apc.codigocivapc = ?;";
+                    + "WHERE apc.codigocivapc = ? AND apc.statuspc = true;";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaPortadorCiva);
@@ -501,7 +501,7 @@ public class PortadorCivaDao {
                     + "    ON pepc.idpessoa = peen.idpessoa\n"
                     + "    LEFT JOIN endereco en\n"
                     + "    ON peen.idendereco = en.idendereco\n"
-                    + "    WHERE apc.codigocivapc = ?;";
+                    + "    WHERE apc.codigocivapc = ? AND apc.statuspc = true;";
 
             sql2 = "SELECT doc.documento, \n"
                     + "	   tidoc.nomedoc AS tipodocumento\n"
@@ -512,7 +512,7 @@ public class PortadorCivaDao {
                     + "ON pepc.idpessoa = doc.idpessoa\n"
                     + "LEFT JOIN tipodoc tidoc\n"
                     + "ON doc.idtipodoc = tidoc.idtipodoc\n"
-                    + "WHERE apc.codigocivapc = ?;";
+                    + "WHERE apc.codigocivapc = ? AND apc.statuspc = true;";
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaPortadorCiva);
@@ -643,12 +643,10 @@ public class PortadorCivaDao {
 
     public static boolean delete(PortadorCiva portadorciva) {
         boolean resultado = false;
-
-        // Delete portadorciva
-        if (true) {
-            resultado = true;
-        }
-
+        Pessoa pessoa = portadorciva.getPessoa();
+        
+        resultado = PessoaDao.desativarAcessoPc(pessoa.getIdPessoa());
+        
         return resultado;
     }
 
