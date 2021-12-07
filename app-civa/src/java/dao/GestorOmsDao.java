@@ -22,8 +22,8 @@ import model.Pessoa;
  * @author Kerolen | Ludwig
  */
 public class GestorOmsDao {
-      
-     public static GestorOms findAdministrador(String codigoCivaAdministradorOms) {
+
+    public static GestorOms findAdministrador(String codigoCivaAdministradorOms) {
         Connection connection = ConnectionFactory.getConnection();
         GestorOms gestoroms = null;
         Pessoa pessoa = null;
@@ -276,7 +276,7 @@ public class GestorOmsDao {
         return gestoresOms;
     }
 
-   public static String gerarCodigoCiva(String nomePais, int idPessoa) {
+    public static String gerarCodigoCiva(String nomePais, int idPessoa) {
         Connection connection = ConnectionFactory.getConnection();
         String sql = "";
         String atorSigla = "GM";
@@ -295,20 +295,20 @@ public class GestorOmsDao {
             ps = connection.prepareStatement(sql);
             ps.setInt(1, idPessoa);
             rs = ps.executeQuery();
-            
-            if(rs.next()){
-                codigoCiva = String.valueOf(rs.getInt("codigo"));                
+
+            if (rs.next()) {
+                codigoCiva = String.valueOf(rs.getInt("codigo"));
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        return "OMS"+ codigoCiva + atorSigla;
+
+        return "OMS" + codigoCiva + atorSigla;
 
     }
-   
-   public static boolean insert(GestorOms gestorOms, int idCadastrante) {
+
+    public static boolean insert(GestorOms gestorOms, int idCadastrante) {
         boolean resultado = false;
 
         Pessoa pessoa = gestorOms.getPessoa();
@@ -365,26 +365,29 @@ public class GestorOmsDao {
         return resultado;
     }
 
-    
     public static boolean update(GestorOms gestoromsNovo) {
-         Connection connection = ConnectionFactory.getConnection();
+        Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
-        Pessoa pessoa = gestoromsNovo.getPessoa();     
+        Pessoa pessoa = gestoromsNovo.getPessoa();
         Docs documento1 = gestoromsNovo.getDocumento1();
         Endereco endereco = gestoromsNovo.getEndereco();
 
         try {
-           // Atualiza os dados da pessoa
-           Boolean pessoaResult = PessoaDao.update(pessoa);
-           
-           // Atualiza os dados do documento
-           Boolean docsResult = DocsDao.update(documento1);
-           
-           // Atualiza os dados endereco
-           Boolean enderecoResult = EnderecoDao.update(endereco);
-           
-           resultado = true;
-           
+            // Atualiza os dados da pessoa
+            Boolean pessoaResult = PessoaDao.update(pessoa);
+
+            // Atualiza os dados do documento
+            Boolean docsResult = DocsDao.update(documento1);
+
+            // Atualiza os dados endereco
+            Boolean enderecoResult = EnderecoDao.update(endereco);
+
+            int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());
+
+            Boolean pessoaEndereco = EnderecoDao.updatePessoaEndereco(idPessoaEndereco, endereco.getNumero(), endereco.getComplemento());
+
+            resultado = true;
+
         } catch (Exception e) {
         }
         return resultado;

@@ -1,39 +1,25 @@
 $('.select2').select2();
 
-function tratarCampos() {
-    let erro = false;
-    let campos = ['identity', 'name', 'surname', 'genero', 'date-birth', 'nacionalidade', 'tipo-doc-1', 'doc-1', 'tipo-doc-2', 'doc-2', 'tipo-doc-3', 'doc-3', 'country-name', 'postal-code', 'logrd-name', 'numero', 'comple-name', 'bairro', 'municipio', 'cidade', 'telf', 'email'];
+let campos = ["nome", "sobrenome",
+    "genero", "data-nascimento",
+    "nacionalidade", "tipo-doc1", "doc1",
+    "nome-pais", "cod-postal", "nome-logrd",
+    "nome-num", "nome-comple", "bairro",
+    "municipio", "estado", "tele", "email"];
 
-    for (i = 0; i < campos.length; i++) {
-        if (document.getElementById(campos[i]).value == '') {
-            erro = true;
-        }
-    }
 
-    if (erro) {
-        alert('Todos os campos devem ser preenchidos!');
-    } else {
-        // Exibe o modal desejado, baseado no id definido.
-        $('#modal-default').modal('show');
-        console.log('funcionou');
-        event.preventDefault();
+let form = $("#form-meus-dados");
 
-    }
-
-    return !erro;
-}
-
-document.getElementById('form-unidade-vinculada').onsubmit = tratarCampos;
 
 $("#salvar").click(function () {
-  
+
     if (tratar_campos(campos)) {
-            $.post("/app-civa/profissionalSaude", form.serialize(), (data, status, jqXHR) => {
+        $.post("/app-civa/profissionalSaude", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Profissional da Saude atualizado com sucesso!';
                 text = "Cadastro atualizado.";
-                swalAlertSuccess(title, text, callback);
+                swalAlertSuccess(title, text, () => {location.reload()});
 
             }
         }).fail(function (jqxhr, settings, ex) {

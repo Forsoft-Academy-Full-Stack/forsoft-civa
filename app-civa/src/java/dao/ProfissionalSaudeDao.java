@@ -40,6 +40,7 @@ public class ProfissionalSaudeDao {
         sql = "SELECT peag.idpessoa,"
                 + "   ag.codigocivagestao,"
                 + "   peag.nomepessoa,"
+                + "   peag.ddidocontato,"
                 + "   peag.sobrenomepessoa,"
                 + "   peag.genero, \n"
                 + "   peag.datadenascimento,"
@@ -98,6 +99,7 @@ public class ProfissionalSaudeDao {
                 pessoa.setTelefoneDdd(rs.getString("telefonecomddd"));
                 pessoa.setEmail(rs.getString("emailgestao"));
                 pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
+                pessoa.setDdiContato(rs.getString("ddidocontato"));
 
                 // Pegar nacionalidade
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());
@@ -107,7 +109,7 @@ public class ProfissionalSaudeDao {
                 endereco.setNomePais(rs.getString("nomedopais"));
                 endereco.setCodigoPostal(rs.getString("codigopostal"));
                 endereco.setTipoLogradouro(rs.getString("tipodelogradouro"));
-                endereco.setLogradouro(endereco.getTipoLogradouro() + " " + rs.getString("logradouro"));
+                endereco.setLogradouro(endereco.getTipoLogradouro() + "" + rs.getString("logradouro"));
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
                 endereco.setNomesubdivisao1(rs.getString("subdivisao1"));
@@ -138,14 +140,14 @@ public class ProfissionalSaudeDao {
                 documento3.setNomeTipoDoc(rs.getString("nomedoc"));
                 documento3.setDocumento(rs.getString("documento"));
             }
-            
+
             if (rs.next()) {
                 documento4 = new Docs();
                 documento4.setNomeTipoDoc(rs.getString("nomedoc"));
                 documento4.setDocumento(rs.getString("documento"));
             }
-            
-              if (rs.next()) {
+
+            if (rs.next()) {
                 documento5 = new Docs();
                 documento5.setNomeTipoDoc(rs.getString("nomedoc"));
                 documento5.setDocumento(rs.getString("documento"));
@@ -435,12 +437,12 @@ public class ProfissionalSaudeDao {
             int idPessoaEndereco = PessoaDao.vincularEndereco(idPessoa, idEndereco, endereco.getNumero(), endereco.getComplemento());
 
             System.err.println(idPessoaEndereco);
-             System.err.println("Doc2" + documento2.getNomeTipoDoc());
+            System.err.println("Doc2" + documento2.getNomeTipoDoc());
 
             // Tipodoc
             // Pegar idTipodoc pelo Nometipodoc vindo do formulário
             int idTipoDoc = DocsDao.findIdTipodoc(documento1.getNomeTipoDoc());
-            
+
             if (idTipoDoc != -1) {
                 // Cadastrar na tabela Docs
                 // O idTipoDoc, idPessoa documento e data de emissão
@@ -448,9 +450,9 @@ public class ProfissionalSaudeDao {
 
                 System.err.println("Docs enviado 1: " + resultDocs);
             }
-            
-             System.err.println(documento2.getNomeTipoDoc());
-            
+
+            System.err.println(documento2.getNomeTipoDoc());
+
             int idTipoDoc2 = DocsDao.findIdTipodoc(documento2.getNomeTipoDoc());
             if (idTipoDoc2 != -1) {
                 // Cadastrar na tabela Docs
@@ -459,7 +461,7 @@ public class ProfissionalSaudeDao {
 
                 System.err.println("Docs enviado 2: " + resultDocs);
             }
-            
+
             int idTipoDoc3 = DocsDao.findIdTipodoc(documento3.getNomeTipoDoc());
             if (idTipoDoc3 != -1) {
                 // Cadastrar na tabela Docs
@@ -468,7 +470,7 @@ public class ProfissionalSaudeDao {
 
                 System.err.println("Docs enviado 3: " + resultDocs);
             }
-            
+
             int idTipoDoc4 = DocsDao.findIdTipodoc(documento4.getNomeTipoDoc());
             if (idTipoDoc4 != -1) {
                 // Cadastrar na tabela Docs
@@ -477,7 +479,7 @@ public class ProfissionalSaudeDao {
 
                 System.err.println("Docs enviado 4: " + resultDocs);
             }
-            
+
             int idTipoDoc5 = DocsDao.findIdTipodoc(documento5.getNomeTipoDoc());
             if (idTipoDoc5 != -1) {
                 // Cadastrar na tabela Docs
@@ -514,26 +516,49 @@ public class ProfissionalSaudeDao {
         return profissionaisSaude;
     }
 
-    public static boolean update(ProfissionalSaude profissionalsaudeNovo) {
-       
-         Connection connection = ConnectionFactory.getConnection();
+    public static boolean update(ProfissionalSaude profissionalSaude) {
+        Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
-        Pessoa pessoa = profissionalsaudeNovo.getPessoa();     
-        Docs documento1 = profissionalsaudeNovo.getDocumento1();
-        Endereco endereco = profissionalsaudeNovo.getEndereco();
+        Pessoa pessoa = profissionalSaude.getPessoa();
+
+        Docs documento1 = profissionalSaude.getDocumento1();
+        Docs documento2 = profissionalSaude.getDocumento2();
+        Docs documento3 = profissionalSaude.getDocumento3();
+        Docs documento4 = profissionalSaude.getDocumento4();
+        Docs documento5 = profissionalSaude.getDocumento5();
+        Endereco endereco = profissionalSaude.getEndereco();
 
         try {
-           // Atualiza os dados da pessoa
-           Boolean pessoaResult = PessoaDao.update(pessoa);
+            // Atualiza os dados da pessoa
+            Boolean pessoaResult = PessoaDao.update(pessoa);
+            PessoaDao.updateAcessoGestao(pessoa.getEmail(), PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa()));
+
+            try {
+                // Atualiza os dados do documento
+                boolean docsResult = DocsDao.update(documento1);
+
+                // Atualiza os dados do documento
+                docsResult = DocsDao.update(documento2);
+                // Atualiza os dados do documento
+                docsResult = DocsDao.update(documento3);
+                // Atualiza os dados do documento
+                docsResult = DocsDao.update(documento4);
+                // Atualiza os dados do documento
+                docsResult = DocsDao.update(documento5);
+
+            } catch (Exception e) {
+                System.err.println("Nao cadastrou os docs");
+            }
            
-           // Atualiza os dados do documento
-           Boolean docsResult = DocsDao.update(documento1);
-           
-           // Atualiza os dados endereco
-           Boolean enderecoResult = EnderecoDao.update(endereco);
-           
-           resultado = true;
-           
+            // Atualiza os dados endereco
+            boolean enderecoResult = EnderecoDao.update(endereco);          
+
+            int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());      
+
+            boolean pessoaEndereco = EnderecoDao.updatePessoaEndereco(idPessoaEndereco, endereco.getNumero(), endereco.getComplemento());
+        
+            resultado = true;
+
         } catch (Exception e) {
         }
         return resultado;

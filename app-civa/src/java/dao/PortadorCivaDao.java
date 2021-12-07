@@ -619,7 +619,8 @@ public class PortadorCivaDao {
         try {
             // Atualiza os dados da pessoa
             Boolean pessoaResult = PessoaDao.update(pessoa);
-            System.err.println("Resultado pessoa: " + pessoaResult);
+            PessoaDao.updateAcessoPc(pessoa.getEmail(), PessoaDao.getIdAcessoPc(pessoa.getIdPessoa()));
+            
             // Atualiza os dados do documento
             Boolean docsResult = DocsDao.update(documento1);
             System.err.println("Resultado docs: " + docsResult);

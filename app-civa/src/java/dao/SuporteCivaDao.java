@@ -237,8 +237,8 @@ public class SuporteCivaDao {
 
         return sigla + codigoCiva + atorSigla;
     }
-        
-     public static boolean insert(SuporteCiva suporteCiva, int idCadastrante) {
+
+    public static boolean insert(SuporteCiva suporteCiva, int idCadastrante) {
         boolean resultado = false;
 
         Pessoa pessoa = suporteCiva.getPessoa();
@@ -296,24 +296,28 @@ public class SuporteCivaDao {
     }
 
     public static boolean update(SuporteCiva suporteCiva) {
-         Connection connection = ConnectionFactory.getConnection();
+        Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
-        Pessoa pessoa = suporteCiva.getPessoa();     
+        Pessoa pessoa = suporteCiva.getPessoa();
         Docs documento1 = suporteCiva.getDocumento1();
         Endereco endereco = suporteCiva.getEndereco();
 
         try {
-           // Atualiza os dados da pessoa
-           Boolean pessoaResult = PessoaDao.update(pessoa);
-           
-           // Atualiza os dados do documento
-           Boolean docsResult = DocsDao.update(documento1);
-           
-           // Atualiza os dados endereco
-           Boolean enderecoResult = EnderecoDao.update(endereco);
-           
-           resultado = true;
-           
+            // Atualiza os dados da pessoa
+            Boolean pessoaResult = PessoaDao.update(pessoa);
+
+            // Atualiza os dados do documento
+            Boolean docsResult = DocsDao.update(documento1);
+
+            // Atualiza os dados endereco
+            Boolean enderecoResult = EnderecoDao.update(endereco);
+
+            int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());
+
+            Boolean pessoaEndereco = EnderecoDao.updatePessoaEndereco(idPessoaEndereco, endereco.getNumero(), endereco.getComplemento());
+
+            resultado = true;
+
         } catch (Exception e) {
         }
         return resultado;

@@ -101,38 +101,64 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form id="form-unidade-vinculada">
+                                <form id="form-meus-dados">
                                     <div class="card-body">
                                         <%@include file="../partials/codigociva.jspf" %>
                                         <hr>
-                                        <%@ include file="../partials/dadospessoais-ps-disabled.jspf" %>
+                                        <%@ include file="../partials/dadospessoais-alteracao.jspf" %>                                      
+
+                                        <div class="row">
+                                            <div class="form-group col-xl-6">
+                                                <label for="tipo-doc-2">Tipo de Documento 2</label>
+                                                <input type="text" id="tipo-doc-2" name="tipo-doc-2" class="form-control" placeholder="Ex: Passaporte" value="${ator.documento2.nomeTipoDoc}" >
+
+                                            </div>
+                                            <div class="form-group col-xl-6">
+                                                <label for="doc-2">Documenta&ccedil;&atilde;o 2</label>
+                                                <input type="text" id="tipo-doc-2" name="doc-2" class="form-control"
+                                                       placeholder="Ex: BR12345678" value="${ator.documento2.documento}" >
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="form-group col-xl-6">
+                                                <label for="tipo-doc-3">Tipo de Documento 3</label>
+                                                <input type="text" id="tipo-doc-3" name="tipo-doc-3" class="form-control" placeholder="Ex: CPF" value="${ator.documento3.nomeTipoDoc}" >
+                                            </div>
+                                            <div class="form-group col-xl-6">
+                                                <label for="doc-3">Documenta&ccedil;&atilde;o 3</label>
+                                                <input type="text" id="doc-3" name="doc-3" class="form-control"
+                                                       placeholder="Ex: 08275467509" value="${ator.documento3.documento}" >
+                                            </div>
+                                        </div>
+
+
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="tipo-doc-4">Tipo de Documento 4</label>
-                                                <input type="text" id="tipo-doc-4" name="tipo-doc-4" class="form-control" placeholder="Ex: CPF" value="${ator.documento4.nomeTipoDoc}" disabled>
-                                            </div>
+                                                <input type="text" id="tipo-doc-4" name="tipo-doc-4" class="form-control" placeholder="Ex: CPF" value="${ator.documento4.nomeTipoDoc}" >                                            </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="doc4">Documenta&ccedil;&atilde;o 4</label>
-                                                <input type="text" id="doc4" name="doc4" class="form-control"
-                                                       placeholder="Ex: 08275467509" value="${ator.documento4.documento}" disabled>
+                                                <input type="text" id="doc4" name="doc-4" class="form-control"
+                                                       placeholder="Ex: 08275467509" value="${ator.documento4.documento}" >
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-xl-6">
                                                 <label for="tipo-doc-5">Tipo de Documento 5</label>
-                                                <input type="text" id="tipo-doc-5" name="tipo-doc-5" class="form-control" placeholder="Ex: CPF" value="${ator.documento5.nomeTipoDoc}" disabled>
+                                                <input type="text" id="tipo-doc-5" name="tipo-doc-5" class="form-control" placeholder="Ex: CPF" value="${ator.documento5.nomeTipoDoc}" >
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="doc5">Documenta&ccedil;&atilde;o 5</label>
-                                                <input type="text" id="doc4" name="doc5" class="form-control"
-                                                       placeholder="Ex: 08275467509" value="${ator.documento5.documento}" disabled>
+                                                <input type="text" id="doc4" name="doc-5" class="form-control"
+                                                       placeholder="Ex: 08275467509" value="${ator.documento5.documento}" >
                                             </div>
                                         </div>
 
                                         <hr>
-                                        <%@ include file="../partials/enderecos-disabled.jspf" %>
+                                        <%@ include file="../partials/enderecos-alteracao.jspf" %>
                                         <hr>
-                                        <%@ include file="../partials/contatos-disabled.jspf" %>
+                                        <%@ include file="../partials/contatos-alteracao.jspf" %>
                                         <input type="hidden" value="atualizar" class="form-control" id="option" name="option">
                                     </div>
 

@@ -218,9 +218,7 @@ public class PessoaDao {
             ps.setString(7, pessoa.getTelefoneDdd());
             ps.setInt(8, pessoa.getIdPessoa());
 
-            ps.executeUpdate();
-
-            PessoaDao.updateAcessoPc(pessoa.getEmail(), PessoaDao.getIdAcessoPc(pessoa.getIdPessoa()));
+            ps.executeUpdate();            
 
             resultado = true;
 

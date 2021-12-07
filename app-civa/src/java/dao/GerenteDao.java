@@ -445,6 +445,10 @@ public class GerenteDao {
             // Atualiza os dados endereco
             Boolean enderecoResult = EnderecoDao.update(endereco);
 
+            int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());
+
+            Boolean pessoaEndereco = EnderecoDao.updatePessoaEndereco(idPessoaEndereco, endereco.getNumero(), endereco.getComplemento());
+
             resultado = true;
 
         } catch (Exception e) {

@@ -126,6 +126,41 @@ public class DocsDao {
         return idDocs;
     }
 
+    public static int getIdDocs(int idPessoa, int idTipoDoc) {        
+        Connection connection = ConnectionFactory.getConnection();
+        int idDocs = -1;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            String sql = "";
+
+            sql = "SELECT dc.iddocs \n"
+                    + "FROM docs AS dc \n"
+                    + "LEFT JOIN pessoa AS pe\n"
+                    + "ON dc.idpessoa = pe.idpessoa\n"
+                    + "LEFT JOIN tipodoc AS tp\n"
+                    + "ON dc.idtipodoc = tp.idtipodoc\n"
+                    + "WHERE pe.idpessoa = ? AND tp.idtipodoc = ?;";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, idPessoa);
+            ps.setInt(2, idTipoDoc);
+
+            rs = ps.executeQuery();
+                        
+            if (rs.next()) {
+                idDocs = rs.getInt("iddocs");               
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return idDocs;
+    }
+
     public static Boolean update(Docs documento) {
         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;

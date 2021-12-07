@@ -23,7 +23,7 @@ public class LoginDao {
                 + "FROM pessoa AS p\n"
                 + "LEFT JOIN acessopc AS acp\n"
                 + "ON p.idpessoa = acp.idpessoa\n"
-                + "WHERE acp.emailpc = ? AND acp.senhapc = ? ;";
+                + "WHERE acp.emailpc = ? AND acp.senhapc = ? AND acp.statuspc = true;";
 
         sqlGestao = "SELECT p.nomepessoa AS nome,\n"
                 + "       p.sobrenomepessoa AS sobrenome,\n"
@@ -34,7 +34,7 @@ public class LoginDao {
                 + "ON p.idpessoa = acg.idpessoa\n"
                 + "WHERE acg.codigocivagestao LIKE ?\n"
                 + "	AND acg.senhagestao = ?\n"
-                + " AND acg.cargo LIKE ?;";
+                + " AND acg.cargo LIKE ? AND acg.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();

@@ -24,8 +24,8 @@ import model.SuporteCiva;
  * @author Kerolen | Ludwig
  */
 public class AdministradorOmsDao {
-    
-     public static GestorOms findAdministrador(String codigoCivaAdministradorOms) {
+
+    public static GestorOms findAdministrador(String codigoCivaAdministradorOms) {
         Connection connection = ConnectionFactory.getConnection();
         GestorOms gestoroms = null;
         Pessoa pessoa = null;
@@ -283,7 +283,6 @@ public class AdministradorOmsDao {
         String sql = "";
         String atorSigla = "ADM";
         String codigoCiva = "";
-      
 
         sql = "SELECT COUNT(*) + 100000000 + ? AS codigo\n"
                 + "FROM acessogestao AS acg\n"
@@ -297,19 +296,19 @@ public class AdministradorOmsDao {
             ps = connection.prepareStatement(sql);
             ps.setInt(1, idPessoa);
             rs = ps.executeQuery();
-            
-            if(rs.next()){
-                codigoCiva = String.valueOf(rs.getInt("codigo"));                
+
+            if (rs.next()) {
+                codigoCiva = String.valueOf(rs.getInt("codigo"));
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return atorSigla + codigoCiva + "OMS";
 
     }
-    
+
     public static boolean insert(AdministradorOms administradorOms, int idCadastrante) {
         boolean resultado = false;
 
@@ -361,36 +360,40 @@ public class AdministradorOmsDao {
             resultado = PessoaDao.insertAcessoGestao(idPessoa, idCadastrante, cargo, codigoCivaAdministrador, pessoa.getEmail(), formatador.format(data));
 
             System.err.println("Chegou no dao do suporte civa " + administradorOms.getPessoa().getNomePessoa());
-            
+
         } catch (Exception e) {
         }
 
-        return resultado;     
+        return resultado;
     }
-    
-     public static boolean update(AdministradorOms administradorOms) {
+
+    public static boolean update(AdministradorOms administradorOms) {
         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
-        Pessoa pessoa = administradorOms.getPessoa();     
+        Pessoa pessoa = administradorOms.getPessoa();
         Docs documento1 = administradorOms.getDocumento1();
         Endereco endereco = administradorOms.getEndereco();
 
         try {
-           // Atualiza os dados da pessoa
-           Boolean pessoaResult = PessoaDao.update(pessoa);
-           
-           // Atualiza os dados do documento
-           Boolean docsResult = DocsDao.update(documento1);
-           
-           // Atualiza os dados endereco
-           Boolean enderecoResult = EnderecoDao.update(endereco);
-           
-           resultado = true;
-           
+            // Atualiza os dados da pessoa
+            Boolean pessoaResult = PessoaDao.update(pessoa);
+
+            // Atualiza os dados do documento
+            Boolean docsResult = DocsDao.update(documento1);
+
+            // Atualiza os dados endereco
+            Boolean enderecoResult = EnderecoDao.update(endereco);
+
+            int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());
+
+            Boolean pessoaEndereco = EnderecoDao.updatePessoaEndereco(idPessoaEndereco, endereco.getNumero(), endereco.getComplemento());
+
+            resultado = true;
+
         } catch (Exception e) {
         }
         return resultado;
-    } 
+    }
 
     public static boolean delete(GestorOms gestoroms) {
         boolean resultado = false;
@@ -402,6 +405,5 @@ public class AdministradorOmsDao {
 
         return resultado;
     }
-    
-    
+
 }
