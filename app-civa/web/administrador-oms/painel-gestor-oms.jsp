@@ -33,7 +33,7 @@
 
 %> 
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/gestor-oms/painel-gestor-oms.js" defer></script>
+<script src="../public/assets/js/administrador-oms/painel-administrador-oms.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -95,6 +95,7 @@
                                         <%@ include file="../partials/enderecos-alteracao.jspf"%>
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-alteracao.jspf"%>
+                                        <input type="hidden" value="atualizar" class="form-control" id="option" name="option">
                                     </div>
                                 </form>                                
                             </div>

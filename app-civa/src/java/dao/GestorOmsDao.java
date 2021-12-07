@@ -367,13 +367,26 @@ public class GestorOmsDao {
 
     
     public static boolean update(GestorOms gestoromsNovo) {
-        boolean resultado = false;
+         Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+        Pessoa pessoa = gestoromsNovo.getPessoa();     
+        Docs documento1 = gestoromsNovo.getDocumento1();
+        Endereco endereco = gestoromsNovo.getEndereco();
 
-        // Update pais;
-        if (true) {
-            resultado = true;
+        try {
+           // Atualiza os dados da pessoa
+           Boolean pessoaResult = PessoaDao.update(pessoa);
+           
+           // Atualiza os dados do documento
+           Boolean docsResult = DocsDao.update(documento1);
+           
+           // Atualiza os dados endereco
+           Boolean enderecoResult = EnderecoDao.update(endereco);
+           
+           resultado = true;
+           
+        } catch (Exception e) {
         }
-
         return resultado;
     }
 

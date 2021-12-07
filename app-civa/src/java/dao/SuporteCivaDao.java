@@ -296,10 +296,25 @@ public class SuporteCivaDao {
     }
 
     public static boolean update(SuporteCiva suporteCiva) {
-        boolean resultado = false;
+         Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+        Pessoa pessoa = suporteCiva.getPessoa();     
+        Docs documento1 = suporteCiva.getDocumento1();
+        Endereco endereco = suporteCiva.getEndereco();
 
-        if (true) {
-            resultado = true;
+        try {
+           // Atualiza os dados da pessoa
+           Boolean pessoaResult = PessoaDao.update(pessoa);
+           
+           // Atualiza os dados do documento
+           Boolean docsResult = DocsDao.update(documento1);
+           
+           // Atualiza os dados endereco
+           Boolean enderecoResult = EnderecoDao.update(endereco);
+           
+           resultado = true;
+           
+        } catch (Exception e) {
         }
         return resultado;
     }

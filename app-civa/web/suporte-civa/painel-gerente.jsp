@@ -101,6 +101,7 @@
                                         <%@ include file="../partials/enderecos-alteracao.jspf" %>
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-alteracao.jspf" %>
+                                        <input type="hidden" value="atualizar" class="form-control" id="option" name="option">
                                     </div>
 
                                 </form>

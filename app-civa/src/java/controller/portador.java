@@ -44,13 +44,13 @@ public class portador extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            PortadorCiva  portadorCiva = new PortadorCiva();
+            PortadorCiva portadorCiva = new PortadorCiva();
             Pessoa pessoa = new Pessoa();
             Docs documento1 = new Docs();
             Endereco endereco = new Endereco();
 
             String option = request.getParameter("option");
-            
+
             HttpSession session = request.getSession();
 
             switch (option) {
@@ -63,14 +63,14 @@ public class portador extends HttpServlet {
                     pessoa.setTelefoneDdd(request.getParameter("tele"));
                     pessoa.setEmail(request.getParameter("email"));
                     pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigo-civa")));
-                   
+
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
 
                     endereco.setNomePais(request.getParameter("nome-pais"));
                     pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
                     pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
-                    
+
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
                     endereco.setNumero(request.getParameter("nome-num"));
@@ -84,7 +84,7 @@ public class portador extends HttpServlet {
                     portadorCiva.setDocumento1(documento1);
                     portadorCiva.setEndereco(endereco);
 
-                   int idCadastrante = (int) session.getAttribute("idPessoa");
+                    int idCadastrante = (int) session.getAttribute("idPessoa");
 
                     Boolean result = PortadorCivaDao.insert(portadorCiva, idCadastrante);
 
@@ -100,18 +100,17 @@ public class portador extends HttpServlet {
                     pessoa.setGenero(request.getParameter("genero"));
                     pessoa.setDataNascimento(request.getParameter("data-nascimento"));
                     pessoa.setNacionalidade(request.getParameter("nacionalidade"));
-                    pessoa.setTelefoneDdd(request.getParameter("tele").trim().substring(0,15));
+                    pessoa.setTelefoneDdd(request.getParameter("tele").trim().substring(0, 15));
                     pessoa.setEmail(request.getParameter("email"));
                     pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigo-civa")));
-                            
-                    
+
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
                     documento1.setIdTipoDoc(DocsDao.findIdTipodoc(documento1.getNomeTipoDoc()));
                     documento1.setIdDocs(DocsDao.getIdDocs(pessoa.getIdPessoa()));
-                    
+
                     endereco.setNomePais(request.getParameter("nome-pais"));
-                                       
+
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
                     endereco.setTipoLogradouro("");
@@ -121,24 +120,21 @@ public class portador extends HttpServlet {
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
                     endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
-                    
+
                     pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
                     pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
-                   
-                    
+
                     endereco.setIdEndereco(EnderecoDao.getIdEnderecoByIdPessoa(pessoa.getIdPessoa()));
 
                     portadorCiva.setPessoa(pessoa);
                     portadorCiva.setDocumento1(documento1);
                     portadorCiva.setEndereco(endereco);
-                    
+
                     result = PortadorCivaDao.update(portadorCiva);
 
                     if (!result) {
                         response.sendError(404);
                     }
-
-                    
                     break;
 
                 case "deletar":
@@ -193,7 +189,3 @@ public class portador extends HttpServlet {
     }// </editor-fold>
 
 }
-
-
-
-

@@ -9,10 +9,10 @@ let valor;
 $("#salvar").click(function () {
   
     if (tratar_campos(campos)) {
-            $.post("/app-civa/gestorOms", form.serialize(), (data, status, jqXHR) => {
+            $.post("/app-civa/administradorOms", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
-                title = 'Gestor OMS atualizado com sucesso!';
+                title = 'Administrador OMS atualizado com sucesso!';
                 text = "Cadastro atualizado.";
                 swalAlertSuccess(title, text, callback);
 

@@ -133,6 +133,7 @@
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
                                         <hr>
                                         <%@ include file="../partials/contatos-disabled.jspf" %>
+                                        <input type="hidden" value="atualizar" class="form-control" id="option" name="option">
                                     </div>
 
                                 </form>

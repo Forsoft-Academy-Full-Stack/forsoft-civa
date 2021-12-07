@@ -32,7 +32,7 @@
 <!--então aqui é chamado o js especifico para cada página -->
 <!--e por fim o head é fechado -->
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/suporte-civa/gerenciar-gestor-nacional.js" defer></script>
+<script src="../public/assets/js/suporte-civa/painel-suporte-civa.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -88,6 +88,7 @@
                                         <%@ include file="../partials/enderecos-alteracao.jspf" %>
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-alteracao.jspf" %>
+                                        <input type="hidden" value="atualizar" class="form-control" id="option" name="option">
                                     </div>
 
                                 </form>

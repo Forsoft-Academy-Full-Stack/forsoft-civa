@@ -155,7 +155,8 @@ public class profissionalSaude extends HttpServlet {
                     profissionalSaude.setDocumento4(documento4);
                     profissionalSaude.setDocumento5(documento5);
                     profissionalSaude.setEndereco(endereco);
-                    break;
+                  
+                 break;
 
                 case "deletar":
                     System.err.println("deletado");
