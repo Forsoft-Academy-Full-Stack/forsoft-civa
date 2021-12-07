@@ -16,6 +16,7 @@ import model.Endereco;
 import model.Gerente;
 import model.Pais;
 import model.Pessoa;
+import model.PortadorCiva;
 
 /**
  *
@@ -426,26 +427,28 @@ public class GerenteDao {
         return resultado;
     }
 
-    public static boolean insert(Gerente gerente) {
-        boolean resultado = false;
-
-        // Insert into Pais values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
-            resultado = true;
-        }
-
-        return resultado;
-    }
-
     public static boolean update(Gerente gerente) {
-        boolean resultado = false;
 
-        // Update pais;
-        if (true) {
+        Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+        Pessoa pessoa = gerente.getPessoa();
+        Docs documento1 = gerente.getDocumento1();
+        Endereco endereco = gerente.getEndereco();
+
+        try {
+            // Atualiza os dados da pessoa
+            Boolean pessoaResult = PessoaDao.update(pessoa);
+
+            // Atualiza os dados do documento
+            Boolean docsResult = DocsDao.update(documento1);
+
+            // Atualiza os dados endereco
+            Boolean enderecoResult = EnderecoDao.update(endereco);
+
             resultado = true;
-        }
 
+        } catch (Exception e) {
+        }
         return resultado;
     }
 

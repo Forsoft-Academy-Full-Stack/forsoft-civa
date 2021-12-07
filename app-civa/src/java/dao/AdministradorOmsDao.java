@@ -367,6 +367,30 @@ public class AdministradorOmsDao {
 
         return resultado;     
     }
+    
+     public static boolean update(AdministradorOms administradorOms) {
+        Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+        Pessoa pessoa = administradorOms.getPessoa();     
+        Docs documento1 = administradorOms.getDocumento1();
+        Endereco endereco = administradorOms.getEndereco();
+
+        try {
+           // Atualiza os dados da pessoa
+           Boolean pessoaResult = PessoaDao.update(pessoa);
+           
+           // Atualiza os dados do documento
+           Boolean docsResult = DocsDao.update(documento1);
+           
+           // Atualiza os dados endereco
+           Boolean enderecoResult = EnderecoDao.update(endereco);
+           
+           resultado = true;
+           
+        } catch (Exception e) {
+        }
+        return resultado;
+    } 
 
     public static boolean delete(GestorOms gestoroms) {
         boolean resultado = false;

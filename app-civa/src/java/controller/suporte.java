@@ -17,7 +17,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Docs;
 import model.Endereco;
-import model.GestorNacional;
 import model.Pessoa;
 import model.SuporteCiva;
 
@@ -91,6 +90,7 @@ public class suporte extends HttpServlet {
 
                     break;
 
+                
                 case "atualizar":
                     pessoa.setNomePessoa(request.getParameter("nome"));
                     pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
@@ -119,9 +119,15 @@ public class suporte extends HttpServlet {
                     suporteCiva.setPessoa(pessoa);
                     suporteCiva.setDocumento1(documento1);
                     suporteCiva.setEndereco(endereco);
+                    
+                     result = SuporteCivaDao.update(suporteCiva);
 
+                    if (!result) {
+                        response.sendError(404);
+                    }
                     break;
 
+                  
                 case "deletar":
                     System.err.println("deletado");
                     System.err.println(request.getParameter("nome"));

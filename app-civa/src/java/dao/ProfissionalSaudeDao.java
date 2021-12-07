@@ -16,7 +16,6 @@ import model.Endereco;
 import model.Pais;
 import model.ProfissionalSaude;
 import model.Pessoa;
-import model.Supervisor;
 
 /**
  *
@@ -516,13 +515,27 @@ public class ProfissionalSaudeDao {
     }
 
     public static boolean update(ProfissionalSaude profissionalsaudeNovo) {
-        boolean resultado = false;
+       
+         Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+        Pessoa pessoa = profissionalsaudeNovo.getPessoa();     
+        Docs documento1 = profissionalsaudeNovo.getDocumento1();
+        Endereco endereco = profissionalsaudeNovo.getEndereco();
 
-        // Update pais;
-        if (true) {
-            resultado = true;
+        try {
+           // Atualiza os dados da pessoa
+           Boolean pessoaResult = PessoaDao.update(pessoa);
+           
+           // Atualiza os dados do documento
+           Boolean docsResult = DocsDao.update(documento1);
+           
+           // Atualiza os dados endereco
+           Boolean enderecoResult = EnderecoDao.update(endereco);
+           
+           resultado = true;
+           
+        } catch (Exception e) {
         }
-
         return resultado;
     }
 
