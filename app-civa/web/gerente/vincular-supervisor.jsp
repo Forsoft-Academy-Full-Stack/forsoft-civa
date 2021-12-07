@@ -36,7 +36,7 @@
 
 
 <%@include file="header.jspf"%>
-
+<script src="../public/assets/js/gerente/vincular-supervisor.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -124,6 +124,9 @@
 
         <!-- Main Footer -->
         <%@ include file="../partials/gerente/footer.jspf" %>
+        
+        <!-- Modal confirmar senha / vincular -->
+        <%@ include file="../partials/confirmar-senha.jspf" %>
     </div>
     <!-- ./wrapper -->
 </body>

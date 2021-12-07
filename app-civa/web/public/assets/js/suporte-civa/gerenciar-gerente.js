@@ -1,8 +1,8 @@
 $('.select2').select2();
 
 let campos = ["name", "surname", "date-birth",
-    "nacionalidade", "tipo-doc-1", "tipo-doc-2", "doc-2",
-    "tipo-doc-3", "doc-3",
+     "nacionalidade", "tipo-doc-1", "tipo-doc-2", "doc-2",
+     "tipo-doc-3", "doc-3",
     "doc-1", "pais", "genero",
     "codigopostal", "endereco",
     "numero", "complemento", "bairro",
@@ -13,11 +13,10 @@ let form = $("#form-meus-dados");
 $("#salvar").click(function () {
 
     if (tratar_campos(campos)) {
-        $.post("/app-civa/gerente", form.serialize(), (data, status, jqXHR) => {
-            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
+        $.get("", form.serialize(), (data, status) => {
             if (status === 'success') {
-                title = 'Gerente atualizado com sucesso!';
-                text = "Cadastro atualizado.";
+                title = 'Gerente alterado com sucesso!';
+                text = "Altera&ccedil;&atilde;o realizada.";
                 swalAlertSuccess(title, text, callback);
 
             } else {
@@ -31,7 +30,6 @@ $("#salvar").click(function () {
         text = 'Todos os campos precisam ser preenchidos!';
         swalAlertError(title, text, callback);
     }
-
 });
 
 
@@ -40,7 +38,7 @@ $("#excluir").click(function () {
     title = 'Deseja realmente excluir esse Gerente?';
     text = 'A&ccedil;&atilde;o irrevers&iacute;vel';
     statusInfo = "Gerente deletado",
-            textInfo = "Exclus&atilde;o realizada."
+    textInfo = "Exclus&atilde;o realizada."
     swalAlertDelete(title, text, statusInfo, textInfo);
 });
 

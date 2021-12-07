@@ -33,6 +33,7 @@
 
 
 <%@include file="header.jspf"%>
+<script src="../public/assets/js/gestor-nacional/vincular-gerente.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -120,6 +121,9 @@
 
         <!-- Main Footer -->
         <%@ include file="footer.jspf" %>
+        
+        <!-- Modal confirmar senha / vincular -->
+        <%@ include file="../partials/confirmar-senha.jspf" %>
     </div>
     <!-- ./wrapper -->
 </body>

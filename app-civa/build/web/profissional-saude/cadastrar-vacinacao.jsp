@@ -35,6 +35,7 @@
 %>
 
 <%@include file="header.jspf"%>
+<script src="../public/assets/js/cadastrar-vacinacao.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

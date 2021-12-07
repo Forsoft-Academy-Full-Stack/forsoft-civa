@@ -104,6 +104,9 @@
 
         <!-- Main Footer -->
         <%@ include file="footer.jspf" %>
+        
+        <!-- Modal confirmar senha / vincular -->
+        <%@ include file="../partials/confirmar-senha.jspf" %>       
     </div>
     <!-- ./wrapper -->
 </body>

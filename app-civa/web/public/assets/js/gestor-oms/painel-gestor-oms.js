@@ -9,18 +9,18 @@ let valor;
 $("#salvar").click(function () {
   
     if (tratar_campos(campos)) {
-            $.post("/app-civa/gestorOms", form.serialize(), (data, status, jqXHR) => {
-            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
+       
+        $.get("", form.serialize(), (data, status) => {
             if (status === 'success') {
-                title = 'Gestor OMS atualizado com sucesso!';
-                text = "Cadastro atualizado.";
-                swalAlertSuccess(title, text, callback);
+                title = 'Alterações realizadas com sucesso!';
+                text = "";
+                swalAlertSuccess(title, text, () => {document.location.reload();});
 
+            } else {
+                title = 'Erro!';
+                text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
+                swalAlertError(title, text, callback);
             }
-        }).fail(function (jqxhr, settings, ex) {
-            title = 'Erro!';
-            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
-            swalAlertError(title, text, callback);
         });
     } else {
         title = 'Campos n&atilde;o preenchidos!';

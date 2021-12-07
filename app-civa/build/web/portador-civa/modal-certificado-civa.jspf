@@ -23,7 +23,7 @@
                 </div>
                 <div class="row">
                     <div class="form-group col mb-3">
-                        <label for="certificado-civa-id">Código CIVA</label>
+                        <label for="certificado-civa-id">C&oacute;digo CIVA</label>
                         <input type="text" class="form-control form-control-sm" id="certificado-civa-id" value="${portadorCiva.codigoCiva}"
                                disabled>
                     </div>
@@ -60,13 +60,13 @@
 
                         <div class="form-group col-6 mb-3">
 
-                            <label for="certificado-data-aplicacao">Data de Aplicação Dose <c:out value="${vacinacao.doseAplicada}" /> </label>
+                            <label for="certificado-data-aplicacao">Data de Aplica&ccedil;&atilde;o Dose <c:out value="${vacinacao.doseAplicada}" /> </label>
                             <input type="date" class="form-control form-control-sm" id="certificado-data-aplicacao" value="<c:out value="${vacinacao.dataAplicacao}" />"
                                    disabled>
                         </div>       
                         <div class="form-group col-6 mb-3">
 
-                            <label for="certificado-data-aplicacao">Hora da Aplicação </label>
+                            <label for="certificado-data-aplicacao">Hora da Aplica&ccedil;&atilde;o </label>
                             <input type="time" class="form-control form-control-sm" id="certificado-data-aplicacao" value="<c:out value="${vacinacao.hora}" />"
                                    disabled>
                         </div>    
@@ -97,6 +97,9 @@
                     </div>
                     <hr  class = "mb-4 mt-4">                                         
                 </c:forEach>
+                <div class="row d-flex justify-content-center mb-4">
+                    <img class="img-fluid" src="../public/img/qrcode.png" alt="qr code código civa" >
+                </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                     <button type="button" class="btn btn-primary">Download</button>

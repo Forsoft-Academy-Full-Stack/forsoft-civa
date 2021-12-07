@@ -77,8 +77,7 @@
 
                     <div class="col-12">
                         <div class="">
-                            <button type="button" class="btn btn-primary btn-lg" form="form-meus-dados" data-toggle="modal"
-                                    data-target="#modal-default">Salvar</button>
+                            <button type="button" class="btn btn-primary btn-lg" form="form-redefinir-senha" id="enviar">Salvar</button>
                         </div>
                     </div>
 
