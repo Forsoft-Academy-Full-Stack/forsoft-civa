@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.VacinaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -11,6 +12,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import model.Vacina;
 
 /**
  *
@@ -33,15 +35,49 @@ public class vacina extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet vacina</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet vacina at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+            Vacina vacina = new Vacina();
+            boolean result = false;
+            String option = request.getParameter("option");
+
+            switch (option) {
+                case "cadastrar":
+                    vacina.setNomeVacina(request.getParameter("nome"));
+                    vacina.setLaboratorio(request.getParameter("lab"));
+                    vacina.setTipoVacina(request.getParameter("tipo-vacina"));
+                    vacina.setNumeroDoses(request.getParameter("doses"));
+                    vacina.setTempoEntreDoses(Integer.parseInt(request.getParameter("intervalo-dose")));
+                    vacina.setTempoReforco(Integer.parseInt(request.getParameter("tempo-reforco")));
+
+                    result = VacinaDao.insert(vacina);
+
+                    if (!result) {
+                        response.sendError(404);
+                    }
+
+                    break;
+
+                case "atualizar":
+                    System.err.println("Atualizar Vacina de ID: " + request.getParameter("idVacina"));
+                    vacina.setIdVacina(Integer.parseInt(request.getParameter("idVacina")));
+                    vacina.setNomeVacina(request.getParameter("nome"));
+                    vacina.setLaboratorio(request.getParameter("lab"));
+                    vacina.setTipoVacina(request.getParameter("tipo-vacina"));
+                    vacina.setNumeroDoses(request.getParameter("doses"));
+                    vacina.setTempoEntreDoses(Integer.parseInt(request.getParameter("intervalo-dose")));
+                    vacina.setTempoReforco(Integer.parseInt(request.getParameter("tempo-reforco")));
+
+                    result = VacinaDao.update(vacina);
+
+                    if (!result) {
+                        response.sendError(404);
+                    }
+
+                    break;
+
+                case "deletar":
+                    break;
+            }
+
         }
     }
 

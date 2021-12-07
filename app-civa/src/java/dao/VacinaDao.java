@@ -18,17 +18,39 @@ import model.Vacina;
 public class VacinaDao {
 
     public static boolean insert(Vacina vacina) {
+        Connection connection = ConnectionFactory.getConnection();
+
         boolean resultado = false;
 
-        // Insert into Pais values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
+        String sql = "INSERT INTO vacina\n"
+                + "(laboratorio, numerodedoses, nomevacina, tipodevacina, tempoentredoses, tempoparareforco)\n"
+                + "VALUES(?, ?, ?, ?, ?, ?);";
+        try {
+            ResultSet rs = null;
+
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setString(1, vacina.getLaboratorio());
+            ps.setString(2, vacina.getNumeroDoses());
+            ps.setString(3, vacina.getNomeVacina());
+            ps.setString(4, vacina.getTipoVacina());
+            ps.setInt(5, vacina.getTempoEntreDoses());
+            ps.setInt(6, vacina.getTempoReforco());
+
+            int i = ps.executeUpdate();
+            System.err.println("teste add vacina: " + i);
+
+            rs = ps.getGeneratedKeys();
+
             resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;
     }
-    
+
     public static Vacina findByNome(String nomeVacina) {
         Connection connection = ConnectionFactory.getConnection();
         Vacina vacina = null;
@@ -43,14 +65,14 @@ public class VacinaDao {
             ResultSet rs = null;
 
             ps = connection.prepareStatement(sql);
-            ps.setString(1, "%"+nomeVacina+"%");
+            ps.setString(1, "%" + nomeVacina + "%");
             rs = ps.executeQuery();
 
             if (rs.next()) {
                 vacina = new Vacina();
                 vacina.setIdVacina(rs.getInt("idvacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
-                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNumeroDoses(rs.getString("numerodedoses"));
                 vacina.setNomeVacina(rs.getString("nomevacina"));
                 vacina.setTipoVacina(rs.getString("tipodevacina"));
                 vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
@@ -85,7 +107,7 @@ public class VacinaDao {
                 vacina = new Vacina();
                 vacina.setIdVacina(rs.getInt("idvacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
-                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNumeroDoses(rs.getString("numerodedoses"));
                 vacina.setNomeVacina(rs.getString("nomevacina"));
                 vacina.setTipoVacina(rs.getString("tipodevacina"));
                 vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
@@ -129,7 +151,7 @@ public class VacinaDao {
                 vacina = new Vacina();
                 vacina.setIdVacina(rs.getInt("idvacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
-                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNumeroDoses(rs.getString("numerodedoses"));
                 vacina.setNomeVacina(rs.getString("nomevacina"));
                 vacina.setTipoVacina(rs.getString("tipodevacina"));
                 vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
@@ -182,7 +204,7 @@ public class VacinaDao {
                 vacina = new Vacina();
                 vacina.setIdVacina(rs.getInt("idvacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
-                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNumeroDoses(rs.getString("numerodedoses"));
                 vacina.setNomeVacina(rs.getString("nomevacina"));
                 vacina.setTipoVacina(rs.getString("tipodevacina"));
                 vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
@@ -211,7 +233,7 @@ public class VacinaDao {
                 + "        vac.tipodevacina,\n"
                 + "	   vac.tempoentredoses,\n"
                 + "        vac.tempoparareforco \n"
-                + "FROM vacina vac\n;";                              
+                + "FROM vacina vac\n;";
 
         try {
             vacinas = new ArrayList<>();
@@ -220,14 +242,14 @@ public class VacinaDao {
             PreparedStatement ps;
             ResultSet rs = null;
 
-            ps = connection.prepareStatement(sql);         
+            ps = connection.prepareStatement(sql);
             rs = ps.executeQuery();
 
             while (rs.next()) {
                 vacina = new Vacina();
                 vacina.setIdVacina(rs.getInt("idvacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
-                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNumeroDoses(rs.getString("numerodedoses"));
                 vacina.setNomeVacina(rs.getString("nomevacina"));
                 vacina.setTipoVacina(rs.getString("tipodevacina"));
                 vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
@@ -243,16 +265,35 @@ public class VacinaDao {
         return vacinas;
     }
 
-    
-    
-    
-    
-    public static boolean update(Vacina vacinaNova) {
+    public static boolean update(Vacina vacina) {
+        Connection connection = ConnectionFactory.getConnection();
         boolean resultado = false;
 
-        // Update pais;
-        if (true) {
+        String sql = "UPDATE vacina\n"
+                + "SET laboratorio=?, numerodedoses=?, nomevacina=?, tipodevacina=?, tempoentredoses=?, tempoparareforco=?\n"
+                + "WHERE idvacina=?;";
+        try {
+            ResultSet rs = null;
+
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setString(1, vacina.getLaboratorio());
+            ps.setString(2, vacina.getNumeroDoses());
+            ps.setString(3, vacina.getNomeVacina());
+            ps.setString(4, vacina.getTipoVacina());
+            ps.setInt(5, vacina.getTempoEntreDoses());
+            ps.setInt(6, vacina.getTempoReforco());
+            ps.setInt(7, vacina.getIdVacina());
+
+            int i = ps.executeUpdate();
+            System.err.println("updated vacina: " + i);
+
+            rs = ps.getGeneratedKeys();
+
             resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;

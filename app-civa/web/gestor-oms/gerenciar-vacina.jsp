@@ -95,36 +95,37 @@
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="idvacina">ID Vacina</label>
-                                                <input type="text" class="form-control" id="idvacina" name="idvacina" value="${vacina.idVacina}">
+                                                <label for="idVacina">ID Vacina</label>
+                                                <input type="text" class="form-control" id="idVacina" name="idVacina" value="${vacina.idVacina}" readonly>
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="dose">N&uacute;mero de Doses</label>
-                                                <input type="text" class="form-control" id="dose" name="dose" value="${vacina.numeroDoses}">
+                                                <label for="doses">N&uacute;mero de Doses</label>
+                                                <input type="text" class="form-control" id="doses" name="doses" value="${vacina.numeroDoses}">
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="vacina">Vacina</label>
-                                                <input type="text" class="form-control" id="vacina" name="vacina" value="${vacina.nomeVacina}">
+                                                <label for="nome">Vacina</label>
+                                                <input type="text" class="form-control" id="nome" name="nome" value="${vacina.nomeVacina}">
                                             </div>
                                             <div class="form-group col-xl-6">
                                                 <label for="lab">Laborat&oacute;rio</label>
                                                 <input type="text" class="form-control" id="lab" name="lab" value="${vacina.laboratorio}">
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="typevacina">Tipo de Vacina</label>
-                                                <input type="text" class="form-control" id="typevacina" name="typevacina" value="${vacina.tipoVacina}">
+                                                <label for="tipo-vacina">Tipo de Vacina</label>
+                                                <input type="text" class="form-control" id="tipo-vacina" name="tipo-vacina" value="${vacina.tipoVacina}">
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="timevacina">Tempo entre Doses (em dias)</label>
-                                                <input type="text" class="form-control" id="timevacina" name="timevacina" value="${vacina.tempoEntreDoses}">
+                                                <label for="intervalo-dose">Tempo entre Doses (em dias)</label>
+                                                <input type="text" class="form-control" id="intervalo-dose" name="intervalo-dose" value="${vacina.tempoEntreDoses}">
                                             </div>
                                             <div class="form-group col-xl-12">
-                                                <label for="timereforco">Tempo para Refor&ccedil;o (em dias)</label>
-                                                <input type="text" class="form-control" id="timereforco" name="timereforco" value="${vacina.tempoReforco}">
+                                                <label for="tempo-reforco">Tempo para Refor&ccedil;o (em dias)</label>
+                                                <input type="text" class="form-control" id="tempo-reforco" name="tempo-reforco" value="${vacina.tempoReforco}">
                                             </div>
                                         </div>
                                     </div>
-
+                                      <input type="hidden" value="atualizar" class="form-control" id="option" name="option">
+                                   
                                 </form>
                             </div>
                         </div>

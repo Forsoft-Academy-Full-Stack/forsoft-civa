@@ -67,7 +67,7 @@ public class VacinacaoDao {
 
                 vacina.setNomeVacina(rs.getString("vacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
-                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNumeroDoses(rs.getString("numerodedoses"));
 
                 vacinacao.setVacina(vacina);
 
@@ -136,7 +136,7 @@ public class VacinacaoDao {
 
                 vacina.setNomeVacina(rs.getString("vacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
-                vacina.setNumeroDoses(rs.getInt("numerodedoses"));
+                vacina.setNumeroDoses(rs.getString("numerodedoses"));
 
                 vacinacao.setVacina(vacina);
 

@@ -49,6 +49,7 @@
                             </ol>
                         </div>
                     </div>
+                    
                     <!-- /.row -->
                 </div>
                 <!-- /.container-fluid -->
@@ -72,26 +73,20 @@
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form id="form-vacina">
+                                   
                                     <div class="card-body">
                                         <div class="row">
                                             <div class="form-group col-xl-12">
                                                 <label for="nome">Nome</label>
-                                                <select class="form-control" id="nome" name="nome">
-                                                    <option selected disabled>Selecionar</option>
-                                                    <option>Coronavac</option>
-                                                    <option>Pfizer</option>
-                                                    <option>Astrazeneca</option>
-                                                </select>
+                                                <input type="text" class="form-control" id="nome" name="nome">
                                             </div>
                                             <div class="form-group col-xl-12">
+
                                                 <label for="lab">Laborat&oacute;rio</label>
-                                                <select class="form-control" id="lab" name="lab">
-                                                    <option selected disabled>Selecionar</option>
-                                                    <option>sinovac</option>
-                                                    <option>----</option>
-                                                    <option>----</option>
-                                                </select>
+                                                <input type="text" class="form-control" id="lab" name="lab">
+
                                             </div>
+
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-xl-12">
@@ -125,6 +120,7 @@
 
                                         </div>
                                     </div>
+                                      <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">                                   
                                 </form>
                             </div>                         
                         </div>

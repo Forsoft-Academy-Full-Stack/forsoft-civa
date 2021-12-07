@@ -6,14 +6,14 @@ package model;
 public class Vacina {
     private Integer idVacina;
     private String laboratorio;
-    private Integer numeroDoses;
+    private String numeroDoses;
     private String nomeVacina;
     private String tipoVacina;
     private Integer tempoEntreDoses;
     private Integer tempoReforco;
     private String lote;
 
-    public Vacina(Integer idVacina, String laboratorio, Integer numeroDoses, String nomeVacina, String tipoVacina, Integer tempoEntreDoses, Integer tempoReforco, String lote) {
+    public Vacina(Integer idVacina, String laboratorio, String numeroDoses, String nomeVacina, String tipoVacina, Integer tempoEntreDoses, Integer tempoReforco, String lote) {
         this.idVacina = idVacina;
         this.laboratorio = laboratorio;
         this.numeroDoses = numeroDoses;
@@ -51,11 +51,11 @@ public class Vacina {
         this.laboratorio = laboratorio;
     }
 
-    public Integer getNumeroDoses() {
+    public String getNumeroDoses() {
         return numeroDoses;
     }
 
-    public void setNumeroDoses(Integer numeroDoses) {
+    public void setNumeroDoses(String numeroDoses) {
         this.numeroDoses = numeroDoses;
     }
 
