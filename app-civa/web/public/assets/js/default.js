@@ -102,9 +102,7 @@ const Toast = Swal.mixin({
     }
 })
 
-
 setAbaAtiva();
-
 
 function setAbaAtiva() {
     let pageURL = window.location.href;

@@ -95,15 +95,18 @@ public class portador extends HttpServlet {
                     break;
 
                 case "atualizar":
+                    
                     pessoa.setNomePessoa(request.getParameter("nome"));
                     pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
                     pessoa.setGenero(request.getParameter("genero"));
                     pessoa.setDataNascimento(request.getParameter("data-nascimento"));
                     pessoa.setNacionalidade(request.getParameter("nacionalidade"));
-                    pessoa.setTelefoneDdd(request.getParameter("tele").trim().substring(0,15));
+                    pessoa.setTelefoneDdd(request.getParameter("tele"));
                     pessoa.setEmail(request.getParameter("email"));
                     pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigo-civa")));
-                            
+                    //pessoa.setDdiContato(request.getParameter("ddi"));
+                    System.err.println("DDI da pessoa: " + pessoa.getDdiContato());
+                   
                     
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
@@ -113,9 +116,10 @@ public class portador extends HttpServlet {
                     endereco.setNomePais(request.getParameter("nome-pais"));
                                        
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
-                    endereco.setLogradouro(request.getParameter("nome-logrd"));
+                    endereco.setLogradouro(request.getParameter("nome-logrd").trim());
                     endereco.setTipoLogradouro("");
                     endereco.setNumero(request.getParameter("nome-num"));
+                    System.err.println("Pessoa numero: " + endereco.getNumero());
                     endereco.setComplemento(request.getParameter("nome-comple"));
                     endereco.setNomesubdivisao3(request.getParameter("bairro"));
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
@@ -124,8 +128,8 @@ public class portador extends HttpServlet {
                     
                     pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
                     pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
-                   
                     
+                    System.err.println("Pessoa nacionalidade: " + pessoa.getNacionalidade());
                     endereco.setIdEndereco(EnderecoDao.getIdEnderecoByIdPessoa(pessoa.getIdPessoa()));
 
                     portadorCiva.setPessoa(pessoa);

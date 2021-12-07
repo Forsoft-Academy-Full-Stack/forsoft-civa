@@ -188,7 +188,7 @@ public class PessoaDao {
         return idPessoaEndereco;
     }
 
-    public static Boolean update(Pessoa pessoa) {
+    public static boolean update(Pessoa pessoa) {
         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
 
@@ -208,6 +208,7 @@ public class PessoaDao {
 
             ps = connection.prepareStatement(sql);
 
+            
             ps.setInt(1, pessoa.getIdNacionalidade());
             ps.setString(2, pessoa.getNomePessoa());
             ps.setString(3, pessoa.getSobrenomePessoa());
@@ -266,7 +267,7 @@ public class PessoaDao {
         return idPessoa;
     }
 
-    public static Boolean updateAcessoPc(String email, int idAcessoPc) {
+    public static boolean updateAcessoPc(String email, int idAcessoPc) {
         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
 

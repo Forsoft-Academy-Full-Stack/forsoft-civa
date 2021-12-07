@@ -51,9 +51,9 @@ public class PortadorCivaDao {
                 + "    LEFT JOIN acessogestao ag \n"
                 + "    on ag.idpessoa = peag.idpessoa \n"
                 + "    LEFT JOIN pessoa_endereco peen \n"
-                + "    ON peag.idpessoa =peen.idpessoa\n"
+                + "    ON peag.idpessoa = peen.idpessoa\n"
                 + "    LEFT JOIN endereco en \n"
-                + "    ON peen.idendereco =en.idendereco \n"
+                + "    ON peen.idendereco = en.idendereco \n"
                 + "    LEFT JOIN pais pa \n"
                 + "    ON en.idpais = pa.idpais  \n"
                 + "   	WHERE ag.codigocivagestao = ? ),'%') LIMIT 20;";
@@ -311,7 +311,7 @@ public class PortadorCivaDao {
 
             // Pessoa Endereco (Vincular)
             // Inserir o idPessoa e IdEndereco na Tabela pessoa_endereco
-            int idPessoaEndereco = PessoaDao.vincularEndereco(idPessoa, idEndereco, endereco.getNumero(), endereco.getComplemento());    
+            int idPessoaEndereco = PessoaDao.vincularEndereco(idPessoa, idEndereco, endereco.getNumero(), endereco.getComplemento());
 
             // Tipodoc
             // Pegar idTipodoc pelo Nometipodoc vindo do formulário
@@ -319,7 +319,7 @@ public class PortadorCivaDao {
 
             // Cadastrar na tabela Docs
             // O idTipoDoc, idPessoa documento e data de emissão
-            Boolean resultDocs = DocsDao.insert(idTipoDoc, idPessoa, documento1.getDocumento(), documento1.getDataEmissao());     
+            Boolean resultDocs = DocsDao.insert(idTipoDoc, idPessoa, documento1.getDocumento(), documento1.getDataEmissao());
 
             // Cadastrar na tabela acessoGestão
             // idPessoa, idCadastrante, codigoCiva, cargo, email, senha e data de registro
@@ -327,9 +327,9 @@ public class PortadorCivaDao {
             SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
 
             String codigoCivaPortador = PortadorCivaDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
-           
+
             resultado = PessoaDao.insertAcessoPc(idPessoa, idCadastrante, codigoCivaPortador, pessoa.getEmail(), formatador.format(data));
-      
+
         } catch (Exception e) {
         }
 
@@ -393,8 +393,6 @@ public class PortadorCivaDao {
             ps.setString(1, codigoCivaPortadorCiva);
             rs = ps.executeQuery();
 
-            System.err.println("executou");
-
             portadorCiva = new PortadorCiva();
 
             if (rs.next()) {
@@ -405,16 +403,18 @@ public class PortadorCivaDao {
                 pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
                 pessoa.setGenero(rs.getString("genero"));
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
-                pessoa.setTelefoneDdd(rs.getString("ddidocontato"));
-                pessoa.setDdiContato(rs.getString("telefonecomddd"));
+                pessoa.setTelefoneDdd(rs.getString("telefonecomddd"));
+                pessoa.setDdiContato(rs.getString("ddidocontato"));
                 pessoa.setEmail(rs.getString("emailpc"));
 
-                System.err.println("pessoa");
+                System.err.println("DDI:" + pessoa.getDdiContato());
+                System.err.println("Telefone com ddd:" + pessoa.getTelefoneDdd());
+
                 // Pegar nacionalidade
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());
                 pessoa.setNacionalidade(pais.getNomePais());
 
-                System.err.println("pais");
+                System.err.println("País: " + pais);
 
                 endereco = new Endereco();
                 endereco.setCodigoPostal(rs.getString("codigopostal"));
@@ -422,7 +422,7 @@ public class PortadorCivaDao {
                 endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
                 endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
                 endereco.setTipoLogradouro(rs.getString("tipodelogradouro"));
-                endereco.setLogradouro(endereco.getTipoLogradouro() + " " + rs.getString("logradouro"));
+                endereco.setLogradouro(endereco.getTipoLogradouro() + "" + rs.getString("logradouro"));
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
                 endereco.setNomePais(rs.getString("nomedopais"));
@@ -445,7 +445,7 @@ public class PortadorCivaDao {
                 System.err.println(vacinacoes.get(0).getVacina().getNomeVacina());
                 portadorCiva.setListaVacinacao(vacinacoes);
             } catch (Exception e) {
-                System.err.println("sem vacinacao");
+                System.err.println("Ainda não foi cadastrada nenhuma vacinação.");
             }
 
             portadorCiva.setListaVacinacao(vacinacoes);
@@ -612,22 +612,29 @@ public class PortadorCivaDao {
     public static boolean update(PortadorCiva portadorCiva) {
         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
-        Pessoa pessoa = portadorCiva.getPessoa();     
+        Pessoa pessoa = portadorCiva.getPessoa();
         Docs documento1 = portadorCiva.getDocumento1();
         Endereco endereco = portadorCiva.getEndereco();
 
         try {
-           // Atualiza os dados da pessoa
-           Boolean pessoaResult = PessoaDao.update(pessoa);
-           
-           // Atualiza os dados do documento
-           Boolean docsResult = DocsDao.update(documento1);
-           
-           // Atualiza os dados endereco
-           Boolean enderecoResult = EnderecoDao.update(endereco);
-           
-           resultado = true;
-           
+            // Atualiza os dados da pessoa
+            Boolean pessoaResult = PessoaDao.update(pessoa);
+            System.err.println("Resultado pessoa: " + pessoaResult);
+            // Atualiza os dados do documento
+            Boolean docsResult = DocsDao.update(documento1);
+            System.err.println("Resultado docs: " + docsResult);
+
+            // Atualiza os dados endereco
+            Boolean enderecoResult = EnderecoDao.update(endereco);
+
+            int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());
+
+            Boolean pessoaEndereco = EnderecoDao.updatePessoaEndereco(idPessoaEndereco, endereco.getNumero(), endereco.getComplemento());
+
+            resultado = true;
+
+            System.err.println("Resultado endereco: " + enderecoResult);
+
         } catch (Exception e) {
         }
         return resultado;
