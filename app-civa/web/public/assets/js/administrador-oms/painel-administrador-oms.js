@@ -16,7 +16,7 @@ $("#salvar").click(function () {
             if (status === 'success') {
                 title = 'Administrador OMS atualizado com sucesso!';
                 text = "Cadastro atualizado.";
-                swalAlertSuccess(title, text, callback);
+                swalAlertSuccess(title, text, () => { location.reload() });
 
             }
         }).fail(function (jqxhr, settings, ex) {

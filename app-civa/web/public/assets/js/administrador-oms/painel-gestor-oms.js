@@ -1,5 +1,6 @@
 $('.select2').select2();
 
+let form = $("#form-meus-dados");
 let campos = ["nome", "sobrenome",
     "genero", "data-nascimento",
     "nacionalidade", "tipo-doc1", "doc1",
@@ -7,17 +8,15 @@ let campos = ["nome", "sobrenome",
     "nome-num", "nome-comple", "bairro",
     "municipio", "estado", "tele", "email"];
 
-let form = $("#form-meus-dados");
-
 $("#salvar").click(function () {
-
+  
     if (tratar_campos(campos)) {
-        $.post("/app-civa/gestorOms", form.serialize(), (data, status, jqXHR) => {
+            $.post("/app-civa/gestorOms", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
-                title = 'Gestor OMS cadastrado com sucesso!';
-                text = "Cadastro realizada.";
-                swalAlertSuccess(title, text, () => { window.location = './cadastrar-gestor-oms.jsp' });
+                title = 'Gestor OMS atualizado com sucesso!';
+                text = "Cadastro atualizado.";
+                swalAlertSuccess(title, text, () => { location.reload() });
 
             }
         }).fail(function (jqxhr, settings, ex) {
@@ -26,10 +25,22 @@ $("#salvar").click(function () {
             swalAlertError(title, text, callback);
         });
     } else {
-        title = 'Campos não preenchidos!';
+        title = 'Campos n&atilde;o preenchidos!';
         text = 'Todos os campos precisam ser preenchidos!';
         swalAlertError(title, text, callback);
     }
 });
 
-pegarPaises("nacionalidade");
+$("#excluir").click(function() {
+   $.get("", form.serialize(), (data, status) => {
+        if (status === 'sucess'){
+            title = 'Cuidado!';
+            text = 'Deseja mesmo excluir o cadastro? Essa ação não pode ser revertida!';
+            swalAlertError(title, text, callback);
+        } else {
+            title = 'Erro!';
+            text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
+            swalAlertError(title, text, callback);
+        }
+   }); 
+});

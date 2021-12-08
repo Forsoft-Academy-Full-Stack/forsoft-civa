@@ -12,12 +12,12 @@ let form = $("#form-meus-dados");
 $("#salvar").click(function () {
 
     if (tratar_campos(campos)) {
-        $.post("/app-civa/gestorOms", form.serialize(), (data, status, jqXHR) => {
+        $.post("/app-civa/administradorOms", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
-                title = 'Gestor OMS cadastrado com sucesso!';
+                title = 'Administrador OMS cadastrado com sucesso!';
                 text = "Cadastro realizada.";
-                swalAlertSuccess(title, text, () => { window.location = './cadastrar-gestor-oms.jsp' });
+                swalAlertSuccess(title, text, () => { window.location = './cadastrar-administrador-oms.jsp' });
 
             }
         }).fail(function (jqxhr, settings, ex) {

@@ -18,7 +18,7 @@
 %>
 
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/administrador-oms/cadastrar-gestor-oms.js" defer></script>
+<script src="../public/assets/js/administrador-oms/cadastrar-administrador-oms.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">

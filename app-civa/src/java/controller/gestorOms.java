@@ -95,43 +95,38 @@ public class gestorOms extends HttpServlet {
                     break;
 
                 case "atualizar":
-                    pessoa.setNomePessoa(request.getParameter("nome"));
+                   pessoa.setNomePessoa(request.getParameter("nome"));
                     pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
                     pessoa.setGenero(request.getParameter("genero"));
                     pessoa.setDataNascimento(request.getParameter("data-nascimento"));
                     pessoa.setNacionalidade(request.getParameter("nacionalidade"));
-                    pessoa.setTelefoneDdd(request.getParameter("tele").trim().substring(0,15));
+                    pessoa.setTelefoneDdd(request.getParameter("tele"));
                     pessoa.setEmail(request.getParameter("email"));
                     pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigo-civa")));
-                            
-                    
+
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
                     documento1.setIdTipoDoc(DocsDao.findIdTipodoc(documento1.getNomeTipoDoc()));
-                    documento1.setIdDocs(DocsDao.getIdDocs(pessoa.getIdPessoa()));
-                    
+                    documento1.setIdDocs(DocsDao.getIdDocs(pessoa.getIdPessoa(), documento1.getIdTipoDoc()));
+
                     endereco.setNomePais(request.getParameter("nome-pais"));
-                                       
+                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
+
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
-                    endereco.setTipoLogradouro("");
                     endereco.setNumero(request.getParameter("nome-num"));
                     endereco.setComplemento(request.getParameter("nome-comple"));
                     endereco.setNomesubdivisao3(request.getParameter("bairro"));
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
                     endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
-                    
-                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
-                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
-                   
-                    
                     endereco.setIdEndereco(EnderecoDao.getIdEnderecoByIdPessoa(pessoa.getIdPessoa()));
 
                     gestorOms.setPessoa(pessoa);
                     gestorOms.setDocumento1(documento1);
                     gestorOms.setEndereco(endereco);
-                    
+
                     result = GestorOmsDao.update(gestorOms);
 
                     if (!result) {

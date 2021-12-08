@@ -366,7 +366,7 @@ public class GestorOmsDao {
     }
 
     public static boolean update(GestorOms gestoromsNovo) {
-        Connection connection = ConnectionFactory.getConnection();
+       Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
         Pessoa pessoa = gestoromsNovo.getPessoa();
         Docs documento1 = gestoromsNovo.getDocumento1();
@@ -375,6 +375,8 @@ public class GestorOmsDao {
         try {
             // Atualiza os dados da pessoa
             Boolean pessoaResult = PessoaDao.update(pessoa);
+
+            PessoaDao.updateAcessoGestao(pessoa.getEmail(), PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa()));
 
             // Atualiza os dados do documento
             Boolean docsResult = DocsDao.update(documento1);

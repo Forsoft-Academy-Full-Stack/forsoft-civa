@@ -33,7 +33,7 @@
 
 %> 
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/administrador-oms/painel-administrador-oms.js" defer></script>
+<script src="../public/assets/js/administrador-oms/painel-gestor-oms.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
