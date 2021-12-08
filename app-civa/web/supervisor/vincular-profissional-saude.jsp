@@ -81,9 +81,7 @@
                                     <h3 class="card-title">Dados Profissional da Sa&uacute;de</h3>
                                 </div>
                                 <!-- /.card-header -->
-                                <!-- form start -->
-                                 <input type="text" value="${idUnidade}" name="idUnidade">
-                                  <input type="text" value="${ator.codigoCiva}" name="idUnidade">
+                                <!-- form start -->                               
                                 <form id="form-meus-dados">
                                     <input type="hidden" value="vincular" name="option">
                                     <div class="card-body">

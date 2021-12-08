@@ -16,6 +16,7 @@ import model.Endereco;
 import model.GestorNacional;
 import model.Pais;
 import model.Pessoa;
+import model.SuporteCiva;
 import model.TipoDoc;
 
 /**
@@ -104,8 +105,7 @@ public class pais extends HttpServlet {
                     
                 } catch (Exception e) {
                 }
-                
-                
+                                
                 Pessoa pessoaGestorNacional = new Pessoa();
                 Endereco enderecoGestorNacional = new Endereco();
                 Docs docsGestorNacional = new Docs();
@@ -167,9 +167,89 @@ public class pais extends HttpServlet {
                 enderecoGestorNacional.setNomesubdivisao2(request.getParameter("municipio-gn"));
                 enderecoGestorNacional.setNomesubdivisao3(request.getParameter("estado-gn"));
                 
+                System.err.println("Endereco nome: " + enderecoGestorNacional.getNomePais()
+                        +"\nCodido Postal: " + enderecoGestorNacional.getCodigoPostal()
+                        +"\nLogradouro: " + enderecoGestorNacional.getNumero()
+                        +"\nNumero: " + enderecoGestorNacional.getNumero()
+                        +"\nComplemento: " + enderecoGestorNacional.getComplemento()
+                        +"\nSubdivisao1: " + enderecoGestorNacional.getNomesubdivisao1()
+                        +"\nSubdivisao2: " + enderecoGestorNacional.getNomesubdivisao2()
+                        +"\nSubdivisao3: " + enderecoGestorNacional.getNomesubdivisao3()+"\n");
                 
-                // Mostrar os dados
-                System.err.println();
+                
+                // Suporte                
+                Pessoa pessoaSuporteCiva = new Pessoa();
+                Endereco enderecoSuporteCiva = new Endereco();
+                Docs docsSuporteCiva = new Docs();
+                Docs docsSuporteCiva2 = new Docs();
+                Docs docsSuporteCiva3 = new Docs();
+                Docs docsSuporteCiva4 = new Docs();
+                Docs docsSuporteCiva5 = new Docs();
+                SuporteCiva suporteCiva = new SuporteCiva();
+                
+                pessoaSuporteCiva.setNomePessoa(request.getParameter("nome-sp"));
+                pessoaSuporteCiva.setSobrenomePessoa(request.getParameter("sobrenome-sp"));
+                pessoaSuporteCiva.setGenero(request.getParameter("genero-sp"));
+                pessoaSuporteCiva.setDataNascimento(request.getParameter("data-nascimento-sp"));
+                pessoaSuporteCiva.setNacionalidade(request.getParameter("nacionalidade-sp"));
+                pessoaSuporteCiva.setTelefoneDdd(request.getParameter("tele-sp"));
+                pessoaSuporteCiva.setEmail(request.getParameter("email-sp"));
+                
+                System.err.println("Nome pessoa: " + pessoaSuporteCiva.getNomePessoa()
+                        +"\nSobrenome: " + pessoaSuporteCiva.getSobrenomePessoa()
+                        +"\nGenero: " + pessoaSuporteCiva.getGenero()
+                        +"\nData Nascimento: " + pessoaSuporteCiva.getDataNascimento()
+                        +"\nNacionalidade: " + pessoaSuporteCiva.getNacionalidade()
+                        +"\nTelefone: " + pessoaSuporteCiva.getTelefoneDdd()
+                        +"\nE-mail: " + pessoaSuporteCiva.getEmail()+"\n");
+                
+                
+                docsSuporteCiva.setNomeTipoDoc(request.getParameter("tipo-doc1-sp"));
+                docsSuporteCiva.setDocumento(request.getParameter("doc1-sp"));
+                
+                docsSuporteCiva2.setNomeTipoDoc(request.getParameter("tipo-doc2-sp"));
+                docsSuporteCiva2.setDocumento(request.getParameter("doc2-sp"));
+                
+                docsSuporteCiva3.setNomeTipoDoc(request.getParameter("tipo-doc3-sp"));
+                docsSuporteCiva3.setDocumento(request.getParameter("doc3-sp"));
+                
+                docsSuporteCiva4.setNomeTipoDoc(request.getParameter("tipo-doc4-sp"));
+                docsSuporteCiva4.setDocumento(request.getParameter("doc4-sp"));
+                
+                docsSuporteCiva5.setNomeTipoDoc(request.getParameter("tipo-doc5-sp"));
+                docsSuporteCiva5.setDocumento(request.getParameter("doc5-sp"));
+                
+                System.err.println("Doc1 Nome: " + docsSuporteCiva.getNomeTipoDoc()
+                        +"\nDocumento: " + docsSuporteCiva.getDocumento()
+                        +"\nDoc2 Nome: " + docsSuporteCiva2.getNomeTipoDoc()
+                        +"\nDocumento 2: " + docsSuporteCiva2.getDocumento()
+                        +"\nDoc3: "+ docsSuporteCiva3.getNomeTipoDoc()
+                        +"\nDocumento 3: " + docsSuporteCiva3.getDocumento()
+                        +"\nDoc4: " + docsSuporteCiva4.getNomeTipoDoc()
+                        +"\nDocumento 4: " + docsSuporteCiva4.getDocumento()
+                        +"\nDoc5: " + docsSuporteCiva5.getNomeTipoDoc()
+                        +"\nDocumento 5: " + docsSuporteCiva5.getDocumento()+"\n");
+                
+                enderecoSuporteCiva.setNomePais(request.getParameter("nome-pais"));
+                enderecoSuporteCiva.setCodigoPostal(request.getParameter("cod-postal"));
+                enderecoSuporteCiva.setLogradouro(request.getParameter("nome-logrd"));
+                enderecoSuporteCiva.setNumero(request.getParameter("nome-num"));
+                enderecoSuporteCiva.setComplemento(request.getParameter("nome-comple"));
+                enderecoSuporteCiva.setNomesubdivisao1(request.getParameter("bairro"));
+                enderecoSuporteCiva.setNomesubdivisao2(request.getParameter("municipio"));
+                enderecoSuporteCiva.setNomesubdivisao3(request.getParameter("estado"));
+                
+                System.err.println("Endereco nome: " + enderecoSuporteCiva.getNomePais()
+                        +"\nCodido Postal: " + enderecoSuporteCiva.getCodigoPostal()
+                        +"\nLogradouro: " + enderecoSuporteCiva.getNumero()
+                        +"\nNumero: " + enderecoSuporteCiva.getNumero()
+                        +"\nComplemento: " + enderecoSuporteCiva.getComplemento()
+                        +"\nSubdivisao1: " + enderecoSuporteCiva.getNomesubdivisao1()
+                        +"\nSubdivisao2: " + enderecoSuporteCiva.getNomesubdivisao2()
+                        +"\nSubdivisao3: " + enderecoSuporteCiva.getNomesubdivisao3()+"\n");
+                
+                
+                // Mostrar os dados             
                 break;
             }
         }
