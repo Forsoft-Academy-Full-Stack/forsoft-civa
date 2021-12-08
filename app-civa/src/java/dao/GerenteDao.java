@@ -457,13 +457,11 @@ public class GerenteDao {
     }
 
     public static boolean delete(Gerente gerente) {
-        boolean resultado = false;
-
-        // Delete pais;
-        if (true) {
-            resultado = true;
-        }
-
+           boolean resultado = false;
+        Pessoa pessoa = gerente.getPessoa();
+        
+        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        
         return resultado;
     }
 

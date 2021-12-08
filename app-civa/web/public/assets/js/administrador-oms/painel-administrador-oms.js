@@ -1,10 +1,12 @@
 $('.select2').select2();
 
 let form = $("#form-meus-dados");
-let campos = ['name', 'surname', 'genero', 'date-birth', 'nacionalidade', 'tipo-doc', 'doc',
-    'country-name', 'postal-code', 'logrd-name', 'numero', 'comple-name', 'bairro',
-    'municipio', 'estado', 'telf', 'email'];
-let valor;
+let campos = ["nome", "sobrenome",
+    "genero", "data-nascimento",
+    "nacionalidade", "tipo-doc1", "doc1",
+    "nome-pais", "cod-postal", "nome-logrd",
+    "nome-num", "nome-comple", "bairro",
+    "municipio", "estado", "tele", "email"];
 
 $("#salvar").click(function () {
   

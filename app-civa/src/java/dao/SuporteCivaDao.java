@@ -324,11 +324,11 @@ public class SuporteCivaDao {
     }
 
     public static boolean delete(SuporteCiva suporteCiva) {
-        boolean resultado = false;
-
-        if (true) {
-            resultado = true;
-        }
+            boolean resultado = false;
+        Pessoa pessoa = suporteCiva.getPessoa();
+        
+        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        
         return resultado;
     }
 }

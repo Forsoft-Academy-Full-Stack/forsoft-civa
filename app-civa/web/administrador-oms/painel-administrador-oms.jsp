@@ -20,8 +20,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%   
-    try {
+<%    try {
 
         String codigoCivaAdministradorOms = request.getParameter("codigoCiva");
         AdministradorOms administradorOms = AdministradorOmsDao.findByCodigCiva(codigoCivaAdministradorOms);
@@ -94,7 +93,6 @@
                                         <%@ include file="../partials/enderecos-alteracao.jspf"%>
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-alteracao.jspf"%>
-                                        <%@ include file="../partials/contatos-cadastro.jspf" %> 
                                         <input type="hidden" value="atualizar" class="form-control" id="option" name="option">
                                     </div>
                                 </form>                                

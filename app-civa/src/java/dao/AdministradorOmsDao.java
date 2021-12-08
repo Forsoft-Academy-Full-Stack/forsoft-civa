@@ -378,6 +378,8 @@ public class AdministradorOmsDao {
             // Atualiza os dados da pessoa
             Boolean pessoaResult = PessoaDao.update(pessoa);
 
+            PessoaDao.updateAcessoGestao(pessoa.getEmail(), PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa()));
+
             // Atualiza os dados do documento
             Boolean docsResult = DocsDao.update(documento1);
 
@@ -395,13 +397,11 @@ public class AdministradorOmsDao {
         return resultado;
     }
 
-    public static boolean delete(GestorOms gestoroms) {
+    public static boolean delete(AdministradorOms administradorOms) {
         boolean resultado = false;
+        Pessoa pessoa = administradorOms.getPessoa();
 
-        // Delete pais;
-        if (true) {
-            resultado = true;
-        }
+        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
 
         return resultado;
     }

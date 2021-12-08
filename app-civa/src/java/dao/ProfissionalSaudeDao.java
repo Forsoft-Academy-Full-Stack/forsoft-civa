@@ -565,13 +565,11 @@ public class ProfissionalSaudeDao {
     }
 
     public static boolean delete(ProfissionalSaude profissionalsaude) {
-        boolean resultado = false;
-
-        // Delete pais;
-        if (true) {
-            resultado = true;
-        }
-
+         boolean resultado = false;
+        Pessoa pessoa = profissionalsaude.getPessoa();
+        
+        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        
         return resultado;
     }
 

@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.AdministradorOmsDao;
 import dao.DocsDao;
 import dao.EnderecoDao;
 import dao.GestorNacionalDao;
@@ -138,15 +139,23 @@ public class gestorNacional extends HttpServlet {
                     }
 
 
-                case "deletar":
+                case "deletar":                    
                     System.err.println("deletado");
-                    System.err.println(request.getParameter("nome"));
-                    System.err.println(request.getParameter("sobrenome"));
+                    System.err.println(request.getParameter("codigo-civa"));
+                    String codigoCiva = request.getParameter("codigo-civa");    
+                    
+                    pessoa.setIdPessoa(PessoaDao.getIdPessoa(codigoCiva));
+                    gestorNacional.setPessoa(pessoa);
+                                      
+                    result = GestorNacionalDao.delete(gestorNacional);
+
+                    if (!result) {
+                        response.sendError(404);
+                    }
                     break;
 
                 default:
                     response.sendError(404);
-                    break;
             }
         }
     }

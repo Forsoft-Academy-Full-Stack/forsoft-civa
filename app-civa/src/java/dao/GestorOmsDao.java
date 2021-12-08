@@ -393,14 +393,12 @@ public class GestorOmsDao {
         return resultado;
     }
 
-    public static boolean delete(GestorOms gestoroms) {
-        boolean resultado = false;
-
-        // Delete pais;
-        if (true) {
-            resultado = true;
-        }
-
+    public static boolean delete(GestorOms gestorOms) {
+            boolean resultado = false;
+        Pessoa pessoa = gestorOms.getPessoa();
+        
+        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        
         return resultado;
     }
 }

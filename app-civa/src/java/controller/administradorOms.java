@@ -5,6 +5,7 @@ import dao.DocsDao;
 import dao.EnderecoDao;
 import dao.PaisDao;
 import dao.PessoaDao;
+import dao.PortadorCivaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -46,6 +47,7 @@ public class administradorOms extends HttpServlet {
 
             switch (option) {
                 case "cadastrar":
+                    System.err.println("Entro");
                     pessoa.setNomePessoa(request.getParameter("nome"));
                     pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
                     pessoa.setGenero(request.getParameter("genero"));
@@ -85,41 +87,39 @@ public class administradorOms extends HttpServlet {
                     break;
 
                 case "atualizar":
-                    pessoa.setNomePessoa(request.getParameter("nome"));
+                    
+                     pessoa.setNomePessoa(request.getParameter("nome"));
                     pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
                     pessoa.setGenero(request.getParameter("genero"));
                     pessoa.setDataNascimento(request.getParameter("data-nascimento"));
                     pessoa.setNacionalidade(request.getParameter("nacionalidade"));
-                    pessoa.setTelefoneDdd(request.getParameter("tele").trim().substring(0, 15));
+                    pessoa.setTelefoneDdd(request.getParameter("tele"));
                     pessoa.setEmail(request.getParameter("email"));
                     pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigo-civa")));
-
-                    documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
-                    documento1.setDocumento(request.getParameter("doc1"));
-                    documento1.setIdTipoDoc(DocsDao.findIdTipodoc(documento1.getNomeTipoDoc()));
-                    documento1.setIdDocs(DocsDao.getIdDocs(pessoa.getIdPessoa()));
-
-                    endereco.setNomePais(request.getParameter("nome-pais"));
-
+                    
+                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
+                        documento1.setDocumento(request.getParameter("doc1"));                      
+                        documento1.setIdTipoDoc(DocsDao.findIdTipodoc(documento1.getNomeTipoDoc()));                     
+                        documento1.setIdDocs(DocsDao.getIdDocs(pessoa.getIdPessoa(), documento1.getIdTipoDoc()));                                                 
+                        
+                          endereco.setNomePais(request.getParameter("nome-pais"));
+                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
+                    
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
-                    endereco.setTipoLogradouro("");
                     endereco.setNumero(request.getParameter("nome-num"));
                     endereco.setComplemento(request.getParameter("nome-comple"));
                     endereco.setNomesubdivisao3(request.getParameter("bairro"));
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
                     endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
-
-                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
-                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
-
-                    endereco.setIdEndereco(EnderecoDao.getIdEnderecoByIdPessoa(pessoa.getIdPessoa()));
-
+                    endereco.setIdEndereco(EnderecoDao.getIdEnderecoByIdPessoa(pessoa.getIdPessoa()));                  
+                    
                     administradorOms.setPessoa(pessoa);
                     administradorOms.setDocumento1(documento1);
                     administradorOms.setEndereco(endereco);
-
+                   
                     result = AdministradorOmsDao.update(administradorOms);
 
                     if (!result) {
@@ -128,15 +128,23 @@ public class administradorOms extends HttpServlet {
 
                     break;
 
-                case "deletar":
+                 case "deletar":                    
                     System.err.println("deletado");
-                    System.err.println(request.getParameter("nome"));
-                    System.err.println(request.getParameter("sobrenome"));
+                    System.err.println(request.getParameter("codigo-civa"));
+                    String codigoCiva = request.getParameter("codigo-civa");    
+                    
+                    pessoa.setIdPessoa(PessoaDao.getIdPessoa(codigoCiva));
+                    administradorOms.setPessoa(pessoa);
+                                      
+                    result = AdministradorOmsDao.delete(administradorOms);
+
+                    if (!result) {
+                        response.sendError(404);
+                    }
                     break;
 
                 default:
                     response.sendError(404);
-                    break;
             }
         }
     }

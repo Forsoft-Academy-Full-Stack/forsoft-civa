@@ -531,14 +531,13 @@ public class SupervisorDao {
         return resultado;
     }
 
-    public static boolean delete(String codigoCivaSupervisor) {
-        boolean resultado = false;
-
-        // Delete pais;
-        if (true) {
-            resultado = true;
-        }
-
+       public static boolean delete(Supervisor supervisor) {
+           boolean resultado = false;
+        Pessoa pessoa = supervisor.getPessoa();
+        
+        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        
         return resultado;
     }
+   
 }

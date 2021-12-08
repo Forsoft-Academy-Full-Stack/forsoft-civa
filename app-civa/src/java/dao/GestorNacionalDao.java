@@ -397,12 +397,11 @@ public class GestorNacionalDao {
     }
 
     public static boolean delete(GestorNacional gestorNacional) {
-        boolean resultado = false;
-
-        if (true) {
-            resultado = true;
-        }
-
+            boolean resultado = false;
+        Pessoa pessoa = gestorNacional.getPessoa();
+        
+        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        
         return resultado;
     }
 
