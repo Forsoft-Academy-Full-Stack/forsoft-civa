@@ -25,8 +25,7 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 
-<%  
-    try {
+<%    try {
         String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
         PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
 
@@ -40,7 +39,7 @@
 
 
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/profissional-saude/painel_portador.js" defer></script>
+<script src="../public/assets/js/suporte-civa/gerenciar-portador.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -89,6 +88,8 @@
                                         <%@ include file="../partials/enderecos-alteracao.jspf" %>
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-alteracao.jspf" %>
+                                        <input type="hidden" value="atualizar" class="form-control" id="option" name="option">
+
                                     </div>
                                 </form>
                             </div>

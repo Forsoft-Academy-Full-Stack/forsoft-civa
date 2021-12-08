@@ -127,7 +127,7 @@ public class PaisDao {
                 pais.setPadraoContato(rs.getString("padraodecontato"));
                 pais.setOrgaoResponsavel(rs.getString("orgaoresponsavel"));
 
-                divisaoterritorial.setTiposubivisao1(rs.getString("tiposubdivisao1"));
+                divisaoterritorial.setTiposubdivisao1(rs.getString("tiposubdivisao1"));
                 divisaoterritorial.setTiposubdivisao2(rs.getString("tiposubdivisao2"));
                 divisaoterritorial.setTiposubdivisao3(rs.getString("tiposubdivisao3"));
                 divisaoterritorial.setTiposubdivisao4(rs.getString("tiposubdivisao4"));

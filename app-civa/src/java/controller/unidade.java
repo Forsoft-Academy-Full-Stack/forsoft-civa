@@ -6,6 +6,7 @@
 package controller;
 
 import dao.PaisDao;
+import dao.PessoaDao;
 import dao.UnidadeDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.Docs;
 import model.Endereco;
+import model.Pessoa;
 import model.Unidade;
 
 /**
@@ -45,13 +47,14 @@ public class unidade extends HttpServlet {
             Unidade unidade = new Unidade();
             Docs documento1 = new Docs();
             Endereco endereco = new Endereco();
+            Pessoa pessoa = new Pessoa();
 
             String option = request.getParameter("option");
 
             HttpSession session = request.getSession();
 
             switch (option) {
-                case "cadastrar":                    
+                case "cadastrar":
                     unidade.setNome(request.getParameter("nome"));
                     unidade.setRegistro(request.getParameter("documento-registro"));
                     unidade.setNatureza(request.getParameter("natureza"));
@@ -60,7 +63,7 @@ public class unidade extends HttpServlet {
                     unidade.setLocacao(request.getParameter("locacao"));
                     unidade.setSituacao("ativo");
 
-                    endereco.setNomePais(request.getParameter("nome-pais"));                    
+                    endereco.setNomePais(request.getParameter("nome-pais"));
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
                     endereco.setNumero(request.getParameter("nome-num"));
@@ -69,23 +72,22 @@ public class unidade extends HttpServlet {
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
                     endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
-                  
+
                     unidade.setEndereco(endereco);
-                    
+
                     Date data = new Date();
                     SimpleDateFormat formatador = new SimpleDateFormat("yyyy/MM/dd");
-                    
+
                     unidade.setDataCadastro(formatador.format(data));
-                    
+
                     System.err.println(data);
 
                     int idCadastrante = (int) session.getAttribute("idPessoa");
 
                     System.err.println("teste: " + idCadastrante);
-                    
+
                     Boolean result = UnidadeDao.insert(unidade);
-                      System.err.println("depois de unidade: " + result);
-                   
+                    System.err.println("depois de unidade: " + result);
 
                     if (!result) {
                         response.sendError(404);
@@ -103,6 +105,22 @@ public class unidade extends HttpServlet {
                     System.err.println("deletado");
                     System.err.println(request.getParameter("nome"));
                     System.err.println(request.getParameter("sobrenome"));
+                    break;
+
+                case "vincular":
+                    System.err.println("vincular");
+                    pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigoCiva")));
+                    int idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+
+                    System.err.println("Cód: " + pessoa.getIdPessoa());
+                    System.err.println("id: " + idUnidade);
+                    
+                    result = UnidadeDao.insertProficionalUnidade(idUnidade, PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa()));
+
+                    if (!result) {
+                        response.sendError(404);
+                    }
+
                     break;
 
                 default:

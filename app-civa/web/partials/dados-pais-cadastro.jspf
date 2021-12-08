@@ -10,11 +10,12 @@
     <div class="form-group col-xl-6">
         <label for="continente">Continente</label>
         <select id="continente" name="continente" class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option selected value="" selected>Am&eacute;rica do Sul</option>
-            <option value="1">Am&eacute;rica do Norte</option>
-            <option value="2">Europa</option>
-            <option value="3">&Aacute;sia;</option>
-            <option value="4">&Aacute;frica;</option>
+            <option selected value="" selected>Selecionar Continente</option>
+            <option>Am&eacute;rica do Norte</option>
+            <option>Am&eacute;rica do Sul</option>
+            <option>Europa</option>
+            <option>&Aacute;sia</option>
+            <option>&Aacute;frica</option>
         </select>
     </div>    
 </div>
@@ -41,8 +42,8 @@
         <label for="fuso-horario">Fuso hor&aacute;rio</label>
         <select id="fuso-horario" name="fuso-horario" class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option selected value="2" selected>UTC-3</option>
-            <option value="3">UTC-2</option>
-            <option value="3">UTC-1</option>
+            <option>UTC-2</option>
+            <option>UTC-1</option>
         </select>
     </div>
 </div>

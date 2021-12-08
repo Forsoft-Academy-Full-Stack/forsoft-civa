@@ -1,31 +1,30 @@
-
-let campos = ["identity", "name", "surname", "genero",
-              "date-birth", "nacionalidade", "tipo-doc", 
-              "doc", "country-name", "postal-code", 
-              "logrd-name", "numero", "comple-name", "bairro",
-              "municipio", "cidade", "telf", "email"];
-
 $('.select2').select2();
 
-// Pegando o elemento form da p&aacute;gina
-let form = $("#form-painel-portador");
+let campos = ["nome", "sobrenome",
+    "genero", "data-nascimento",
+    "nacionalidade", "tipo-doc1", "doc1",
+    "nome-pais", "cod-postal", "nome-logrd",
+    "nome-num", "nome-comple", "bairro",
+    "municipio", "estado", "tele", "email"];
 
-$("#salvar").click(function () {
+let form = $("#form-meus-dados");
 
+$("#salvar").click(() => {
     if (tratar_campos(campos)) {
-
-        $.get("", form.serialize(), (data, status) => {
+        $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
+            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
-                title = 'Dados alterados com sucesso!';
-                text = "Altera&ccedil;&atilde;o realizada.";
-                swalAlertSuccess(title, text, callback);
+                title = 'Portador atualizado com sucesso!';
+                text = "Cadastro realizada.";
+                swalAlertSuccess(title, text, ()=> {location.reload()});
 
-            } else {
-                title = 'Erro!';
-                text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
-                swalAlertError(title, text, callback);
             }
+        }).fail(function (jqxhr, settings, ex) {
+            title = 'Erro!';
+            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
+            swalAlertError(title, text, callback);
         });
+
     } else {
         title = 'Campos n&atilde;o preenchidos!';
         text = 'Todos os campos precisam ser preenchidos!';
@@ -34,4 +33,7 @@ $("#salvar").click(function () {
 });
 
 
-pegarPaises('nacionalidade');
+pegarPaises("nacionalidade");
+
+
+

@@ -6,7 +6,7 @@ package model;
 public class DivisaoTerritorial {
     private Long idLocalidade;
     private Long idPais;
-    private String tiposubivisao1;
+    private String tiposubdivisao1;
     private String tiposubdivisao2;
     private String tiposubdivisao3;
     private String tiposubdivisao4;
@@ -17,7 +17,7 @@ public class DivisaoTerritorial {
     public DivisaoTerritorial(Long idLocalidade, Long idPais, String tiposubivisao1, String tiposubdivisao2, String tiposubdivisao3, String tiposubdivisao4, String tiposubdivisao5, String tiposubdivisao6, String tiposubdivisao7) {
         this.idLocalidade = idLocalidade;
         this.idPais = idPais;
-        this.tiposubivisao1 = tiposubivisao1;
+        this.tiposubdivisao1 = tiposubivisao1;
         this.tiposubdivisao2 = tiposubdivisao2;
         this.tiposubdivisao3 = tiposubdivisao3;
         this.tiposubdivisao4 = tiposubdivisao4;
@@ -45,12 +45,12 @@ public class DivisaoTerritorial {
         this.idPais = idPais;
     }
 
-    public String getTiposubivisao1() {
-        return tiposubivisao1;
+    public String getTiposubdivisao1() {
+        return tiposubdivisao1;
     }
 
-    public void setTiposubivisao1(String tiposubivisao1) {
-        this.tiposubivisao1 = tiposubivisao1;
+    public void setTiposubdivisao1(String tiposubdivisao1) {
+        this.tiposubdivisao1 = tiposubdivisao1;
     }
 
     public String getTiposubdivisao2() {

@@ -19,11 +19,16 @@
 
 %>
 <% try {
+          Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+          pageContext.setAttribute("idUnidade", idUnidade);
+          
           String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
           ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
           pageContext.setAttribute("ator", profissionalSaude);
             
         } catch (Exception e) {
+             Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+             pageContext.setAttribute("idUnidade", idUnidade);
         }
   
 %>
@@ -77,7 +82,10 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form action="" id="form-meus-dados" method="GET">
+                                 <input type="text" value="${idUnidade}" name="idUnidade">
+                                  <input type="text" value="${ator.codigoCiva}" name="idUnidade">
+                                <form id="form-meus-dados">
+                                    <input type="hidden" value="vincular" name="option">
                                     <div class="card-body">
                                         <%@include file="../partials/pesquisar-codigo-civa.jspf" %>
                                         <hr  class = "mb-4 mt-4">

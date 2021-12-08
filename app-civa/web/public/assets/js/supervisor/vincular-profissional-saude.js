@@ -15,10 +15,10 @@ $("#vincular").click(() => {
         if (tratar_campos(campos_confirmar_senha)) {
             modal_confirmar_senha.modal("hide");
 
-            $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
+            $.post("/app-civa/unidade", form.serialize(), (data, status, jqXHR) => {
                 console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                 if (status === 'success') {
-                    title = 'Portador atualizado com sucesso!';
+                    title = 'Profissional Vinculado com sucesso!';
                     text = "Cadastro realizada.";
                     swalAlertSuccess(title, text, callback);
 

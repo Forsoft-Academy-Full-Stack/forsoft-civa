@@ -27,7 +27,7 @@ $("#salvar").click(() => {
                     if (status === 'success') {
                         title = 'Portador atualizado com sucesso!';
                         text = "Cadastro realizada.";
-                        swalAlertSuccess(title, text, callback);
+                        swalAlertSuccess(title, text, () => { window.location = './cadastrar-portador.jsp' });
 
                     }
                 }).fail(function (jqxhr, settings, ex) {

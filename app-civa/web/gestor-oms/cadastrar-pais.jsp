@@ -83,6 +83,7 @@
                                         <%@include file="../partials/gestor-oms/tipo-doc-cadastro-gn.jspf" %>
                                         <hr class = "mb-4 mt-4">
                                         <%@include file="../partials/dados-pais-divisao-territorial-cadastro.jspf" %>
+                                        <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="custom-tabs-four-national" role="tabpanel" aria-labelledby="custom-tabs-four-national-tab">

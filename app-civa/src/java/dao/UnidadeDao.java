@@ -304,6 +304,38 @@ public class UnidadeDao {
         return unidades;
     }
 
+    public static boolean insertProficionalUnidade(int idUnidade, int idacessoGestao) {
+
+        Connection connection = ConnectionFactory.getConnection();
+
+        boolean resultado = false;
+
+        String sql = "INSERT INTO acessogestao_unidade\n"
+                    + "(idunidade, idacessogestao)\n"
+                    + "VALUES(?, ?);";
+        try {
+            ResultSet rs = null;
+
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setInt(1, idUnidade);
+            ps.setInt(2, idacessoGestao);
+            
+
+            int i = ps.executeUpdate();
+            System.err.println("teste: " + i);
+
+            rs = ps.getGeneratedKeys();
+
+            resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return resultado;
+    }
+    
     public static Unidade findById(Integer idUnidade) {
         Connection connection = ConnectionFactory.getConnection();
         Unidade unidade = null;

@@ -24,12 +24,12 @@ let form3 = $("#dados-suporte-civa");
 
 $("#cadastrar").click(function() {
 
-    if (tratar_campos(campos_pais) && tratar_campos(campos_gestor_nacional) && tratar_campos(campos_suporte_civa)) {
-        $.post("", $('#dados-pais, #dados-gestor-nacional, #dados-suporte-civa').serialize(), (data, status) => {
+    if (!tratar_campos(campos_pais) && !tratar_campos(campos_gestor_nacional) && !tratar_campos(campos_suporte_civa)) {
+        $.post("/app-civa/pais", $('#dados-pais, #dados-gestor-nacional, #dados-suporte-civa').serialize(), (data, status) => {
             if (status === 'success') {
                 title = 'Pa&iacute;s cadastrado com sucesso!';
                 text = "Cadastro realizada.";
-                swalAlertSuccess(title, text, () => {document.location.reload()});
+                swalAlertSuccess(title, text, callback);
 
             } else {
                 title = 'Erro!';

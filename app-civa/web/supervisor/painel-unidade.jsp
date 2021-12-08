@@ -32,6 +32,7 @@
 
         pageContext.setAttribute("ator", unidade);
         pageContext.setAttribute("unidade", unidade);
+        pageContext.setAttribute("idUnidade", idUnidade);
         pageContext.setAttribute("profissionaisSaude", profissionaisSaude);
 
     } catch (Exception e) {
@@ -142,11 +143,11 @@
                                     <hr>
                                     <div class="row ">
                                         <div class="col d-flex justify-content-xl-start  ml-4 mb-2">
-                                            <a href="./vincular-profissional-saude.jsp" class="btn btn-success btn-xs">Vincular Profissional de Sa&uacute;de</a>
+                                            <a href="./vincular-profissional-saude.jsp?idUnidade=<c:out value="${idUnidade}"/>" class="btn btn-success btn-xs">Vincular Profissional de Sa&uacute;de</a>
                                         </div>                                  
 
                                         <div class="col  d-flex justify-content-xl-end align-items-center ml-2 mb-2 mr-4">
-                                            <a href="./desvincular-profissional-saude.jsp" class="btn btn-danger btn-xs">Desvincular Profissional de Sa&uacute;de</a>
+                                            <a href="./desvincular-profissional-saude.jsp?idUnidade=<c:out value="${idUnidade}"/>" class="btn btn-danger btn-xs">Desvincular Profissional de Sa&uacute;de</a>
                                         </div>
                                     </div>
                                 </div>
