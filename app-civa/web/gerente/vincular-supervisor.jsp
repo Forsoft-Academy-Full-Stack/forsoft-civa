@@ -19,6 +19,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
 <%  
     try {
 
@@ -32,7 +33,6 @@
     }
 
 %>
-
 
 
 <%@include file="header.jspf"%>
@@ -84,20 +84,10 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form action="" id="form-meus-dados" method="GET">
+                                <form id="form-meus-dados">
+                                    <input type="hidden" value="vincular" name="option">
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="form-group col-md-11 p-0">
-                                                <label for="codigoCiva">C&oacute;digo CIVA</label>
-                                                <input type="text" class="form-control" id="codigoCiva" name="codigoCiva" value="${ator.codigoCiva}" placeholder="USA1223456789" >
-
-                                            </div>
-                                            <div class="form-group col-md-1 pl-0 pt-3 mt-3">
-                                                <button type="submit" class="btn btn-default">
-                                                    <i class="fa fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div> 
+                                        <%@include file="../partials/pesquisar-codigo-civa.jspf" %>
                                         <hr  class = "mb-4 mt-4">
                                         <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
                                     </div>
@@ -107,9 +97,7 @@
 
 
                         <div class="col-12 mb-4">
-                            <button type="button" id="vincular" class="btn btn-primary btn-lg">
-                                Vincular
-                            </button>
+                            <button type="button" id="vincular" class="btn btn-primary btn-lg">Vincular</button>
                         </div>
 
                         <!-- /.row -->
@@ -124,7 +112,7 @@
 
         <!-- Main Footer -->
         <%@ include file="../partials/gerente/footer.jspf" %>
-        
+
         <!-- Modal confirmar senha / vincular -->
         <%@ include file="../partials/confirmar-senha.jspf" %>
     </div>
