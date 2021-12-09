@@ -5,42 +5,42 @@
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="subdivisao1">Primeira SubDivisão</label>
-        <input type="text" class="form-control" value="" id="subdivisao3" name="subdivisao1" disabled>
+        <input type="text" class="form-control" value="${pais.divisaoTerritorial.tiposubdivisao1}" id="subdivisao3" name="subdivisao1" disabled>
     </div>
 
     <div class="form-group col-xl-6">
         <label for="subdivisao2">Segunda SubDivisão</label>
-        <input type="text" class="form-control" value="" id="subdivisao3" name="subdivisao2" disabled>
+        <input type="text" class="form-control" value="${pais.divisaoTerritorial.tiposubdivisao2}" id="subdivisao3" name="subdivisao2" disabled>
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="subdivisao3">Terceira SubDivisão</label>
-        <input type="text" class="form-control" value="" id="subdivisao3" name="subdivisao3" disabled>
+        <input type="text" class="form-control" value="${pais.divisaoTerritorial.tiposubdivisao3}" id="subdivisao3" name="subdivisao3" disabled>
     </div>
     
     <div class="form-group col-xl-6">
         <label for="subdivisao4">Quarta SubDivisão</label>
-        <input type="text" class="form-control" value="" id="subdivisao4" name="subdivisao4" disabled>
+        <input type="text" class="form-control" value="${pais.divisaoTerritorial.tiposubdivisao4}" id="subdivisao4" name="subdivisao4" disabled>
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="subdivisao5">Quinta SubDivisão</label>
-        <input type="text" class="form-control" value="" id="subdivisao5" name="subdivisao5" disabled>
+        <input type="text" class="form-control" value="${pais.divisaoTerritorial.tiposubdivisao5}" id="subdivisao5" name="subdivisao5" disabled>
     </div>
 
     <div class="form-group col-xl-6">
-        <label for="subdivisao6">Terceira SubDivisão</label>
-        <input type="text" class="form-control" value="" id="subdivisao6" name="subdivisao6" disabled>
+        <label for="subdivisao6">Sexta SubDivisão</label>
+        <input type="text" class="form-control" value="${pais.divisaoTerritorial.tiposubdivisao6}" id="subdivisao6" name="subdivisao6" disabled>
     </div>
 </div>
 
 <div class="row">
-    <div class="form-group col-xl-6">
-        <label for="subdivisao5">Quinta SubDivisão</label>
-        <input type="text" class="form-control" value="" id="subdivisao5" name="subdivisao5" disabled>
+    <div class="form-group col-xl-12">
+        <label for="subdivisao5">Setima SubDivisão</label>
+        <input type="text" class="form-control" value="${pais.divisaoTerritorial.tiposubdivisao7}" id="subdivisao5" name="subdivisao5" disabled>
     </div>
 </div>

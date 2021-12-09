@@ -109,6 +109,8 @@
                                         <%@ include file="../partials/gestor-oms/enderecos-cadastro-gn.jspf" %>
                                         <hr class = "mb-4 mt-4">
                                         <%@ include file="../partials/gestor-oms/contatos-cadastro-gn.jspf" %>
+                                         <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
+                                        <input type="hidden" value="gestor-nacional" class="form-control" id="option" name="tag">
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="custom-tabs-four-support" role="tabpanel" aria-labelledby="custom-tabs-four-support-tab">
@@ -118,6 +120,8 @@
                                         <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                         <hr class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-cadastro.jspf" %>
+                                         <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
+                                         <input type="hidden" value="suporte" class="form-control" id="option" name="tag">
                                     </form>
                                 </div>                                                    
                             </div>

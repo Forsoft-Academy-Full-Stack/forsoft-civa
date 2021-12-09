@@ -23,14 +23,16 @@ public class PaisDao {
     public static int insert(Pais pais) {
         Connection connection = ConnectionFactory.getConnection();
         int idPais = -1;
+        DivisaoTerritorial divisaoTerritorial = pais.getDivisaoTerritorial();
+        List<TipoDoc> tiposDoc = pais.getTiposDoc();
 
         try {
             ResultSet rs = null;
             String sql = "";
 
             sql = "INSERT INTO pais\n"
-                    + "(idcontinente, idcadastrante, nomedopais, orgaoresponsavel, padraodecontato, ddi, sigla)\n"
-                    + "VALUES(?, ?, ?, ?, ?, ?, ?);";
+                    + "(idcontinente, idcadastrante, nomedopais, orgaoresponsavel, padraodecontato, ddi, sigla, statuspais)\n"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
 
             PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
@@ -41,6 +43,7 @@ public class PaisDao {
             ps.setString(5, pais.getPadraoContato());
             ps.setInt(6, pais.getDdi());
             ps.setString(7, pais.getSigla());
+            ps.setInt(8, 1);
 
             int i = ps.executeUpdate();
 
@@ -48,6 +51,42 @@ public class PaisDao {
 
             if (rs.next()) {
                 idPais = rs.getInt(1);
+            }
+
+            sql = "INSERT INTO divisaoterritorial\n"
+                    + "(idpais, tiposubdivisao1, tiposubdivisao2, tiposubdivisao3, tiposubdivisao4, tiposubdivisao5, tiposubdivisao6, tiposubdivisao7)\n"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?, ?);";
+
+            ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setInt(1, idPais);
+            ps.setString(2, divisaoTerritorial.getTiposubdivisao1());
+            ps.setString(3, divisaoTerritorial.getTiposubdivisao2());
+            ps.setString(4, divisaoTerritorial.getTiposubdivisao3());
+            ps.setString(5, divisaoTerritorial.getTiposubdivisao4());
+            ps.setString(6, divisaoTerritorial.getTiposubdivisao5());
+            ps.setString(7, divisaoTerritorial.getTiposubdivisao6());
+            ps.setString(8, divisaoTerritorial.getTiposubdivisao7());
+
+            ps.executeUpdate();
+
+            sql = "INSERT INTO tipodoc\n"
+                    + "(idpais, nomedoc, formatodoc, nivel)\n"
+                    + "VALUES(?, ?, ?, ?);";
+
+            ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            for (TipoDoc tipoDoc : tiposDoc) {
+                
+                if(tipoDoc.getNomeDoc() != null && tipoDoc.getFormatoDoc() != null && tipoDoc.getNivel() != null){
+                   ps.setInt(1, idPais);
+                   ps.setString(2, tipoDoc.getNomeDoc());
+                   ps.setString(3, tipoDoc.getFormatoDoc());
+                   ps.setString(4, tipoDoc.getNivel());
+
+                   ps.executeUpdate();
+                }
+               
             }
 
         } catch (SQLException ex) {
@@ -99,6 +138,8 @@ public class PaisDao {
         Connection connection = ConnectionFactory.getConnection();
         Pais pais = null;
         DivisaoTerritorial divisaoterritorial = null;
+        List<TipoDoc> tipoDocs = new ArrayList<>();
+        TipoDoc tipoDoc;
         Docs documento = null;
         Docs documento2 = null;
         Docs documento3 = null;
@@ -139,12 +180,10 @@ public class PaisDao {
             ps = connection.prepareStatement(sql);
             ps.setInt(1, idPais);
             rs = ps.executeQuery();
-
+            
             pais = new Pais();
             divisaoterritorial = new DivisaoTerritorial();
-            documento = new Docs();
-            documento2 = new Docs();
-            documento3 = new Docs();
+           
 
             if (rs.next()) {
                 pais.setNomePais(rs.getString("nomedopais"));
@@ -169,32 +208,16 @@ public class PaisDao {
             ps.setInt(1, idPais);
             rs = ps.executeQuery();
 
-            if (rs.next()) {
-                documento.setNomeTipoDoc(rs.getString("nomedoc"));
-                documento.setFormatoDocumento(rs.getString("formatodoc"));
-                documento.setTipoDocumento(rs.getString("nivel"));
-
-                pais.setDocumento1(documento);
-
+            while (rs.next()) {
+                tipoDoc = new TipoDoc();
+                tipoDoc.setNomeDoc(rs.getString("nomedoc"));
+                tipoDoc.setFormatoDoc(rs.getString("formatodoc"));
+                tipoDoc.setNivel(rs.getString("nivel"));
+           
+                tipoDocs.add(tipoDoc);           
             }
-
-            if (rs.next()) {
-                documento2.setNomeTipoDoc(rs.getString("nomedoc"));
-                documento2.setFormatoDocumento(rs.getString("formatodoc"));
-                documento2.setTipoDocumento(rs.getString("nivel"));
-
-                pais.setDocumento2(documento2);
-
-            }
-
-            if (rs.next()) {
-                documento3.setNomeTipoDoc(rs.getString("nomedoc"));
-                documento3.setFormatoDocumento(rs.getString("formatodoc"));
-                documento3.setTipoDocumento(rs.getString("nivel"));
-
-                pais.setDocumento3(documento3);
-
-            }
+           
+            pais.setTiposDoc(tipoDocs);
 
         } catch (SQLException ex) {
             Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
