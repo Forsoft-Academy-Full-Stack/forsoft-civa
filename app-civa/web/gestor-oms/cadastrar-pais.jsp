@@ -86,7 +86,7 @@
                                         <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
                                     </form>
                                 </div>
-                                <div class="tab-pane fade" id="custom-tabs-four-national" role="tabpanel" aria-labelledby="custom-tabs-four-national-tab">
+                                <div class="tab-pane fade hide " id="custom-tabs-four-national" role="tabpanel" aria-labelledby="custom-tabs-four-national-tab">
                                     <form id="dados-gestor-nacional">
                                         <%@include file="../partials/gestor-oms/dadospessoais-ps-cadastro-gn.jspf" %>
                                         <hr class = "mb-4 mt-4">

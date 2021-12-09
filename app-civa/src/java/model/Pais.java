@@ -1,7 +1,8 @@
 package model;
 
-public class Pais {
+import java.util.List;
 
+public class Pais {
     private Integer idPais;
     private Integer idContinente;
     private String nomeContinente;
@@ -16,6 +17,7 @@ public class Pais {
     private Docs documento3;
     private String fusoHorario;
     private DivisaoTerritorial divisaoTerritorial;
+    private List<TipoDoc> tiposDoc;
 
     public Pais(Integer idPais, Integer idContinente, String nomeContinente, Integer idCadastrante, String nomePais, String orgaoResponsavel, String padraoContato, Integer ddi, String sigla, Docs documento1, Docs documento2, Docs documento3, String fusoHorario) {
         this.idPais = idPais;
@@ -36,6 +38,14 @@ public class Pais {
     public Pais() {
     }        
 
+    public List<TipoDoc> getTiposDoc() {
+        return tiposDoc;
+    }
+
+    public void setTiposDoc(List<TipoDoc> tiposDoc) {
+        this.tiposDoc = tiposDoc;
+    }
+    
     public String getFusoHorario() {
         return fusoHorario;
     }

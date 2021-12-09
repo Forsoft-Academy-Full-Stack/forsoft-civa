@@ -1,13 +1,17 @@
 package model;
+
 /**
  *
  * @author randel
  */
 public class GestorNacional {
+
     private Pessoa pessoa;
     private Docs documento1;
     private Docs documento2;
     private Docs documento3;
+    private Docs documento4;
+    private Docs documento5;
     private Endereco endereco;
     private String codigoCiva;
 
@@ -18,11 +22,29 @@ public class GestorNacional {
         this.documento3 = documento3;
         this.endereco = endereco;
         this.codigoCiva = codigoCiva;
-    }        
+    }
 
+    public Docs getDocumento4() {
+        return documento4;
+    }
+
+    public void setDocumento4(Docs documento4) {
+        this.documento4 = documento4;
+    }
+
+    public Docs getDocumento5() {
+        return documento5;
+    }
+
+    public void setDocumento5(Docs documento5) {
+        this.documento5 = documento5;
+    }
+
+    
+    
     public GestorNacional() {
     }
-        
+
     public Pessoa getPessoa() {
         return pessoa;
     }
@@ -70,6 +92,5 @@ public class GestorNacional {
     public void setCodigoCiva(String codigoCiva) {
         this.codigoCiva = codigoCiva;
     }
-    
-    
+
 }

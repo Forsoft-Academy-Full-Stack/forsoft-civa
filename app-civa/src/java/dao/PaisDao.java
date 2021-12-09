@@ -20,16 +20,42 @@ import model.TipoDoc;
  */
 public class PaisDao {
 
-    public static boolean insert(Pais pais) {
-        boolean resultado = false;
+    public static int insert(Pais pais) {
+        Connection connection = ConnectionFactory.getConnection();
+        int idPais = -1;
 
-        // Insert into Pais values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
-            resultado = true;
+        try {
+            ResultSet rs = null;
+            String sql = "";
+
+            sql = "INSERT INTO pais\n"
+                    + "(idcontinente, idcadastrante, nomedopais, orgaoresponsavel, padraodecontato, ddi, sigla)\n"
+                    + "VALUES(?, ?, ?, ?, ?, ?, ?);";
+
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setInt(1, pais.getIdContinente());
+            ps.setInt(2, pais.getIdCadastrante());
+            ps.setString(3, pais.getNomePais());
+            ps.setString(4, pais.getOrgaoResponsavel());
+            ps.setString(5, pais.getPadraoContato());
+            ps.setInt(6, pais.getDdi());
+            ps.setString(7, pais.getSigla());
+
+            int i = ps.executeUpdate();
+
+            rs = ps.getGeneratedKeys();
+
+            if (rs.next()) {
+                idPais = rs.getInt(1);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        return resultado;
+        System.err.println(idPais);
+        return idPais;
     }
 
     public static Pais findById(Integer idPais) {
@@ -238,12 +264,12 @@ public class PaisDao {
     public static String getSiglaByName(String nomePais) {
         Connection connection = ConnectionFactory.getConnection();
         String sigla = null;
-        
+
         String sql = "SELECT p.sigla FROM\n"
                 + "pais AS p\n"
                 + "WHERE p.nomedopais LIKE ?;";
-        
-         try {
+
+        try {
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
             ResultSet rs = null;
@@ -252,7 +278,6 @@ public class PaisDao {
             ps.setString(1, nomePais);
             rs = ps.executeQuery();
 
-       
             if (rs.next()) {
                 sigla = rs.getString("sigla");
             }
@@ -261,19 +286,18 @@ public class PaisDao {
             Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
         return sigla;
     }
-         
+
     public static int getIdPaisByName(String nomePais) {
         Connection connection = ConnectionFactory.getConnection();
-        int idPais  = -1;
-        
+        int idPais = -1;
+
         String sql = "SELECT p.idpais FROM\n"
                 + "pais AS p\n"
                 + "WHERE p.nomedopais LIKE ?;";
-        
-         try {
+
+        try {
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
             ResultSet rs = null;
@@ -282,7 +306,6 @@ public class PaisDao {
             ps.setString(1, nomePais);
             rs = ps.executeQuery();
 
-       
             if (rs.next()) {
                 idPais = rs.getInt("idpais");
             }
@@ -291,19 +314,18 @@ public class PaisDao {
             Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
         return idPais;
     }
-        
+
     public static String getDdiByName(String nomePais) {
         Connection connection = ConnectionFactory.getConnection();
-        String ddi  = null;
-        
+        String ddi = null;
+
         String sql = "SELECT p.ddi FROM\n"
                 + "pais AS p\n"
                 + "WHERE p.nomedopais LIKE ?;";
-        
-         try {
+
+        try {
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
             ResultSet rs = null;
@@ -312,7 +334,6 @@ public class PaisDao {
             ps.setString(1, nomePais);
             rs = ps.executeQuery();
 
-       
             if (rs.next()) {
                 ddi = rs.getString("ddi");
             }
@@ -321,7 +342,6 @@ public class PaisDao {
             Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-        
         return ddi;
     }
 }

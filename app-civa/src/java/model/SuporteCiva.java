@@ -10,6 +10,8 @@ public class SuporteCiva {
     private Docs documento1;
     private Docs documento2;
     private Docs documento3;
+    private Docs documento4;
+    private Docs documento5;
     private Endereco endereco;
     private String codigoCiva;
 
@@ -24,6 +26,24 @@ public class SuporteCiva {
 
     public SuporteCiva() {
     }
+
+    public Docs getDocumento4() {
+        return documento4;
+    }
+
+    public void setDocumento4(Docs documento4) {
+        this.documento4 = documento4;
+    }
+
+    public Docs getDocumento5() {
+        return documento5;
+    }
+
+    public void setDocumento5(Docs documento5) {
+        this.documento5 = documento5;
+    }
+    
+    
        
     public Pessoa getPessoa() {
         return pessoa;
