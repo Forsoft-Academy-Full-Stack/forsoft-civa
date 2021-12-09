@@ -5,6 +5,8 @@
  */
 package controller;
 
+import dao.DocsDao;
+import dao.EnderecoDao;
 import dao.PaisDao;
 import dao.PessoaDao;
 import dao.SuporteCivaDao;
@@ -84,6 +86,7 @@ public class suporte extends HttpServlet {
                     int idCadastrante = (int) session.getAttribute("idPessoa");
 
                     Boolean result = SuporteCivaDao.insert(suporteCiva, idCadastrante);
+                    
 
                     if (!result) {
                         response.sendError(404);
@@ -92,7 +95,7 @@ public class suporte extends HttpServlet {
                     break;
 
                 
-                case "atualizar":
+               case "atualizar":
                     pessoa.setNomePessoa(request.getParameter("nome"));
                     pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
                     pessoa.setGenero(request.getParameter("genero"));
@@ -100,9 +103,12 @@ public class suporte extends HttpServlet {
                     pessoa.setNacionalidade(request.getParameter("nacionalidade"));
                     pessoa.setTelefoneDdd(request.getParameter("tele"));
                     pessoa.setEmail(request.getParameter("email"));
+                    pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigo-civa")));
 
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
+                    documento1.setIdTipoDoc(DocsDao.findIdTipodoc(documento1.getNomeTipoDoc()));
+                    documento1.setIdDocs(DocsDao.getIdDocs(pessoa.getIdPessoa(), documento1.getIdTipoDoc()));
 
                     endereco.setNomePais(request.getParameter("nome-pais"));
                     pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
@@ -116,16 +122,19 @@ public class suporte extends HttpServlet {
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
                     endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                    endereco.setIdEndereco(EnderecoDao.getIdEnderecoByIdPessoa(pessoa.getIdPessoa()));
 
                     suporteCiva.setPessoa(pessoa);
                     suporteCiva.setDocumento1(documento1);
                     suporteCiva.setEndereco(endereco);
-                    
-                     result = SuporteCivaDao.update(suporteCiva);
+
+                    result = SuporteCivaDao.update(suporteCiva);
 
                     if (!result) {
                         response.sendError(404);
                     }
+
+                    
                     break;
 
                   

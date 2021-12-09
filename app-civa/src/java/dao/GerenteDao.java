@@ -428,7 +428,6 @@ public class GerenteDao {
     }
 
     public static boolean update(Gerente gerente) {
-
         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
         Pessoa pessoa = gerente.getPessoa();
@@ -438,6 +437,8 @@ public class GerenteDao {
         try {
             // Atualiza os dados da pessoa
             Boolean pessoaResult = PessoaDao.update(pessoa);
+
+            PessoaDao.updateAcessoGestao(pessoa.getEmail(), PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa()));
 
             // Atualiza os dados do documento
             Boolean docsResult = DocsDao.update(documento1);

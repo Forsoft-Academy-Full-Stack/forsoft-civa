@@ -505,27 +505,28 @@ public class SupervisorDao {
     public static boolean update(Supervisor supervisorNovo) {
          Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
-        Pessoa pessoa = supervisorNovo.getPessoa();     
+        Pessoa pessoa = supervisorNovo.getPessoa();
         Docs documento1 = supervisorNovo.getDocumento1();
         Endereco endereco = supervisorNovo.getEndereco();
 
         try {
-           // Atualiza os dados da pessoa
-           Boolean pessoaResult = PessoaDao.update(pessoa);
-           
-           // Atualiza os dados do documento
-           Boolean docsResult = DocsDao.update(documento1);
-           
-           // Atualiza os dados endereco
-           Boolean enderecoResult = EnderecoDao.update(endereco);
-           
-           int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());
+            // Atualiza os dados da pessoa
+            Boolean pessoaResult = PessoaDao.update(pessoa);
 
-           Boolean pessoaEndereco = EnderecoDao.updatePessoaEndereco(idPessoaEndereco, endereco.getNumero(), endereco.getComplemento());
+            PessoaDao.updateAcessoGestao(pessoa.getEmail(), PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa()));
 
-           
-           resultado = true;
-           
+            // Atualiza os dados do documento
+            Boolean docsResult = DocsDao.update(documento1);
+
+            // Atualiza os dados endereco
+            Boolean enderecoResult = EnderecoDao.update(endereco);
+
+            int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());
+
+            Boolean pessoaEndereco = EnderecoDao.updatePessoaEndereco(idPessoaEndereco, endereco.getNumero(), endereco.getComplemento());
+
+            resultado = true;
+
         } catch (Exception e) {
         }
         return resultado;

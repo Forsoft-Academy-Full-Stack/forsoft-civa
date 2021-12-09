@@ -5,6 +5,7 @@
  */
 package controller;
 
+import dao.EnderecoDao;
 import dao.PaisDao;
 import dao.PessoaDao;
 import dao.UnidadeDao;
@@ -96,9 +97,34 @@ public class unidade extends HttpServlet {
                     break;
 
                 case "atualizar":
-                    System.err.println("atualizado");
-                    System.err.println(request.getParameter("nome"));
-                    System.err.println(request.getParameter("sobrenome"));
+                                        
+                    unidade.setNome(request.getParameter("name"));
+                    unidade.setRegistro(request.getParameter("doc-register"));
+                    unidade.setNatureza(request.getParameter("natureza"));
+                    unidade.setTipoEstabelecimento(request.getParameter("tipo-estabelecimento"));
+                    unidade.setLocacao(request.getParameter("locacao"));
+                    unidade.setContato(request.getParameter("tele"));
+                    unidade.setIdUnidade(Integer.parseInt(request.getParameter("idUnidade")));
+                    unidade.setSituacao("ativo");
+                    
+                    endereco.setIdEndereco(UnidadeDao.getIdEndereco(unidade.getIdUnidade()));
+                                                           
+                    endereco.setNomePais(request.getParameter("nome-pais"));                                     
+                    endereco.setCodigoPostal(request.getParameter("cod-postal"));
+                    endereco.setLogradouro(request.getParameter("nome-logrd"));
+                    endereco.setNumero(request.getParameter("nome-num"));
+                    endereco.setComplemento(request.getParameter("nome-comple"));
+                    endereco.setNomesubdivisao3(request.getParameter("bairro"));
+                    endereco.setNomesubdivisao2(request.getParameter("municipio"));
+                    endereco.setNomesubdivisao1(request.getParameter("estado"));
+                    endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                    
+                    unidade.setEndereco(endereco);
+                    result = UnidadeDao.update(unidade);
+                    
+                    if (!result) {
+                        response.sendError(404);
+                    }
                     break;
 
                 case "deletar":
