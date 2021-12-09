@@ -7,7 +7,6 @@ let campos = ["nome", "sobrenome",
     "nome-num", "nome-comple", "bairro",
     "municipio", "estado", "tele", "email"];
 
-
 let form = $("#form-meus-dados");
 
 
@@ -20,7 +19,6 @@ $("#salvar").click(function () {
                 title = 'Portador atualizado com sucesso!';
                 text = "Cadastro realizada.";
                 swalAlertSuccess(title, text, () => { location.reload(); });
-
             }
         }).fail(function (jqxhr, settings, ex) {
             title = 'Erro!';

@@ -19,7 +19,9 @@ $("#salvar").click(function () {
             if (status === 'success') {
                 title = 'Profissinal de Sa&uacute;de cadastrado com sucesso!';
                 text = "Cadastro realizada.";
-                swalAlertSuccess(title, text, callback);
+                swalAlertSuccess(title, text, () => {
+                    window.location = "./cadastrar-profissional-de-saude.jsp";
+                });
 
             }
         }).fail(function (jqxhr, settings, ex) {

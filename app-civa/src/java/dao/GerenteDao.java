@@ -34,7 +34,7 @@ public class GerenteDao {
         Docs documento3 = null;
         Endereco endereco = null;
 
-        String sql = "SELECT ag.codigocivagestao AS codigociva,\n"
+        String sql = "SELECT ag.codigocivagestao AS codigociva, pa.ddi,\n"
                 + "       peag.nomepessoa AS nome, peag.idpessoa,\n"
                 + "       peag.sobrenomepessoa AS sobrenome,\n"
                 + "       peag.genero,\n"
@@ -102,12 +102,12 @@ public class GerenteDao {
                 endereco.setNomePais(rs.getString("pais"));
                 endereco.setCodigoPostal(rs.getString("codigopostal"));
                 endereco.setTipoLogradouro(rs.getString("tipologradouro"));
-                endereco.setLogradouro(endereco.getTipoLogradouro() + " " + rs.getString("logradouro"));
+                endereco.setLogradouro(rs.getString("logradouro"));
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
                 endereco.setNomesubdivisao1(rs.getString("subdivisao1"));
                 endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
-                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
+                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));                
             }
 
             ps = connection.prepareStatement(sql2);
@@ -167,7 +167,7 @@ public class GerenteDao {
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
                 + "WHERE ag.cargo='Gerente'  \n"
-                + "AND tidoc.nivel = 'Primário'\n"
+                //+ "AND tidoc.nivel = 'Primário'\n"
                 + "AND en.idpais = \n"
                 + "(SELECT en.idpais FROM pessoa peag \n"
                 + "LEFT JOIN acessogestao ag \n"

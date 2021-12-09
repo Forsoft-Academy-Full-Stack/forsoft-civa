@@ -173,7 +173,7 @@ public class ProfissionalSaudeDao {
 
         String sql = "";
 
-        sql = "SELECT peag.nomepessoa AS nome,\n"
+        sql = "SELECT distinct peag.nomepessoa AS nome,\n"
                 + "	   peag.sobrenomepessoa AS sobrenome,\n"
                 + "       doc.documento,\n"
                 + "       peag.datadenascimento,\n"
@@ -186,7 +186,7 @@ public class ProfissionalSaudeDao {
                 + "LEFT JOIN acessogestao ag \n"
                 + "ON ag.idpessoa = peag.idpessoa\n"
                 + "WHERE ag.cargo='Profissional de Saúde'  \n"
-                + "AND tidoc.nivel = 'Primário'\n"
+                + "AND tidoc.nivel in ('Primário', 'Secundário', 'Internacional', 'Profissional de Saúde')\n"
                 + "AND ag.codigocivagestao LIKE \n"
                 + "CONCAT( \n"
                 + "(SELECT pa.sigla FROM pessoa peag \n"
@@ -198,7 +198,7 @@ public class ProfissionalSaudeDao {
                 + "ON peen.idendereco = en.idendereco \n"
                 + "LEFT JOIN pais pa \n"
                 + "ON en.idpais = pa.idpais  \n"
-                + "WHERE ag.codigocivagestao = ?),'%');";
+                + "WHERE ag.codigocivagestao = ?),'%') order by codigociva desc;";
 
         try {
             Statement stmt = connection.createStatement();

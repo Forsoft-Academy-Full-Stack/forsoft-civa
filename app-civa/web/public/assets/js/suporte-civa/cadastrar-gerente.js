@@ -18,7 +18,9 @@ $("#salvar").click(function () {
             if (status === 'success') {
                 title = 'Gerente cadastrado com sucesso!';
                 text = "Cadastro realizada.";
-                swalAlertSuccess(title, text, callback);
+                swalAlertSuccess(title, text, () => {
+                    window.location = './cadastrar-gerente.jsp';
+                });
 
             }
         }).fail(function (jqxhr, settings, ex) {

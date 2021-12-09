@@ -54,6 +54,7 @@ public class supervisor extends HttpServlet {
 
             switch (option) {
                 case "cadastrar":
+                    int idPais = Integer.parseInt(request.getParameter("nome-pais"));
                     pessoa.setNomePessoa(request.getParameter("nome"));
                     pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
                     pessoa.setGenero(request.getParameter("genero"));
@@ -65,9 +66,9 @@ public class supervisor extends HttpServlet {
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
 
-                    endereco.setNomePais(request.getParameter("nome-pais"));
-                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
-                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
+                    pessoa.setIdNacionalidade(idPais);
+                    String ddi = PaisDao.getDdiById(idPais);                
+                    pessoa.setDdiContato(ddi);
 
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
@@ -76,7 +77,10 @@ public class supervisor extends HttpServlet {
                     endereco.setNomesubdivisao3(request.getParameter("bairro"));
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
-                    endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                    
+                    endereco.setIdPais(idPais);
+                    String nomePais = PaisDao.getNomeById(idPais);
+                    endereco.setNomePais(nomePais);
 
                     supervisor.setPessoa(pessoa);
                     supervisor.setDocumento1(documento1);

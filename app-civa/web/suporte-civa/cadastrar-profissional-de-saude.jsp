@@ -1,9 +1,11 @@
+<%@page import="model.Pais"%>
+<%@page import="dao.PaisDao"%>
 <%@page import="dao.ProfissionalSaudeDao"%>
 <%@page import="java.util.List"%>
 <%@page import="model.ProfissionalSaude"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 
 <%
@@ -19,6 +21,12 @@
 
     }
     // Caso contrário é um usuário válido, pode entrar na página
+    try {
+         List<Pais> paises = PaisDao.listPais();
+          pageContext.setAttribute("paises", paises);
+            
+        } catch (Exception e) {
+    }
 %>
 
 

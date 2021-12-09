@@ -1,5 +1,9 @@
+<%@page import="model.Pais"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.PaisDao"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -12,8 +16,13 @@
         response.sendRedirect("../login/");
 
     }
-
-    // Caso contrário é um usuário válido, pode entrar na página
+  
+    try {
+         List<Pais> paises = PaisDao.listPais();
+          pageContext.setAttribute("paises", paises);
+            
+        } catch (Exception e) {
+    }// Caso contrário é um usuário válido, pode entrar na página
 
 %>
 <!--Por favor não remover include nem head-->

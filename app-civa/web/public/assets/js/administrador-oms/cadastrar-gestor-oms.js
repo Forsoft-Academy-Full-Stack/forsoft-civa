@@ -1,5 +1,7 @@
 $('.select2').select2();
 
+//$('#cod-postal').addEventListener('focusout', searchCep);
+
 let campos = ["nome", "sobrenome",
     "genero", "data-nascimento",
     "nacionalidade", "tipo-doc1", "doc1",

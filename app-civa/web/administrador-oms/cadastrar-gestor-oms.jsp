@@ -1,5 +1,11 @@
+<%@page import="model.Pais"%>
+<%@page import="dao.PaisDao"%>
+<%@page import="dao.ContinenteDao"%>
+<%@page import="model.Continente"%>
+<%@page import="java.util.List"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -15,6 +21,15 @@
 
     // Caso contrário é um usuário válido, pode entrar na página
 
+try {
+         List<Continente> continentes = ContinenteDao.list();
+         pageContext.setAttribute("continentes", continentes);
+         
+         List<Pais> paises = PaisDao.listPais();
+          pageContext.setAttribute("paises", paises);
+            
+        } catch (Exception e) {
+    }
 %>
 
 <%@include file="header.jspf"%>

@@ -58,6 +58,7 @@ public class profissionalSaude extends HttpServlet {
 
             switch (option) {
                 case "cadastrar":
+                    int idPais = Integer.parseInt(request.getParameter("nome-pais"));
                     pessoa.setNomePessoa(request.getParameter("nome"));
                     pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
                     pessoa.setGenero(request.getParameter("genero"));
@@ -82,9 +83,9 @@ public class profissionalSaude extends HttpServlet {
                     documento5.setNomeTipoDoc(request.getParameter("tipo-doc5"));
                     documento5.setDocumento(request.getParameter("doc5"));
 
-                    endereco.setNomePais(request.getParameter("nome-pais"));
-                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
-                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
+                    pessoa.setIdNacionalidade(idPais);
+                    String ddi = PaisDao.getDdiById(idPais);                
+                    pessoa.setDdiContato(ddi);
 
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
@@ -93,7 +94,10 @@ public class profissionalSaude extends HttpServlet {
                     endereco.setNomesubdivisao3(request.getParameter("bairro"));
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
-                    endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                   
+                    endereco.setIdPais(idPais);
+                    String nomePais = PaisDao.getNomeById(idPais);
+                    endereco.setNomePais(nomePais);
 
                     profissionalSaude.setPessoa(pessoa);
                     profissionalSaude.setDocumento1(documento1);

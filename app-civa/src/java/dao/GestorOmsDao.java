@@ -240,8 +240,8 @@ public class GestorOmsDao {
                 + "on tidoc.idtipodoc = doc.idtipodoc \n"
                 + "LEFT JOIN acessogestao ag\n"
                 + "on ag.idpessoa = peag.idpessoa \n"
-                + "WHERE ag.cargo = 'Gestor OMS'\n"
-                + "AND tidoc.nivel = 'Primário';";
+                + "WHERE ag.cargo = 'Gestor OMS';\n";
+               // + "AND tidoc.nivel = 'Primário';";
 
         try {
             Statement stmt = connection.createStatement();

@@ -19,7 +19,9 @@ $("#salvar").click(function () {
             if (status === 'success') {
                 title = 'Gestor nacional cadastrado com sucesso!';
                 text = "Cadastro realizada.";
-                swalAlertSuccess(title, text, callback);
+                swalAlertSuccess(title, text,  () => {
+                    window.location = "./cadastrar-gestor-nacional.jsp";
+                });
 
             }
         }).fail(function (jqxhr, settings, ex) {

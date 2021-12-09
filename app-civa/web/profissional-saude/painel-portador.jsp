@@ -79,7 +79,7 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Dados Portador CIVA</h3>
                                 </div>
-                                <form id="form-painel-portador">
+                                <form id="form-meus-dados">
                                     <div class="card-body">
                                         <%@ include file="../partials/codigociva.jspf" %>
                                         <hr  class = "mb-4 mt-4">

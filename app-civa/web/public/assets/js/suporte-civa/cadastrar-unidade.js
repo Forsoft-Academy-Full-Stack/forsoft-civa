@@ -16,7 +16,9 @@ $("#salvar").click(function () {
             if (status === 'success') {
                 title = 'Unidade cadastrada com sucesso!';
                 text = "Cadastro realizada.";
-                swalAlertSuccess(title, text, callback);
+                swalAlertSuccess(title, text, () => {
+                    window.location = "./cadastrar-unidade.jsp";
+                });
 
             }
         }).fail(function (jqxhr, settings, ex) {

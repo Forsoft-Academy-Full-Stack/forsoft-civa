@@ -56,14 +56,15 @@ public class unidade extends HttpServlet {
 
             switch (option) {
                 case "cadastrar":
+                    int idPais = Integer.parseInt(request.getParameter("nome-pais"));
                     unidade.setNome(request.getParameter("nome"));
                     unidade.setRegistro(request.getParameter("documento-registro"));
                     unidade.setNatureza(request.getParameter("natureza"));
                     unidade.setTipoEstabelecimento(request.getParameter("tipo-estabelecimento"));
                     unidade.setContato(request.getParameter("tele"));
                     unidade.setLocacao(request.getParameter("locacao"));
-                    unidade.setSituacao("ativo");
-
+                    unidade.setSituacao("ativo");                 
+                    
                     endereco.setNomePais(request.getParameter("nome-pais"));
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
@@ -72,7 +73,10 @@ public class unidade extends HttpServlet {
                     endereco.setNomesubdivisao3(request.getParameter("bairro"));
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
-                    endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                    
+                    endereco.setIdPais(idPais);
+                    String nomePais = PaisDao.getNomeById(idPais);
+                    endereco.setNomePais(nomePais);
 
                     unidade.setEndereco(endereco);
 
