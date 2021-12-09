@@ -296,7 +296,7 @@ public class SuporteCivaDao {
     }
 
     public static boolean update(SuporteCiva suporteCiva) {
-        Connection connection = ConnectionFactory.getConnection();
+         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
         Pessoa pessoa = suporteCiva.getPessoa();
         Docs documento1 = suporteCiva.getDocumento1();
@@ -305,6 +305,8 @@ public class SuporteCivaDao {
         try {
             // Atualiza os dados da pessoa
             Boolean pessoaResult = PessoaDao.update(pessoa);
+
+            PessoaDao.updateAcessoGestao(pessoa.getEmail(), PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa()));
 
             // Atualiza os dados do documento
             Boolean docsResult = DocsDao.update(documento1);

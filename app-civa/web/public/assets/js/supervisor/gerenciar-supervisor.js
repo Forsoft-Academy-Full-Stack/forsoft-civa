@@ -1,3 +1,13 @@
+$('.select2').select2();
+
+let form = $("#form-meus-dados");
+let campos = ["nome", "sobrenome",
+    "genero", "data-nascimento",
+    "nacionalidade", "tipo-doc1", "doc1",
+    "nome-pais", "cod-postal", "nome-logrd",
+    "nome-num", "nome-comple", "bairro",
+    "municipio", "estado", "tele", "email"];
+
 $("#salvar").click(function () {
   
     if (tratar_campos(campos)) {
@@ -6,7 +16,7 @@ $("#salvar").click(function () {
             if (status === 'success') {
                 title = 'Supervisor atualizado com sucesso!';
                 text = "Cadastro atualizado.";
-                swalAlertSuccess(title, text, callback);
+                swalAlertSuccess(title, text, () => { location.reload() });
 
             }
         }).fail(function (jqxhr, settings, ex) {

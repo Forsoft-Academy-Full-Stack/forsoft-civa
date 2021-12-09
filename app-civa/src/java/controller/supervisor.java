@@ -9,7 +9,6 @@ import dao.DocsDao;
 import dao.EnderecoDao;
 import dao.PaisDao;
 import dao.PessoaDao;
-import dao.PortadorCivaDao;
 import dao.SupervisorDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -100,30 +99,27 @@ public class supervisor extends HttpServlet {
                     pessoa.setGenero(request.getParameter("genero"));
                     pessoa.setDataNascimento(request.getParameter("data-nascimento"));
                     pessoa.setNacionalidade(request.getParameter("nacionalidade"));
-                    pessoa.setTelefoneDdd(request.getParameter("tele").trim().substring(0, 15));
+                    pessoa.setTelefoneDdd(request.getParameter("tele"));
                     pessoa.setEmail(request.getParameter("email"));
                     pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigo-civa")));
 
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
                     documento1.setIdTipoDoc(DocsDao.findIdTipodoc(documento1.getNomeTipoDoc()));
-                    documento1.setIdDocs(DocsDao.getIdDocs(pessoa.getIdPessoa()));
+                    documento1.setIdDocs(DocsDao.getIdDocs(pessoa.getIdPessoa(), documento1.getIdTipoDoc()));
 
                     endereco.setNomePais(request.getParameter("nome-pais"));
+                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
+                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
 
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
-                    endereco.setTipoLogradouro("");
                     endereco.setNumero(request.getParameter("nome-num"));
                     endereco.setComplemento(request.getParameter("nome-comple"));
                     endereco.setNomesubdivisao3(request.getParameter("bairro"));
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
                     endereco.setIdPais(PaisDao.getIdPaisByName(endereco.getNomePais()));
-
-                    pessoa.setIdNacionalidade(PaisDao.getIdPaisByName(endereco.getNomePais()));
-                    pessoa.setDdiContato(PaisDao.getDdiByName(endereco.getNomePais()));
-
                     endereco.setIdEndereco(EnderecoDao.getIdEnderecoByIdPessoa(pessoa.getIdPessoa()));
 
                     supervisor.setPessoa(pessoa);
@@ -135,8 +131,8 @@ public class supervisor extends HttpServlet {
                     if (!result) {
                         response.sendError(404);
                     }
-                    break;
 
+                    break;
                 case "deletar":                    
                     System.err.println("deletado");
                     System.err.println(request.getParameter("codigo-civa"));

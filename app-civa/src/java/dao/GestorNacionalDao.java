@@ -369,7 +369,7 @@ public class GestorNacionalDao {
     }
 
     public static boolean update(GestorNacional gestorNacional) {
-        Connection connection = ConnectionFactory.getConnection();
+         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
         Pessoa pessoa = gestorNacional.getPessoa();
         Docs documento1 = gestorNacional.getDocumento1();
@@ -378,6 +378,8 @@ public class GestorNacionalDao {
         try {
             // Atualiza os dados da pessoa
             Boolean pessoaResult = PessoaDao.update(pessoa);
+
+            PessoaDao.updateAcessoGestao(pessoa.getEmail(), PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa()));
 
             // Atualiza os dados do documento
             Boolean docsResult = DocsDao.update(documento1);

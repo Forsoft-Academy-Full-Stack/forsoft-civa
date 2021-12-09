@@ -12,6 +12,7 @@ import java.util.logging.Logger;
 import model.Docs;
 import model.Endereco;
 import model.Pais;
+import model.Pessoa;
 import model.Unidade;
 
 /**
@@ -311,8 +312,8 @@ public class UnidadeDao {
         boolean resultado = false;
 
         String sql = "INSERT INTO acessogestao_unidade\n"
-                    + "(idunidade, idacessogestao)\n"
-                    + "VALUES(?, ?);";
+                + "(idunidade, idacessogestao)\n"
+                + "VALUES(?, ?);";
         try {
             ResultSet rs = null;
 
@@ -320,7 +321,6 @@ public class UnidadeDao {
 
             ps.setInt(1, idUnidade);
             ps.setInt(2, idacessoGestao);
-            
 
             int i = ps.executeUpdate();
             System.err.println("teste: " + i);
@@ -335,7 +335,7 @@ public class UnidadeDao {
 
         return resultado;
     }
-    
+
     public static Unidade findById(Integer idUnidade) {
         Connection connection = ConnectionFactory.getConnection();
         Unidade unidade = null;
@@ -406,15 +406,15 @@ public class UnidadeDao {
     }
 
     public static boolean insert(Unidade unidade) {
-         int idEndereco = -1;
+        int idEndereco = -1;
         Endereco endereco = unidade.getEndereco();
         try {
-           idEndereco = EnderecoDao.insert(endereco);
+            idEndereco = EnderecoDao.insert(endereco);
         } catch (Exception e) {
             System.err.println("Deu ruim");
         }
-       
-         System.err.println(idEndereco);
+
+        System.err.println(idEndereco);
 
         Connection connection = ConnectionFactory.getConnection();
 
@@ -458,12 +458,71 @@ public class UnidadeDao {
         return null;
     }
 
-    public static boolean update(Unidade unidadeNova) {
-        boolean resultado = false;
+    public static int getIdEndereco(int idUnidade) {
+        Connection connection = ConnectionFactory.getConnection();
+        int idEndereco = -1;
+        String sql = "SELECT en.idendereco\n"
+                + "FROM endereco AS en\n"
+                + "LEFT JOIN unidade AS uni\n"
+                + "on en.idendereco = uni.idendereco\n"
+                + "WHERE uni.idunidade = ?;";
 
-        // Update unidade;
-        if (true) {
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idUnidade);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idEndereco = rs.getInt("idendereco");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return idEndereco;
+    }
+
+    public static boolean update(Unidade unidadeNova) {
+        Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+
+        Endereco endereco = unidadeNova.getEndereco();
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "UPDATE unidade\n"
+                    + "SET numeroendereco=?, nomeunidade=?, contato=?, locacao=?, natureza=?, tipodeestabelecimento=?, situacao=?, datadecadastro=?, registrodaunidade=?\n"
+                    + "WHERE idunidade=?;";
+
+            ps = connection.prepareStatement(sql);
+
+            ps.setString(1, unidadeNova.getNumero());
+            ps.setString(2, unidadeNova.getNome());
+            ps.setString(3, unidadeNova.getContato());
+            ps.setString(4, unidadeNova.getLocacao());
+            ps.setString(5, unidadeNova.getNatureza());
+            ps.setString(6, unidadeNova.getTipoEstabelecimento());
+            ps.setString(7, unidadeNova.getSituacao());
+            ps.setString(8, unidadeNova.getDataCadastro());
+            ps.setString(9, unidadeNova.getRegistro());
+            ps.setInt(10,unidadeNova.getIdUnidade());
+
+            ps.executeUpdate();
+
+            // Atualiza os dados endereco
+            Boolean enderecoResult = EnderecoDao.update(endereco);
+
             resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;
