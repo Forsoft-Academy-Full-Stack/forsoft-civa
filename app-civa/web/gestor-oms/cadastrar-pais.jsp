@@ -1,5 +1,9 @@
+<%@page import="model.Continente"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.ContinenteDao"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -17,6 +21,17 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+<%
+    try {
+         List<Continente> continentes = ContinenteDao.list();
+         pageContext.setAttribute("continentes", continentes);
+            
+        } catch (Exception e) {
+        }
+   
+ 
+%>
+
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/gestor-oms/cadastrar-pais.js" defer></script>
 </head>
@@ -84,6 +99,7 @@
                                         <hr class = "mb-4 mt-4">
                                         <%@include file="../partials/dados-pais-divisao-territorial-cadastro.jspf" %>
                                         <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
+                                        <input type="hidden" value="pais" class="form-control" id="option" name="tag">
                                     </form>
                                 </div>
                                 <div class="tab-pane fade hide " id="custom-tabs-four-national" role="tabpanel" aria-labelledby="custom-tabs-four-national-tab">
