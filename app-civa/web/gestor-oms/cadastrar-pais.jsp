@@ -97,7 +97,7 @@
                                 </div>
                                 <div class="tab-pane fade" id="custom-tabs-four-support" role="tabpanel" aria-labelledby="custom-tabs-four-support-tab">
                                     <form id="dados-suporte-civa">
-                                        <%@include file="../partials/dadospessoais-ps-cadastro.jspf" %>
+                                        <%@include file="../partials/dados-pessoas-ps-suporte.jspf" %>
                                         <hr class = "mb-4 mt-4">
                                         <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                         <hr class = "mb-4 mt-4">
