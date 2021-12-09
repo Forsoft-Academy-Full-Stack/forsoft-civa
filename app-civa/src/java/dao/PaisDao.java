@@ -77,16 +77,16 @@ public class PaisDao {
             ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
             for (TipoDoc tipoDoc : tiposDoc) {
-                
-                if(tipoDoc.getNomeDoc() != null && tipoDoc.getFormatoDoc() != null && tipoDoc.getNivel() != null){
-                   ps.setInt(1, idPais);
-                   ps.setString(2, tipoDoc.getNomeDoc());
-                   ps.setString(3, tipoDoc.getFormatoDoc());
-                   ps.setString(4, tipoDoc.getNivel());
 
-                   ps.executeUpdate();
+                if (tipoDoc.getNomeDoc() != null && tipoDoc.getFormatoDoc() != null && tipoDoc.getNivel() != null) {
+                    ps.setInt(1, idPais);
+                    ps.setString(2, tipoDoc.getNomeDoc());
+                    ps.setString(3, tipoDoc.getFormatoDoc());
+                    ps.setString(4, tipoDoc.getNivel());
+
+                    ps.executeUpdate();
                 }
-               
+
             }
 
         } catch (SQLException ex) {
@@ -180,10 +180,9 @@ public class PaisDao {
             ps = connection.prepareStatement(sql);
             ps.setInt(1, idPais);
             rs = ps.executeQuery();
-            
+
             pais = new Pais();
             divisaoterritorial = new DivisaoTerritorial();
-           
 
             if (rs.next()) {
                 pais.setNomePais(rs.getString("nomedopais"));
@@ -213,10 +212,10 @@ public class PaisDao {
                 tipoDoc.setNomeDoc(rs.getString("nomedoc"));
                 tipoDoc.setFormatoDoc(rs.getString("formatodoc"));
                 tipoDoc.setNivel(rs.getString("nivel"));
-           
-                tipoDocs.add(tipoDoc);           
+
+                tipoDocs.add(tipoDoc);
             }
-           
+
             pais.setTiposDoc(tipoDocs);
 
         } catch (SQLException ex) {
@@ -366,5 +365,61 @@ public class PaisDao {
         }
 
         return ddi;
+    }
+
+    public static String getDdiById(int idPais) {
+        Connection connection = ConnectionFactory.getConnection();
+        String ddi = null;
+
+        String sql = "SELECT p.ddi FROM\n"
+                + "pais AS p\n"
+                + "WHERE p.idpais LIKE ?;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idPais);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                ddi = rs.getString("ddi");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return ddi;
+    }
+
+    public static String getNomeById(int idPais) {
+        Connection connection = ConnectionFactory.getConnection();
+        String nomePais = null;
+
+        String sql = "SELECT p.nomedopais FROM\n"
+                + "pais AS p\n"
+                + "WHERE p.idpais LIKE ?";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idPais);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                nomePais = rs.getString("nomedopais");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return nomePais;
     }
 }

@@ -22,8 +22,8 @@ let form1 = $("#dados-pais");
 let form2 = $("#dados-gestor-nacional");
 let form3 = $("#dados-suporte-civa");
 
-form2.hide();
-form3.hide();
+//form2.hide();
+//form3.hide();
 
 $("#cadastrar").click(function () {
 
@@ -35,10 +35,7 @@ $("#cadastrar").click(function () {
                 title = 'Pa&iacute;s cadastrado com sucesso!';
                 text = "Cadastro realizada.";
                 swalAlertSuccess(title, text, () => {
-                    form2.show();
-                    form3.hide();
-                    form1.hide();
-                  
+                    location.reload();                                      
 
                 });
             }
@@ -61,10 +58,11 @@ $("#cadastrar").click(function () {
             if (status === 'success') {
                 title = 'Gestor Nacional com sucesso!';
                 text = "Cadastro realizada.";
-                swalAlertSuccess(title, text, () => {
-                    form2.hide();
-                    form3.show();
-                    form1.hide();
+                swalAlertSuccess(title, text, () => {      
+                    location.reload();
+                    //form2.hide();
+                    //form3.show();
+                    //form1.hide();
 
                 });
             }

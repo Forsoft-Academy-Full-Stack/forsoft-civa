@@ -342,6 +342,7 @@ public class GestorNacionalDao {
         String atorSigla = "GN";
         String codigoCiva = "";
         String sigla = PaisDao.getSiglaByName(nomePais);
+             
 
         sql = "SELECT COUNT(*) + 100000000 + ? AS codigo\n"
                 + "FROM acessogestao AS acg\n"

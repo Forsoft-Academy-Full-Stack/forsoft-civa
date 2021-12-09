@@ -1,5 +1,6 @@
 package controller;
 
+import dao.GestorNacionalDao;
 import dao.PaisDao;
 import dao.SuporteCivaDao;
 import java.io.IOException;
@@ -65,10 +66,10 @@ public class pais extends HttpServlet {
                             pais.setOrgaoResponsavel(request.getParameter("orgao-saude"));
                             pais.setFusoHorario(request.getParameter("fuso-horario"));
                             pais.setSigla(request.getParameter("sigla"));
-                            
+
                             int idCadastrante = (int) session.getAttribute("idPessoa");
                             pais.setIdCadastrante(idCadastrante);
-                            
+
                             System.err.println("Pais Nome: "
                                     + pais.getNomePais() + "\nContinente: " + pais.getNomeContinente()
                                     + "\nDDI: " + pais.getDdi() + "\nPadrão contato: " + pais.getPadraoContato()
@@ -113,13 +114,13 @@ public class pais extends HttpServlet {
                                     + "\nSub7: " + divisaoTerritorial.getTiposubdivisao7() + "\n");
 
                             pais.setDivisaoTerritorial(divisaoTerritorial);
-                            
+
                             PaisDao.insert(pais);
-                            
+
                             result = true;
 
                         } catch (Exception e) {
-                        }                                                
+                        }
 
                         if (!result) {
                             response.sendError(404);
@@ -136,14 +137,21 @@ public class pais extends HttpServlet {
                             Docs docsGestorNacional5 = new Docs();
                             GestorNacional gestorNacional = new GestorNacional();
 
+                            int idPais = Integer.parseInt(request.getParameter("nome-pais-gn"));
+                            
                             pessoaGestorNacional.setNomePessoa(request.getParameter("nome-gn"));
                             pessoaGestorNacional.setSobrenomePessoa(request.getParameter("sobrenome-gn"));
                             pessoaGestorNacional.setGenero(request.getParameter("genero-gn"));
                             pessoaGestorNacional.setDataNascimento(request.getParameter("data-nascimento-gn"));
                             pessoaGestorNacional.setNacionalidade(request.getParameter("nacionalidade-gn"));
+                            
                             pessoaGestorNacional.setTelefoneDdd(request.getParameter("tele-gn"));
                             pessoaGestorNacional.setEmail(request.getParameter("email-gn"));
 
+                            pessoaGestorNacional.setIdNacionalidade(idPais);
+                            String ddi = PaisDao.getDdiById(idPais);
+                            pessoaGestorNacional.setDdiContato(ddi);
+                            
                             System.err.println("Nome pessoa: " + pessoaGestorNacional.getNomePessoa()
                                     + "\nSobrenome: " + pessoaGestorNacional.getSobrenomePessoa()
                                     + "\nGenero: " + pessoaGestorNacional.getGenero()
@@ -186,7 +194,12 @@ public class pais extends HttpServlet {
                             gestorNacional.setDocumento4(docsGestorNacional4);
                             gestorNacional.setDocumento5(docsGestorNacional5);
 
-                            enderecoGestorNacional.setNomePais(request.getParameter("nome-pais-gn"));
+                           
+                            enderecoGestorNacional.setIdPais(idPais);                           
+                            String nomePais = PaisDao.getNomeById(idPais);
+                            System.err.println("Nome pais: " + nomePais);
+                            enderecoGestorNacional.setNomePais(nomePais);
+                            
                             enderecoGestorNacional.setCodigoPostal(request.getParameter("cod-postal-gn"));
                             enderecoGestorNacional.setLogradouro(request.getParameter("nome-logrd-gn"));
                             enderecoGestorNacional.setNumero(request.getParameter("nome-num-gn"));
@@ -195,7 +208,7 @@ public class pais extends HttpServlet {
                             enderecoGestorNacional.setNomesubdivisao2(request.getParameter("municipio-gn"));
                             enderecoGestorNacional.setNomesubdivisao3(request.getParameter("estado-gn"));
 
-                            System.err.println("Endereco nome: " + enderecoGestorNacional.getNomePais()
+                            System.err.println("Endereco nome: " + enderecoGestorNacional.getIdPais()
                                     + "\nCodido Postal: " + enderecoGestorNacional.getCodigoPostal()
                                     + "\nLogradouro: " + enderecoGestorNacional.getNumero()
                                     + "\nNumero: " + enderecoGestorNacional.getNumero()
@@ -206,11 +219,14 @@ public class pais extends HttpServlet {
 
                             gestorNacional.setEndereco(enderecoGestorNacional);
 
+                            int idCadastrante = (int) session.getAttribute("idPessoa");
+                            result = GestorNacionalDao.insert(gestorNacional, idCadastrante);
+
                             if (!result) {
                                 response.sendError(404);
                             }
                             break;
-
+                            
                         case "suporte":
                             // Suporte                
                             Pessoa pessoaSuporteCiva = new Pessoa();
@@ -222,11 +238,17 @@ public class pais extends HttpServlet {
                             Docs docsSuporteCiva5 = new Docs();
                             SuporteCiva suporteCiva = new SuporteCiva();
 
+                            idPais = Integer.parseInt(request.getParameter("nome-pais"));
+                            
+                             pessoaSuporteCiva.setIdNacionalidade(idPais);
+                            ddi = PaisDao.getDdiById(idPais);
+                            pessoaSuporteCiva.setDdiContato(ddi);
+                            
                             pessoaSuporteCiva.setNomePessoa(request.getParameter("nome-sp"));
                             pessoaSuporteCiva.setSobrenomePessoa(request.getParameter("sobrenome-sp"));
                             pessoaSuporteCiva.setGenero(request.getParameter("genero-sp"));
                             pessoaSuporteCiva.setDataNascimento(request.getParameter("data-nascimento-sp"));
-                            pessoaSuporteCiva.setNacionalidade(request.getParameter("nacionalidade-sp"));
+                            //pessoaSuporteCiva.setNacionalidade(request.getParameter("nacionalidade-sp"));
                             pessoaSuporteCiva.setTelefoneDdd(request.getParameter("tele"));
                             pessoaSuporteCiva.setEmail(request.getParameter("email"));
 
@@ -280,6 +302,11 @@ public class pais extends HttpServlet {
                             enderecoSuporteCiva.setNomesubdivisao1(request.getParameter("bairro"));
                             enderecoSuporteCiva.setNomesubdivisao2(request.getParameter("municipio"));
                             enderecoSuporteCiva.setNomesubdivisao3(request.getParameter("estado"));
+                            
+                            enderecoSuporteCiva.setIdPais(idPais);                           
+                            nomePais = PaisDao.getNomeById(idPais);
+                            System.err.println("Nome pais: " + nomePais);
+                            enderecoSuporteCiva.setNomePais(nomePais);
 
                             System.err.println("Endereco nome: " + enderecoSuporteCiva.getNomePais()
                                     + "\nCodido Postal: " + enderecoSuporteCiva.getCodigoPostal()
@@ -291,8 +318,8 @@ public class pais extends HttpServlet {
                                     + "\nSubdivisao3: " + enderecoSuporteCiva.getNomesubdivisao3() + "\n");
 
                             suporteCiva.setEndereco(enderecoSuporteCiva);
-                            
-                            int idCadastrante = (int) session.getAttribute("idPessoa");
+
+                             idCadastrante = (int) session.getAttribute("idPessoa");
                             result = SuporteCivaDao.insert(suporteCiva, idCadastrante);
 
                             if (!result) {
@@ -300,6 +327,8 @@ public class pais extends HttpServlet {
                             }
 
                             break;
+                            
+                        
                     }
 
                     // Mostrar os dados             

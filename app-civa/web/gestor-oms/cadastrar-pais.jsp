@@ -1,3 +1,5 @@
+<%@page import="model.Pais"%>
+<%@page import="dao.PaisDao"%>
 <%@page import="model.Continente"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.ContinenteDao"%>
@@ -25,6 +27,9 @@
     try {
          List<Continente> continentes = ContinenteDao.list();
          pageContext.setAttribute("continentes", continentes);
+         
+         List<Pais> paises = PaisDao.listPais();
+          pageContext.setAttribute("paises", paises);
             
         } catch (Exception e) {
         }
