@@ -101,7 +101,7 @@
                                         <hr class = "mb-4 mt-4">
                                         <%@ include file="../partials/enderecos-cadastro.jspf" %>
                                         <hr class = "mb-4 mt-4">
-                                        <%@ include file="../partials/contatos-cadastro-suporte.jspf" %>
+                                        <%@ include file="../partials/contatos-cadastro.jspf" %>
                                     </form>
                                 </div>                                                    
                             </div>

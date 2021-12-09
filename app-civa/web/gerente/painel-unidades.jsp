@@ -29,10 +29,11 @@
         Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
         Unidade unidade = UnidadeDao.findById(idUnidade);
 
-        pageContext.setAttribute("unidade", unidade);
+        List<Supervisor> listaSupervisores = SupervisorDao.listByUnidade(idUnidade);        
+        
         pageContext.setAttribute("ator", unidade);
-
-        List<Supervisor> listaSupervisores = SupervisorDao.listByUnidade(idUnidade);
+        pageContext.setAttribute("unidade", unidade);
+        pageContext.setAttribute("idUnidade", idUnidade);
         pageContext.setAttribute("supervisores", listaSupervisores);
 
     } catch (Exception e) {
@@ -149,11 +150,11 @@
                                 <hr>
                                 <div class="row ">
                                     <div class="col d-flex justify-content-xl-start  ml-4 mb-2">
-                                        <a href="./vincular-supervisor.jsp" class="btn btn-success btn-xs">Vincular Supervisor</a>
+                                        <a href="./vincular-supervisor.jsp?idUnidade=<c:out value="${idUnidade}"/>" class="btn btn-success btn-xs">Vincular Supervisor</a>
                                     </div>                                  
 
                                     <div class="col  d-flex justify-content-xl-end align-items-center ml-2 mb-2 mr-4">
-                                        <a href="./desvincular-supervisor.jsp" class="btn btn-danger btn-xs">Desvincular Supervisor</a>
+                                        <a href="./desvincular-supervisor.jsp?idUnidade=<c:out value="${idUnidade}"/>" class="btn btn-danger btn-xs">Desvincular Supervisor</a>
                                     </div>
                                 </div>
                             </div>
