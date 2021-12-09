@@ -1,6 +1,5 @@
 <%@page import="dao.SupervisorDao"%>
 <%@page import="model.Supervisor"%>
-<%@page import="model.Supervisor"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
@@ -22,21 +21,22 @@
 
 <%  
     try {
-
+        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        pageContext.setAttribute("idUnidade", idUnidade);
+          
         String codigoCivaSupervisor = request.getParameter("codigoCiva");
-
         Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
-
         pageContext.setAttribute("ator", supervisor);
 
     } catch (Exception e) {
+        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        pageContext.setAttribute("idUnidade", idUnidade);
     }
-
 %>
 
 
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/gerente/vincular-supervisor.js" defer></script>
+<script src="../public/assets/js/vincular-gestor-unidade.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -85,11 +85,10 @@
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form id="form-meus-dados">
-                                    <input type="hidden" value="vincular" name="option">
                                     <div class="card-body">
                                         <%@include file="../partials/pesquisar-codigo-civa.jspf" %>
                                         <hr  class = "mb-4 mt-4">
-                                        <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
+                                        <%@include file="../partials/dadospessoais-disabled.jspf" %>
                                     </div>
                                 </form>
                             </div>

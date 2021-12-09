@@ -20,20 +20,23 @@
 %>
 <%  
     try {
+        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        pageContext.setAttribute("idUnidade", idUnidade);
+        
         String codigoCivaGerente = request.getParameter("codigoCiva");
-
         Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
-
         pageContext.setAttribute("ator", gerente);
 
     } catch (Exception e) {
+        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        pageContext.setAttribute("idUnidade", idUnidade);        
     }
 
 %>
 
 
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/gestor-nacional/vincular-gerente.js" defer></script>
+<script src="../public/assets/js/vincular-gestor-unidade.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -81,22 +84,11 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form action="" id="form-meus-dados" method="GET">
+                                <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <div class="row">
-                                            <div class="form-group col-md-11 p-0">
-                                                <label for="codigoCiva">C&oacute;digo CIVA</label>
-                                                <input type="text" class="form-control" id="codigoCiva" value="${ator.codigoCiva}" name="codigoCiva" placeholder="USA1223456789" >
-
-                                            </div>
-                                            <div class="form-group col-md-1 pl-0 pt-3 mt-3">
-                                                <button type="subimit" form="form-meus-dados" class="btn btn-default">
-                                                    <i class="fa fa-search"></i>
-                                                </button>
-                                            </div>
-                                        </div> 
-                                        <hr>
-                                        <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
+                                        <%@include file="../partials/pesquisar-codigo-civa.jspf" %>
+                                        <hr  class = "mb-4 mt-4">
+                                        <%@include file="../partials/dadospessoais-disabled.jspf" %>
                                     </div>
                                 </form>
                             </div>

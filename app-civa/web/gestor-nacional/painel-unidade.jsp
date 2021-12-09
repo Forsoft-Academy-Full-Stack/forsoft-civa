@@ -31,10 +31,11 @@
         Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
         Unidade unidade = UnidadeDao.findById(idUnidade);
 
+        List<Gerente> listaGerente = GerenteDao.listByIdUnidade(idUnidade);
+        
         pageContext.setAttribute("ator", unidade);
         pageContext.setAttribute("unidade", unidade);
-
-        List<Gerente> listaGerente = GerenteDao.listByIdUnidade(idUnidade);
+        pageContext.setAttribute("idUnidade", idUnidade);
         pageContext.setAttribute("gerentes", listaGerente);
 
     } catch (Exception e) {
