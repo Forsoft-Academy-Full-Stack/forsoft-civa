@@ -6,9 +6,12 @@ let campos = ["laboratorio", "vacina", "numerodoses",
     "lote", "unidade"];
 let valor;
 
-$("#cadastro").click(function () {      
-    if (tratar_campos(campos)) {       
-       $.post("/app-civa/vacinacao", form.serialize(), (data, status, jqXHR) => {
+$("#cadastro").click(function () {
+    if (tratar_campos(campos)) {
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
+        $.post("/app-civa/vacinacao", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Vacinação cadastrada com sucesso!';

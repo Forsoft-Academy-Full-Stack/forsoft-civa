@@ -17,22 +17,22 @@ $("#salvar").click(() => {
     if (tratar_campos(campos)) {
 
         modal_confirmar_senha.modal("show");
-        
-        
-        title = 'Enviando, aguarde alguns segundos...';
-        swalAlertLoading(title, callback);
-        
 
         $("#confirmar").click(() => {
             if (tratar_campos(campos_confirmar_senha)) {
                 modal_confirmar_senha.modal("hide");
+
+                title = 'Enviando, aguarde alguns segundos...';
+                swalAlertLoading(title, callback);
 
                 $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
                     console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                     if (status === 'success') {
                         title = 'Portador cadastrado com sucesso!';
                         text = "Cadastro realizada.";
-                        swalAlertSuccess(title, text, () => { window.location = './cadastrar-portador.jsp' });
+                        swalAlertSuccess(title, text, () => {
+                            window.location = './cadastrar-portador.jsp'
+                        });
 
                     }
                 }).fail(function (jqxhr, settings, ex) {
