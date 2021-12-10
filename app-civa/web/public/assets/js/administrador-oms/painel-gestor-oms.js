@@ -9,14 +9,19 @@ let campos = ["nome", "sobrenome",
     "municipio", "estado", "tele", "email"];
 
 $("#salvar").click(function () {
-  
+
     if (tratar_campos(campos)) {
-            $.post("/app-civa/gestorOms", form.serialize(), (data, status, jqXHR) => {
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
+        $.post("/app-civa/gestorOms", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Gestor OMS atualizado com sucesso!';
                 text = "Cadastro atualizado.";
-                swalAlertSuccess(title, text, () => { location.reload() });
+                swalAlertSuccess(title, text, () => {
+                    location.reload()
+                });
 
             }
         }).fail(function (jqxhr, settings, ex) {
@@ -31,16 +36,33 @@ $("#salvar").click(function () {
     }
 });
 
-$("#excluir").click(function() {
-   $.get("", form.serialize(), (data, status) => {
-        if (status === 'sucess'){
-            title = 'Cuidado!';
-            text = 'Deseja mesmo excluir o cadastro? Essa ação não pode ser revertida!';
-            swalAlertError(title, text, callback);
-        } else {
+let form_excluir = $("#form-excluir");
+
+$("#excluir").click(function () {
+    title = 'Desativar Gestor OMS';
+    text = 'Deseja desativar esse Gestor OMS?';
+    swalAlertDelete(title, text, () => {
+        
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
+        
+        $.post("/app-civa/gestorOms", form_excluir.serialize(), (data, status, jqXHR) => {
+            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
+            if (status === 'success') {
+                title = 'Desativado!';
+                text = "Gestor OMS dessativado com sucesso";
+                swalAlertInfo(title, text, () => {
+                    // redirecionar para o listar
+                    window.location = './consultar-gestor-oms.jsp';
+                });
+
+            }
+        }).fail(function (jqxhr, settings, ex) {
             title = 'Erro!';
-            text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
+            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
             swalAlertError(title, text, callback);
-        }
-   }); 
+        });
+    });
 });

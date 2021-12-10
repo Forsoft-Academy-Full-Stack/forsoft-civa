@@ -21,8 +21,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 %>
 
-<%  
-    try {
+<%    try {
         String codigoCivaGestorOms = request.getParameter("codigoCiva");
         GestorOms gestorOms = GestorOmsDao.findByCodigCiva(codigoCivaGestorOms);
 
@@ -96,7 +95,12 @@
                                         <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-disabled.jspf" %>
                                     </div>
-                                </form>                                
+                                </form> 
+
+                                <form id="form-excluir">
+                                    <input type="hidden" class="form-control" id="codigo-civa" name="codigo-civa" value="${ator.codigoCiva}" >
+                                    <input type="hidden" value="deletar" class="form-control" id="option" name="option">
+                                </form>
                             </div>
                         </div>
 

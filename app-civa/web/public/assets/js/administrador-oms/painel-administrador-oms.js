@@ -11,6 +11,9 @@ let campos = ["nome", "sobrenome",
 $("#salvar").click(function () {
 
     if (tratar_campos(campos)) {
+         title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
         $.post("/app-civa/administradorOms", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
@@ -33,16 +36,33 @@ $("#salvar").click(function () {
     }
 });
 
+let form_excluir = $("#form-excluir");
+
 $("#excluir").click(function () {
-    $.get("", form.serialize(), (data, status) => {
-        if (status === 'sucess') {
-            title = 'Cuidado!';
-            text = 'Deseja mesmo excluir o cadastro? Essa ação não pode ser revertida!';
-            swalAlertError(title, text, callback);
-        } else {
+    title = 'Desativar Administrador OMS';
+    text = 'Deseja desativar esse Administrador OMS?';
+    swalAlertDelete(title, text, () => {
+        
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
+        
+        $.post("/app-civa/administradorOms", form_excluir.serialize(), (data, status, jqXHR) => {
+            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
+            if (status === 'success') {
+                title = 'Desativado!';
+                text = "Gestor OMS dessativado com sucesso";
+                swalAlertInfo(title, text, () => {
+                    // redirecionar para o listar
+                    window.location = './consultar-administrador-oms.jsp';
+                });
+
+            }
+        }).fail(function (jqxhr, settings, ex) {
             title = 'Erro!';
-            text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
+            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
             swalAlertError(title, text, callback);
-        }
+        });
     });
 });
