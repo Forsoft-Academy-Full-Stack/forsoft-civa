@@ -16,7 +16,6 @@ import model.Endereco;
 import model.Gerente;
 import model.Pais;
 import model.Pessoa;
-import model.PortadorCiva;
 
 /**
  *
@@ -93,6 +92,8 @@ public class GerenteDao {
                 pessoa.setTelefoneDdd(rs.getString("contato"));
                 pessoa.setEmail(rs.getString("email"));
                 pessoa.setCodigoCiva(rs.getString("codigociva"));
+                pessoa.setDdiContato(rs.getString("ddi"));
+                System.err.println(pessoa.getDdiContato());
 
                 // Pegar nacionalidade
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());

@@ -132,7 +132,7 @@
                                         <tbody>
                                             <c:forEach items="${gestoresNacionais}" var="gestorNacional">
                                                 <tr>
-                                                    <td><c:out value="${gestorNacional.pessoa.nomePessoa}${gestorNacional.pessoa.sobrenomePessoa}" /></td>
+                                                    <td><c:out value="${gestorNacional.pessoa.nomePessoa} ${gestorNacional.pessoa.sobrenomePessoa}" /></td>
                                                     <td><c:out value="${gestorNacional.documento1.documento}" /></td>
                                                     <td><c:out value="${gestorNacional.pessoa.dataNascimento}" /></td>
                                                     <td><c:out value="${gestorNacional.codigoCiva}" /></td>

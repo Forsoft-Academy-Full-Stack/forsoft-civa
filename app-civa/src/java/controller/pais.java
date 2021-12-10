@@ -319,7 +319,7 @@ public class pais extends HttpServlet {
 
                             suporteCiva.setEndereco(enderecoSuporteCiva);
 
-                             idCadastrante = (int) session.getAttribute("idPessoa");
+                            idCadastrante = (int) session.getAttribute("idPessoa");
                             result = SuporteCivaDao.insert(suporteCiva, idCadastrante);
 
                             if (!result) {

@@ -1,3 +1,9 @@
+<%@page import="model.Unidade"%>
+<%@page import="dao.UnidadeDao"%>
+<%@page import="dao.PessoaDao"%>
+<%@page import="model.Vacina"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.VacinaDao"%>
 <%@page import="dao.PortadorCivaDao"%>
 <%@page import="model.PortadorCiva"%>
 <%@page import="model.PortadorCiva"%>
@@ -20,17 +26,21 @@
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
 
-<%
-  
-   try {
+<%    try {
         String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
-    
+
         PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
-  
+        String codigoCivaGestao = PessoaDao.getCodigoCivaAcessoGestao(pessoa.getIdPessoa());
+
+        List<Vacina> vacinas = VacinaDao.listByProfissionalSaude(codigoCivaGestao);
+        List<Unidade> unidades = UnidadeDao.listUnidadeByProfissionalSaude(codigoCivaGestao);
+
         pageContext.setAttribute("portadorCiva", portadorCiva);
-           
+        pageContext.setAttribute("vacinas", vacinas);
+        pageContext.setAttribute("unidades", unidades);
+
     } catch (Exception e) {
-          response.sendRedirect("./vacinacao.jsp");
+        response.sendRedirect("./vacinacao.jsp");
     }
 %>
 
@@ -75,7 +85,18 @@
                                 <div class="card-header">
                                     <h3 class="card-title">Dados portador</h3>
                                 </div>
+
                                 <div class="card-body">
+                                   
+                                        <div class="row">
+                                            <div class="form-group col-xl-12">
+                                                <label for="codigoCiva">C&oacute;digo CIVA</label>
+                                                <input type="text" class="form-control" id="codigo-civa" name="codigo-civa" placeholder="Ex: Frank" value="${portadorCiva.pessoa.codigoCiva}"
+                                                       disabled>
+                                            </div>                                      
+                                        </div>
+                                 
+
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="nome">Nome</label>
@@ -105,6 +126,7 @@
                     </div>
                     <!-- DADOS VACINAÃÃO -->
                     <form class="row" id="form-painel-portador" >
+                          <input type="hidden" class="form-control" id="codigo-civa" name="codigo-civa" value="${portadorCiva.pessoa.codigoCiva}">
                         <div class="col-12 mb-4">
                             <div class="card card-primary">
                                 <div class="card-header">
@@ -115,25 +137,28 @@
                                 <div class="card-body">
                                     <div class="row">
                                         <div class="form-group col-xl-6">
+                                            <label for="vacina">Vacina</label>
+
+                                            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
+                                                    aria-hidden="true" name="vacina" id="vacina" >
+                                                <option selected disabled value="">Selecionar</option>    
+                                                <c:forEach items="${vacinas}" var="vacina" varStatus="loop">
+                                                    <option value="${vacina.idVacina}">${vacina.nomeVacina}</option>
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-xl-6">                                           
                                             <label for="laboratorio">Laborat&oacute;rio</label>
                                             <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
                                                     aria-hidden="true" name="laboratorio" id="laboratorio">
                                                 <option selected disabled value="">Selecionar</option>
-                                                <option>BioNTech</option>
-                                                <option>Oxford</option>
-                                                <option>Sputnik V</option>
+                                                <c:forEach items="${vacinas}" var="vacina" varStatus="loop">
+                                                    <option value="${vacina.laboratorio}">${vacina.laboratorio}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
-                                        <div class="form-group col-xl-6">
-                                            <label for="vacina">Vacina</label>
-                                            <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
-                                                    aria-hidden="true" name="vacina" id="vacina" >
-                                                <option selected disabled value="">Selecionar</option>
-                                                <option>Pfizer</option>
-                                                <option>AstraZeneca</option>
-                                                <option>Johnson & Johnson</option>
-                                            </select>
-                                        </div>
+
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-xl-6">
@@ -141,9 +166,10 @@
                                             <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
                                                     aria-hidden="true" name="numerodoses" id="numerodoses">
                                                 <option selected disabled value="">Selecionar</option>
-                                                <option>1&ordf Dose</option>
-                                                <option>2&ordf Dose</option>
-                                                <option>Dose unica</option>
+                                                <option>1&ordf</option>
+                                                <option>2&ordf</option>
+                                                <option>3&ordf</option>
+                                                <option>&Uacute;nica</option>
                                             </select>
                                         </div>
                                         <div class="form-group col-xl-6">
@@ -157,9 +183,9 @@
                                             <select class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1"
                                                     aria-hidden="true" id="unidade" name="unidade">
                                                 <option selected disabled value="">Selecionar</option>
-                                                <option>Hospital Pan</option>
-                                                <option>Hospital Casa Italiano</option>
-                                                <option>Hospital Federal do AndaraÃ­</option>
+                                                <c:forEach items="${unidades}" var="unidade" varStatus="loop">
+                                                    <option value="${unidade.idUnidade}">${unidade.nome}</option>
+                                                </c:forEach>
                                             </select>
                                         </div>
                                     </div>

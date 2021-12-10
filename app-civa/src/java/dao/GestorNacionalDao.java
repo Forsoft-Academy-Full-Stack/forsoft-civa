@@ -198,6 +198,7 @@ public class GestorNacionalDao {
                 gestorNacional = new GestorNacional();
 
                 pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
                 pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
                 documento1.setDocumento(rs.getString("documento"));

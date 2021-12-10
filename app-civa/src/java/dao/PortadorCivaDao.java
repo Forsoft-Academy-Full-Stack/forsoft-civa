@@ -422,7 +422,7 @@ public class PortadorCivaDao {
                 endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
                 endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
                 endereco.setTipoLogradouro(rs.getString("tipodelogradouro"));
-                endereco.setLogradouro(endereco.getTipoLogradouro() + "" + rs.getString("logradouro"));
+                endereco.setLogradouro(rs.getString("logradouro"));
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
                 endereco.setNomePais(rs.getString("nomedopais"));

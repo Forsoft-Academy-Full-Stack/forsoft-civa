@@ -9,14 +9,16 @@ let campos = ["nome", "sobrenome",
     "municipio", "estado", "tele", "email"];
 
 $("#salvar").click(function () {
-  
+
     if (tratar_campos(campos)) {
-            $.post("/app-civa/supervisor", form.serialize(), (data, status, jqXHR) => {
+        $.post("/app-civa/supervisor", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Supervisor atualizado com sucesso!';
                 text = "Cadastro atualizado.";
-                swalAlertSuccess(title, text, () => { location.reload() });
+                swalAlertSuccess(title, text, () => {
+                    location.reload()
+                });
 
             }
         }).fail(function (jqxhr, settings, ex) {

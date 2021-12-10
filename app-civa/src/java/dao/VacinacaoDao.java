@@ -24,7 +24,7 @@ public class VacinacaoDao {
     public static List<Vacinacao> listByPortadorCivaInternacional(String codigoCivaPortador) {
         Connection connection = ConnectionFactory.getConnection();
 
-        List<Vacinacao>  vacinacoes = new ArrayList<>();
+        List<Vacinacao> vacinacoes = new ArrayList<>();
         Vacinacao vacinacao = null;
         Vacina vacina = null;
 
@@ -84,7 +84,7 @@ public class VacinacaoDao {
 
         } catch (SQLException ex) {
             Logger.getLogger(VacinacaoDao.class.getName()).log(Level.SEVERE, null, ex);
-              
+
         }
 
         return vacinacoes;
@@ -124,7 +124,6 @@ public class VacinacaoDao {
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
             ResultSet rs = null;
-           
 
             ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaPortador);
@@ -158,71 +157,51 @@ public class VacinacaoDao {
         return vacinacoes;
     }
 
-    public static List<Vacinacao> list(String codigoCivaPortador) {
-        Connection connection = ConnectionFactory.getConnection();
-        List<Vacinacao> vacinacoes = null;
-        Vacinacao vacinacao = null;
-        Vacina vacina = null;
-        Pais pais = null;
-        Unidade unidade = null;
-
-        String sql = "";
-
-        try {
-            Statement stmt = connection.createStatement();
-            PreparedStatement ps;
-            ResultSet rs = null;
-
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, codigoCivaPortador);
-            rs = ps.executeQuery();
-
-            while (rs.next()) {
-
+    public static Vacinacao find(int idVacinacao, List<Vacinacao> vacinacoes) {     
+        
+        for (Vacinacao vacinacao : vacinacoes) {
+            if(vacinacao.getIdVacinacao() == idVacinacao){
+                return vacinacao;
             }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(VacinacaoDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return null;
     }
 
-    public static boolean insert(Vacinacao vacinacao) {
+    public static boolean insert(int idAcessoPc, int idAcessoGestao, Vacinacao vacinacao) {
+        Connection connection = ConnectionFactory.getConnection();
+        Vacina vacina = vacinacao.getVacina();
+
         boolean resultado = false;
 
-        // Insert into vacinacao values (?, ?, ?, ?);
-        if (true) {
-            // se conseguiu inserir no banco
+        String sql = "INSERT INTO vacinacao\n"
+                + "(idacessopc, idunidade, idacessogestao, idvacina, lote, doseaplicada, datadeaplicacao)\n"
+                + "VALUES(?, ?, ?, ?, ?, ?, ?);";
+        try {
+            ResultSet rs = null;
+
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setInt(1, idAcessoPc);
+            ps.setInt(2, vacinacao.getIdUnidade());
+            ps.setInt(3, idAcessoGestao);
+            ps.setInt(4, vacina.getIdVacina());
+            ps.setString(5, vacina.getLote());
+            ps.setString(6, vacinacao.getDoseAplicada());
+            ps.setString(7, vacinacao.getDataAplicacao());
+
+            int i = ps.executeUpdate();
+            System.err.println("teste add vacina: " + i);
+
+            rs = ps.getGeneratedKeys();
+
             resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return resultado;
-    }
-
-    public static Vacinacao find(Integer idVacinacao) {
-        for (Vacinacao vacinacao : VacinacaoDao.list()) {
-            if (Objects.equals(vacinacao.getIdVacinacao(), idVacinacao)) {
-                return vacinacao;
-            }
-        }
-
-        return null;
-    }
-
-    public static Vacinacao find(Integer idVacinacao, List<Vacinacao> listaVacinacaoPortador) {
-        for (Vacinacao vacinacao : listaVacinacaoPortador) {
-            if (Objects.equals(vacinacao.getIdVacinacao(), idVacinacao)) {
-                return vacinacao;
-            }
-        }
-
-        return null;
-    }
-
-    public static List<Vacinacao> list() {
-        List<Vacinacao> vacinacoes = new ArrayList<Vacinacao>();
-        return vacinacoes;
     }
 
     public static boolean update(Vacinacao vacinacaoNovo) {

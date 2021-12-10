@@ -91,7 +91,7 @@ public class SupervisorDao {
         Docs documento3 = null;
         Endereco endereco = null;
 
-        sql = "SELECT ag.codigocivagestao AS codigociva,\n"
+        sql = "SELECT ag.codigocivagestao AS codigociva, pa.ddi,\n"
                 + "	   peag.nomepessoa AS nome,\n"
                 + "	   peag.idpessoa,\n"
                 + "       peag.sobrenomepessoa AS sobrenome,\n"
@@ -149,6 +149,7 @@ public class SupervisorDao {
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
                 pessoa.setTelefoneDdd(rs.getString("telefonecomddd"));
                 pessoa.setEmail(rs.getString("emailgestao"));
+                pessoa.setDdiContato(rs.getString("ddi"));
 
                 // Pegar nacionalidade
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());

@@ -1,26 +1,27 @@
 $('.select2').select2();
 
 let form = $("#form-painel-portador");
+
 let campos = ["laboratorio", "vacina", "numerodoses",
     "lote", "unidade"];
 let valor;
 
-$("#cadastro").click(function () {
-  
-    if (tratar_campos(campos)) {
-       
-        $.get("", form.serialize(), (data, status) => {
-            console.log("Entrou 2");
+$("#cadastro").click(function () {      
+    if (tratar_campos(campos)) {       
+       $.post("/app-civa/vacinacao", form.serialize(), (data, status, jqXHR) => {
+            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
-                title = 'Cadastro realizado com sucesso!';
-                text = "Vacina&ccedil;&atilde;o cadastrada.";
-                swalAlertSuccess(title, text, () => {document.location.reload();});
+                title = 'Vacinação cadastrada com sucesso!';
+                text = "Cadastro atualizado.";
+                swalAlertSuccess(title, text, () => {
+                    window.location = "./vacinacao.jsp";
+                });
 
-            } else {
-                title = 'Erro!';
-                text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
-                swalAlertError(title, text, callback);
             }
+        }).fail(function (jqxhr, settings, ex) {
+            title = 'Erro!';
+            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
+            swalAlertError(title, text, callback);
         });
     } else {
         title = 'Campos n&atilde;o preenchidos!';
@@ -28,26 +29,3 @@ $("#cadastro").click(function () {
         swalAlertError(title, text, callback);
     }
 });
-
-
-function limparCamposCadastroVacinacao() {
-    $("#lote").val("");
-
-    // Mudando a posi&ccedil;&atilde;o do select
-    //seleciona o valor da posi&ccedil;&atilde;o desejada
-    valor = $("#laboratorio option:eq(1)").val();
-    //seleciona no select2 e disapara o evento
-    $('#laboratorio').val(valor).trigger('change');
-
-    valor = $("#vacina option:eq(1)").val();
-    //seleciona no select2 e disapara o evento
-    $('#vacina').val(valor).trigger('change');
-
-    valor = $("#numerodoses option:eq(1)").val();
-    //seleciona no select2 e disapara o evento
-    $('#numerodoses').val(valor).trigger('change');
-
-    valor = $("#unidade option:eq(1)").val();
-    //seleciona no select2 e disapara o evento
-    $('#unidade').val(valor).trigger('change');
-}

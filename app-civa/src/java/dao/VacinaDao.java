@@ -219,6 +219,61 @@ public class VacinaDao {
 
         return vacinas;
     }
+    
+    public static List<Vacina> listByProfissionalSaude(String codigoCivaProfissionalSaude) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "";
+        List<Vacina> vacinas = null;
+        Vacina vacina;
+
+        sql = "SELECT vac.idvacina,\n"
+                + "	   vac.laboratorio,\n"
+                + "	   vac.numerodedoses,\n"
+                + "       vac.nomevacina,\n"
+                + "       vac.tipodevacina,\n"
+                + "	   vac.tempoentredoses,\n"
+                + "       vac.tempoparareforco \n"
+                + "FROM vacina vac\n"
+                + "LEFT JOIN vacina_do_pais vdp \n"
+                + "ON vac.idvacina =vdp.idvacina \n"
+                + "WHERE vdp.idpais = (\n"
+                + "SELECT pa.idpais FROM acessogestao ag\n"
+                + "LEFT JOIN pessoa peag\n"
+                + "ON ag.idpessoa = peag.idpessoa\n"
+                + "LEFT JOIN pais pa\n"
+                + "ON peag.idpaisdenascimento = pa.idpais\n"
+                + "WHERE ag.codigocivagestao = ?)";
+
+        try {
+            vacinas = new ArrayList<>();
+
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaProfissionalSaude);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                vacina = new Vacina();
+                vacina.setIdVacina(rs.getInt("idvacina"));
+                vacina.setLaboratorio(rs.getString("laboratorio"));
+                vacina.setNumeroDoses(rs.getString("numerodedoses"));
+                vacina.setNomeVacina(rs.getString("nomevacina"));
+                vacina.setTipoVacina(rs.getString("tipodevacina"));
+                vacina.setTempoEntreDoses(rs.getInt("tempoentredoses"));
+                vacina.setTempoReforco(rs.getInt("tempoparareforco"));
+
+                vacinas.add(vacina);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VacinaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return vacinas;
+    }
 
     public static List<Vacina> listByGestorOms() {
         Connection connection = ConnectionFactory.getConnection();

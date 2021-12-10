@@ -160,13 +160,15 @@
                     <!-- /.modal-dialog -->
                 </div>
                 <!-- /.content -->
+                
             </div>
             <!-- /.content-wrapper -->
 
             <!-- Main Footer -->
-            <%@include file="footer.jspf"%>
+
         </div>
         <!-- ./wrapper -->
+    <%@include file="footer.jspf"%>
 
 </body>
 

@@ -85,6 +85,10 @@ public class Vacinacao {
         
         this.dataAplicacao = dataAplicacaoNova;        
     }
+    
+    public void setDataAplicacao2(String dataAplicacao) {
+        this.dataAplicacao = dataAplicacao;        
+    }
 
     public String getUnidade() {
         return unidade;

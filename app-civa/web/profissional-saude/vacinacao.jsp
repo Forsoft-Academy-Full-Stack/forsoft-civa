@@ -32,7 +32,7 @@
   
         pageContext.setAttribute("ator", portadorciva);
         pageContext.setAttribute("vacinacoes", portadorciva.getListaVacinacao());
-        pageContext.setAttribute("vacinacoes", VacinacaoDao.listByPortadorCivaInternacional(codigoCivaPortadorCiva));
+        //pageContext.setAttribute("vacinacoes", VacinacaoDao.listByPortadorCivaInternacional(codigoCivaPortadorCiva));
            
     } catch (Exception e) {          
     }
@@ -42,7 +42,7 @@
 
 
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/profissional-saude/vacinacao-internacional.js" defer></script>
+<!--script src="../public/assets/js/profissional-saude/vacinacao-internacional.js" defer></script-->
 </head>
 
 <body class="hold-transition sidebar-mini">

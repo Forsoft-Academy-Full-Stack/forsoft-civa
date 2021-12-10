@@ -383,6 +383,37 @@ public class PessoaDao {
         return idAcessoPc;
     }
 
+    public static String getCodigoCivaAcessoGestao(int idPessoa) {
+        Connection connection = ConnectionFactory.getConnection();
+       String codigoCiva= "";
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            String sql = "";
+
+            sql = "SELECT acessogestao.codigocivagestao\n"
+                    + "FROM acessogestao\n"
+                    + "WHERE acessogestao.idpessoa =?;";
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+
+            ps.setInt(1, idPessoa);
+
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                codigoCiva = rs.getString("codigocivagestao");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigoCiva;
+    }
+
+    
     public static boolean desativarAcessoPc(int idAcessoPc) {
         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
