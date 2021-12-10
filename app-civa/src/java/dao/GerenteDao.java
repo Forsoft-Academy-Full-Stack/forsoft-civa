@@ -58,7 +58,7 @@ public class GerenteDao {
                 + "LEFT JOIN endereco en \n"
                 + "	ON peen.idendereco = en.idendereco \n"
                 + "WHERE ag.cargo = 'Gerente' \n"
-                + "AND ag.codigocivagestao = ?;";
+                + "AND ag.codigocivagestao = ?  AND ag.statusgestao = true;";
 
         String sql2 = "SELECT tidoc.nomedoc AS tipoDocumento,\n"
                 + "        doc.documento\n"
@@ -168,6 +168,7 @@ public class GerenteDao {
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
                 + "WHERE ag.cargo='Gerente'  \n"
+                  + "AND ag.statusgestao = true "
                 //+ "AND tidoc.nivel = 'Primário'\n"
                 + "AND en.idpais = \n"
                 + "(SELECT en.idpais FROM pessoa peag \n"
@@ -177,7 +178,7 @@ public class GerenteDao {
                 + "ON peag.idpessoa =peen.idpessoa\n"
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco =en.idendereco \n"
-                + "WHERE ag.codigocivagestao = ? /*Código CIVA do Suporte Logado*/);"
+                + "WHERE ag.codigocivagestao = ? ) ;"
                 + " ";
 
         try {
@@ -240,7 +241,7 @@ public class GerenteDao {
                 + "					LEFT JOIN acessogestao ag\n"
                 + "					ON peag.idpessoa = ag.idpessoa\n"
                 + "					WHERE ag.codigocivagestao = ?)\n"
-                + " ";
+                 + "AND ag.statusgestao = true ;";
 
         try {
             gerentes = new ArrayList<>();
@@ -301,7 +302,7 @@ public class GerenteDao {
                 + "        ON doc.idtipodoc = tidoc.idtipodoc  \n"
                 + "    WHERE uni.idunidade = ?\n"
                 + "    AND tidoc.nivel = 'Primário'\n"
-                + "    AND ag.cargo = 'Gerente';";
+                + "    AND ag.cargo = 'Gerente' AND ag.statusgestao = true;";
 
         try {
             gerentes = new ArrayList<>();
@@ -461,8 +462,9 @@ public class GerenteDao {
     public static boolean delete(Gerente gerente) {
            boolean resultado = false;
         Pessoa pessoa = gerente.getPessoa();
+        int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
         
-        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        resultado = PessoaDao.desativarAcessoGestao(idAcessoGestao);
         
         return resultado;
     }

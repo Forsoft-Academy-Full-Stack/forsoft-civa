@@ -38,7 +38,7 @@ public class GestorNacionalDao {
         String sql2 = "";
         String sql3 = "";
 
-        sql = "SELECT ag.codigocivagestao AS codigociva,\n"
+        sql = "SELECT ag.codigocivagestao AS codigociva, pa.ddi, \n"
                 + "	   peag.nomepessoa AS nome, peag.idpessoa, \n"
                 + "	   peag.sobrenomepessoa AS sobrenome,\n"
                 + "        peag.genero,\n"
@@ -90,7 +90,7 @@ public class GestorNacionalDao {
             endereco = new Endereco();
 
             if (rs.next()) {
-
+                pessoa.setDdiContato(rs.getString("ddi"));
                 pessoa.setIdPessoa(rs.getInt("idpessoa"));
                 pessoa.setCodigoCiva(rs.getString("codigociva"));
                 pessoa.setNomePessoa(rs.getString("nome"));
@@ -407,17 +407,6 @@ public class GestorNacionalDao {
         resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
         
         return resultado;
-    }
-
-    public static GestorNacional find(String codigoCivaGestorNacional) {
-        for (GestorNacional gestorNacional : GestorNacionalDao.list()) {
-            if (gestorNacional.getCodigoCiva().equals(codigoCivaGestorNacional)) {
-                return gestorNacional;
-            }
-        }
-
-        return null;
-
     }
 
     public static List<GestorNacional> list() {

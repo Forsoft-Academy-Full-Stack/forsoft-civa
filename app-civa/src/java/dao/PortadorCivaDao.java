@@ -645,7 +645,8 @@ public class PortadorCivaDao {
         boolean resultado = false;
         Pessoa pessoa = portadorciva.getPessoa();
         
-        resultado = PessoaDao.desativarAcessoPc(pessoa.getIdPessoa());
+        int idAcessoPc = PessoaDao.getIdAcessoPc(pessoa.getIdPessoa());
+        resultado = PessoaDao.desativarAcessoPc(idAcessoPc);
         
         return resultado;
     }

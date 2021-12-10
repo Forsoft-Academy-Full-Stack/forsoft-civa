@@ -149,15 +149,18 @@ public class portador extends HttpServlet {
                     break;
 
                 case "deletar":                    
-                    System.err.println("deletado");
+                    
                     System.err.println(request.getParameter("codigo-civa"));
+                  
                     String codigoCiva = request.getParameter("codigo-civa");    
+                      System.err.println("idPessoa: " + PessoaDao.getIdPessoa(codigoCiva));
                     
                     pessoa.setIdPessoa(PessoaDao.getIdPessoa(codigoCiva));
                     portadorCiva.setPessoa(pessoa);
                                       
                     result = PortadorCivaDao.delete(portadorCiva);
 
+                    System.err.println("deletado: "+ result);
                     if (!result) {
                         response.sendError(404);
                     }

@@ -18,7 +18,9 @@ $("#salvar").click(function () {
             if (status === 'success') {
                 title = 'Portador atualizado com sucesso!';
                 text = "Cadastro realizada.";
-                swalAlertSuccess(title, text, () => { location.reload(); });
+                swalAlertSuccess(title, text, () => {
+                    location.reload();
+                });
             }
         }).fail(function (jqxhr, settings, ex) {
             title = 'Erro!';
@@ -31,5 +33,31 @@ $("#salvar").click(function () {
         swalAlertError(title, text, callback);
     }
 });
+
+let form_excluir = $("#form-excluir");
+
+$("#excluir").click(function () {
+    title = 'Deletar Portador';
+    text = 'Deseja deletar esse portador?';
+    swalAlertDelete(title, text, () => {
+        $.post("/app-civa/portador", form_excluir.serialize(), (data, status, jqXHR) => {
+            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
+            if (status === 'success') {
+                title = 'Deletado!';
+                text = "Portador deletado com sucesso";
+                swalAlertInfo(title, text, () => {
+                    // redirecionar para o listar
+                    window.location = './consultar-portador.jsp?nome=';
+                });
+
+            }
+        }).fail(function (jqxhr, settings, ex) {
+            title = 'Erro!';
+            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
+            swalAlertError(title, text, callback);
+        });
+    });
+});
+
 
 pegarPaises('nacionalidade');

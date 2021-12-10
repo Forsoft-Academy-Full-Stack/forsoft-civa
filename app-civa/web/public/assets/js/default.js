@@ -68,7 +68,7 @@ function swalAlertError(title, text, callback){
     }).then(callback);
 }
 
-function swalAlertDelete(title, text, statusInfo, textInfo){
+function swalAlertDelete(title, text, callback) {
     Swal.fire({
         title: title,
         text: text,
@@ -78,15 +78,11 @@ function swalAlertDelete(title, text, statusInfo, textInfo){
         cancelButtonColor: '#d33',
         confirmButtonText: 'Deletar',
         html: text
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            statusInfo,
-            textInfo,
-            'success'
-          )
+          callback();
         }
-      })
+    });
 }
 
 

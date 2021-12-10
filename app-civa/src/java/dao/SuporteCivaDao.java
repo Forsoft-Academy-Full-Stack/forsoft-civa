@@ -37,7 +37,7 @@ public class SuporteCivaDao {
         String sql2 = "";
 
         sql = " SELECT ag.codigocivagestao,\n"
-                + "               peag.idpessoa,\n"
+                + "               peag.idpessoa, pa.ddi,\n"
                 + "               peag.nomepessoa,\n"
                 + "               peag.sobrenomepessoa,\n"
                 + "               peag.genero,\n"
@@ -92,6 +92,7 @@ public class SuporteCivaDao {
             endereco = new Endereco();
 
             if (rs.next()) {
+                pessoa.setDdiContato(rs.getString("ddi"));
                 pessoa.setIdPessoa(Integer.parseInt(rs.getString("idpessoa")));
                 pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
                 pessoa.setNomePessoa(rs.getString("nomepessoa"));
@@ -151,7 +152,7 @@ public class SuporteCivaDao {
         Docs documento1;
         String sql = "";
 
-        sql = "SELECT DISTINCT peag.nomepessoa, peag.sobrenomepessoa,\n"
+        sql = "SELECT DISTINCT peag.nomepessoa, peag.sobrenomepessoa, pa.ddi,\n"
                 + "	       doc.documento,\n"
                 + "	       peag.datadenascimento,\n"
                 + "	       ag.codigocivagestao\n"
@@ -162,6 +163,8 @@ public class SuporteCivaDao {
                 + "ON tidoc.idtipodoc = doc.idtipodoc \n"
                 + "LEFT JOIN acessogestao ag \n"
                 + "on peag.idpessoa = ag.idpessoa\n"
+                + "LEFT JOIN pais pa \n"
+                + "on peag.idpaisdenascimento = pa.idpais\n"
                 + "WHERE ag.cargo = 'Suporte'\n"
                 + "AND tidoc.nivel ='Primário'\n"
                 + "AND peag.idpaisdenascimento = (\n"
@@ -184,6 +187,7 @@ public class SuporteCivaDao {
                 pessoa = new Pessoa();
                 documento1 = new Docs();
 
+                pessoa.setDdiContato(rs.getString("ddi"));
                 pessoa.setNomePessoa(rs.getString("nomepessoa"));
                 pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
