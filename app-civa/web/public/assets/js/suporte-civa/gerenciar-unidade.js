@@ -13,6 +13,10 @@ let form = $("#form-meus-dados");
 $("#salvar").click(function () {
 
     if (tratar_campos(campos)) {
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
         $.get("", form.serialize(), (data, status) => {
             if (status === 'success') {
                 title = 'Unidade Alterada com sucesso!';
@@ -38,6 +42,12 @@ $("#excluir").click(function () {
     title = 'Deseja realmente excluir esse Gerente?';
     text = 'A&ccedil;&atilde;o irrevers&iacute;vel';
     swalAlertDelete(title, text, () => {
+        
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
+        
         $.post("/app-civa/unidade", form_excluir.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {

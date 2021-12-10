@@ -97,9 +97,9 @@
                     </div>
                     <hr  class = "mb-4 mt-4">                                         
                 </c:forEach>
-                <div class="row d-flex justify-content-center mb-4">
-                    <img class="img-fluid" src="../public/img/qrcode.png" alt="qr code código civa" >
-                </div>
+                    <div class="row d-flex justify-content-center mb-4">
+                        <img class="img-fluid" src="../public/img/qrcode.png" alt="código civa" >
+                    </div>
                 <div class="modal-footer justify-content-between">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
                     <button type="button" class="btn btn-primary">Download</button>

@@ -11,6 +11,10 @@ let campos = ["nome", "sobrenome",
 $("#salvar").click(function () {
 
     if (tratar_campos(campos)) {
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
         $.post("/app-civa/supervisor", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
@@ -39,6 +43,12 @@ $("#excluir").click(function () {
     title = 'Deseja realmente excluir esse Gerente?';
     text = 'A&ccedil;&atilde;o irrevers&iacute;vel';
     swalAlertDelete(title, text, () => {
+        
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
+        
         $.post("/app-civa/supervisor", form_excluir.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {

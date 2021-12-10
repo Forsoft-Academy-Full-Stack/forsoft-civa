@@ -17,6 +17,11 @@ $("#salvar").click(() => {
     if (tratar_campos(campos)) {
 
         modal_confirmar_senha.modal("show");
+        
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
 
         $("#confirmar").click(() => {
             if (tratar_campos(campos_confirmar_senha)) {

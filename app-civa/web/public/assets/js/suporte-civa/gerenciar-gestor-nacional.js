@@ -9,14 +9,21 @@ let campos = ["nome", "sobrenome",
     "municipio", "estado", "tele", "email"];
 
 $("#salvar").click(function () {
-  
+
+
+    title = 'Enviando, aguarde alguns segundos...';
+    swalAlertLoading(title, callback);
+
+
     if (tratar_campos(campos)) {
-            $.post("/app-civa/gestorNacional", form.serialize(), (data, status, jqXHR) => {
+        $.post("/app-civa/gestorNacional", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Gestor Nacional atualizado com sucesso!';
                 text = "Cadastro atualizado.";
-                swalAlertSuccess(title, text, () => { location.reload() });
+                swalAlertSuccess(title, text, () => {
+                    location.reload()
+                });
 
             }
         }).fail(function (jqxhr, settings, ex) {
@@ -37,6 +44,11 @@ $("#excluir").click(function () {
     title = 'Deseja realmente excluir esse Gerente?';
     text = 'A&ccedil;&atilde;o irrevers&iacute;vel';
     swalAlertDelete(title, text, () => {
+                
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
+        
         $.post("/app-civa/gestorNacional", form_excluir.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {

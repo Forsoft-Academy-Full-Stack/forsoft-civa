@@ -13,6 +13,11 @@ let form = $("#form-meus-dados");
 $("#salvar").click(function () {
 
     if (tratar_campos(campos)) {
+                
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
+        
         $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
@@ -40,6 +45,12 @@ $("#excluir").click(function () {
     title = 'Deletar Portador';
     text = 'Deseja deletar esse portador?';
     swalAlertDelete(title, text, () => {
+        
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
+        
         $.post("/app-civa/portador", form_excluir.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {

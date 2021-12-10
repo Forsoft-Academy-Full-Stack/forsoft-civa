@@ -81,18 +81,17 @@
             <div class="content ">
                 <div class="container-fluid">
                     <div class="card card-primary card-outline">
-                        <div class="col col-xl-2 aling-items-center mb-1">
-                            <div>
-                                <img class="img-fluid" src="../public/img/qrcode.png" alt="código civa" >
-                            </div>
-                            <div class="btn-group pl-2">
-                                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
-                                        data-target="#modal-default">Visualizar
+                        <div class="card-header d-flex align-items-center">
+                            <div class="row btn-group shadow-sm mb-2 mt-2">
+                                <button type="button" class="btn btn-primary btn-md d-flex align-items-center" data-toggle="modal"
+                                        data-target="#modal-default">Visualizar Certificado CIVA<span class="material-icons-round ml-2" style="font-size:20px;">
+                                        fact_check
+                                    </span>
                                 </button>
                             </div>
-                        </div>
+                        </div>                        
 
-                        <div class="card-body">
+                        <div class="card-body pb-0">
                             <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao">
                                 <div class="row mb-4 border border-info rounded-lg shadow-sm">                               
 
@@ -140,11 +139,7 @@
                             <!-- ./row -->
 
                             <!-- ./card-body -->
-                            <div class="row float-right mr-3">
-                                <div class="col-12 mb-4">
-                                    <!--a href="./index.jsp" class="btn btn-primary btn-lg">Voltar</a-->
-                                </div>
-                            </div>
+                            
                         </div>
 
                     </div>

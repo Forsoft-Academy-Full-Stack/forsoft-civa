@@ -13,6 +13,11 @@ let form = $("#form-meus-dados");
 $("#salvar").click(function () {
 
     if (tratar_campos(campos)) {
+        
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+        
         $.post("/app-civa/gerente", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {

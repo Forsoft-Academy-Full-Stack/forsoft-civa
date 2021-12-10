@@ -59,7 +59,7 @@
                     <div class="col-xl-5">
                         <div class="card card-primary">
                             <!-- form start -->
-                            <form action="" id="form-redefinir-senha">
+                            <form action="" id="redef-senha">
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="senha">Nova senha</label>
@@ -77,7 +77,7 @@
 
                     <div class="col-12">
                         <div class="">
-                            <button type="button" class="btn btn-primary btn-lg" form="form-redefinir-senha" id="enviar">Salvar</button>
+                            <button type="button" class="btn btn-primary btn-lg" id="enviar">Salvar</button>
                         </div>
                     </div>
 
