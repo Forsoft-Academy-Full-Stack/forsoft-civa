@@ -64,7 +64,7 @@ public class GestorNacionalDao {
                 + "LEFT JOIN endereco en\n"
                 + "   ON peen.idendereco = en.idendereco\n"
                 + "WHERE ag.cargo = 'Gestor Nacional'\n"
-                + "AND ag.codigocivagestao = ?;";
+                + "AND ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         sql2 = "SELECT tidoc.nomedoc , doc.documento FROM pessoa peag\n"
                 + "        LEFT JOIN acessogestao ag \n"
@@ -73,7 +73,7 @@ public class GestorNacionalDao {
                 + "            ON doc.idpessoa = peag.idpessoa \n"
                 + "        LEFT JOIN tipodoc tidoc\n"
                 + "            ON doc.idtipodoc = tidoc.idtipodoc\n"
-                + "        WHERE ag.codigocivagestao = ?;";
+                + "        WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         sql3 = "";
 
@@ -180,7 +180,7 @@ public class GestorNacionalDao {
                 + "ON peag.idpessoa = peen.idpessoa\n"
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
-                + "WHERE ag.codigocivagestao = ?/*Código CIVA do Suporte Logado*/);";
+                + "WHERE ag.codigocivagestao = ?) AND ag.statusgestao = true;";
 
         try {
             gestoresNacionais = new ArrayList<>();
@@ -243,7 +243,7 @@ public class GestorNacionalDao {
                 + "        SELECT peag.idpaisdenascimento FROM pessoa peag\n"
                 + "        LEFT JOIN acessogestao ag\n"
                 + "            ON peag.idpessoa = ag.idpessoa\n"
-                + "        WHERE ag.codigocivagestao = ? );";
+                + "        WHERE ag.codigocivagestao = ? ) AND ag.statusgestao = true;";
 
         try {
             gestoresNacionais = new ArrayList<>();
@@ -403,8 +403,9 @@ public class GestorNacionalDao {
     public static boolean delete(GestorNacional gestorNacional) {
             boolean resultado = false;
         Pessoa pessoa = gestorNacional.getPessoa();
+        int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
         
-        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        resultado = PessoaDao.desativarAcessoGestao(idAcessoGestao);
         
         return resultado;
     }

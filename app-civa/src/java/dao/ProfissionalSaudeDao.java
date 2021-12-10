@@ -68,7 +68,7 @@ public class ProfissionalSaudeDao {
                 + "on pa.idpais = en.idpais \n"
                 + "LEFT JOIN tipodoc tidoc \n"
                 + "on doc.idtipodoc = tidoc.idtipodoc \n"
-                + "WHERE ag.codigocivagestao = ?;";
+                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         sql2 = "SELECT  tidoc.nomedoc,doc.documento \n"
                 + "        FROM acessogestao ag\n"
@@ -78,7 +78,7 @@ public class ProfissionalSaudeDao {
                 + "        on peag.idpessoa = doc.idpessoa \n"
                 + "        LEFT JOIN tipodoc tidoc \n"
                 + "        on doc.idtipodoc = tidoc.idtipodoc \n"
-                + "        WHERE ag.codigocivagestao = ?;";
+                + "        WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -173,32 +173,46 @@ public class ProfissionalSaudeDao {
 
         String sql = "";
 
-        sql = "SELECT distinct peag.nomepessoa AS nome,\n"
-                + "	   peag.sobrenomepessoa AS sobrenome,\n"
-                + "       doc.documento,\n"
-                + "       peag.datadenascimento,\n"
-                + "       ag.codigocivagestao AS codigociva\n"
-                + "FROM pessoa peag\n"
-                + "LEFT JOIN docs doc \n"
-                + "ON peag.idpessoa = doc.idpessoa\n"
+        sql = "SELECT distinct ag.codigocivagestao AS codigociva,\n"
+                + "	peag.nomepessoa AS nome, peag.idpessoa,\n"
+                + "	peag.sobrenomepessoa AS sobrenome,\n"
+                + "	peag.genero,\n"
+                + "	peag.datadenascimento AS datanascimento,\n"
+                + "	pa.nomedopais AS pais,\n"
+                + "	en.codigopostal,\n"
+                + "	en.logradouro,\n"
+                + "	en.tipodelogradouro AS tipologradouro,\n"
+                + "	peen.numero, peen.complemento, \n"
+                + "	en.nomesubdivisao1 AS subdivisao3,\n"
+                + "	en.nomesubdivisao2  AS subdivisao2,\n"
+                + "	en.nomesubdivisao3  AS subdivisao1, \n"
+                + "	peag.telefonecomddd AS contato,\n"
+                + "   doc.documento AS documento,\n"
+                + "	ag.emailgestao AS email\n"
+                + "FROM pessoa peag \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "ON peag.idpessoa = ag.idpessoa  \n"
+                + "LEFT JOIN docs doc\n"
+                + "on peag.idpessoa = doc.idpessoa\n"
                 + "LEFT JOIN tipodoc tidoc \n"
-                + "ON doc.idtipodoc = tidoc.idtipodoc \n"
-                + "LEFT JOIN acessogestao ag \n"
-                + "ON ag.idpessoa = peag.idpessoa\n"
-                + "WHERE ag.cargo='Profissional de Saúde'  \n"
-                + "AND tidoc.nivel in ('Primário', 'Secundário', 'Internacional', 'Profissional de Saúde')\n"
-                + "AND ag.codigocivagestao LIKE \n"
-                + "CONCAT( \n"
-                + "(SELECT pa.sigla FROM pessoa peag \n"
-                + "LEFT JOIN acessogestao ag \n"
-                + "on ag.idpessoa = peag.idpessoa \n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc\n"
+                + "LEFT JOIN pais pa \n"
+                + "ON peag.idpaisdenascimento = pa.idpais          \n"
                 + "LEFT JOIN pessoa_endereco peen \n"
-                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "ON peag.idpessoa = peen.idpessoa  \n"
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
-                + "LEFT JOIN pais pa \n"
-                + "ON en.idpais = pa.idpais  \n"
-                + "WHERE ag.codigocivagestao = ?),'%') order by codigociva desc;";
+                + "WHERE ag.cargo = 'Profissional de Saúde'\n"
+                + "AND tidoc.nivel = 'Primário'\n"
+                + "AND en.idpais = \n"
+                + "(SELECT en.idpais FROM pessoa peag\n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "on peag.idpessoa = ag.idpessoa \n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa \n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "WHERE ag.codigocivagestao = ?) AND ag.statusgestao = true order by codigociva desc limit 20;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -213,7 +227,7 @@ public class ProfissionalSaudeDao {
                 pessoa.setNomePessoa(rs.getString("nome"));
                 pessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                 pessoa.setCodigoCiva(rs.getString("codigociva"));
-                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+                pessoa.setDataNascimento(rs.getString("datanascimento"));
 
                 documento1 = new Docs();
                 documento1.setDocumento(rs.getString("documento"));
@@ -263,7 +277,7 @@ public class ProfissionalSaudeDao {
                 + "                                     LEFT JOIN acessogestao ag\n"
                 + "                                     ON aguni.idacessogestao = ag.idacessogestao\n"
                 + "					WHERE ag.codigocivagestao = ?)\n"
-                + " ";
+                + " AND ag.statusgestao = true;";
 
         try {
             profissionaisSaude = new ArrayList<>();
@@ -331,7 +345,7 @@ public class ProfissionalSaudeDao {
                 + "ON uni.idunidade = aguni.idunidade\n"
                 + "LEFT JOIN acessogestao ag\n"
                 + "ON aguni.idacessogestao = ag.idacessogestao\n"
-                + "WHERE uni.idunidade = ?)";
+                + "WHERE uni.idunidade = ?) AND ag.statusgestao = true;";
 
         try {
             profissionaisSaude = new ArrayList<>();
@@ -512,7 +526,7 @@ public class ProfissionalSaudeDao {
     }
 
     public static List<ProfissionalSaude> list() {
-        List<ProfissionalSaude> profissionaisSaude = new ArrayList<ProfissionalSaude>();
+        List<ProfissionalSaude> profissionaisSaude = new ArrayList<>();
         return profissionaisSaude;
     }
 
@@ -549,14 +563,14 @@ public class ProfissionalSaudeDao {
             } catch (Exception e) {
                 System.err.println("Nao cadastrou os docs");
             }
-           
-            // Atualiza os dados endereco
-            boolean enderecoResult = EnderecoDao.update(endereco);          
 
-            int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());      
+            // Atualiza os dados endereco
+            boolean enderecoResult = EnderecoDao.update(endereco);
+
+            int idPessoaEndereco = EnderecoDao.getIdPessoaEnderecoByIdPessoa(pessoa.getIdPessoa());
 
             boolean pessoaEndereco = EnderecoDao.updatePessoaEndereco(idPessoaEndereco, endereco.getNumero(), endereco.getComplemento());
-        
+
             resultado = true;
 
         } catch (Exception e) {
@@ -565,11 +579,12 @@ public class ProfissionalSaudeDao {
     }
 
     public static boolean delete(ProfissionalSaude profissionalsaude) {
-         boolean resultado = false;
+        boolean resultado = false;
         Pessoa pessoa = profissionalsaude.getPessoa();
-        
-        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
-        
+        int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
+
+        resultado = PessoaDao.desativarAcessoGestao(idAcessoGestao);
+
         return resultado;
     }
 

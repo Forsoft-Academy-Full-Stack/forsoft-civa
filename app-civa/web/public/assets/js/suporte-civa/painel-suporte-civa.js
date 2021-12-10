@@ -31,4 +31,30 @@ $("#salvar").click(function () {
     }
 });
 
+let form_excluir = $("#form-excluir");
+
+$("#excluir").click(function () {
+    title = 'Deseja realmente excluir esse Gerente?';
+    text = 'A&ccedil;&atilde;o irrevers&iacute;vel';
+    swalAlertDelete(title, text, () => {
+        $.post("/app-civa/suporte", form_excluir.serialize(), (data, status, jqXHR) => {
+            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
+            if (status === 'success') {
+                title = 'Desativado!';
+                text = "Suporte CIVA desativado com sucesso";
+                swalAlertInfo(title, text, () => {
+                    // redirecionar para o listar
+                    window.location = './consultar-suporte-civa.jsp';
+                });
+
+            }
+        }).fail(function (jqxhr, settings, ex) {
+            title = 'Erro!';
+            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
+            swalAlertError(title, text, callback);
+        });
+    });
+});
+
+
 pegarPaises("nacionalidade");

@@ -118,7 +118,7 @@ public class SupervisorDao {
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
                 + "WHERE ag.cargo = 'Supervisor' \n"
-                + "AND ag.codigocivagestao = ?;";
+                + "AND ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         sql2 = "SELECT tidoc.nomedoc,\n"
                 + "       doc.documento\n"
@@ -129,7 +129,7 @@ public class SupervisorDao {
                 + "ON doc.idpessoa = peag.idpessoa \n"
                 + "LEFT JOIN tipodoc tidoc\n"
                 + "ON doc.idtipodoc = tidoc.idtipodoc\n"
-                + "WHERE ag.codigocivagestao = ?;";
+                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -200,7 +200,7 @@ public class SupervisorDao {
 
     public static List<Supervisor> listByUnidade(Integer idUnidade) {
         Connection connection = ConnectionFactory.getConnection();
-        List<Supervisor> supervisores = new ArrayList<Supervisor>();
+        List<Supervisor> supervisores = new ArrayList<>();
         Supervisor supervisor;
         Pessoa pessoa = null;
         Docs documento1 = null;
@@ -229,7 +229,7 @@ public class SupervisorDao {
                 + "ON uni.idunidade = aguni.idunidade\n"
                 + "LEFT JOIN acessogestao ag \n"
                 + "ON aguni.idacessogestao = ag.idacessogestao \n"
-                + "WHERE uni.idunidade = ?);";
+                + "WHERE uni.idunidade = ?) AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -296,7 +296,7 @@ public class SupervisorDao {
                 + "ON uni.idunidade = aguni.idunidade\n"
                 + "LEFT JOIN acessogestao ag \n"
                 + "ON aguni.idacessogestao = ag.idacessogestao \n"
-                + "WHERE ag.codigocivagestao = ?);";
+                + "WHERE ag.codigocivagestao = ?) AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -367,7 +367,7 @@ public class SupervisorDao {
                 + "ON peen.idendereco = en.idendereco \n"
                 + "LEFT JOIN pais pa \n"
                 + "ON en.idpais = pa.idpais  \n"
-                + "WHERE ag.codigocivagestao = ?),'%');";
+                + "WHERE ag.codigocivagestao = ?),'%') AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -438,7 +438,7 @@ public class SupervisorDao {
    
     public static List<Supervisor> list(String codigoCivaGerente) {
         Connection connection = ConnectionFactory.getConnection();
-        List<Supervisor> supervisores = new ArrayList<Supervisor>();
+        List<Supervisor> supervisores = new ArrayList<>();
         Supervisor supervisor;
         Pessoa pessoa = null;
         Docs documento1 = null;
@@ -467,7 +467,7 @@ public class SupervisorDao {
                 + "ON uni.idunidade = aguni.idunidade\n"
                 + "LEFT JOIN acessogestao ag \n"
                 + "ON aguni.idacessogestao = ag.idacessogestao \n"
-                + "WHERE ag.codigocivagestao = ?);";
+                + "WHERE ag.codigocivagestao = ?) AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -536,8 +536,9 @@ public class SupervisorDao {
        public static boolean delete(Supervisor supervisor) {
            boolean resultado = false;
         Pessoa pessoa = supervisor.getPessoa();
+        int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
         
-        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        resultado = PessoaDao.desativarAcessoGestao(idAcessoGestao);
         
         return resultado;
     }

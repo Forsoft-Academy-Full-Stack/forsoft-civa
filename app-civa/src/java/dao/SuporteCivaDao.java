@@ -63,7 +63,7 @@ public class SuporteCivaDao {
                 + "        LEFT JOIN endereco en \n"
                 + "            ON peen.idendereco = en.idendereco \n"
                 + "        WHERE ag.cargo = 'Suporte' \n"
-                + "        AND ag.codigocivagestao = ?;";
+                + "        AND ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         sql2 = "SELECT tidoc.nomedoc,\n"
                 + "    doc.documento\n"
@@ -74,7 +74,7 @@ public class SuporteCivaDao {
                 + "	ON doc.idpessoa = peag.idpessoa \n"
                 + "LEFT JOIN tipodoc tidoc\n"
                 + "	ON doc.idtipodoc = tidoc.idtipodoc\n"
-                + "WHERE ag.codigocivagestao = ?;";
+                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -171,7 +171,7 @@ public class SuporteCivaDao {
                 + "SELECT peag.idpaisdenascimento FROM pessoa peag\n"
                 + "LEFT JOIN acessogestao ag\n"
                 + "ON peag.idpessoa = ag.idpessoa\n"
-                + "WHERE ag.codigocivagestao = ?);";
+                + "WHERE ag.codigocivagestao = ?) AND ag.statusgestao = true;";
 
         try {
             suportesCiva = new ArrayList<>();
@@ -332,8 +332,9 @@ public class SuporteCivaDao {
     public static boolean delete(SuporteCiva suporteCiva) {
             boolean resultado = false;
         Pessoa pessoa = suporteCiva.getPessoa();
+        int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
         
-        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        resultado = PessoaDao.desativarAcessoGestao(idAcessoGestao);
         
         return resultado;
     }

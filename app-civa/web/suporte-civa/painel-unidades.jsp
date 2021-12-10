@@ -21,8 +21,7 @@
 
 %>
 
-<%  
-    try {
+<%    try {
         Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
         Unidade unidade = UnidadeDao.findById(idUnidade);
 
@@ -100,6 +99,11 @@
                                     </div>
 
                                 </form>
+
+                                <form id="form-excluir">
+                                    <input type="hidden" class="form-control" id="codigo-civa" name="codigo-civa" value="${ator.codigoCiva}" >
+                                    <input type="hidden" value="deletar" class="form-control" id="option" name="option">
+                                </form>  
                                 <!-- /.form ending -->
                             </div>
                         </div>

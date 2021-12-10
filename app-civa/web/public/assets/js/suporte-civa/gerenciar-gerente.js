@@ -40,8 +40,8 @@ $("#excluir").click(function () {
         $.post("/app-civa/gerente", form_excluir.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
-                title = 'Deletado!';
-                text = "Portador deletado com sucesso";
+                title = 'Desativado!';
+                text = "Gerente desativado com sucesso";
                 swalAlertInfo(title, text, () => {
                     // redirecionar para o listar
                     window.location = './consultar-gerente.jsp';

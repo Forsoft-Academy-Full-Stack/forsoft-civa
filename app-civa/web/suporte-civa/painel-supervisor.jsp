@@ -100,6 +100,11 @@
                                     </div>
 
                                 </form>
+
+                                <form id="form-excluir">
+                                    <input type="hidden" class="form-control" id="codigo-civa" name="codigo-civa" value="${ator.codigoCiva}" >
+                                    <input type="hidden" value="deletar" class="form-control" id="option" name="option">
+                                </form>
                                 <!-- /.form ending -->
                             </div>
                             <!-- /.card-body -->
@@ -110,7 +115,7 @@
                         <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
                         <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                     </div>
-                    
+
                 </div>
                 <!-- /.container-fluid -->
 

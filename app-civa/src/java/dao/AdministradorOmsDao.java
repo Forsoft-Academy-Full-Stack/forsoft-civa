@@ -17,8 +17,6 @@ import model.Endereco;
 import model.GestorOms;
 import model.Pais;
 import model.Pessoa;
-import model.SuporteCiva;
-
 /**
  *
  * @author Kerolen | Ludwig
@@ -48,7 +46,7 @@ public class AdministradorOmsDao {
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
                 + "WHERE ag.cargo = 'Administrador' \n"
-                + "AND ag.codigocivagestao = ?;";
+                + "AND ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         sql2 = "SELECT tidoc.nomedoc, doc.documento FROM pessoa peag\n"
                 + "LEFT JOIN acessogestao ag \n"
@@ -57,7 +55,7 @@ public class AdministradorOmsDao {
                 + "ON doc.idpessoa = peag.idpessoa \n"
                 + "LEFT JOIN tipodoc tidoc\n"
                 + "ON doc.idtipodoc = tidoc.idtipodoc\n"
-                + "WHERE ag.codigocivagestao = ?";
+                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -148,7 +146,7 @@ public class AdministradorOmsDao {
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
                 + "WHERE ag.cargo = 'Administrador' \n"
-                + "AND ag.codigocivagestao = ?;";
+                + "AND ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         sql2 = "SELECT tidoc.nomedoc, doc.documento FROM pessoa peag\n"
                 + "LEFT JOIN acessogestao ag \n"
@@ -157,7 +155,7 @@ public class AdministradorOmsDao {
                 + "ON doc.idpessoa = peag.idpessoa \n"
                 + "LEFT JOIN tipodoc tidoc\n"
                 + "ON doc.idtipodoc = tidoc.idtipodoc\n"
-                + "WHERE ag.codigocivagestao = ?";
+                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -243,7 +241,7 @@ public class AdministradorOmsDao {
                 + "LEFT JOIN acessogestao ag\n"
                 + "on ag.idpessoa = peag.idpessoa \n"
                 + "WHERE ag.cargo = 'Administrador'\n"
-                + "AND tidoc.nivel = 'Primário';";
+                + "AND tidoc.nivel = 'Primário' AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -400,8 +398,9 @@ public class AdministradorOmsDao {
     public static boolean delete(AdministradorOms administradorOms) {
         boolean resultado = false;
         Pessoa pessoa = administradorOms.getPessoa();
+        int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
 
-        resultado = PessoaDao.desativarAcessoGestao(pessoa.getIdPessoa());
+        resultado = PessoaDao.desativarAcessoGestao(idAcessoGestao);
 
         return resultado;
     }

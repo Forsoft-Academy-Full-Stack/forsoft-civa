@@ -69,7 +69,7 @@ public class GerenteDao {
                 + "	ON doc.idpessoa = peag.idpessoa \n"
                 + "LEFT JOIN tipodoc tidoc\n"
                 + "	ON doc.idtipodoc = tidoc.idtipodoc\n"
-                + "WHERE ag.codigocivagestao = ?;";
+                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -178,7 +178,7 @@ public class GerenteDao {
                 + "ON peag.idpessoa =peen.idpessoa\n"
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco =en.idendereco \n"
-                + "WHERE ag.codigocivagestao = ? ) ;"
+                + "WHERE ag.codigocivagestao = ? ) AND ag.statusgestao = true;"
                 + " ";
 
         try {
@@ -460,7 +460,7 @@ public class GerenteDao {
     }
 
     public static boolean delete(Gerente gerente) {
-           boolean resultado = false;
+        boolean resultado = false;
         Pessoa pessoa = gerente.getPessoa();
         int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
         
