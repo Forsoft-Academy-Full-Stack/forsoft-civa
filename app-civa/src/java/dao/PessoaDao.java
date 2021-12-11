@@ -11,6 +11,65 @@ import model.Pessoa;
 
 public class PessoaDao {
 
+    public static int verificarEmail(String email, String tipo) {
+        Connection connection = ConnectionFactory.getConnection();
+        int idAtor = -1;
+        String sqlPortador = "";
+        String sqlGestor = "";
+
+        switch (tipo) {
+            case "portador":
+               
+                try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = null;
+                String sql = "SELECT acp.idacessopc\n"
+                        + "FROM acessopc AS acp\n"
+                        + "WHERE acp.emailpc LIKE ?;";
+
+                PreparedStatement ps = connection.prepareStatement(sqlPortador);
+
+                ps.setString(1, email);
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    idAtor = rs.getInt("idacessopc");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            break;
+
+            case "gestor":
+                try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = null;
+                String sql = "SELECT ag.idacessogestao\n"
+                        + "FROM acessogestao AS ag\n"
+                        + "WHERE ag.emailgestao LIKE ?;";
+
+                PreparedStatement ps = connection.prepareStatement(sqlGestor);
+
+                ps.setString(1, email);
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    idAtor = rs.getInt("idacessogestao");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            break;
+        }
+
+        return idAtor;
+
+    }
+
     public static Pessoa findById(Integer idPessoa) {
         Connection connection = ConnectionFactory.getConnection();
         Pessoa pessoa = null;
@@ -145,9 +204,9 @@ public class PessoaDao {
             ps.setInt(7, 1);
 
             ps.executeUpdate();
-          
+
             resultado = true;
-              System.err.println("Finalidou: " + true);
+            System.err.println("Finalidou: " + true);
         } catch (SQLException ex) {
             Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -385,7 +444,7 @@ public class PessoaDao {
 
     public static String getCodigoCivaAcessoGestao(int idPessoa) {
         Connection connection = ConnectionFactory.getConnection();
-       String codigoCiva= "";
+        String codigoCiva = "";
 
         try {
             Statement stmt = connection.createStatement();
@@ -413,7 +472,6 @@ public class PessoaDao {
         return codigoCiva;
     }
 
-    
     public static boolean desativarAcessoPc(int idAcessoPc) {
         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;

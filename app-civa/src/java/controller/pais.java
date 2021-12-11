@@ -61,7 +61,7 @@ public class pais extends HttpServlet {
                             // pegar os dados do país pelo request
                             pais.setNomePais(request.getParameter("pais"));
                             pais.setIdContinente(Integer.parseInt(request.getParameter("continente")));
-                            pais.setDdi(Integer.parseInt(request.getParameter("ddi")));
+                            pais.setDdi(request.getParameter("ddi"));
                             pais.setPadraoContato(request.getParameter("padrao-contato"));
                             pais.setOrgaoResponsavel(request.getParameter("orgao-saude"));
                             pais.setFusoHorario(request.getParameter("fuso-horario"));

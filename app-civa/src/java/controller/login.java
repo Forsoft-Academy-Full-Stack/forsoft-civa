@@ -1,5 +1,6 @@
 package controller;
 
+import dao.PessoaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -38,9 +39,32 @@ public class login extends HttpServlet {
                     break;
                     
                 case "recuperar-senha": 
-                    System.err.println("Tipo: " + request.getParameter("tipo"));
-                    System.err.println("E-mail: " + request.getParameter("email"));
-                    //HttpSession session = request.getSession();                                                            
+                   String tipo = request.getParameter("tipo");
+                   String email = request.getParameter("email");                 
+                                      
+                    switch(tipo){
+                        case "portador":
+                            // verificar se email existe
+                            int idAcessoPc = PessoaDao.verificarEmail(email, tipo);
+                            
+                            if(idAcessoPc != -1){
+                                // Criar o código de verificação
+                            }
+                            
+                            break;
+                                                        
+                        case "gestor":
+                            // verificar se email existe
+                            int idAcessoGestao = PessoaDao.verificarEmail(email, tipo);
+                            
+                            if(idAcessoGestao != -1){
+                                // Criar o código de verificação
+                            }
+                            
+                            
+                            break;
+                    }
+                    
                     break;
                   
             }
