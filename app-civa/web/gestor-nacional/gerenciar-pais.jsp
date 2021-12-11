@@ -1,5 +1,9 @@
+<%@page import="dao.PessoaDao"%>
+<%@page import="model.Pais"%>
+<%@page import="dao.PaisDao"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
@@ -15,6 +19,27 @@
     }
 
     // Caso contrário é um usuário válido, pode entrar na página
+
+    
+   try {
+        
+        String codigoCiva = PessoaDao.getCodigoCivaAcessoGestao(pessoa.getIdPessoa());
+        
+        System.err.println("Codigo CIVA: " + codigoCiva);
+       
+        
+        int idPais = PaisDao.findByCodigoCiva(codigoCiva);
+        
+        System.err.println("idPais: " + idPais);                
+               
+        Pais pais = PaisDao.findByIdPais(idPais);
+        
+        //System.err.println("Nivel" + pais.getTiposDoc().get(0).getNomeDoc());
+
+        pageContext.setAttribute("pais", pais);
+
+    } catch (Exception e) {
+    }
 
 %>
 <%@include file="header.jspf"%>

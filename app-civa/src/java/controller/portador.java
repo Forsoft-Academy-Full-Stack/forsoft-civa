@@ -64,7 +64,7 @@ public class portador extends HttpServlet {
                     pessoa.setTelefoneDdd(request.getParameter("tele"));
                     pessoa.setEmail(request.getParameter("email"));
                     pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigo-civa")));
-
+                    
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
 
@@ -86,7 +86,7 @@ public class portador extends HttpServlet {
 
                     portadorCiva.setPessoa(pessoa);
                     portadorCiva.setDocumento1(documento1);
-                    portadorCiva.setEndereco(endereco);
+                    portadorCiva.setEndereco(endereco);                 
 
                     int idCadastrante = (int) session.getAttribute("idPessoa");
 

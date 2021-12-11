@@ -10,7 +10,7 @@ public class Pais {
     private String nomePais;
     private String orgaoResponsavel;
     private String padraoContato;
-    private Integer ddi;
+    private String  ddi;
     private String sigla;
     private Docs documento1;
     private Docs documento2;
@@ -19,7 +19,7 @@ public class Pais {
     private DivisaoTerritorial divisaoTerritorial;
     private List<TipoDoc> tiposDoc;
 
-    public Pais(Integer idPais, Integer idContinente, String nomeContinente, Integer idCadastrante, String nomePais, String orgaoResponsavel, String padraoContato, Integer ddi, String sigla, Docs documento1, Docs documento2, Docs documento3, String fusoHorario) {
+    public Pais(Integer idPais, Integer idContinente, String nomeContinente, Integer idCadastrante, String nomePais, String orgaoResponsavel, String padraoContato, String ddi, String sigla, Docs documento1, Docs documento2, Docs documento3, String fusoHorario) {
         this.idPais = idPais;
         this.idContinente = idContinente;
         this.nomeContinente = nomeContinente;
@@ -136,11 +136,11 @@ public class Pais {
         this.padraoContato = padraoContato;
     }
 
-    public Integer getDdi() {
+    public String getDdi() {
         return ddi;
     }
 
-    public void setDdi(Integer ddi) {
+    public void setDdi(String ddi) {
         this.ddi = ddi;
     }
 

@@ -20,7 +20,9 @@
 
     // Caso contrário é um usuário válido, pode entrar na página  
 %>
-<%    try {
+<%  
+    try {
+       
         Integer idPais = Integer.parseInt(request.getParameter("idPais"));
         Pais pais = PaisDao.findByIdPais(idPais);
 

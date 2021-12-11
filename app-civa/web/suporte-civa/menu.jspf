@@ -64,7 +64,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./consultar-profissional-de-saude.jsp" class="nav-link">
+                            <a href="./consultar-profissional-de-saude.jsp?nome=" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Profissional da Saúde</p>
                             </a>
@@ -90,7 +90,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./consultar-supervisor.jsp" class="nav-link">
+                            <a href="./consultar-supervisor.jsp?nome=" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar supervisor</p>
                             </a>
@@ -116,7 +116,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./consultar-gerente.jsp" class="nav-link">
+                            <a href="./consultar-gerente.jsp?nome=" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Gerente</p>
                             </a>
@@ -139,7 +139,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item text-sm ">
-                            <a href="./consultar-suporte-civa.jsp" class="nav-link">
+                            <a href="./consultar-suporte-civa.jsp?nome=" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Suporte CIVA</p>
                             </a>
@@ -165,7 +165,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item text-sm ">
-                            <a href="./consultar-gestor-nacional.jsp" class="nav-link">
+                            <a href="./consultar-gestor-nacional.jsp?nome=" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Gestor nacional</p>
                             </a>
@@ -191,7 +191,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./consultar-unidades.jsp" class="nav-link">
+                            <a href="./consultar-unidades.jsp?nome=" class="nav-link">
                                 <i class="fas fa-search nav-icon"></i>
                                 <p>Consultar unidade </p>
                             </a>

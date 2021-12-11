@@ -53,7 +53,7 @@
         <!-- MENU Main Sidebar Container ------------------------------------>
         <%@include  file="menu.jspf"%>
 
-        <!-- Content Wrapper. Contains page content -------------------------->
+      <!-- Content Wrapper. Contains page content -------------------------->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
             <div class="content-header">
@@ -88,78 +88,23 @@
                                     <h3 class="card-title">Dados Unidade</h3>
                                 </div>
                                 <!-- /.card-header -->
-
-                                <form id="form-meus-dados">
+                                <!-- Incio do form -->
+                                <form action="#" id="form-gerenciar-unidade" method="post" novalidate="novalidate">
                                     <div class="card-body">
                                         <%@ include file="../partials/dados-unidade-disabled.jspf" %>
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/enderecos-disabled.jspf" %>
-                                        <hr>
+                                        <hr  class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-unidade-disabled.jspf" %>
                                     </div>
-
                                 </form>
-
-                                <form id="form-excluir">
-                                    <input type="hidden" class="form-control" id="codigo-civa" name="codigo-civa" value="${ator.codigoCiva}" >
-                                    <input type="hidden" value="deletar" class="form-control" id="option" name="option">
-                                </form>  
                                 <!-- /.form ending -->
                             </div>
                         </div>
                     </div>
                     <!-- /.row -->
-                    <div class="col-12 pb-4 d-flex justify-content-between">
-                        <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
-                        <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
-                    </div>
+                </div>               
 
-                </div>
-
-
-
-            </div>
-            <!-- modal -->
-            <div class="modal fade" id="modal-default" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Dados alterados com sucesso!</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">Ã</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p></p>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
-            </div>
-            <!-- modal erro -->
-            <div class="modal fade" id="modal-default2" style="display: none;" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h4 class="modal-title">Todos os dados obrigatorios devem ser preenchidos!</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">Ã</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p></p>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Finalizar</button>
-                        </div>
-                    </div>
-                    <!-- /.modal-content -->
-                </div>
-                <!-- /.modal-dialog -->
             </div>
             <!-- /.container-fluid -->
         </div>

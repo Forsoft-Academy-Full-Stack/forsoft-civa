@@ -43,7 +43,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./consultar-supervisor.jsp" class="nav-link">
+                            <a href="./consultar-supervisor.jsp?nome=" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Supervisor </p>
                             </a>
@@ -69,7 +69,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="./consultar-unidades.jsp" class="nav-link">
+                            <a href="./consultar-unidades.jsp?nome=" class="nav-link">
                                 <i class="fas fa-map nav-icon"></i>
                                 <p>Consultar Unidade </p>
                             </a>

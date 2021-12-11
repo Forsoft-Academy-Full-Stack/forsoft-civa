@@ -16,7 +16,7 @@
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
-                        <form id="form-cad-portador">
+                        <form id="form-meus-dados">
                             <div class="card-body">                     
                                 <%@ include file="../partials/dadospessoais-cadastro.jspf" %>
                                 <hr  class = "mb-4 mt-4">
@@ -25,6 +25,7 @@
                                 <%@ include file="../partials/contatos-cadastro.jspf" %>
                                 <hr  class = "mb-4 mt-4">
                                 <%@ include file="../partials/senha-cadastro.jspf" %>
+                                <input type="hidden" vslue="cadastrar" name="option">
                                 <div class="form-check">
                                     <input type="checkbox" class="form-check-input" id="termos-uso">
                                     <label class="form-check-label" for="termos-uso">Li e concordo com os <a href="./termo-uso.jsp">Termos de Uso e Pol&iacute;ticas de Privacidade.</a></label>

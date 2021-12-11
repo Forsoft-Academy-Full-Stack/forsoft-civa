@@ -286,23 +286,29 @@ public class GerenteDao {
         Docs documento1;
 
         String sql = "";
-        sql = "   SELECT peag.nomepessoa,  peag.sobrenomepessoa, \n"
-                + "	      doc.documento,\n"
-                + "           ag.codigocivagestao\n"
-                + "	FROM pessoa peag \n"
-                + "    LEFT JOIN acessogestao ag \n"
-                + "        ON peag.idpessoa = ag.idpessoa  \n"
-                + "    LEFT JOIN docs doc \n"
-                + "        ON peag.idpessoa = doc.idpessoa  \n"
-                + "    LEFT JOIN acessogestao_unidade aguni \n"
-                + "        ON ag.idacessogestao = aguni.idacessogestao  \n"
-                + "    LEFT JOIN unidade uni \n"
-                + "        ON aguni.idunidade = uni.idunidade  \n"
-                + "    LEFT JOIN tipodoc tidoc \n"
-                + "        ON doc.idtipodoc = tidoc.idtipodoc  \n"
-                + "    WHERE uni.idunidade = ?\n"
-                + "    AND tidoc.nivel = 'Primário'\n"
-                + "    AND ag.cargo = 'Gerente' AND ag.statusgestao = true;";
+         sql = "SELECT peag.nomepessoa AS nome,\n"
+                + "       peag.sobrenomepessoa AS sobrenome,\n"
+                + "       doc.documento,\n"
+                + "       peag.datadenascimento,\n"
+                + "       ag.codigocivagestao AS codigociva\n"
+                + "FROM pessoa peag\n"
+                + "LEFT JOIN docs doc \n"
+                + "ON peag.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc \n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "ON ag.idpessoa = peag.idpessoa\n"
+                + "LEFT JOIN acessogestao_unidade aguni \n"
+                + "ON ag.idacessogestao = aguni.idacessogestao \n"
+                + "WHERE ag.cargo='Gerente'  \n"
+                + "AND tidoc.nivel = 'Primário'\n"
+                + "AND aguni.idunidade IN \n"
+                + "(SELECT uni.idunidade from unidade uni\n"
+                + "LEFT JOIN acessogestao_unidade aguni\n"
+                + "ON uni.idunidade = aguni.idunidade\n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "ON aguni.idacessogestao = ag.idacessogestao \n"
+                + "WHERE uni.idunidade = ?) AND ag.statusgestao = true;";
 
         try {
             gerentes = new ArrayList<>();
@@ -319,9 +325,9 @@ public class GerenteDao {
                 gerente = new Gerente();
 
                 pessoa = new Pessoa();
-                pessoa.setNomePessoa(rs.getString("nomepessoa"));
-                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
-                pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
+                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                pessoa.setCodigoCiva(rs.getString("codigociva"));
 
                 documento1 = new Docs();
                 documento1.setDocumento(rs.getString("documento"));

@@ -23,7 +23,7 @@ import model.Supervisor;
  */
 public class SupervisorDao {
 
-   public static boolean insert(Supervisor supervisor, int idCadastrante) {
+    public static boolean insert(Supervisor supervisor, int idCadastrante) {
         boolean resultado = false;
 
         Pessoa pessoa = supervisor.getPessoa();
@@ -276,9 +276,9 @@ public class SupervisorDao {
 
         sql = "SELECT peag.nomepessoa AS nome,\n"
                 + "	   peag.sobrenomepessoa AS sobrenome,\n"
-                + "	   doc.documento,\n"
-                + "	   peag.datadenascimento,\n"
-                + "	  ag.codigocivagestao AS codigociva\n"
+                + "       doc.documento,\n"
+                + "       peag.datadenascimento,\n"
+                + "       ag.codigocivagestao AS codigociva\n"
                 + "FROM pessoa peag\n"
                 + "LEFT JOIN docs doc \n"
                 + "ON peag.idpessoa = doc.idpessoa\n"
@@ -286,17 +286,20 @@ public class SupervisorDao {
                 + "ON doc.idtipodoc = tidoc.idtipodoc \n"
                 + "LEFT JOIN acessogestao ag \n"
                 + "ON ag.idpessoa = peag.idpessoa\n"
-                + "LEFT JOIN acessogestao_unidade aguni \n"
-                + "ON ag.idacessogestao = aguni.idacessogestao \n"
                 + "WHERE ag.cargo='Supervisor'  \n"
                 + "AND tidoc.nivel = 'Primário'\n"
-                + "AND aguni.idunidade = \n"
-                + "(SELECT uni.idunidade from unidade uni\n"
-                + "LEFT JOIN acessogestao_unidade aguni\n"
-                + "ON uni.idunidade = aguni.idunidade\n"
+                + "AND ag.codigocivagestao LIKE \n"
+                + "CONCAT( \n"
+                + "(SELECT pa.sigla FROM pessoa peag \n"
                 + "LEFT JOIN acessogestao ag \n"
-                + "ON aguni.idacessogestao = ag.idacessogestao \n"
-                + "WHERE ag.codigocivagestao = ?) AND ag.statusgestao = true;";
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "LEFT JOIN pais pa \n"
+                + "ON en.idpais = pa.idpais  \n"
+                + "WHERE ag.codigocivagestao = ?),'%') AND ag.statusgestao = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -312,7 +315,7 @@ public class SupervisorDao {
                 pessoa.setNomePessoa(rs.getString("nome"));
                 pessoa.setSobrenomePessoa(rs.getString("sobrenome"));
                 pessoa.setCodigoCiva(rs.getString("codigociva"));
-                pessoa.setDataNascimento(rs.getString("datadenascimento"));           
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
 
                 documento1 = new Docs();
                 documento1.setDocumento(rs.getString("documento"));
@@ -402,6 +405,152 @@ public class SupervisorDao {
 
         return supervisores;
     }
+
+    public static List<Supervisor> listByGerenteNomeSupervisor(String codigoCivaGerente, String nome) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<Supervisor> supervisores = null;
+        Supervisor supervisor = null;
+        Pessoa pessoa = null;
+        Docs documento1 = null;
+
+        String sql = "";
+
+        sql = "SELECT peag.nomepessoa AS nome,\n"
+                + "	   peag.sobrenomepessoa AS sobrenome,\n"
+                + "       doc.documento,\n"
+                + "       peag.datadenascimento,\n"
+                + "       ag.codigocivagestao AS codigociva\n"
+                + "FROM pessoa peag\n"
+                + "LEFT JOIN docs doc \n"
+                + "ON peag.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc \n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "ON ag.idpessoa = peag.idpessoa\n"
+                + "WHERE ag.cargo='Supervisor'  \n"
+                + "AND tidoc.nivel = 'Primário'\n"
+                + "AND ag.codigocivagestao LIKE \n"
+                + "CONCAT( \n"
+                + "(SELECT pa.sigla FROM pessoa peag \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "LEFT JOIN pais pa \n"
+                + "ON en.idpais = pa.idpais  \n"
+                + "WHERE ag.codigocivagestao = ?),'%') AND peag.nomepessoa LIKE ? AND ag.statusgestao = true;";
+
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            supervisores = new ArrayList<>();
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaGerente);
+            ps.setString(2, "%" + nome + "%");
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pessoa = new Pessoa();
+
+                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                pessoa.setCodigoCiva(rs.getString("codigociva"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+
+                documento1 = new Docs();
+                documento1.setDocumento(rs.getString("documento"));
+
+                supervisor = new Supervisor();
+                supervisor.setPessoa(pessoa);
+                supervisor.setDocumento1(documento1);
+                supervisor.setCodigoCiva(pessoa.getCodigoCiva());
+
+                supervisores.add(supervisor);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SupervisorDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return supervisores;
+    }
+
+    public static List<Supervisor> listBySuporteCivaNomeSupervisor(String codigoCivaSuporte, String nome) {
+        Connection connection = ConnectionFactory.getConnection();
+        List<Supervisor> supervisores = null;
+        Supervisor supervisor;
+        Pessoa pessoa = null;
+        Docs documento1 = null;
+
+        String sql = "";
+
+        sql = "SELECT peag.nomepessoa AS nome,\n"
+                + "	   peag.sobrenomepessoa AS sobrenome,\n"
+                + "       doc.documento,\n"
+                + "       peag.datadenascimento,\n"
+                + "       ag.codigocivagestao AS codigociva\n"
+                + "FROM pessoa peag\n"
+                + "LEFT JOIN docs doc \n"
+                + "ON peag.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc \n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "ON ag.idpessoa = peag.idpessoa\n"
+                + "WHERE ag.cargo='Supervisor'  \n"
+                + "AND tidoc.nivel = 'Primário'\n"
+                + "AND ag.codigocivagestao LIKE \n"
+                + "CONCAT( \n"
+                + "(SELECT pa.sigla FROM pessoa peag \n"
+                + "LEFT JOIN acessogestao ag \n"
+                + "on ag.idpessoa = peag.idpessoa \n"
+                + "LEFT JOIN pessoa_endereco peen \n"
+                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "LEFT JOIN endereco en \n"
+                + "ON peen.idendereco = en.idendereco \n"
+                + "LEFT JOIN pais pa \n"
+                + "ON en.idpais = pa.idpais  \n"
+                + "WHERE ag.codigocivagestao = ?),'%') AND peag.nomepessoa LIKE ? AND ag.statusgestao = true;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            supervisores = new ArrayList<Supervisor>();
+
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaSuporte);
+            ps.setString(2, "%" + nome + "%");
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pessoa = new Pessoa();
+                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenome"));
+                pessoa.setCodigoCiva(rs.getString("codigociva"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+
+                documento1 = new Docs();
+                documento1.setDocumento(rs.getString("documento"));
+
+                supervisor = new Supervisor();
+                supervisor.setPessoa(pessoa);
+                supervisor.setDocumento1(documento1);
+                supervisor.setCodigoCiva(pessoa.getCodigoCiva());
+
+                supervisores.add(supervisor);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(SupervisorDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return supervisores;
+    } 
     
     public static String gerarCodigoCiva(String nomePais, int idPessoa) {
         Connection connection = ConnectionFactory.getConnection();
@@ -422,20 +571,19 @@ public class SupervisorDao {
             ps = connection.prepareStatement(sql);
             ps.setInt(1, idPessoa);
             rs = ps.executeQuery();
-            
-            if(rs.next()){
-                codigoCiva = String.valueOf(rs.getInt("codigo"));                
+
+            if (rs.next()) {
+                codigoCiva = String.valueOf(rs.getInt("codigo"));
             }
 
         } catch (SQLException ex) {
             Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         return sigla + codigoCiva + atorSigla;
 
     }
-    
-   
+
     public static List<Supervisor> list(String codigoCivaGerente) {
         Connection connection = ConnectionFactory.getConnection();
         List<Supervisor> supervisores = new ArrayList<>();
@@ -504,7 +652,7 @@ public class SupervisorDao {
     }
 
     public static boolean update(Supervisor supervisorNovo) {
-         Connection connection = ConnectionFactory.getConnection();
+        Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
         Pessoa pessoa = supervisorNovo.getPessoa();
         Docs documento1 = supervisorNovo.getDocumento1();
@@ -533,14 +681,14 @@ public class SupervisorDao {
         return resultado;
     }
 
-       public static boolean delete(Supervisor supervisor) {
-           boolean resultado = false;
+    public static boolean delete(Supervisor supervisor) {
+        boolean resultado = false;
         Pessoa pessoa = supervisor.getPessoa();
         int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
-        
+
         resultado = PessoaDao.desativarAcessoGestao(idAcessoGestao);
-        
+
         return resultado;
     }
-   
+
 }

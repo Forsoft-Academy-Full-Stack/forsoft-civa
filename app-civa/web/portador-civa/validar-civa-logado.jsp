@@ -100,7 +100,7 @@
         <%@include file="footer.jspf" %>
 
         <!-- Main Footer -->
-        <%@include file="modal-certificado-civa.jspf" %>
+        <%@include file="modal-certificado-civa-scan.jspf" %>
         <!-- /.content -->
     </div>
 
