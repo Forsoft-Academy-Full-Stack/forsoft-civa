@@ -1,4 +1,19 @@
+<%@page import="model.Pais"%>
+<%@page import="dao.PaisDao"%>
+<%@page import="dao.ContinenteDao"%>
+<%@page import="java.util.List"%>
+<%@page import="model.Continente"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%
+try {      
+    
+         List<Pais> paises = PaisDao.listPais();
+          pageContext.setAttribute("paises", paises);
+            
+        } catch (Exception e) {
+        }
 
+%>
 <%@include file="header.jspf"%>
    <script src="../public/assets/js/login/cadastrar-portador.js" defer></script>
 </head>

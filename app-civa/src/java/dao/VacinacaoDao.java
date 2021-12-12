@@ -11,6 +11,7 @@ import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import model.Pais;
+import model.Pessoa;
 import model.Unidade;
 import model.Vacina;
 import model.Vacinacao;
@@ -136,6 +137,86 @@ public class VacinacaoDao {
                 vacina.setNomeVacina(rs.getString("vacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
                 vacina.setNumeroDoses(rs.getString("numerodedoses"));
+
+                vacinacao.setVacina(vacina);
+
+                vacinacao.setDoseAplicada(rs.getString("doseaplicada"));
+                vacinacao.setPais(rs.getString("pais"));
+                vacinacao.setDataAplicacao(rs.getString("dataaplicacao"));
+                vacinacao.setIdVacinacao(Integer.parseInt(rs.getString("idvacina")));
+                vacinacao.setUnidade(rs.getString("nomeunidade"));
+                vacinacao.setCodigoCivaCadastrante(rs.getString("idacessogestao"));
+                vacinacao.setIdUnidade(rs.getInt("idunidade"));
+                vacina.setLote(rs.getString("lote"));
+                vacinacoes.add(vacinacao);
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VacinacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return vacinacoes;
+    }
+    
+    
+     //BUSCAR VACINAÇÃO SEM LOGAR POR CÓDIGO
+    public static List<Vacinacao> listbyCodigoCert(String codigoCodigoCert) {
+        Connection connection = ConnectionFactory.getConnection();
+
+        List<Vacinacao> vacinacoes = new ArrayList<>();
+        Vacinacao vacinacao = null;
+        Vacina vacina = null;
+        Pessoa pessoa = null;
+        
+        
+
+        String sql = "SELECT pepc.nomepessoa, pepc.sobrenomepessoa, doc.documento, pepc.datadenascimento , apc.codigocivapc, pa.nomedopais , vac.nomevacina ,vacao.doseaplicada \n"
+                + "from vacinacao vacao\n"
+                + "LEFT JOIN acessopc apc\n"
+                + "ON vacao.idacessopc = apc.idacessopc\n"
+                + "LEFT JOIN pessoa pepc\n"
+                + "ON pepc.idpessoa = apc.idpessoa\n"
+                + "LEFT JOIN vacina vac\n"
+                + "ON vacao.idvacina = vac.idvacina\n"
+                + "LEFT JOIN unidade uni\n"
+                + "on vacao.idunidade = uni.idunidade\n"
+                + "LEFT JOIN endereco en\n"
+                + "ON uni.idendereco = en.idendereco\n"
+                + "LEFT JOIN pais pa\n"
+                + "ON en.idpais = pa.idpais\n"
+                + "left JOIN codigocertificado codcert\n"
+                + "on apc.idacessopc = codcert.idacessopc\n"
+                + "LEFT JOIN docs doc\n"
+                + "on pepc.idpessoa = doc.idpessoa \n"
+                + "WHERE codcert.codigocertificado = ?;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCodigoCert);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                vacina = new Vacina();
+                vacinacao = new Vacinacao();
+                pessoa = new Pessoa();
+                
+                
+                //PARA DIRECIONAR PARA CAMPOS
+                
+                pessoa.setNomePessoa(rs.getString("nomepessoa"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+                
+                                   
+                vacina.setNomeVacina(rs.getString("vacina"));
+                vacina.setLaboratorio(rs.getString("laboratorio"));
+                vacina.setNumeroDoses(rs.getString("numerodedoses"));
+                
+                
 
                 vacinacao.setVacina(vacina);
 

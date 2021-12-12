@@ -69,6 +69,65 @@ public class PessoaDao {
         return idAtor;
 
     }
+    
+      public static int gerarCodigoRecuperacao(int idAtor, String codigoRecuperacao, String tipo) {
+        Connection connection = ConnectionFactory.getConnection();       
+        String sqlPortador = "";
+        String sqlGestor = "";
+
+        switch (tipo) {
+            case "portador":
+               
+                try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = null;
+                String sql = "SELECT acp.idacessopc\n"
+                        + "FROM acessopc AS acp\n"
+                        + "WHERE acp.emailpc LIKE ?;";
+
+                PreparedStatement ps = connection.prepareStatement(sqlPortador);
+
+                ps.setString(1, "");
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    idAtor = rs.getInt("idacessopc");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            break;
+
+            case "gestor":
+                try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = null;
+                String sql = "SELECT ag.idacessogestao\n"
+                        + "FROM acessogestao AS ag\n"
+                        + "WHERE ag.emailgestao LIKE ?;";
+
+                PreparedStatement ps = connection.prepareStatement(sqlGestor);
+
+                ps.setString(1, "");
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    idAtor = rs.getInt("idacessogestao");
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            break;
+        }
+
+        return idAtor;
+
+    }
+    
 
     public static Pessoa findById(Integer idPessoa) {
         Connection connection = ConnectionFactory.getConnection();

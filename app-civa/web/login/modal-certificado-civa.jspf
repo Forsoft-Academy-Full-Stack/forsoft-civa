@@ -1,0 +1,118 @@
+<%-- any content can be specified here e.g.: --%>
+
+<%@page import="java.util.List"%>
+<%@include file="header.jspf"%>
+</head>
+<%@page import="model.Pessoa"%>
+<%@page import="dao.PortadorCivaDao"%>
+<%@page import="model.PortadorCiva"%>
+<%@page import="model.ProfissionalSaude"%>
+<%@page import="dao.ProfissionalSaudeDao"%>
+<%@page import="model.Vacinacao"%>
+<%@page import="dao.VacinacaoDao"%>
+<%@page import="model.Vacinacao"%>
+<%@page import="dao.PessoaDao" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page pageEncoding="UTF-8" %>
+
+<%
+    try {
+        String codigoCivaPortadorCiva = request.getParameter("codigoCiva");
+
+        PortadorCiva portadorciva = PortadorCivaDao.findByCodigoCiva(codigoCivaPortadorCiva);
+        List<Vacinacao> vacinacoes = VacinacaoDao.listByPortadorCiva(codigoCivaPortadorCiva);
+
+        pageContext.setAttribute("portadorCiva", portadorciva);
+        pageContext.setAttribute("vacinacoes", vacinacoes);
+        //pageContext.setAttribute("vacinacoes", VacinacaoDao.listByPortadorCivaInternacional(codigoCivaPortadorCiva));
+
+    } catch (Exception e) {
+    }
+
+
+%>
+
+
+<div class="modal fade show " id="modal-certificado-civa" style="display: none; padding-right: 17px;" aria-modal="true">
+    <div class="modal-dialog ">
+        <div class="modal-content card-primary card-outline">
+            <div class="modal-header">
+                <h4 class="modal-title">Certificado CIVA</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">X</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="certificado-nome">Nome do Portador</label>
+                    <input type="text" class="form-control form-control-sm" id="certificado-nome"
+                           value="${portadorCiva.pessoa.nomePessoa} ${portadorCiva.pessoa.sobrenomePessoa}" disabled>
+                </div>
+                <div class="row">
+                    <div class="form-group col mb-3">
+                        <label for="certificado-civa-id">C&oacute;digo CIVA</label>
+                        <input type="text" class="form-control form-control-sm" id="certificado-civa-id" value="${portadorCiva.codigoCiva}"
+                               disabled>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col mb-3">
+                        <label for="certificado-identidade">Identidade</label>
+                        <input type="text" class="form-control form-control-sm" id="certificado-identidade" value="${portadorCiva.documento1.documento}"
+                               disabled>
+                    </div>
+                </div>             
+
+                <div class="row mb-4 border border-info rounded-lg shadow-sm">                               
+                    <table class="col-xl-12 table text-nowrap table-striped  ">
+                        <thead>
+                            <tr class="table-primary">
+                                <th>Vacina</th>
+                                <th>Laborat&oacute;rio</th>
+                                <th>Dose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <c:forEach items="${vacinacoes}" var="vacinacao">
+                                <tr class="table-light">
+                                    <td ><c:out value="${vacinacao.vacina.nomeVacina}"/></td>
+                                    <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>
+                                    <td><c:out value="${vacinacao.doseAplicada}" /></td>
+                                </tr>
+
+                            </tbody>
+                            <thead>
+                                <tr class="table-primary">
+                                    <th>Data de Aplica&ccedil;&atilde;o</th>
+                                    <th>Estabelecimento</th>
+                                    <th>Pa&iacute;s</th>
+                                </tr>
+                            </thead>
+                        </c:forEach>
+                        <tbody>
+                            <c:forEach items="${vacinacoes}" var="vacinacao">
+                                <tr class="table-light">
+                                    <td><c:out value="${vacinacao.dataAplicacao}" /></td>
+                                    <td><c:out value="${vacinacao.unidade}" /></td>
+                                    <td><c:out value="${vacinacao.pais}" /></td>
+                                </tr>
+                            </c:forEach>
+                        </tbody>
+                    </table>
+                </div>
+
+
+                <hr  class = "mb-4 mt-4">  
+
+                <div class="row d-flex justify-content-center mb-4">
+                    <img class="img-fluid" src="../public/img/qrcode.png" alt="código civa" >
+                </div>
+                <div class="modal-footer justify-content-between">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Fechar</button>
+                    <button type="button" class="btn btn-primary">Download</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
