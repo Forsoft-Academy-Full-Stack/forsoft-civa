@@ -19,16 +19,16 @@ $("#enviar").click(function () {
                 title = 'Codigo enviado!';
                 text = "Verifique o email informado.";
                 swalAlertSuccess(title, text, () => {
-                   // window.location.href = data.redirect;
-                  // console.log(jqXHR.getAllResponseHeaders());
-                   //console.log(data.responseText);
-                   //console.log(data.redirect);
-                   //console.log(data.responseData);
-                   //console.log(jqXHR.getResponseHeader('location'));                                     
-                   var responseText = eval(jqXHR.responseText);
-                  window.location = responseText;
-                  
-                   
+                    // window.location.href = data.redirect;
+                    // console.log(jqXHR.getAllResponseHeaders());
+                    //console.log(data.responseText);
+                    //console.log(data.redirect);
+                    //console.log(data.responseData);
+                    //console.log(jqXHR.getResponseHeader('location'));                                     
+                    var responseText = eval(jqXHR.responseText);
+                    window.location = responseText;
+
+
                 });
 
             }
@@ -43,3 +43,5 @@ $("#enviar").click(function () {
         swalAlertError(title, text, callback);
     }
 });
+
+

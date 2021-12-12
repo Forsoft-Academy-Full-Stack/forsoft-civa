@@ -14,7 +14,9 @@ public class PortadorCiva {
     private Vacinacao vacinacao;
     private List<Vacinacao> listaVacinacao;
     private String codigoCiva;
-
+    private List<String> nomesCadastranteVacina;
+    private List<String> nomesUnidadeVacinacao;
+   
     public PortadorCiva(Pessoa pessoa, Docs documento1, Docs documento2, Docs documento3, Endereco endereco, Vacinacao vacinacao, List<Vacinacao> listaVacinacao, String codigoCiva) {
         this.pessoa = pessoa;
         this.documento1 = documento1;
@@ -29,7 +31,24 @@ public class PortadorCiva {
     public PortadorCiva() {
     }
     
+    public List<String> getNomesCadastranteVacina() {
+        return nomesCadastranteVacina;
+    }
 
+    public void setNomesCadastranteVacina(List<String> nomesCadastranteVacina) {
+        this.nomesCadastranteVacina = nomesCadastranteVacina;
+    }
+
+    public List<String> getNomesUnidadeVacinacao() {
+        return nomesUnidadeVacinacao;
+    }
+
+    public void setNomesUnidadeVacinacao(List<String> nomesUnidadeVacinacao) {
+        this.nomesUnidadeVacinacao = nomesUnidadeVacinacao;
+    }
+    
+    
+    
     public List<Vacinacao> getListaVacinacao() {
         return listaVacinacao;
     }

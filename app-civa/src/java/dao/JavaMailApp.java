@@ -1,58 +1,72 @@
-package com.journaldev.mail;
+package dao;
 
-import java.io.UnsupportedEncodingException;
-import java.util.Date;
-
-import javax.activation.DataHandler;
-import javax.activation.DataSource;
-import javax.activation.FileDataSource;
-import javax.mail.BodyPart;
+import java.util.Properties;
+import javax.mail.Address;
 import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.Multipart;
+import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
 import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
-import javax.mail.internet.MimeMultipart;
 
-public class  JavaMailApp {
+public class JavaMailApp {
 
-	/**
-	 * Utility method to send simple HTML email
-	 * @param session
-	 * @param toEmail
-	 * @param subject
-	 * @param body
-	 */
-	public static void sendEmail(Session session, String toEmail, String subject, String body){
-		try
-	    {
-	      MimeMessage msg = new MimeMessage(session);
-	      //set message headers
-	      msg.addHeader("Content-type", "text/HTML; charset=UTF-8");
-	      msg.addHeader("format", "flowed");
-	      msg.addHeader("Content-Transfer-Encoding", "8bit");
+    public static void main(String email, String codigo) {
+        Properties props = new Properties();
+        /**
+         * Parâmetros de conexão com servidor Gmail
+         */
+        props.setProperty("mail.transport.protocol", "smtps");
+       
+        //props.setProperty("mail.host", "smtp.gmail.com");
+        //props.setProperty("mail.smtp.host", "localhost");
+        
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.port", "587");
+        props.put("mail.smtp.socketFactory.port", "587");
+        props.put("mail.smtp.socketFactory.class",
+                "javax.net.ssl.SSLSocketFactory");
+        props.put("mail.smtp.socketFactory.fallback", "false");
+        props.setProperty("mail.smtp.quitwait", "false");
+        System.setProperty("mail.smtps.auth", "true");
+        System.setProperty("mail.smtp.auth", "true");
 
-	      msg.setFrom(new InternetAddress("no_reply@example.com", "NoReply-JD"));
+        Session session = Session.getDefaultInstance(props,
+                new javax.mail.Authenticator() {
+            @Override
+            protected PasswordAuthentication getPasswordAuthentication() {
+                return new PasswordAuthentication("civa.forsoft.suporte@gmail.com",
+                        "suporteciva2021A@");
+            }
+        });
 
-	      msg.setReplyTo(InternetAddress.parse("no_reply@example.com", false));
+        /**
+         * Ativa Debug para sessão
+         */
+        session.setDebug(true);
 
-	      msg.setSubject(subject, "UTF-8");
+        try {
 
-	      msg.setText(body, "UTF-8");
+            Message message = new MimeMessage(session);
+            message.setFrom(new InternetAddress("civa.forsoft.suporte@gmail.com"));
+            //Remetente
 
-	      msg.setSentDate(new Date());
+            Address[] toUser = InternetAddress //Destinatário(s)
+                    .parse(email);
 
-	      msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(toEmail, false));
-	      System.out.println("Message is ready");
-    	  Transport.send(msg);  
+            message.setRecipients(Message.RecipientType.TO, toUser);
+            message.setSubject("Forsoft CIVA Códico Para Mudar Senha");//Assunto
+            message.setText("Código de Recuperação: " + codigo);
+            /**
+             * Método para enviar a mensagem criada
+             */
+            Transport.send(message);
 
-	      System.out.println("EMail Sent Successfully!!");
-	    }
-	    catch (Exception e) {
-	      e.printStackTrace();
-	    }
-	}
+            System.out.println("Feito!!!");
+
+        } catch (MessagingException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }

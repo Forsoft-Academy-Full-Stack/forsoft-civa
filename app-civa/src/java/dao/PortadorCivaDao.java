@@ -328,7 +328,7 @@ public class PortadorCivaDao {
 
             String codigoCivaPortador = PortadorCivaDao.gerarCodigoCiva(endereco.getNomePais(), idPessoa);
 
-            resultado = PessoaDao.insertAcessoPc(idPessoa, idCadastrante, codigoCivaPortador, pessoa.getEmail(), formatador.format(data));
+            resultado = PessoaDao.insertAcessoPc(idPessoa, idCadastrante, codigoCivaPortador, pessoa.getEmail(), formatador.format(data), pessoa.getSenha());
 
         } catch (Exception e) {
         }

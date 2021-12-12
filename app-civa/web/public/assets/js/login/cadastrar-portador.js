@@ -16,20 +16,20 @@ $("#salvar").click(() => {
 
         if (mesma_senha) {
             if ($("#termos-uso").is(":checked")) {
-                $.get("", form.serialize(), (data, status) => {
+                $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
+                    console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                     if (status === 'success') {
-                        title = 'Conta Criada!';
-                        text = "Sua conta foi criada com sucesso! Fa&ccedil;a o login!.";
+                        title = 'Codigo enviado!';
+                        text = "Verifique o email informado.";
                         swalAlertSuccess(title, text, () => {
-                            location.href = '../';
+                           // window.location = './';
                         });
 
-
-                    } else {
-                        title = 'Erro!';
-                        text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
-                        swalAlertError(title, text, callback);
                     }
+                }).fail(function (jqxhr, settings, ex) {
+                    title = 'Erro!';
+                    text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
+                    swalAlertError(title, text, callback);
                 });
             } else {
                 title = 'Termos de Uso';
@@ -51,5 +51,3 @@ $("#salvar").click(() => {
 
 
 pegarPaises("nacionalidade");
-
-

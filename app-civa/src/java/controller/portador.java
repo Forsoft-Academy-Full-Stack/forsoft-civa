@@ -55,6 +55,7 @@ public class portador extends HttpServlet {
 
             switch (option) {
                 case "cadastrar":
+                     System.err.println("Entrou no cadastrar");
                     int idPais = Integer.parseInt(request.getParameter("nome-pais"));
                     pessoa.setNomePessoa(request.getParameter("nome"));
                     pessoa.setSobrenomePessoa(request.getParameter("sobrenome"));
@@ -64,13 +65,16 @@ public class portador extends HttpServlet {
                     pessoa.setTelefoneDdd(request.getParameter("tele"));
                     pessoa.setEmail(request.getParameter("email"));
                     pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigo-civa")));
-                    
+                    pessoa.setSenha(request.getParameter("senha"));
+                  
                     documento1.setNomeTipoDoc(request.getParameter("tipo-doc1"));
                     documento1.setDocumento(request.getParameter("doc1"));
 
                     pessoa.setIdNacionalidade(idPais);
                     String ddi = PaisDao.getDdiById(idPais);                
                     pessoa.setDdiContato(ddi);
+                    
+                    
 
                     endereco.setCodigoPostal(request.getParameter("cod-postal"));
                     endereco.setLogradouro(request.getParameter("nome-logrd"));
@@ -80,16 +84,28 @@ public class portador extends HttpServlet {
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
                     
+                    ;
+                    
                     endereco.setIdPais(idPais);
                     String nomePais = PaisDao.getNomeById(idPais);
                     endereco.setNomePais(nomePais);
+                    
+                  
 
                     portadorCiva.setPessoa(pessoa);
                     portadorCiva.setDocumento1(documento1);
-                    portadorCiva.setEndereco(endereco);                 
-
-                    int idCadastrante = (int) session.getAttribute("idPessoa");
-
+                    portadorCiva.setEndereco(endereco);   
+                    
+                    int idCadastrante = -1;
+                    
+                    try {
+                        idCadastrante = (int) session.getAttribute("idPessoa") ;
+                    } catch (Exception e) {
+                    }
+                                                                                       
+                        
+                    System.err.println("Senha: " + pessoa.getSenha());
+                      
                     Boolean result = PortadorCivaDao.insert(portadorCiva, idCadastrante);
 
                     if (!result) {

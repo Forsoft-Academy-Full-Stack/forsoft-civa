@@ -118,7 +118,11 @@ public class PessoaDao {
                 ps.setString(2, codigoRecuperacao);
                 ps.executeUpdate();
 
-                //JavaMailApp.main(email, codigoRecuperacao);
+                    try {
+                        JavaMailApp.main(email, codigoRecuperacao);
+                    } catch (Exception e) {
+                    }
+                
                 
                 resultado = true;
                 
@@ -143,7 +147,11 @@ public class PessoaDao {
                 
                 ps.executeUpdate();
                 
-                //JavaMailApp.main(email, codigoRecuperacao);
+                    try {
+                        JavaMailApp.main(email, codigoRecuperacao);
+                    } catch (Exception e) {
+                    }
+                
 
                 resultado = true;
 
@@ -384,7 +392,7 @@ public class PessoaDao {
 
     }
 
-    public static boolean insertAcessoPc(int idPessoa, int idCadastrante, String codigoCiva, String email, String dataRegistro) {
+    public static boolean insertAcessoPc(int idPessoa, int idCadastrante, String codigoCiva, String email, String dataRegistro, String senha) {
         Connection connection = ConnectionFactory.getConnection();
         Boolean resultado = false;
 
@@ -404,7 +412,7 @@ public class PessoaDao {
             ps.setInt(2, idCadastrante);
             ps.setString(3, codigoCiva);
             ps.setString(4, email);
-            ps.setString(5, "12345");
+            ps.setString(5, senha);
             ps.setString(6, dataRegistro);
             ps.setInt(7, 1);
 

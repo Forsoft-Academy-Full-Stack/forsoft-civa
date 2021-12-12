@@ -12,6 +12,7 @@ public class Pessoa {
     private String telefoneDdd;
     private String genero;
     private String codigoCiva;
+    private String senha;
 
     public Pessoa(Integer idPessoa, Integer idNacionalidade,
                   String nacionalidade, String nomePessoa,
@@ -42,9 +43,15 @@ public class Pessoa {
     public void setCodigoCiva(String codigoCiva) {
         this.codigoCiva = codigoCiva;
     }
-    
-    
 
+    public String getSenha() {
+        return senha;
+    }
+
+    public void setSenha(String senha) {
+        this.senha = senha;
+    }
+    
     public String getNacionalidade() {
         return nacionalidade;
     }
