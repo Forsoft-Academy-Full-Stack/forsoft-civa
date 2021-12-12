@@ -68,7 +68,7 @@ function swalAlertError(title, text, callback){
     }).then(callback);
 }
 
-function swalAlertDelete(title, text, statusInfo, textInfo){
+function swalAlertDelete(title, text, callback) {
     Swal.fire({
         title: title,
         text: text,
@@ -78,17 +78,23 @@ function swalAlertDelete(title, text, statusInfo, textInfo){
         cancelButtonColor: '#d33',
         confirmButtonText: 'Deletar',
         html: text
-      }).then((result) => {
+    }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire(
-            statusInfo,
-            textInfo,
-            'success'
-          )
+          callback();
         }
-      })
+    });
 }
 
+function swalAlertLoading(title, imageUrl, html, callback){
+    Swal.fire({        
+        title: title,
+        imageUrl: '../public/img/loading-icon-balls.gif',
+        imageAlt: 'esferas em movimento',
+        // fonte: https://www.behance.net/gallery/31234507/Open-source-Loading-GIF-Icons-Vol-1
+        showConfirmButton: false,
+        html: text
+    }).then(callback);
+}
 
 const Toast = Swal.mixin({
     toast: true,
@@ -109,9 +115,13 @@ setAbaAtiva();
 function setAbaAtiva() {
     let pageURL = window.location.href;
     let abas = document.getElementsByClassName('nav-link');
-      
-   
-    for (i=0;i<abas.length;i++) {
+                 
+    if (pageURL.endsWith('portador-civa/')) {
+        abas[1].classList.add('active');
+    } else if (pageURL.endsWith('/')) {
+        abas[2].classList.add('active');
+    } else {
+        for (i=0;i<abas.length;i++) {
       
         // Confere se a url da página possui o texto presente na linkagem do elemento
         if (pageURL.includes(abas[i].href)) {
@@ -120,6 +130,7 @@ function setAbaAtiva() {
             
             // adiciona a classe "menu-open" no elemento pai de toda a estrutura daquele ator (a cada .parentElement, suba uma hierarquia), fazendo as outras opções serem exibidas
             ((abas[i].parentElement).parentElement).parentElement.classList.add('menu-open');
+            }
         }
     }
 }

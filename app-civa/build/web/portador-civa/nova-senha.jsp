@@ -17,7 +17,7 @@
 
 %>
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/portador-civa/redefinir-senha.js"></script>
+<script src="../public/assets/js/portador-civa/nova-senha.js"></script>
 </head>
 
 <body class="login-page " cz-shortcut-listen="true"
@@ -33,14 +33,14 @@
                 <p class="login-box-msg">Insira a sua nova senha abaixo.</p>
                 <form id="nova-senha" method="post">
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" id="passw" name="passw" placeholder="Digite a senha">
+                        <input type="password" class="form-control" id="senha" name="senha" placeholder="Digite a senha">
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" id="conf-passw" name="conf-passw" placeholder="Confirme a senha">
+                        <input type="password" class="form-control" id="conf-senha" name="conf-senha" placeholder="Confirme a senha">
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block" id="enviar">ENVIAR</button>
+                            <button type="button" class="btn btn-primary btn-block" id="enviar">ENVIAR</button>
                         </div>
                         <!-- /.col -->
                     </div>

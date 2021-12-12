@@ -3,6 +3,7 @@ package controller;
 import dao.PessoaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -30,43 +31,144 @@ public class login extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
+            boolean result = false;
+            String tipo = "";
+            int idAtor = -1;
+            String path = "";
+
             String option = request.getParameter("option");
-            
+
             switch (option) {
-                case "validar": 
+                case "validar":
                     System.err.println(request.getParameter("cod-ver"));
-                    //HttpSession session = request.getSession();                                                            
+
                     break;
-                    
-                case "recuperar-senha": 
-                   String tipo = request.getParameter("tipo");
-                   String email = request.getParameter("email");                 
-                                      
-                    switch(tipo){
+
+                case "validar-cod":
+                    response.setContentType("application/text");
+
+                    tipo = request.getParameter("tipo");
+                    String codigoRecuperacao = request.getParameter("codigo-enviado");
+                    idAtor = Integer.parseInt(request.getParameter("idAtor"));
+
+                    // verifica o último cod daquele portador e compara se é igual
+                    result = PessoaDao.validarCodigoRecuperacao(idAtor, tipo, codigoRecuperacao);
+
+                    if (!result) {
+                        response.sendError(404);
+                    }
+
+                    System.err.println(request.getParameter("codigo-enviado"));
+                    System.err.println(request.getParameter("tipo"));
+                    System.err.println(request.getParameter("idAtor"));
+                    System.err.println("Resultado: " + result);
+
+                    path = "'./alterar-senha.jsp?tipo=" + tipo + "&idAtor=" + idAtor + "'";
+
+                    System.err.println("Location: " + path);
+
+                    response.getWriter().write(path);
+
+                    break;
+
+                case "nova-senha":
+                    response.setContentType("application/text");
+
+                    String novaSenha = request.getParameter("nova-senha");
+
+                    System.err.println(request.getParameter("nova-senha"));
+                    System.err.println(request.getParameter("confimar-senha"));
+
+                    tipo = request.getParameter("tipo");
+                    System.err.println(request.getParameter("tipo"));
+
+                    idAtor = Integer.parseInt(request.getParameter("idAtor"));
+
+                    if (tipo.endsWith("portador")) {
+                        // Alterar senha do portador
+                        System.err.println(request.getParameter("idAtor"));
+                        result = PessoaDao.updateAcessoPcSenha(novaSenha, idAtor);
+
+                    } else if (tipo.endsWith("gestor")) {
+                        // Alterar senha do gestor
+                        System.err.println(request.getParameter("idAtor"));
+                           result = PessoaDao.updateAcessoGestaoSenha(novaSenha, idAtor);
+                    }
+
+                    if (!result) {
+                        response.sendError(404);
+                    }
+
+                    path = "'./'";
+                    // String location = "{ 'success': true, 'location': "+path+" }";
+
+                    System.err.println("Location: " + path);
+
+                    response.getWriter().write(path);
+
+                    break;
+
+                case "recuperar-senha":
+                    tipo = request.getParameter("tipo");
+                    String email = request.getParameter("email");
+
+                    switch (tipo) {
                         case "portador":
+
                             // verificar se email existe
+                            System.err.println("Estrou no portador");
                             int idAcessoPc = PessoaDao.verificarEmail(email, tipo);
-                            
-                            if(idAcessoPc != -1){
-                                // Criar o código de verificação
+                            System.err.println("idAcessoPc: " + idAcessoPc);
+                            if (idAcessoPc != -1) {
+                                // Criar o código de recuperação
+                                result = PessoaDao.gerarCodigoRecuperacao(idAcessoPc, tipo, email);
+                                System.err.println("Resultado: " + result);
                             }
-                            
+
+                            if (!result) {
+                                response.sendError(404);
+                            }
+
+                            response.setContentType("application/text");
+
+                            //request.setAttribute("idAcessoPc", idAcessoPc);
+                            //request.setAttribute("tipo", tipo);
+                            //RequestDispatcher rd =  request.getRequestDispatcher("login/alterar-senha.jsp"); 
+                            //rd.forward(request, response);  
+                            // String path = "'./alterar-senha.jsp?tipo=" + tipo + "&idAtor=" + idAcessoPc + "'";
+                            path = "'./cod-altera-senha.jsp?tipo=" + tipo + "&idAtor=" + idAcessoPc + "'";
+                            // String location = "{ 'success': true, 'location': "+path+" }";
+
+                            System.err.println("Location: " + path);
+
+                            response.getWriter().write(path);
+                            //response.sendRedirect("./alterar-senha.jsp?tipo="+tipo+"&idAcessoPc="+idAcessoPc);
+
                             break;
-                                                        
+
                         case "gestor":
                             // verificar se email existe
                             int idAcessoGestao = PessoaDao.verificarEmail(email, tipo);
-                            
-                            if(idAcessoGestao != -1){
-                                // Criar o código de verificação
+
+                            if (idAcessoGestao != -1) {
+                                result = PessoaDao.gerarCodigoRecuperacao(idAcessoGestao, tipo, email);
                             }
-                            
-                            
+
+                            if (!result) {
+                                response.sendError(404);
+                            }
+
+                            response.setContentType("application/text");
+                            path = "'./cod-altera-senha.jsp?tipo=" + tipo + "&idAtor=" + idAcessoGestao + "'";
+                            System.err.println("Location: " + path);
+
+                            response.getWriter().write(path);
+
                             break;
                     }
-                    
+
                     break;
-                  
+
             }
         }
     }

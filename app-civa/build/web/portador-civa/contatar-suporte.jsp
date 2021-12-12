@@ -77,7 +77,7 @@
                     <!-- ./card-body -->
                     <div class="card-footer">
                         <div class="float-right">
-                            <button type="button" class="btn btn-primary" form="contato-suporte" id="enviar-suporte">Enviar</button>
+                            <button type="button" class="btn btn-primary" id="enviar-suporte">Enviar</button>
                         </div>
 
                     </div>

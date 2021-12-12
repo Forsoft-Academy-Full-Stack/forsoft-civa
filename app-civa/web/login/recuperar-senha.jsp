@@ -16,7 +16,7 @@
                     <div class=""row>
                         <label for="tipo">Tipo de Acesso</label>
                         <select id="tipo" name="tipo" class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
-                            <option selected value="2" selected>Selecionar</option>
+                            <option selected value="" selected disabled>Selecionar</option>
                             <option value="portador">Usuário</option>
                             <option value="gestor">Gestores</option>
                         </select>

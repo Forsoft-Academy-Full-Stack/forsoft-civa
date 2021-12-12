@@ -14,18 +14,20 @@ public class PessoaDao {
     public static int verificarEmail(String email, String tipo) {
         Connection connection = ConnectionFactory.getConnection();
         int idAtor = -1;
-        String sqlPortador = "";
-        String sqlGestor = "";
+        String sqlPortador = "SELECT acp.idacessopc\n"
+                + "FROM acessopc AS acp\n"
+                + "WHERE acp.emailpc LIKE ?;";
+
+        String sqlGestor = "SELECT ag.idacessogestao\n"
+                + "FROM acessogestao AS ag\n"
+                + "WHERE ag.emailgestao LIKE ?;";
 
         switch (tipo) {
             case "portador":
                
-                try {
+             try {
                 Statement stmt = connection.createStatement();
                 ResultSet rs = null;
-                String sql = "SELECT acp.idacessopc\n"
-                        + "FROM acessopc AS acp\n"
-                        + "WHERE acp.emailpc LIKE ?;";
 
                 PreparedStatement ps = connection.prepareStatement(sqlPortador);
 
@@ -46,9 +48,6 @@ public class PessoaDao {
                 try {
                 Statement stmt = connection.createStatement();
                 ResultSet rs = null;
-                String sql = "SELECT ag.idacessogestao\n"
-                        + "FROM acessogestao AS ag\n"
-                        + "WHERE ag.emailgestao LIKE ?;";
 
                 PreparedStatement ps = connection.prepareStatement(sqlGestor);
 
@@ -70,29 +69,60 @@ public class PessoaDao {
 
     }
     
-      public static int gerarCodigoRecuperacao(int idAtor, String codigoRecuperacao, String tipo) {
-        Connection connection = ConnectionFactory.getConnection();       
-        String sqlPortador = "";
-        String sqlGestor = "";
+    public static String getCodigo(){
+        String codigoRecuperacao = "";
+        
+        try {
+            Connection connection = ConnectionFactory.getConnection();
+            String sql = "select cast(  FLOOR(1 + RAND() * 100000) + (SELECT COUNT(*) + 1 From resetsenha ) AS CHAR) as codigoRecuperacao;";
+          
+            
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            
+            PreparedStatement ps = connection.prepareStatement(sql);
+            rs = ps.executeQuery();
+            
+            if(rs.next()){
+                codigoRecuperacao = rs.getString("codigoRecuperacao");
+            }
+            
+            System.err.println("Codigo gerado: " + codigoRecuperacao);
+            
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+         
+        return codigoRecuperacao;
+    }
+    
+    public static boolean gerarCodigoRecuperacao(int idAtor, String tipo, String email) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sqlPortador = "INSERT INTO resetsenha (idacessopc, idacessogestao, codigo, ativo) values(?, null, ?, 'Ativo');";              
+        String sqlGestor = "INSERT INTO resetsenha (idacessopc, idacessogestao, codigo, ativo) values(null, ?, ?, 'Ativo');";
+
+        boolean resultado = false;
 
         switch (tipo) {
             case "portador":
                
-                try {
+            try {
                 Statement stmt = connection.createStatement();
                 ResultSet rs = null;
-                String sql = "SELECT acp.idacessopc\n"
-                        + "FROM acessopc AS acp\n"
-                        + "WHERE acp.emailpc LIKE ?;";
 
                 PreparedStatement ps = connection.prepareStatement(sqlPortador);
 
-                ps.setString(1, "");
-                rs = ps.executeQuery();
+                String codigoRecuperacao = PessoaDao.getCodigo();
+                ps.setInt(1, idAtor);
+                ps.setString(2, codigoRecuperacao);
+                ps.executeUpdate();
 
-                if (rs.next()) {
-                    idAtor = rs.getInt("idacessopc");
-                }
+                //JavaMailApp.main(email, codigoRecuperacao);
+                
+                resultado = true;
+                
+               
 
             } catch (SQLException ex) {
                 Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -104,17 +134,87 @@ public class PessoaDao {
                 try {
                 Statement stmt = connection.createStatement();
                 ResultSet rs = null;
-                String sql = "SELECT ag.idacessogestao\n"
-                        + "FROM acessogestao AS ag\n"
-                        + "WHERE ag.emailgestao LIKE ?;";
 
                 PreparedStatement ps = connection.prepareStatement(sqlGestor);
 
-                ps.setString(1, "");
-                rs = ps.executeQuery();
+                String codigoRecuperacao = PessoaDao.getCodigo();
+                ps.setInt(1, idAtor);
+                ps.setString(2, codigoRecuperacao);
+                
+                ps.executeUpdate();
+                
+                //JavaMailApp.main(email, codigoRecuperacao);
 
-                if (rs.next()) {
-                    idAtor = rs.getInt("idacessogestao");
+                resultado = true;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            break;
+        }
+
+        return resultado;
+
+    }
+    
+    public static boolean validarCodigoRecuperacao(int idAtor, String tipo, String codigoInformado) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sqlPortador = "SELECT res.codigo FROM resetsenha as res WHERE res.idacessopc = ? AND res.ativo LIKE 'Ativo' ORDER BY res.idresetsenha DESC LIMIT 1;";              
+        String sqlGestor = "SELECT res.codigo FROM resetsenha as res WHERE res.idacessogestao = ? AND res.ativo LIKE 'Ativo' ORDER BY res.idresetsenha DESC LIMIT 1;";
+        String codigoCadastrado = "";
+        boolean resultado = false;
+
+        switch (tipo) {
+            case "portador":
+               
+            try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = null;
+
+                PreparedStatement ps = connection.prepareStatement(sqlPortador);
+
+                ps.setInt(1, idAtor);             
+                rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    codigoCadastrado = rs.getString("codigo");
+                }
+
+                if(codigoCadastrado.equals(codigoInformado)){
+                    System.err.println("Cod cadastrado: " + codigoCadastrado+"\nCod informado: " + codigoInformado);
+                    
+                    int idResetSenha = PessoaDao.getIdResetSenha(codigoCadastrado);                                      
+                    resultado = PessoaDao.desativarCodigoRecuperacao(idResetSenha);
+                }
+             
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            break;
+
+            case "gestor":
+               try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = null;
+
+                PreparedStatement ps = connection.prepareStatement(sqlGestor);
+
+                ps.setInt(1, idAtor);
+                
+                rs = ps.executeQuery();
+                
+                if(rs.next()){
+                    codigoCadastrado = rs.getString("codigo");
+                }
+
+                if(codigoCadastrado.equals(codigoInformado)){
+                    System.err.println("Cod cadastrado: " + codigoCadastrado+"\nCod informado: " + codigoInformado);                   
+                    int idResetSenha = PessoaDao.getIdResetSenha(codigoCadastrado);                                      
+                    resultado = PessoaDao.desativarCodigoRecuperacao(idResetSenha);
+
                 }
 
             } catch (SQLException ex) {
@@ -124,11 +224,57 @@ public class PessoaDao {
             break;
         }
 
-        return idAtor;
+        return resultado;
 
     }
     
+    public static int getIdResetSenha(String codigoRecuperacao){
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "SELECT res.idresetsenha FROM resetsenha AS res WHERE res.codigo LIKE ?;";
+        int idResetSenha = -1;
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+       
+            PreparedStatement ps = connection.prepareStatement(sql);
 
+            ps.setString(1, codigoRecuperacao);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idResetSenha = rs.getInt("idresetsenha");                
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return idResetSenha;
+    }
+
+    public static boolean desativarCodigoRecuperacao(int idResetSenha){
+       Connection connection = ConnectionFactory.getConnection();
+        boolean resultado = false;
+            String sql = "UPDATE resetsenha SET ativo='Inativo' WHERE resetsenha.idresetsenha = ?;";
+
+        try {
+            ResultSet rs = null;        
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            ps.setInt(1, idResetSenha);
+           
+            int i = ps.executeUpdate();
+            rs = ps.getGeneratedKeys();
+
+            resultado = true;
+            
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return resultado;  
+        
+    }
+    
     public static Pessoa findById(Integer idPessoa) {
         Connection connection = ConnectionFactory.getConnection();
         Pessoa pessoa = null;
@@ -412,6 +558,32 @@ public class PessoaDao {
 
         return resultado;
     }
+    
+    public static boolean updateAcessoPcSenha(String senha, int idAcessoPc) {
+        Connection connection = ConnectionFactory.getConnection();
+        Boolean resultado = false;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "UPDATE acessopc SET senhapc=? WHERE acessopc.idacessopc = ?;";
+
+            ps = connection.prepareStatement(sql);
+
+            ps.setString(1, senha);
+            ps.setInt(2, idAcessoPc);
+
+            ps.executeUpdate();
+
+            resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return resultado;
+    }
 
     public static int getIdAcessoPc(int idPessoa) {
         Connection connection = ConnectionFactory.getConnection();
@@ -442,7 +614,7 @@ public class PessoaDao {
 
         return idAcessoPc;
     }
-
+    
     public static boolean updateAcessoGestao(String email, int idAcessocGestao) {
         Connection connection = ConnectionFactory.getConnection();
         boolean resultado = false;
@@ -458,6 +630,32 @@ public class PessoaDao {
             ps = connection.prepareStatement(sql);
 
             ps.setString(1, email);
+            ps.setInt(2, idAcessocGestao);
+
+            ps.executeUpdate();
+
+            resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return resultado;
+    }
+    
+     public static boolean updateAcessoGestaoSenha(String senha, int idAcessocGestao) {
+        Connection connection = ConnectionFactory.getConnection();
+        boolean resultado = false;
+
+        try {
+            Statement stmt = connection.createStatement();
+            ResultSet rs = null;
+            PreparedStatement ps;
+            String sql = "UPDATE acessogestao SET senhagestao=? WHERE acessogestao.idacessogestao = ?;";
+
+            ps = connection.prepareStatement(sql);
+
+            ps.setString(1, senha);
             ps.setInt(2, idAcessocGestao);
 
             ps.executeUpdate();

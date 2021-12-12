@@ -1,32 +1,37 @@
 <%@include file="header.jspf"%>
-    <script defer>
-        $('#modal-default').modal('hide');
-    </script>
+<%@page import="dao.VacinacaoDao"%>
+<!--<script defer>
+    $('#modal-default').modal('show');
+    
+</script>-->
 
-    <!-- VERIFICA O CAMPO -->
-    <script src="../verifica-campo.js" defer></script>
+<!-- VERIFICA O CAMPO -->
+<!--<script src="../public/assets/js/login/verifica-campo.js" defer></script>-->
 </head>
 
 <body class="content-wrapper">
     <!-- Main content -->
-    <div class="modal fade show " id="modal-default" style="display: block; padding-right: 17px;" aria-modal="true">
+    <div class="modal fade show " id="modal-validar-form" style="display: block; padding-right: 17px;" aria-modal="true">
         <div class="modal-dialog ">
             <div class="modal-content card-body card-primary card-outline">
                 <p class="h3 text-center  mt-3">Leitor QRCODE</p></video>
                 <div class="justify-content-center d-flex mt-3">
                     <video src="#" style="border: 3px solid rgb(139, 138, 138); background: rgba(139, 138, 138, 0.342);"></video>
                 </div>
-                <div class="m-5">
-                    <p class="text-center">N&atilde;o consegue escanear? Digite o c&oacute;digo de autententica&ccedil;&atilde;o.</p>
-                    <input class="form-control form-control-sm text-center" type="text"
-                           placeholder="Digite o c&oacute;digo de autententica&ccedil;&atilde;o.">
-                </div>
-
+            <form id="validar-civa" name="validar-civa" action="certificado-civa.jsp" method="GET">
+                    <div class="m-5">
+                        <p class="text-center">N&atilde;o consegue escanear? Digite o c&oacute;digo CIVA.</p>
+                        <input class="form-control form-control-sm text-center" type="text" name="codigoCiva" id="codigoCiva"
+                               placeholder="Digite o c&oacute;digo de autententica&ccedil;&atilde;o.">
+                        <input type="hidden" value="validar" class="form-control" id="option" name="option">
+                    </div>
+                </form>
                 <div class="modal-footer justify-content-between">
-                    <button type="button" class="btn btn-block btn-primary" data-toggle="modal"
-                            data-target="#modal-default">VALIDAR</button>
+                    <button form="validar-civa"  type="submit" class="btn btn-block btn-primary" data-toggle="modal"
+                             id="validar-cod">VALIDAR</button>
                     <a href="./index.jsp" class="btn btn-block btn-outline-primary">VOLTAR</a>
                 </div>
+
             </div>
             <!-- /.modal-content -->
         </div>
@@ -34,7 +39,10 @@
 
 
         <!-- MODAL CERTIFICADO CIVA -->
-        <div class="modal fade show " id="modal-default" style="display: none; padding-right: 17px;" aria-modal="true">
+                
+          
+        <!--
+        <div class="modal fade show " id="modal-certificado-civa" style="display: none; padding-right: 17px;" aria-modal="true">
             <div class="modal-dialog ">
                 <div class="modal-content card-primary card-outline">
                     <div class="modal-header">
@@ -89,10 +97,11 @@
                         <button type="button" class="btn btn-primary">Imprimir</button>
                     </div>
                 </div>
-                <!-- /.modal-content -->
+            
             </div>
-            <!-- /.modal-dialog -->
-        </div>
+            
+        </div>-->
+        
     </div>
 
     <!-- ./wrapper -->

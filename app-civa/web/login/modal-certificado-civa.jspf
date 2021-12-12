@@ -79,16 +79,17 @@
                                     <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>
                                     <td><c:out value="${vacinacao.doseAplicada}" /></td>
                                 </tr>
+                            </c:forEach>
 
-                            </tbody>
-                            <thead>
-                                <tr class="table-primary">
-                                    <th>Data de Aplica&ccedil;&atilde;o</th>
-                                    <th>Estabelecimento</th>
-                                    <th>Pa&iacute;s</th>
-                                </tr>
-                            </thead>
-                        </c:forEach>
+                        </tbody>
+                        <thead>
+                            <tr class="table-primary">
+                                <th>Data de Aplica&ccedil;&atilde;o</th>
+                                <th>Estabelecimento</th>
+                                <th>Pa&iacute;s</th>
+                            </tr>
+                        </thead>
+
                         <tbody>
                             <c:forEach items="${vacinacoes}" var="vacinacao">
                                 <tr class="table-light">

@@ -1,3 +1,4 @@
+<%@page import="dao.PessoaDao"%>
 <%@page import="model.Unidade"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.UnidadeDao"%>
@@ -26,7 +27,8 @@
 <%    
     
     try {
-        List<Unidade> listaUnidades = UnidadeDao.listUnidadeByGerente(pessoa.getCodigoCiva());
+        String codigoCivaGerente = PessoaDao.getCodigoCivaAcessoGestao(pessoa.getIdPessoa());
+        List<Unidade> listaUnidades = UnidadeDao.listUnidadeByGerente(codigoCivaGerente);
 
         pageContext.setAttribute("unidades", listaUnidades);
 

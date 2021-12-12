@@ -27,9 +27,18 @@
 
 <%  
     try {
-        List<Supervisor> listaSupervisores = SupervisorDao.listByGerente(pessoa.getCodigoCiva());
+        String nomePessoa = null;
+        nomePessoa = request.getParameter("nome");
+        
+        if (nomePessoa.equals("") || nomePessoa == null) {
+            List<Supervisor> listaSupervisores = SupervisorDao.listByGerente(pessoa.getCodigoCiva());
 
-        pageContext.setAttribute("supervisores", listaSupervisores);
+            pageContext.setAttribute("supervisores", listaSupervisores);
+        } else {
+            List<Supervisor> listaSupervisores = SupervisorDao.listByGerenteNomeSupervisor(pessoa.getCodigoCiva(), nomePessoa);
+
+            pageContext.setAttribute("supervisores", listaSupervisores);
+        }
 
     } catch (Exception e) {
     }
@@ -85,68 +94,40 @@
                                     <div class="row">
                                         <div class="row col-md-12 col-sm-12">
                                             <div class="col-xl-2 col-sm-12 mb-2">
-                                                <select
-                                                    class="select2 select2-hidden-accessible"
-                                                    id="ordem-de-listagem"
-                                                    name="ordem-de-listagem"
-                                                    style="width: 100%"
-                                                    tabindex="-1"
-                                                    aria-hidden="true"
-                                                    >
-                                                    <option value="1">Nome A - Z</option>
-                                                    <option value="2">Nome Z - A</option>
-                                                    <option value="3">CPF crescente</option>
-                                                    <option value="3">CPF decrescente</option>
-                                                </select>
+                                                <form action="" method="GET" id="pesquisa">
+                                                    <select class="select2 select2-hidden-accessible" id="ordem-de-listagem"
+                                                            name="ordem-de-listagem" style="width: 100%;" tabindex="-1"
+                                                            aria-hidden="true">
+                                                        <option value="nome">Nome A - Z</option>
+                                                        <option value="nome">Nome Z - A</option>
+                                                        <option value="cpf">CPF crescente</option>
+                                                        <option value="cpf">CPF decrescente</option>
+                                                    </select>
+                                                </form>
+
                                             </div>
+
                                             <div class="col-xl-8 col-sm-12">
-                                                <div class="input-group mb-2">
-                                                    <input
-                                                        type="text"
-                                                        class="form-control"
-                                                        id="pesquisar"
-                                                        name="pesquisar"
-                                                        placeholder="Pesquisar portador"
-                                                        />
-                                                    <div class="input-group-append">
-                                                        <button
-                                                            class="btn btn-outline-secondary"
-                                                            type="button"
-                                                            id="button-addon2"
-                                                            name="button-addon2"
-                                                            >
-                                                            Pesquisar
-                                                        </button>
+                                                <form action="" method="GET" id="pesquisa2">
+                                                    <div class="input-group  mb-2">
+                                                        <input type="text" class="form-control" id="nome"
+                                                               name="nome" placeholder="Pesquisar Supervisor">
+                                                        <div class="input-group-append">
+                                                            <button class="btn btn-outline-secondary" type="submit"
+                                                                    form="pesquisa2">Pesquisar</button>
+                                                        </div>
                                                     </div>
-                                                </div>
+                                                </form>
                                             </div>
 
                                             <div class="col-2">
                                                 <div class="btn-group">
-                                                    <button
-                                                        type="button"
-                                                        id="button-addon3"
-                                                        name="button-addon3"
-                                                        class="btn btn-default"
-                                                        >
-                                                        CSV
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        id="button-addon4"
-                                                        name="button-addon4"
-                                                        class="btn btn-default"
-                                                        >
-                                                        PDF
-                                                    </button>
-                                                    <button
-                                                        type="button"
-                                                        id="button-addon5"
-                                                        name="button-addon5"
-                                                        class="btn btn-default"
-                                                        >
-                                                        Excel
-                                                    </button>
+                                                    <button type="button" id="button-addon3" name="button-addon3"
+                                                            class="btn btn-default">CSV</button>
+                                                    <button type="button" id="button-addon4" name="button-addon4"
+                                                            class="btn btn-default">PDF</button>
+                                                    <button type="button" id="button-addon5" name="button-addon5"
+                                                            class="btn btn-default">Excel</button>
                                                 </div>
                                             </div>
                                         </div>
