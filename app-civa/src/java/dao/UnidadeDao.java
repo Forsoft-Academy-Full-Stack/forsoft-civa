@@ -509,7 +509,7 @@ public class UnidadeDao {
             ps.setString(7, unidadeNova.getSituacao());
             ps.setString(8, unidadeNova.getDataCadastro());
             ps.setString(9, unidadeNova.getRegistro());
-            ps.setInt(10,unidadeNova.getIdUnidade());
+            ps.setInt(10, unidadeNova.getIdUnidade());
 
             ps.executeUpdate();
 
@@ -534,6 +534,51 @@ public class UnidadeDao {
         }
 
         return resultado;
+    }
+
+    public static List<Unidade> getUnidadesVacinacao(String codigoCivaPortador) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "SELECT uni.nomeunidade, en.codigopostal\n"
+                + "FROM vacinacao AS vac\n"
+                + "LEFT JOIN unidade AS uni\n"
+                + "ON vac.idunidade = uni.idunidade\n"
+                + "LEFT JOIN endereco AS en\n"
+                + "ON uni.idendereco = en.idendereco\n"
+                + "LEFT JOIN acessopc AS acp\n"
+                + "ON vac.idacessopc = acp.idacessopc\n"
+                + "WHERE acp.codigocivapc LIKE ?; ";
+        
+        List<Unidade> unidadesVacinacao = new ArrayList<>();
+        Unidade unidade = null;
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaPortador);
+            rs = ps.executeQuery();
+
+            
+            while (rs.next()) {
+                unidade = new Unidade();
+                Endereco endereco = new Endereco();
+                
+                unidade.setNome(rs.getString("nomeunidade"));
+                endereco.setCodigoPostal(rs.getString("codigopostal"));                
+                unidade.setEndereco(endereco);
+                
+                unidadesVacinacao.add(unidade);
+               
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VacinacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return unidadesVacinacao;
+
     }
 
 }

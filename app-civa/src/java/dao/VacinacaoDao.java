@@ -134,6 +134,7 @@ public class VacinacaoDao {
                 vacina = new Vacina();
                 vacinacao = new Vacinacao();
 
+                vacina.setIdVacina(rs.getInt("idvacina"));
                 vacina.setNomeVacina(rs.getString("vacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
                 vacina.setNumeroDoses(rs.getString("numerodedoses"));
@@ -157,9 +158,8 @@ public class VacinacaoDao {
 
         return vacinacoes;
     }
-    
-    
-     //BUSCAR VACINAÇÃO SEM LOGAR POR CÓDIGO
+
+    //BUSCAR VACINAÇÃO SEM LOGAR POR CÓDIGO
     public static List<Vacinacao> listbyCodigoCert(String codigoCodigoCert) {
         Connection connection = ConnectionFactory.getConnection();
 
@@ -167,8 +167,6 @@ public class VacinacaoDao {
         Vacinacao vacinacao = null;
         Vacina vacina = null;
         Pessoa pessoa = null;
-        
-        
 
         String sql = "SELECT pepc.nomepessoa, pepc.sobrenomepessoa, doc.documento, pepc.datadenascimento , apc.codigocivapc, pa.nomedopais , vac.nomevacina ,vacao.doseaplicada \n"
                 + "from vacinacao vacao\n"
@@ -203,20 +201,15 @@ public class VacinacaoDao {
                 vacina = new Vacina();
                 vacinacao = new Vacinacao();
                 pessoa = new Pessoa();
-                
-                
+
                 //PARA DIRECIONAR PARA CAMPOS
-                
                 pessoa.setNomePessoa(rs.getString("nomepessoa"));
                 pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
-                
-                                   
+
                 vacina.setNomeVacina(rs.getString("vacina"));
                 vacina.setLaboratorio(rs.getString("laboratorio"));
                 vacina.setNumeroDoses(rs.getString("numerodedoses"));
-                
-                
 
                 vacinacao.setVacina(vacina);
 
@@ -238,10 +231,10 @@ public class VacinacaoDao {
         return vacinacoes;
     }
 
-    public static Vacinacao find(int idVacinacao, List<Vacinacao> vacinacoes) {     
-        
+    public static Vacinacao find(int idVacinacao, List<Vacinacao> vacinacoes) {
+
         for (Vacinacao vacinacao : vacinacoes) {
-            if(vacinacao.getIdVacinacao() == idVacinacao){
+            if (vacinacao.getIdVacinacao() == idVacinacao) {
                 return vacinacao;
             }
         }
@@ -305,6 +298,77 @@ public class VacinacaoDao {
         }
 
         return resultado;
+    }
+
+    public static List<String> getNomeVacinador(String codigoCivaPortador) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "SELECT pe.nomepessoa, pe.sobrenomepessoa\n"
+                + "FROM vacinacao AS vac\n"
+                + "LEFT JOIN acessogestao AS ag\n"
+                + "ON vac.idacessogestao = ag.idacessogestao\n"
+                + "LEFT JOIN acessopc AS acp\n"
+                + "ON vac.idacessopc = acp.idacessopc\n"
+                + "LEFT JOIN pessoa as pe\n"
+                + "ON ag.idpessoa = pe.idpessoa\n"
+                + "WHERE acp.codigocivapc LIKE ?;";
+        List<String> vacinadores = new ArrayList<>();
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaPortador);
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                System.err.println(rs.getString("nomepessoa") + " " + rs.getString("sobrenomepessoa"));
+                vacinadores.add(rs.getString("nomepessoa") + " " + rs.getString("sobrenomepessoa"));
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VacinacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return vacinadores;
+
+    }
+
+    public static String getCodigoCivaVacinador(String codigoCivaPortador, int idAcessoGestao) {
+        Connection connection = ConnectionFactory.getConnection();
+        String sql = "SELECT ag.codigocivagestao\n"
+                + "FROM vacinacao AS vac\n"
+                + "LEFT JOIN acessogestao AS ag\n"
+                + "ON vac.idacessogestao = ag.idacessogestao\n"
+                + "LEFT JOIN acessopc AS acp\n"
+                + "ON vac.idacessopc = acp.idacessopc\n"
+                + "LEFT JOIN pessoa as pe\n"
+                + "ON ag.idpessoa = pe.idpessoa\n"
+                + "WHERE acp.codigocivapc LIKE ?\n"
+                + "AND ag.idacessogestao = ?;";
+        String codigoCivaGestor =  "";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoCivaPortador);
+            ps.setInt(2, idAcessoGestao);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                codigoCivaGestor = rs.getString("codigocivagestao");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(VacinacaoDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return codigoCivaGestor;
+
     }
 
 }

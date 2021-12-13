@@ -20,8 +20,7 @@ $("#enviar").click(function () {
                 let email = $("#email").val();
                 
                 let responseText2 = eval(jqXHR.responseText);
-                let cod = responseText2.split("=")[3];
-                console.log(`"${email}"`)
+                let cod = responseText2.split("=")[3];               
                 sendEmail(email, cod);
                 
                 title = 'Codigo enviado!';
@@ -65,8 +64,8 @@ $("#enviar").click(function () {
 function sendEmail(email, codigoRecuperacao) {
     Email.send({
         Host: "smtp.gmail.com",
-        Username: "XXXX",
-        Password: "XXXX",
+        Username: "civa.forsoft.suporte@gmail.com",
+        Password: "suporteciva2021A@",
         To: email,
         From: "civa.forsoft.suporte@gmail.com",
         Subject: "Forsoft CIVA Recuperacao",

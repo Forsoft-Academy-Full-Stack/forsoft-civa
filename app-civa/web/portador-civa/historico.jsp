@@ -30,9 +30,13 @@
 <%    try {
         PortadorCiva portadorCiva = PortadorCivaDao.findByCodigoCiva(pessoa.getCodigoCiva());
         pageContext.setAttribute("portadorCiva", portadorCiva);
+        
+        pageContext.setAttribute("vacinadores", portadorCiva.getNomesCadastranteVacina());
 
-        Unidade unidade = UnidadeDao.findById(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
-        pageContext.setAttribute("unidade", unidade);
+        pageContext.setAttribute("unidades", portadorCiva.getUnidadesVacinacao());
+        
+        //Unidade unidade = UnidadeDao.findById(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
+        //pageContext.setAttribute("unidade", unidade);
 
         ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(portadorCiva.getListaVacinacao().get(0).getCodigoCivaCadastrante());
         pageContext.setAttribute("profissionalSaude", profissionalSaude);

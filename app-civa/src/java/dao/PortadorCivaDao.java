@@ -16,6 +16,7 @@ import model.Endereco;
 import model.Pais;
 import model.Pessoa;
 import model.PortadorCiva;
+import model.Unidade;
 import model.Vacinacao;
 
 /**
@@ -302,7 +303,7 @@ public class PortadorCivaDao {
             // Inserir idNacionalidade, nome, sobrenome, genero
             // dataDeNascimento, ddiDoContato e telefoneComDdd
             int idPessoa = PessoaDao.insert(pessoa);
-             System.err.println(idPessoa);
+            System.err.println(idPessoa);
 
             // Endereço
             // Inserir o endereço
@@ -344,6 +345,8 @@ public class PortadorCivaDao {
         Docs documento1 = null;
         Endereco endereco = null;
         List<Vacinacao> vacinacoes = null;
+        List<String> vacinadores = null;
+        List<Unidade> unidadesVacinacao = null;
 
         try {
             Statement stmt = connection.createStatement();
@@ -444,7 +447,15 @@ public class PortadorCivaDao {
             try {
                 vacinacoes = VacinacaoDao.listByPortadorCiva(codigoCivaPortadorCiva);
                 System.err.println(vacinacoes.get(0).getVacina().getNomeVacina());
+                
+                vacinadores = VacinacaoDao.getNomeVacinador(codigoCivaPortadorCiva);
+                
+                unidadesVacinacao = UnidadeDao.getUnidadesVacinacao(codigoCivaPortadorCiva);
+                
                 portadorCiva.setListaVacinacao(vacinacoes);
+                portadorCiva.setNomesCadastranteVacina(vacinadores);
+                portadorCiva.setUnidadesVacinacao(unidadesVacinacao);
+                
             } catch (Exception e) {
                 System.err.println("Ainda não foi cadastrada nenhuma vacinação.");
             }
@@ -605,6 +616,7 @@ public class PortadorCivaDao {
 
     }
 
+   
     public static List<PortadorCiva> list() {
         List<PortadorCiva> portadoresciva = new ArrayList<PortadorCiva>();
         return portadoresciva;
@@ -621,7 +633,7 @@ public class PortadorCivaDao {
             // Atualiza os dados da pessoa
             Boolean pessoaResult = PessoaDao.update(pessoa);
             PessoaDao.updateAcessoPc(pessoa.getEmail(), PessoaDao.getIdAcessoPc(pessoa.getIdPessoa()));
-            
+
             // Atualiza os dados do documento
             Boolean docsResult = DocsDao.update(documento1);
             System.err.println("Resultado docs: " + docsResult);
@@ -645,10 +657,10 @@ public class PortadorCivaDao {
     public static boolean delete(PortadorCiva portadorciva) {
         boolean resultado = false;
         Pessoa pessoa = portadorciva.getPessoa();
-        
+
         int idAcessoPc = PessoaDao.getIdAcessoPc(pessoa.getIdPessoa());
         resultado = PessoaDao.desativarAcessoPc(idAcessoPc);
-        
+
         return resultado;
     }
 
