@@ -114,6 +114,7 @@ public class login extends HttpServlet {
 
                     switch (tipo) {
                         case "portador":
+                             String codigo = "";
 
                             // verificar se email existe
                             System.err.println("Estrou no portador");
@@ -121,8 +122,9 @@ public class login extends HttpServlet {
                             System.err.println("idAcessoPc: " + idAcessoPc);
                             if (idAcessoPc != -1) {
                                 // Criar o código de recuperação
-                                result = PessoaDao.gerarCodigoRecuperacao(idAcessoPc, tipo, email);
-                                System.err.println("Resultado: " + result);
+                                codigo = PessoaDao.gerarCodigoRecuperacao(idAcessoPc, tipo, email);
+                                System.err.println("Resultado: " + codigo);
+                                 result = true;
                             }
 
                             if (!result) {
@@ -136,7 +138,7 @@ public class login extends HttpServlet {
                             //RequestDispatcher rd =  request.getRequestDispatcher("login/alterar-senha.jsp"); 
                             //rd.forward(request, response);  
                             // String path = "'./alterar-senha.jsp?tipo=" + tipo + "&idAtor=" + idAcessoPc + "'";
-                            path = "'./cod-altera-senha.jsp?tipo=" + tipo + "&idAtor=" + idAcessoPc + "'";
+                            path = "'./cod-altera-senha.jsp?tipo=" + tipo + "&idAtor=" + idAcessoPc + "&codigo="+codigo+"'";
                             // String location = "{ 'success': true, 'location': "+path+" }";
 
                             System.err.println("Location: " + path);
@@ -147,11 +149,13 @@ public class login extends HttpServlet {
                             break;
 
                         case "gestor":
+                            codigo = "";
                             // verificar se email existe
                             int idAcessoGestao = PessoaDao.verificarEmail(email, tipo);
 
                             if (idAcessoGestao != -1) {
-                                result = PessoaDao.gerarCodigoRecuperacao(idAcessoGestao, tipo, email);
+                                codigo = PessoaDao.gerarCodigoRecuperacao(idAcessoGestao, tipo, email);
+                                result = true;
                             }
 
                             if (!result) {
@@ -159,7 +163,7 @@ public class login extends HttpServlet {
                             }
 
                             response.setContentType("application/text");
-                            path = "'./cod-altera-senha.jsp?tipo=" + tipo + "&idAtor=" + idAcessoGestao + "'";
+                            path = "'./cod-altera-senha.jsp?tipo=" + tipo + "&idAtor=" + idAcessoGestao + "&codigo="+codigo+"'";
                             System.err.println("Location: " + path);
 
                             response.getWriter().write(path);

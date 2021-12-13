@@ -16,6 +16,14 @@ $("#enviar").click(function () {
         $.post("/app-civa/login", $("#form-tipo-acesso, #form-email").serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
+               // let email = form_email.serialize().split("=")[1];
+                let email = $("#email").val();
+                
+                let responseText2 = eval(jqXHR.responseText);
+                let cod = responseText2.split("=")[3];
+                console.log(`"${email}"`)
+                sendEmail(email, cod);
+                
                 title = 'Codigo enviado!';
                 text = "Verifique o email informado.";
                 swalAlertSuccess(title, text, () => {
@@ -25,8 +33,17 @@ $("#enviar").click(function () {
                     //console.log(data.redirect);
                     //console.log(data.responseData);
                     //console.log(jqXHR.getResponseHeader('location'));                                     
-                    var responseText = eval(jqXHR.responseText);
-                    window.location = responseText;
+                    let responseText = eval(jqXHR.responseText);
+                   
+                    //responseText = eval(jqXHR.responseText);
+                    
+                    let arr = jqXHR.responseText.split("&");
+                    arr.pop();                  
+                    let location = arr.join('&');
+                    location = location.split('./');
+                                    
+                  
+                    window.location = location[1];
 
 
                 });
@@ -45,3 +62,20 @@ $("#enviar").click(function () {
 });
 
 
+function sendEmail(email, codigoRecuperacao) {
+    Email.send({
+        Host: "smtp.gmail.com",
+        Username: "XXXX",
+        Password: "XXXX",
+        To: email,
+        From: "civa.forsoft.suporte@gmail.com",
+        Subject: "Forsoft CIVA Recuperacao",
+        Body: "C&oacute;digo de Recupera&ccedil;&atilde;o: " + codigoRecuperacao,
+    }).then(
+            message => {
+               // title = 'Código enviado';
+               // text = '';
+               // swalAlertInfo(title, text, callback);
+            }
+    );
+}

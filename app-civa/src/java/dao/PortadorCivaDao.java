@@ -302,6 +302,7 @@ public class PortadorCivaDao {
             // Inserir idNacionalidade, nome, sobrenome, genero
             // dataDeNascimento, ddiDoContato e telefoneComDdd
             int idPessoa = PessoaDao.insert(pessoa);
+             System.err.println(idPessoa);
 
             // Endereço
             // Inserir o endereço

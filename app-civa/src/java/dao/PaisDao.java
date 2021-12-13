@@ -138,6 +138,8 @@ public class PaisDao {
         Connection connection = ConnectionFactory.getConnection();
         Pais pais = null;
         DivisaoTerritorial divisaoterritorial = null;
+        List<TipoDoc> tipoDocs = new ArrayList<>();
+        TipoDoc tipoDoc;
         Docs documento = null;
         Docs documento2 = null;
         Docs documento3 = null;
@@ -181,9 +183,6 @@ public class PaisDao {
 
             pais = new Pais();
             divisaoterritorial = new DivisaoTerritorial();
-            documento = new Docs();
-            documento2 = new Docs();
-            documento3 = new Docs();
 
             if (rs.next()) {
                 pais.setNomePais(rs.getString("nomedopais"));
@@ -208,74 +207,22 @@ public class PaisDao {
             ps.setInt(1, idPais);
             rs = ps.executeQuery();
 
-            if (rs.next()) {
-                documento.setNomeTipoDoc(rs.getString("nomedoc"));
-                documento.setFormatoDocumento(rs.getString("formatodoc"));
-                documento.setTipoDocumento(rs.getString("nivel"));
+            while (rs.next()) {
+                tipoDoc = new TipoDoc();
+                tipoDoc.setNomeDoc(rs.getString("nomedoc"));
+                tipoDoc.setFormatoDoc(rs.getString("formatodoc"));
+                tipoDoc.setNivel(rs.getString("nivel"));
 
-                pais.setDocumento1(documento);
-
+                tipoDocs.add(tipoDoc);
             }
 
-            if (rs.next()) {
-                documento2.setNomeTipoDoc(rs.getString("nomedoc"));
-                documento2.setFormatoDocumento(rs.getString("formatodoc"));
-                documento2.setTipoDocumento(rs.getString("nivel"));
-
-                pais.setDocumento2(documento2);
-
-            }
-
-            if (rs.next()) {
-                documento3.setNomeTipoDoc(rs.getString("nomedoc"));
-                documento3.setFormatoDocumento(rs.getString("formatodoc"));
-                documento3.setTipoDocumento(rs.getString("nivel"));
-
-                pais.setDocumento3(documento3);
-
-            }
+            pais.setTiposDoc(tipoDocs);
 
         } catch (SQLException ex) {
             Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
         }
 
         return pais;
-    }
-
-    public static int findByCodigoCiva(String codigoCiva) {
-        Connection connection = ConnectionFactory.getConnection();
-        String sql = "";
-        int idPais = -1;
-
-        sql = "SELECT pa.idpais FROM pais AS pa\n"
-                + "	LEFT JOIN endereco AS en\n"
-                + "ON pa.idpais = en.idpais\n"
-                + "	LEFT JOIN pessoa_endereco AS pen\n"
-                + "ON en.idendereco =  pen.idendereco\n"
-                + "	LEFT JOIN pessoa AS pes \n"
-                + "ON pen.idpessoa = pes.idpessoa\n"
-                + "	LEFT JOIN acessogestao AS ag\n"
-                + "ON pes.idpessoa = ag.idpessoa\n"
-                + "	WHERE ag.codigocivagestao LIKE ?;";
-
-        try {
-            Statement stmt = connection.createStatement();
-            PreparedStatement ps;
-            ResultSet rs = null;
-
-            ps = connection.prepareStatement(sql);
-            ps.setString(1, codigoCiva);
-            rs = ps.executeQuery();
-
-            if (rs.next()) {
-                idPais = rs.getInt("idpais");
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return idPais;
     }
 
     public static List<Pais> listPais() {

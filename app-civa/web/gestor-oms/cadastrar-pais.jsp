@@ -106,7 +106,7 @@
                                         <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
                                         <input type="hidden" value="pais" class="form-control" id="option" name="tag">
                                     </form>
-                                </div>
+                                </div>                                        
                                 <div class="tab-pane fade hide " id="custom-tabs-four-national" role="tabpanel" aria-labelledby="custom-tabs-four-national-tab">
                                     <form id="dados-gestor-nacional">
                                         <%@include file="../partials/gestor-oms/dadospessoais-ps-cadastro-gn.jspf" %>

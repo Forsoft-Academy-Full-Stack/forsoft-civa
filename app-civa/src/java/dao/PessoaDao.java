@@ -97,12 +97,12 @@ public class PessoaDao {
         return codigoRecuperacao;
     }
     
-    public static boolean gerarCodigoRecuperacao(int idAtor, String tipo, String email) {
+    public static String gerarCodigoRecuperacao(int idAtor, String tipo, String email) {
         Connection connection = ConnectionFactory.getConnection();
         String sqlPortador = "INSERT INTO resetsenha (idacessopc, idacessogestao, codigo, ativo) values(?, null, ?, 'Ativo');";              
         String sqlGestor = "INSERT INTO resetsenha (idacessopc, idacessogestao, codigo, ativo) values(null, ?, ?, 'Ativo');";
 
-        boolean resultado = false;
+        String codigo = "";
 
         switch (tipo) {
             case "portador":
@@ -119,12 +119,14 @@ public class PessoaDao {
                 ps.executeUpdate();
 
                     try {
-                        JavaMailApp.main(email, codigoRecuperacao);
+                        //JavaMailApp.main(email, codigoRecuperacao);
+                        //PlainTextEmailSender.main(email, codigoRecuperacao);
                     } catch (Exception e) {
+                        System.err.println("Error SMTP: " + e.getMessage() +" "+e.getCause());
                     }
                 
                 
-                resultado = true;
+                codigo = codigoRecuperacao;
                 
                
 
@@ -148,12 +150,13 @@ public class PessoaDao {
                 ps.executeUpdate();
                 
                     try {
-                        JavaMailApp.main(email, codigoRecuperacao);
+                       // JavaMailApp.main(email, codigoRecuperacao);
+                        //PlainTextEmailSender.main(email, codigoRecuperacao);
                     } catch (Exception e) {
                     }
                 
 
-                resultado = true;
+                codigo = codigoRecuperacao;
 
             } catch (SQLException ex) {
                 Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
@@ -162,7 +165,7 @@ public class PessoaDao {
             break;
         }
 
-        return resultado;
+        return codigo;
 
     }
     
