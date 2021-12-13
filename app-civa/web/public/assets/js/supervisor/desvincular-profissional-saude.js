@@ -9,13 +9,14 @@ let form = $("#form-meus-dados");
 let campos_confirmar_senha = ["senha-confirmacao"];
 let modal_confirmar_senha = $("#modal-confirmar-senha");
 
-$("#vincular").click(() => {
+$("#desvincular").click(() => {
 
     if (tratar_campos(campos)) {
         modal_confirmar_senha.modal("show");
-        
+
         $("#confirmar").click(() => {
             if (tratar_campos(campos_confirmar_senha)) {
+
                 modal_confirmar_senha.modal("hide");
 
                 title = 'Enviando, aguarde alguns segundos...';
@@ -24,8 +25,8 @@ $("#vincular").click(() => {
                 $.post("/app-civa/unidade", form.serialize(), (data, status, jqXHR) => {
                     console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                     if (status === 'success') {
-                        title = 'Profissional vinculado com sucesso!';
-                        text = "Cadastro realizada.";
+                        title = 'Profissional desvinculado com sucesso!';
+                        text = "";
                         swalAlertSuccess(title, text, () => {
                             window.location = './consultar-unidade.jsp';
                         });
@@ -41,7 +42,7 @@ $("#vincular").click(() => {
 
     } else {
         title = 'Pesquise o c&oacute;digo do Profissional desejado';
-        text = 'Profissional n&atilde;o selecionado';
+        text = 'Profissional não selecionado';
         swalAlertError(title, text, callback);
     }
 

@@ -68,7 +68,7 @@ public class ProfissionalSaudeDao {
                 + "on pa.idpais = en.idpais \n"
                 + "LEFT JOIN tipodoc tidoc \n"
                 + "on doc.idtipodoc = tidoc.idtipodoc \n"
-                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
+                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true AND ag.cargo LIKE 'Profissional de Saúde';";
 
         sql2 = "SELECT  tidoc.nomedoc,doc.documento \n"
                 + "        FROM acessogestao ag\n"
@@ -78,7 +78,7 @@ public class ProfissionalSaudeDao {
                 + "        on peag.idpessoa = doc.idpessoa \n"
                 + "        LEFT JOIN tipodoc tidoc \n"
                 + "        on doc.idtipodoc = tidoc.idtipodoc \n"
-                + "        WHERE ag.codigocivagestao = ? AND ag.statusgestao = true;";
+                + "        WHERE ag.codigocivagestao = ? AND ag.statusgestao = true AND ag.cargo LIKE 'Profissional de Saúde';";
 
         try {
             Statement stmt = connection.createStatement();
@@ -277,7 +277,7 @@ public class ProfissionalSaudeDao {
                 + "                                     LEFT JOIN acessogestao ag\n"
                 + "                                     ON aguni.idacessogestao = ag.idacessogestao\n"
                 + "					WHERE ag.codigocivagestao = ?)\n"
-                + " AND ag.statusgestao = true;";
+                + " AND ag.statusgestao = true AND aguni.status = true;";
 
         try {
             profissionaisSaude = new ArrayList<>();
@@ -345,7 +345,7 @@ public class ProfissionalSaudeDao {
                 + "ON uni.idunidade = aguni.idunidade\n"
                 + "LEFT JOIN acessogestao ag\n"
                 + "ON aguni.idacessogestao = ag.idacessogestao\n"
-                + "WHERE uni.idunidade = ?) AND ag.statusgestao = true;";
+                + "WHERE uni.idunidade = ? ) AND aguni.status = true AND ag.statusgestao = true;";
 
         try {
             profissionaisSaude = new ArrayList<>();

@@ -16,13 +16,17 @@ $("#salvar").click(() => {
 
         if (mesma_senha) {
             if ($("#termos-uso").is(":checked")) {
+                title = 'Enviando, aguarde alguns segundos...';
+                text = '';
+                swalAlertLoading(title, callback);
+                
                 $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
                     console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                     if (status === 'success') {
                         title = 'Codigo enviado!';
                         text = "Verifique o email informado.";
                         swalAlertSuccess(title, text, () => {
-                           // window.location = './';
+                             window.location = './';
                         });
 
                     }

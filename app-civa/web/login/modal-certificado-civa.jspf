@@ -62,47 +62,33 @@
                                disabled>
                     </div>
                 </div>             
+                <hr  class = "mb-4 mt-4"> 
+                <c:forEach items="${portadorCiva.listaVacinacao}" var="vacinacao" varStatus="loop">                
 
-                <div class="row mb-4 border border-info rounded-lg shadow-sm">                               
-                    <table class="col-xl-12 table text-nowrap table-striped  ">
-                        <thead>
-                            <tr class="table-primary">
-                                <th>Vacina</th>
-                                <th>Laborat&oacute;rio</th>
-                                <th>Dose</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <c:forEach items="${vacinacoes}" var="vacinacao">
-                                <tr class="table-light">
-                                    <td ><c:out value="${vacinacao.vacina.nomeVacina}"/></td>
-                                    <td><c:out value="${vacinacao.vacina.laboratorio}" /></td>
-                                    <td><c:out value="${vacinacao.doseAplicada}" /></td>
-                                </tr>
-                            </c:forEach>
+                    <div class="row">
+                        <div class="form-group col-6 mb-3">
+                            <label for="certificado-vacina">Vacina</label>
+                            <input type="text" class="form-control form-control-sm" id="certificado-vacina" value="${vacinacao.vacina.nomeVacina}"
+                                   disabled>
+                        </div>
+                        <div class="form-group col-6 mb-3">
+                            <label for="lote">Lote</label>
+                            <input type="text" class="form-control form-control-sm" id="lote" value="${vacinacao.vacina.lote}"
+                                   disabled>
+                        </div>
+                    </div>          
+                    <div class="row">
 
-                        </tbody>
-                        <thead>
-                            <tr class="table-primary">
-                                <th>Data de Aplica&ccedil;&atilde;o</th>
-                                <th>Estabelecimento</th>
-                                <th>Pa&iacute;s</th>
-                            </tr>
-                        </thead>
+                        <div class="form-group col-12 mb-3">
 
-                        <tbody>
-                            <c:forEach items="${vacinacoes}" var="vacinacao">
-                                <tr class="table-light">
-                                    <td><c:out value="${vacinacao.dataAplicacao}" /></td>
-                                    <td><c:out value="${vacinacao.unidade}" /></td>
-                                    <td><c:out value="${vacinacao.pais}" /></td>
-                                </tr>
-                            </c:forEach>
-                        </tbody>
-                    </table>
-                </div>
-
-
+                            <label for="certificado-data-aplicacao">Data de Aplica&ccedil;&atilde;o <c:out value="${vacinacao.doseAplicada} Dose" /> </label>
+                            <input type="date" class="form-control form-control-sm" id="certificado-data-aplicacao" value="<c:out value="${vacinacao.dataAplicacao}" />"
+                                   disabled>
+                        </div>       
+                      
+                    </div>                                                                      
+                    <hr  class = "mb-4 mt-4">                                    
+                </c:forEach>
                 <hr  class = "mb-4 mt-4">  
 
                 <div class="row d-flex justify-content-center mb-4">

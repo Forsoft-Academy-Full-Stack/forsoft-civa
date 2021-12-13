@@ -1,9 +1,7 @@
 <%-- any content can be specified here e.g.: --%>
 <%@ page pageEncoding="UTF-8" %>
 
-<div class="row">
-    
-    <input type="hidden" value="vincular" name="option">
+<div class="row">   
     <input type="hidden" value="${idUnidade}" name="idUnidade">
 
     <div class="form-group col-md-11 p-0">

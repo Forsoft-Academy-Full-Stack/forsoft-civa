@@ -152,6 +152,28 @@ public class unidade extends HttpServlet {
                     }
 
                     break;
+                    
+                 case "desvincular":
+                    System.err.println("desvincular");
+                   
+                    pessoa.setIdPessoa(PessoaDao.getIdPessoa(request.getParameter("codigoCiva")));
+                    int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
+                    
+                    idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+
+                    System.err.println("id acesso gestao" + idAcessoGestao);
+                    System.err.println("id: " + idUnidade);
+                    
+                    int idGestaoUnidade = UnidadeDao.getIdGestaoUnidade(idUnidade, idAcessoGestao);
+                    
+                     System.err.println("idGestaoUnidade: " + idGestaoUnidade);
+                    result = UnidadeDao.deleteGestaoUnidade(idGestaoUnidade);
+
+                    if (!result) {
+                        response.sendError(404);
+                    }
+
+                    break;
 
                 default:
                     response.sendError(404);

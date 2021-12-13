@@ -19,15 +19,19 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
-<% 
-    try {
-          String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
-          ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
-          pageContext.setAttribute("ator", profissionalSaude);
-            
-        } catch (Exception e) {
-        }
-  
+<%    try {
+
+        // Adicionado para obter o idUnidade
+        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        pageContext.setAttribute("idUnidade", idUnidade);
+
+        String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
+        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
+        pageContext.setAttribute("ator", profissionalSaude);
+
+    } catch (Exception e) {
+    }
+
 %>
 
 
@@ -80,7 +84,8 @@
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
-                                <form action="" id="form-meus-dados" method="GET">
+                                <form  id="form-meus-dados">
+                                   <input type="hidden" value="desvincular" name="option">
                                     <div class="card-body">
                                         <%@include file="../partials/pesquisar-codigo-civa.jspf" %>
                                         <hr  class = "mb-4 mt-4">
@@ -107,6 +112,7 @@
 
         <!-- Main Footer -->
         <%@ include file="footer.jspf" %>
+          <%@ include file="../partials/confirmar-senha.jspf" %>   
     </div>
     <!-- ./wrapper -->
 </body>

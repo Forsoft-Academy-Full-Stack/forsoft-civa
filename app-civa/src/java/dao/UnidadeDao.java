@@ -160,7 +160,7 @@ public class UnidadeDao {
                 + "on ag.idacessogestao = aguni.idacessogestao  \n"
                 + "LEFT JOIN pessoa peag \n"
                 + "on ag.idpessoa = peag.idpessoa \n"
-                + "Where ag.codigocivagestao = ?;";
+                + "Where ag.codigocivagestao = ? AND aguni.status = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -309,25 +309,31 @@ public class UnidadeDao {
         boolean resultado = false;
 
         String sql = "INSERT INTO acessogestao_unidade\n"
-                + "(idunidade, idacessogestao)\n"
-                + "VALUES(?, ?);";
-        try {
-            ResultSet rs = null;
+                + "(idunidade, idacessogestao, status)\n"
+                + "VALUES(?, ?, 1);";
 
-            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+        int idGestaoUnidadeExistente = UnidadeDao.getIdGestaoUnidade(idUnidade, idacessoGestao);
 
-            ps.setInt(1, idUnidade);
-            ps.setInt(2, idacessoGestao);
+        if (idGestaoUnidadeExistente == -1) {
+            try {
+                ResultSet rs = null;
 
-            int i = ps.executeUpdate();
-            System.err.println("teste: " + i);
+                PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            rs = ps.getGeneratedKeys();
+                ps.setInt(1, idUnidade);
+                ps.setInt(2, idacessoGestao);
 
-            resultado = true;
+                int i = ps.executeUpdate();
+                System.err.println("teste: " + i);
 
-        } catch (SQLException ex) {
-            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+                rs = ps.getGeneratedKeys();
+
+                resultado = true;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
         }
 
         return resultado;
@@ -450,11 +456,6 @@ public class UnidadeDao {
         return resultado;
     }
 
-    public static List<Unidade> list() {
-
-        return null;
-    }
-
     public static int getIdEndereco(int idUnidade) {
         Connection connection = ConnectionFactory.getConnection();
         int idEndereco = -1;
@@ -482,6 +483,65 @@ public class UnidadeDao {
         }
 
         return idEndereco;
+    }
+
+    public static int getIdGestaoUnidade(int idUnidade, int idAcessoGestao) {
+        Connection connection = ConnectionFactory.getConnection();
+        int idGestaoUnidade = -1;
+        String sql = "SELECT idgestaounidade\n"
+                + "FROM acessogestao_unidade \n"
+                + "WHERE idunidade = ? AND idacessogestao = ? AND status = true;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idUnidade);
+            ps.setInt(2, idAcessoGestao);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idGestaoUnidade = rs.getInt("idgestaounidade");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return idGestaoUnidade;
+    }
+
+    public static boolean deleteGestaoUnidade(int idGestaoUnidade) {
+        Connection connection = ConnectionFactory.getConnection();
+
+        boolean resultado = false;
+
+        String sql = "UPDATE acessogestao_unidade SET status=?\n"
+                + "WHERE idgestaounidade = ?;";
+
+        if (idGestaoUnidade != -1) {
+
+            try {
+                ResultSet rs = null;
+
+                PreparedStatement ps = connection.prepareStatement(sql);
+
+                ps.setInt(1, 0);
+                ps.setInt(2, idGestaoUnidade);
+
+                ps.executeUpdate();
+
+                resultado = true;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(UnidadeDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return resultado;
+
     }
 
     public static boolean update(Unidade unidadeNova) {
@@ -547,7 +607,7 @@ public class UnidadeDao {
                 + "LEFT JOIN acessopc AS acp\n"
                 + "ON vac.idacessopc = acp.idacessopc\n"
                 + "WHERE acp.codigocivapc LIKE ?; ";
-        
+
         List<Unidade> unidadesVacinacao = new ArrayList<>();
         Unidade unidade = null;
 
@@ -560,17 +620,16 @@ public class UnidadeDao {
             ps.setString(1, codigoCivaPortador);
             rs = ps.executeQuery();
 
-            
             while (rs.next()) {
                 unidade = new Unidade();
                 Endereco endereco = new Endereco();
-                
+
                 unidade.setNome(rs.getString("nomeunidade"));
-                endereco.setCodigoPostal(rs.getString("codigopostal"));                
+                endereco.setCodigoPostal(rs.getString("codigopostal"));
                 unidade.setEndereco(endereco);
-                
+
                 unidadesVacinacao.add(unidade);
-               
+
             }
 
         } catch (SQLException ex) {
