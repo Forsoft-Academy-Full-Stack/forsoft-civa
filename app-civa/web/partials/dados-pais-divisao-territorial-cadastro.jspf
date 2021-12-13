@@ -38,7 +38,7 @@
 </div>
 
 <div class="row">
-    <div class="form-group col-xl-6">
+    <div class="form-group col-xl-12">
         <label for="subdivisao5">S&eacute;tima SubDivis&atilde;o</label>
         <input type="text" class="form-control" value="" id="subdivisao7" name="subdivisao7">
     </div>

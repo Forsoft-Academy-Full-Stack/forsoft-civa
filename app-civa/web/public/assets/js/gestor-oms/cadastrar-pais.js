@@ -2,7 +2,7 @@ $('.select2').select2();
 
 let campos_pais = ["pais", "continente",
     "ddi", "padrao-contato",
-    "orgao-saude", "fuso-horario",
+    "orgao-saude",
     "tipo-doc1-p", "doc1-p", "form-doc1-p", "subdivisao1", "subdivisao2",
     "subdivisao3", "subdivisao4", "subdivisao5", "subdivisao6", "subdivisao7", "sigla"];
 

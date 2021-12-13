@@ -38,17 +38,17 @@
 </div>
 
 <div class="row">
-    <div class="form-group col-xl-6">
+    <div class="form-group col-xl-12">
         <label for="orgao-saude">&Oacute;rg&atilde;o de sa&uacute;de</label>
         <input type="text" class="form-control" id="orgao-saude" name="orgao-saude" placeholder="SUS">
     </div>
     
-    <div class="form-group col-xl-6">
+    <!--div class="form-group col-xl-6">
         <label for="fuso-horario">Fuso hor&aacute;rio</label>
         <select id="fuso-horario" name="fuso-horario" class="select2 select2-hidden-accessible" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option selected value="2" selected>UTC-3</option>
             <option>UTC-2</option>
             <option>UTC-1</option>
         </select>
-    </div>
+    </div-->
 </div>
