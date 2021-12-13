@@ -33,8 +33,11 @@
         Integer idVacinacao = Integer.parseInt(request.getParameter("idVacinacao"));
         Vacinacao vacinacao = VacinacaoDao.find(idVacinacao, portadorCiva.getListaVacinacao());
 
+        String codigoCivaVacinador = VacinacaoDao.getCodigoCivaVacinador(codigoCivaPortadorCiva, Integer.parseInt(vacinacao.getCodigoCivaCadastrante()));
+        
         pageContext.setAttribute("portadorCiva", portadorCiva);
         pageContext.setAttribute("vacinacao", vacinacao);
+        pageContext.setAttribute("codigoCivaVacinador", codigoCivaVacinador);
     } catch (Exception e) {
     }
 
@@ -177,7 +180,7 @@
                                     <div class="row">
                                         <div class="form-group col-xl-6">
                                             <label for="codigociva">C&oacute;digo CIVA Profissional</label>
-                                            <input type="text" class="form-control" id="codigociva" name="codigociva" value="${portadorCiva.codigoCiva}"
+                                            <input type="text" class="form-control" id="codigociva" name="codigociva" value="${codigoCivaVacinador}"
                                                    disabled>
                                         </div>
                                         <div class="form-group col-xl-6">

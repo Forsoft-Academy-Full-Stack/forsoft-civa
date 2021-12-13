@@ -36,7 +36,7 @@
 
 
 <%@include file="header.jspf"%>
-<script src="../public/assets/js/supervisor/desvincular-profissional-saude.js" defer></script>
+<script src="../public/assets/js/desvincular-gestor-unidade.js" defer></script>
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -85,7 +85,7 @@
                                 <!-- /.card-header -->
                                 <!-- form start -->
                                 <form  id="form-meus-dados">
-                                   <input type="hidden" value="desvincular" name="option">
+                                    <input type="hidden" value="desvincular" name="option">
                                     <div class="card-body">
                                         <%@include file="../partials/pesquisar-codigo-civa.jspf" %>
                                         <hr  class = "mb-4 mt-4">

@@ -18,6 +18,7 @@
     // Caso contrário é um usuário válido, pode entrar na página
 
 %>
+
 <% try {
           Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
           pageContext.setAttribute("idUnidade", idUnidade);

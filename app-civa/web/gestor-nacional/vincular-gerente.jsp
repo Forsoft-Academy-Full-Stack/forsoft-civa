@@ -86,7 +86,8 @@
                                 <!-- form start -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-                                        <%@include file="../partials/pesquisar-codigo-civa.jspf" %>
+                                        <input type="hidden" value="vincular" name="option">
+                                        <%@include file="../partials/pesquisar-codigo-civa.jspf" %>                                        
                                         <hr  class = "mb-4 mt-4">
                                         <%@include file="../partials/dadospessoais-disabled.jspf" %>
                                     </div>
