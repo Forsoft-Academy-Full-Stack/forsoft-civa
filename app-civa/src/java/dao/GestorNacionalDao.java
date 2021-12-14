@@ -226,7 +226,7 @@ public class GestorNacionalDao {
         Docs documento1;
         String sql = "";
 
-        sql = "SELECT DISTINCT peag.nomepessoa AS nome,"
+        sql = "SELECT DISTINCT peag.nomepessoa AS nome, peag.sobrenomepessoa, "
                 + "            doc.documento,"
                 + "            peag.datadenascimento, \n"
                 + "            ag.codigocivagestao "
@@ -243,7 +243,7 @@ public class GestorNacionalDao {
                 + "        SELECT peag.idpaisdenascimento FROM pessoa peag\n"
                 + "        LEFT JOIN acessogestao ag\n"
                 + "            ON peag.idpessoa = ag.idpessoa\n"
-                + "        WHERE ag.codigocivagestao = ? ) AND ag.statusgestao = true;";
+                + "        WHERE ag.codigocivagestao = ? ) AND ag.statusgestao = true AND ag.codigocivagestao != ?;";
 
         try {
             gestoresNacionais = new ArrayList<>();
@@ -253,6 +253,7 @@ public class GestorNacionalDao {
 
             ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaGestorNacional);
+            ps.setString(2, codigoCivaGestorNacional);
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -261,6 +262,7 @@ public class GestorNacionalDao {
                 gestorNacional = new GestorNacional();
 
                 pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
                 pessoa.setCodigoCiva(rs.getString("codigocivagestao"));
                 documento1.setDocumento(rs.getString("documento"));

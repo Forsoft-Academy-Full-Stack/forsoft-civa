@@ -3,7 +3,7 @@ $('.select2').select2();
 let campos = ["nome", "sobrenome",
     "genero", //"data-nascimento",
     "nacionalidade",
-    "tipo-doc1", "doc1", "tipo-doc2", "doc2"];
+    "tipo-doc1", "doc1"];
 
 let form = $("#form-meus-dados");
 let campos_confirmar_senha = ["senha-confirmacao"];

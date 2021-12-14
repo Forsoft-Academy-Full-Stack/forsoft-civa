@@ -119,6 +119,9 @@
         <%@ include file="footer.jspf" %>
     </div>
     <!-- ./wrapper -->
+     <!-- Modal confirmar senha / vincular -->
+        <%@ include file="../partials/confirmar-senha.jspf" %>
+
 </body>
 </html>
 
