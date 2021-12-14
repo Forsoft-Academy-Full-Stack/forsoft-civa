@@ -1,26 +1,32 @@
 $('.select2').select2();
 
-let campos = ["pais", "continente",
+let campos_pais = ["pais", "continente",
     "ddi", "padrao-contato",
-    "orgao-saude", "fuso-horario",
-    "tipo-doc1", "doc1", "form-doc1"];
+    "orgao-saude",
+    "nivel-doc", "nome-doc", "formato-doc", "subdivisao1", "subdivisao2",
+    "subdivisao3", "subdivisao4", "subdivisao5", "subdivisao6", "subdivisao7", "sigla"];
+
+campos_pais = [];
 
 let form = $("#form-meus-dados");
 
 $("#salvar").click(() => {
 
-    if (tratar_campos(campos)) {
-        $.get("", form.serialize(), (data, status) => {
+    if (tratar_campos(campos_pais)) {
+        $.post("/app-civa/pais", $("#form-meus-dados").serialize(), (data, status, jqXHR) => {
+            console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
-                title = 'Alterações cadastradas com sucesso!';
-                text = "";
-                swalAlertSuccess(title, text, callback);
+                title = 'País cadastrado com sucesso!';
+                text = "Cadastro realizada.";
+                swalAlertSuccess(title, text, () => {
+                    window.location = './gerenciar-pais.jsp';
 
-            } else {
-                title = 'Erro!';
-                text = 'Algum erro ocorreu e seus dados não foram enviados.';
-                swalAlertError(title, text, callback);
+                });
             }
+        }).fail(function (jqxhr, settings, ex) {
+            title = 'Erro!';
+            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
+            swalAlertError(title, text, callback);
         });
 
     } else {

@@ -4,13 +4,13 @@ package model;
  * @author randel
  */
 public class TipoDoc {
-    private Long idTipoDoc;
-    private Long idPais;
+    private Integer idTipoDoc;
+    private Integer idPais;
     private String nomeDoc;
     private String formatoDoc;
     private String nivel;
 
-    public TipoDoc(Long idTipoDoc, Long idPais, String nomeDoc, String formatoDoc, String nivel) {
+    public TipoDoc(Integer idTipoDoc, Integer idPais, String nomeDoc, String formatoDoc, String nivel) {
         this.idTipoDoc = idTipoDoc;
         this.idPais = idPais;
         this.nomeDoc = nomeDoc;
@@ -21,19 +21,19 @@ public class TipoDoc {
     public TipoDoc() {
     }
 
-    public Long getIdTipoDoc() {
+    public Integer getIdTipoDoc() {
         return idTipoDoc;
     }
 
-    public void setIdTipoDoc(Long idTipoDoc) {
+    public void setIdTipoDoc(Integer idTipoDoc) {
         this.idTipoDoc = idTipoDoc;
     }
 
-    public Long getIdPais() {
+    public Integer getIdPais() {
         return idPais;
     }
 
-    public void setIdPais(Long idPais) {
+    public void setIdPais(Integer idPais) {
         this.idPais = idPais;
     }
 

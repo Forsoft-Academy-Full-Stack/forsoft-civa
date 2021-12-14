@@ -96,7 +96,7 @@
                                 <!-- form start -->
                                 <form id="form-meus-dados">
                                     <div class="card-body">
-
+                                        <input type="hidden" value="atualizar" name="option">
                                         <%@include file="../partials/dados-pais-pesquisa.jspf" %>
                                         <hr class = "m mt-4">
                                         <%@include file="../partials/tipo-doc-cadastro.jspf" %>

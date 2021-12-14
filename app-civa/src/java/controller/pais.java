@@ -114,7 +114,7 @@ public class pais extends HttpServlet {
                     result = true;
 
                     /*CADASTRANDO OS DADOS DO PAIS FIM*/
-                    /*INICIO CADASTRANDO OS DADOS DO GESTOR NACIONAL*/
+ /*INICIO CADASTRANDO OS DADOS DO GESTOR NACIONAL*/
                     Pessoa pessoaGestorNacional = new Pessoa();
                     Endereco enderecoGestorNacional = new Endereco();
                     Docs docsGestorNacional = new Docs();
@@ -125,7 +125,6 @@ public class pais extends HttpServlet {
                     GestorNacional gestorNacional = new GestorNacional();
 
                     //int idPais = Integer.parseInt(request.getParameter("nome-pais-gn"));
-
                     pessoaGestorNacional.setNomePessoa(request.getParameter("nome-gn"));
                     pessoaGestorNacional.setSobrenomePessoa(request.getParameter("sobrenome-gn"));
                     pessoaGestorNacional.setGenero(request.getParameter("genero-gn"));
@@ -209,8 +208,7 @@ public class pais extends HttpServlet {
                     result = GestorNacionalDao.insert(gestorNacional, idCadastrante);
 
                     /*CADASTRANDO OS DADOS DO GESTOR NACIONA FIM*/
-                    
-                     /*INICIO CADASTRANDO OS DADOS DO SUPORTE CIVA*/
+ /*INICIO CADASTRANDO OS DADOS DO SUPORTE CIVA*/
                     // Suporte                
                     Pessoa pessoaSuporteCiva = new Pessoa();
                     Endereco enderecoSuporteCiva = new Endereco();
@@ -222,7 +220,6 @@ public class pais extends HttpServlet {
                     SuporteCiva suporteCiva = new SuporteCiva();
 
                     //idPais = Integer.parseInt(request.getParameter("nome-pais"));
-
                     pessoaSuporteCiva.setIdNacionalidade(idPais);
                     ddi = PaisDao.getDdiById(idPais);
                     pessoaSuporteCiva.setDdiContato(ddi);
@@ -305,17 +302,74 @@ public class pais extends HttpServlet {
                     idCadastrante = (int) session.getAttribute("idPessoa");
                     result = SuporteCivaDao.insert(suporteCiva, idCadastrante);
                     /*CADASTRANDO OS DADOS DO SUPORTE CIVA FIM*/
-                    
-                    
+
                 } catch (Exception e) {
                     System.err.println("Message: " + e.getMessage());
                 }
-                    
+
                 if (!result) {
                     response.sendError(404);
                 }
-                          
+
                 break;
+
+                case "atualizar":
+                   
+                    // pegar os dados do país pelo request
+                    pais.setIdPais(Integer.parseInt(request.getParameter("id-pais")));
+                  
+                    pais.setIdContinente(Integer.parseInt(request.getParameter("id-continente")));
+                     
+                    pais.setNomePais(request.getParameter("pais"));
+                    
+                      System.err.println("Atualizar");
+                    pais.setDdi(request.getParameter("ddi"));
+                    pais.setPadraoContato(request.getParameter("padrao-contato"));
+                    pais.setOrgaoResponsavel(request.getParameter("orgao-saude"));
+                    // pais.setFusoHorario(request.getParameter("fuso-horario"));
+                    pais.setSigla(request.getParameter("sigla"));
+
+                      System.err.println("Pais Nome: "
+                            + pais.getNomePais() + "\nContinente: " + pais.getNomeContinente()
+                            + "\nDDI: " + pais.getDdi() + "\nPadrão contato: " + pais.getPadraoContato()
+                            + "\nOrgão responsavel: " + pais.getOrgaoResponsavel()
+                            + "\n");
+                    
+                    for (int i = 1; i <= 10; i++) {
+                        TipoDoc tipoDoc = new TipoDoc();
+                        try {
+                            tipoDoc.setIdTipoDoc(Integer.parseInt(request.getParameter("id-tipo-doc-" + i)));
+                            tipoDoc.setNivel(request.getParameter("nivel-doc-" + i));
+                            tipoDoc.setNomeDoc(request.getParameter("nome-doc-" + i));
+                            tipoDoc.setFormatoDoc(request.getParameter("formato-doc-" + i));
+                            tiposDoc.add(tipoDoc);
+
+                        } catch (Exception e) {
+                        }
+
+                    }
+
+                    pais.setTiposDoc(tiposDoc);
+
+                    divisaoTerritorial.setIdLocalidade(Integer.parseInt(request.getParameter("id-localidade")));
+                    divisaoTerritorial.setTiposubdivisao1(request.getParameter("subdivisao1"));
+                    divisaoTerritorial.setTiposubdivisao2(request.getParameter("subdivisao2"));
+                    divisaoTerritorial.setTiposubdivisao3(request.getParameter("subdivisao3"));
+                    divisaoTerritorial.setTiposubdivisao4(request.getParameter("subdivisao4"));
+                    divisaoTerritorial.setTiposubdivisao5(request.getParameter("subdivisao5"));
+                    divisaoTerritorial.setTiposubdivisao6(request.getParameter("subdivisao6"));
+                    divisaoTerritorial.setTiposubdivisao7(request.getParameter("subdivisao7"));
+                    
+                    pais.setDivisaoTerritorial(divisaoTerritorial);
+                                                          
+
+                    result = PaisDao.update(pais);
+
+                    if (!result) {
+                        response.sendError(404);
+                    }
+
+                    break;
             }
         }
     }

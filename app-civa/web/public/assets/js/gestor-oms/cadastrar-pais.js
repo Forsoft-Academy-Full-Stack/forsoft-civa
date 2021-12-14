@@ -41,9 +41,6 @@ $("#cadastrar").click(function () {
 
             });
 
-
-
-
         } else {
             title = 'Campos não preenchidos no pais!';
             text = `Preencha todos os campos`;
