@@ -13,11 +13,18 @@ let form = $("#form-meus-dados");
 $("#salvar").click(() => {
 
     if (tratar_campos(campos_pais)) {
+         title = 'Enviando, aguarde alguns segundos...';
+         swalAlertLoading(title, callback);
+                             
         $.post("/app-civa/pais", $("#form-meus-dados").serialize(), (data, status, jqXHR) => {
+            
+            
+           
+            
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
-                title = 'País cadastrado com sucesso!';
-                text = "Cadastro realizada.";
+                title = 'País atualizado com sucesso!';
+                text = "Atualização realizada.";
                 swalAlertSuccess(title, text, () => {
                     window.location = './gerenciar-pais.jsp';
 
