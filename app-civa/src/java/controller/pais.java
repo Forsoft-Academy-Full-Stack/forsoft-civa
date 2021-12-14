@@ -149,7 +149,7 @@ public class pais extends HttpServlet {
 
                     gestorNacional.setPessoa(pessoaGestorNacional);
 
-                    docsGestorNacional.setNomeTipoDoc(request.getParameter("tipo-doc1-gn"));
+                    docsGestorNacional.setNomeTipoDoc(tiposDoc.get(0).getNomeDoc());
                     docsGestorNacional.setDocumento(request.getParameter("doc1-gn"));
 
                     docsGestorNacional2.setNomeTipoDoc(request.getParameter("tipo-doc2-gn"));
@@ -245,7 +245,7 @@ public class pais extends HttpServlet {
 
                     suporteCiva.setPessoa(pessoaSuporteCiva);
 
-                    docsSuporteCiva.setNomeTipoDoc(request.getParameter("tipo-doc1-sp"));
+                    docsSuporteCiva.setNomeTipoDoc(tiposDoc.get(0).getNomeDoc());
                     docsSuporteCiva.setDocumento(request.getParameter("doc1-sp"));
 
                     docsSuporteCiva2.setNomeTipoDoc(request.getParameter("tipo-doc2-sp"));

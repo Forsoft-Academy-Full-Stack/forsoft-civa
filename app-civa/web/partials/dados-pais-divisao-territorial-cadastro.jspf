@@ -4,42 +4,42 @@
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="subdivisao1">Primeira SubDivis&atilde;o</label>
-        <input type="text" class="form-control" value="" id="subdivisao1" name="subdivisao1">
+        <input minlength="1" maxlength="75" type="text" class="form-control" value="" id="subdivisao1" name="subdivisao1">
     </div>
 
     <div class="form-group col-xl-6">
         <label for="subdivisao2">Segunda SubDivis&atilde;o</label>
-        <input type="text" class="form-control" value="" id="subdivisao2" name="subdivisao2">
+        <input minlength="1" maxlength="75" type="text" class="form-control" value="" id="subdivisao2" name="subdivisao2">
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="subdivisao3">Terceira SubDivis&atilde;o</label>
-        <input type="text" class="form-control" value="" id="subdivisao3" name="subdivisao3">
+        <input minlength="1" maxlength="75" type="text" class="form-control" value="" id="subdivisao3" name="subdivisao3">
     </div>
     
     <div class="form-group col-xl-6">
         <label for="subdivisao4">Quarta SubDivis&atilde;o</label>
-        <input type="text" class="form-control" value="" id="subdivisao4" name="subdivisao4">
+        <input minlength="1" maxlength="75" type="text" class="form-control" value="" id="subdivisao4" name="subdivisao4">
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="subdivisao5">Quinta SubDivis&atilde;o</label>
-        <input type="text" class="form-control" value="" id="subdivisao5" name="subdivisao5">
+        <input minlength="1" maxlength="75" type="text" class="form-control" value="" id="subdivisao5" name="subdivisao5">
     </div>
 
     <div class="form-group col-xl-6">
         <label for="subdivisao6">Sexta SubDivis&atilde;o</label>
-        <input type="text" class="form-control" value="" id="subdivisao6" name="subdivisao6">
+        <input minlength="1" maxlength="75" type="text" class="form-control" value="" id="subdivisao6" name="subdivisao6">
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-12">
         <label for="subdivisao5">S&eacute;tima SubDivis&atilde;o</label>
-        <input type="text" class="form-control" value="" id="subdivisao7" name="subdivisao7">
+        <input minlength="1" maxlength="75" type="text" class="form-control" value="" id="subdivisao7" name="subdivisao7">
     </div>
 </div>

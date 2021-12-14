@@ -15,14 +15,14 @@
     </div>
     <div class="form-group col-xl-4">
         <label for="doc1-p" style="display:flex;align-items:center;gap:2px;">Nome do Documento</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc1-p" name="doc1">
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc1-p" name="doc1">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc1-p" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;" disabled="true"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc1-p" name="form-doc1">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc1-p" name="form-doc1">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -37,15 +37,15 @@
             <option>Unidade</option>
         </select>
     </div>    <div class="form-group col-xl-4">
-        <label for="doc2" style="display:flex;align-items:center;gap:2px;">Documento 2</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc2" name="doc2">
+        <label for="doc2" style="display:flex;align-items:center;gap:2px;">Nome Documento 2</label>
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc2" name="doc2">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc2" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc2" name="form-doc2">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc2" name="form-doc2">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -61,15 +61,15 @@
         </select>
     </div>
     <div class="form-group col-xl-4">
-        <label for="doc3" style="display:flex;align-items:center;gap:2px;">Documento 3</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc3" name="doc3">
+        <label for="doc3" style="display:flex;align-items:center;gap:2px;">Nome Documento 3</label>
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc3" name="doc3">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc3" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc3" name="form-doc3">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc3" name="form-doc3">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -85,15 +85,15 @@
         </select>
     </div>
     <div class="form-group col-xl-4">
-        <label for="doc4" style="display:flex;align-items:center;gap:2px;">Documento 4</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc4" name="doc4">
+        <label for="doc4" style="display:flex;align-items:center;gap:2px;">Nome Documento 4</label>
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc4" name="doc4">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc4" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc4" name="form-doc4">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc4" name="form-doc4">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -109,15 +109,15 @@
         </select>
     </div>
     <div class="form-group col-xl-4">
-        <label for="doc5" style="display:flex;align-items:center;gap:2px;">Documento 5</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc5" name="doc5">
+        <label for="doc5" style="display:flex;align-items:center;gap:2px;">Nome Documento 5</label>
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc5" name="doc5">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc5" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc5" name="form-doc5">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc5" name="form-doc5">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -133,15 +133,15 @@
         </select>
     </div>
     <div class="form-group col-xl-4">
-        <label for="doc6" style="display:flex;align-items:center;gap:2px;">Documento 6</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc6" name="doc6">
+        <label for="doc6" style="display:flex;align-items:center;gap:2px;">Nome Documento 6</label>
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc6" name="doc6">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc6" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc6" name="form-doc6">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc6" name="form-doc6">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -157,15 +157,15 @@
         </select>
     </div>
     <div class="form-group col-xl-4">
-        <label for="doc7" style="display:flex;align-items:center;gap:2px;">Documento 7</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc7" name="doc7">
+        <label for="doc7" style="display:flex;align-items:center;gap:2px;">Nome Documento 7</label>
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc7" name="doc7">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc7" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc7" name="form-doc7">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc7" name="form-doc7">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -181,15 +181,15 @@
         </select>
     </div>
     <div class="form-group col-xl-4">
-        <label for="doc8" style="display:flex;align-items:center;gap:2px;">Documento 8</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc8" name="doc8">
+        <label for="doc8" style="display:flex;align-items:center;gap:2px;">Nome Documento 8</label>
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc8" name="doc8">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc8" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc8" name="form-doc8">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc8" name="form-doc8">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -205,15 +205,15 @@
         </select>
     </div>
     <div class="form-group col-xl-4">
-        <label for="doc9" style="display:flex;align-items:center;gap:2px;">Documento 9</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc9" name="doc9">
+        <label for="doc9" style="display:flex;align-items:center;gap:2px;">Nome Documento 9</label>
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc9" name="doc9">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc9" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc9" name="form-doc9">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc9" name="form-doc9">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -229,14 +229,14 @@
         </select>
     </div>
     <div class="form-group col-xl-4">
-        <label for="doc10" style="display:flex;align-items:center;gap:2px;">Documento 10</label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc10" name="doc10">
+        <label for="doc10" style="display:flex;align-items:center;gap:2px;">Nome Documento 10</label>
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="2346567689" id="doc10" name="doc10">
     </div>
     <div class="form-group col-xl-4">
         <label for="form-doc10" style="display:flex;align-items:center;gap:2px;">Formato do Documento
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;" disabled="true"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc10" name="form-doc10">
+        <input minlength="1" maxlength="30" type="text" class="form-control" placeholder="XXX.XXX.XXX-XX" id="form-doc10" name="form-doc10">
     </div>
 </div>

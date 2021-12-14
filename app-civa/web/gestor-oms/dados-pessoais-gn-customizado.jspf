@@ -4,11 +4,11 @@
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="nome-gn">Nome</label>
-        <input type="text" class="form-control" placeholder="Frank" name="nome-gn" id="nome-gn">
+        <input minlength="1" maxlength="50" type="text" class="form-control" placeholder="Frank" name="nome-gn" id="nome-gn">
     </div>
     <div class="form-group col-xl-6">
         <label for="sobrenome-gn">Sobrenome</label>
-        <input type="text" class="form-control" placeholder="Sinatra" name="sobrenome-gn" id="sobrenome-gn"  >
+        <input minlength="1" maxlength="100" type="text" class="form-control" placeholder="Sinatra" name="sobrenome-gn" id="sobrenome-gn"  >
     </div>
 </div>
 <div class="row">
@@ -32,7 +32,7 @@
 <div class="row">
     <div class="form-group col-xl-12">
         <label for="nacionalidade-gn">Nacionalidade</label>
-        <select class="form-control select2 select2-hidden-accessible" id="nacionalidade-gn" name="nacionalidade-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
+        <select disabled class="form-control select2 select2-hidden-accessible" id="nacionalidade-gn" name="nacionalidade-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Nacionalidade</option>
                 <c:forEach items="${paises}" var="pais">
                   <option value="${pais.idPais}"><c:out value="${pais.nomePais}" /></option>          
@@ -44,8 +44,8 @@
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="tipo-doc1-gn">Tipo de Documento:</label>
-        <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1-gn" name="tipo-doc1-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar Tipo de Documento</option>
+        <select disabled="disabled"class="form-control select2 select2-hidden-accessible" id="tipo-doc1-gn" name="tipo-doc1-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
+            <option value="" selected disabled>Prim&aacute;rio</option>
             <option>CPF</option>
             <option>RG</option>
             <option>PASSAPORTE</option>
@@ -58,7 +58,7 @@
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;" disabled="true"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc1-gn" name="doc1-gn">
+        <input minlength="1" maxlength="20" type="text" class="form-control" placeholder="2346567689" id="doc1-gn" name="doc1-gn">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -78,7 +78,7 @@
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc2" name="doc2-gn">
+        <input minlength="1" maxlength="20" type="text" class="form-control" placeholder="2346567689" id="doc2" name="doc2-gn">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -98,7 +98,7 @@
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc3" name="doc3-gn">
+        <input minlength="1" maxlength="20" type="text" class="form-control" placeholder="2346567689" id="doc3" name="doc3-gn">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -118,7 +118,7 @@
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc4" name="doc4-gn">
+        <input minlength="1" maxlength="20" type="text" class="form-control" placeholder="2346567689" id="doc4" name="doc4-gn">
     </div>
 </div>
 <div class="row optional" style="display:none;">
@@ -138,6 +138,6 @@
             <button type="button" class="btn btn-primary btn-xs add" style="background:none;border:none;padding:0;height:20px;" disabled="true"><span class="material-icons-round" style="color:#007BFF;font-size:20px;">add_circle</span></button>
             <button type="button" class="btn btn-danger btn-xs rmv" style="background:none;border:none;padding:0;height:20px;"><span class="material-icons-round" style="color:red;font-size:20px;">remove_circle</span></button>
         </label>
-        <input type="text" class="form-control" placeholder="2346567689" id="doc5" name="doc5-gn">
+        <input minlength="1" maxlength="20" type="text" class="form-control" placeholder="2346567689" id="doc5" name="doc5-gn">
     </div>
 </div>

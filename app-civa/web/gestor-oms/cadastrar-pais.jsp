@@ -102,31 +102,26 @@
                                         <hr class = "mb-4 mt-4">
                                         <%@include file="../partials/gestor-oms/tipo-doc-cadastro-gn.jspf" %>
                                         <hr class = "mb-4 mt-4">
-                                        <%@include file="../partials/dados-pais-divisao-territorial-cadastro.jspf" %>
-                                        <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
-                                        <input type="hidden" value="pais" class="form-control" id="option" name="tag">
+                                        <%@include file="../partials/dados-pais-divisao-territorial-cadastro.jspf" %>                                                                            
                                     </form>
                                 </div>                                        
                                 <div class="tab-pane fade hide " id="custom-tabs-four-national" role="tabpanel" aria-labelledby="custom-tabs-four-national-tab">
                                     <form id="dados-gestor-nacional">
-                                        <%@include file="../partials/gestor-oms/dadospessoais-ps-cadastro-gn.jspf" %>
+                                        <%@include file="./dados-pessoais-gn-customizado.jspf" %>
                                         <hr class = "mb-4 mt-4">
-                                        <%@ include file="../partials/gestor-oms/enderecos-cadastro-gn.jspf" %>
+                                        <%@ include file="./endereco-gn-customiazdo.jspf"%>
                                         <hr class = "mb-4 mt-4">
-                                        <%@ include file="../partials/gestor-oms/contatos-cadastro-gn.jspf" %>
-                                         <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
-                                        <input type="hidden" value="gestor-nacional" class="form-control" id="option" name="tag">
+                                        <%@ include file="../partials/gestor-oms/contatos-cadastro-gn.jspf" %>                                         
                                     </form>
                                 </div>
                                 <div class="tab-pane fade" id="custom-tabs-four-support" role="tabpanel" aria-labelledby="custom-tabs-four-support-tab">
                                     <form id="dados-suporte-civa">
-                                        <%@include file="../partials/dados-pessoas-ps-suporte.jspf" %>
+                                        <%@include file="./dados-pessoais-suporte.jspf" %>
                                         <hr class = "mb-4 mt-4">
-                                        <%@ include file="../partials/enderecos-cadastro.jspf" %>
+                                        <%@ include file="./endereco-suporte.jspf" %>
                                         <hr class = "mb-4 mt-4">
                                         <%@ include file="../partials/contatos-cadastro.jspf" %>
-                                         <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">
-                                         <input type="hidden" value="suporte" class="form-control" id="option" name="tag">
+                                         <input type="hidden" value="cadastrar" class="form-control" id="option" name="option">                                       
                                     </form>
                                 </div>                                                    
                             </div>
