@@ -70,6 +70,36 @@ public class login extends HttpServlet {
                     response.getWriter().write(path);
 
                     break;
+                    
+                case "recuperar-civa":
+                    response.setContentType("application/text");
+                    String email = request.getParameter("email");
+                    System.err.println("Email: " + email);
+                    
+                    int idAcessoPc = PessoaDao.verificarEmail(email, "portador");
+                    int idAcessoGestao = PessoaDao.verificarEmail(email, "gestor");
+                    String codigoCivaRecuperacao = "";
+                    
+                    System.err.println("idAcessoPc: " + idAcessoPc);
+                    System.err.println("idAcessoGestao: " + idAcessoGestao);
+                    
+                   
+                    
+                    if(idAcessoPc != -1){
+                         codigoCivaRecuperacao = PessoaDao.getCodigoCivaByEmail(email, "portador");
+                         System.err.println("codigoCivaRecuperacao: " + codigoCivaRecuperacao);
+                         
+                    }else if(idAcessoGestao != -1){
+                         codigoCivaRecuperacao = PessoaDao.getCodigoCivaByEmail(email, "gestor");
+                    }
+                    
+                    if (idAcessoPc == -1 && idAcessoGestao == -1) {
+                        response.sendError(404);
+                    }                     
+                    
+                   response.getWriter().write(codigoCivaRecuperacao);
+                    
+                    break;
 
                 case "nova-senha":
                     response.setContentType("application/text");
@@ -110,7 +140,7 @@ public class login extends HttpServlet {
 
                 case "recuperar-senha":
                     tipo = request.getParameter("tipo");
-                    String email = request.getParameter("email");
+                    email = request.getParameter("email");
 
                     switch (tipo) {
                         case "portador":
@@ -118,7 +148,7 @@ public class login extends HttpServlet {
 
                             // verificar se email existe
                             System.err.println("Estrou no portador");
-                            int idAcessoPc = PessoaDao.verificarEmail(email, tipo);
+                            idAcessoPc = PessoaDao.verificarEmail(email, tipo);
                             System.err.println("idAcessoPc: " + idAcessoPc);
                             if (idAcessoPc != -1) {
                                 // Criar o código de recuperação
@@ -151,7 +181,7 @@ public class login extends HttpServlet {
                         case "gestor":
                             codigo = "";
                             // verificar se email existe
-                            int idAcessoGestao = PessoaDao.verificarEmail(email, tipo);
+                            idAcessoGestao = PessoaDao.verificarEmail(email, tipo);
 
                             if (idAcessoGestao != -1) {
                                 codigo = PessoaDao.gerarCodigoRecuperacao(idAcessoGestao, tipo, email);

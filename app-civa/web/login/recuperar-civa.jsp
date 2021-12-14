@@ -1,4 +1,6 @@
 <%@include file="header.jspf"%>
+<script src="../public/assets/js/smtp.js" defer></script>
+<script src="../public/assets/js/login/recuperar-civa.js" defer></script>
 </head>
 
 <body class="content-wrapper " style="background: #fff;">
@@ -12,8 +14,9 @@
             </div>
             <div class="card-body">
                 <p class="login-box-msg">O c&oacute;digo CIVA ser&aacute; enviado para o seu email.</p>
-                <form action="./recover-password.jsp" method="post">
+                <form id="form-recuperar-civa">
                     <div class="input-group mb-3">
+                        <input type="hidden" value="recuperar-civa" name="option">
                         <input type="email" class="form-control" id="email" name="email" placeholder="maria@mail.com">
                         <div class="input-group-append">
                             <div class="input-group-text">
@@ -23,7 +26,7 @@
                     </div>
                     <div class="row">
                         <div class="col-12">
-                            <button type="submit" class="btn btn-primary btn-block">ENVIAR</button>
+                            <button type="button" class="btn btn-primary btn-block" id="enviar">ENVIAR</button>
                         </div>
                         <!-- /.col -->
                     </div>

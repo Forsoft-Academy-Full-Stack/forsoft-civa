@@ -14,11 +14,71 @@ public class PessoaDao {
     public static int verificarEmail(String email, String tipo) {
         Connection connection = ConnectionFactory.getConnection();
         int idAtor = -1;
+        
         String sqlPortador = "SELECT acp.idacessopc\n"
                 + "FROM acessopc AS acp\n"
                 + "WHERE acp.emailpc LIKE ?;";
 
         String sqlGestor = "SELECT ag.idacessogestao\n"
+                + "FROM acessogestao AS ag\n"
+                + "WHERE ag.emailgestao LIKE ?;";
+        
+        switch (tipo) {
+            case "portador":
+                
+             try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = null;                             
+
+                PreparedStatement ps = connection.prepareStatement(sqlPortador);
+
+                ps.setString(1, email);
+                rs = ps.executeQuery();
+                               
+                if (rs.next()) {
+                    idAtor = rs.getInt("idacessopc");                  
+                }                
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            break;
+
+            case "gestor":
+                try {
+                Statement stmt = connection.createStatement();
+                ResultSet rs = null;
+
+                PreparedStatement ps = connection.prepareStatement(sqlGestor);
+
+                ps.setString(1, email);
+                rs = ps.executeQuery();
+
+                if (rs.next()) {
+                    idAtor = rs.getInt("idacessogestao");                    
+                }
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            break;
+        }
+
+        return idAtor;
+
+    }
+    
+     public static String getCodigoCivaByEmail(String email, String tipo) {
+        Connection connection = ConnectionFactory.getConnection();        
+        String codigo = "";     
+        
+        String sqlPortador = "SELECT acp.codigocivapc\n"
+                + "FROM acessopc AS acp\n"
+                + "WHERE acp.emailpc LIKE ?;";
+
+        String sqlGestor = "SELECT ag.codigocivagestao\n"
                 + "FROM acessogestao AS ag\n"
                 + "WHERE ag.emailgestao LIKE ?;";
 
@@ -35,7 +95,7 @@ public class PessoaDao {
                 rs = ps.executeQuery();
 
                 if (rs.next()) {
-                    idAtor = rs.getInt("idacessopc");
+                    codigo = rs.getString("codigocivapc");
                 }
 
             } catch (SQLException ex) {
@@ -55,7 +115,7 @@ public class PessoaDao {
                 rs = ps.executeQuery();
 
                 if (rs.next()) {
-                    idAtor = rs.getInt("idacessogestao");
+                    codigo = rs.getString("codigocivagestao");
                 }
 
             } catch (SQLException ex) {
@@ -65,7 +125,7 @@ public class PessoaDao {
             break;
         }
 
-        return idAtor;
+        return codigo;
 
     }
     
