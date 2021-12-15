@@ -40,38 +40,63 @@
     
     <div class="form-group col-xl-6">
         <label for="bairro">Bairro</label>
-        <select class="form-control select2 select2-hidden-accessible" id="bairro" name="bairro" style="width: 100%;" tabindex="-1" aria-hidden="true">
+         <input minlength="1" maxlength="50" type="text" class="form-control" id="bairro" name="bairro" placeholder="Bairro x">    <!-- Adicionar no JS tratarCampos() -->
+        <!--select class="form-control select2 select2-hidden-accessible" id="bairro" name="bairro" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option id="local-option" selected="" disabled="">Selecionar Bairro</option> 
             <option>Niteroi</option>
             <option>S&atilde;o Gon&ccedil;alo</option>
             <option>Rio de Janeiro</option>
             <option>Itaborai</option>
             <option>Marica</option>
-        </select>
+        </select-->
     </div>
 </div>
 
 <div class="row">
     <div class="form-group col-xl-6">
         <label for="municipio">Munic&iacute;pio</label>
-        <select class="form-control select2 select2-hidden-accessible" id="municipio" name="municipio" style="width: 100%;" tabindex="-1" aria-hidden="true">
+        <input minlength="1" maxlength="50" type="text" class="form-control" id="municipio" name="municipio" placeholder="municipio x">    <!-- Adicionar no JS tratarCampos() -->
+        <!--select class="form-control select2 select2-hidden-accessible" id="municipio" name="municipio" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option id="opcao-municipio" selected="" disabled="" >Selecionar Munic&iacute;pio</option> 
             <option>Niter&oacute;i</option>
             <option>S&atilde;o Gon&ccedil;alo</option>
             <option>Rio de Janeiro</option>
             <option>Itaborai</option>
             <option>Marica</option>
-        </select>
+        </select-->
     </div>
     <div class="form-group col-xl-6">
         <label for="estado">Estado</label>
         <select class="form-control select2 select2-hidden-accessible" id="estado" name="estado" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option id="opcao-estado" selected="" disabled="">Selecionar Estado</option>
-            <option>Rio de Janeiro</option>
-            <option>S&atilde;o Paulo</option>
-            <option>Minas Gerais</option>
-            <option>Rio Grande do Sul</option>
+            <option>Acre</option>
+            <option>Alagoas</option>
+            <option>Amap&aacute;a</option>
+            <option>Amazonas</option>
             <option>Bahia</option>
+            <option>Cear&aacute;</option>
+            <option>Distrito Federal</option>
+            <option>Esp&iacute;rito Santo</option>
+            <option>Goi&aacute;s</option>
+            <option>Maranh&atilde;o</option>
+            <option>Mato Grosso</option>
+            <option>Mato Grosso do Sul</option>
+            <option>Minas Gerais</option>
+            <option>Par&aacute;</option>
+            <option>Para&iacute;ba</option>
+            <option>Paran&aacute;</option>
+            <option>Pernambuco</option>
+            <option>Piau&iacute;</option>
+            <option>Rio de Janeiro</option>
+            <option>Rio Grande do Norte</option>
+            <option>Rio Grande do Sul</option>
+            <option>Rond&ocirc;nia</option>
+            <option>Roraima</option>
+            <option>Santa Catarina</option>
+            <option>S&atilde;o Paulo</option>
+            <option>Sergipe</option>
+            <option>Tocantins</option>
+            <option>Estrangeiro</option>
         </select>
     </div>
 </div>

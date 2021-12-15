@@ -112,3 +112,6 @@ $("#cadastrar").click(function () {
 
 //pegarPaises("nacionalidade");
 //pegarPaises("nacionalidade-gn");
+
+getElement('#cod-postal').addEventListener('focusout', searchCep2);
+getElement('#cod-postal-gn').addEventListener('focusout', searchCep3Gestor);

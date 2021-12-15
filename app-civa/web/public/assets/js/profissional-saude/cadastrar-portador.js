@@ -1,3 +1,5 @@
+
+
 $('.select2').select2();
 
 let campos = ["nome", "sobrenome",
@@ -56,6 +58,7 @@ $("#salvar").click(() => {
 
 
 pegarPaises("nacionalidade");
+getElement('#cod-postal').addEventListener('focusout', searchCep2);
 
 
 

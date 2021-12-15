@@ -46,7 +46,7 @@
                     <a href="#" class="nav-link">
                         <i class="far fa-flag nav-icon"></i>
                         <p>
-                            Gerenciar Pa&iacute;
+                            Gerenciar Pa&iacute;s
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -60,7 +60,7 @@
                         <li class="nav-item">
                             <a href="cadastrar-pais.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
-                                <p>Cadastrar Pa&iacute;</p>
+                                <p>Cadastrar Pa&iacute;s</p>
                             </a>
                         </li>
                         <!--li class="nav-item">

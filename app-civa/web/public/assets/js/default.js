@@ -134,3 +134,5 @@ function setAbaAtiva() {
         }
     }
 }
+
+getElement('#cod-postal').addEventListener('focusout', searchCep2);

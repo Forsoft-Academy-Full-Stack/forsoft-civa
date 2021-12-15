@@ -44,3 +44,4 @@ $("#salvar").click(function () {
 
 
 pegarPaises("nacionalidade");
+getElement('#cod-postal').addEventListener('focusout', searchCep2);
