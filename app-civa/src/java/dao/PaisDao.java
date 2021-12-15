@@ -101,29 +101,61 @@ public class PaisDao {
         Connection connection = ConnectionFactory.getConnection();
         boolean resultado = false;
 
-        try {
-            ResultSet rs = null;
-            String sql = "";
+        int idVacinaPais = PaisDao.getIdVacinaDoPais(idPais, idVacina);
 
-            sql = "INSERT INTO vacina_do_pais\n"
-                    + "(idpais, idvacina, statusvacinapais)\n"
-                    + "VALUES(?, ?, 1);";
+        if (idVacinaPais == -1) {
+            try {
+                ResultSet rs = null;
+                String sql = "";
 
-            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+                sql = "INSERT INTO vacina_do_pais\n"
+                        + "(idpais, idvacina, statusvacinapais)\n"
+                        + "VALUES(?, ?, 1);";
 
-            ps.setInt(1, idPais);
-            ps.setInt(2, idVacina);
-          
+                PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 
-            int i = ps.executeUpdate();
+                ps.setInt(1, idPais);
+                ps.setInt(2, idVacina);
 
-            resultado = true;
+                int i = ps.executeUpdate();
 
-        } catch (SQLException ex) {
-            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+                resultado = true;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
 
         return resultado;
+    }
+
+    public static int getIdVacinaDoPais(int idPais, int idVacina) {
+        Connection connection = ConnectionFactory.getConnection();
+
+        int idVacinaPais = -1;
+
+        String sql = "select vacp.idvacinadopais from vacina_do_pais as vacp\n"
+                + "where vacp.idvacina = ? and vacp.idpais = ? and vacp.statusvacinapais = true;";
+
+        try {
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setInt(1, idVacina);
+            ps.setInt(2, idPais);
+            rs = ps.executeQuery();
+
+            if (rs.next()) {
+                idVacinaPais = rs.getInt("idvacinadopais");
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PaisDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return idVacinaPais;
     }
 
     public static Pais findByIdPessoa(Integer idPessoa) {

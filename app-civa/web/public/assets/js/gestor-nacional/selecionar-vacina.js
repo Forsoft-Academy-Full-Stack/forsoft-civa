@@ -8,15 +8,15 @@ let form = $("#form-selecionar-vacina");
 
 
 
-$("#nome-vac").change(()=> {
-   $("#nome-vacina").val("");
-   $("#laboratorio").val("");
-   $("#doses").val("");
-   $("#tipovac").val("");
-   $("#timedoses").val("");
-   $("#reforco").val("");
-   
-   
+$("#nome-vac").change(() => {
+    $("#nome-vacina").val("");
+    $("#laboratorio").val("");
+    $("#doses").val("");
+    $("#tipovac").val("");
+    $("#timedoses").val("");
+    $("#reforco").val("");
+
+
 })
 
 $("#cadastrar").click(function () {
@@ -29,12 +29,13 @@ $("#cadastrar").click(function () {
                 text = "";
                 swalAlertSuccess(title, text, callback);
 
-            } else {
-                title = 'Erro!';
-                text = 'Algum erro ocorreu e seus dados n&atilde;o foram enviados.';
-                swalAlertError(title, text, callback);
             }
+        }).fail(function (jqxhr, settings, ex) {
+            title = 'Erro!';
+            text = `Algum erro ocorreu e seus dados n&atilde;o foram enviados. Status: ${settings} ${ex}`;
+            swalAlertError(title, text, callback);
         });
+        
     } else {
         title = 'Campos n&atilde;o preenchidos!';
         text = 'Todos os campos precisam ser preenchidos!';

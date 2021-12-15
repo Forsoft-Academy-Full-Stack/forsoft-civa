@@ -31,16 +31,25 @@ $(function () {
 
 $("#enviar").click(() => {
 
-    title = 'Enviando, aguarde alguns segundos...';
-    text = '';
-    swalAlertLoading(title, callback);
+
 
     let nome = $("#name").val();
     let email = $("#email").val();
     let subject = $("#subject").val();
     let message = $("#message").val();
 
-    sendEmail(email, nome, subject, message);
+    if (tratar_campos(["name", "email", "subject", "message"])) {
+        title = 'Enviando, aguarde alguns segundos...';
+        text = '';
+        swalAlertLoading(title, callback);
+        sendEmail(email, nome, subject, message);
+
+    } else {
+        title = 'Campos n&atilde;o preenchidos!';
+        text = 'Todos os campos precisam ser preenchidos!';
+        swalAlertError(title, text, callback);
+    }
+
 });
 
 
