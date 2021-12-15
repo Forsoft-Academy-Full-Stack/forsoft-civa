@@ -60,7 +60,7 @@
                             <a href="./meus-dados.jsp" class="nav-link">
                                 <i class="nav-icon fas fa-address-card"></i>
                                 <p>
-                                    Meus dados
+                                    Meus Dados
                                 </p>
                             </a>
                         </li>
@@ -92,7 +92,7 @@
                             <a href="./contatar-suporte.jsp" class="nav-link">
                                 <i class="nav-icon fas fa-envelope"></i>
                                 <p>
-                                    Contatar suporte
+                                    Contatar Suporte
                                 </p>
                             </a>
                         </li>
@@ -111,7 +111,7 @@
                         <li class="nav-item">
                             <a href="./termo-de-uso.jsp" class="nav-link">
                                 <i class="nav-icon fas fa-file-alt"></i>
-                                <p>Termos de uso</p>
+                                <p>Termos de Uso</p>
                             </a>
                         </li>
 

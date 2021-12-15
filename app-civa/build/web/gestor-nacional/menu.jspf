@@ -37,7 +37,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-user-friends nav-icon"></i>
                         <p>
-                            País
+                            Pa&iacute;s
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -45,7 +45,7 @@
                         <li class="nav-item">
                             <a href="gerenciar-pais.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
-                                <p>Gerenciar País</p>
+                                <p>Gerenciar Pa&iacute;s</p>
                             </a>
                         </li>
                         <!--li class="nav-item">
@@ -63,7 +63,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-user-friends nav-icon"></i>
                         <p>
-                            Gestores Nacionais
+                            Gestor Nacional
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -89,7 +89,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-user-friends nav-icon"></i>
                         <p>
-                            Gerentes
+                            Gerente
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -97,7 +97,7 @@
                         <li class="nav-item">
                             <a href="consultar-gerente.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
-                                <p>Consultar Gerentes </p>
+                                <p>Consultar Gerente</p>
                             </a>
                         </li>
                         <!--li class="nav-item">
@@ -115,7 +115,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-map-marker-alt nav-icon"></i>
                         <p>
-                            Vacinas
+                            Vacina
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -123,13 +123,13 @@
                         <li class="nav-item">
                             <a href="consultar-vacina.jsp" class="nav-link">
                                 <i class="fas fa-map nav-icon"></i>
-                                <p>Consultar Vacina </p>
+                                <p>Consultar Vacina</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="selecionar-vacina.jsp" class="nav-link">
                                 <i class="fas fa-map-pin nav-icon"></i>
-                                <p>Selecionar Vacina </p>
+                                <p>Selecionar Vacina</p>
                             </a>
                         </li>
 
@@ -149,7 +149,7 @@
                         <li class="nav-item">
                             <a href="consultar-suporte-civa.jsp" class="nav-link">
                                 <i class="fas fa-map nav-icon"></i>
-                                <p>Consultar suporte CIVA </p>
+                                <p>Consultar Suporte CIVA </p>
                             </a>
                         </li>
                         <!--li class="nav-item">
@@ -167,7 +167,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-syringe nav-icon"></i>
                         <p>
-                            Unidades
+                            Unidade
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -175,7 +175,7 @@
                         <li class="nav-item">
                             <a href="consultar-unidade.jsp" class="nav-link">
                                 <i class="fas fa-search nav-icon"></i>
-                                <p>Consultar unidade </p>
+                                <p>Consultar Unidade </p>
                             </a>
                         </li>
                         <!--li class="nav-item">
@@ -192,7 +192,7 @@
                     <a href="./relatorio.jsp" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Relatorio
+                            Relat&oacute;rio
                         </p>
                     </a>
                 </li>
@@ -212,7 +212,7 @@
                             <a href="./meus-dados.jsp" class="nav-link">
                                 <i class="fas fa-address-card nav-icon"></i>
                                 <p>
-                                    Meus dados
+                                    Meus Dados
                                 </p>
                             </a>
                         </li>

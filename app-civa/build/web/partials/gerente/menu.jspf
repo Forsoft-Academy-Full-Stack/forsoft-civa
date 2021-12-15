@@ -37,7 +37,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-user-friends nav-icon"></i>
                         <p>
-                            Supervisores
+                            Supervisor
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -45,7 +45,7 @@
                         <li class="nav-item">
                             <a href="./consultar-supervisor.jsp?nome=" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
-                                <p>Consultar Supervisor </p>
+                                <p>Consultar Supervisor</p>
                             </a>
                         </li>
                         <!--li class="nav-item">
@@ -63,7 +63,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-map-marker-alt nav-icon"></i>
                         <p>
-                            Unidades
+                            Unidade
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -71,7 +71,7 @@
                         <li class="nav-item">
                             <a href="./consultar-unidades.jsp?nome=" class="nav-link">
                                 <i class="fas fa-map nav-icon"></i>
-                                <p>Consultar Unidade </p>
+                                <p>Consultar Unidade</p>
                             </a>
                         </li>
                     </ul>
@@ -101,7 +101,7 @@
                             <a href="./meus-dados-gerente.jsp" class="nav-link">
                                 <i class="fas fa-address-card nav-icon"></i>
                                 <p>
-                                    Meus dados
+                                    Meus Dados
                                 </p>
                             </a>
                         </li>

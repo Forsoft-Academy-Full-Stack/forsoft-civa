@@ -46,7 +46,7 @@
                     <a href="#" class="nav-link">
                         <i class="far fa-flag nav-icon"></i>
                         <p>
-                            Gerenciar pa&iacute;s
+                            Gerenciar Pa&iacute;
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -54,13 +54,13 @@
                         <li class="nav-item">
                             <a href="consultar-pais.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
-                                <p>Consultar pa&iacute;ses</p>
+                                <p>Consultar Pa&iacute;s</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="cadastrar-pais.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
-                                <p>Cadastrar Pa&iacute;s</p>
+                                <p>Cadastrar Pa&iacute;</p>
                             </a>
                         </li>
                         <!--li class="nav-item">
@@ -77,7 +77,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-syringe nav-icon"></i>
                         <p>
-                            Vacinas
+                            Vacina
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -103,7 +103,7 @@
                     <a href="relatorio.jsp" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
-                            Relat&oacute;rios
+                            Relat&oacute;rio
                         </p>
                     </a>
                 </li>
@@ -123,7 +123,7 @@
                             <a href="meus-dados.jsp" class="nav-link">
                                 <i class="fas fa-address-card nav-icon"></i>
                                 <p>
-                                    Meus dados
+                                    Meus Dados
                                 </p>
                             </a>
                         </li>

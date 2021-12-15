@@ -92,13 +92,13 @@
                         <li class="nav-item">
                             <a href="./consultar-supervisor.jsp?nome=" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
-                                <p>Consultar supervisor</p>
+                                <p>Consultar Supervisor</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="./cadastrar-supervisor.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
-                                <p>Cadastrar supervisor</p>
+                                <p>Cadastrar Supervisor</p>
                             </a>
                         </li>
 
@@ -159,7 +159,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-user-friends nav-icon"></i>
                         <p>
-                            Gestores Nacionais
+                            Gestor Nacional
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
@@ -185,7 +185,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-syringe nav-icon"></i>
                         <p>
-                            Unidades
+                            Unidade
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
