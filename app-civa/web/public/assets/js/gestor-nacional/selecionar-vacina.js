@@ -4,13 +4,26 @@ let campos = ['nome-vac', 'laboratorio',
     'tipovac', 'doses', 'timedoses', 'reforco'];
 
 // Pegando o elemento form da p&aacute;gina
-let form = $("#form-meus-dados");
+let form = $("#form-selecionar-vacina");
+
+
+
+$("#nome-vac").change(()=> {
+   $("#nome-vacina").val("");
+   $("#laboratorio").val("");
+   $("#doses").val("");
+   $("#tipovac").val("");
+   $("#timedoses").val("");
+   $("#reforco").val("");
+   
+   
+})
 
 $("#cadastrar").click(function () {
 
     if (tratar_campos(campos)) {
 
-        $.get("", form.serialize(), (data, status) => {
+        $.post("/app-civa/vacina", form.serialize(), (data, status) => {
             if (status === 'success') {
                 title = 'Vacina cadastrada com sucesso!';
                 text = "";

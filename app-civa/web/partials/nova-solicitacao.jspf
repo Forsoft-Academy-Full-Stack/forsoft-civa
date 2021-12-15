@@ -18,7 +18,7 @@
                 <input type="text" class="form-control" id="sobrenome" name="sobrenome" value="${ator.pessoa.sobrenomePessoa}" placeholder="Milos" disabled>
             </div>
             <div class="col-xl-6">
-                <label for="doc">Tipo de Doc</label>
+                <label for="doc">Tipo de Documento</label>
                 <input type="text" class="form-control" id="tipo-doc" name="tipo-doc" value="${ator.documento1.nomeTipoDoc}" disabled></input>
 
             </div>

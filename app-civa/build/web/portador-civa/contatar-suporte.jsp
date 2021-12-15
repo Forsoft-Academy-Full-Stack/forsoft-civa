@@ -17,6 +17,7 @@
 
 %>
 <%@include file="header.jspf"%>
+<script src="../public/assets/js/smtp.js" defer></script>
 <script src="../public/assets/js/portador-civa/contatar-suporte.js" defer></script>
 </head>
 

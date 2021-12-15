@@ -4,6 +4,7 @@
  */
 package controller;
 
+import dao.PaisDao;
 import dao.VacinaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -76,6 +77,23 @@ public class vacina extends HttpServlet {
 
                 case "deletar":
                     break;
+                    
+                    
+                case "vincular":
+                    int idVacina =  Integer.parseInt(request.getParameter("id-vacina"));
+                    int idPais =  Integer.parseInt(request.getParameter("id-pais"));
+                    
+                   
+                    result = PaisDao.vincularVacina(idVacina, idPais);
+                                        
+                    if (!result) {
+                        response.sendError(404);
+                    }
+
+                    
+                    break;
+                    
+                    
             }
 
         }

@@ -97,8 +97,33 @@ public class PaisDao {
         return idPais;
     }
 
-    public static Pais findById(Integer idPais) {
-        return null;
+    public static boolean vincularVacina(int idVacina, int idPais) {
+        Connection connection = ConnectionFactory.getConnection();
+        boolean resultado = false;
+
+        try {
+            ResultSet rs = null;
+            String sql = "";
+
+            sql = "INSERT INTO vacina_do_pais\n"
+                    + "(idpais, idvacina, statusvacinapais)\n"
+                    + "VALUES(?, ?, 1);";
+
+            PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+            ps.setInt(1, idPais);
+            ps.setInt(2, idVacina);
+          
+
+            int i = ps.executeUpdate();
+
+            resultado = true;
+
+        } catch (SQLException ex) {
+            Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return resultado;
     }
 
     public static Pais findByIdPessoa(Integer idPessoa) {
@@ -217,7 +242,7 @@ public class PaisDao {
                 tipoDoc.setNomeDoc(rs.getString("nomedoc"));
                 tipoDoc.setFormatoDoc(rs.getString("formatodoc"));
                 tipoDoc.setNivel(rs.getString("nivel"));
-                
+
                 System.err.println("IDTIPODOC: " + tipoDoc.getIdTipoDoc());
 
                 tipoDocs.add(tipoDoc);
@@ -320,7 +345,7 @@ public class PaisDao {
             for (TipoDoc tipoDoc : tiposDoc) {
 
                 if (tipoDoc.getNomeDoc() != null && tipoDoc.getFormatoDoc() != null && tipoDoc.getNivel() != null) {
-                  
+
                     ps.setString(1, tipoDoc.getNomeDoc());
                     ps.setString(2, tipoDoc.getFormatoDoc());
                     ps.setString(3, tipoDoc.getNivel());
@@ -330,7 +355,7 @@ public class PaisDao {
                 }
 
             }
-            
+
             resultado = true;
 
         } catch (SQLException ex) {

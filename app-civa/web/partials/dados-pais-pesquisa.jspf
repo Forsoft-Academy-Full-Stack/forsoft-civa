@@ -5,9 +5,7 @@
     
      <input type="hidden" class="form-control" value="${pais.idPais}" id="id-pais" name="id-pais">
      
-    <div class="form-group col-xl-3">
-        
-        
+    <div class="form-group col-xl-3">                
         <label for="pais">Pa&iacute;s</label>
         <input type="text" class="form-control" value="${pais.nomePais}" id="pais" name="pais">
             
@@ -39,7 +37,7 @@
 
 <div class="row">
     <div class="form-group col-xl-12">
-        <label for="orgao-saude">&Oacute;rg&atilde;o de sa&uacute;de</label>
+        <label for="orgao-saude">&Oacute;rg&atilde;o de Sa&uacute;de</label>
         <input type="text" class="form-control" id="orgao-saude" name="orgao-saude" value="${pais.orgaoResponsavel}">
     </div>       
 </div>

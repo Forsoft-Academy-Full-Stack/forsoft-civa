@@ -10,7 +10,6 @@ let campos = ["nome", "sobrenome",
 let form = $("#form-meus-dados");
 
 $("#salvar").click(() => {
-
     if (tratar_campos(campos)) {
         let mesma_senha = $("#senha").val() === $("#confirmar-senha").val();
 
@@ -23,8 +22,8 @@ $("#salvar").click(() => {
                 $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
                     console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                     if (status === 'success') {
-                        title = 'Codigo enviado!';
-                        text = "Verifique o email informado.";
+                        title = 'Portador Cadastrar!';
+                        text = "Cadastro efetuado com sucesso!";
                         swalAlertSuccess(title, text, () => {
                              window.location = './';
                         });
