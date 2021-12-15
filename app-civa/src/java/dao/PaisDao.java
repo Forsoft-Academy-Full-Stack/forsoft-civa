@@ -129,6 +129,39 @@ public class PaisDao {
         return resultado;
     }
 
+    public static boolean desvincularVacina(int idVacina, int idPais) {
+        Connection connection = ConnectionFactory.getConnection();
+        boolean resultado = false;
+
+        int idVacinaPais = PaisDao.getIdVacinaDoPais(idPais, idVacina);
+        
+        System.err.println("idVacinaPais: " + idVacinaPais);
+
+        if (idVacinaPais != -1) {
+            try {
+                ResultSet rs = null;
+                String sql = "";
+
+                sql = "UPDATE vacina_do_pais\n"
+                        + "SET statusvacinapais=false \n"
+                        + "WHERE idvacinadopais=?;";
+
+                PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+
+                ps.setInt(1, idVacinaPais);
+               
+                int i = ps.executeUpdate();
+
+                resultado = true;
+
+            } catch (SQLException ex) {
+                Logger.getLogger(PessoaDao.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+
+        return resultado;
+    }
+
     public static int getIdVacinaDoPais(int idPais, int idVacina) {
         Connection connection = ConnectionFactory.getConnection();
 

@@ -187,7 +187,7 @@ public class VacinaDao {
                 + "ON ag.idpessoa = peag.idpessoa\n"
                 + "LEFT JOIN pais pa\n"
                 + "ON peag.idpaisdenascimento = pa.idpais\n"
-                + "WHERE ag.codigocivagestao = ?)";
+                + "WHERE ag.codigocivagestao = ?) and vdp.statusvacinapais = true";
 
         try {
             vacinas = new ArrayList<>();
@@ -219,6 +219,7 @@ public class VacinaDao {
 
         return vacinas;
     }
+    
     
     public static List<Vacina> listByProfissionalSaude(String codigoCivaProfissionalSaude) {
         Connection connection = ConnectionFactory.getConnection();

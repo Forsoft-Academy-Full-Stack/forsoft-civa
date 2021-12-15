@@ -1,3 +1,6 @@
+<%@page import="model.GestorNacional"%>
+<%@page import="dao.PaisDao"%>
+<%@page import="dao.GestorNacionalDao"%>
 <%@page import="dao.VacinaDao"%>
 <%@page import="model.Vacina"%>
 <%@page import="model.Pessoa"%>
@@ -27,6 +30,11 @@
         Integer idVacina = Integer.parseInt(request.getParameter("idVacina"));
         Vacina vacina = VacinaDao.findById(idVacina);
         pageContext.setAttribute("vacina", vacina);
+        
+        GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva());        
+        int idPais = PaisDao.getIdPaisByName(gestorNacional.getEndereco().getNomePais());
+        
+        pageContext.setAttribute("idPais", idPais);
 
     } catch (Exception e) {
     }
@@ -88,10 +96,13 @@
                                         <!-- /.card-header -->
                                         <!-- form start -->
                                         <form id="form-cad-portador">
+                                            <input type="hidden" value="desvincular" name="option">
+                                             <input type="hidden" value="${idPais}" name="id-pais">
+                                             <input type="hidden" value="${vacina.idVacina}" name="id-vacina">
                                             <div class="card-body">
                                                 <div class="row">
                                                     <div class="form-group col-6">
-                                                        <label for="id-vacina">ID vacina</label>
+                                                        <label for="id-vacina">ID Vacina</label>
                                                         <input type="text" class="form-control" id="id-vacina" name="id-vacina" value="${vacina.idVacina}" disabled>
                                                     </div>
                                                     <div class="form-group col-6">
@@ -112,18 +123,18 @@
 
                                                 <div class="row">
                                                     <div class="form-group col-xl-6">
-                                                        <label for="tipo-vacina">Tipo de vacina</label>
+                                                        <label for="tipo-vacina">Tipo de Vacina</label>
                                                         <input type="text" class="form-control" id="tipo-vacina" name="tipo-vacina" value="${vacina.tipoVacina}" disabled>
                                                     </div>
                                                     <div class="form-group col-xl-6">
-                                                        <label for="tempo-doses">Tempo entre doses (em dias)</label>
+                                                        <label for="tempo-doses">Tempo Entre Doses (em dias)</label>
                                                         <input type="text" class="form-control" id="tempo-doses" name="tempo-doses" value="${vacina.tempoEntreDoses}" disabled>
                                                     </div>
                                                 </div>
 
                                                 <div class="row">
                                                     <div class="form-group col-xl-12">
-                                                        <label for="reforco">Tempo para refor&ccedil;o (em dias)</label>
+                                                        <label for="reforco">Tempo Para Refor&ccedil;o (em dias)</label>
                                                         <input type="text" class="form-control" id="reforco" name="reforco" value="${vacina.tempoReforco}" disabled>
                                                     </div>                                                   
                                                 </div>
@@ -135,7 +146,7 @@
                                 </div>
 
                                 <div class="col-md-12 mb-3 mt-3">
-                                    <button type="submit" class="btn btn-primary btn-lg" form="form-cad-portador">Desvincular</button>
+                                    <button type="button" class="btn btn-primary btn-lg" id="desvincular">Desvincular</button>
                                 </div>
 
                             </div>

@@ -93,6 +93,23 @@ public class vacina extends HttpServlet {
                     
                     break;
                     
+                case "desvincular":
+                    idVacina =  Integer.parseInt(request.getParameter("id-vacina"));
+                    idPais =  Integer.parseInt(request.getParameter("id-pais"));
+                    
+                    System.err.println("idvacina: " + idVacina);
+                    System.err.println("idPais: " + idPais);
+                    
+                   
+                    result = PaisDao.desvincularVacina(idVacina, idPais);
+                                        
+                    if (!result) {
+                        response.sendError(404);
+                    }
+
+                    
+                    break;
+                    
                     
             }
 

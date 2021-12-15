@@ -24,7 +24,7 @@
 
     // Caso contrário é um usuário válido, pode entrar na página
     try {
-        List<Vacina> listaVacinas = VacinaDao.listByGestorNacional(pessoa.getCodigoCiva());
+        List<Vacina> listaVacinas = VacinaDao.listByGestorOms();
         pageContext.setAttribute("vacinas", listaVacinas);
 
     } catch (Exception e) {
@@ -97,7 +97,7 @@
 
                             <div class="card card-primary">
                                 <div class="card-header">
-                                    <h3 class="card-title">Dados dose</h3>
+                                    <h3 class="card-title">Dados da Vacina</h3>
                                 </div>
                                 <!-- /.card-header -->
                                 <!-- form start -->
@@ -107,7 +107,7 @@
                                         <input type="hidden" value="${idPais}" name="id-pais">
                                         <div class="row"> 
                                             <div class="form-group col-xl-12">
-                                                <label for="nome-vac">Escolher</label>
+                                                <label for="nome-vac">Escolher Vacina</label>
                                                 <select class="form-control select2 select2-hidden-accessible" id="nome-vac" name="idVacina" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                                     <option selected>Selecionar</option>
                                                     <c:forEach items="${vacinas}" var="vacina2">
@@ -138,18 +138,18 @@
                                                 <input type="text" class="form-control" id="tipovac" name="tipovac" value="${vacina.tipoVacina}" readonly>
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="doses">Quantidade de doses</label>
+                                                <label for="doses">Quantidade de Doses</label>
                                                 <input type="text" class="form-control" id="doses" name="doses" value="${vacina.numeroDoses}" readonly>
                                             </div>
                                         </div>
 
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="timedoses">Intervalo das doses(dias)</label>
+                                                <label for="timedoses">Intervalo das Doses (dias)</label>
                                                 <input type="text" class="form-control" id="timedoses" name="timedoses" value="${vacina.tempoEntreDoses}" readonly>
                                             </div>
                                             <div class="form-group col-xl-6">
-                                                <label for="reforco">Tempo para refor&ccedil;o(dias)</label>
+                                                <label for="reforco">Tempo para Refor&ccedil;o (dias)</label>
                                                 <input type="text" class="form-control" id="reforco" name="reforco" value="${vacina.tempoReforco}" readonly>
                                             </div>
                                         </div>
