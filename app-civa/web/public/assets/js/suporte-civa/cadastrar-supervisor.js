@@ -26,7 +26,7 @@ $("#salvar").click(function () {
                 title = 'Supervisor cadastrado com sucesso!';
                 text = "Cadastro realizada.";
                 swalAlertSuccess(title, text, () =>{
-                    window.location = './/cadastrar-supervisor.jsp';
+                    window.location = './cadastrar-supervisor.jsp';
                 });
 
             }
