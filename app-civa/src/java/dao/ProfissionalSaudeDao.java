@@ -109,7 +109,7 @@ public class ProfissionalSaudeDao {
                 endereco.setNomePais(rs.getString("nomedopais"));
                 endereco.setCodigoPostal(rs.getString("codigopostal"));
                 endereco.setTipoLogradouro(rs.getString("tipodelogradouro"));
-                endereco.setLogradouro(endereco.getTipoLogradouro() + "" + rs.getString("logradouro"));
+                endereco.setLogradouro(rs.getString("logradouro"));
                 endereco.setNumero(rs.getString("numero"));
                 endereco.setComplemento(rs.getString("complemento"));
                 endereco.setNomesubdivisao1(rs.getString("subdivisao1"));
