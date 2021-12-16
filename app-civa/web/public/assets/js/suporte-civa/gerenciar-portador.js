@@ -42,8 +42,8 @@ $("#salvar").click(function () {
 let form_excluir = $("#form-excluir");
 
 $("#excluir").click(function () {
-    title = 'Deletar Portador';
-    text = 'Deseja deletar esse portador?';
+    title = 'Desativar Portador';
+    text = 'Deseja desativar esse portador?';
     swalAlertDelete(title, text, () => {
         
         
@@ -54,8 +54,8 @@ $("#excluir").click(function () {
         $.post("/app-civa/portador", form_excluir.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
-                title = 'Deletado!';
-                text = "Portador deletado com sucesso";
+                title = 'Desativado!';
+                text = "Portador desativa com sucesso";
                 swalAlertInfo(title, text, () => {
                     // redirecionar para o listar
                     window.location = './consultar-portador.jsp?nome=';

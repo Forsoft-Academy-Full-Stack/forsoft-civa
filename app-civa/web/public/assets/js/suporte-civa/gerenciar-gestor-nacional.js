@@ -41,8 +41,8 @@ $("#salvar").click(function () {
 let form_excluir = $("#form-excluir");
 
 $("#excluir").click(function () {
-    title = 'Deseja realmente excluir esse Gerente?';
-    text = 'A&ccedil;&atilde;o irrevers&iacute;vel';
+    title = 'Desativar Gestor Nacional';
+    text = 'Deseja desativar esse Gestor Nacional?';
     swalAlertDelete(title, text, () => {
                 
         title = 'Enviando, aguarde alguns segundos...';

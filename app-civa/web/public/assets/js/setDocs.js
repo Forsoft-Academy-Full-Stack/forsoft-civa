@@ -80,7 +80,59 @@ function btnsControleDocs() {
         case 4:
             btnsAddCampo[3].style.display = 'none';
             btnsRmvCampo[3].style.display = 'none';
+            btnsAddCampo[4].style.display = 'inline';
+            btnsRmvCampo[4].style.display = 'inline';
             // em resumo, definimos o atributo css display dos dois botões anteriores como none (para que desapareçam)
         break;
+        
+        case 5:
+            btnsAddCampo[4].style.display = 'none';
+            btnsRmvCampo[4].style.display = 'none';
+            btnsAddCampo[5].style.display = 'inline';
+            btnsRmvCampo[5].style.display = 'inline';
+            // em resumo, definimos o atributo css display dos dois botões anteriores como none (para que desapareçam)
+        break;
+        
+        case 6:
+            btnsAddCampo[5].style.display = 'none';
+            btnsRmvCampo[5].style.display = 'none';
+            btnsAddCampo[6].style.display = 'inline';
+            btnsRmvCampo[6].style.display = 'inline';
+            // em resumo, definimos o atributo css display dos dois botões anteriores como none (para que desapareçam)
+        break;
+        
+        case 7:
+            btnsAddCampo[6].style.display = 'none';
+            btnsRmvCampo[6].style.display = 'none';
+            btnsAddCampo[7].style.display = 'inline';
+            btnsRmvCampo[7].style.display = 'inline';
+            // em resumo, definimos o atributo css display dos dois botões anteriores como none (para que desapareçam)
+        break;
+        
+        case 8:
+            btnsAddCampo[7].style.display = 'none';
+            btnsRmvCampo[7].style.display = 'none';
+            btnsAddCampo[8].style.display = 'inline';
+            btnsRmvCampo[8].style.display = 'inline';
+            // em resumo, definimos o atributo css display dos dois botões anteriores como none (para que desapareçam)
+        break;
+        
+        case 9:
+            btnsAddCampo[8].style.display = 'none';
+            btnsRmvCampo[8].style.display = 'none';
+            btnsAddCampo[9].style.display = 'inline';
+            btnsRmvCampo[9].style.display = 'inline';
+            // em resumo, definimos o atributo css display dos dois botões anteriores como none (para que desapareçam)
+        break;
+        
+        case 10:
+            btnsAddCampo[9].style.display = 'none';
+            btnsRmvCampo[9].style.display = 'none';
+            btnsAddCampo[10].style.display = 'inline';
+            btnsRmvCampo[10].style.display = 'inline';
+            // em resumo, definimos o atributo css display dos dois botões anteriores como none (para que desapareçam)
+        break;
+        
+       
     };
 };

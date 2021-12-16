@@ -38,12 +38,12 @@
 </div>
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc1">Tipo de Documento:</label>
+        <label for="tipo-doc1">Tipo de Documento</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1" name="tipo-doc1" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option value="" selected disabled>Selecionar Tipo de Documento</option>
+            <option value="" disabled>Selecionar Tipo de Documento</option>
             <option>PASSAPORTE</option>
             <option>RG</option>
-            <option>CPF</option>
+            <option selected>CPF</option>
         </select>
     </div>
     <div class="form-group col-xl-6">

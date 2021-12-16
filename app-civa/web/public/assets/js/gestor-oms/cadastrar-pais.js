@@ -25,7 +25,10 @@ let form3 = $("#dados-suporte-civa");
 form2.hide();
 form3.hide();
 let tag = 'pais';
-$("#cadastrar").val("Avançar");
+
+let cadastrar = $("#cadastrar");
+cadastrar.text('Avançar');
+
 
 $("#cadastrar").click(function () {
     console.log(tag);
@@ -61,7 +64,7 @@ $("#cadastrar").click(function () {
                 form1.hide();
 
                 tag = 'suporte';
-                $("#cadastrar").val("Cadastrar");
+               cadastrar.text('Cadastrar')
             });
 
 

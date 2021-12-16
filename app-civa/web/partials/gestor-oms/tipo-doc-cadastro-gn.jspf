@@ -3,7 +3,7 @@
 
 <div class="row">
     <div class="form-group col-xl-4">
-        <label for="tipo-doc1">Nível do Documento:</label>
+        <label for="tipo-doc1">N&iacute;vel do Documento</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1-p" name="tipo-doc1" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" disabled>Selecionar N&iacute;el do Documento</option>
             <option selected >Prim&aacute;rio</option>
@@ -27,7 +27,7 @@
 </div>
 <div class="row optional" style="display:none;">
   <div class="form-group col-xl-4">
-        <label for="tipo-doc2">Nível do Documipoento 2:</label>
+        <label for="tipo-doc2">N&iacute;vel do Documipoento 2</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc2-p" name="tipo-doc2" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value=""  disabled>Selecionar N&iacute;el do Documento</option>
               <option>Prim&aacute;rio</option>
@@ -50,7 +50,7 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-4">
-        <label for="tipo-doc3">Nível do Documento 3:</label>
+        <label for="tipo-doc3">N&iacute;vel do Documento 3</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc3-p" name="tipo-doc3" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value=""  disabled>Selecionar N&iacute;el do Documento</option>
               <option>Prim&aacute;rio</option>
@@ -74,7 +74,7 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-4">
-        <label for="tipo-doc4">Nível do Documento 4:</label>
+        <label for="tipo-doc4">N&iacute;vel do Documento 4</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc4-p" name="tipo-doc4" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value=""  disabled>Selecionar N&iacute;el do Documento</option>
               <option>Prim&aacute;rio</option>
@@ -98,13 +98,13 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-4">
-         <label for="tipo-doc5">Nível do Documento 5:</label>
+         <label for="tipo-doc5">N&iacute;vel do Documento 5</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc5-p" name="tipo-doc5" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value=""  disabled>Selecionar N&iacute;el do Documento</option>
               <option>Prim&aacute;rio</option>
             <option>Secund&aacute;rio</option>
             <option>Internacional</option>
-            <option selected>Profissional de Saúde</option>
+            <option selected>Profissional de Sa&uacute;de</option>
             <option>Unidade</option>
         </select>
     </div>
@@ -122,13 +122,13 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-4">
-         <label for="tipo-doc6">Nível do Documento 6</label>
+         <label for="tipo-doc6">N&iacute;vel do Documento 6</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc6-p" name="tipo-doc6" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value=""  disabled>Selecionar N&iacute;el do Documento</option>
               <option>Prim&aacute;rio</option>
             <option>Secund&aacute;rio</option>
             <option>Internacional</option>
-            <option>Profissional de Saúde</option>
+            <option>Profissional de Sa&uacute;de</option>
             <option selected> Unidade</option>
         </select>
     </div>
@@ -146,13 +146,13 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-4">
-        <label for="tipo-doc7">Nível do Documento 7:</label>
+        <label for="tipo-doc7">N&iacute;vel do Documento 7</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc7-p" name="tipo-doc7" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar N&iacute;el do Documento</option>
               <option>Prim&aacute;rio</option>
             <option>Secund&aacute;rio</option>
             <option>Internacional</option>
-            <option>Profissional de Saúde</option>
+            <option>Profissional de Sa&uacute;de</option>
             <option>Unidade</option>
         </select>
     </div>
@@ -170,13 +170,13 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-4">
-         <label for="tipo-doc8">Nível do Documento 8:</label>
+        <label for="tipo-doc8">N&uacute;vel do Documento 8</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc8-p" name="tipo-doc8" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar N&iacute;el do Documento</option>
               <option>Prim&aacute;rio</option>
             <option>Secund&aacute;rio</option>
             <option>Internacional</option>
-            <option>Profissional de Saúde</option>
+            <option>Profissional de Sa&uacute;de</option>
             <option>Unidade</option>
         </select>
     </div>
@@ -194,7 +194,7 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-4">
-        <label for="tipo-doc9">Nível do Documento 9:</label>
+        <label for="tipo-doc9">N&iacute;vel do Documento 9</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc9-p" name="tipo-doc9" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar N&iacute;el do Documento</option>
               <option>Prim&aacute;rio</option>
@@ -218,13 +218,13 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-4">
-       <label for="tipo-doc10">Nível de Documento 10:</label>
+        <label for="tipo-doc10">N&iacute;vel de Documento 10</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc10" name="tipo-doc10" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar N&iacute;el do Documento 8</option>
               <option>Prim&aacute;rio</option>
             <option>Secund&aacute;rio</option>
             <option>Internacional</option>
-            <option>Profissional de Saúde</option>
+            <option>Profissional de Sa&uacute;de</option>
             <option>Unidade</option>
         </select>
     </div>

@@ -40,14 +40,7 @@
         <label for="bairro-gn">Bairro</label>
         <input minlength="1" maxlength="100" type="text" class="form-control" id="bairro-gn" name="bairro-gn" placeholder="bairro x">
         
-        <!--select class="form-control select2 select2-hidden-accessible" id="bairro-gn" name="bairro-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option id="local-option" selected="" disabled="">Selecionar Bairro</option> 
-            <option>Niteroi</option>
-            <option>S&atilde;o Gon&ccedil;alo</option>
-            <option>Rio de Janeiro</option>
-            <option>Itaborai</option>
-            <option>Marica</option>
-        </select-->
+        
     </div>
 </div>
 
@@ -55,14 +48,7 @@
     <div class="form-group col-xl-6">
         <label for="municipio-gn">Munic&iacute;pio</label>
          <input minlength="1" maxlength="100" type="text" class="form-control" id="municipio-gn" name="municipio-gn" placeholder="municipio x">               
-        <!--select class="form-control select2 select2-hidden-accessible" id="municipio-gn" name="municipio-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
-            <option id="opcao-municipio" selected="" disabled="" >Selecionar Munic&iacute;pio</option> 
-            <option>Niter&oacute;i</option>
-            <option>S&atilde;o Gon&ccedil;alo</option>
-            <option>Rio de Janeiro</option>
-            <option>Itaborai</option>
-            <option>Marica</option>
-        </select-->
+       
     </div>
     <div class="form-group col-xl-6">
         <label for="estado-gn">Estado</label>
@@ -70,7 +56,7 @@
             <option id="opcao-estado" selected="" disabled="">Selecionar Estado</option>
             <option>Acre</option>
             <option>Alagoas</option>
-            <option>Amap&aacute;a</option>
+            <option>Amap&aacute;</option>
             <option>Amazonas</option>
             <option>Bahia</option>
             <option>Cear&aacute;</option>

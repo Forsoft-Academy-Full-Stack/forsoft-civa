@@ -92,7 +92,7 @@
                                         <hr class = "m mt-4">
                                         <%@include file="../partials/tipo-doc-cadastro-disabled.jspf" %>
                                         <hr class = "mb-4 mt-4">
-                                        <%@include file="../partials/dados-pais-divisao-territorial-pesquisa.jspf" %>                                                                                
+                                        <%@include file="./divisao-territorial-pais-disabled.jspf" %>                                                                                
 
                                     </div>
                                 </form>
@@ -101,11 +101,11 @@
                         </div>
                         <!-- /.row -->
                     </div>
-                    <div class="row">
+                    <!--div class="row">
                         <div class="col-12 pb-4">
                             <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
                         </div>
-                    </div>
+                    </div-->
 
 
                 </div>

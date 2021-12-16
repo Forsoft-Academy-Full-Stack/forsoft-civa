@@ -19,9 +19,7 @@
 
     }
 
-    // Caso contrário é um usuário válido, pode entrar na página
-
-    
+    // Caso contrário é um usuário válido, pode entrar na página   
 try {                 
         List<Pais> paises = PaisDao.listPais();
         pageContext.setAttribute("paises", paises);

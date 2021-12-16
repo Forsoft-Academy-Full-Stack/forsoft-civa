@@ -76,7 +76,8 @@ function swalAlertDelete(title, text, callback) {
         showCancelButton: true,
         confirmButtonColor: '#007bff',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Deletar',
+        confirmButtonText: 'Desativar',
+        cancelButtonText: 'Cancelar',
         html: text
     }).then((result) => {
         if (result.isConfirmed) {

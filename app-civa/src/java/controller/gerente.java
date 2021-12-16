@@ -79,6 +79,11 @@ public class gerente extends HttpServlet {
                     endereco.setNomesubdivisao3(request.getParameter("bairro"));
                     endereco.setNomesubdivisao2(request.getParameter("municipio"));
                     endereco.setNomesubdivisao1(request.getParameter("estado"));
+                    
+                    System.err.println("setLogradouro: " + endereco.getLogradouro());
+                    System.err.println("setNomesubdivisao3: " + endereco.getNomesubdivisao3());
+                    System.err.println("setNomesubdivisao2: " + endereco.getNomesubdivisao2());
+                    System.err.println("setNomesubdivisao1: " + endereco.getNomesubdivisao1());
                   
                     endereco.setIdPais(idPais);
                     String nomePais = PaisDao.getNomeById(idPais);

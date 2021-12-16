@@ -43,7 +43,7 @@
 </div>
 <div class="row">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc1-gn">Tipo de Documento:</label>
+        <label for="tipo-doc1-gn">Tipo de Documento</label>
         <select disabled="disabled"class="form-control select2 select2-hidden-accessible" id="tipo-doc1-gn" name="tipo-doc1-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Prim&aacute;rio</option>
             <option>CPF</option>
@@ -63,7 +63,7 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc2">Tipo de Documento 2:</label>
+        <label for="tipo-doc2">Tipo de Documento 2</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc2" name="tipo-doc2-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento 2</option>
             <option>CPF</option>
@@ -83,7 +83,7 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc3">Tipo de Documento 3:</label>
+        <label for="tipo-doc3">Tipo de Documento 3</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc3" name="tipo-doc3-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento 3</option>
             <option>CPF</option>
@@ -103,7 +103,7 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc4">Tipo de Documento 4:</label>
+        <label for="tipo-doc4">Tipo de Documento 4</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc4" name="tipo-doc4-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento 4</option>
             <option>CPF</option>
@@ -123,7 +123,7 @@
 </div>
 <div class="row optional" style="display:none;">
     <div class="form-group col-xl-6">
-        <label for="tipo-doc5">Tipo de Documento 5:</label>
+        <label for="tipo-doc5">Tipo de Documento 5</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc5" name="tipo-doc5-gn" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento 5</option>
             <option>CPF</option>

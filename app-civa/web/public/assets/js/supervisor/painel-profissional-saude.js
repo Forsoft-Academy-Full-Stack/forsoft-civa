@@ -39,8 +39,8 @@ $("#salvar").click(function () {
 let form_excluir = $("#form-excluir");
 
 $("#excluir").click(function () {
-    title = 'Deseja realmente excluir esse Gerente?';
-    text = 'A&ccedil;&atilde;o irrevers&iacute;vel';
+     title = 'Desativar Profissional de Saúde';
+    text = 'Deseja desativar esse Profissional de Saúde?';
     swalAlertDelete(title, text, () => {
         
         title = 'Enviando, aguarde alguns segundos...';
@@ -51,7 +51,7 @@ $("#excluir").click(function () {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Desativado!';
-                text = "Gestor Nacional desativado com sucesso";
+                text = "Profissional de Saúde desativado com sucesso";
                 swalAlertInfo(title, text, () => {
                     // redirecionar para o listar
                     window.location = './consultar-profissional-de-saude.jsp';

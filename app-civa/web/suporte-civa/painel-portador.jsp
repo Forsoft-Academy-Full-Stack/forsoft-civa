@@ -114,7 +114,7 @@
 
                 <div class="col-12 pb-4 d-flex justify-content-between">
                     <button type="button" id="salvar" class="btn btn-primary btn-lg" style="width:175px">Salvar</button>
-                    <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Excluir</button>
+                    <button type="button" class="btn btn-danger btn-lg" id="excluir" style="width:175px">Desativar</button>
                 </div>
                 <!-- /.container-fluid -->
 

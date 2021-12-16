@@ -54,11 +54,13 @@ async function searchCep2(event) {
         //getElement('#cidade').value = cepResponse.localidade
         //getElement('#bairro').value = cepResponse.bairro
         //getElement('#estado').value = cepResponse.uf
-
-        getElement(`#nome-logrd`).value = cepResponse.logradouro
-        getElement(`#municipio`).value = cepResponse.localidade
-        getElement(`#bairro`).value = cepResponse.bairro
-        //getElement(`#estado`).value = cepResponse.uf
+console.log(cepResponse.logradouro)
+        getElement(`#nome-logrd`).value = cepResponse.logradouro !== undefined ? cepResponse.logradouro : "";
+        getElement(`#municipio`).value = cepResponse.localidade !== undefined ?  cepResponse.localidade : "";
+        getElement(`#bairro`).value = cepResponse.bairro !== undefined ? cepResponse.bairro : "";
+        //getElement(`#estado`).value = cepResponse.uf 
+        
+        
 
     }
 

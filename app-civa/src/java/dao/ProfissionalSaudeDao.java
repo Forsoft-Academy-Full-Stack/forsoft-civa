@@ -212,7 +212,7 @@ public class ProfissionalSaudeDao {
                 + "ON peag.idpessoa = peen.idpessoa \n"
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
-                + "WHERE ag.codigocivagestao = ?) AND ag.statusgestao = true order by codigociva desc limit 20;";
+                + "WHERE ag.codigocivagestao = ?) AND ag.statusgestao = true order by codigociva desc limit 30;";
 
         try {
             Statement stmt = connection.createStatement();

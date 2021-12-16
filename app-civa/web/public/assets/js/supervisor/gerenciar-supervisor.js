@@ -40,11 +40,10 @@ $("#salvar").click(function () {
 let form_excluir = $("#form-excluir");
 
 $("#excluir").click(function () {
-    title = 'Deseja realmente excluir esse Gerente?';
-    text = 'A&ccedil;&atilde;o irrevers&iacute;vel';
+    title = 'Desativar Supervisor';
+    text = 'Deseja desativar esse Supervisor?';
     swalAlertDelete(title, text, () => {
-        
-        
+                
         title = 'Enviando, aguarde alguns segundos...';
         swalAlertLoading(title, callback);
         
