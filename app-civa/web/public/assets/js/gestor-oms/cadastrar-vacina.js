@@ -3,9 +3,12 @@ $('.select2').select2();
 let campos = ['nome', 'lab', 'tipo-vacina', 'doses', 'intervalo-dose', 'tempo-reforco'];
 
 let form = $("#form-vacina");
-$("#cadastrar").click(function () {  
+$("#cadastrar").click(function () {
     if (tratar_campos(campos)) {
-       $.post("/app-civa/vacina", form.serialize(), (data, status, jqXHR) => {
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
+
+        $.post("/app-civa/vacina", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Vacina cadastrada com sucesso!';
@@ -24,5 +27,5 @@ $("#cadastrar").click(function () {
         title = 'Campos n&atilde;o preenchidos!';
         text = 'Todos os campos precisam ser preenchidos para poder enviar!';
         swalAlertError(title, text, callback);
-    }    
+    }
 });

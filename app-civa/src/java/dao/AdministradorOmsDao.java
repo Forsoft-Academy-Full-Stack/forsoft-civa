@@ -136,7 +136,7 @@ public class AdministradorOmsDao {
 
         sql = "SELECT peag.idpessoa, ag.codigocivagestao , peag.nomepessoa, peag.sobrenomepessoa , peag.genero,  peag.datadenascimento, \n"
                 + "pa.nomedopais, en.codigopostal, en.tipodelogradouro, en.logradouro, peen.numero,  peen.complemento, en.nomesubdivisao1, en.nomesubdivisao2, en.nomesubdivisao3, \n"
-                + "peag.telefonecomddd, ag.emailgestao FROM pessoa peag \n"
+                + "peag.telefonecomddd, ag.emailgestao, pa.ddi FROM pessoa peag \n"
                 + "LEFT JOIN acessogestao ag \n"
                 + "ON peag.idpessoa = ag.idpessoa  \n"
                 + "LEFT JOIN pais pa \n"
@@ -175,6 +175,7 @@ public class AdministradorOmsDao {
                 pessoa.setDataNascimento(rs.getString("datadenascimento"));
                 pessoa.setTelefoneDdd(rs.getString("telefonecomddd"));
                 pessoa.setEmail(rs.getString("emailgestao"));
+                pessoa.setDdiContato(rs.getString("ddi"));
 
                 // Pegar nacionalidade
                 Pais pais = PaisDao.findByIdPessoa(pessoa.getIdPessoa());

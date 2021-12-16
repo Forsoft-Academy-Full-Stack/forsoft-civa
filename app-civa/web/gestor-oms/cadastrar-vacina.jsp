@@ -96,12 +96,12 @@
                                         </div>
                                         <div class="row">
                                             <div class="form-group col-12">
-                                                <label for="doses">Quantidade de doses</label>
+                                                <label for="doses">Quantidade de Doses</label>
                                                 <select class="select2 select2-hidden-accessible" id="doses" name="doses" style="width: 100%;" tabindex="-1" aria-hidden="true">
                                                     <option selected disabled>Selecionar</option>
                                                     <option value="1">1 Dose</option>
-                                                    <option value="2">2 Dose</option>
-                                                    <option value="3">3 Dose</option>
+                                                    <option value="2">2 Doses</option>
+                                                    <option value="3">3 Doses</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -109,12 +109,12 @@
 
                                         <div class="row">
                                             <div class="form-group col-xl-6">
-                                                <label for="intervalo-dose">Intervalo das doses (em dias)</label>
+                                                <label for="intervalo-dose">Intervalo das Doses (em dias)</label>
                                                 <input type="text" class="form-control" id="intervalo-dose" name="intervalo-dose">
                                             </div>
 
                                             <div class="form-group col-xl-6">
-                                                <label for="tempo-reforco">Tempo para refor&ccedil;o (em dias)</label>
+                                                <label for="tempo-reforco">Tempo para Refor&ccedil;o (em dias)</label>
                                                 <input type="text" class="form-control" id="tempo-reforco" name="tempo-reforco">
                                             </div>
 
