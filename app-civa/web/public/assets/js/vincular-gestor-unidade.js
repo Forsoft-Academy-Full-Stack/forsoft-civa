@@ -26,7 +26,7 @@ $("#vincular").click(() => {
                         title = 'Profissional vinculado com sucesso!';
                         text = "Cadastro realizada.";
                         swalAlertSuccess(title, text, () => {
-                              window.location = './consultar-unidade.jsp';
+                              location.reload();
                         });
 
                     }
