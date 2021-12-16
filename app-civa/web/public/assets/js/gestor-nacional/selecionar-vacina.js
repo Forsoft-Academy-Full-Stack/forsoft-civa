@@ -22,12 +22,17 @@ $("#nome-vac").change(() => {
 $("#cadastrar").click(function () {
 
     if (tratar_campos(campos)) {
+        
+        title = 'Enviando, aguarde alguns segundos...';
+        swalAlertLoading(title, callback);
 
         $.post("/app-civa/vacina", form.serialize(), (data, status) => {
             if (status === 'success') {
                 title = 'Vacina cadastrada com sucesso!';
                 text = "";
-                swalAlertSuccess(title, text, callback);
+                swalAlertSuccess(title, text, () => {
+                   window.location = './selecionar-vacina.jsp';
+                });
 
             }
         }).fail(function (jqxhr, settings, ex) {

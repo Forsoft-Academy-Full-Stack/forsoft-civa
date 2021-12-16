@@ -17,12 +17,17 @@ $("#vincular").click(() => {
             if (tratar_campos(campos_confirmar_senha)) {
                 modal_confirmar_senha.modal("hide");
 
+                title = 'Enviando, aguarde alguns segundos...';
+                swalAlertLoading(title, callback);
+
                 $.post("/app-civa/unidade", form.serialize(), (data, status, jqXHR) => {
                     console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                     if (status === 'success') {
                         title = 'Profissional vinculado com sucesso!';
                         text = "Cadastro realizada.";
-                        swalAlertSuccess(title, text, callback);
+                        swalAlertSuccess(title, text, () => {
+                              window.location = './consultar-unidade.jsp';
+                        });
 
                     }
                 }).fail(function (jqxhr, settings, ex) {
