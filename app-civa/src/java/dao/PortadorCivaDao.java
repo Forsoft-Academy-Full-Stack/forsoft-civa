@@ -216,7 +216,7 @@ public class PortadorCivaDao {
         return portadoresCivas;
     }
 
-    public static List<PortadorCiva> listBySuporteCivaNomePortador(String codigoSuporteCiva, String nome) {
+    public static List<PortadorCiva> listBySuporteCivaNomePortador(String codigoSuporteCiva, String nome, String ordem) {
         Connection connection = ConnectionFactory.getConnection();
         PortadorCiva portadorCiva;
         List<PortadorCiva> portadoresCiva = null;
@@ -248,7 +248,7 @@ public class PortadorCivaDao {
                 + "ON peen.idendereco = en.idendereco \n"
                 + "LEFT JOIN pais pa \n"
                 + "ON en.idpais = pa.idpais  \n"
-                + "WHERE ag.codigocivagestao = ? ),'%') AND pepc.nomepessoa LIKE ? AND apc.statuspc = true LIMIT 20;";
+                + "WHERE ag.codigocivagestao = ? ),'%') AND pepc.nomepessoa LIKE ? AND apc.statuspc = true order by nome " + ordem + " LIMIT 20;";
 
         try {
             portadoresCiva = new ArrayList<>();
@@ -259,6 +259,153 @@ public class PortadorCivaDao {
             ps = connection.prepareStatement(sql);
             ps.setString(1, codigoSuporteCiva);
             ps.setString(2, "%" + nome + "%");
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pessoa = new Pessoa();
+                documento1 = new Docs();
+                portadorCiva = new PortadorCiva();
+
+                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+                pessoa.setCodigoCiva(rs.getString("codigocivapc"));
+                documento1.setDocumento(rs.getString("documento"));
+
+                portadorCiva.setPessoa(pessoa);
+                portadorCiva.setDocumento1(documento1);
+                portadorCiva.setCodigoCiva(pessoa.getCodigoCiva());
+
+                portadoresCiva.add(portadorCiva);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return portadoresCiva;
+    }
+
+    public static List<PortadorCiva> listByCodigoCivaPortador(String codigoSuporteCiva, String codigoCivaPortador, String ordem) {
+        Connection connection = ConnectionFactory.getConnection();
+        PortadorCiva portadorCiva;
+        List<PortadorCiva> portadoresCiva = null;
+        Pessoa pessoa;
+        Docs documento1;
+        String sql = "";
+
+        sql = "SELECT pepc.nomepessoa AS nome,\n"
+                + "	pepc.sobrenomepessoa,\n"
+                + "	doc.documento,\n"
+                + "	pepc.datadenascimento,\n"
+                + "	apc.codigocivapc\n"
+                + "FROM pessoa pepc\n"
+                + "LEFT JOIN docs doc\n"
+                + "ON pepc.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc\n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc\n"
+                + "LEFT JOIN acessopc apc \n"
+                + "ON apc.idpessoa = pepc.idpessoa\n"
+                + "WHERE tidoc.nivel = 'Primário'\n"
+                + "AND apc.codigocivapc LIKE\n"
+                + "CONCAT(\n"
+                + "(SELECT pa.sigla FROM pessoa peag\n"
+                + "LEFT JOIN acessogestao ag\n"
+                + "on ag.idpessoa = peag.idpessoa\n"
+                + "LEFT JOIN pessoa_endereco peen\n"
+                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "LEFT JOIN endereco en\n"
+                + "ON peen.idendereco = en.idendereco\n"
+                + "LEFT JOIN pais pa\n"
+                + "ON en.idpais = pa.idpais\n"
+                + "WHERE ag.codigocivagestao = ? ),'%') AND apc.codigocivapc LIKE ? AND apc.statuspc = true order by codigocivapc "+ordem+" LIMIT 20;\n";              
+
+        try {
+            portadoresCiva = new ArrayList<>();
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoSuporteCiva);
+            ps.setString(2, "%" + codigoCivaPortador + "%");
+           
+
+            rs = ps.executeQuery();
+
+            while (rs.next()) {
+                pessoa = new Pessoa();
+                documento1 = new Docs();
+                portadorCiva = new PortadorCiva();
+
+                pessoa.setNomePessoa(rs.getString("nome"));
+                pessoa.setSobrenomePessoa(rs.getString("sobrenomepessoa"));
+                pessoa.setDataNascimento(rs.getString("datadenascimento"));
+                pessoa.setCodigoCiva(rs.getString("codigocivapc"));
+                documento1.setDocumento(rs.getString("documento"));
+
+                portadorCiva.setPessoa(pessoa);
+                portadorCiva.setDocumento1(documento1);
+                portadorCiva.setCodigoCiva(pessoa.getCodigoCiva());
+
+                portadoresCiva.add(portadorCiva);
+
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(GestorNacionalDao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return portadoresCiva;
+    }
+    
+     public static List<PortadorCiva> listByDocumentoPortador(String codigoSuporteCiva, String documento, String ordem) {
+        Connection connection = ConnectionFactory.getConnection();
+        PortadorCiva portadorCiva;
+        List<PortadorCiva> portadoresCiva = null;
+        Pessoa pessoa;
+        Docs documento1;
+        String sql = "";
+
+        sql = "SELECT pepc.nomepessoa AS nome,\n"
+                + "	pepc.sobrenomepessoa,\n"
+                + "	doc.documento,\n"
+                + "	pepc.datadenascimento,\n"
+                + "	apc.codigocivapc\n"
+                + "FROM pessoa pepc\n"
+                + "LEFT JOIN docs doc\n"
+                + "ON pepc.idpessoa = doc.idpessoa\n"
+                + "LEFT JOIN tipodoc tidoc\n"
+                + "ON doc.idtipodoc = tidoc.idtipodoc\n"
+                + "LEFT JOIN acessopc apc \n"
+                + "ON apc.idpessoa = pepc.idpessoa\n"
+                + "WHERE tidoc.nivel = 'Primário'\n"
+                + "AND apc.codigocivapc LIKE\n"
+                + "CONCAT(\n"
+                + "(SELECT pa.sigla FROM pessoa peag\n"
+                + "LEFT JOIN acessogestao ag\n"
+                + "on ag.idpessoa = peag.idpessoa\n"
+                + "LEFT JOIN pessoa_endereco peen\n"
+                + "ON peag.idpessoa = peen.idpessoa\n"
+                + "LEFT JOIN endereco en\n"
+                + "ON peen.idendereco = en.idendereco\n"
+                + "LEFT JOIN pais pa\n"
+                + "ON en.idpais = pa.idpais\n"
+                + "WHERE ag.codigocivagestao = ? ),'%') AND doc.documento LIKE ? AND apc.statuspc = true order by documento "+ordem+" LIMIT 20;\n";              
+
+        try {
+            portadoresCiva = new ArrayList<>();
+            Statement stmt = connection.createStatement();
+            PreparedStatement ps;
+            ResultSet rs = null;
+
+            ps = connection.prepareStatement(sql);
+            ps.setString(1, codigoSuporteCiva);
+            ps.setString(2, "%" + documento + "%");
+           
+
             rs = ps.executeQuery();
 
             while (rs.next()) {
@@ -447,15 +594,15 @@ public class PortadorCivaDao {
             try {
                 vacinacoes = VacinacaoDao.listByPortadorCiva(codigoCivaPortadorCiva);
                 System.err.println(vacinacoes.get(0).getVacina().getNomeVacina());
-                
+
                 vacinadores = VacinacaoDao.getNomeVacinador(codigoCivaPortadorCiva);
-                
+
                 unidadesVacinacao = UnidadeDao.getUnidadesVacinacao(codigoCivaPortadorCiva);
-                
+
                 portadorCiva.setListaVacinacao(vacinacoes);
                 portadorCiva.setNomesCadastranteVacina(vacinadores);
                 portadorCiva.setUnidadesVacinacao(unidadesVacinacao);
-                
+
             } catch (Exception e) {
                 System.err.println("Ainda não foi cadastrada nenhuma vacinação.");
             }
@@ -614,12 +761,6 @@ public class PortadorCivaDao {
 
         return sigla + codigoCiva + atorSigla;
 
-    }
-
-   
-    public static List<PortadorCiva> list() {
-        List<PortadorCiva> portadoresciva = new ArrayList<PortadorCiva>();
-        return portadoresciva;
     }
 
     public static boolean update(PortadorCiva portadorCiva) {

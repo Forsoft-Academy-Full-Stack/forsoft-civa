@@ -52,86 +52,19 @@
             </div>
 
             <!-- Main content -->
-            <div class="content">
-                <div class="container-fluid">
-                    <!---------------------------------------------------------------->
-
-                    <!-- CABE&Ccedil;ALHO INFORMAÃ&Otilde;ES -->
-                    <div class="row">
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-info">
-                                <div class="inner">
-                                    <h3>150</h3>
-
-                                    <p>New Orders</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-bag"></i>
-                                </div>
-                                <a href="#" class="small-box-footer"
-                                   >More info <i class="fas fa-arrow-circle-right"></i
-                                    ></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-success">
-                                <div class="inner">
-                                    <h3>53<sup style="font-size: 20px">%</sup></h3>
-
-                                    <p>Bounce Rate</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-stats-bars"></i>
-                                </div>
-                                <a href="#" class="small-box-footer"
-                                   >More info <i class="fas fa-arrow-circle-right"></i
-                                    ></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-warning">
-                                <div class="inner">
-                                    <h3>44</h3>
-
-                                    <p>User Registrations</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-person-add"></i>
-                                </div>
-                                <a href="#" class="small-box-footer"
-                                   >More info <i class="fas fa-arrow-circle-right"></i
-                                    ></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                        <div class="col-lg-3 col-6">
-                            <!-- small box -->
-                            <div class="small-box bg-danger">
-                                <div class="inner">
-                                    <h3>65</h3>
-
-                                    <p>Unique Visitors</p>
-                                </div>
-                                <div class="icon">
-                                    <i class="ion ion-pie-graph"></i>
-                                </div>
-                                <a href="#" class="small-box-footer"
-                                   >More info <i class="fas fa-arrow-circle-right"></i
-                                    ></a>
-                            </div>
-                        </div>
-                        <!-- ./col -->
-                    </div>
-
-                    <!-- /.row -->
+            <div class="card-header d-flex align-items-center">
+                <div class="row btn-group shadow-sm mb-2 mt-2">
+                    <a href="https://drive.google.com/file/d/1zJZj3HAC_oQ-i_HqUH85ys-3z_RphY15/view" target="_blank" class="mb-4">
+                        <button type="button" class="btn btn-primary btn-md d-flex align-items-center" 
+                                >Baixar Dados do Relat&oacute;rio<span class="material-icons-round ml-2" style="font-size:20px;">
+                                fact_check
+                            </span>
+                        </button>
+                    </a>
+                   
+                    <img src="../public/img/GR.png" class="img-fluid" alt="Baixar dados pelo gestor nacional">
                 </div>
-                <!-- /.container-fluid -->
-            </div>
+            </div>  
             <!-- /.content -->
         </div>
         <!-- /.content-wrapper -->

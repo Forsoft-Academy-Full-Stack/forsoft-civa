@@ -101,7 +101,7 @@
               
                 <div class="row">
                     <div class="col-12 mb-4 ml-2">
-                        <button type="button" class="btn btn-primary btn-lg" id="salvar">Cdastrar</button>
+                        <button type="button" class="btn btn-primary btn-lg" id="salvar">Cadastrar</button>
                     </div>
                 </div>
             </div>
