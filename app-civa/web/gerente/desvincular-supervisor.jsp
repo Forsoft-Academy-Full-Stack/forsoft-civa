@@ -113,6 +113,7 @@
 
         <!-- Main Footer -->
         <%@ include file="../partials/gerente/footer.jspf" %>
+        <%@ include file="../partials/confirmar-senha.jspf" %>
     </div>
     <!-- ./wrapper -->
 </body>

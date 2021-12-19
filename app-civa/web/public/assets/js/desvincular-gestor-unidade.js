@@ -28,7 +28,7 @@ $("#desvincular").click(() => {
                         title = 'Profissional desvinculado com sucesso!';
                         text = "";
                         swalAlertSuccess(title, text, () => {
-                            window.location = './consultar-unidade.jsp';
+                            location.reload();
                         });
 
                     }

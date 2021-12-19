@@ -39,7 +39,7 @@ $("#vincular").click(() => {
         });
 
     } else {
-        title = 'lalalalala';
+        title = 'Supervisor não pesquisado.';
         text = 'Pesquise o c&oacute;digo do Profissional desejado';
         swalAlertError(title, text, callback);
     }

@@ -20,7 +20,6 @@
         </div>
 
 
-
         <!-- Sidebar Menu -->
         <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -41,7 +40,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item ">
-                            <a href="consultar-profissional-de-saude.jsp" class="nav-link">
+                            <a href="consultar-profissional-de-saude.jsp?nome=" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Profissional da Sa&uacute;de</p>
                             </a>

@@ -229,7 +229,7 @@ public class SupervisorDao {
                 + "ON uni.idunidade = aguni.idunidade\n"
                 + "LEFT JOIN acessogestao ag \n"
                 + "ON aguni.idacessogestao = ag.idacessogestao \n"
-                + "WHERE uni.idunidade = ?) AND ag.statusgestao = true;";
+                + "WHERE uni.idunidade = ?) AND ag.statusgestao = true AND aguni.status = TRUE;";
 
         try {
             Statement stmt = connection.createStatement();
