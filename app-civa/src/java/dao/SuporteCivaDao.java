@@ -23,7 +23,7 @@ import model.Pessoa;
  */
 public class SuporteCivaDao {
 
-    public static SuporteCiva findByCodigoCiva(String codigoCivaSuporteCiva) {
+    public static SuporteCiva findByCodigoCiva(String codigoCivaSuporteCiva, String codigoCivaGestao) {
         Connection connection = ConnectionFactory.getConnection();
         SuporteCiva suporteCiva = null;
 
@@ -63,7 +63,16 @@ public class SuporteCivaDao {
                 + "        LEFT JOIN endereco en \n"
                 + "            ON peen.idendereco = en.idendereco \n"
                 + "        WHERE ag.cargo = 'Suporte' \n"
-                + "        AND ag.codigocivagestao = ? AND ag.statusgestao = true;";
+                + "        AND ag.codigocivagestao = ? AND ag.statusgestao = true"
+                 + "                 AND en.idpais = (\n"
+                + "                 SELECT en.idpais From pessoa pe\n"
+                + "                 LEFT JOIN acessogestao ag\n"
+                + "                 ON ag.idpessoa = pe.idpessoa \n"
+                + "                 LEFT JOIN pessoa_endereco peen \n"
+                + "                 ON pe.idpessoa = peen.idpessoa \n"
+                + "                 LEFT JOIN endereco en \n"
+                + "                 ON peen.idendereco = en.idendereco \n"
+                + "                 WHERE ag.codigocivagestao = ?);";
 
         sql2 = "SELECT tidoc.nomedoc,\n"
                 + "    doc.documento\n"
@@ -83,6 +92,7 @@ public class SuporteCivaDao {
 
             ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaSuporteCiva);
+            ps.setString(2, codigoCivaGestao);
             rs = ps.executeQuery();
 
             pessoa = new Pessoa();

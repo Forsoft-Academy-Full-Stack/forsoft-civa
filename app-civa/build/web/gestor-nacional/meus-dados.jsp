@@ -22,7 +22,7 @@
 %>  
 <%  
     try {
-        GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva());
+        GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva(), pessoa.getCodigoCiva());
         pageContext.setAttribute("ator", gestorNacional);
 
     } catch (Exception e) {

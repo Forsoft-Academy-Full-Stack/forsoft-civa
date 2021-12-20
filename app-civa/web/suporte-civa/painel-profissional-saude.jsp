@@ -38,7 +38,7 @@
 
 <%    try {
         String codigoCivaProfissionalSaude = request.getParameter("codigoCiva");
-        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude);
+        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(codigoCivaProfissionalSaude, pessoa.getCodigoCiva());
 
         pageContext.setAttribute("ator", profissionalSaude);
 

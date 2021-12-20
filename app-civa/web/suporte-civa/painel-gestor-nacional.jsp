@@ -23,7 +23,7 @@
 
 <%    try {
         String codigoCivaGestorNacional = request.getParameter("codigoCiva");
-        GestorNacional GestorNacional = GestorNacionalDao.findByCodigociva(codigoCivaGestorNacional);
+        GestorNacional GestorNacional = GestorNacionalDao.findByCodigociva(codigoCivaGestorNacional, pessoa.getCodigoCiva());
 
         pageContext.setAttribute("ator", GestorNacional);
 

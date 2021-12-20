@@ -24,7 +24,7 @@
         pageContext.setAttribute("idUnidade", idUnidade);
         
         String codigoCivaGerente = request.getParameter("codigoCiva");
-        Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
+        Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente, pessoa.getCodigoCiva());
         pageContext.setAttribute("ator", gerente);
 
     } catch (Exception e) {

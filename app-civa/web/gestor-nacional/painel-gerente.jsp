@@ -26,7 +26,7 @@
 <%
     try {
         String codigoCivaGerente = request.getParameter("codigoCiva");
-        Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente);
+        Gerente gerente = GerenteDao.findByCodigoCiva(codigoCivaGerente, pessoa.getCodigoCiva());
         pageContext.setAttribute("ator", gerente);
 
         List<Unidade> listaUnidades = UnidadeDao.listUnidadeByGerente(codigoCivaGerente);

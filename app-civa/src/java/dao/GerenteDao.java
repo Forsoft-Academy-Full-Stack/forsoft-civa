@@ -23,7 +23,7 @@ import model.Pessoa;
  */
 public class GerenteDao {
 
-    public static Gerente findByCodigoCiva(String codigoCivaGerente) {
+    public static Gerente findByCodigoCiva(String codigoCivaGerente, String codigoCivaGestao) {
         Connection connection = ConnectionFactory.getConnection();
 
         Gerente gerente = null;
@@ -89,7 +89,7 @@ public class GerenteDao {
             ps = connection.prepareStatement(sql);
 
             ps.setString(1, codigoCivaGerente);
-            ps.setString(2, codigoCivaGerente);
+            ps.setString(2, codigoCivaGestao);
 
             rs = ps.executeQuery();
 

@@ -21,7 +21,7 @@
 %>
 
 <%    String codigoCivaSuporteCiva = request.getParameter("codigoCiva");
-    SuporteCiva SuporteCiva = SuporteCivaDao.findByCodigoCiva(codigoCivaSuporteCiva);
+    SuporteCiva SuporteCiva = SuporteCivaDao.findByCodigoCiva(codigoCivaSuporteCiva, pessoa.getCodigoCiva());
     pageContext.setAttribute("ator", SuporteCiva);
 %> 
 

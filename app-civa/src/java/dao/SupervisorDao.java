@@ -80,7 +80,7 @@ public class SupervisorDao {
         return resultado;
     }
 
-    public static Supervisor findByCodigoCiva(String codigoCivaSupervisor) {
+    public static Supervisor findByCodigoCiva(String codigoCivaSupervisor, String codigoCivaGestao) {
         Connection connection = ConnectionFactory.getConnection();
         String sql = "";
         String sql2 = "";
@@ -118,7 +118,16 @@ public class SupervisorDao {
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
                 + "WHERE ag.cargo = 'Supervisor' \n"
-                + "AND ag.codigocivagestao = ? AND ag.statusgestao = true;";
+                + "AND ag.codigocivagestao = ? AND ag.statusgestao = true "
+                + "                 AND en.idpais = (\n"
+                + "                 SELECT en.idpais From pessoa pe\n"
+                + "                 LEFT JOIN acessogestao ag\n"
+                + "                 ON ag.idpessoa = pe.idpessoa \n"
+                + "                 LEFT JOIN pessoa_endereco peen \n"
+                + "                 ON pe.idpessoa = peen.idpessoa \n"
+                + "                 LEFT JOIN endereco en \n"
+                + "                 ON peen.idendereco = en.idendereco \n"
+                + "                 WHERE ag.codigocivagestao = ?);";
 
         sql2 = "SELECT tidoc.nomedoc,\n"
                 + "       doc.documento\n"
@@ -137,6 +146,7 @@ public class SupervisorDao {
 
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaSupervisor);
+            ps.setString(2, codigoCivaGestao);
             rs = ps.executeQuery();
 
             if (rs.next()) {
@@ -442,7 +452,6 @@ public class SupervisorDao {
                 + "ON en.idpais = pa.idpais  \n"
                 + "WHERE ag.codigocivagestao = ?),'%') AND peag.nomepessoa LIKE ? AND ag.statusgestao = true;";
 
-
         try {
             Statement stmt = connection.createStatement();
             ResultSet rs = null;
@@ -550,8 +559,8 @@ public class SupervisorDao {
         }
 
         return supervisores;
-    } 
-    
+    }
+
     public static String gerarCodigoCiva(String nomePais, int idPessoa) {
         Connection connection = ConnectionFactory.getConnection();
         String sql = "";

@@ -29,7 +29,7 @@
 <%  
     try {
         String codigoCivaSupervisor = request.getParameter("codigoCiva");
-        Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
+        Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor, pessoa.getCodigoCiva());
 
         pageContext.setAttribute("ator", supervisor);
 

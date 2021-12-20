@@ -26,7 +26,7 @@
 %>
 <%  
     try {
-        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(pessoa.getCodigoCiva(), pessoa.getCodigoCiva());
         pageContext.setAttribute("ator", profissionalSaude);
 
         List<Unidade> listaUnidades = UnidadeDao.listUnidadeByProfissionalSaude(pessoa.getCodigoCiva());

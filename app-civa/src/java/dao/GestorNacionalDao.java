@@ -23,7 +23,7 @@ import model.Pessoa;
  */
 public class GestorNacionalDao {
 
-    public static GestorNacional findByCodigociva(String codigoCivaGestorNacional) {
+    public static GestorNacional findByCodigociva(String codigoCivaGestorNacional, String codigoCivaGestao) {
         Connection connection = ConnectionFactory.getConnection();
 
         GestorNacional gestorNacional = null;
@@ -64,7 +64,16 @@ public class GestorNacionalDao {
                 + "LEFT JOIN endereco en\n"
                 + "   ON peen.idendereco = en.idendereco\n"
                 + "WHERE ag.cargo = 'Gestor Nacional'\n"
-                + "AND ag.codigocivagestao = ? AND ag.statusgestao = true;";
+                + "AND ag.codigocivagestao = ? AND ag.statusgestao = true"
+               + "                 AND en.idpais = (\n"
+                + "                 SELECT en.idpais From pessoa pe\n"
+                + "                 LEFT JOIN acessogestao ag\n"
+                + "                 ON ag.idpessoa = pe.idpessoa \n"
+                + "                 LEFT JOIN pessoa_endereco peen \n"
+                + "                 ON pe.idpessoa = peen.idpessoa \n"
+                + "                 LEFT JOIN endereco en \n"
+                + "                 ON peen.idendereco = en.idendereco \n"
+                + "                 WHERE ag.codigocivagestao = ?);";
 
         sql2 = "SELECT tidoc.nomedoc , doc.documento FROM pessoa peag\n"
                 + "        LEFT JOIN acessogestao ag \n"
@@ -84,6 +93,8 @@ public class GestorNacionalDao {
 
             ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaGestorNacional);
+            ps.setString(2, codigoCivaGestao);
+            
             rs = ps.executeQuery();
 
             pessoa = new Pessoa();

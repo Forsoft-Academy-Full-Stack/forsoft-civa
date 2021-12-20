@@ -23,7 +23,7 @@ import model.Pessoa;
  */
 public class ProfissionalSaudeDao {
 
-    public static ProfissionalSaude findByCodigoCiva(String codigoCivaProfissionalSaude) {
+    public static ProfissionalSaude findByCodigoCiva(String codigoCivaProfissionalSaude, String codigoCivaGestao) {
         Connection connection = ConnectionFactory.getConnection();
         ProfissionalSaude profissionalSaude = null;
         Pessoa pessoa = null;
@@ -68,7 +68,16 @@ public class ProfissionalSaudeDao {
                 + "on pa.idpais = en.idpais \n"
                 + "LEFT JOIN tipodoc tidoc \n"
                 + "on doc.idtipodoc = tidoc.idtipodoc \n"
-                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true AND ag.cargo LIKE 'Profissional de Saúde';";
+                + "WHERE ag.codigocivagestao = ? AND ag.statusgestao = true AND ag.cargo LIKE 'Profissional de Saúde'"
+                + "                 AND en.idpais = (\n"
+                + "                 SELECT en.idpais From pessoa pe\n"
+                + "                 LEFT JOIN acessogestao ag\n"
+                + "                 ON ag.idpessoa = pe.idpessoa \n"
+                + "                 LEFT JOIN pessoa_endereco peen \n"
+                + "                 ON pe.idpessoa = peen.idpessoa \n"
+                + "                 LEFT JOIN endereco en \n"
+                + "                 ON peen.idendereco = en.idendereco \n"
+                + "                 WHERE ag.codigocivagestao = ?);";
 
         sql2 = "SELECT  tidoc.nomedoc,doc.documento \n"
                 + "        FROM acessogestao ag\n"
@@ -87,6 +96,7 @@ public class ProfissionalSaudeDao {
 
             ps = connection.prepareStatement(sql);
             ps.setString(1, codigoCivaProfissionalSaude);
+            ps.setString(2, codigoCivaGestao);
             rs = ps.executeQuery();
 
             if (rs.next()) {

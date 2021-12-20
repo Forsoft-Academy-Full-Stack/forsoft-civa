@@ -25,7 +25,7 @@
         pageContext.setAttribute("idUnidade", idUnidade);
           
         String codigoCivaSupervisor = request.getParameter("codigoCiva");
-        Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor);
+        Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor, pessoa.getCodigoCiva());
         pageContext.setAttribute("ator", supervisor);
 
     } catch (Exception e) {

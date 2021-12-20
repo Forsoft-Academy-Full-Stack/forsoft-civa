@@ -88,7 +88,7 @@ public class UnidadeDao {
         Endereco endereco = null;
 
         String sql = "";
-        sql = "SELECT uni.nomeunidade,\n"
+        sql = "SELECT distinct uni.nomeunidade,\n"
                 + "   uni.idunidade,\n"
                 + "   en.nomesubdivisao1 AS subdivisao3,\n"
                 + "   en.nomesubdivisao2 AS subdivisao2,\n"

@@ -26,7 +26,7 @@
 
 <% 
     try {
-        Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva(), pessoa.getCodigoCiva());
         pageContext.setAttribute("ator", supervisor);
 
         List<Unidade> listaUnidades = UnidadeDao.listUnidadeBySupervisor(pessoa.getCodigoCiva());
