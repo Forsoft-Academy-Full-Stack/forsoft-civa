@@ -21,7 +21,7 @@
 %>
 <%  
     try {
-        Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva());
+        Supervisor supervisor = SupervisorDao.findByCodigoCiva(pessoa.getCodigoCiva(), pessoa.getCodigoCiva());
         pageContext.setAttribute("ator", supervisor);
     } catch (Exception e) {
     }
