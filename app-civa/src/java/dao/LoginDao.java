@@ -26,15 +26,17 @@ public class LoginDao {
                 + "WHERE acp.emailpc = ? AND acp.senhapc = ? AND acp.statuspc = true;";
 
         sqlGestao = "SELECT p.nomepessoa AS nome,\n"
-                + "       p.sobrenomepessoa AS sobrenome,\n"
-                + "       acg.codigocivagestao AS codigociva, \n"
-                + "       p.idpessoa \n"
-                + "FROM pessoa AS p\n"
-                + "LEFT JOIN acessogestao AS acg\n"
-                + "ON p.idpessoa = acg.idpessoa\n"
-                + "WHERE acg.codigocivagestao LIKE ?\n"
-                + "	AND acg.senhagestao = ?\n"
-                + " AND acg.cargo LIKE ? AND acg.statusgestao = true;";
+                + "                         p.sobrenomepessoa AS sobrenome,\n"
+                + "                         ag.codigocivagestao AS codigociva, \n"
+                + "                         p.idpessoa \n"
+                + "                  FROM pessoa AS p\n"
+                + "                  LEFT JOIN acessogestao AS ag\n"
+                + "                  ON p.idpessoa = ag.idpessoa\n"
+                + "                  LEFT JOIN acessogestao_unidade aguni \n"
+                + "                  on ag.idacessogestao = aguni.idacessogestao\n"
+                + "                  WHERE ag.codigocivagestao LIKE ? \n"
+                + "                  	AND ag.senhagestao = ? \n"
+                + "                   AND ag.cargo LIKE ? AND ag.statusgestao = true AND aguni.status=true;";
 
         try {
             Statement stmt = connection.createStatement();

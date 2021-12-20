@@ -103,7 +103,7 @@ public class UnidadeDao {
                 + "on ag.idacessogestao = aguni.idacessogestao  \n"
                 + "LEFT JOIN pessoa peag \n"
                 + "on ag.idpessoa = peag.idpessoa \n"
-                + "Where ag.codigocivagestao = ?;";
+                + "Where ag.codigocivagestao = ? AND aguni.status = true;";
 
         try {
             Statement stmt = connection.createStatement();
@@ -266,7 +266,7 @@ public class UnidadeDao {
                 + "	ON uni.idunidade = aguni.idunidade \n"
                 + "LEFT JOIN acessogestao ag\n"
                 + "	ON aguni.idacessogestao = ag.idacessogestao \n"
-                + "WHERE ag.codigocivagestao = ?;";
+                + "WHERE ag.codigocivagestao = ? AND aguni.status = true;";
 
         try {
             Statement stmt = connection.createStatement();
