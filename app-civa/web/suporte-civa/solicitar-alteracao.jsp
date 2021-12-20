@@ -1,3 +1,5 @@
+<%@page import="model.SuporteCiva"%>
+<%@page import="dao.SuporteCivaDao"%>
 <%@page import="model.ProfissionalSaude"%>
 <%@page import="dao.ProfissionalSaudeDao"%>
 <%@page import="model.Pessoa"%>
@@ -8,7 +10,7 @@
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
 
     // Verificando se o objeto pessoa não existe e se não é usuário
-    if ((pessoa == null) || (!session.getAttribute("perfil").equals("profissional-saude"))) {
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("suporte-civa"))) {
         // Caso for uma das duas opções
         // Redirecionar para o login
         response.sendRedirect("../login/");
@@ -20,8 +22,8 @@
 %>
 <%  
     try {
-        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(pessoa.getCodigoCiva(), pessoa.getCodigoCiva());
-        pageContext.setAttribute("ator", profissionalSaude);
+        SuporteCiva suporteCiva = SuporteCivaDao.findByCodigoCiva(pessoa.getCodigoCiva(), pessoa.getCodigoCiva());
+        pageContext.setAttribute("ator", suporteCiva);
 
     } catch (Exception e) {
     }
