@@ -38,6 +38,16 @@ public class LoginDao {
                 + "                  	AND ag.senhagestao = ? \n"
                 + "                   AND ag.cargo LIKE ? AND ag.statusgestao = true AND aguni.status=true;";
 
+        String sqlGestaoOmsSuporte =  "SELECT p.nomepessoa AS nome,\n"
+                + "                         p.sobrenomepessoa AS sobrenome,\n"
+                + "                         ag.codigocivagestao AS codigociva, \n"
+                + "                         p.idpessoa \n"
+                + "                  FROM pessoa AS p\n"
+                + "                  LEFT JOIN acessogestao AS ag\n"
+                + "                  ON p.idpessoa = ag.idpessoa\n"             
+                + "                  WHERE ag.codigocivagestao LIKE ? \n"
+                + "                  	AND ag.senhagestao = ? AND ag.cargo LIKE ? AND ag.statusgestao = true;";
+        
         try {
             Statement stmt = connection.createStatement();
             PreparedStatement ps;
@@ -119,7 +129,7 @@ public class LoginDao {
                     break;
 
                 case "suporte-civa":
-                    ps = connection.prepareStatement(sqlGestao);
+                    ps = connection.prepareStatement(sqlGestaoOmsSuporte);
 
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
@@ -157,7 +167,7 @@ public class LoginDao {
                     break;
 
                 case "gestor-oms":
-                    ps = connection.prepareStatement(sqlGestao);
+                    ps = connection.prepareStatement(sqlGestaoOmsSuporte);
 
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
@@ -176,7 +186,7 @@ public class LoginDao {
                     break;
 
                 case "administrador-oms":
-                    ps = connection.prepareStatement(sqlGestao);
+                    ps = connection.prepareStatement(sqlGestaoOmsSuporte);
 
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());
