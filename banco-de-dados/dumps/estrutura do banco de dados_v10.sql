@@ -34,8 +34,19 @@
         idgestaounidade	int auto_increment NOT NULL,
         idacessogestao	int,
         idunidade	int,
+        status tinyint (1),
 
         CONSTRAINT acessogestao_unidade_PK PRIMARY KEY (idgestaounidade)
+    );
+
+    /* Tabel Código Certificado*/
+    CREATE TABLE forsoft.codigocertificado(
+        idcodigocertificado int auto_increment NOT NULL,
+        idacessopc int,
+        codigocertificado varchar(8),
+        statuscodigocertificado tinyint(1),
+
+        CONSTRAINT idcodigocertificado_unidade_PK PRIMARY KEY (idcodigocertificado)
     );
 
     /* Tabela Continente */
@@ -46,7 +57,6 @@
         CONSTRAINT continente_PK PRIMARY KEY (idcontinente)
     );
     
-
     /* Tabela divisão territorial */
     CREATE TABLE forsoft.divisaoterritorial(
         idlocalidade int auto_increment NOT NULL,	
@@ -68,7 +78,6 @@
         idpessoa	int,
         idtipodoc	int,
         documento	varchar(20),
-        datadeemissao varchar(30),   
 
         CONSTRAINT docs_PK PRIMARY KEY (iddocs)
     );
@@ -131,7 +140,17 @@
         CONSTRAINT pessoa_endereco_PK PRIMARY KEY (idpessoaendereco)
     );
 
-    /*Tabela Reset de senhas*/
+    /* Tabela Solicitação alteração*/
+    CREATE TABLE forsoft.solicitacaoalteracao(
+        idsolicitacaoalteracao int auto_increment NOT NULL,
+        idsolicitante int,
+        descricao varchar(300),
+        statussolicitacaoalteracao tinyint(1),
+
+        CONSTRAINT solicitacaoalteracao_PK PRIMARY KEY (idsolicitacaoalteracao)
+    );
+
+    /*Tabela Reset de senha*/
     CREATE TABLE forsoft.resetsenha(
         idresetsenha int auto_increment NOT NULL,
         idacessopc int,
@@ -189,7 +208,8 @@
         idvacinadopais	int auto_increment NOT NULL,
         idpais	int,
         idvacina	int,
-
+        statusvacinapais tinyint (1),
+        
         CONSTRAINT vacina_do_pais_PK PRIMARY KEY (idvacinadopais)
     );
 
