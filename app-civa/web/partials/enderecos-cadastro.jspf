@@ -41,7 +41,7 @@
         <label for="bairro">Bairro</label>
           <input type="text" class="form-control" id="bairro" name="bairro" placeholder="Treze acd">                
     </div>
-</div>'
+</div>
 
 <div class="row">
     <div class="form-group col-xl-6">

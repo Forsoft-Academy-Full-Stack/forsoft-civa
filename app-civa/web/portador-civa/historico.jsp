@@ -88,9 +88,9 @@
                         <div class="card-header d-flex align-items-center">
                             <div class="row btn-group shadow-sm mb-2 mt-2">
                                 <button type="button" class="btn btn-primary btn-md d-flex align-items-center" data-toggle="modal"
-                                        data-target="#modal-default">Visualizar Certificado CIVA<span class="material-icons-round ml-2" style="font-size:20px;">
+                                        data-target="#modal-default"><span class="material-icons-round mr-2" style="font-size:20px;">
                                         fact_check
-                                    </span>
+                                    </span>Visualizar Certificado CIVA
                                 </button>
                             </div>
                         </div>                        

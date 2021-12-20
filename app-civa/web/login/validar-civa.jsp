@@ -22,7 +22,7 @@
                     <div class="m-5">
                         <p class="text-center">N&atilde;o consegue escanear? Digite o c&oacute;digo CIVA.</p>
                         <input class="form-control form-control-sm text-center" type="text" name="codigoCiva" id="codigoCiva"
-                               placeholder="Digite o c&oacute;digo de autententica&ccedil;&atilde;o.">
+                               placeholder="Digite o c&oacute;digo CIVA.">
                         <input type="hidden" value="validar" class="form-control" id="option" name="option">
                     </div>
                 </form>

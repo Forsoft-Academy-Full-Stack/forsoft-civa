@@ -75,9 +75,9 @@
                                 <video src="#" style="border: 3px solid rgb(139, 138, 138); background: rgba(139, 138, 138, 0.342);"></video>
                             </div>
                             <div class="m-5">
-                                <p class="text-center">N&atilde;o consegue escanear? Digite o c&oacute;digo de autententica&ccedil;&atilde;o.</p>
+                                <p class="text-center">N&atilde;o consegue escanear? Digite o c&oacute;digo CIVA.</p>
                                 <input class="form-control form-control-sm text-center" type="text"
-                                       placeholder="Digite o codigo de autentica&ccedil;&atilde;o" name="cod-civa" id="cod-civa">
+                                       placeholder="Digite o c&oacute;digo CIVA" name="cod-civa" id="cod-civa">
                             </div>
 
                             <div class="modal-footer justify-content-between">

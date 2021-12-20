@@ -94,7 +94,7 @@
 
                                                     <div class="input-group  mb-2">
                                                         <input type="text" class="form-control" id="nome"
-                                                               name="nome" placeholder="Pesquisar portador">
+                                                               name="nome" placeholder="Pesquisar Suporte CIVA">
                                                         <div class="input-group-append">
                                                             <button class="btn btn-outline-secondary" type="submit"
                                                                     form="pesquisa2">Pesquisar</button>

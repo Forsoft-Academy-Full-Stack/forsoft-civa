@@ -148,7 +148,7 @@ public class LoginDao {
                     break;
 
                 case "gestor-nacional":
-                    ps = connection.prepareStatement(sqlGestao);
+                    ps = connection.prepareStatement(sqlGestaoOmsSuporte);
 
                     ps.setString(1, login.getCodigoCiva().trim());
                     ps.setString(2, login.getSenha().trim());

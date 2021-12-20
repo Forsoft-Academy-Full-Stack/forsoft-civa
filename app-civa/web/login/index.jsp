@@ -39,7 +39,7 @@
                             </div>
                             <div class="input-group mb-3">
                                 <input type="email" id="email" name="email" class="form-control" placeholder="Email">
-                                <input type="text" id="civa" name="civa" style="display: none;" class="form-control" placeholder="civa">
+                                <input type="text" id="civa" name="civa" style="display: none;" class="form-control" placeholder="C&oacute;digo CIVA">
                                 <div class="input-group-append" id="user-logo">
                                     <div class="input-group-text">
                                         <span class="fas fa-envelope"></span>
@@ -101,7 +101,7 @@
                             <a href="./index.jsp">
                                 <img src="../public/img/icon-civa-footer-darkblue.svg" alt="logo civa" width="180px" class="ml-5">
                             </a>
-                            <p class="lead m-5 text-left">Somos uma carteira digital de vacina&ccedil;&atilde;o de iniciativa da OMS, trabalhamos para garantir que a Sa&uacute;de e seguran&ccedil;a da popula&ccedil;&atilde;o.</p>
+                            <p class="lead m-5 text-left">Somos uma carteira digital de vacina&ccedil;&atilde;o de iniciativa da OMS e trabalhamos para garantir a sa&uacute;de e seguran&ccedil;a da popula&ccedil;&atilde;o.</p>
                         </div>
                     </div>
                     <div class="col-md-7 col-lg-6 ml-auto">

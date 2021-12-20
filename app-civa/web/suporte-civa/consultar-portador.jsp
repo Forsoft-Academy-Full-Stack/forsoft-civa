@@ -124,7 +124,7 @@
                                                             name="ordem-delistagem" style="width: 100%;" tabindex="-1"
                                                             aria-hidden="true">
                                                         <option value="civa">C&oacute;digo CIVA</option>
-                                                        <option value="az">Nome A - Z</option>
+                                                        <option value="az" selected>Nome A - Z</option>
                                                         <option value="za">Nome Z - A</option>
                                                         <option value="cpfup">CPF crescente</option>
                                                         <option value="cpfdown">CPF decrescente</option>
