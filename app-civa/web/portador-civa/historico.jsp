@@ -38,7 +38,7 @@
         //Unidade unidade = UnidadeDao.findById(portadorCiva.getListaVacinacao().get(0).getIdUnidade());
         //pageContext.setAttribute("unidade", unidade);
 
-        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(portadorCiva.getListaVacinacao().get(0).getCodigoCivaCadastrante());
+        ProfissionalSaude profissionalSaude = ProfissionalSaudeDao.findByCodigoCiva(portadorCiva.getListaVacinacao().get(0).getCodigoCivaCadastrante(), pessoa.getCodigoCiva());
         pageContext.setAttribute("profissionalSaude", profissionalSaude);
     } catch (Exception e) {
     }
