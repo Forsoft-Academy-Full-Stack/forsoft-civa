@@ -34,31 +34,41 @@ public class GerenteDao {
         Endereco endereco = null;
 
         String sql = "SELECT ag.codigocivagestao AS codigociva, pa.ddi,\n"
-                + "       peag.nomepessoa AS nome, peag.idpessoa,\n"
-                + "       peag.sobrenomepessoa AS sobrenome,\n"
-                + "       peag.genero,\n"
-                + "       peag.datadenascimento AS datanascimento,\n"
-                + "       pa.nomedopais AS pais,\n"
-                + "       en.codigopostal,\n"
-                + "       en.logradouro,\n"
-                + "       en.tipodelogradouro AS tipologradouro,\n"
-                + "       peen.numero, peen.complemento, \n"
-                + "       en.nomesubdivisao1 AS subdivisao3,\n"
-                + "       en.nomesubdivisao2  AS subdivisao2,\n"
-                + "       en.nomesubdivisao3  AS subdivisao1, \n"
-                + "	   peag.telefonecomddd AS contato,\n"
-                + "       ag.emailgestao AS email\n"
-                + "FROM pessoa peag \n"
-                + "LEFT JOIN acessogestao ag \n"
-                + "	ON peag.idpessoa = ag.idpessoa  \n"
-                + "LEFT JOIN pais pa \n"
-                + "	ON peag.idpaisdenascimento = pa.idpais          \n"
-                + "LEFT JOIN pessoa_endereco peen \n"
-                + "	ON peag.idpessoa = peen.idpessoa  \n"
-                + "LEFT JOIN endereco en \n"
-                + "	ON peen.idendereco = en.idendereco \n"
-                + "WHERE ag.cargo = 'Gerente' \n"
-                + "AND ag.codigocivagestao = ?  AND ag.statusgestao = true;";
+                + "                        peag.nomepessoa AS nome, peag.idpessoa,\n"
+                + "                        peag.sobrenomepessoa AS sobrenome,\n"
+                + "                        peag.genero,\n"
+                + "                        peag.datadenascimento AS datanascimento,\n"
+                + "                        pa.nomedopais AS pais,\n"
+                + "                        en.codigopostal,\n"
+                + "                        en.logradouro,\n"
+                + "                        en.tipodelogradouro AS tipologradouro,\n"
+                + "                        peen.numero, peen.complemento, \n"
+                + "                        en.nomesubdivisao1 AS subdivisao3,\n"
+                + "                        en.nomesubdivisao2  AS subdivisao2,\n"
+                + "                        en.nomesubdivisao3  AS subdivisao1, \n"
+                + "                 	   peag.telefonecomddd AS contato,\n"
+                + "                        ag.emailgestao AS email\n"
+                + "                 FROM pessoa peag \n"
+                + "                 LEFT JOIN acessogestao ag \n"
+                + "                 	ON peag.idpessoa = ag.idpessoa  \n"
+                + "                 LEFT JOIN pais pa \n"
+                + "                 	ON peag.idpaisdenascimento = pa.idpais          \n"
+                + "                 LEFT JOIN pessoa_endereco peen \n"
+                + "                 	ON peag.idpessoa = peen.idpessoa  \n"
+                + "                 LEFT JOIN endereco en \n"
+                + "                 	ON peen.idendereco = en.idendereco \n"
+                + "                 WHERE ag.cargo = 'Gerente' \n"
+                + "                 AND ag.codigocivagestao = ?  \n"
+                + "                 AND ag.statusgestao = true\n"
+                + "                 AND en.idpais = (\n"
+                + "                 SELECT en.idpais From pessoa pe\n"
+                + "                 LEFT JOIN acessogestao ag\n"
+                + "                 ON ag.idpessoa = pe.idpessoa \n"
+                + "                 LEFT JOIN pessoa_endereco peen \n"
+                + "                 ON pe.idpessoa = peen.idpessoa \n"
+                + "                 LEFT JOIN endereco en \n"
+                + "                 ON peen.idendereco = en.idendereco \n"
+                + "                 WHERE ag.codigocivagestao = ?);";
 
         String sql2 = "SELECT tidoc.nomedoc AS tipoDocumento,\n"
                 + "        doc.documento\n"
@@ -79,6 +89,7 @@ public class GerenteDao {
             ps = connection.prepareStatement(sql);
 
             ps.setString(1, codigoCivaGerente);
+            ps.setString(2, codigoCivaGerente);
 
             rs = ps.executeQuery();
 
@@ -108,7 +119,7 @@ public class GerenteDao {
                 endereco.setComplemento(rs.getString("complemento"));
                 endereco.setNomesubdivisao1(rs.getString("subdivisao1"));
                 endereco.setNomesubdivisao2(rs.getString("subdivisao2"));
-                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));                
+                endereco.setNomesubdivisao3(rs.getString("subdivisao3"));
             }
 
             ps = connection.prepareStatement(sql2);
@@ -168,7 +179,7 @@ public class GerenteDao {
                 + "LEFT JOIN endereco en \n"
                 + "ON peen.idendereco = en.idendereco \n"
                 + "WHERE ag.cargo='Gerente'  \n"
-                  + "AND ag.statusgestao = true "
+                + "AND ag.statusgestao = true "
                 //+ "AND tidoc.nivel = 'Primário'\n"
                 + "AND en.idpais = \n"
                 + "(SELECT en.idpais FROM pessoa peag \n"
@@ -241,7 +252,7 @@ public class GerenteDao {
                 + "					LEFT JOIN acessogestao ag\n"
                 + "					ON peag.idpessoa = ag.idpessoa\n"
                 + "					WHERE ag.codigocivagestao = ?)\n"
-                 + "AND ag.statusgestao = true ;";
+                + "AND ag.statusgestao = true ;";
 
         try {
             gerentes = new ArrayList<>();
@@ -286,7 +297,7 @@ public class GerenteDao {
         Docs documento1;
 
         String sql = "";
-         sql = "SELECT peag.nomepessoa AS nome,\n"
+        sql = "SELECT peag.nomepessoa AS nome,\n"
                 + "       peag.sobrenomepessoa AS sobrenome,\n"
                 + "       doc.documento,\n"
                 + "       peag.datadenascimento,\n"
@@ -469,9 +480,9 @@ public class GerenteDao {
         boolean resultado = false;
         Pessoa pessoa = gerente.getPessoa();
         int idAcessoGestao = PessoaDao.getIdAcessoGestao(pessoa.getIdPessoa());
-        
+
         resultado = PessoaDao.desativarAcessoGestao(idAcessoGestao);
-        
+
         return resultado;
     }
 
