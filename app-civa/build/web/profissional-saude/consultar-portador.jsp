@@ -30,7 +30,7 @@
             List<PortadorCiva> listaPortadorCiva = PortadorCivaDao.listBySuporteCiva(pessoa.getCodigoCiva());
             pageContext.setAttribute("portadoresCiva", listaPortadorCiva);
 
-        } else {
+        } /*else {
             String option = null;
             List<PortadorCiva> listaPortadorCiva = null;
             option = request.getParameter("ordem-delistagem");
@@ -58,7 +58,7 @@
                     break;
             };
 
-        }
+        }*/
 
     } catch (Exception e) {
     }
