@@ -11,13 +11,12 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>CIVA</title>
     </head>
-    <body>
-        
+    <body>        
         <%
         String redirectURL = "./login/";
         session.invalidate();
         response.sendRedirect(redirectURL);
-        %>
+        %>        
     </body>
     <!-- comment -->
 </html>

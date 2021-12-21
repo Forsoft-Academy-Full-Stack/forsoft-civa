@@ -19,7 +19,7 @@ $("#salvar").click(() => {
                 text = '';
                 swalAlertLoading(title, callback);
                 
-                $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
+                $.post("/portador", form.serialize(), (data, status, jqXHR) => {
                     console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                     if (status === 'success') {
                         title = 'Portador Cadastrar!';

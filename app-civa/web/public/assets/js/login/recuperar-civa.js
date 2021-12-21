@@ -12,7 +12,7 @@ $("#enviar").click(function () {
         text = '';
         swalAlertLoading(title, callback);
 
-        $.post("/app-civa/login", $("#form-recuperar-civa").serialize(), (data, status, jqXHR) => {
+        $.post("/login", $("#form-recuperar-civa").serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {               
                 let email = $("#email").val();

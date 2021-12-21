@@ -9,7 +9,7 @@ import java.util.logging.Logger;
 
 public class ConnectionFactory {
     public static final String URL = "jdbc:mysql://projetociva.al.prodigyan.com.br:3306/forsoft";
-    //public static final String URL = "jdbc:mysql://localhost:3306/forsoft";
+
     public static final String USER = "datasoft";
     public static final String PASS = "devdados21";
 

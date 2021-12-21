@@ -2,35 +2,20 @@
 <%@page import="model.Supervisor"%>
 <%@page import="model.Pessoa"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%
-    // Transformando os dados que foram colocados na seção
-    // em um objeto pessoa novamente
-    Pessoa pessoa = (Pessoa) session.getAttribute("dados");
 
-    // Verificando se o objeto pessoa não existe e se não é usuário
-    if ((pessoa == null) || (!session.getAttribute("perfil").equals("gerente"))) {
-        // Caso for uma das duas opções
-        // Redirecionar para o login
-        response.sendRedirect("../login/");
-
-    }
-
-    // Caso contrário é um usuário válido, pode entrar na página
-
-%>
 
 <%  
     try {
-        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
-        pageContext.setAttribute("idUnidade", idUnidade);
+        //Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        pageContext.setAttribute("idUnidade", 1);
           
         String codigoCivaSupervisor = request.getParameter("codigoCiva");
-        Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor, pessoa.getCodigoCiva());
+        Supervisor supervisor = SupervisorDao.findByCodigoCiva(codigoCivaSupervisor, "BRA000000005GR");
         pageContext.setAttribute("ator", supervisor);
 
     } catch (Exception e) {
-        Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
-        pageContext.setAttribute("idUnidade", idUnidade);
+        //Integer idUnidade = Integer.parseInt(request.getParameter("idUnidade"));
+        pageContext.setAttribute("idUnidade", 1);
     }
 %>
 

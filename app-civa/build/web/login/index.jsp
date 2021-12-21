@@ -1,8 +1,10 @@
+<%@page import="dao.LoginDao"%>
+<%@page import="model.Pessoa"%>
+<%@page import="model.Login"%>
 <%@include file="header.jspf"%>
 <script src="../public/assets/js/smtp.js" defer></script>
 <script src="../public/assets/js/index-login.js" defer></script>
 </head>
-
 <body cz-shortcut-listen="true">
     <%@include file="navbar.jspf" %>
 
@@ -11,7 +13,7 @@
             <div class="col-md-5 pr-lg-2 mb-5 mb-md-0">
                 <!-- .content -->
                 <div class="jumbotron">
-                    <h1 class="display-6">Bem vindo &agrave; carteira de vacina&ccedil;&atilde;o CIVA.</h1>
+                    <h1 class="display-6">Test Bem vindo &agrave; carteira de vacina&ccedil;&atilde;o CIVA.</h1>
                 </div>
                 <!-- /.content -->
             </div>
@@ -21,7 +23,7 @@
                         <p class="login-box-msg h4">Fa&ccedil;a seu login</p>
                     </div>
                     <div class="card-body">
-                        <form action="/app-civa/auth" id="login" method="POST">
+                        <form action="/auth" id="login" method="POST">
                             <div class="input-group mb-3 ">
                                 <label for="exampleFormControlSelect1">Tipo de Acesso</label>
                                 <select id="perfil" name="perfil" class=" form-select form-select-lg mb-3 select2 select2-hidden-accessible"

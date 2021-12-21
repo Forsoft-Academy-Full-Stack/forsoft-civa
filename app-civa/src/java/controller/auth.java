@@ -51,17 +51,32 @@ public class auth extends HttpServlet {
             // Sempre redirecionar para o index.jsp
             Pessoa pessoa = LoginDao.validar(loginAcesso);
             
-            if (pessoa != null) {                                              
-                session.setAttribute("perfil", loginAcesso.getPerfil());
-                session.setAttribute("dados", pessoa);
-                session.setAttribute("idPessoa", pessoa.getIdPessoa());
-                session.setMaxInactiveInterval(60 * 90);
-                response.sendRedirect(loginAcesso.getPerfil() + "/");
+            if (pessoa != null) {                                          
+                //session.setAttribute("perfil", loginAcesso.getPerfil());
+                //session.setAttribute("dados", pessoa);
+                //session.setAttribute("idPessoa", pessoa.getIdPessoa());
+                //session.setMaxInactiveInterval(60 * 90);
+                response.sendRedirect("/" + loginAcesso.getPerfil() + "/");
+                //response.sendRedirect("/portador-civa" + "/");
 
-            } else {
+            }// else {
                 // Login errado
-                response.sendRedirect("login/");
-            }
+           //     response.sendRedirect("login/");
+            //}
+            
+           /* out.println("<!DOCTYPE html>");
+            out.println("<html>");
+            out.println("<head>");
+            out.println("<title>Servlet teste</title>");            
+            out.println("</head>");
+            out.println("<body>");
+            out.println("<h1>Servlet teste at " + request.getContextPath() + "</h1>");
+            out.println("Nome: " + pessoa.getNomePessoa() + "</h1>");            
+            out.println("Sobrenome: " + pessoa.getSobrenomePessoa()+ "</h1>");            
+            out.println("CodigoCiva: " + pessoa.getCodigoCiva()+ "</h1>");            
+            out.println("IdPessoa: " + pessoa.getIdPessoa()+ "</h1>");            
+            out.println("</body>");
+            out.println("</html>");*/
 
         }
     }
