@@ -4,15 +4,28 @@
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
 
-    //Pessoa pessoa = (Pessoa) session.getAttribute("dados");
+    Pessoa pessoa = (Pessoa) session.getAttribute("dados");
+
+    System.err.println("pessoa nome: " + pessoa.getNomePessoa());
+    System.out.println("pessoa sobrenome: " + pessoa.getSobrenomePessoa());
+
+    System.err.println("perfil: " + session.getAttribute("perfil"));
+    System.out.println("perfil: " + session.getAttribute("perfil"));
 
     // Verificando se o objeto pessoa não existe e se não é usuário
-    //if ((pessoa == null) || (!session.getAttribute("perfil").equals("portador-civa"))) {
+    if ((pessoa == null) || (!session.getAttribute("perfil").equals("portador-civa"))) {
         // Caso for uma das duas opções
         // Redirecionar para o login
-    //    response.sendRedirect("../login/");
 
-    //}
+        System.err.println("pessoa nome if: " + pessoa.getNomePessoa());
+        System.out.println("pessoa sobrenome if: " + pessoa.getSobrenomePessoa());
+
+        System.err.println("perfil if: " + session.getAttribute("perfil"));
+        System.out.println("perfil if: " + session.getAttribute("perfil"));
+
+        response.sendRedirect("../login/");
+
+    }
 
     // Caso contrário é um usuário válido, pode entrar na página
 

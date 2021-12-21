@@ -51,11 +51,30 @@ public class auth extends HttpServlet {
             // Sempre redirecionar para o index.jsp
             Pessoa pessoa = LoginDao.validar(loginAcesso);
             
+            System.err.println("Pessoa nome: " + pessoa.getNomePessoa());
+            System.out.println("Pessoa nome: " + pessoa.getNomePessoa());
+            
+            System.err.println("Pessoa sobrenome: " + pessoa.getSobrenomePessoa());
+            System.out.println("Pessoa sobrenome: " + pessoa.getSobrenomePessoa());
+            
+            System.err.println("Pessoa id: " + pessoa.getIdPessoa());
+            System.out.println("Pessoa id: " + pessoa.getIdPessoa());
+            
             if (pessoa != null) {                                          
-                //session.setAttribute("perfil", loginAcesso.getPerfil());
-                //session.setAttribute("dados", pessoa);
-                //session.setAttribute("idPessoa", pessoa.getIdPessoa());
-                //session.setMaxInactiveInterval(60 * 90);
+                session.setAttribute("perfil", loginAcesso.getPerfil());
+                System.err.println("Perfil: " + session.getAttribute("perfil"));
+                System.out.println("Perfil: " + session.getAttribute("perfil"));
+                
+                session.setAttribute("dados", pessoa);
+                
+                System.err.println("dados nome: " + session.getAttribute("dados"));
+                System.out.println("dados nome: " + session.getAttribute("dados"));
+               
+                session.setAttribute("idPessoa", pessoa.getIdPessoa());
+                System.err.println("idpessoa" + session.getAttribute("idPessoa"));
+                System.out.println("idpessoa" + session.getAttribute("idPessoa"));
+                
+                session.setMaxInactiveInterval(60 * 90);
                 response.sendRedirect("/" + loginAcesso.getPerfil() + "/");
                 //response.sendRedirect("/portador-civa" + "/");
 
