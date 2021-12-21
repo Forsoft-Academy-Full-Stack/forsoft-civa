@@ -21,7 +21,7 @@
                         <p class="login-box-msg h4">Fa&ccedil;a seu login</p>
                     </div>
                     <div class="card-body">
-                        <form action="/app-civa/auth" id="login" method="POST">
+                        <form action="/auth" id="login" method="POST">
                             <div class="input-group mb-3 ">
                                 <label for="exampleFormControlSelect1">Tipo de Acesso</label>
                                 <select id="perfil" name="perfil" class=" form-select form-select-lg mb-3 select2 select2-hidden-accessible"

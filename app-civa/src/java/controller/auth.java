@@ -1,7 +1,6 @@
 package controller;
 
 import dao.LoginDao;
-import dao.PessoaDao;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
@@ -38,6 +37,7 @@ public class auth extends HttpServlet {
  /* String pathApp = request.getContextPath();*/
             RequestDispatcher rd;
 
+            System.err.println("Entrou no auth");
             // Pegando as informações de loginAcesso
             Login loginAcesso = new Login();
             loginAcesso.setPerfil(request.getParameter("perfil"));
