@@ -87,7 +87,7 @@ public class auth extends HttpServlet {
             } else {
                 //Login errado
                 System.out.println("Credenciais erradas");
-                response.sendRedirect("/login/");
+                response.sendRedirect("/exit");
             }
 
             /* out.println("<!DOCTYPE html>");

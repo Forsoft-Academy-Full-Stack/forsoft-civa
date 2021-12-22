@@ -11038,7 +11038,8 @@ INSERT INTO forsoft.pais
 (idcontinente,idcadastrante, nomedopais, orgaoresponsavel, padraodecontato, ddi, sigla, statuspais) 
     VALUES
     (1,27,'Brasil','Ministerio da Saude','(NN) N NNNN-NNNN','+55','BRA', 1),
-    (2,27,'Estados Unidos','CDC','(NNN) NNN-NNNN','+1','USA', 1)
+    (2,27,'Estados Unidos','CDC','(NNN) NNN-NNNN','+1','USA', 1),
+    (3,1,'Agencia OMS','OMS',null,null,'OMS',1)
 ;
 
 /*Tabela Pessoa */
@@ -27429,8 +27430,7 @@ INSERT INTO forsoft.resetsenha
 INSERT INTO forsoft.tipodoc 
 (idpais, nomedoc, formatodoc, nivel) 
     VALUES
-    (1, 'CPF', 'XXX.XXX.XXX-XX', 'Primário'),
-    (1, 'RG', 'XX.XXX.XXX-X', 'Secundário'),
+    (1, 'CPF', 'XXX.XXX.XXX-XX', 'Primário'),    
     (1, 'PASSAPORTE', 'AA-XXXXXX', 'Internacional'),
     (1, 'CRM', 'XXXXXX/UF', 'Profissional de Saúde'),
     (1, 'COREM', 'XXX.XXX-UF', 'Profissional de Saúde'),
@@ -27438,7 +27438,8 @@ INSERT INTO forsoft.tipodoc
     (2, 'Social security', 'XXX-XX-XXXX', 'Primário'),
     (2, 'U.S. Passport', 'XXXXXXXX', 'Internacional'),
     (2, 'Individual Employer Identification Number', 'XX-XXXXXXX', 'Unidade'),
-    (2, 'Nursing License', 'XXXXXX', 'Profissional de Saúde')       
+    (2, 'Nursing License', 'XXXXXX', 'Profissional de Saúde'),
+    (3, 'Matícula OMS', 'LLXXXXLL', 'Primário')       
 ;
 
 /* Tabela Unidade */

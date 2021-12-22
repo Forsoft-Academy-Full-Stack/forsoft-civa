@@ -43,10 +43,7 @@
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1" name="tipo-doc1-s" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento</option>
             <option>CPF</option>
-            <option>RG</option>
-            <option>PASSAPORTE</option>
-            <option>CRM</option>
-            <option>COREM</option>
+            <option>Social secuity</option>
         </select>
     </div>
     <div class="form-group col-xl-6">
@@ -62,9 +59,7 @@
         <label for="tipo-doc2">Tipo de Documento 2:</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc2" name="tipo-doc2" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento 2</option>
-            <option>CPF</option>
-            <option>RG</option>
-            <option>PASSAPORTE</option>
+            <option>Nursing License</option>
             <option>CRM</option>
             <option>COREM</option>
         </select>
@@ -82,9 +77,7 @@
         <label for="tipo-doc3">Tipo de Documento 3:</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc3" name="tipo-doc3-s" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento 3</option>
-            <option>CPF</option>
-            <option>RG</option>
-            <option>PASSAPORTE</option>
+            <option>Nursing License</option>
             <option>CRM</option>
             <option>COREM</option>
         </select>
@@ -102,9 +95,7 @@
         <label for="tipo-doc4">Tipo de Documento 4:</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc4" name="tipo-doc4-s" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento 4</option>
-            <option>CPF</option>
-            <option>RG</option>
-            <option>PASSAPORTE</option>
+            <option>Nursing License</option>
             <option>CRM</option>
             <option>COREM</option>
         </select>
@@ -122,9 +113,7 @@
         <label for="tipo-doc5">Tipo de Documento 5:</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc5" name="tipo-doc5-s" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" selected disabled>Selecionar Tipo de Documento 5</option>
-            <option>CPF</option>
-            <option>RG</option>
-            <option>PASSAPORTE</option>
+            <option>Nursing License</option>
             <option>CRM</option>
             <option>COREM</option>
         </select>

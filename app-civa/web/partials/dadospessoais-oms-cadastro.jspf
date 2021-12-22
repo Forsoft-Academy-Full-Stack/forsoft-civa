@@ -41,10 +41,7 @@
         <label for="tipo-doc1">Tipo de Documento</label>
         <select class="form-control select2 select2-hidden-accessible" id="tipo-doc1" name="tipo-doc1" style="width: 100%;" tabindex="-1" aria-hidden="true">
             <option value="" disabled>Selecionar Tipo de Documento</option>
-            <option>PASSAPORTE</option>
-            <option>RG</option>
-            <option>Social security</option>
-            <option selected>CPF</option>
+            <option>Matr&iacute;cula</option>                       
         </select>
     </div>
     <div class="form-group col-xl-6">
