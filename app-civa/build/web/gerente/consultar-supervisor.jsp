@@ -150,7 +150,7 @@
                                                 <th>Identifica&ccedil;&atilde;o</th>
                                                 <th>Data de Nascimento</th>
                                                 <th>C&oacute;digo CIVA</th>
-                                                <th></th>
+                                                <th style="width:15%"></th>
                                             </tr>
                                         </thead>
                                         <tbody>

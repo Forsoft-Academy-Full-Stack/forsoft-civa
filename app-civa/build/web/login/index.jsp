@@ -119,7 +119,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="email">E-mail</label>
-                                <input type="email" id="email" class="form-control" name="email">
+                                <input type="email" id="email2" class="form-control" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="subject">Assunto</label>
@@ -145,4 +145,4 @@
 
 </body>
 
-</html>
+</html

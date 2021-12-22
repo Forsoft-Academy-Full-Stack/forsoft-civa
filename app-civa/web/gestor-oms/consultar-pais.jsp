@@ -139,7 +139,7 @@
                                                 <th>Continente</th>
                                                 <th>Org&atilde;o de sa&uacute;de</th>
                                                 <th>ID pa&iacute;s</th>
-                                                <th></th>
+                                                <th style="width:15%"></th>
                                             </tr>
                                         </thead>
                                         <tbody>

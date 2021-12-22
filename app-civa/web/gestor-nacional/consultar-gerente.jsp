@@ -139,7 +139,7 @@
                                                 <th style="cursor: pointer;">Identifica&ccedil;&atilde;o</th>
                                                 <th style="cursor: pointer;">Data de Nascimento</th>
                                                 <th style="cursor: pointer;">C&oacute;digo CIVA</th>
-                                                <th></th>
+                                                <th style="width:15%"></th>                                                
                                             </tr>
                                         </thead>
                                         <tbody>

@@ -143,7 +143,7 @@
                                                 <th>Laborat&oacute;rio</th>
                                                 <th>Doses</th>
                                                 <th>ID Vacina</th>
-                                                <th></th>
+                                                <th style="width:15%"></th>
                                             </tr>
                                         </thead>
                                         <tbody>

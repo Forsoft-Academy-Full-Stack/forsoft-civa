@@ -138,7 +138,7 @@
                                                 <th style="cursor: pointer;">Estado</th>
                                                 <th style="cursor: pointer;">Munic&iacute;pio</th>
                                                 <th style="cursor: pointer;">CEP</th>
-                                                <th></th>
+                                                <th style="width:15%"></th>
                                             </tr>
                                         </thead>
                                         <tbody>

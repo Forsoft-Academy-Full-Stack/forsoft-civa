@@ -78,7 +78,7 @@ public class auth extends HttpServlet {
 
             }else{
             //Login errado
-                String redirectURL = "./login/";
+                String redirectURL = "./login/login-erro.jsp";
                 session.invalidate();
                 response.sendRedirect(redirectURL);
             }

@@ -8,23 +8,24 @@ let confirmButtonText;
 let confirmButtonCollor;
 let statusInfo;
 let textInfo;
-let callback = () => { };
+let callback = () => {
+};
 
 
 tratar_campos = (campos) => {
     let erro = false;
-  
+
     for (i = 0; i < campos.length; i++) {
         if (document.getElementById(campos[i]).value === '') {
             erro = true;
-         
+
         }
     }
     return !erro;
 
 }
 
-function swalAlert(icon, title, text, confirmButtonText, confirmButtonCollor, callback){
+function swalAlert(icon, title, text, confirmButtonText, confirmButtonCollor, callback) {
     Swal.fire({
         icon: icon,
         title: title,
@@ -35,7 +36,7 @@ function swalAlert(icon, title, text, confirmButtonText, confirmButtonCollor, ca
     }).then(callback);
 }
 
-function swalAlertSuccess(title, text, callback){
+function swalAlertSuccess(title, text, callback) {
     Swal.fire({
         icon: 'success',
         title: title,
@@ -46,7 +47,7 @@ function swalAlertSuccess(title, text, callback){
     }).then(callback);
 }
 
-function swalAlertInfo(title, text, callback){
+function swalAlertInfo(title, text, callback) {
     Swal.fire({
         icon: 'info',
         title: title,
@@ -57,7 +58,7 @@ function swalAlertInfo(title, text, callback){
     }).then(callback);
 }
 
-function swalAlertError(title, text, callback){
+function swalAlertError(title, text, callback) {
     Swal.fire({
         icon: 'error',
         title: title,
@@ -81,13 +82,13 @@ function swalAlertDelete(title, text, callback) {
         html: text
     }).then((result) => {
         if (result.isConfirmed) {
-          callback();
+            callback();
         }
     });
 }
 
-function swalAlertLoading(title, imageUrl, html, callback){
-    Swal.fire({        
+function swalAlertLoading(title, imageUrl, html, callback) {
+    Swal.fire({
         title: title,
         imageUrl: '../public/img/loading-icon-balls.gif',
         imageAlt: 'esferas em movimento',
@@ -116,24 +117,65 @@ setAbaAtiva();
 function setAbaAtiva() {
     let pageURL = window.location.href;
     let abas = document.getElementsByClassName('nav-link');
-                 
+
     if (pageURL.endsWith('portador-civa/')) {
         abas[1].classList.add('active');
     } else if (pageURL.endsWith('/')) {
         abas[2].classList.add('active');
     } else {
-        for (i=0;i<abas.length;i++) {
-      
-        // Confere se a url da página possui o texto presente na linkagem do elemento
-        if (pageURL.includes(abas[i].href)) {
-            // adiciona a classe "active", alterando a cor de fundo do elemento
-            abas[i].classList.add('active');
-            
-            // adiciona a classe "menu-open" no elemento pai de toda a estrutura daquele ator (a cada .parentElement, suba uma hierarquia), fazendo as outras opções serem exibidas
-            ((abas[i].parentElement).parentElement).parentElement.classList.add('menu-open');
+        for (i = 0; i < abas.length; i++) {
+
+            // Confere se a url da página possui o texto presente na linkagem do elemento
+            if (pageURL.includes(abas[i].href)) {
+                // adiciona a classe "active", alterando a cor de fundo do elemento
+                abas[i].classList.add('active');
+
+                // adiciona a classe "menu-open" no elemento pai de toda a estrutura daquele ator (a cada .parentElement, suba uma hierarquia), fazendo as outras opções serem exibidas
+                ((abas[i].parentElement).parentElement).parentElement.classList.add('menu-open');
             }
         }
     }
 }
+
+function toastCookie(text) {
+
+    Swal.fire
+            ({
+                text: text,
+                html: "&nbsp;&nbsp;&nbsp;" + text,
+                icon: 'info',
+                toast: true,
+                position: 'top',
+                showConfirmButton: false,
+                timer: 10000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+}
+
+
+function toastLoginError(text) {
+
+    Swal.fire
+            ({
+                text: text,
+                html: "&nbsp;&nbsp;&nbsp;" + text,
+                icon: 'error',
+                toast: true,
+                position: 'top',
+                showConfirmButton: false,
+                timer: 9000,
+                timerProgressBar: true,
+                didOpen: (toast) => {
+                    toast.addEventListener('mouseenter', Swal.stopTimer)
+                    toast.addEventListener('mouseleave', Swal.resumeTimer)
+                }
+            })
+}
+
+
 
 getElement('#cod-postal').addEventListener('focusout', searchCep2);

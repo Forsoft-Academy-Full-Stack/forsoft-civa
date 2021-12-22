@@ -125,7 +125,7 @@
                                                 <th>Estado</th>
                                                 <th>Munic&iacute;pio</th>
                                                 <th>CEP</th>
-                                                <th></th>
+                                                <th style="width:15%"></th>
                                             </tr>
                                         </thead>
                                         <tbody>

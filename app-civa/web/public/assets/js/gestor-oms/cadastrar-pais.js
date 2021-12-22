@@ -112,7 +112,6 @@ $("#cadastrar").click(function () {
     }
 });
 
-
 //pegarPaises("nacionalidade");
 //pegarPaises("nacionalidade-gn");
 

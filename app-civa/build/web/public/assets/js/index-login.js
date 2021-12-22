@@ -9,28 +9,40 @@ function sendEmail(e, a, o, l) {
         Body: "Enviado por: " + a + "\n" + l + "\nEmail de envio: " + e,
     }).then((e) => {
         (title = "Mensagem enviada!"),
-            (text = ""),
-            swalAlertSuccess(title, text, () => {
-                location.reload();
-            });
+                (text = ""),
+                swalAlertSuccess(title, text, () => {
+                    location.reload();
+                });
     });
 }
 $(".select2").select2(),
-    $("#civa").val(""),
-    $("#email").val(""),
-    $(function () {
-        $("#perfil").change(function (e) {
-            "portador-civa" == $("#perfil").val()
-                ? ($("#civa").val(""), $("#civa").hide(), $("#civa-logo").hide(), $("#user-logo").show(), $("#email").show())
-                : ($("#email").val(""), $("#email").hide(), $("#civa").show(), $("#user-logo").hide(), $("#civa-logo").show());
-        });
-    }),
-    $("#enviar").click(() => {
-        let e = $("#name").val(),
+        $("#civa").val(""),
+        $("#email").val(""),
+        $(function () {
+            $("#perfil").change(function (e) {
+                "portador-civa" == $("#perfil").val()
+                        ? ($("#civa").val(""), $("#civa").hide(), $("#civa-logo").hide(), $("#user-logo").show(), $("#email").show())
+                        : ($("#email").val(""), $("#email").hide(), $("#civa").show(), $("#user-logo").hide(), $("#civa-logo").show());
+            });
+        }),
+        $("#enviar").click(() => {
+    let e = $("#name").val(),
             a = $("#email").val(),
             o = $("#subject").val(),
             l = $("#message").val();
-        tratar_campos(["name", "email", "subject", "message"])
+    tratar_campos(["name", "email", "subject", "message"])
             ? ((title = "Enviando, aguarde alguns segundos..."), (text = ""), swalAlertLoading(title, callback), sendEmail(a, e, o, l))
             : ((title = "Campos n&atilde;o preenchidos!"), (text = "Todos os campos precisam ser preenchidos!"), swalAlertError(title, text, callback));
-    });
+});
+
+
+toastCookie('Utilizamos cookies para personalizar sua exp&ecirc;riencia em nosso site.');
+
+
+let pageURL = window.location.href;
+
+if (pageURL.endsWith('-erro.jsp')){
+    toastLoginError("Login ou senha inv&aacute;lidos.");
+} else {
+    toastCookie('Utilizamos cookies para personalizar sua experi&ecirc;ncia em nosso site!');   
+}

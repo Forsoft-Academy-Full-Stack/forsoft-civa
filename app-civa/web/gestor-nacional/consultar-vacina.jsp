@@ -135,7 +135,8 @@
                                                 <th style="cursor: pointer;">Vacina</th>
                                                 <th style="cursor: pointer;">Laborat&oacute;rio</th>
                                                 <th style="cursor: pointer;">Número de Doses</th>
-                                                <th style="cursor: pointer;">ID Vacina</th>                                      
+                                                <th style="cursor: pointer;">ID Vacina</th>
+                                                <th style="width:15%"></th>
                                             </tr>
                                         </thead>
                                         <tbody>

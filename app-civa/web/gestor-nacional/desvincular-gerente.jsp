@@ -88,8 +88,7 @@
                                 <!-- form start -->
                                 <form action="" id="form-meus-dados" method="GET">
                                     <div class="card-body">
-                                    <input type="hidden" value="desvincular" name="option">
-                                    <div class="card-body">
+                                        <input type="hidden" value="desvincular" name="option">
                                         <%@include file="../partials/pesquisar-codigo-civa.jspf" %>
                                         <hr  class = "mb-4 mt-4">
                                         <%@include file="../partials/dadospessoais-ps-disabled.jspf" %>
@@ -124,4 +123,3 @@
 
 </body>
 </html>
-
