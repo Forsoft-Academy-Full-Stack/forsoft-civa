@@ -26,7 +26,7 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- ITENS DO MENU -->
                 <li class="nav-item">
-                    <a href="gestor-nacional/index.jsp" class="nav-link">
+                    <a href="./index.jsp" class="nav-link">
                         <i class="nav-icon fas fa-home"></i>
                         <p>
                             Home
@@ -35,7 +35,7 @@
                 </li>
 
                 <li class="nav-item ">
-                    <a href="gestor-nacional/consultar-gestor-oms.jsp" class="nav-link">
+                    <a href="consultar-gestor-oms.jsp" class="nav-link">
                         <i class="fas fa-search nav-icon"></i>
                         <p>Consultar Gestor OMS</p>
                     </a>
@@ -52,13 +52,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/consultar-pais.jsp" class="nav-link">
+                            <a href="consultar-pais.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Pa&iacute;s</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="gestor-nacional/cadastrar-pais.jsp" class="nav-link">
+                            <a href="cadastrar-pais.jsp" class="nav-link">
                                 <i class="fas fa-user-plus nav-icon"></i>
                                 <p>Cadastrar Pa&iacute;s</p>
                             </a>
@@ -83,13 +83,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/consultar-vacinas.jsp" class="nav-link">
+                            <a href="consultar-vacinas.jsp" class="nav-link">
                                 <i class="fas fa-search nav-icon"></i>
                                 <p>Consultar Vacina </p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="gestor-nacional/cadastrar-vacina.jsp" class="nav-link">
+                            <a href="cadastrar-vacina.jsp" class="nav-link">
                                 <i class="fas fa-mouse-pointer nav-icon"></i>
                                 <p>Cadastrar Vacina </p>
                             </a>
@@ -100,7 +100,7 @@
                 
                     <!-- ITEM RELATORIO USUARIO DO MENU -->
                 <li class="nav-item">
-                    <a href="gestor-nacional/relatorio.jsp" class="nav-link">
+                    <a href="relatorio.jsp" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             Relat&oacute;rio
@@ -120,7 +120,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/meus-dados.jsp" class="nav-link">
+                            <a href="meus-dados.jsp" class="nav-link">
                                 <i class="fas fa-address-card nav-icon"></i>
                                 <p>
                                     Meus Dados
@@ -128,7 +128,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="gestor-nacional/idioma.jsp" class="nav-link">
+                            <a href="idioma.jsp" class="nav-link">
                                 <i class="fas fa-language nav-icon"></i>
                                 <p>
                                     Mudar Idioma
@@ -136,7 +136,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="gestor-nacional/manual.jsp" class="nav-link">
+                            <a href="manual.jsp" class="nav-link">
                                 <i class="fas fa-question-circle nav-icon"></i>
                                 <p>
                                     Manual CIVA
