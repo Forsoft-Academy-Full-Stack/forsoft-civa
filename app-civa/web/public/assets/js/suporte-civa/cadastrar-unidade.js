@@ -16,7 +16,7 @@ $("#salvar").click(function () {
         title = 'Enviando, aguarde alguns segundos...';
         swalAlertLoading(title, callback);
         
-        $.post("/app-civa/unidade", form.serialize(), (data, status, jqXHR) => {
+        $.post("/unidade", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Unidade cadastrada com sucesso!';

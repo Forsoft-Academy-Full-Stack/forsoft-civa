@@ -87,7 +87,7 @@ $("#cadastrar").click(function () {
             title = 'Enviando, aguarde alguns segundos...';
             swalAlertLoading(title, callback)
 
-            $.post("/app-civa/pais", $("#dados-pais, #dados-gestor-nacional, #dados-suporte-civa").serialize(), (data, status, jqXHR) => {
+            $.post("/pais", $("#dados-pais, #dados-gestor-nacional, #dados-suporte-civa").serialize(), (data, status, jqXHR) => {
                 console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
                 if (status === 'success') {
                     title = 'País cadastrado com sucesso!';

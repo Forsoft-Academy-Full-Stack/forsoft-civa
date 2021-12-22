@@ -11,7 +11,7 @@ $("#cadastro").click(function () {
         title = 'Enviando, aguarde alguns segundos...';
         swalAlertLoading(title, callback);
         
-        $.post("/app-civa/vacinacao", form.serialize(), (data, status, jqXHR) => {
+        $.post("/vacinacao", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Vacinação cadastrada com sucesso!';

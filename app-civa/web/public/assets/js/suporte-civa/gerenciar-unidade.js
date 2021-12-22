@@ -48,7 +48,7 @@ $("#excluir").click(function () {
         swalAlertLoading(title, callback);
         
         
-        $.post("/app-civa/unidade", form_excluir.serialize(), (data, status, jqXHR) => {
+        $.post("/unidade", form_excluir.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Desativada!';

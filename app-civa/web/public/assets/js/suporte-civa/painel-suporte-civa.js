@@ -15,7 +15,7 @@ $("#salvar").click(function () {
         title = 'Enviando, aguarde alguns segundos...';
         swalAlertLoading(title, callback);
 
-        $.post("/app-civa/suporte", form.serialize(), (data, status, jqXHR) => {
+        $.post("/suporte", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Suporte CIVA atualizado com sucesso!';

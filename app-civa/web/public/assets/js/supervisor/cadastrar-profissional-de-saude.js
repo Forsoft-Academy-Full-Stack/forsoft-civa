@@ -20,7 +20,7 @@ $("#salvar").click(function () {
         swalAlertLoading(title, callback);
         
         
-        $.post("/app-civa/profissionalSaude", form.serialize(), (data, status, jqXHR) => {
+        $.post("/profissionalSaude", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Profissinal de Sa&uacute;de cadastrado com sucesso!';

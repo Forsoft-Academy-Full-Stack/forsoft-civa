@@ -18,7 +18,7 @@ $("#salvar").click(function () {
          title = 'Enviando, aguarde alguns segundos...';
          swalAlertLoading(title, callback);
         
-        $.post("/app-civa/gestorOms", form.serialize(), (data, status, jqXHR) => {
+        $.post("/gestorOms", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Gestor OMS cadastrado com sucesso!';

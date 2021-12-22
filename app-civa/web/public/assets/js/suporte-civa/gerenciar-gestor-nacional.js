@@ -16,7 +16,7 @@ $("#salvar").click(function () {
 
 
     if (tratar_campos(campos)) {
-        $.post("/app-civa/gestorNacional", form.serialize(), (data, status, jqXHR) => {
+        $.post("/gestorNacional", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Gestor Nacional atualizado com sucesso!';

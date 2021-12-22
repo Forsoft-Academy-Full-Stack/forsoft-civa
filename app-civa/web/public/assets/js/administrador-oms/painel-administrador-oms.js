@@ -14,7 +14,7 @@ $("#salvar").click(function () {
          title = 'Enviando, aguarde alguns segundos...';
         swalAlertLoading(title, callback);
         
-        $.post("/app-civa/administradorOms", form.serialize(), (data, status, jqXHR) => {
+        $.post("/administradorOms", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Administrador OMS atualizado com sucesso!';

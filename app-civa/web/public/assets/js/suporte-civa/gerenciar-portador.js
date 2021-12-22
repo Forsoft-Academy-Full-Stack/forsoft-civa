@@ -18,7 +18,7 @@ $("#salvar").click(function () {
         swalAlertLoading(title, callback);
         
         
-        $.post("/app-civa/portador", form.serialize(), (data, status, jqXHR) => {
+        $.post("/portador", form.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Portador atualizado com sucesso!';
@@ -51,7 +51,7 @@ $("#excluir").click(function () {
         swalAlertLoading(title, callback);
         
         
-        $.post("/app-civa/portador", form_excluir.serialize(), (data, status, jqXHR) => {
+        $.post("/portador", form_excluir.serialize(), (data, status, jqXHR) => {
             console.log("Data: " + data.responseData + ", Status: " + status + ", jqXHR: " + jqXHR);
             if (status === 'success') {
                 title = 'Desativado!';

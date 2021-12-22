@@ -16,7 +16,7 @@ $("#salvar").click(() => {
          title = 'Enviando, aguarde alguns segundos...';
          swalAlertLoading(title, callback);
                              
-        $.post("/app-civa/pais", $("#form-meus-dados").serialize(), (data, status, jqXHR) => {
+        $.post("/pais", $("#form-meus-dados").serialize(), (data, status, jqXHR) => {
             
             
            

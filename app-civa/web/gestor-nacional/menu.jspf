@@ -43,7 +43,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/gerenciar-pais.jsp" class="nav-link">
+                            <a href="./painel-pais.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Gerenciar Pa&iacute;s</p>
                             </a>
@@ -69,7 +69,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/consultar-gestor-nacional.jsp" class="nav-link">
+                            <a href="./consultar-gestor-nacional.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Gestor Nacional</p>
                             </a>
@@ -95,7 +95,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/consultar-gerente.jsp" class="nav-link">
+                            <a href="./consultar-gerente.jsp" class="nav-link">
                                 <i class="fas fa-clipboard-check nav-icon"></i>
                                 <p>Consultar Gerente</p>
                             </a>
@@ -121,13 +121,13 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/consultar-vacina.jsp" class="nav-link">
+                            <a href="./consultar-vacina.jsp" class="nav-link">
                                 <i class="fas fa-map nav-icon"></i>
                                 <p>Consultar Vacina</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="gestor-nacional/selecionar-vacina.jsp" class="nav-link">
+                            <a href="./selecionar-vacina.jsp" class="nav-link">
                                 <i class="fas fa-map-pin nav-icon"></i>
                                 <p>Selecionar Vacina</p>
                             </a>
@@ -147,7 +147,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/consultar-suporte-civa.jsp" class="nav-link">
+                            <a href="./consultar-suporte-civa.jsp" class="nav-link">
                                 <i class="fas fa-map nav-icon"></i>
                                 <p>Consultar Suporte CIVA </p>
                             </a>
@@ -173,7 +173,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/consultar-unidade.jsp" class="nav-link">
+                            <a href="./consultar-unidade.jsp" class="nav-link">
                                 <i class="fas fa-search nav-icon"></i>
                                 <p>Consultar Unidade </p>
                             </a>
@@ -189,7 +189,7 @@
 
                 <!-- ITEM RELATORIO USUARIO DO MENU -->
                 <li class="nav-item">
-                    <a href="gestor-nacional/relatorio.jsp" class="nav-link">
+                    <a href="./relatorio.jsp" class="nav-link">
                         <i class="nav-icon fas fa-chart-pie"></i>
                         <p>
                             Relat&oacute;rio
@@ -209,7 +209,7 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="gestor-nacional/meus-dados.jsp" class="nav-link">
+                            <a href="./meus-dados.jsp" class="nav-link">
                                 <i class="fas fa-address-card nav-icon"></i>
                                 <p>
                                     Meus Dados
@@ -217,7 +217,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="gestor-nacional/idioma.jsp" class="nav-link">
+                            <a href="./idioma.jsp" class="nav-link">
                                 <i class="fas fa-language nav-icon"></i>
                                 <p>
                                     Mudar Idioma
@@ -225,7 +225,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="gestor-nacional/manual.jsp" class="nav-link">
+                            <a href="./manual.jsp" class="nav-link">
                                 <i class="fas fa-question-circle nav-icon"></i>
                                 <p>
                                     Manual CIVA
@@ -233,7 +233,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="gestor-nacional/solicitar-alteracao.jsp" class="nav-link">
+                            <a href="./solicitar-alteracao.jsp" class="nav-link">
                                 <i class="fas fa-inbox nav-icon"></i>
                                 <p>Solicita&ccedil;&otilde;es</p>
                             </a>

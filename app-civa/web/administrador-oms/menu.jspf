@@ -126,7 +126,7 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="solicitar-alteracao.jsp" class="nav-link"> 
+                            <a href="./solicitar-alteracao.jsp" class="nav-link"> 
                                 <i class="fas fa-inbox nav-icon"></i>
                                 <p>Solicita&ccedil;&otilde;es</p>
                             </a>

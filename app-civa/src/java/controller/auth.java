@@ -6,6 +6,7 @@ import java.io.PrintWriter;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -45,7 +46,15 @@ public class auth extends HttpServlet {
             loginAcesso.setSenha(request.getParameter("senha"));
             loginAcesso.setCodigoCiva(request.getParameter("civa"));
 
-            HttpSession session = request.getSession();
+           HttpSession session = request.getSession();
+            if (request.getParameter("JSESSIONID") != null) {
+                Cookie userCookie = new Cookie("JSESSIONID", request.getParameter("JSESSIONID"));
+                response.addCookie(userCookie);
+            } else {
+                String sessionId = session.getId();
+                Cookie userCookie = new Cookie("JSESSIONID", sessionId);
+                response.addCookie(userCookie);
+}
             // Fazer o devido redirecionamento
             // Para a página do ator adequado
             // Sempre redirecionar para o index.jsp
@@ -68,17 +77,18 @@ public class auth extends HttpServlet {
                 session.setAttribute("idPessoa", pessoa.getIdPessoa());
                 System.out.println("idpessoa" + session.getAttribute("idPessoa"));
                 
-                session.setMaxInactiveInterval(60 * 90);
+                //session.setMaxInactiveInterval(60 * 90);
                 
-                RequestDispatcher rs = request.getRequestDispatcher("/" + loginAcesso.getPerfil() + "/");
-                rs.forward(request,response);
-                //response.sendRedirect("/" + loginAcesso.getPerfil() + "/");
+                //RequestDispatcher rs = request.getRequestDispatcher("/" + loginAcesso.getPerfil() + "/");
+                //rs.forward(request,response);
+                response.sendRedirect("/" + loginAcesso.getPerfil() + "/");
                 //response.sendRedirect("/portador-civa" + "/");
 
-            }// else {
-                // Login errado
-           //     response.sendRedirect("login/");
-            //}
+            } else {
+                 //Login errado
+                System.out.println("Credenciais erradas");                 
+                response.sendRedirect("login/");
+            }
             
            /* out.println("<!DOCTYPE html>");
             out.println("<html>");

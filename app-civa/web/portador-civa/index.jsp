@@ -3,6 +3,7 @@
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
+    System.out.println("--Saí do auth E Chegeui no ambimente do Gestor--");
      System.out.println("Perfil: " + session.getAttribute("perfil"));
     System.out.println("dados nome: " + session.getAttribute("dados"));
     
