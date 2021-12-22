@@ -3,12 +3,9 @@
 <%
     // Transformando os dados que foram colocados na seção
     // em um objeto pessoa novamente
-    System.out.println("--Saí do auth E Chegeui no ambimente do Gestor--");
-     System.out.println("Perfil: " + session.getAttribute("perfil"));
-    System.out.println("dados nome: " + session.getAttribute("dados"));
     
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-    System.out.println(session.getAttributeNames());
+    
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("portador-civa"))) {
         // Caso for uma das duas opções

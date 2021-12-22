@@ -36,59 +36,53 @@ public class auth extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
  /* String pathApp = request.getContextPath();*/
-            RequestDispatcher rd;
-
-            System.err.println("Entrou no auth");
+            RequestDispatcher rd;            
+            
             // Pegando as informações de loginAcesso
             Login loginAcesso = new Login();
             loginAcesso.setPerfil(request.getParameter("perfil"));
             loginAcesso.setEmail(request.getParameter("email"));
             loginAcesso.setSenha(request.getParameter("senha"));
             loginAcesso.setCodigoCiva(request.getParameter("civa"));
+            
 
             HttpSession session = request.getSession();
+            
             if (request.getParameter("JSESSIONID") != null) {
                 Cookie userCookie = new Cookie("JSESSIONID", request.getParameter("JSESSIONID"));
                 response.addCookie(userCookie);
             } else {
                 String sessionId = session.getId();
                 Cookie userCookie = new Cookie("JSESSIONID", sessionId);
-                response.addCookie(userCookie);
-              
+                response.addCookie(userCookie);              
             }
             // Fazer o devido redirecionamento
             // Para a página do ator adequado
-            // Sempre redirecionar para o index.jsp
-            Pessoa pessoa = LoginDao.validar(loginAcesso);
+            // Sempre redirecionar para o index.jsp            
+            
+            Pessoa pessoa = null;
+            try {
+                pessoa = LoginDao.validar(loginAcesso);
+            } catch (Exception e) {
+                pessoa = null;
+            }                      
 
-            System.out.println("Pessoa nome: " + pessoa.getNomePessoa());
-            System.out.println("Pessoa sobrenome: " + pessoa.getSobrenomePessoa());
-            System.out.println("Pessoa id: " + pessoa.getIdPessoa());
-
-            if (pessoa != null) {
+            if (pessoa != null) {                                       
+                
                 session.setAttribute("perfil", loginAcesso.getPerfil());
-                System.out.println("Perfil: " + session.getAttribute("perfil"));
-
                 session.setAttribute("dados", pessoa);
-                System.out.println("dados nome: " + session.getAttribute("dados"));
-
-                Pessoa pessoa2 = (Pessoa) session.getAttribute("dados");
-                System.out.println("dados nome2: " + pessoa2.getNomePessoa());
-
                 session.setAttribute("idPessoa", pessoa.getIdPessoa());
-                System.out.println("idpessoa" + session.getAttribute("idPessoa"));
+                session.setMaxInactiveInterval(60 * 90);
 
-                //session.setMaxInactiveInterval(60 * 90);
-                //RequestDispatcher rs = request.getRequestDispatcher("/" + loginAcesso.getPerfil() + "/");
-                //rs.forward(request,response);
                 response.sendRedirect("/" + loginAcesso.getPerfil() + "/");
-                //response.sendRedirect("/portador-civa" + "/");
 
-            } else {
-                //Login errado
-                System.out.println("Credenciais erradas");
-                response.sendRedirect("/exit");
+            }else{
+            //Login errado
+                String redirectURL = "./login/";
+                session.invalidate();
+                response.sendRedirect(redirectURL);
             }
+            
 
             /* out.println("<!DOCTYPE html>");
             out.println("<html>");
