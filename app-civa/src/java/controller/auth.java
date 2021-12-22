@@ -65,10 +65,13 @@ public class auth extends HttpServlet {
                 System.err.println("Perfil: " + session.getAttribute("perfil"));
                 System.out.println("Perfil: " + session.getAttribute("perfil"));
                 
-                session.setAttribute("dados", pessoa);
-                
+                session.setAttribute("dados", pessoa);                
                 System.err.println("dados nome: " + session.getAttribute("dados"));
                 System.out.println("dados nome: " + session.getAttribute("dados"));
+                
+                Pessoa pessoa2 = (Pessoa) session.getAttribute("dados");
+                System.err.println("dados nome2: " + pessoa2.getNomePessoa());
+                System.out.println("dados nome2: " + pessoa2.getNomePessoa());
                
                 session.setAttribute("idPessoa", pessoa.getIdPessoa());
                 System.err.println("idpessoa" + session.getAttribute("idPessoa"));
