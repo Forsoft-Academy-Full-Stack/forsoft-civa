@@ -46,7 +46,7 @@ public class auth extends HttpServlet {
             loginAcesso.setSenha(request.getParameter("senha"));
             loginAcesso.setCodigoCiva(request.getParameter("civa"));
 
-           HttpSession session = request.getSession();
+            HttpSession session = request.getSession();
             if (request.getParameter("JSESSIONID") != null) {
                 Cookie userCookie = new Cookie("JSESSIONID", request.getParameter("JSESSIONID"));
                 response.addCookie(userCookie);
@@ -54,43 +54,43 @@ public class auth extends HttpServlet {
                 String sessionId = session.getId();
                 Cookie userCookie = new Cookie("JSESSIONID", sessionId);
                 response.addCookie(userCookie);
-}
+              
+            }
             // Fazer o devido redirecionamento
             // Para a página do ator adequado
             // Sempre redirecionar para o index.jsp
-            Pessoa pessoa = LoginDao.validar(loginAcesso);           
-            
-            System.out.println("Pessoa nome: " + pessoa.getNomePessoa());           
-            System.out.println("Pessoa sobrenome: " + pessoa.getSobrenomePessoa());           
+            Pessoa pessoa = LoginDao.validar(loginAcesso);
+
+            System.out.println("Pessoa nome: " + pessoa.getNomePessoa());
+            System.out.println("Pessoa sobrenome: " + pessoa.getSobrenomePessoa());
             System.out.println("Pessoa id: " + pessoa.getIdPessoa());
-            
-            if (pessoa != null) {                                          
-                session.setAttribute("perfil", loginAcesso.getPerfil());                
+
+            if (pessoa != null) {
+                session.setAttribute("perfil", loginAcesso.getPerfil());
                 System.out.println("Perfil: " + session.getAttribute("perfil"));
-                
-                session.setAttribute("dados", pessoa);                
+
+                session.setAttribute("dados", pessoa);
                 System.out.println("dados nome: " + session.getAttribute("dados"));
-                
+
                 Pessoa pessoa2 = (Pessoa) session.getAttribute("dados");
                 System.out.println("dados nome2: " + pessoa2.getNomePessoa());
-               
+
                 session.setAttribute("idPessoa", pessoa.getIdPessoa());
                 System.out.println("idpessoa" + session.getAttribute("idPessoa"));
-                
+
                 //session.setMaxInactiveInterval(60 * 90);
-                
                 //RequestDispatcher rs = request.getRequestDispatcher("/" + loginAcesso.getPerfil() + "/");
                 //rs.forward(request,response);
                 response.sendRedirect("/" + loginAcesso.getPerfil() + "/");
                 //response.sendRedirect("/portador-civa" + "/");
 
             } else {
-                 //Login errado
-                System.out.println("Credenciais erradas");                 
-                response.sendRedirect("login/");
+                //Login errado
+                System.out.println("Credenciais erradas");
+                response.sendRedirect("/login/");
             }
-            
-           /* out.println("<!DOCTYPE html>");
+
+            /* out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
             out.println("<title>Servlet teste</title>");            
@@ -103,7 +103,6 @@ public class auth extends HttpServlet {
             out.println("IdPessoa: " + pessoa.getIdPessoa()+ "</h1>");            
             out.println("</body>");
             out.println("</html>");*/
-
         }
     }
 

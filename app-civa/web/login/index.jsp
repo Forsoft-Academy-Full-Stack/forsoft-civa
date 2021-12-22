@@ -13,7 +13,7 @@
             <div class="col-md-5 pr-lg-2 mb-5 mb-md-0">
                 <!-- .content -->
                 <div class="jumbotron">
-                    <h1 class="display-6">Test Bem vindo &agrave; carteira de vacina&ccedil;&atilde;o CIVA.</h1>
+                    <h1 class="display-6">Bem vindo &agrave; carteira de vacina&ccedil;&atilde;o CIVA.</h1>
                 </div>
                 <!-- /.content -->
             </div>

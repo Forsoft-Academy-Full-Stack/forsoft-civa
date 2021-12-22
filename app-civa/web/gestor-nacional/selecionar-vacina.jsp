@@ -38,7 +38,7 @@
         Vacina vacina = VacinaDao.findById(idVacina);       
         pageContext.setAttribute("vacina", vacina);        
         
-        GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva());        
+        GestorNacional gestorNacional = GestorNacionalDao.findByCodigociva(pessoa.getCodigoCiva(), pessoa.getCodigoCiva());        
         int idPais = PaisDao.getIdPaisByName(gestorNacional.getEndereco().getNomePais());
         
         pageContext.setAttribute("idPais", idPais);
