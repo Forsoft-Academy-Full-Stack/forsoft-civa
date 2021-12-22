@@ -5,7 +5,9 @@
     // em um objeto pessoa novamente
 
     Pessoa pessoa = (Pessoa) session.getAttribute("dados");
-
+    
+    session.setAttribute("dados", pessoa);
+    session.setAttribute("perfil", session.getAttribute("perfil"));
     // Verificando se o objeto pessoa não existe e se não é usuário
     if ((pessoa == null) || (!session.getAttribute("perfil").equals("gestor-oms"))) {
         // Caso for uma das duas opções
